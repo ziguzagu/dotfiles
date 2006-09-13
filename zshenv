@@ -3,6 +3,7 @@
 export SHELL=`which zsh`
 
 export LANGUAGE=ja_JP:ja:en_GB:en
+export LC_ALL=C
 export LANG=ja_JP.UTF-8
 
 export PAGER=lv
