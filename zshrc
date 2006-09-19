@@ -7,6 +7,10 @@ alias ll="ls -al"
 alias sc="screen -xRU"
 alias gv="grep -v .svn"
 alias lv="lv -c"
+alias vs="svn status"
+## sixapart
+alias r="./tools/sixapartctl restart"
+alias pg="psql -U postgres typepad-$USER"
 
 #### bindkey
 bindkey -e
