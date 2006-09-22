@@ -172,6 +172,10 @@
 ;; a lump-sum rename
 (require 'wdired)
 (define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
+;; uniqufy
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+(setq uniquify-ignore-buffers-re "*[^*]+*")
 
 
 ;;;;;; shell
@@ -279,21 +283,6 @@
 
 ;;;;;; haskell-mode
 (load "~/.emacs.d/lisp/haskell-mode-2.1/haskell-site-file")
-
-;; (autoload 'haskell-mode "haskell-mode"
-;;   "Major mode for editing Haskell scripts." t)
-;; (autoload 'literate-haskell-mode "haskell-mode"
-;;   "Major mode for editing literate Haskell scripts." t)
-;; (setq auto-mode-alist
-;;       (append auto-mode-alist
-;;               '(("\\.[hg]s$"  . haskell-mode)
-;;                 ("\\.hi$"     . haskell-mode)
-;;                 ("\\.l[hg]s$" . literate-haskell-mode))))
-;; (add-hook 'haskell-mode-hook 'turn-on-haskell-decl-scan)
-;; (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-;; (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
-;; (add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
-;; (add-hook 'haskell-mode-hook 'turn-on-haskell-ghci)
 
 
 ;;;;;; kill-summary
@@ -426,28 +415,6 @@
 (autoload 'clgrep-entry-nourl "clgrep" "ChangeLog grep entry except for url" t)
 (add-hook 'clmemo-mode-hook
           '(lambda () (define-key clmemo-mode-map "\C-c\C-g" 'clgrep)))
-
-
-;; ;;;;;; mmm-mode
-;; (require 'mmm-mode)
-;; (setq mmm-global-mode 'maybe)
-;; (set-face-background 'mmm-default-submode-face nil)
-;; ;; css-mode in html-helper-mode
-;; (mmm-add-classes
-;;  '((embedded-css
-;;     :submode css-mode
-;;     :front "<style[^>]*>"
-;;     :back "</style>")))
-;; (mmm-add-mode-ext-class nil "\\.html?\\'" 'embedded-css)
-;; (mmm-add-mode-ext-class nil "\\.tmpl?\\'" 'embedded-css)
-;; ;; javascript-mode in html-helper-mode
-;; (mmm-add-classes
-;;  '((embedded-javascript
-;;     :submode javascript-mode
-;;     :front "<script[^>]*>"
-;;     :back "</script>")))
-;; (mmm-add-mode-ext-class nil "\\.html?\\'" 'embedded-javascript)
-;; (mmm-add-mode-ext-class nil "\\.tmpl?\\'" 'embedded-javascript)
 
 
 ;;;;;; sgml-mode
