@@ -95,6 +95,10 @@
           (lambda ()
             (if font-lock-mode nil
               (font-lock-mode t))) t)
+;; scroll by line
+(setq scroll-conservatively 35
+      scroll-margin 0
+      scroll-step 1)
 
 
 ;;;;;; autosave / backup
