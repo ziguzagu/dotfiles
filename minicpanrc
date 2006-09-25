@@ -1,0 +1,3 @@
+local: ~/minicpan
+remote: http://ftp.cpan.jp/
+exact_mirror: 1
