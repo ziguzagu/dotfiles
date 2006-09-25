@@ -1,6 +1,6 @@
 ## $Id$
 
-escape ^z^z
+escape ^t^z
 startup_message off
 hardstatus alwayslastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
 defhstatus I^En:^EtI
