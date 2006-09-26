@@ -46,11 +46,8 @@
                "screen -X select `cat ~/.emacs.d/emacsclient-caller`"))))
 
 
-;;;;;; color
-(when *v21* (load "emacs21-256color"))
-
-
 ;;;;;; global font lock
+(when *v21* (load "emacs21-256color"))
 (require 'font-lock)
 (global-font-lock-mode t)
 (set-face-foreground 'font-lock-comment-face "darkolivegreen3")
@@ -123,7 +120,7 @@
 (global-set-key [end] 'end-of-buffer)
 ;; misc
 (global-set-key "\C-c;" 'comment-region)
-(global-set-key "\C-t" 'dabbrev-expand)
+(global-set-key "\C-i" 'dabbrev-expand)
 (global-set-key "\C-cg" 'goto-line)
 (global-set-key [f1] 'help-for-help)
 
@@ -221,7 +218,7 @@
           (lambda ()
             (copy-face 'font-lock-variable-name-face 'cperl-array-face)
             (copy-face 'font-lock-variable-name-face 'cperl-hash-face)
-            (set-face-foreground 'cperl-nonoverridable-face "light goldenrod")))
+            (set-face-foreground 'cperl-nonoverridable-face "goldenrod")))
 (setq auto-mode-alist
       (append '(("\\.cgi$" . cperl-mode)
                 ("\\.p[hlm]$" . cperl-mode)
