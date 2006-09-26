@@ -120,6 +120,7 @@
 (global-set-key [end] 'end-of-buffer)
 ;; misc
 (global-set-key "\C-c;" 'comment-region)
+(global-set-key "\C-c:" 'uncomment-region)
 (global-set-key "\C-i" 'dabbrev-expand)
 (global-set-key "\C-cg" 'goto-line)
 (global-set-key [f1] 'help-for-help)
