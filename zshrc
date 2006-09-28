@@ -73,9 +73,17 @@ zle -C dabbrev-complete menu-complete dabbrev-complete
 bindkey '^o' dabbrev-complete
 bindkey '^o^_' reverse-menu-complete
 
-
 #### href (haskell api documents) complete
 compctl -K _href href
 functions _href () {
     reply=(`cat /usr/share/href/comptable|awk -F, '{print $2}'|sort|uniq`)
 }
+
+#### move parent directory with '^'.
+function cdup() {
+    echo
+    cd ..
+    zle reset-prompt
+}
+zle -N cdup
+bindkey '\^' cdup
