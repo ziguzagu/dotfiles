@@ -8,6 +8,7 @@ alias sc="screen -xRU"
 alias gv="grep -v .svn"
 alias lv="lv -c"
 alias vs="svn status -u"
+alias pd="perl -de0"
 ## sixapart
 alias r="./tools/sixapartctl restart"
 alias pg="psql -U postgres typepad-$USER"
@@ -36,8 +37,14 @@ function history-all { history -E 1 }
 
 #### prompt
 setopt prompt_subst
-PROMPT='%{[36m%}[%n@%m]%{[m%}%# '
-RPROMPT='%{[33m%}[%(5~,%-2~/.../%2~,%~)]%{[m%}'
+## for emacs (no escape usging)
+if [ "$TERM" = "dumb" ]; then
+    PROMPT='[%n@%m]%# '
+    RPROMPT='[%(5~,%-2~/.../%2~,%~)]'
+else
+    PROMPT='%{[36m%}[%n@%m]%{[m%}%# '
+    RPROMPT='%{[33m%}[%(5~,%-2~/.../%2~,%~)]%{[m%}'
+fi
 
 #### option
 setopt auto_menu correct
@@ -54,7 +61,7 @@ function ssh_screen(){
     eval server=\${$#}
     screen -t $server ssh "$@"
 }
-if [ x$TERM = xscreen ]; then
+if [ "$WINDOW" != "" ]; then
     alias ssh=ssh_screen
 fi
 
