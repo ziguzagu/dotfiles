@@ -35,6 +35,9 @@ setopt share_history
 setopt hist_no_store
 function history-all { history -E 1 }
 
+#### color terminal
+eval `tset -sQI xterm-256color`
+
 #### prompt
 setopt prompt_subst
 ## for emacs (no escape usging)

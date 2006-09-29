@@ -13,9 +13,10 @@ bind w windowlist -b
 ## make key bind like emacs on copy mode
 markkeys "h=^B:l=^F:^A=^A:$=^E"
 
-## kterm temcap/info
+## temcap/terminfo
 termcap kterm hs@
 terminfo kterm hs@
+termcap xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 
 ## key binds of window splitting/resize
 bind -c REGION 2 split
@@ -30,7 +31,3 @@ bind r eval 'echo "Resize window"' 'command -c resize'
 bind -c resize ^] command
 bind -c resize j eval 'resize +1' 'command -c resize'
 bind -c resize k eval 'resize -2' 'command -c resize'
-
-## color
-defbce on
-term xterm-256color
