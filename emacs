@@ -124,6 +124,8 @@
 (global-set-key "\M- " 'dabbrev-expand)
 (global-set-key "\C-cg" 'goto-line)
 (global-set-key [f1] 'help-for-help)
+;; backspace
+(global-set-key "\C-h" 'delete-backward-char)
 
 
 ;;;;;; Misc
