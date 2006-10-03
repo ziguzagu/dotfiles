@@ -1,0 +1,30 @@
+#!/usr/bin/perl -d
+# $Id$
+
+use strict;
+use constant HISTORY_FILE => qq{$ENV{HOME}/.pd-history};
+
+BEGIN {
+    $DB::term || DB::setterm();
+    my @h = $DB::term->GetHistory;
+
+    unless (scalar @h) {
+        if (open my $hist, '<', HISTORY_FILE()) {
+            chomp(my @h = <$hist>);
+            close $hist;
+            my %seen;
+            $DB::term->SetHistory(grep { /\S/ && !$seen{$_}++ } @h);
+        }
+    }
+}
+
+END {
+    if (open my $hist, '>', HISTORY_FILE()) {
+        my %seen;
+        print $hist join("\n",
+                         grep { /\S/ && !$seen{$_}++ } $DB::term->GetHistory);
+        close $hist;
+    }
+}
+
+1;
