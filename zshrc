@@ -33,6 +33,7 @@ setopt hist_reduce_blanks
 setopt share_history
 setopt hist_no_store
 function history-all { history -E 1 }
+zstyle ':completion:*:default' menu select=1
 
 #### color terminal
 eval `tset -sQI xterm-256color`
