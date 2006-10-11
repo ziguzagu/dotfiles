@@ -22,16 +22,22 @@ setopt auto_cd
 setopt auto_name_dirs
 setopt auto_remove_slash
 setopt extended_glob
+setopt auto_param_keys
+setopt auto_list
+setopt auto_menu
+setopt list_types
+setopt cdable_vars
 
 #### history
 HISTFILE=$HOME/.zsh-history
-HISTSIZE=10000
-SAVEHIST=10000
-setopt extended_history
+HISTSIZE=100000
+SAVEHIST=100000
+#setopt extended_history
 setopt hist_ignore_all_dups
 setopt hist_reduce_blanks
 setopt share_history
 setopt hist_no_store
+setopt pushd_ignore_dups
 function history-all { history -E 1 }
 zstyle ':completion:*:default' menu select=1
 
@@ -49,11 +55,13 @@ else
     RPROMPT='%{[33m%}[%(5~,%-2~/.../%2~,%~)]%{[m%}'
 fi
 
-#### option
-setopt auto_menu correct
-setopt pushd_ignore_dups rm_star_silent sun_keyboard_hack
-setopt list_types no_beep always_last_prompt
-setopt cdable_vars sh_word_split auto_param_keys
+#### misc
+setopt correct
+setopt no_hup
+setopt no_beep
+setopt sun_keyboard_hack
+setopt always_last_prompt
+setopt sh_word_split
 setopt no_flow_control
 
 #### limit
