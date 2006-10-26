@@ -8,6 +8,8 @@ alias sc="screen -xRU"
 alias gv="grep -v .svn"
 alias lv="lv -c"
 alias vs="svn status -u"
+alias vd="svn diff"
+alias vl="svn log --stop-on-copy -v"
 ## sixapart
 alias r="./tools/sixapartctl restart"
 alias pg="psql -U postgres typepad-$USER"
