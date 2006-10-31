@@ -10,9 +10,6 @@ alias lv="lv -c"
 alias vs="svn status -u"
 alias vd="svn diff"
 alias vl="svn log --stop-on-copy -v"
-## sixapart
-alias r="./tools/sixapartctl restart"
-alias pg="psql -U postgres typepad-$USER"
 
 #### bindkey
 bindkey -e
@@ -107,3 +104,8 @@ function cdup() {
 }
 zle -N cdup
 bindkey '\^' cdup
+
+#### in sixapart
+if [ -e .sixapartrc ]; then
+    source .sixapartrc
+fi

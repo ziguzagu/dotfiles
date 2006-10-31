@@ -48,3 +48,8 @@ if [ "$WINDOW" != "" ]; then
     }
     chpwd
 fi
+
+## in sixapart
+if [ -e .sixapartenv ]; then
+    source .sixapartenv
+fi
