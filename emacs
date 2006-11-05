@@ -270,6 +270,7 @@
 ;;;;;; css-mode
 (autoload 'css-mode "css-mode")
 (setq cssm-indent-function #'cssm-c-style-indenter)
+(setq cssm-indent-level 4)
 (setq auto-mode-alist
       (cons '("\\.css$" . css-mode) auto-mode-alist))
 
