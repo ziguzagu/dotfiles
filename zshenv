@@ -12,6 +12,8 @@ export SVN_EDITOR=vi
 
 export PATH=~/bin:$PATH
 
+export REPOS=http://code.norainu.net/svn/
+
 ## changing title of screen's window by preexec()
 if [ "$WINDOW" != "" ]; then
     chpwd () { echo -n "_`dirs`\\" }
