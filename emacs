@@ -96,6 +96,17 @@
 (setq scroll-conservatively 35
       scroll-margin 0
       scroll-step 1)
+;; scroll by line with holding cursor.
+(defun scroll-up-in-place (n)
+  (interactive "p")
+  (previous-line n)
+  (scroll-down n))
+(defun scroll-down-in-place (n)
+  (interactive "p")
+  (next-line n)
+  (scroll-up n))
+(global-set-key "\M-p" 'scroll-up-in-place)
+(global-set-key "\M-n" 'scroll-down-in-place)
 
 
 ;;;;;; autosave / backup
