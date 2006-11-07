@@ -237,6 +237,10 @@
       (append '(("\\.cgi$" . cperl-mode)
                 ("\\.p[hlm]$" . cperl-mode)
                 ("\\.t$" . cperl-mode)) auto-mode-alist))
+;; open module by perldoc at cursor
+(add-hook 'cperl-mode-hook
+          (lambda ()
+            (define-key cperl-mode-map "\M-." 'cperl-perldoc-at-point)))
 
 
 ;;;;;; c++-mode
