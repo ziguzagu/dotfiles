@@ -191,6 +191,8 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 (setq uniquify-ignore-buffers-re "*[^*]+*")
+;; using ffap
+(ffap-bindings)
 
 
 ;;;;;; shell
@@ -241,6 +243,13 @@
 (add-hook 'cperl-mode-hook
           (lambda ()
             (define-key cperl-mode-map "\M-." 'cperl-perldoc-at-point)))
+;; ffap with perldoc
+(defun ffap-cperl-mode (file)
+  (let ((real-file (shell-command-to-string (concat "perldoc -lm " file))))
+    (unless (string-match "No module found for " real-file)
+      (substring real-file 0 -1)
+      )))
+(add-to-list 'ffap-alist '(cperl-mode . ffap-cperl-mode))
 
 
 ;;;;;; c++-mode
@@ -314,6 +323,7 @@
 (load "dabbrev-ja")
 (require 'dabbrev-highlight)
 (setq dabbrev-case-fold-search t)
+(setq dabbrev-case-replace nil)
 
 
 ;;;;;; iswitchb-mode
@@ -453,4 +463,3 @@
 (add-hook 'yaml-mode-hook
           '(lambda ()
              (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
-
