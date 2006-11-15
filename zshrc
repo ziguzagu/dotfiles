@@ -81,7 +81,7 @@ if [ "$WINDOW" != "" ]; then
 fi
 
 #### dabbrev on screen
-HARDCOPYFILE=$HOME/tmp/screen-hardcopy
+HARDCOPYFILE=$HOME/.screen-hardcopy
 touch $HARDCOPYFILE
 
 dabbrev-complete () {
