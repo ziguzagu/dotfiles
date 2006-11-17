@@ -14,6 +14,9 @@ export PATH=~/bin:$PATH
 
 export REPOS=http://code.norainu.net/svn/
 
+export GREP_COLOR='07;33'
+export GREP_OPTIONS="--binary-files=without-match --color=always"
+
 ## changing title of screen's window by preexec()
 if [ "$WINDOW" != "" ]; then
     chpwd () { echo -n "_`dirs`\\" }
