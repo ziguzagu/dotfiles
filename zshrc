@@ -10,6 +10,7 @@ alias lv="lv -c"
 alias vs="svn status -u"
 alias vd="svn diff"
 alias vl="svn log --stop-on-copy -v"
+alias us="TZ=US/Pacific date"
 ## global alias
 alias -g M="| more"
 alias -g L="| lv"
