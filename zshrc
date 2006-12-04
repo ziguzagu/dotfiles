@@ -37,7 +37,6 @@ setopt cdable_vars
 HISTFILE=$HOME/.zsh-history
 HISTSIZE=100000
 SAVEHIST=100000
-#setopt extended_history
 setopt hist_ignore_all_dups
 setopt hist_reduce_blanks
 setopt share_history
