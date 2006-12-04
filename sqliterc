@@ -1,0 +1,4 @@
+.mode list
+.separator " | "
+.explain on
+.headers on
