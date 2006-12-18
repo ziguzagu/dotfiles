@@ -1,0 +1,28 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+use File::Basename;
+use Cwd;
+
+my $workdir = cwd;
+my @files = @ARGV;
+
+for my $file (@files) {
+    open my $fh, '<', $file
+        or die "file not exists: $file";
+    my $css = do { local $/; <$fh> };
+    close $fh;
+
+    chdir dirname $file;
+
+    $css =~ s{/\*[\s\S]*\*/}{}g;
+
+    my %url = map { $_ => 1 } ($css =~ m{url\(\s*([^/]\S+)\s*\)}g);
+    my @notfounds = grep { !-e $_ } keys %url;
+    if (@notfounds) {
+        print join "\nnot found: ", $file, @notfounds;
+        print "\n\n";
+    }
+
+    chdir $workdir;
+}
