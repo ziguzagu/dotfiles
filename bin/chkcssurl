@@ -1,4 +1,5 @@
 #!/usr/bin/env perl
+# $Id$
 use strict;
 use warnings;
 use File::Basename;
@@ -6,6 +7,12 @@ use Cwd;
 
 my $workdir = cwd;
 my @files = @ARGV;
+unless (@files) {
+    print <<'USAGE';
+Usage: chkcssurl <cssfiles...>
+USAGE
+    exit 1;
+}
 
 for my $file (@files) {
     open my $fh, '<', $file
