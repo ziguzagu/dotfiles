@@ -6,7 +6,8 @@
 (setq user-full-name "Hiroshi Sakai")
 (setq user-mail-address "ziguzagu@gmail.com")
 (setq load-path
-      (append '("~/.emacs.d/lisp")
+      (append (list "~/.emacs.d/lisp"
+                    "~/.emacs.d/lisp/blgrep")
               load-path))
 
 
@@ -445,15 +446,6 @@
 (autoload 'clgrep-entry-nourl "clgrep" "ChangeLog grep entry except for url" t)
 (add-hook 'clmemo-mode-hook
           '(lambda () (define-key clmemo-mode-map "\C-c\C-g" 'clgrep)))
-
-
-;;;;;; sgml-mode
-(autoload 'sgml-mode "sgml-mode")
-(setq auto-mode-alist
-      (append '(("\\.xml$" . sgml-mode)) auto-mode-alist))
-(setq sgml-set-face t)
-(setq sgml-auto-activate-dtd t)
-(setq sgml-indent-data t)
 
 
 ;;;;;; yaml-mode
