@@ -338,27 +338,28 @@
 
 
 ;;;;;; migemo
-(when *on_windows*
-  (setq migemo-directory "c:/cygwin/usr/local/share/migemo"))
-(when *on_linux*
-  (setq migemo-directory "/usr/share/migemo"))
-(load "migemo")
-(migemo-init)
-;; cache
-(setq migemo-use-pattern-alist t)
-(setq migemo-use-frequent-pattern-alist t)
-(setq migemo-pattern-alist-length 1024)
-;; delay for accepting STDOUT
-(setq migemo-accept-process-output-timeout-msec 80)
-;; turn off migemo wheren copy strings from buffer
-(defadvice isearch-yank-string
-  (before migemo-off activate)
-  (setq migemo-isearch-enable-p nil))
-;; turn on migemo when searching by isearch
-(defadvice isearch-mode
-  (before migemo-on activate)
-  (setq migemo-isearch-enable-p t))
-
+(when (locate-library "migemo")
+  (when *on_windows*
+    (setq migemo-directory "c:/cygwin/usr/local/share/migemo"))
+  (when *on_linux*
+    (setq migemo-directory "/usr/share/migemo"))
+  (load "migemo")
+  (migemo-init)
+  ;; cache
+  (setq migemo-use-pattern-alist t)
+  (setq migemo-use-frequent-pattern-alist t)
+  (setq migemo-pattern-alist-length 1024)
+  ;; delay for accepting STDOUT
+  (setq migemo-accept-process-output-timeout-msec 80)
+  ;; turn off migemo wheren copy strings from buffer
+  (defadvice isearch-yank-string
+    (before migemo-off activate)
+    (setq migemo-isearch-enable-p nil))
+  ;; turn on migemo when searching by isearch
+  (defadvice isearch-mode
+    (before migemo-on activate)
+    (setq migemo-isearch-enable-p t))
+  )
 
 ;;;;;; *scratch*
 ;; save and restore the content of *scratch* buffer
