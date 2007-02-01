@@ -111,6 +111,10 @@ function cdup() {
 zle -N cdup
 bindkey '\^' cdup
 
+#### encode/decode base64
+function encode_base64() { perl -MMIME::Base64 -e "print encode_base64('$1')" }
+function decode_base64() { perl -MMIME::Base64 -e "print decode_base64('$1')" }
+
 #### in sixapart
 if [ -e .sixapartrc ]; then
     source .sixapartrc
