@@ -301,14 +301,15 @@
 
 
 ;;;;;; javascript mode
-(autoload 'javascript "javascript")
+(autoload 'javascript-mode "javascript" nil t)
 (setq auto-mode-alist
-      (append '(("\\.js$" . javascript-mode)) auto-mode-alist))
+      (append '(("\\.js$" . javascript-mode)
+                ("\\.json$" . javascript-mode)) auto-mode-alist))
 (setq javascript-indent-level 4)
 
 
 ;;;;;; generic file mode (.ini, .bat, etc ...)
-(require 'generic-x)
+;(require 'generic-x)
 
 
 ;;;;;; haskell-mode
@@ -450,9 +451,10 @@
 
 
 ;;;;;; yaml-mode
-(require 'yaml-mode)
-(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
-(add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode))
+(autoload 'yaml-mode "yaml-mode" nil t)
+(setq auto-mode-alist
+      (append '(("\\.yml$" . yaml-mode)
+                ("\\.yaml\\'" . yaml-mode)) auto-mode-alist))
 (add-hook 'yaml-mode-hook
           '(lambda ()
              (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
