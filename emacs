@@ -301,7 +301,7 @@
 
 
 ;;;;;; javascript mode
-(autoload 'javascript-mode "javascript")
+(autoload 'javascript "javascript")
 (setq auto-mode-alist
       (append '(("\\.js$" . javascript-mode)) auto-mode-alist))
 (setq javascript-indent-level 4)
