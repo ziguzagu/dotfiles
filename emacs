@@ -146,10 +146,14 @@
 (windmove-default-keybindings)
 ;; hide toolbar
 (tool-bar-mode 0)
-;; fix mini-buffer size
-(setq resize-mini-windows nil)
 ;; hide menu bar
 (menu-bar-mode -1)
+;; resize mini-buffer
+(setq resize-mini-windows t)
+;; resize the temp buffer when necessary
+(temp-buffer-resize-mode 1)
+;; using complete in mini buffer
+(load "complete")
 
 
 ;;;;;; modeline
