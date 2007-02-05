@@ -206,6 +206,10 @@
 ;; hide password
 (add-hook 'comint-output-filter-functions
           'comint-watch-for-password-prompt)
+;; handle escape sequence
+(autoload 'ansi-color-for-comint-mode-on "ansi-color"
+  "set `ansi-color-for-comint-mode' to t." t)
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 
 ;;;;;; autoinsert
@@ -260,7 +264,9 @@
 ;;;;;; c++-mode
 (add-hook 'c++-mode-hook
           (lambda ()
-            (c-set-style "stroustrup")))
+            (c-set-style "stroustrup")
+            (define-key c++-mode-map "\C-cc" 'compile)
+            ))
 (setq auto-mode-alist
       (append '(("\\.c$" . c++-mode)
                 ("\\.cpp$" . c++-mode)
