@@ -148,8 +148,8 @@
 (tool-bar-mode 0)
 ;; hide menu bar
 (menu-bar-mode -1)
-;; resize mini-buffer
-(setq resize-mini-windows t)
+;; fix mini-buffer
+(setq resize-mini-windows nil)
 ;; resize the temp buffer when necessary
 (temp-buffer-resize-mode 1)
 ;; using complete in mini buffer
