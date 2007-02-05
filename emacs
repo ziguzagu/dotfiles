@@ -464,7 +464,7 @@
 (autoload 'yaml-mode "yaml-mode" nil t)
 (setq auto-mode-alist
       (append '(("\\.yml$" . yaml-mode)
-                ("\\.yaml\\'" . yaml-mode)) auto-mode-alist))
+                ("\\.yaml$" . yaml-mode)) auto-mode-alist))
 (add-hook 'yaml-mode-hook
           '(lambda ()
              (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
