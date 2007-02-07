@@ -1,0 +1,36 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+
+use Getopt::Long;
+use GD::Barcode::QRcode;
+
+my $file    = 'qrcode.png';
+my $ecc     = 'M';
+my $version = 4;
+my $size    = 3;
+my $content = '';
+my $result = GetOptions(
+    "file:s"    => \$file,
+    "ecc:s"     => \$ecc,
+    "version:i" => \$version,
+    "size:i"    => \$size,
+    "content:s" => \$content,
+);
+Getopt::Long::Configure("bundling");
+
+unless ($content) {
+    $content = do { local $/; <STDIN>}
+}
+
+open my $fh, '+>', $file or die;
+binmode $fh;
+print $fh GD::Barcode::QRcode->new(
+    $content,
+    {
+        Ecc        => $ecc,
+        Version    => $version,
+        ModuleSize => $size,
+    }
+)->plot->png;
+close $fh;
