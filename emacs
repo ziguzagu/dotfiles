@@ -207,8 +207,7 @@
 (add-hook 'comint-output-filter-functions
           'comint-watch-for-password-prompt)
 ;; handle escape sequence
-(autoload 'ansi-color-for-comint-mode-on "ansi-color"
-  "set `ansi-color-for-comint-mode' to t." t)
+(autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 
