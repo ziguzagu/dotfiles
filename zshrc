@@ -109,11 +109,17 @@ function cdup() {
     zle reset-prompt
 }
 zle -N cdup
-bindkey '\^' cdup
+bindkey '^[' cdup
 
 #### encode/decode base64
 function encode_base64() { perl -MMIME::Base64 -e "print encode_base64('$1')" }
 function decode_base64() { perl -MMIME::Base64 -e "print decode_base64('$1')" }
+
+#### pmtools
+function pmpath() {
+    find $(perl -e 'print join " ", grep { m!^/! } @INC') -name $(echo $1 | sed "s/::/\//g").pm
+}
+function pmvers() { perl -m$1 -e 'print "$'$1'::VERSION\n"' }
 
 #### in sixapart
 if [ -e .sixapartrc ]; then
