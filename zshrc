@@ -12,6 +12,8 @@ alias vd="svn diff"
 alias vl="svn log --stop-on-copy -v"
 alias us="TZ=US/Pacific date"
 alias push="svk push --verbatim"
+alias lc="tr '[:upper:]' '[:lower:]'"
+alias uc="tr '[:lower:]' '[:upper:]'"
 ## global alias
 alias -g M="| more"
 alias -g L="| lv"
@@ -51,10 +53,11 @@ eval `tset -sQI xterm-256color`
 
 #### prompt
 setopt prompt_subst
+unsetopt promptcr
 ## for emacs (no escape usging)
-if [ "$TERM" = "dumb" ]; then
+if [[ $EMACS = t ]]; then
+    unsetopt zle
     PROMPT='[%n@%m]%# '
-    RPROMPT='[%(5~,%-2~/.../%2~,%~)]'
 else
     PROMPT='%{[36m%}[%n@%m]%{[m%}%# '
     RPROMPT='%{[33m%}[%(5~,%-2~/.../%2~,%~)]%{[m%}'
