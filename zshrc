@@ -102,7 +102,7 @@ bindkey '^o^_' reverse-menu-complete
 #### href (haskell api documents) complete
 compctl -K _href href
 functions _href () {
-    reply=(`cat /usr/share/href/comptable|awk -F, '{print $2}'|sort|uniq`)
+    reply=(`cat /usr/share/href/comptable|awk -F, '{print $2}' | sort -u`)
 }
 
 #### move parent directory with '^'.
