@@ -1,0 +1,1072 @@
+2007-02-25 (Sun)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:12] work: 退社
+
+	all right.
+
+	* [14:40] work: 出社
+
+	無断休日出勤。
+
+2007-02-24 (Sat)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:32] debian linux: manpages-dev
+
+	printf やらの標準関数の man ページがあるというのをはじめて知った。。
+	debian なら manpages-dev ってパッケージがそれです。
+	よいこのみんなは絶対入れときましょう。。
+
+2007-02-23 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [22:32] work: 退社
+
+	僕だってたまにはモチベーションさがる。
+
+	* [12:46] apache mod_perl: custom_response で content-type を変更する
+
+	custom_response は、結局 Apache の ErrorDocument なので不便が多い。
+	content-type は text/html 決めうち、charset は Apache の設定を使う。
+		AddDefaultCharset utf-8
+		SetEnv suppress-error-charset yes
+	default は ISO-8859-latin1。
+
+	普通に stats,header_out|content_type,print を使って出力するのがよい。
+
+	thanks to tanimoto-san!!
+
+	* [10:06] work: 出社
+
+	* [00:04] work: 退社
+
+2007-02-22 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:52] apache mod_perl: custom_response で content-type を変更したい
+
+	mod_perl(1.29) で custom_response でエラーページを出力するときの
+	Content-Type を変更したい（携帯用に charset を SJIS にしたい）の
+	だけど、なんかできないくさい。。。
+	Apache::Request::err_header_out / content_type で Content-Type を
+	設定してもだめ。。charset=utf-8 に勝手になるけど、この値をどこから
+	もってきてるのかもよくわからず。。。うーむ。
+
+	200 OK で、エラー表示を返すのは気持ち悪いのでやりたくない。。
+
+	どうしたらよいですか？教えて mod_perl の偉い人！！
+
+	* [09:58] work: 出社
+
+	* [00:01] work: 退社
+
+2007-02-21 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [10:07] work: 出社
+
+2007-02-20 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:50] work: 退社
+
+	* [10:16] work: 出社
+
+2007-02-19 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:00] work: 退社
+
+	* [10:06] work: 出社
+
+2007-02-16 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:54] work: 退社
+
+	* [10:10] work: 出社
+
+2007-02-15 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:47] work: 退社
+
+	* [10:22] work: 出社
+
+2007-02-14 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:50] work: 退社
+
+	* [10:08] work: 出社
+
+2007-02-13 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:50] work: 退社
+
+	* [16:45] apache: RewriteMap の対応 Context
+
+	RewriteMap の対応 Context は
+		server config, virtual host
+
+	* [09:48] work: 出社
+
+2007-02-09 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:53] work: 退社
+
+	* [10:13] work: 出社
+
+2007-02-08 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:46] work: 退社
+
+	* [10:13] work: 出社
+
+2007-02-07 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:50] work: 退社
+
+	* [10:00] work: 出社
+
+2007-02-06 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:20] work: 退社
+
+	* [10:00] work: 出社
+
+2007-02-05 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:46] work: 退社
+
+	* [10:00] work: 出社
+
+2007-02-02 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:28] work: 退社
+
+	* [10:05] work: 出社
+
+2007-02-01 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:54] work: 退社
+
+	* [10:05] work: 出社
+
+2007-01-31 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:14] work: 退社
+
+	* [10:04] work: 出社
+
+2007-01-30 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:45] work: 出社
+
+	* [10:01] work: 出社
+
+2007-01-29 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:22] work: 退社
+
+	* [10:08] work: 出社
+
+2007-01-26 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:10] work: 退社
+
+	* [10:05] work: 出社
+
+2007-01-25 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:26] work: 出社
+
+	* [09:55] work: 出社
+
+2007-01-24 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:37] work: 退社
+
+	* [10:04] work: 出社
+
+2007-01-23 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:43] work: 退社
+
+	* [10:07] work: 出社
+
+2007-01-22 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:40] work: 退社
+
+	* [09:48] work: 出社
+
+2007-01-19 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:38] work: 退社
+
+	* [09:34] work: 出社
+
+2007-01-18 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:35] work: 退社
+
+	* [09:51] work: 出社
+
+2007-01-17 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:15] work: 退社
+
+	* [10:04] work: 出社
+
+2007-01-16 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:00] work: 退社
+
+	* [10:00] work: 出社
+
+2007-01-15 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [22:52] work: 退社
+
+	* [10:00] work: 出社
+
+2007-01-12 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:31] work: 退社
+
+	* [10:04] work: 出社
+
+2007-01-11 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:11] work: 退社
+
+	* [10:04] work: 出社
+
+2007-01-10 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [22:50] work: 退社
+
+	* [10:00] work: 出社
+
+2007-01-09 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [22:06] work: 退社
+
+	* [10:10] work: 出社
+
+2007-01-05 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:22] work: 退社
+
+	* [10:06] work: 出社
+
+2007-01-04 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:40] work: 退社
+
+	* [10:08] work: 出社
+
+2006-12-28 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:43] work: 退社
+
+	* [10:04] work: 出社
+
+2006-12-27 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [22:03] work: 退社
+
+	* [10:02] work: 出社
+
+2006-12-26 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:00] work: 退社
+
+	* [10:05] work: 出社
+
+2006-12-25 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:40] work: 退社
+
+	* [10:00] work: 出社
+
+2006-12-22 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:20] work: 退社
+
+	* [10:00] work: 出社
+
+2006-12-21 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:57] work: 退社
+
+	* [10:00] work: 出社
+
+2006-12-20 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:37] work: 退社
+
+	* [10:00] work: 出社
+
+2006-12-19 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:54] work: 退社
+
+	* [10:00] work: 出社
+
+2006-12-18 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:33] work: 退社
+
+	* [09:45] work: 出社
+
+2006-12-15 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:15] work: 退社
+
+	* [10:02] work: 出社
+
+2006-12-14 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:45] work: 退社
+
+	* [10:05] work: 出社
+
+2006-12-13 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:20] work: 退社
+
+	* [09:52] work: 出社
+
+2006-12-12 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [22:03] work: 退社
+
+	* [10:00] work: 出社
+
+2006-12-11 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:48] work: 退社
+
+	* [10:00] work: 出社
+
+2006-12-08 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:27] work: 退社
+
+	* [09:55] work: 出社
+
+2006-12-07 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:22] work: 退社
+
+	* [09:58] work: 出社
+
+2006-12-06 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:30] work: 退社
+
+	* [10:08] work: 出社
+
+2006-12-05 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:30] work: 退社
+
+	* [09:56] work: 出社
+
+2006-12-04 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:30] work: 退社
+
+	* [09:38] work: 出社
+
+2006-12-01 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:15] work: 退社
+
+	* [10:00] work: 出社
+
+2006-11-30 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:35] work: 退社
+
+	* [10:00] work: 出社
+
+2006-11-29 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:42] work: 退社
+
+	* [09:58] work: 出社
+
+2006-11-28 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:29] work: 退社
+	また、暖房で目をやられた。。。
+	弱いなぁ、自分の目。。。
+
+	* [10:11] work: 出社
+
+2006-11-27 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:12] work: 退社
+
+	* [10:00] work: 出社
+
+2006-11-24 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [22:37] work: 退社
+
+	* [10:00] work: 出社
+
+2006-11-22 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:34] work: 退社
+
+	* [09:58] work: 出社
+
+2006-11-21 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:52] work: 退社
+
+	* [09:56] work: 出社
+
+2006-11-20 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [22:06] work: 退社
+
+	* [10:00] work: 出社
+
+2006-11-17 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [22:49] work: 退社
+
+	* [10:00] work: 出社
+
+2006-11-16 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:07] work: 退社
+
+	* [09:59] work: 出社
+
+2006-11-15 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:23] work: 退社
+
+	* [18:29] svn: merge のリビジョン指定
+
+	- 1チェンジセットのみをマージする場合は、
+		svn merge -c REV $REPOS
+	- 複数のチェンジセットをマージする場合は、
+		svn merge -r FROM_REV:TO_REV $REPOS
+
+	を使う。というかたぶんそう使うべきなんだろう -c オプションは、
+	1.4.0で追加された。
+
+	* [10:02] work: 出社
+
+2006-11-14 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:40] work: 退社
+
+	* [11:30] clearsilver: 
+
+	Trac とかで使われてる C で書かれたテンプレートエンジン。
+	C で書かれてる分、TT / HTML::Template と比べると恐ろしく速いらしい。
+	バインディングできる言語も一通り。Catalyst::Viewもある。
+	ただし、機能はいまいちかも。
+
+	- http://d.hatena.ne.jp/spiritloose/20060812/1155342999
+
+	* [10:00] work: 出社
+
+2006-11-13 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:50] work: 退社
+
+	* [09:59] work: 出社
+
+2006-11-10 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:30] work: 退社
+
+	* [10:02] work: 出社
+
+2006-11-09 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:13] work: 退社
+
+	ちょっと暇。
+
+	* [13:59] english: post
+
+	最新の情報を知らせる。
+	I'll keep you posted.
+
+	* [12:44] mysql: varchar の binary オプション
+
+	binary varchar なカラムの index は、varchar なカラムの index より
+	select のパフォーマンスが少し落ちるらしい。。。ホント？
+
+	* [10:00] work: 出社
+
+2006-11-08 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:13] work: 退社
+
+	* [13:59] apache: RewriteLock
+
+	http://www.net-newbie.com/trans/mod_rewrite.html#RewriteLock
+
+	RewriteLock localfile
+
+	RewriteMap prg を使う場合に同期用のロックファイルを作って、連続して
+	リクエストがきたときに後のリクエストが優先されてしまうのを防ぐ。
+	設定したほうが無難。
+
+	* [09:57] work: 出社
+
+2006-11-07 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:57] work: 退社
+
+	* [09:57] work: 出社
+
+2006-11-06 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:30] work: 退社
+
+	* [10:00] work: 出社
+
+2006-11-02 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:03] work: 退社
+
+	* [09:59] work: 出社
+
+2006-11-01 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [22:00] work: 退社
+
+	* [09:56] work: 出社
+
+2006-10-31 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:05] work: 退社
+
+	* [09:56] work: 出社
+
+2006-10-30 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:30] work: 退社
+
+	* [09:56] work: 出社
+
+2006-10-27 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [18:20] work: 退社
+
+	* [10:00] work: 出社
+
+2006-10-26 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [18:45] work: 退社
+
+	* [10:00] work: 出社
+
+2006-10-25 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:14] work: 退社
+
+	* [09:54] work: 出社
+
+2006-10-24 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:45] work: 退社
+
+	* [09:55] work: 出社
+
+2006-10-23 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [22:22] work: 退社
+
+	* [09:57] work: 出社
+
+2006-10-20 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:42] work: 退社
+
+	* [09:58] work: 出社
+
+2006-10-19 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:30] work: 退社
+
+	* [09:52] work: 出社
+
+2006-10-18 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [18:40] work: 退社
+
+	* [09:47] work: 出社
+
+2006-10-17 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:43] work: 退社
+
+	* [09:52] work: 出社
+
+2006-10-16 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [18:35] work: 退社
+
+	おなかいたい。フットサル中にちびりそうだ。。。
+
+	* [10:20] perlbal: X-REPROXY-CACHE-FOR
+
+	X-REPROXY-URL を指定時間キャッシュするための値を入れたヘッダ
+
+	* [09:57] work: 出社
+
+2006-10-13 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:30] work: 退社
+
+	* [10:06] mogile: storage node の status の意味
+
+	alive    - 書き込み、読み込み両方可能。
+	down     - 一時的に落ちてる。使わないで。
+	dead     - もう使わない。ファイルはどっか別の場所に replicate されてるよ。
+	readonly - 読み込み専用。ファイルは書き込まないで。
+
+	* [10:05] mogile: シャットダウン方法
+
+	mogstored のポートにtelnet で接続して、以下コマンド。
+
+		!shutdown
+
+	mogilefsd は
+
+		shutdown
+
+	kill でもいいけどね。。。
+
+	* [09:51] work: 出社
+
+2006-10-12 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:14] work: 退社
+
+	* [09:50] work: 出社
+
+2006-10-11 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:54] work: 退社
+
+	* [14:20] ie: IE7
+
+	IE7 の対応予定について。
+	CSS/JavaScript が結構変わってる。よくなったり、わるくなったり。
+	VOX は検証中。
+
+	* [10:40] mogile: server の make test
+
+	trunk/server の make test 時に、デフォルトの設定ファイルが
+	/etc/mogilefs/以下にあると、そっちの設定を読み込んでしまうため、
+	trackerを2つ起動できない。
+
+	* [10:02] mogile: debug log
+
+	デバッグログを出力する方法（ログはsyslog）。設定ファイルに以下を追加。
+
+	debug = 3
+
+	3はログレベル。mogilefs/mogstored 両方で使用可能。
+
+	* [09:49] work: 出社
+
+2006-10-10 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:37] work: 退社
+
+	* [13:44] amazon: AWS 日本版の対応状況
+
+	Beauty はまだ未対応。HealthPersonalCare はある。
+
+	* [09:55] work: 出社
+
+2006-10-06 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:49] work: 退社
+
+	* [10:04] mogile cpan: IO::AIO は FreeBSD でうごかない
+
+	ので、Perlbal が使えない。lighttpdに置き換えて使う。
+	やっぱり WebDAV サポートしたほうがよさそう。
+
+	* [09:51] work: 出社
+
+2006-10-05 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:07] work: 退社
+
+	* [10:10] mogile: ファイルサイズ制限についてのなぞ解決
+
+	Perlbal のバグ (1.51 で fix)
+	-- set alive_time during slow PUTs.  was causing problems
+	   replicating large files in mogile, hitting fake idle timeout.
+
+	* [09:52] work: 出社
+
+2006-10-04 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:43] work: 退社
+
+	* [09:46] work: 出社
+
+2006-10-03 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:44] work: 退社
+
+	* [09:51] work: 出社
+
+2006-10-02 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:30] work: 退社
+
+	* [14:32] javascript: ダブルクリックイベント
+
+	onDblClick
+
+	* [14:09] ie javascript: IE のURL文字列長制限
+
+	500バイトまでくらいまでしか入らない。。。要確認。
+
+	* [10:05] mogile: NFS
+
+	NFS サポートを切りたいそうだ…。
+
+	* [09:52] work: 出社
+
+2006-09-29 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [22:00] work: 退社
+
+	* [09:47] work: 出社
+
+2006-09-28 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:29] work: 退社
+
+	* [09:50] work: 出社
+
+2006-09-27 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:29] work: 退社
+
+	* [09:49] work: 出社
+
+2006-09-26 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:00] work: 退社
+
+	* [14:00] mogile cpan: CPAN に
+
+	MogileFS-Client 登場
+
+	* [09:44] work: 出社
+
+2006-09-25 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:50] work: 退社
+
+	* [18:07] cpan jpeg image: Image::Info と Image::Size
+
+	Image::Info でJPEGの画像サイズを取得する場合は、EXIF情報をみる。
+	Image::Size でJPEGの画像サイズを取得する場合は、ヘッダを直接参照する。
+
+	画像サイズセグメントのJPEGマーカーは 0xFFC0。
+
+	Image::Info は orientation に未対応。
+	Exif にサブ情報が複数ある場合は、width にそれ分はいる。
+
+	* [09:51] work: 出社
+
+2006-09-22 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [22:00] work: 退社
+
+	* [09:49] mogile: MogileFS サミット報告
+
+	- ユーザーについて
+	-- 利用してる人は25-30ユーザーくらい
+	-- 開発環境ではつかってるけど、プロダクションではほとんどつかわれていない
+	- プラグイン
+	-- CPANに MogileFS::Plugin::** で登録してね
+	-- Wikiにもアップして
+	- DB の抽象化
+	-- やりたい
+	-- SQLiteはやっぱり敷居がひくくていいよね
+	- WebDAV サポート (Strage)
+	-- lighttpd / Apache の mod_dav サポートするかも
+	-- mogstored も既存の WebDAV やる？
+	- ドキュメント
+	-- POD ないのはひどいよね
+	- テスト
+	-- 2.0 からはやるよ
+
+	* [09:43] work: 出社
+
+2006-09-21 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:55] work: 退社
+
+	渋谷へ。
+
+	* [10:30] mysql:
+
+	そいえば、mysql は 関数インデックスが使えない。
+
+	* [09:57] work: 出社
+
+2006-09-20 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [22:35] work: 退社
+
+	* [09:54] work: 出社
+
+2006-09-19 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:58] work: 退社
+
+	* [09:58] work: 出社
+
+2006-09-14 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:35] work: 退社
+
+	明日はお休み。
+
+	* [09:00] work: 出社
+
+2006-09-13 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:18] work: 退社
+
+	* [10:05] work: 出社
+
+	寝てるときに足つったのがいたい。。。
+
+2006-09-12 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:00] work: 退社
+
+	* [09:59] work: 出社
+
+2006-09-11 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [18:00] work: 退社
+
+	フットサルへ。
+
+	* [10:28] work: 出社
+
+	電車に乗った後忘れ物取りに帰るむだっぷり
+
+2006-09-08 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [17:47] typepad:
+
+	独自ドメイン作ったら、./typepad/tools/update-vhosts を実行
+
+	* [14:14] mogilefs: mogilefs の不安なのところ
+
+	ファイルのキー(fileテーブルdkey)が binary なし varchar.
+
+	* [12:51] mogilefs: mogadm 1.00 で実装されてないもの
+	
+	@ 未実装
+	- device mark
+	- device delete
+
+	@ 偽実装
+	- device add (完了メッセージがでるが実際には何もしてない)
+	- class list (domain listを呼んでいる、が必要十分)
+
+	* [11:59] mogilefs: Apache2::Mogile::Dispatch
+
+	MogileFS を Apache から透過的に使う。これいいね。
+
+	* [11:58] fedora mysql: FC4 で 4.1.x から 5.0.x に up
+
+	http://wiki.astbill.com/wiki/Upgrade_Fedora_Core_4_with_Mysql_4.14_to_MySQL_5.0.15
+
+	* [10:02] work: 出社
+
+2006-09-07 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:08] work: 退社
+
+	MogileFS 理解した。つもり。。
+
+	* [13:58] blog: 志村けん
+
+	志村けん公式ブログをReaderに追加。
+	タモリもブログやってくれないかなぁ。。。
+
+	* [09:58] work: 出社
+
+2006-09-06 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:23] work: 退社
+
+	* [10:02] work: 出社
+
+2006-09-05 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [22:10] work: 退社
+
+	* [11:20] selenium:
+
+	form のテストするなら WWW::Mechanize でがんばるよりイイ。
+	js のテストもできるし。
+	リンクのテキストが日本語だとうまく動かないのは気のせいだろうか…。
+
+	* [09:54] work: 出社
+
+2006-09-04 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [22:04] work: 退社
+
+	大きな過ちをした…。
+
+	* [14:47] mobile: 携帯ブラウザの1ページサイズ制限
+
+	- au
+	WAP2.0: 9KB
+	HDML  : 1.2KB （コンパイル後）
+
+	- Vodafone
+	P6/P7 : 12KB
+	W     : 30KB
+	3GC   : 10KB
+
+	- DoCoMo (UserAgentにキャッシュサイズが含まれている)
+	PDC   : 10KB 〜 30KB
+	FOMA  : 100KB
+
+	* [10:00] work: 出社
+
+2006-09-01 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:25] work: 退社
+
+	* [13:05] emacs: FedoraCore4 の Mule-UCS
+
+	jisx0213 とかが入ってない。それゆえCJKなものは全部バイナリコードそのままでてた。
+	Mule-UCS 入れなおしてやった。このやろう。
+
+	* [09:56] work: 出社
+
+2006-08-31 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:57] work: 退社
+
+	* [16:50] emacs: OS とかを判別するための変数
+
+	system-type
+	 - gnu/linux とか windows-nt とかでる。
+	system-configuration
+	 - "i386-redhat-linux-gnu" とか "i386-mingw-nt5.1.2600" でる
+
+	* [14:25] svn: merge したするときのログ
+
+	svn merge するときは HEAD はあんまり使わないほうがいいかな。
+	commit ログに、
+
+	  svn merge -r 209:HEAD url
+
+	とか残ってても、その時点でHEADが何番か探すのがメンドイ。
+
+	* [09:56] work: 出社
+
+2006-08-30 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:03] work: 退社
+
+	* [13:30] emacs: comment-start
+
+	yaml-mode 0.02 の comment-start を 0.0.1 のに戻した。
+	
+	(set (make-local-variable 'comment-start) "#")
+
+	* [12:47] emacs: yaml-mode 0.0.2
+
+	すばらしいんだけど comment-start がいろいろ正規表現はいってて
+	comment-regionしたらごみがいっぱい入る。
+	どうやって変更したらいいんだろう。。。
+
+	* [09:58] work: 出社
+
+2006-08-29 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:39] work: 退社
+
+	* [09:54] work: 出社
+
+2006-08-28 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:07] work: 退社
+
+	* [10:08] work: 出社
+
+2006-08-25 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:47] work: 退社
+
+	* [19:09] web: OpenSNS.org
+
+	だって。
+
+	* [18:26] cpan test:
+
+	TAP - Test Anything Protocal
+	Test::Base - データ指向にテストをかける。いいね。
+	Test::Less - テストをタグでまとめて部分テストを実行できるようにする。
+	tips - バグ報告をちゃんとテストにおこしてまとめておく。
+
+	* [14:19] emacs: emacsclient
+
+	あと、emacsclient を -n するかどうか問題だなぁ。
+	SVN_EDITOR とかは C-x # で戻ってほしいし。
+
+	* [14:10] emacs: emacsclient
+
+	~/.screenrc に
+		screen -t Emacs 1 /usr/bin/emacs
+	は便利かなーっておもったけど、かならず emacs が必要なサーバーじゃないし…。
+
+	* [10:04] work: 出社
+
+2006-08-24 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [22:21] work: 退社
+
+	* [20:52] perl: utime function
+
+	utime(mtime, atime, file);
+	
+	fileの mtime, atime を更新する。
+
+	* [10:06] work: 出社
+
+	今日から clmemo で勤怠表をつけるというもくろみ…。
+
+2006-08-03 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [15:00] javascript: 連想配列のlength
+
+	var array = new Array();
+	array[1000] = 'hoge';
+	
+	ハッシュのつもりでキーに数字指定すると、array.length は 1001 になる（ただの配列扱い）。
+
+	array['id' + 1000] = 'hoge';
+	と文字列にして連想配列にすると array.length は常に 0。
+	
+	* [12:00] javascript: 文字列連結
+
+	item.id = '#' . id;
+
+	で、30分はまる。文字列連結は + ですよ。
