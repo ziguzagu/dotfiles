@@ -1,6 +1,19 @@
+2007-02-27 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:55] work: Âà¼Ò
+
+	* [19:16] linux http: wget ¤Î¥ê¥¯¥¨¥¹¥È¤Ï HTTP/1.0 ¤Î¤ß¡ª¡©
+
+	¤É¤¦¤ä¤Ã¤Æ¤â wget ¤Ç HTTP/1.1 ¤Ê¥ê¥¯¥¨¥¹¥È¤òÁ÷¤ì¤Ê¤¤¡£
+	¤Ê¤ËÆþ¤ì¤Æ¤â¡ÖGET ... HTTP/1.0¡× ¤Ã¤Æ¤Ê¤ë¡£¡£
+
+	¤Ê¤Î¤Ç HTTP/1.1 ¤Ê¥Ø¥Ã¥À»È¤¤»þ¤Ï lwp-request »È¤¦¤Ç¤¹¤Ê¡£
+
+	* [10:07] work: ½Ð¼Ò
+
 2007-02-26 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
 
-$,101(B	* [22:05] work: Âà¼Ò
+	* [22:05] work: Âà¼Ò
 
 	* [10:10] work: ½Ð¼Ò
 

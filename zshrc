@@ -14,6 +14,7 @@ alias us="TZ=US/Pacific date"
 alias push="svk push --verbatim"
 alias lc="tr '[:upper:]' '[:lower:]'"
 alias uc="tr '[:lower:]' '[:upper:]'"
+alias htdate="date '+%a, %d %b %Y %X %Z'"
 ## global alias
 alias -g M="| more"
 alias -g L="| lv"
