@@ -1,3 +1,9 @@
+2007-03-01 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:09] work: 退社
+
+	* [10:06] work: 出社
+
 2007-02-28 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
 
 	* [23:26] work: 退社
@@ -7,13 +13,6 @@
 2007-02-27 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
 
 	* [21:55] work: 退社
-
-	* [19:16] linux http: wget のリクエストは HTTP/1.0 のみ！？
-
-	どうやっても wget で HTTP/1.1 なリクエストを送れない。
-	なに入れても「GET ... HTTP/1.0」 ってなる。。
-
-	なので HTTP/1.1 なヘッダ使い時は lwp-request 使うですな。
 
 	* [10:07] work: 出社
 
