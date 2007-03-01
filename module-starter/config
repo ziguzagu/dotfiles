@@ -1,0 +1,5 @@
+author: Hiroshi Sakai
+email: ziguzagu@gmail.com
+builder: Module::Build
+plugins: Module::Starter::PBP
+template_dir: /home/hsakai/.module-starter/PBP
