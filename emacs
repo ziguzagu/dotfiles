@@ -58,6 +58,7 @@
 (set-face-foreground 'font-lock-variable-name-face "white")
 (set-face-foreground 'font-lock-type-face "skyblue1")
 (set-face-foreground 'font-lock-warning-face "yellow")
+(set-face-foreground 'font-lock-builtin-face "goldenrod")
 (set-face-background 'highlight "yellow")
 (set-face-foreground 'highlight "black")
 
