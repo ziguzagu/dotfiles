@@ -77,7 +77,7 @@ setopt no_flow_control
 limit coredumpsize 0
 
 #### ssh_screen
-function ssh_screen(){
+function ssh_screen() {
     eval server=\${$#}
     screen -t $server ssh "$@"
 }
@@ -89,7 +89,7 @@ fi
 HARDCOPYFILE=$HOME/.screen-hardcopy
 touch $HARDCOPYFILE
 
-dabbrev-complete () {
+function dabbrev-complete() {
     local reply lines=80
     screen -X eval "hardcopy -h $HARDCOPYFILE"
     reply=($(sed '/^$/d' $HARDCOPYFILE | sed '$ d' | tail -$lines))
@@ -120,9 +120,6 @@ function encode_base64() { perl -MMIME::Base64 -e "print encode_base64('$1')" }
 function decode_base64() { perl -MMIME::Base64 -e "print decode_base64('$1')" }
 
 #### pmtools
-function pmpath() {
-    find $(perl -e 'print join " ", grep { m!^/! } @INC') -name $(echo $1 | sed "s/::/\//g").pm
-}
 function pmvers() { perl -m$1 -e 'print "$'$1'::VERSION\n"' }
 
 #### in sixapart

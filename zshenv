@@ -10,7 +10,7 @@ export PAGER=lv
 export EDITOR=vi
 export SVN_EDITOR=vi
 
-export PATH=~/bin:$PATH
+export PATH=~/bin:~/opt/flex/bin:$PATH
 
 export REPOS=http://code.norainu.net/svn/
 
