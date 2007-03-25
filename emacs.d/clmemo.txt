@@ -1,3 +1,28 @@
+2007-03-24 (Sat)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [01:26] apollo: 初コンパイル
+
+	typo さんのメモ見ながら。
+	http://unknownplace.org/memo/2007/03/19#e001
+
+	flex のディレクトリに apollo sdk 上書き。
+	unzip -d ~/opt/flex apollo_sdk_alpha1_031907.zip
+
+	~/opt/flex/bin に PATH 通しとく。
+
+	サンプル持ってきてコンパイルしてパッケージ化。
+	cd ~/labs/flext/TextEditorFlex
+	amxmlc TextEditor.mxml
+	adt -package TextEditor.air TextEditor-app.xml TextEditor.swf icons
+
+	出来上がった air をダブルクリックでインストール。
+	（原色青は目に悪い。。）
+
+	のっぺりとしたテキストエディタだけど日本語もちゃんと入力できる。
+	ちらちらノイズが見えるのは、そのうち Runtime で直るでしょう。
+
+	まだ、なんにもわからんけど ActionScript のスタート地点に立ちました。
+
 2007-03-23 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
 
 	* [19:17] work: 退社
