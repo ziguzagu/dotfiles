@@ -1,3 +1,33 @@
+2007-03-30 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:36] work: 退社
+
+	* [10:38] work: 出社
+
+	おきたら9:30。。。
+
+2007-03-29 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:58] work: 退社
+
+	* [10:32] work: 出社
+
+2007-03-28 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [08:53] work: 退社
+
+	徹夜は目に悪い。
+
+2007-03-27 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [10:16] work: 出社
+
+2007-03-26 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:38] work: 退社
+
+	* [10:10] work: 出社
+
 2007-03-24 (Sat)  Hiroshi Sakai  <ziguzagu@gmail.com>
 
 	* [01:26] apollo: 初コンパイル
