@@ -261,11 +261,15 @@
 (add-to-list 'ffap-alist '(cperl-mode . ffap-cperl-mode))
 
 
-;;;;;; c++-mode
+;;;;;; c/c++
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (setq c-basic-offset 4)
+            (define-key c++-mode-map "\C-cc" 'compile)
+            ))
 (add-hook 'c++-mode-hook
           (lambda ()
             (c-set-style "stroustrup")
-            (define-key c++-mode-map "\C-cc" 'compile)
             ))
 (setq auto-mode-alist
       (append '(("\\.c$" . c++-mode)
@@ -316,6 +320,12 @@
       (append '(("\\.js$" . javascript-mode)
                 ("\\.json$" . javascript-mode)) auto-mode-alist))
 (setq javascript-indent-level 4)
+
+
+;;;;;; actionscript
+(autoload 'actionscript-mode "actionscript-mode" nil t)
+(setq auto-mode-alist
+      (cons '("\\.as$" . actionscript-mode) auto-mode-alist))
 
 
 ;;;;;; generic file mode (.ini, .bat, etc ...)
