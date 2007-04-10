@@ -1,3 +1,54 @@
+2007-04-10 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:49] work: 退社
+
+	* [11:02] colinux:
+
+	なんだか colinux のサービス起動時にエラってるようなきがするので、
+	とりあえず 0.7.1-pre にバージョンアップしてみた。
+
+	* [10:00] work: 出社
+
+	PC ものすごく調子悪い。。。svchost.exe でエラーって。。。
+
+2007-04-09 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [18:50] work: 退社
+
+	強制退社。
+
+	* [09:58] work: 出社
+
+	再び現実の始まり。。。
+
+2007-04-03 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:35] work: 退社
+
+	* [16:20] amazon: ItemSearch/ItemLookup での ISBN-10/13の取り扱い
+
+	amazon.com では、ItemSearch の Keywords に ISBN-13 な値を入れると
+	ヒットしてくれるが、amazon.co.jp ではヒットしたりしなかったり。
+
+	Operation  | ISBN-10 | ISBN-13
+	--------------------------------
+	ItemSearch |   NG    |   OK
+	ItemLookup |   OK    |   OK
+
+	ISBN-10 の場合、ItemSearch で Keywords に設定してもヒットせず、
+	ItemLookup は IdType を指定しなければ ASIN 扱いになるのでヒットする。
+
+	逆に、ISBN-13 の場合は、ItemLookup なら対応可能だが、IdType に 'ISBN'
+	を指定する必要あり。さらに、SearchIndexにBooksかForeginBooksが指定さ
+	れていないと有効にならないので、和書・洋書を同時に検索できない。。
+
+	ちょっと不便だけど、ISBN-13 > ASIN(ISBN-10) の変換をしないなら、
+	ItemLookupを和書・洋書に分けて行う必要がある。。
+
+	amazon.comみたいにItemSearchで対応してくれないかなぁ。。
+
+	* [10:08] work: 出社
+
 2007-04-02 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
 
 	* [22:01] work: 退社
