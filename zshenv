@@ -38,7 +38,7 @@ if [ "$WINDOW" != "" ]; then
                 if (( $#cmd == 2)); then
                     cmd[1]=$cmd[2]
                 fi
-                ;;
+                ;&
             *)
                 echo -n "k$cmd[1]:t\\"
                 return
