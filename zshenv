@@ -14,11 +14,13 @@ export PATH=~/bin:~/opt/flex/bin:$PATH
 
 export REPOS=http://code.norainu.net/svn/
 
-export GREP_COLOR='07;33'
-export GREP_OPTIONS="--binary-files=without-match --color=always"
+if [ `uname` = "Linux" ]; then
+    export GREP_COLOR='07;33'
+    export GREP_OPTIONS="--binary-files=without-match --color=always"
+fi
 
 ## changing title of screen's window by preexec()
-if [ "$WINDOW" != "" ]; then
+if [ -n $WINDOW ]; then
     chpwd () { echo -n "_`dirs`\\" }
     preexec() {
         emulate -L zsh
@@ -55,6 +57,4 @@ if [ "$WINDOW" != "" ]; then
 fi
 
 ## in sixapart
-if [ -e .sixapartenv ]; then
-    source .sixapartenv
-fi
+[ -f .zshenv.6a ] && source .zshenv.6a
