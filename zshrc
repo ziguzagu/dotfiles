@@ -88,7 +88,7 @@ function ssh_screen() {
     eval server=\${$#}
     screen -t $server ssh "$@"
 }
-[ -n $WINDOW ] && alias ssh=ssh_screen
+[[ -n $WINDOW ]] && alias ssh=ssh_screen
 
 ## dabbrev on screen
 HARDCOPYFILE=$HOME/.screen-hardcopy

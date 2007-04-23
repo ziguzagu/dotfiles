@@ -20,7 +20,7 @@ if [ `uname` = "Linux" ]; then
 fi
 
 ## changing title of screen's window by preexec()
-if [ -n $WINDOW ]; then
+if [[ -n $WINDOW ]]; then
     chpwd () { echo -n "_`dirs`\\" }
     preexec() {
         emulate -L zsh
