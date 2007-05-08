@@ -1,5 +1,20 @@
 2007-05-08 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
 
+	* [22:31] work: 退社
+
+	* [10:55] mogilefs: MogileFS 2.15 の mogstored が German 対応
+
+	MogileFS 2.15 の mogstored が、store なんかの処理を German を使うように
+	変更された。いい。
+
+	mogstored をもっと clean に保ちたいってのが理由みたいだけど、lighty
+	の正式サポートで mogstored の開発やめるかと（勝手に）思ってた。。
+
+	Brad の『小さいプログラムを複数使って最適化する』の精神。
+	うん。
+
+	* [10:06] work: 出社
+
 	* [00:17] work: 退社
 
 2007-05-07 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
