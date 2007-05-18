@@ -62,11 +62,9 @@ unsetopt promptcr
 ## for emacs (no escape usging)
 if [[ $EMACS = t ]]; then
     unsetopt zle
-    PROMPT='[%n@%m]%# '
-else
-    PROMPT='%{[36m%}[%n@%m]%{[m%}%# '
-    RPROMPT='%{[33m%}[%(5~,%-2~/.../%2~,%~)]%{[m%}'
 fi
+PROMPT='%{[36m%}[%n@%m]%{[m%}%# '
+RPROMPT='%{[33m%}[%(5~,%-2~/.../%2~,%~)]%{[m%}'
 
 ## misc
 setopt correct
