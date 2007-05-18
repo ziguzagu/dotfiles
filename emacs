@@ -328,14 +328,6 @@
       (cons '("\\.as$" . actionscript-mode) auto-mode-alist))
 
 
-;;;;;; generic file mode (.ini, .bat, etc ...)
-;(require 'generic-x)
-
-
-;;;;;; haskell-mode
-(load "~/.emacs.d/lisp/haskell-mode-2.1/haskell-site-file")
-
-
 ;;;;;; kill-summary
 (autoload 'kill-summary "kill-summary" nil t)
 (define-key global-map "\ey" 'kill-summary)
