@@ -11,18 +11,18 @@
               load-path))
 
 
-;;;;;; test OS/Versions
-(defvar *on_windows* (featurep 'meadow))
-(defvar *on_linux* (string-match "linux" system-configuration))
-(defvar *v22* (string-match "GNU Emacs 22." (version)))
-(defvar *v21* (string-match "GNU Emacs 21." (version)))
+;;;;;; test OS / Emacs version
+(setq is_meadow (featurep 'meadow))
+(setq is_linux (string-match "linux" system-configuration))
+(setq v22 (eq emacs-major-version '22))
+(setq v21 (eq emacs-major-version '21))
 
 
 ;;;;;; Languages
-(when *v21*
+(when v21
   (require 'un-define)
   (require 'jisx0213))
-(when *on_linux*
+(when is_linux
   (set-terminal-coding-system 'utf-8)
   (set-keyboard-coding-system 'utf-8)
   (prefer-coding-system 'utf-8))
@@ -30,11 +30,11 @@
 
 
 ;; for Meadow (on Windows)
-(when *on_windows* (load "meadow"))
+(when is_meadow (load "meadow"))
 
 
 ;;;;;; EmacsClient
-(when *on_linux*
+(when is_linux
   (add-hook 'after-init-hook 'server-start)
   (shell-command "echo $WINDOW >~/.emacs.d/emacs-server-window")
   (add-hook 'emacs-kill-hook
@@ -48,7 +48,7 @@
 
 
 ;;;;;; global font lock
-(when *v21* (load "emacs21-256color"))
+(when v21 (load "emacs21-256color"))
 (require 'font-lock)
 (global-font-lock-mode t)
 (set-face-foreground 'font-lock-comment-face "darkolivegreen3")
@@ -73,7 +73,7 @@
 ;; highlight zenkaku space / tab / space
 (defface my-face-b-1 '((t (:background "aquamarine1"))) nil)
 (defface my-face-u-1 '((t (:foreground "steelblue1" :underline t))) nil)
-(cond ((featurep 'meadow)
+(cond (is_meadow
        (defface my-face-b-2 '((t (:background "gray23"))) nil))
       (t
        (defface my-face-b-2 '((t (:background "grey23"))) nil)))
@@ -146,7 +146,7 @@
 ;; move divided windows by shift with cursor.
 (windmove-default-keybindings)
 ;; hide toolbar
-(tool-bar-mode 0)
+(when v21 (tool-bar-mode 0))
 ;; hide menu bar
 (menu-bar-mode -1)
 ;; fix mini-buffer
@@ -162,10 +162,10 @@
 (line-number-mode t)
 (column-number-mode t)
 ;; color of modeline
-(cond ((featurep 'meadow)
+(cond (is_meadow
        (set-face-background 'modeline "gray11"))
       (t
-       (set-face-background 'modeline "grey11")))
+       (set-face-background 'modeline "grey19")))
 (set-face-foreground 'modeline "skyblue1")
 
 
@@ -352,9 +352,9 @@
 
 ;;;;;; migemo
 (when (locate-library "migemo")
-  (when *on_windows*
+  (when is_meadow
     (setq migemo-directory "c:/cygwin/usr/local/share/migemo"))
-  (when *on_linux*
+  (when is_linux
     (setq migemo-directory "/usr/share/migemo"))
   (load "migemo")
   (migemo-init)
