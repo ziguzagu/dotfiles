@@ -245,20 +245,19 @@
           (lambda ()
             (copy-face 'font-lock-variable-name-face 'cperl-array-face)
             (copy-face 'font-lock-variable-name-face 'cperl-hash-face)
-            (set-face-foreground 'cperl-nonoverridable-face "goldenrod")))
+            (set-face-foreground 'cperl-nonoverridable-face "goldenrod")
+            (define-key cperl-mode-map "\M-." 'cperl-perldoc-at-point)
+            (define-key cperl-mode-map "\C-co" 'cperl-perldoc)
+            ))
 (setq auto-mode-alist
       (append '(("\\.cgi$" . cperl-mode)
                 ("\\.p[hlm]$" . cperl-mode)
                 ("\\.t$" . cperl-mode)) auto-mode-alist))
-;; open module by perldoc at cursor
-(add-hook 'cperl-mode-hook
-          (lambda ()
-            (define-key cperl-mode-map "\M-." 'cperl-perldoc-at-point)))
 ;; ffap with perldoc
 (defun ffap-cperl-mode (file)
   (let ((real-file (shell-command-to-string (concat "perldoc -lm " file))))
     (unless (string-match "No module found for " real-file)
-      (substring real-file 0 -1)
+      (substring real-file (string-match "/" real-file) -1)
       )))
 (add-to-list 'ffap-alist '(cperl-mode . ffap-cperl-mode))
 
