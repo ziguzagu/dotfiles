@@ -27,6 +27,7 @@
   (set-keyboard-coding-system 'utf-8)
   (prefer-coding-system 'utf-8))
 (set-language-environment "Japanese")
+(set-default-coding-systems 'utf-8)
 
 
 ;; for Meadow (on Windows)
@@ -66,7 +67,6 @@
 
 
 ;;;;;; common editting
-(set-default-coding-systems 'japanese-shift-jis)
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
 ;(setq fill-column (setq auto-fill-mode nil)
