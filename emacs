@@ -61,6 +61,8 @@
 (set-face-foreground 'font-lock-builtin-face "goldenrod")
 (set-face-background 'highlight "yellow")
 (set-face-foreground 'highlight "black")
+(set-face-background 'region "lightgoldenrod2")
+(set-face-foreground 'region "black")
 
 
 ;;;;;; common editting
