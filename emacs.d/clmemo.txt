@@ -1,3 +1,28 @@
+2007-05-20 (Sun)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [02:07] emacs: Emacs22 を試す
+
+	宇野さんが Debian/Emacs22 を使っているらしいので僕も試す。
+
+	やったこと。
+	- sudo aptitude install emacs21-snapshot-nox
+	-- (このパッケージは今のところsidにしかない)
+	- .emacs の修正
+	--o (tool-bar-mode 0) を emacs21 でしか使わないように変更。
+	-- '*' を変数名に使ってるのを使わないものに一括置換。
+
+	そんだけ。
+
+	ココがよくなった！
+	- 起動が早い(mule-ucsない分だけ、いやそれ以上に)
+	- Emacs21でちゃんと出てくれなかった、モードラインの色やらその他の色が
+	  ちゃんと出るようになった
+
+	ココがまだだめ！
+	- cper-mode-5.22 で POD 部分のfont-lockが適用されてない
+
+	まだ、その程度しか触ってないけど、しばらく22で作業してみる。
+
 2007-05-18 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
 
 	* [21:57] work: 退社
