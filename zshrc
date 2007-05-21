@@ -6,6 +6,7 @@ compinit
 
 ## alias
 setopt complete_aliases
+alias ec="emacsclient"
 alias ls="ls -F"
 alias l="ls -l"
 alias ll="ls -al"

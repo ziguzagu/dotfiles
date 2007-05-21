@@ -7,4 +7,4 @@ if [ -f ~/.emacs.d/emacs-server-window ]; then
     screen -X select `cat ~/.emacs.d/emacs-server-window`
 fi
 
-emacsclient -n "$1"
+/usr/bin/emacsclient -n "$1"

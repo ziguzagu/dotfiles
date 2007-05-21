@@ -9,6 +9,7 @@ export LANG=ja_JP.UTF-8
 export PAGER=lv
 export EDITOR=vi
 export SVN_EDITOR=vi
+export SVKMERGE=EmacsClient
 
 export PATH=~/bin:~/opt/flex/bin:$PATH
 

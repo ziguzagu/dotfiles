@@ -475,3 +475,4 @@
 
 ;;;;;; vc-svk
 (require 'vc-svk)
+(require 'svk-ediff)
