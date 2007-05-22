@@ -474,5 +474,8 @@
 
 
 ;;;;;; vc-svk
+(when v21
+  (require 'vc-svn)
+  (require 'psvn))
 (require 'vc-svk)
 (require 'svk-ediff)
