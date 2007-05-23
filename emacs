@@ -75,10 +75,7 @@
 ;; highlight zenkaku space / tab / space
 (defface my-face-b-1 '((t (:background "aquamarine1"))) nil)
 (defface my-face-u-1 '((t (:foreground "steelblue1" :underline t))) nil)
-(cond (is_meadow
-       (defface my-face-b-2 '((t (:background "gray23"))) nil))
-      (t
-       (defface my-face-b-2 '((t (:background "grey23"))) nil)))
+(defface my-face-b-2 '((t (:background "grey23"))) nil)))
 (defvar my-face-b-1 'my-face-b-1)
 (defvar my-face-b-2 'my-face-b-2)
 (defvar my-face-u-1 'my-face-u-1)
@@ -164,12 +161,10 @@
 (line-number-mode t)
 (column-number-mode t)
 ;; color of modeline
-(cond (is_meadow
-       (set-face-background 'modeline "gray11"))
-      (t
-       (set-face-background 'modeline "grey19")))
 (set-face-foreground 'modeline "skyblue1")
-
+(set-face-background 'modeline "grey19")
+(set-face-foreground 'mode-line-inactive "grey51")
+(set-face-background 'mode-line-inactive "grey19")
 
 ;;;;;; Dired
 (setq ls-lisp-dirs-first t)
