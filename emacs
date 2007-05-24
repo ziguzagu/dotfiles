@@ -148,12 +148,8 @@
 (when v21 (tool-bar-mode 0))
 ;; hide menu bar
 (menu-bar-mode -1)
-;; fix mini-buffer
-(setq resize-mini-windows nil)
 ;; resize the temp buffer when necessary
 (temp-buffer-resize-mode 1)
-;; using complete in mini buffer
-(load "complete")
 
 
 ;;;;;; modeline
@@ -163,8 +159,20 @@
 ;; color of modeline
 (set-face-foreground 'modeline "skyblue1")
 (set-face-background 'modeline "grey19")
-(set-face-foreground 'mode-line-inactive "grey51")
-(set-face-background 'mode-line-inactive "grey19")
+(when v22
+  (set-face-foreground 'mode-line-inactive "grey51")
+  (set-face-background 'mode-line-inactive "grey19"))
+
+
+;;;;;; minibuffer
+;; using complete in mini buffer
+(load "complete")
+;; fix mini-buffer
+(setq resize-mini-windows nil)
+;; color
+(when v22
+  (set-face-foreground 'minibuffer-prompt "cyan1"))
+
 
 ;;;;;; Dired
 (setq ls-lisp-dirs-first t)
