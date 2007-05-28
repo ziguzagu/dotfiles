@@ -21,6 +21,7 @@ alias push="svk push --verbatim"
 alias lc="tr '[:upper:]' '[:lower:]'"
 alias uc="tr '[:lower:]' '[:upper:]'"
 alias htdate="date '+%a, %d %b %Y %X %Z'"
+alias prove="prove -lv"
 ## global alias
 alias -g M="| more"
 alias -g L="| lv"
@@ -116,6 +117,22 @@ function decode_base64() { perl -MMIME::Base64 -e "print decode_base64('$1')" }
 
 ## pmtools
 function pmvers() { perl -m$1 -e 'print "$'$1'::VERSION\n"' }
+
+## perl module development
+function pm {
+    if [ -f "Makefile.PL" ]; then
+        perl Makefile.PL $@ && make
+    elif [ -f "Build.PL" ]; then
+        perl Build.PL $@ && ./Build
+    fi
+}
+function pt {
+    if [ -f "Makefile" ]; then
+        make test $@
+    elif [ -f "Build" ]; then
+        ./Build test $@
+    fi
+}
 
 ## in sixapart
 [ -f .zshrc.6a ] && source .zshrc.6a
