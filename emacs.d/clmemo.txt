@@ -1,3 +1,9 @@
+2007-05-31 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:44] work: 退社
+
+	* [10:05] work: 出社
+
 2007-05-30 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
 
 	* [19:18] work: 退社
@@ -14,7 +20,7 @@
 
 	* [19:33] work: 退社
 
-	* [10:58] work: 出社
+	* [10:08] work: 出社
 
 2007-05-25 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
 
