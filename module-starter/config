@@ -1,4 +1,4 @@
 author: Hiroshi Sakai
-email: ziguzagu@gmail.com
+email: ziguzagu@cpan.org
 plugins: Module::Starter::PBP
 template_dir: /home/ziguzagu/.module-starter/PBP
