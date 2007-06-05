@@ -1,3 +1,15 @@
+2007-06-05 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:36] work: 退社
+
+	* [18:42] mobile css: DoCoMo の XHTML の border
+
+	DoCoMo の XHTML で border が設定できるのは、
+	table/th/td/tr/hr だけ。
+	場所の設定(top/right/bottom/left)は設定できない。
+
+	* [10:05] work: 出社
+
 2007-06-04 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
 
 	* [20:07] work: 退社
