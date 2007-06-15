@@ -1,3 +1,19 @@
+2007-06-15 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [18:36] work: 退社
+
+	* [10:11] ssl: 証明書が壊れていないかどうか確認する方法
+
+	% openssl x509 -text -noout < /path/to/www.example.jp.crt
+
+	* [10:00] work: 出社
+
+2007-06-14 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:12] work: 退社
+
+	* [10:00] work: 出社
+
 2007-06-13 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
 
 	* [22:38] work: 退社
