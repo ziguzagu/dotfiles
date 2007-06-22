@@ -1,7 +1,6 @@
 package <MODULE NAME>;
-
-use warnings;
 use strict;
+use warnings;
 
 our $VERSION = '0.01';
 
@@ -15,11 +14,9 @@ __END__
 
 <MODULE NAME> - [One line description of module's purpose here]
 
-
 =head1 VERSION
 
-This document describes <MODULE NAME> version 0.0.1
-
+Version 0.0.1
 
 =head1 SYNOPSIS
 
@@ -30,13 +27,11 @@ This document describes <MODULE NAME> version 0.0.1
     This section will be as far as many users bother reading
     so make it as educational and exeplary as possible.
 
-
 =head1 DESCRIPTION
 
 =for author to fill in:
     Write a full description of the module and its features here.
     Use subsections (=head2, =head3) as appropriate.
-
 
 =head1 INTERFACE
 
@@ -45,7 +40,6 @@ This document describes <MODULE NAME> version 0.0.1
     interface. These normally consist of either subroutines that may be
     exported, or methods that may be called on objects belonging to the
     classes provided by the module.
-
 
 =head1 DIAGNOSTICS
 
@@ -69,7 +63,6 @@ This document describes <MODULE NAME> version 0.0.1
 
 =back
 
-
 =head1 CONFIGURATION AND ENVIRONMENT
 
 =for author to fill in:
@@ -81,7 +74,6 @@ This document describes <MODULE NAME> version 0.0.1
 
 <MODULE NAME> requires no configuration files or environment variables.
 
-
 =head1 DEPENDENCIES
 
 =for author to fill in:
@@ -91,7 +83,6 @@ This document describes <MODULE NAME> version 0.0.1
     module's distribution, or must be installed separately. ]
 
 None.
-
 
 =head1 INCOMPATIBILITIES
 
@@ -103,7 +94,6 @@ None.
     filters are mutually incompatible).
 
 None reported.
-
 
 =head1 BUGS AND LIMITATIONS
 
@@ -122,11 +112,9 @@ Please report any bugs or feature requests to
 C<bug-<RT NAME>@rt.cpan.org>, or through the web interface at
 L<http://rt.cpan.org>.
 
-
 =head1 AUTHOR
 
 <AUTHOR>  C<< <<EMAIL>> >>
-
 
 =head1 LICENCE AND COPYRIGHT
 
@@ -134,7 +122,6 @@ Copyright (c) <YEAR>, <AUTHOR> C<< <<EMAIL>> >>. All rights reserved.
 
 This module is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself. See L<perlartistic>.
-
 
 =head1 DISCLAIMER OF WARRANTY
 
