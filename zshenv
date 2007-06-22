@@ -7,8 +7,8 @@ export LC_ALL=C
 export LANG=ja_JP.UTF-8
 
 export PAGER=lv
-export EDITOR=vi
-export SVN_EDITOR=vi
+export EDITOR=emacsclient
+export SVN_EDITOR=emacsclient
 export SVKMERGE=EmacsClient
 
 export PATH=~/bin:~/opt/flex/bin:$PATH
