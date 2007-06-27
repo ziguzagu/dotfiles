@@ -1,3 +1,17 @@
+2007-06-27 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:19] work: 退社
+
+	というか、退散だな。。。
+
+	* [16:34] unix: Binary Hacks なコマンドいくつか
+
+	nm    - 実行ファイル・ライブラリのシンボルテーブルを表示。
+	strip - 実行ファイル・ライブラリからデバッグ用のリロケート情報と
+	        シンボルテーブルを削除する。
+
+	* [10:02] work: 退社
+
 2007-06-26 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
 
 	* [20:26] work: 退社
