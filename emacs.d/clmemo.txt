@@ -1,3 +1,37 @@
+2007-07-05 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:02] work: 退社
+
+	* [15:49] javascript dom: insertBefore できる or できない
+
+	FF2.0 だと img/br/hr のような、子ノードを持つことができない
+	オブジェクトでも、insertBefore を実行することができてしまう。
+
+	たとえばこんなコード。
+	
+	<div id="kore"></div>
+	<script type="text/javascript">
+	var div = document.getElementById('kore');
+	
+	var img1 = document.createElement('img');
+	img1.className = 'class1';
+	img1.src = 'http://www.google.com/intl/ja_jp/images/logo.gif';
+	
+	var img2 = document.createElement('img');
+	img2.className = 'class2';
+	img2.src = 'http://www.google.com/intl/ja_jp/images/logo.gif';
+	
+	div.insertBefore(img1, null);
+	img1.insertBefore(img2, null);
+	</script>
+
+	FF2.0: エラーなし
+	IE7.0: エラー（img1.insertBeforeで予期しないメソッドの呼び出し）
+
+	どちらとも2つ目の画像描画自体は行わない。
+
+	* [10:03] work: 出社
+
 2007-07-04 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
 
 	* [19:24] work: 退社
