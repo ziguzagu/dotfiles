@@ -6,12 +6,15 @@ export LANGUAGE=ja_JP:ja:en_GB:en
 export LC_ALL=C
 export LANG=ja_JP.UTF-8
 
+MYPATH=~/bin
+[ -d ~/opt/bin ]      && MYPATH=$MYPATH:~/opt/bin
+[ -d ~/opt/flex/bin ] && MYPATH=$MYPATH:~/opt/flex/bin
+export PATH=$MYPATH:$PATH
+
 export PAGER=lv
 export EDITOR=emacsclient
 export SVN_EDITOR=emacsclient
 export SVKMERGE=EmacsClient
-
-export PATH=~/bin:~/opt/flex/bin:$PATH
 
 export REPOS=http://code.norainu.net/svn/
 
