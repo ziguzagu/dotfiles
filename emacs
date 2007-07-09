@@ -476,9 +476,9 @@
              (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 
 
-;;;;;; svn/svk staff
-(when v21
-  (require 'vc-svn)
-  (require 'psvn))
-(require 'vc-svk)
-(require 'svk-ediff)
+;; ;;;;;; svn/svk staff
+;; (when v21
+;;   (require 'vc-svn)
+;;   (require 'psvn))
+;; (require 'vc-svk)
+;; (require 'svk-ediff)
