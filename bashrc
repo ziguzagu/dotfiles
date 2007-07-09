@@ -12,7 +12,7 @@ alias lc="tr '[:upper:]' '[:lower:]'"
 alias uc="tr '[:lower:]' '[:upper:]'"
 
 #### prompt
-PS1="\[\033[00;36m\][\w@\h]\[\033[00m\]\$ "
+PS1="\[\033[00;36m\][\h:\w]\[\033[00m\]\$ "
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profiles
