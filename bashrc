@@ -2,15 +2,17 @@
 
 #### alias
 alias ls="ls -F"
-alias l="ls -Al"
+alias l="ls -l"
 alias ll="ls -al"
 alias sc="screen -xRU"
 alias gv="grep -v .svn"
 alias lv="lv -c"
 alias vs="svn status -u"
+alias lc="tr '[:upper:]' '[:lower:]'"
+alias uc="tr '[:lower:]' '[:upper:]'"
 
 #### prompt
-PS1="(J\(B[(J\(B033[00;36m(J\(B][(J\(Bw](J\(B[(J\(B033[00m(J\(B](J\(B$ "
+PS1="\[\033[00;36m\][\w@\h]\[\033[00m\]\$ "
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profiles
