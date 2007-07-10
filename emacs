@@ -481,4 +481,4 @@
 ;;   (require 'vc-svn)
 ;;   (require 'psvn))
 ;; (require 'vc-svk)
-;; (require 'svk-ediff)
+(require 'svk-ediff)
