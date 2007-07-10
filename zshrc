@@ -22,6 +22,7 @@ alias lc="tr '[:upper:]' '[:lower:]'"
 alias uc="tr '[:lower:]' '[:upper:]'"
 alias htdate="date '+%a, %d %b %Y %X %Z'"
 alias prove="prove -lv"
+alias ack="ack --color"
 ## global alias
 alias -g M="| more"
 alias -g L="| lv"
