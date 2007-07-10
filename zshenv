@@ -19,7 +19,7 @@ export SVKMERGE=EmacsClient
 export REPOS=http://code.norainu.net/svn/
 
 ## for sakura
-[ -d ~/Mailbox/$USER ] && export MAILPATH=~/MailBox/$USER/maildir
+[ -d ~/MailBox/$USER ] && export MAILPATH=~/MailBox/$USER/maildir
 [ -d ~/opt/cpan-lib ]  && export PERL5LIB=~/opt/cpan-lib:$PERL5LIB
 
 ## colorization for grep
