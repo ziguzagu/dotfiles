@@ -135,5 +135,5 @@ function pt {
     fi
 }
 
-## in sixapart
+## at sixapart
 [ -f .zshrc.6a ] && source .zshrc.6a
