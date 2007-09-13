@@ -7,16 +7,12 @@ export PATH=$MYPATH:$PATH
 
 export SHELL=`which zsh`
 
+export PAGER=lv
 export EDITOR=emacsclient
 export SVN_EDITOR=emacsclient
 export SVKMERGE=EmacsClient
 
 export REPOS=http://code.norainu.net/svn/
-
-## pager, I love lv.
-[ "$PAGER" != 'lv' ] && which lv && export PAGER=lv
-test -z $PAGER && which less && export PAGER=less
-test -z $PAGER && which more && export PAGER=more
 
 ## colorization for grep
 if [ `uname` = "Linux" ]; then
