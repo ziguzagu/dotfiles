@@ -267,10 +267,7 @@
 (defvar cperl-mode-abbrev-table nil)
 (define-abbrev-table 'cperl-mode-abbrev-table ())
 (snippet-with-abbrev-table 'cperl-mode-abbrev-table
-                           ("formy" . "for my $${val} ($${array}) {\n$>$.\n}")
-                           ("if" . "if ($${cond}) {\n$>$.\n}")
-                           ("elsif" . "elsif ($${cond}) {\n$>$.\n}")
-                           ("unless" . "unless ($${cond}) {\n$>$.\n}"))
+                           ("formy" . "for my $${val} ($${array}) {\n$>$.\n}"))
 
 
 ;;;;;; c/c++
