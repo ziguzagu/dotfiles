@@ -12,7 +12,6 @@
 
 
 ;;;;;; test OS / Emacs version
-(setq is_meadow (featurep 'meadow))
 (setq is_linux (string-match "linux" system-configuration))
 (setq v22 (eq emacs-major-version '22))
 (setq v21 (eq emacs-major-version '21))
@@ -28,10 +27,6 @@
   (prefer-coding-system 'utf-8))
 (set-language-environment "Japanese")
 (set-default-coding-systems 'utf-8)
-
-
-;; for Meadow (on Windows)
-(when is_meadow (load "meadow"))
 
 
 ;;;;;; EmacsClient
@@ -356,8 +351,6 @@
 
 ;;;;;; migemo
 (when (locate-library "migemo")
-  (when is_meadow
-    (setq migemo-directory "c:/cygwin/usr/local/share/migemo"))
   (when is_linux
     (setq migemo-directory "/usr/share/migemo"))
   (load "migemo")
