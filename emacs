@@ -227,6 +227,11 @@
 (setq auto-insert-query nil)
 
 
+;;;;;; snippet
+(require 'snippet)
+(setq-default abbrev-mode t)
+
+
 ;;;;;; cperl-mode
 (defalias 'perl-mode 'cperl-mode)
 (setq cperl-close-paren-offset -4)
@@ -258,6 +263,14 @@
       (substring real-file (string-match "/" real-file) -1)
       )))
 (add-to-list 'ffap-alist '(cperl-mode . ffap-cperl-mode))
+;; snippet
+(defvar cperl-mode-abbrev-table nil)
+(define-abbrev-table 'cperl-mode-abbrev-table ())
+(snippet-with-abbrev-table 'cperl-mode-abbrev-table
+                           ("formy" . "for my $${val} ($${array}) {\n$>$.\n}")
+                           ("if" . "if ($${cond}) {\n$>$.\n}")
+                           ("elsif" . "elsif ($${cond}) {\n$>$.\n}")
+                           ("unless" . "unless ($${cond}) {\n$>$.\n}"))
 
 
 ;;;;;; c/c++
@@ -283,7 +296,6 @@
       (append '(("\\.html$" . html-helper-mode)
                 ("\\.tmpl$" . html-helper-mode)
                 ("\\.tt$" . html-helper-mode)) auto-mode-alist))
-
 ;; HTML escape
 (defun escape-html-region (start end)
   "Escape '&<>' characters in the region using '&amp;', '&lt;', and '&gt;'."
@@ -300,9 +312,15 @@
       (goto-char start)
       (while (search-forward ">" nil t)
         (replace-match "&gt;" nil t)))))
-
 ;; urlencode
 (load "urlencode")
+;; snippet
+(add-hook 'html-helper-mode-hook
+          (lambda ()
+            (snippet-with-abbrev-table 'html-helper-mode-abbrev-table
+                                       ("ahref" . "<a href=\"$${url}\">$${text}</a>")
+                                       ("img" . "<img src=\"$${url}\" alt=\"$${alt}\" />"))
+            ))
 
 
 ;;;;;; css-mode
