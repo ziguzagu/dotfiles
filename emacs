@@ -128,7 +128,6 @@
 ;; misc
 (global-set-key "\C-c;" 'comment-region)
 (global-set-key "\C-c:" 'uncomment-region)
-(global-set-key "\M- " 'dabbrev-expand)
 (global-set-key "\C-cg" 'goto-line)
 (global-set-key [f1] 'help-for-help)
 ;; backspace
@@ -316,6 +315,7 @@
           (lambda ()
             (snippet-with-abbrev-table 'html-helper-mode-abbrev-table
                                        ("ahref" . "<a href=\"$${url}\">$${text}</a>")
+                                       ("input" . "<input type=\"$${type\" name=\"$${name}\" value=\"$${value}\" />")
                                        ("img" . "<img src=\"$${url}\" alt=\"$${alt}\" />"))
             ))
 
@@ -352,6 +352,7 @@
 (require 'dabbrev-highlight)
 (setq dabbrev-case-fold-search t)
 (setq dabbrev-case-replace nil)
+(global-set-key "\C-o" 'dabbrev-expand)
 
 
 ;;;;;; iswitchb-mode
