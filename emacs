@@ -166,6 +166,9 @@
 ;; color
 (when v22
   (set-face-foreground 'minibuffer-prompt "cyan1"))
+;; incremental-searching on minibuffer history
+;;   elisp: http://www.sodan.org/~knagano/emacs/minibuf-isearch/
+;; (require 'minibuf-isearch)
 
 
 ;;;;;; Dired
@@ -315,7 +318,7 @@
           (lambda ()
             (snippet-with-abbrev-table 'html-helper-mode-abbrev-table
                                        ("ahref" . "<a href=\"$${url}\">$${text}</a>")
-                                       ("input" . "<input type=\"$${type\" name=\"$${name}\" value=\"$${value}\" />")
+                                       ("input" . "<input type=\"$${type}\" name=\"$${name}\" value=\"$${value}\" />")
                                        ("img" . "<img src=\"$${url}\" alt=\"$${alt}\" />"))
             ))
 
