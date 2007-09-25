@@ -135,30 +135,5 @@ function pt {
     fi
 }
 
-## mv with append characters
-function amv() {
-    local pos="end"
-    while getopts b: opt; do
-        case $opt in
-            b)
-                pos="begin"
-                shift
-                ;;
-        esac
-    done
-
-    local args="$*"
-    local files="${args% *}"
-    local append="$argv[$#]"
-
-    for file in $files; do
-        if [ "$pos" = "begin" ]; then
-            mv $file "$append$file"
-        else
-            mv $file "$file$append"
-        fi
-    done
-}
-
 ## at sixapart
 [ -f .zshrc.6a ] && source .zshrc.6a
