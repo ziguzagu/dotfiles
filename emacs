@@ -488,6 +488,13 @@
              (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 
 
+;;;;;; generic config file
+(require 'generic-x)
+(setq auto-mode-alist
+      (append '(("\\.conf$" . defualt-generic-mode)
+                ("\\.cfg$"  . default-generic-mode)) auto-mode-alist))
+
+
 ;; ;;;;;; svn/svk staff
 ;; (when v21
 ;;   (require 'vc-svn)
