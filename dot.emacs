@@ -40,7 +40,8 @@
   (add-hook 'server-done-hook
             (lambda ()
               (shell-command
-               "screen -X select `cat ~/.emacs.d/emacsclient-caller`"))))
+               "screen -X select `cat ~/.emacs.d/emacsclient-caller`")))
+  (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function))
 
 
 ;;;;;; global font lock
