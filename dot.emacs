@@ -490,9 +490,9 @@
 
 
 ;;;;;; generic config file
-(require 'generic-x)
+(autoload 'default-generic-mode "generic-x" nil t)
 (setq auto-mode-alist
-      (append '(("\\.conf$" . defualt-generic-mode)
+      (append '(("\\.conf$" . default-generic-mode)
                 ("\\.cfg$"  . default-generic-mode)) auto-mode-alist))
 
 
