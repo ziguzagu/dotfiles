@@ -318,9 +318,12 @@
 (add-hook 'html-helper-mode-hook
           (lambda ()
             (snippet-with-abbrev-table 'html-helper-mode-abbrev-table
-                                       ("ahref" . "<a href=\"$${url}\">$${text}</a>")
-                                       ("input" . "<input type=\"$${type}\" name=\"$${name}\" value=\"$${value}\" />")
-                                       ("img" . "<img src=\"$${url}\" alt=\"$${alt}\" />"))
+                                       ("hthref" . "<a href=\"$${url}\">$${text}</a>")
+                                       ("htinput" . "<input type=\"$${type}\" name=\"$${name}\" value=\"$${value}\" />")
+                                       ("htimg" . "<img src=\"$${url}\" alt=\"$${alt}\" />")
+                                       ("httrans" . "<MT_TRANS phrase=\"$${var}\">")
+                                       ("htincl" . "<TMPL_INCLUDE NAME=\"$${tmpl}\">")
+                                       ("htvar" . "<TMPL_VAR NAME=$${var}>"))
             ))
 
 
