@@ -271,6 +271,16 @@
 (define-abbrev-table 'cperl-mode-abbrev-table ())
 (snippet-with-abbrev-table 'cperl-mode-abbrev-table
                            ("formy" . "for my $${val} ($${array}) {\n$>$.\n}"))
+;; perltidy region
+(defun perltidy-region (beg end)
+  (interactive "r")
+  (shell-command-on-region beg end "perltidy -q" nil t))
+;; perltidy buffer
+(defun perltidy-buffer (buffer)
+  "Run the perltidy formatter on the buffer."
+  (interactive (list (current-buffer)))
+  (with-current-buffer buffer
+    (perltidy-region (point-min) (point-max))))
 
 
 ;;;;;; c/c++
