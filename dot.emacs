@@ -145,6 +145,8 @@
 (menu-bar-mode -1)
 ;; resize the temp buffer when necessary
 (temp-buffer-resize-mode 1)
+;; woman
+(global-set-key "\C-cw" 'woman)
 
 
 ;;;;;; modeline
@@ -160,8 +162,10 @@
 
 
 ;;;;;; minibuffer
-;; using complete in mini buffer
-(load "complete")
+;; powerful complete on minibuffer
+;;   elisp: http://homepage1.nifty.com/bmonkey/emacs/elisp/mcomplete.el
+(require 'mcomplete)
+(turn-on-mcomplete-mode)
 ;; fix mini-buffer
 (setq resize-mini-windows nil)
 ;; color
