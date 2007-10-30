@@ -146,7 +146,7 @@
 ;; resize the temp buffer when necessary
 (temp-buffer-resize-mode 1)
 ;; woman
-(global-set-key "\C-cw" 'woman)
+(global-set-key "\C-cm" 'woman)
 
 
 ;;;;;; modeline
