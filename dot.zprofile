@@ -3,7 +3,7 @@
 MYPATH=~/bin
 [ -d ~/opt/bin ]      && MYPATH=$MYPATH:~/opt/bin
 [ -d ~/opt/flex/bin ] && MYPATH=$MYPATH:~/opt/flex/bin
-[ -d ~/opt/gems/bin ] && MYPATH=$MYPATH:~/opt/gems/bin
+[ -d /var/lib/gems/1.8/bin ] && MYPATH=$MYPATH:/var/lib/gems/1.8/bin
 export PATH=$MYPATH:$PATH
 
 export SHELL=`which zsh`
