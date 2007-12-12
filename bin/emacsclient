@@ -7,4 +7,10 @@ if [ -f ~/.emacs.d/emacs-server-window ]; then
     screen -X select `cat ~/.emacs.d/emacs-server-window`
 fi
 
-/usr/bin/emacsclient $*
+if [ -x /usr/local/bin/emacsclient ]; then
+    CMD=/usr/local/bin/emacsclient
+else
+    CMD=/usr/bin/emacsclient
+fi
+
+$CMD $*
