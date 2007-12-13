@@ -174,6 +174,7 @@
 ;; incremental-searching on minibuffer history
 ;;   elisp: http://www.sodan.org/~knagano/emacs/minibuf-isearch/
 ;; (require 'minibuf-isearch)
+(setq completion-ignore-case t)
 
 
 ;;;;;; Dired
@@ -206,7 +207,7 @@
 (setq uniquify-ignore-buffers-re "*[^*]+*")
 ;; using ffap
 (ffap-bindings)
-
+(setq read-file-name-completion-ignore-case t)
 
 ;;;;;; shell
 ;; completation on shell-mode
@@ -337,7 +338,10 @@
                                        ("htimg" . "<img src=\"$${url}\" alt=\"$${alt}\" />")
                                        ("httrans" . "<MT_TRANS phrase=\"$${var}\">")
                                        ("htincl" . "<TMPL_INCLUDE NAME=\"$${tmpl}\">")
-                                       ("htvar" . "<TMPL_VAR NAME=$${var}>"))
+                                       ("htvar" . "<TMPL_VAR NAME=$${var}>")
+                                       ("mtset" . "<$MTSetVar name=\"$${name}\" value=\"$${value}\"$>")
+                                       ("mtget" . "<$MTGetVar name=\"$${name}\"$>")
+                                       ("mtif"  . "<MTIfVar name=\"$${name}\">$${text}</MTIfVar>"))
             ))
 
 
@@ -384,6 +388,12 @@
             (define-key iswitchb-mode-map "\C-p" 'iswitchb-prev-match)
             (define-key iswitchb-mode-map "\C-f" 'iswitchb-next-match)
             (define-key iswitchb-mode-map "\C-b" 'iswitchb-prev-match)))
+;; ignoreing buffers
+(setq iswitchb-buffer-ignore
+      '("^ "
+        "*Messages*"
+        "*Buffer*"
+        "Completions"))
 
 
 ;;;;;; migemo
