@@ -23,6 +23,7 @@ alias uc="tr '[:lower:]' '[:upper:]'"
 alias htdate="date '+%a, %d %b %Y %X %Z'"
 alias prove="prove -lv"
 alias ack="ack --color"
+alias grep="grep --binary-files=without-match --color=always"
 ## global alias
 alias -g M="| more"
 alias -g L="| lv"
