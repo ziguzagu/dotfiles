@@ -1,10 +1,10 @@
 #!/usr/bin/perl -w
 
-# mysqlreport v3.0a Dec 12 2006
+# mysqlreport v3.3 Jan 8 2008 
 # http://hackmysql.com/mysqlreport
 
 # mysqlreport makes an easy-to-read report of important MySQL status values.
-# Copyright (C) 2006  Daniel Nichter
+# Copyright 2006-2008 Daniel Nichter
 #
 # This program is free software; you can redistribute it and/or
 # modify it under the terms of the GNU General Public License
@@ -37,12 +37,15 @@ my ($major, $minor, $patch, $x); # MySQL version
 my (%stats, %vars); # SHOW STATUS, SHOW VARIABLES
 my (%DMS_vals, %Com_vals, %ib_vals);
 my ($dbh, $query);
-my ($questions, $key_read_ratio, $key_write_ratio, $dms);
+my ($questions, $key_read_ratio, $key_write_ratio, $dms, $slow_query_t);
 my ($key_cache_block_size, $key_buffer_used, $key_buffer_usage);
 my ($qc_mem_used, $qc_hi_r, $qc_ip_r); # Query Cache
-my ($need_myisam_vals, $need_innodb_vals);
+my $have_innodb_vals;
 my ($ib_bp_used, $ib_bp_total, $ib_bp_read_ratio);
-
+my ($relative_live, $relative_infiles);
+my $real_uptime;
+my (%stats_present, %stats_past); # For relative reports
+      
 GetOptions (
    \%op,
    "user=s",
@@ -51,21 +54,15 @@ GetOptions (
    "port=s",
    "socket=s",
    "no-mycnf",
-   "dtq|tdq|dq",
-   "dms",
-   "com:i",
-   "sas",
-   "tab",
-   "qcache",
-   "id-only|ido|innodb-only",
-   "id|innodb",
-   "dpr|drp",
-   "all",
    "infile|in=s",
    "outfile=s",
    "flush-status",
    "email=s",
-   "help|?"
+   "r|relative:i",
+   "c|report-count=i",
+   "detach",
+   "help|?",
+   "debug"
 );
 
 show_help_and_exit() if $op{'help'};
@@ -78,11 +75,7 @@ $mycnf{'port'}   = $op{'port'}   if have_op 'port';
 $mycnf{'socket'} = $op{'socket'} if have_op 'socket'; 
 $mycnf{'user'}   = $op{'user'}   if have_op 'user';
 
-# Default values if nothing else
-$mycnf{'host'}   ||= 'localhost';
-$mycnf{'port'}   ||= 3306;
-$mycnf{'socket'} ||= '/var/run/mysqld/mysqld.sock'; # Debian default
-$mycnf{'user'}   ||= $ENV{'USER'};
+$mycnf{'user'} ||= $ENV{'USER'};
 
 if(exists $op{'password'})
 {
@@ -96,79 +89,100 @@ if(exists $op{'password'})
    else { $mycnf{'pass'} = $op{'password'}; } # Use password given on command line
 }
 
-if($op{'all'} and not defined $op{'com'})  { $op{'com'} = 3; }
-if(defined $op{'com'} and $op{'com'} == 0) { $op{'com'} = 3; }
+$op{'com'} ||= 3;
+$op{'c'}   ||= 1; # Used in collect_reports() if --r given integer value
 
-# Connect to MySQL
-if(!have_op 'infile')
+if(defined $op{'r'})
 {
-   my $dsn;
-
-   if(-S $mycnf{'socket'} && !have_op 'host') { $dsn = "DBI:mysql:mysql_socket=$mycnf{socket}";         }
-   else                                       { $dsn = "DBI:mysql:host=$mycnf{host};port=$mycnf{port}"; }
-
-   $dbh = DBI->connect($dsn, $mycnf{'user'}, $mycnf{'pass'}) or die;
+   if($op{r}) { $relative_live    = 1; }
+   else       { $relative_infiles = 1; }
 }
 
 # The report is written to a tmp file first.
 # Later it will be moved to $op{'outfile'} or emailed $op{'email'} if needed.
-($tmpfile_fh, $tmpfile) = tempfile() or die("Can't open temporary file for writing: $!\n");
+($tmpfile_fh, $tmpfile) = tempfile() or die("Cannot open temporary file for writing: $!\n");
 
-# Determine if we need MyISAM, InnoDB, or both vals, then
-# get vals and system vars from MySQL or infile, then
-# set vals for our own vars
-which_vals();
-get_vals_vars();
-set_myisam_vals() if $need_myisam_vals;
-set_ib_vals()     if $need_innodb_vals;
-
-
-# Write the reports
-select $tmpfile_fh;
-$~ = 'MYSQL_TIME', write;
-if($need_myisam_vals)
+if($op{'detach'})
 {
-   $~ = 'KEY_BUFF_MAX', write;
-   if($key_buffer_usage != -1)     { $~ = 'KEY_BUFF_USAGE', write }
-   $~ = 'KEY_RATIOS', write;
-   if($op{'dtq'}    or $op{'all'}) { write_DTQ(); }
-   $~ = 'SLOW_DMS', write;
-   if($op{'dms'}    or $op{'all'}) { write_DMS(); }
-   if($op{'com'}    or $op{'all'}) { write_Com(); }
-   if($op{'sas'}    or $op{'all'}) { $~ = 'SAS', write; }
-   if($op{'qcache'} or $op{'all'}) { write_qcache(); }
-   $~ = 'REPORT_END', write;
-   if($op{'tab'}    or $op{'all'}) { $~ = 'TAB', write; }
+   $SIG{'TERM'} = 'sig_handler';
+
+   if(fork())
+   {
+      print "mysqlreport has forked and detached.\n";
+      print "While running detached, mysqlreport writes reports to '$tmpfile'.\n";
+
+      exit;
+   }
+
+   open(STDIN, "</dev/null");
+   open(STDOUT, "> $tmpfile") or die "Cannot dup STDOUT: $!\n";
+   open(STDERR, "> $tmpfile") or die "Cannot dup STDERR: $!\n";
 }
-write_InnoDB() if $need_innodb_vals;
-close $tmpfile_fh and select STDOUT;
 
-email_report($tmpfile) if have_op 'email';
+select $tmpfile_fh;
+$| = 1 if ($op{'detach'} || $relative_live);
 
-cat_report($tmpfile);
-
-if(have_op 'outfile')
+# Connect to MySQL
+if(!$op{'infile'} && !$relative_infiles)
 {
-   if($WIN) { `move $tmpfile $op{outfile}`; }
-   else     { `mv $tmpfile $op{outfile}`;   }
+   my $dsn;
+
+   if($mycnf{'socket'} && -S $mycnf{'socket'})
+   {
+      $dsn = "DBI:mysql:mysql_socket=$mycnf{socket}";
+   }
+   elsif($mycnf{'host'})
+   {
+      $dsn = "DBI:mysql:host=$mycnf{host}" . ($mycnf{port} ? ";port=$mycnf{port}" : "");
+   }
+   else
+   {
+      $dsn = "DBI:mysql:host=localhost";
+   }
+
+   if($op{debug})
+   {
+      print "DBI DSN: $dsn\n";
+   }
+
+   $dbh = DBI->connect($dsn, $mycnf{'user'}, $mycnf{'pass'}) or die;
+}
+
+$have_innodb_vals = 1; # This might be set to 0 later in get_MySQL_version()
+
+if(defined $op{'r'})
+{
+   if($relative_live)
+   { 
+      print STDERR "mysqlreport is writing relative reports to '$tmpfile'.\n" unless $op{'detach'}; 
+      get_MySQL_version();
+      collect_reports();
+   }
+
+   if($relative_infiles) { read_relative_infiles(); }
 }
 else
 {
-   if($WIN) { `del $tmpfile`;   }
-   else     { `rm -f $tmpfile`; }
-}
-
-if(!have_op 'infile')
-{
-   if($op{'flush-status'})
+   if(!$op{'infile'})
    {
-      $query = $dbh->prepare("FLUSH STATUS;");
-      $query->execute();
+      get_MySQL_version();
+      get_vals();
+      get_vars();
+   }
+   else
+   {
+      read_infile($op{'infile'});
    }
 
-   $query->finish();
-   $dbh->disconnect();
+   get_Com_values();
+
+   set_myisam_vals();
+   set_ib_vals() if $have_innodb_vals;
+
+   write_report();
 }
+
+exit_tasks_and_cleanup();
 
 exit;
 
@@ -178,31 +192,29 @@ exit;
 sub show_help_and_exit
 {
    print <<"HELP";
-mysqlreport v3.0a Dec 12 2006
+mysqlreport v3.3 Jan 8 2008
 mysqlreport makes an easy-to-read report of important MySQL status values.
 
 Command line options (abbreviations work):
-   --user USER     Connect to MySQL as USER
-   --password PASS Use PASS or prompt for MySQL user's password
-   --host ADDRESS  Connect to MySQL at ADDRESS
-   --port PORT     Connect to MySQL at PORT
-   --socket SOCKET Connect to MySQL at SOCKET
-   --no-mycnf      Don't read ~/.my.cnf
-   --dtq           Show Distribution of Total Questions
-   --dms           Show DMS details
-   --com N         Show top N number of non-DMS questions
-   --sas           Show SELECT and Sort report
-   --tab           Show Thread, Aborts, and Bytes reports
-   --qcache        Show Query Cache report
-   --innodb        Show InnoDB report
-   --innodb-only   Show only InnoDB report (hide all other reports)
-   --dpr           Show Data, Pages, Rows report in InnoDB report
-   --all           Show --dms --com 3 --sas --qcache --innodb --dpr
-   --infile FILE   Read status values from FILE instead of MySQL
-   --outfile FILE  Write report to FILE
-   --email ADDRESS Email report to ADDRESS (doesn't work on Windows)
-   --flush-status  Issue FLUSH STATUS; after getting current values
-   --help          Prints this
+   --user USER       Connect to MySQL as USER
+   --password PASS   Use PASS or prompt for MySQL user's password
+   --host ADDRESS    Connect to MySQL at ADDRESS
+   --port PORT       Connect to MySQL at PORT
+   --socket SOCKET   Connect to MySQL at SOCKET
+   --no-mycnf        Don't read ~/.my.cnf
+   --infile FILE     Read status values from FILE instead of MySQL
+   --outfile FILE    Write report to FILE
+   --email ADDRESS   Email report to ADDRESS (doesn't work on Windows)
+   --flush-status    Issue FLUSH STATUS; after getting current values
+   --relative X      Generate relative reports. If X is an integer,
+                     reports are live from the MySQL server X seconds apart.
+                     If X is a list of infiles (file1 file2 etc.),
+                     reports are generated from the infiles in the order
+                     that they are given.
+   --report-count N  Collect N number of live relative reports (default 1)
+   --detach          Fork and detach from terminal (run in background)
+   --help            Prints this
+   --debug           Print debugging information
 
 Visit http://hackmysql.com/mysqlreport for more information.
 HELP
@@ -214,83 +226,252 @@ sub get_user_mycnf
 {
    return if $WIN;
    open MYCNF, "$ENV{HOME}/.my.cnf" or return;
-   while(<MYCNF>) { $mycnf{$1} = $2 if /^(.+?)\s*=\s*"?(.+?)"?\s*$/; }
+   while(<MYCNF>)
+   {
+      if(/^(.+?)\s*=\s*"?(.+?)"?\s*$/)
+      {
+         $mycnf{$1} = $2;
+         print "get_user_mycnf: read '$1 = $2'\n" if $op{debug};
+      }
+   }
    $mycnf{'pass'} ||= $mycnf{'password'} if exists $mycnf{'password'};
    close MYCNF;
 }
 
-sub which_vals
+sub collect_reports
 {
-   $need_myisam_vals = 1;
-   $need_innodb_vals = 1; # This could be set to 0 later in get_vals_vars()
+   my $i;
 
-   $need_myisam_vals = 0, return if have_op 'id-only';
-   $need_innodb_vals = 0, return if (!$op{'id'} && !$op{'id-only'} && !$op{'all'});
+   get_vals();
+   get_vars();
+
+   get_Com_values();
+
+   %stats_past = %stats;
+
+   set_myisam_vals();
+   set_ib_vals() if $have_innodb_vals;
+
+   print "#\n# Begining report @ 0 0:0:0\n#\n";
+
+   write_report();
+
+   for($i = 0; $i < $op{'c'}; $i++)
+   {
+      sleep($op{'r'});
+
+      print "\n#\n# Interval report " , $i + 1 , " @ +", sec_to_dhms(($i + 1) * $op{'r'}), "\n#\n";
+
+      get_vals();
+
+      write_relative_report();
+   }
 }
 
-sub get_vals_vars
+sub read_relative_infiles
 {
-   if(!have_op 'infile')
+   my $slurp;    # Used to check infiles for multiple sets of status values
+   my $n_stats;  # Number of multiple sets of status values in an infile
+   my $infile;
+   my $report_n; # Report number
+
+   $report_n = 1;
+
+   foreach $infile (@ARGV)
    {
-      my @row;
+      # Read all of infile into $slurp
+      open INFILE, "< $infile" or warn and next;
+      $slurp = do { local $/;  <INFILE> };
+      close INFILE;
 
-      get_MySQL_version();
+      $n_stats = 0;
 
-      # Get status values
-      if($major >= 5 && (($minor == 0 && $patch >= 2) || $minor > 0)) {
-         $query = $dbh->prepare("SHOW GLOBAL STATUS;");
+      # Count number of status value sets
+      $n_stats++ while $slurp =~ /Variable_name[\s|]+Value/g;
+
+      if($n_stats == 1)
+      {
+         read_infile($infile);
+         relative_infile_report($report_n++);
       }
-      else {
-         $query = $dbh->prepare("SHOW STATUS;");
-         $need_innodb_vals = 0;
-      }
-      $query->execute();
-      while(@row = $query->fetchrow_array()) { $stats{$row[0]} = $row[1]; }
 
-      # Get server system variables
-      $query = $dbh->prepare("SHOW VARIABLES;");
-      $query->execute();
-      while(@row = $query->fetchrow_array()) { $vars{$row[0]} = $row[1]; }
+      if($n_stats > 1)
+      {
+         my @tmpfile_fh;
+         my @tmpfile_name;
+         my $i;
+         my $stat_n;  # Status value set number
+
+         # Create a tmp file for each set of status values
+         for($i = 0; $i < $n_stats; $i++)
+         {
+            my ($fh, $name) = tempfile() or die("Cannot open temporary file for writing: $!\n");
+            push(@tmpfile_fh, $fh);
+            push(@tmpfile_name, $name);
+         }
+
+         $i = 0;
+         $stat_n = 0;
+
+         select $tmpfile_fh[$i];
+
+         # Read infile again and copy each set of status values
+         # to seperate tmp files
+         open INFILE, "< $infile" or warn and next;
+         while(<INFILE>)
+         {
+            next if /^\+/;
+            next if /^$/;
+
+            print;
+
+            if(/Variable_name[\s|]+Value/)
+            {
+               # The infile should begin with manually inserted system
+               # var values (like key_buffer_size = 128M). Therefore,
+               # the first occurance of /Variable_name[\s|]+Value/ indicates
+               # the first set of status values only if no sets have
+               # occured yet ($stat_n = 0). In this case, the following
+               # status values are printed to the current fh along with
+               # the system var values read so far until /Variable_name[\s|]+Value/
+               # occurs again. Then begins the second and subsequent sets
+               # of status values.
+               next if $stat_n++ == 0;
+
+               select $tmpfile_fh[++$i];
+            }
+         }
+         close INFILE;
+
+         # Re-select the main tmp file into which the reports are being written.
+         select $tmpfile_fh;
+
+         for($i = 0; $i < $n_stats; $i++)
+         {
+            close $tmpfile_fh[$i];
+
+            read_infile($tmpfile_name[$i]);
+            relative_infile_report($report_n++);
+
+            if($WIN) { `del $tmpfile_name[$i]`;   }
+            else     { `rm -f $tmpfile_name[$i]`; }
+         }
+
+      } # if($n_stats > 1)
+   } # foreach $infile (@files)
+}
+
+sub relative_infile_report
+{
+   my $report_n = shift;
+
+   if($report_n == 1)
+   {
+      get_Com_values();
+
+      %stats_past = %stats;
+
+      set_myisam_vals();
+      set_ib_vals() if $have_innodb_vals;
+
+      print "#\n# Begining report @ 0 0:0:0\n#\n";
+
+      write_report();
    }
    else
    {
-      # Default values if not set in INFILE
-      $vars{'version'} = "0.0.0";
-      $vars{'table_cache'} = 64;
-      $vars{'max_connections'} = 100;
-      # key_cache_block_size
-      $vars{'key_buffer_size'} = 8388600; # 8M
-      # query_cache_size
-      $vars{'thread_cache_size'} = 0;
-
-      open INFILE, "< $op{infile}" or die;
-      while(<INFILE>)
-      {
-         next if /^\+\-/;
-         next if /^$/;
-
-         chomp;
-
-         if(/([A-Za-z_]+)[\s|]+(\d+)/)
-         {
-            $stats{$1} = $2;
-            next; 
-         }
-
-         # Explicit var = val (e.g. key_buffer_size = 128M)
-         $vars{$1} = ($3 ? $2 * 1024 * 1024 : $2) and next if(/^\s*(\w+)\s*=\s*([0-9.]+)(M*)\s*$/);
-         
-         # print "Unrecognized line in infile: $_\n";
-      }
-      close INFILE;
-
-      get_MySQL_version();
+      print "\n#\n# Interval report $report_n @ +" , sec_to_dhms($stats{Uptime} - $stats_past{Uptime}), "\n#\n";
+      write_relative_report();
    }
+}
+
+sub get_vals
+{
+   my @row;
+
+   # Get status values
+   if($major >= 5 && (($minor == 0 && $patch >= 2) || $minor > 0))
+   {
+      $query = $dbh->prepare("SHOW GLOBAL STATUS;");
+   }
+   else
+   {
+      $query = $dbh->prepare("SHOW STATUS;");
+   }
+   $query->execute();
+   while(@row = $query->fetchrow_array()) { $stats{$row[0]} = $row[1]; }
+
+   $real_uptime = $stats{'Uptime'};
+}
+
+sub get_vars
+{
+   my @row;
+
+   # Get server system variables
+   $query = $dbh->prepare("SHOW VARIABLES;");
+   $query->execute();
+   while(@row = $query->fetchrow_array()) { $vars{$row[0]} = $row[1]; }
+
+   # table_cache was renamed to table_open_cache in MySQL 5.1.3
+   if($major >= 5 && (($minor == 1 && $patch >= 3) || $minor > 1))
+   {
+      $vars{'table_cache'} = $vars{'table_open_cache'};
+   }
+}
+
+sub read_infile
+{
+   my $infile = shift;
+
+   # Default values if not set in INFILE
+   $vars{'version'} = "0.0.0"         if !exists $vars{'version'};
+   $vars{'table_cache'} = 64          if !exists $vars{'table_cache'};
+   $vars{'max_connections'} = 100     if !exists $vars{'max_connections'};
+   $vars{'key_buffer_size'} = 8388600 if !exists $vars{'key_buffer_size'}; # 8M
+   $vars{'thread_cache_size'} = 0     if !exists $vars{'thread_cache_size'}; 
+   $vars{'tmp_table_size'} = 0        if !exists $vars{'tmp_table_size'};
+   $vars{'long_query_time'} = '?'     if !exists $vars{'long_query_time'};
+   $vars{'log_slow_queries'} = '?'    if !exists $vars{'log_slow_queries'};
+
+   # One should also add:
+   #    key_cache_block_size
+   #    query_cache_size
+   # to their infile if needed.
+
+   open INFILE, "< $infile" or warn;
+   while(<INFILE>)
+   {
+      next if /^\+\-/;
+      next if /^$/;
+
+      chomp;
+
+      if(/([A-Za-z_]+)[\s\t|]+(\d+)/)
+      {
+         $stats{$1} = $2;
+         next;
+      }
+
+      # Explicit var = val (e.g. key_buffer_size = 128M)
+      $vars{$1} = ($3 ? $2 * 1024 * 1024 : $2) and next if(/^\s*(\w+)\s*=\s*([0-9.]+)(M*)\s*$/);
+
+      # print "Unrecognized line in infile: $_\n";
+   }
+   close INFILE;
+
+   $real_uptime = $stats{'Uptime'};
+
+   $vars{'table_cache'} = $vars{'table_open_cache'} if exists $vars{'table_open_cache'};
+
+   get_MySQL_version();
 }
 
 sub get_MySQL_version
 {
-   if(have_op 'infile')
+   return if $major;
+
+   if($op{'infile'} || $relative_infiles)
    {
       ($major, $minor, $patch) = ($vars{'version'} =~ /(\d{1,2})\.(\d{1,2})\.(\d{1,2})/);
    }
@@ -303,20 +484,27 @@ sub get_MySQL_version
       @row = $query->fetchrow_array();
       ($major, $minor, $patch) = ($row[1] =~ /(\d{1,2})\.(\d{1,2})\.(\d{1,2})/);
    }
+
+   # Innodb_ status values were added in 5.0.2
+   if($major <= 4 || $patch < 2)
+   {
+      $have_innodb_vals = 0;
+      print "get_MySQL_version: no InnoDB reports because MySQL version is older than 5.0.2\n" if $op{debug};
+   }
 }
 
 sub set_myisam_vals
 {
    $questions = $stats{'Questions'};
 
-   $key_read_ratio = sprintf "%.3f",
+   $key_read_ratio = sprintf "%.2f",
                      ($stats{'Key_read_requests'} ?
-                      $stats{'Key_reads'} / $stats{'Key_read_requests'} :
+                      100 - ($stats{'Key_reads'} / $stats{'Key_read_requests'}) * 100 :
                       0);
 
-   $key_write_ratio = sprintf "%.3f",
+   $key_write_ratio = sprintf "%.2f",
                       ($stats{'Key_write_requests'} ?
-                       $stats{'Key_writes'} / $stats{'Key_write_requests'} :
+                       100 - ($stats{'Key_writes'} / $stats{'Key_write_requests'}) * 100 :
                        0);
 
    $key_cache_block_size = (defined $vars{'key_cache_block_size'} ?
@@ -325,14 +513,16 @@ sub set_myisam_vals
 
    $key_buffer_used = $stats{'Key_blocks_used'} * $key_cache_block_size;
 
-   if(defined $stats{'Key_blocks_unused'}) { # MySQL 4.1.2+
+   if(defined $stats{'Key_blocks_unused'}) # MySQL 4.1.2+
+   {
       $key_buffer_usage =  $vars{'key_buffer_size'} -
                            ($stats{'Key_blocks_unused'} * $key_cache_block_size);
    }
    else { $key_buffer_usage = -1; }
 
    # Data Manipulation Statements: http://dev.mysql.com/doc/refman/5.0/en/data-manipulation.html
-   %DMS_vals = (
+   %DMS_vals =
+   (
       SELECT  => $stats{'Com_select'},
       INSERT  => $stats{'Com_insert'}  + $stats{'Com_insert_select'},
       REPLACE => $stats{'Com_replace'} + $stats{'Com_replace_select'},
@@ -343,6 +533,9 @@ sub set_myisam_vals
    );
 
    $dms = $DMS_vals{SELECT} + $DMS_vals{INSERT} + $DMS_vals{REPLACE} + $DMS_vals{UPDATE} + $DMS_vals{DELETE};
+
+   $slow_query_t = "($vars{long_query_time})";
+
 }
 
 sub set_ib_vals
@@ -357,6 +550,62 @@ sub set_ib_vals
                        ($stats{'Innodb_buffer_pool_read_requests'} ?
                         $stats{'Innodb_buffer_pool_reads'} / $stats{'Innodb_buffer_pool_read_requests'} :
                         0);
+}
+
+sub write_relative_report
+{
+      %stats_present = %stats;
+
+      for(keys %stats)
+      {
+         if($stats_past{$_} =~ /\d+/)
+         {
+            if($stats_present{$_} >= $stats_past{$_}) # Avoid negative values
+            {
+               $stats{$_} = $stats_present{$_} - $stats_past{$_};
+            }
+         }
+      }
+
+      # These values are either "at present" or "high water marks".
+      # IMO, it is more logical not to relativize these values. Doing
+      # otherwise causes them to display strange and misleading values.
+      $stats{'Key_blocks_used'}      = $stats_present{'Key_blocks_used'};
+      $stats{'Open_tables'}          = $stats_present{'Open_tables'};
+      $stats{'Max_used_connections'} = $stats_present{'Max_used_connections'};
+      $stats{'Threads_running'}      = $stats_present{'Threads_running'};
+      $stats{'Threads_connected'}    = $stats_present{'Threads_connected'};
+      $stats{'Threads_cached'}       = $stats_present{'Threads_cached'};
+      $stats{'Qcache_free_blocks'}   = $stats_present{'Qcache_free_blocks'};
+      $stats{'Qcache_total_blocks'}  = $stats_present{'Qcache_total_blocks'};
+      $stats{'Qcache_free_memory'}   = $stats_present{'Qcache_free_memory'};
+
+      get_Com_values();
+
+      %stats_past = %stats_present;
+
+      set_myisam_vals();
+      set_ib_vals() if $have_innodb_vals;
+
+      write_report();
+}
+
+sub write_report
+{
+   $~ = 'MYSQL_TIME', write;
+   $~ = 'KEY_BUFF_MAX', write;
+   if($key_buffer_usage != -1) { $~ = 'KEY_BUFF_USAGE', write }
+   $~ = 'KEY_RATIOS', write;
+   write_DTQ();
+   $~ = 'SLOW_DMS', write;
+   write_DMS();
+   write_Com();
+   $~ = 'SAS', write; 
+   write_qcache(); 
+   $~ = 'REPORT_END', write;
+   $~ = 'TAB', write;
+
+   write_InnoDB() if $have_innodb_vals;
 }
 
 sub sec_to_dhms # Seconds to days hours:minutes:seconds
@@ -423,7 +672,7 @@ sub email_report # Email given report to $op{'email'}
    open SENDMAIL, "|/usr/sbin/sendmail -t";
    print SENDMAIL "From: mysqlreport\n";
    print SENDMAIL "To: $op{email}\n";
-   print SENDMAIL "Subject: MySQL status report on $mycnf{'host'}\n\n";
+   print SENDMAIL "Subject: MySQL status report on " . ($mycnf{'host'} || 'localhost') . "\n\n";
    print SENDMAIL `cat $report`;
    close SENDMAIL;
 }
@@ -441,6 +690,8 @@ sub cat_report # Print given report to screen
 
 sub get_Com_values
 {
+   %Com_vals = ();
+
    # Make copy of just the Com_ values
    for(keys %stats)
    {
@@ -470,8 +721,6 @@ sub write_DTQ # Write DTQ report in descending order by values
    my %DTQ;
    my $first = 1;
 
-   get_Com_values();
-
    # Total Com values
    $stat_val = 0;
    for(values %Com_vals) { $stat_val += $_; }
@@ -483,7 +732,8 @@ sub write_DTQ # Write DTQ report in descending order by values
 
    $stat_val = 0;
    for(values %DTQ) { $stat_val += $_; }
-   if($questions != $stat_val) {
+   if($questions != $stat_val)
+   {
       $DTQ{($questions > $stat_val ? '+Unknown' : '-Unknown')} = abs $questions - $stat_val;
    }
 
@@ -512,9 +762,9 @@ sub write_DMS # Write DMS report in descending order by values
 
 sub write_Com # Write COM report in descending order by values
 {
-   $~ = 'COM_1';
+   my $i = $op{'com'};
 
-   get_Com_values() if !$op{'dtq'};
+   $~ = 'COM_1';
 
    # Total Com values and write first line of COM report
    $stat_label = '%Total:' unless $op{'dtq'};
@@ -531,7 +781,7 @@ sub write_Com # Write COM report in descending order by values
       $stat_val  = $Com_vals{$_};
       write;
 
-      last if !(--$op{'com'});
+      last if !(--$i);
    }
 }
 
@@ -569,11 +819,9 @@ sub write_InnoDB
       write;
    }
 
-   if($op{'dpr'} || $op{'all'}) # Data, Pages, Rows
-   {
-      $~ = 'IB_DPR';
-      write;
-   }
+   # Data, Pages, Rows
+   $~ = 'IB_DPR';
+   write;
 }
 
 sub have_op
@@ -583,6 +831,45 @@ sub have_op
    return 0;
 }
 
+sub sig_handler
+{
+   print "\nReceived signal at " , scalar localtime , "\n";
+   exit_tasks_and_cleanup();
+   exit;
+}
+
+sub exit_tasks_and_cleanup
+{
+   close $tmpfile_fh;
+   select STDOUT unless $op{'detach'};
+
+   email_report($tmpfile) if $op{'email'};
+
+   cat_report($tmpfile) unless $op{'detach'};
+
+   if($op{'outfile'})
+   {
+      if($WIN) { `move $tmpfile $op{outfile}`; }
+      else     { `mv $tmpfile $op{outfile}`;   }
+   }
+   else
+   {
+      if($WIN) { `del $tmpfile`;   }
+      else     { `rm -f $tmpfile`; }
+   }
+
+   if(!$op{'infile'} && !$relative_infiles)
+   {
+      if($op{'flush-status'})
+      {
+         $query = $dbh->prepare("FLUSH STATUS;");
+         $query->execute();
+      }
+
+      $query->finish();
+      $dbh->disconnect();
+   }
+}
 
 #
 # Formats
@@ -590,7 +877,7 @@ sub have_op
 
 format MYSQL_TIME =
 MySQL @<<<<<<<<<<<<<<<<  uptime @<<<<<<<<<<<   @>>>>>>>>>>>>>>>>>>>>>>>>
-$vars{'version'}, sec_to_dhms($stats{'Uptime'}), scalar localtime
+$vars{'version'}, sec_to_dhms($real_uptime), (($op{infile} || $relative_infiles) ? '' : scalar localtime)
 .
 
 format KEY_BUFF_MAX =
@@ -606,9 +893,9 @@ make_short($key_buffer_usage, 1), perc($key_buffer_usage, $vars{'key_buffer_size
 .
 
 format KEY_RATIOS =
-Write ratio   @>>>>>>
+Write hit     @>>>>>%
 $key_write_ratio
-Read ratio    @>>>>>>
+Read hit      @>>>>>%
 $key_read_ratio
 
 __ Questions ___________________________________________________________
@@ -622,8 +909,8 @@ $stat_name, make_short($stat_val), t($stat_val), $stat_label, perc($stat_val, $q
 .
 
 format SLOW_DMS =
-Slow        @>>>>>>>>  @>>>>>/s  @>>>>>> @>>>>>  %DMS: @>>>>>
-make_short($stats{'Slow_queries'}), t($stats{'Slow_queries'}), ($op{'dtq'} || $op{'all'} ? '' : '%Total:'), perc($stats{'Slow_queries'}, $questions), perc($stats{'Slow_queries'}, $dms)
+Slow @<<<<< @>>>>>>>>  @>>>>>/s  @>>>>>> @>>>>>  %DMS: @>>>>>  Log: @>> 
+$slow_query_t, make_short($stats{'Slow_queries'}), t($stats{'Slow_queries'}), ($op{'dtq'} || $op{'all'} ? '' : '%Total:'), perc($stats{'Slow_queries'}, $questions), perc($stats{'Slow_queries'}, $dms), $vars{'log_slow_queries'}
 DMS         @>>>>>>>>  @>>>>>/s          @>>>>>
 make_short($dms), t($dms), perc($dms, $questions)
 .
@@ -692,7 +979,7 @@ make_short($stats{'Table_locks_immediate'}), t($stats{'Table_locks_immediate'})
 
 __ Tables ______________________________________________________________
 Open        @>>>>>>>> of @>>>    %Cache: @>>>>>
-make_short($stats{'Open_tables'}), $vars{'table_cache'}, perc($stats{'Open_tables'}, $vars{'table_cache'})
+$stats{'Open_tables'}, $vars{'table_cache'}, perc($stats{'Open_tables'}, $vars{'table_cache'})
 Opened      @>>>>>>>>  @>>>>>/s
 make_short($stats{'Opened_tables'}), t($stats{'Opened_tables'})
 
@@ -705,8 +992,8 @@ make_short($stats{'Connections'}), t($stats{'Connections'})
 __ Created Temp ________________________________________________________
 Disk table  @>>>>>>>>  @>>>>>/s
 make_short($stats{'Created_tmp_disk_tables'}), t($stats{'Created_tmp_disk_tables'})
-Table       @>>>>>>>>  @>>>>>/s
-make_short($stats{'Created_tmp_tables'}), t($stats{'Created_tmp_tables'})
+Table       @>>>>>>>>  @>>>>>/s    Size: @>>>>>
+make_short($stats{'Created_tmp_tables'}), t($stats{'Created_tmp_tables'}), make_short($vars{'tmp_table_size'}, 1)
 File        @>>>>>>>>  @>>>>>/s
 make_short($stats{'Created_tmp_files'}), t($stats{'Created_tmp_files'})
 .
@@ -799,8 +1086,8 @@ make_short($stats{'Innodb_data_fsyncs'}), t($stats{'Innodb_data_fsyncs'})
 $stats{'Innodb_data_pending_reads'}, t($stats{'Innodb_data_pending_reads'})
     Writes  @>>>>>>>>
 $stats{'Innodb_data_pending_writes'}, t($stats{'Innodb_data_pending_writes'})
-    fysnc   @>>>>>>>>
-$stats{'Innodb_data_pending_fsyncs'}, t($stats{'Innodb_data_pending_fysncs'})
+    fsync   @>>>>>>>>
+$stats{'Innodb_data_pending_fsyncs'}, t($stats{'Innodb_data_pending_fsyncs'})
 
 Pages
   Created   @>>>>>>>>  @>>>>>/s
@@ -820,4 +1107,3 @@ make_short($stats{'Innodb_rows_read'}), t($stats{'Innodb_rows_read'})
   Updated   @>>>>>>>>  @>>>>>/s
 make_short($stats{'Innodb_rows_updated'}), t($stats{'Innodb_rows_updated'})
 .
-
