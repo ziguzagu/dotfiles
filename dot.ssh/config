@@ -1,3 +1,7 @@
 Host *
 ControlMaster auto
 ControlPath /tmp/%r@%h:%p
+
+Host sakura
+HostName www828.sakura.ne.jp
+User ziguzagu
