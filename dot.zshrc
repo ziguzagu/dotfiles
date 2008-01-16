@@ -3,6 +3,8 @@
 ## completion
 autoload -U compinit
 compinit
+# case insensitive
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 ## alias
 setopt complete_aliases
