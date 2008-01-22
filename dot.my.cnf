@@ -1,2 +1,3 @@
 [mysql]
-prompt="\d> "
+prompt="\u@\h:\d> "
+auto-rehash
