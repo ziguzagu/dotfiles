@@ -6,10 +6,11 @@ compinit
 # case insensitive
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
+
 ## alias
 setopt complete_aliases
 alias ec="emacsclient -n"
-alias ls="ls -F"
+alias ls="ls -F --color=auto"
 alias l="ls -l"
 alias ll="ls -al"
 alias sc="screen -xRU"
@@ -31,6 +32,9 @@ alias -g M="| more"
 alias -g L="| lv"
 alias -g G="| grep"
 alias -g GV="| grep -v"
+
+## colors
+eval $(dircolors -b)
 
 ## sets keybind like emacs
 bindkey -e
