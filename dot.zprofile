@@ -57,5 +57,8 @@ if [[ -n $WINDOW ]]; then
     chpwd
 fi
 
+## change the terminal window title
+precmd() { echo -n "\e]0;$USERNAME@$HOST\a" }
+
 ## at sixapart
 [ -f .zprofile.6a ] && source .zprofile.6a
