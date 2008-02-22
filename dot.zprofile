@@ -22,7 +22,7 @@ fi
 
 ## changing title of screen's window by preexec()
 if [[ -n $WINDOW ]]; then
-    chpwd () { echo -n "_`dirs`\\" }
+#    chpwd () { echo -n "_`dirs`\\" }
     preexec() {
         emulate -L zsh
         local -a cmd; cmd=(${(z)2})
@@ -54,7 +54,7 @@ if [[ -n $WINDOW ]]; then
             cmd=(${(z)${(e):-\$jt$num}})
             echo -n "k$cmd[1]:t\\") 2>/dev/null
     }
-    chpwd
+#    chpwd
 fi
 
 ## change the terminal window title
