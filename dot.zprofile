@@ -1,3 +1,4 @@
+## -*- mode: shell-script; -*-
 ## $Id$
 
 MYPATH=~/bin

@@ -1,3 +1,4 @@
+## -*- mode: shell-script; -*-
 ## $Id$
 
 export LANGUAGE=ja_JP:ja:en_GB:en
