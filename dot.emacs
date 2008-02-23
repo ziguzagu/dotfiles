@@ -527,7 +527,7 @@
 ;; (when v21
 ;;   (require 'vc-svn)
 ;;   (require 'psvn))
-;; (require 'vc-svk)
+(require 'vc-svk)
 (require 'svk-ediff)
 
 
@@ -548,3 +548,14 @@
   ;; 文字色
   (setq sdic-face-color "brightmagenta")
   )
+
+
+;;;;;; faces for diff-mode
+(custom-set-faces
+ '(diff-file-header ((t (:foreground "white"))))
+ '(diff-header      ((t (:background "grey30" :foreground "white"))))
+ '(diff-context     ((t (:inherit shadow :foreground "grey52"))))
+ '(diff-changed     ((t (:background "brightgreen" :foreground "black"))))
+ '(diff-added       ((t (:inherit diff-changed :background "color-150"))))
+ '(diff-removed     ((t (:inherit diff-changed :background "color-211"))))
+ )
