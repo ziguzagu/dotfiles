@@ -10,7 +10,11 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 ## alias
 setopt complete_aliases
 alias ec="emacsclient -n"
-alias ls="ls -F --color=auto"
+if [ $HOSTTYPE='FreeBSD' ]; then
+    alias ls="ls -FG"
+else
+    alias ls="ls -F --color=auto"
+fi
 alias l="ls -l"
 alias ll="ls -al"
 alias sc="screen -xRU"
