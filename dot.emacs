@@ -238,6 +238,10 @@
 ;;;;;; snippet
 (require 'snippet)
 (setq-default abbrev-mode t)
+(snippet-with-abbrev-table 'global-abbrev-table
+                           ("tt" . "[% $${val} %]$.")
+                           ("ttfor" . "[% FOR $${local} IN $${val} -%]\n$>$.")
+                           ("ttend" . "[%- END %]\n$."))
 
 
 ;;;;;; cperl-mode
