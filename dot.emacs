@@ -264,6 +264,7 @@
             (set-face-foreground 'cperl-nonoverridable-face "goldenrod")
             (define-key cperl-mode-map "\M-." 'cperl-perldoc-at-point)
             (define-key cperl-mode-map "\C-co" 'cperl-perldoc)
+            (define-key cperl-mode-map "\C-ct" 'perltidy-region)
             ))
 (setq auto-mode-alist
       (append '(("\\.cgi$" . cperl-mode)
