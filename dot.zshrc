@@ -81,6 +81,7 @@ fi
 #PROMPT='%{[36m%}[%n@%m]%{[m%}%# '
 #RPROMPT='%{[33m%}[%(5~,%-2~/.../%2~,%~)]%{[m%}'
 PROMPT=$'\n''%{[33m%}%~'$'\n''%{[m%}%# '
+RPROMPT='%{[36m%}[%m]%{[m%}'
 
 ## misc
 setopt correct
