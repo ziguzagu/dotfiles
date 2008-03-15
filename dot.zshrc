@@ -104,7 +104,6 @@ limit coredumpsize 0
 #     screen -t $server ssh "$@"
 # }
 # [[ -n $WINDOW ]] && alias ssh=ssh_screen
-which keychain && keychain ~/.ssh/id_rsa && source ~/.keychain/$HOST-sh
 
 ## dabbrev on screen
 HARDCOPYFILE=$HOME/.screen-hardcopy

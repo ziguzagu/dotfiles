@@ -1,14 +1,20 @@
 ## -*- mode: shell-script; -*-
 ## $Id$
 
+export LANGUAGE=ja_JP:ja:en_GB:en
+export LC_ALL=C
+export LANG=ja_JP.UTF-8
+
 MYPATH=~/bin
 [ -d ~/opt/bin ]      && MYPATH=$MYPATH:~/opt/bin
 [ -d ~/opt/flex/bin ] && MYPATH=$MYPATH:~/opt/flex/bin
 [ -d /var/lib/gems/1.8/bin ] && MYPATH=$MYPATH:/var/lib/gems/1.8/bin
 export PATH=$MYPATH:$PATH
+## for sakura
+[ -d ~/MailBox/$USER ] && export MAILPATH=~/MailBox/$USER/maildir
+[ -d ~/opt/cpan-lib ]  && export PERL5LIB=~/opt/cpan-lib:$PERL5LIB
 
 export SHELL=`which zsh`
-
 export PAGER=lv
 export EDITOR=emacsclient
 export SVN_EDITOR=emacsclient
@@ -17,9 +23,7 @@ export SVKMERGE=EmacsClient
 export REPOS=http://code.norainu.net/svn/
 
 ## colorization for grep
-if [ `uname` = "Linux" ]; then
-    export GREP_COLOR='07;33'
-fi
+[ `uname` = "Linux" ] && export GREP_COLOR='07;33'
 
 ## changing title of screen's window by preexec()
 if [[ -n $WINDOW ]]; then
