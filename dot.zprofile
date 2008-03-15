@@ -38,7 +38,7 @@ if [[ -n $WINDOW ]]; then
             %*)
                 cmd=(builtin jobs -l $cmd[1])
                 ;;
-            cd)
+            cd|ssh)
                 if (( $#cmd == 2)); then
                     cmd[1]=$cmd[2]
                 fi
