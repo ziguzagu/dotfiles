@@ -16,6 +16,9 @@
 (setq v22 (eq emacs-major-version '22))
 (setq v21 (eq emacs-major-version '21))
 
+;; using unsafe local variables..?
+(when v22
+  (setq safe-local-variable-values (quote ((syntax . elisp)))))
 
 ;;;;;; Languages
 (when v21
