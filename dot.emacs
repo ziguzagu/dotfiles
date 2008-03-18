@@ -212,6 +212,7 @@
 (ffap-bindings)
 (setq read-file-name-completion-ignore-case t)
 
+
 ;;;;;; shell
 ;; completation on shell-mode
 (setq shell-file-name-chars "~/A-Za-z0-9_^$!#%&{}@'`.,;()-")
@@ -238,13 +239,20 @@
 (setq auto-insert-query nil)
 
 
-;;;;;; snippet
+;;;;;; snippet and abbrev
 (require 'snippet)
 (setq-default abbrev-mode t)
 (snippet-with-abbrev-table 'global-abbrev-table
                            ("tt" . "[% $${val} %]$.")
                            ("ttfor" . "[% FOR $${local} IN $${val} -%]\n$>$.")
                            ("ttend" . "[%- END %]\n$."))
+
+
+;;;;;; generic config file
+(require 'generic-x)
+(setq auto-mode-alist
+      (append '(("\\.conf$" . default-generic-mode)
+                ("\\.cfg$"  . default-generic-mode)) auto-mode-alist))
 
 
 ;;;;;; cperl-mode
@@ -523,13 +531,6 @@
 (add-hook 'yaml-mode-hook
           '(lambda ()
              (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
-
-
-;;;;;; generic config file
-(autoload 'default-generic-mode "generic-x" nil t)
-(setq auto-mode-alist
-      (append '(("\\.conf$" . default-generic-mode)
-                ("\\.cfg$"  . default-generic-mode)) auto-mode-alist))
 
 
 ;; ;;;;;; svn/svk staff
