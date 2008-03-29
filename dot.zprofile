@@ -14,12 +14,14 @@ export PATH=$MYPATH:$PATH
 [ -d ~/MailBox/$USER ] && export MAILPATH=~/MailBox/$USER/maildir
 [ -d ~/opt/cpan-lib ]  && export PERL5LIB=~/opt/cpan-lib:$PERL5LIB
 
+## common environment values
 export SHELL=`which zsh`
-export PAGER=lv
+which lv >& /dev/null && export PAGER=lv
 export EDITOR=emacsclient
 export SVN_EDITOR=emacsclient
 export SVKMERGE=EmacsClient
 
+## my
 export REPOS=http://code.norainu.net/svn/
 
 ## colorization for grep
