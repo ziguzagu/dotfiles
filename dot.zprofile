@@ -22,7 +22,7 @@ export SVN_EDITOR=emacsclient
 export SVKMERGE=EmacsClient
 
 ## my
-export REPOS=http://code.norainu.net/svn/
+export REPOS=http://code.norainu.net/svn
 
 ## colorization for grep
 [ `uname` = "Linux" ] && export GREP_COLOR='07;33'
