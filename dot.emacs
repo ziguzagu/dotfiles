@@ -184,7 +184,7 @@
 (setq resize-mini-windows nil)
 ;; color
 (when v22
-  (set-face-foreground 'minibuffer-prompt "cyan1"))
+  (set-face-foreground 'minibuffer-prompt "yellow"))
 ;; incremental-searching on minibuffer history
 ;;   elisp: http://www.sodan.org/~knagano/emacs/minibuf-isearch/
 ;; (require 'minibuf-isearch)
