@@ -160,7 +160,7 @@
 (recentf-mode 1)
 (setq recentf-max-menu-items 10)
 (setq recentf-max-saved-items 15)
-(define-key global-map "\C-@" 'recentf-open-files)
+(define-key global-map "\C-cr" 'recentf-open-files)
 
 
 ;;;;;; modeline
