@@ -150,6 +150,17 @@
 (temp-buffer-resize-mode 1)
 ;; woman
 (global-set-key "\C-cm" 'woman)
+;; turn off vbell
+(setq visible-bell nil)
+;; re-load a file when it was changed by another process
+(global-auto-revert-mode t)
+
+
+;;;;;; recent file mode
+(recentf-mode 1)
+(setq recentf-max-menu-items 10)
+(setq recentf-max-saved-items 15)
+(define-key global-map "\C-@" 'recentf-open-files)
 
 
 ;;;;;; modeline
@@ -361,6 +372,9 @@
                                        ("mtif"  . "<MTIfVar name=\"$${name}\">$${text}</MTIfVar>"))
             ))
 
+;;;;;; nxml/nxhtml mode
+;(load "~/.emacs.d/lisp/nxml/autostart.el")
+
 
 ;;;;;; css-mode
 (autoload 'css-mode "css-mode")
@@ -533,10 +547,7 @@
              (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 
 
-;; ;;;;;; svn/svk staff
-;; (when v21
-;;   (require 'vc-svn)
-;;   (require 'psvn))
+;;;;;; svn/svk staff
 (require 'vc-svk)
 (require 'svk-ediff)
 
