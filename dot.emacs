@@ -150,8 +150,8 @@
 (temp-buffer-resize-mode 1)
 ;; woman
 (global-set-key "\C-cm" 'woman)
-;; turn off vbell
-(setq visible-bell nil)
+;; turn off both beep and visual bell.
+(setq ring-bell-function 'ignore)
 ;; re-load a file when it was changed by another process
 (global-auto-revert-mode t)
 
