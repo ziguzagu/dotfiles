@@ -24,8 +24,9 @@ export SVKMERGE=EmacsClient
 ## my
 export REPOS=http://code.norainu.net/svn
 
-## colorization for grep
-[ `uname` = "Linux" ] && export GREP_COLOR='07;33'
+## grep
+export GREP_COLOR='07;33'
+export GREP_OPTIONS='--exclude=\*/.svn/\*'
 
 ## changing title of screen's window by preexec()
 if [[ -n $WINDOW ]]; then

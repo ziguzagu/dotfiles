@@ -1,12 +1,13 @@
 ## $Id$
 
 #### alias
-alias ls="ls -F"
+alias ls="ls -F --color=auto"
 alias l="ls -l"
 alias ll="ls -al"
 alias sc="screen -xRU"
 alias gv="grep -v .svn"
-alias lv="lv -c"
+alias lv="lv -c -Ou8"
+alias less="less -gj10"
 alias vs="svn status -u"
 alias lc="tr '[:upper:]' '[:lower:]'"
 alias uc="tr '[:lower:]' '[:upper:]'"

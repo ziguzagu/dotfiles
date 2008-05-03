@@ -39,9 +39,6 @@ alias -g L="| lv"
 alias -g G="| grep"
 alias -g GV="| grep -v"
 
-## colors
-which dircolors > /dev/null && eval $(dircolors -b)
-
 ## sets keybind like emacs
 bindkey -e
 
