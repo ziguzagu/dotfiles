@@ -86,19 +86,19 @@ enable-auto-props = yes
 ### Note that auto-props functionality must be enabled, which
 ### is typically done by setting the 'enable-auto-props' option.
 [auto-props]
-*.c = svn:eol-style=native
-*.cpp = svn:eol-style=native
-*.h = svn:eol-style=native
+*.c = svn:eol-style=native;svn:keywords=Id
+*.cpp = svn:eol-style=native;svn:keywords=Id
+*.h = svn:eol-style=native;svn:keywords=Id
 *.dsp = svn:eol-style=CRLF
 *.dsw = svn:eol-style=CRLF
-*.sh = svn:eol-style=native;svn:executable
+*.sh = svn:eol-style=native;svn:keywords=Id;svn:executable
 *.txt = svn:eol-style=native
 *.png = svn:mime-type=image/png
 *.jpg = svn:mime-type=image/jpeg
 *.gif = svn:mime-type=image/gif
-Makefile = svn:eol-style=native
-*.pl = svn:eol-style=native;svn:executable
-*.pm = svn:eol-style=native
-*.cgi = svn:eol-style=native;svn:executable
+Makefile = svn:eol-style=native;svn:keywords=Id
+*.pl = svn:eol-style=native;svn:keywords=Id;svn:executable
+*.pm = svn:eol-style=native;svn:keywords=Id
+*.cgi = svn:eol-style=native;svn:keywords=Id;svn:executable
 *.yaml = svn:eol-style=native
-*.t = svn:eol-style=native
+*.t = svn:eol-style=native;svn:keywords=Id
