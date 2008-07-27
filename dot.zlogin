@@ -1,7 +1,7 @@
 ## -*- mode: shell-script; -*-
 ## $Id$
 
-which keychain >& /dev/null || exit
+which keychain >& /dev/null || return
 
 for key in $HOME/.ssh/id_rsa $HOME/.ssh/id_rsa-6a
 do
