@@ -1,3 +1,3 @@
 local: ~/minicpan
-remote: http://ftp.dti.ad.jp/pub/lang/CPAN/
+remote: http://ftp.riken.jp/lang/CPAN/
 exact_mirror: 1
