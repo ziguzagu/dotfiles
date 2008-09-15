@@ -257,8 +257,7 @@
                            ("ttv" . "[% $${val} %]$.")
                            ("ttfor" . "[% FOR $${local} IN $${val} -%]\n$>$.\n$>[%- END %]\n")
                            ("ttif" . "[% IF $${condition} -%]\n$>$.\n[%- END %]\n")
-                           ("ttunless" . "[% UNLESS $${condition} -%]\n$>$.\n[%- END %]\n")
-                           )
+                           ("ttunless" . "[% UNLESS $${condition} -%]\n$>$.\n[%- END %]\n"))
 
 
 ;;;;;; generic config file
@@ -310,8 +309,7 @@
                            ("formy" . "for my $${val} ($${array}) {\n$>$.\n}")
                            ;; for Moose
                            ("mhas" . "has '$${name}' => (is => 'rw', isa => '$${type}'$.);\n")
-                           ("msubtype" . "subtype '$${type}'\n$>=> as '$${belongs to}'\n$>=> where { $${constraints of construction} };\n")
-                           )
+                           ("msubtype" . "subtype '$${type}'\n$>=> as '$${belongs to}'\n$>=> where { $${constraints of construction} };\n"))
 ;; perltidy region
 (defun perltidy-region (beg end)
   (interactive "r")
@@ -366,23 +364,20 @@
 ;; urlencode
 (load "urlencode")
 ;; snippet
-(add-hook 'html-helper-mode-hook
-          (lambda ()
-            (snippet-with-abbrev-table 'html-helper-mode-abbrev-table
-                                       ;; basics
-                                       ("hthref" . "<a href=\"$${url}\" title=\"$${title}\">$${text}</a>")
-                                       ("htinput" . "<input type=\"$${type}\" name=\"$${name}\" value=\"$${value}\" />")
-                                       ("htimg" . "<img src=\"$${url}\" alt=\"$${alt}\" />")
-                                       ("htform" . "<form action=\"$${url}\" method=\"$${get or post}\">\n$>$.\n$></form>\n")
-                                       ;; for HTML::Template
-                                       ("htincl" . "<TMPL_INCLUDE NAME=\"$${tmpl}\">")
-                                       ("htvar" . "<TMPL_VAR NAME=$${var}>")
-                                       ;; for TP/MT templates
-                                       ("httrans" . "<MT_TRANS phrase=\"$${var}\">")
-                                       ("mtset" . "<$MTSetVar name=\"$${name}\" value=\"$${value}\"$>")
-                                       ("mtget" . "<$MTGetVar name=\"$${name}\"$>")
-                                       ("mtif"  . "<MTIfVar name=\"$${name}\">$${text}</MTIfVar>"))
-            ))
+(snippet-with-abbrev-table 'html-helper-mode-abbrev-table
+                           ;; basics
+                           ("hthref" . "<a href=\"$${url}\" title=\"$${title}\">$${text}</a>")
+                           ("htinput" . "<input type=\"$${type}\" name=\"$${name}\" value=\"$${value}\" />")
+                           ("htimg" . "<img src=\"$${url}\" alt=\"$${alt}\" />")
+                           ("htform" . "<form action=\"$${url}\" method=\"$${get or post}\">\n$>$.\n$></form>\n")
+                           ;; for HTML::Template
+                           ("htincl" . "<TMPL_INCLUDE NAME=\"$${tmpl}\">")
+                           ("htvar" . "<TMPL_VAR NAME=$${var}>")
+                           ;; for TP/MT templates
+                           ("httrans" . "<MT_TRANS phrase=\"$${var}\">")
+                           ("mtset" . "<$MTSetVar name=\"$${name}\" value=\"$${value}\"$>")
+                           ("mtget" . "<$MTGetVar name=\"$${name}\"$>")
+                           ("mtif"  . "<MTIfVar name=\"$${name}\">$${text}</MTIfVar>"))
 
 ;;;;;; nxml/nxhtml mode
 ;(load "~/.emacs.d/lisp/nxml/autostart.el")
