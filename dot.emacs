@@ -242,7 +242,7 @@
       (nconc '(("\\.cgi$" . "perl.pl")
                ("\\.pl$" . "perl.pl")
                ("\\.pm$" . "perl.pm")
-               ("\\.t$" . "perl.pl")
+               ("\\.t$" . "perl.t")
                ("\\.html$" . "html.html")
                ("\\.tt$" . "html.html"))
              auto-insert-alist))
