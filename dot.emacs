@@ -287,6 +287,7 @@
             (define-key cperl-mode-map "\M-." 'cperl-perldoc-at-point)
             (define-key cperl-mode-map "\C-co" 'cperl-perldoc)
             (define-key cperl-mode-map "\C-ct" 'perltidy-region)
+            (define-key cperl-mode-map "\C-cT" 'perltidy-buffer)
             ))
 (setq auto-mode-alist
       (append '(("\\.cgi$" . cperl-mode)
