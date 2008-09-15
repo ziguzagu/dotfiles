@@ -304,7 +304,12 @@
 (defvar cperl-mode-abbrev-table nil)
 (define-abbrev-table 'cperl-mode-abbrev-table ())
 (snippet-with-abbrev-table 'cperl-mode-abbrev-table
-                           ("formy" . "for my $${val} ($${array}) {\n$>$.\n}"))
+                           ;; basics
+                           ("formy" . "for my $${val} ($${array}) {\n$>$.\n}")
+                           ;; for Moose
+                           ("mhas" . "has '$${name}' => (is => 'rw', isa => '$${type}');\n")
+                           ("msubtype" . "subtype '$${type}'\n$>$.=> as '$${belongs to}'\n$>$.=> where { $${constraints of construction} }\n$>$.;")
+                           )
 ;; perltidy region
 (defun perltidy-region (beg end)
   (interactive "r")
