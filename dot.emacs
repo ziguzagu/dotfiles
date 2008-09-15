@@ -301,15 +301,19 @@
       (substring real-file (string-match "/" real-file) -1)
       )))
 (add-to-list 'ffap-alist '(cperl-mode . ffap-cperl-mode))
-;; snippet
+;; snippets for perl
 (defvar cperl-mode-abbrev-table nil)
 (define-abbrev-table 'cperl-mode-abbrev-table ())
 (snippet-with-abbrev-table 'cperl-mode-abbrev-table
                            ;; basics
-                           ("formy" . "for my $${val} ($${array}) {\n$>$.\n}")
+                           ("pfor" . "for my $${var} ($${array}) {\n$>$.\n}")
+                           ("psub" . "sub $${name} {\n$>my $self = shift;\n$>$.\n}\n")
+                           ("pif" . "if ($${condition} {\n$>$.\n}\n")
+                           ("punless" . "unless ($${condition} {\n$>$.\n}\n")
                            ;; for Moose
-                           ("mhas" . "has '$${name}' => (is => 'rw', isa => '$${type}'$.);\n")
-                           ("msubtype" . "subtype '$${type}'\n$>=> as '$${belongs to}'\n$>=> where { $${constraints of construction} };\n"))
+                           ("phas" . "has '$${name}' => (is => 'rw', isa => '$${type}'$.);\n")
+                           ("psubtype" . "subtype '$${type}'\n$>=> as '$${belongs to}'\n$>=> where { $${constraints of construction} };\n")
+                           ("pcoerce" . "coerce '$${type}'\n$>=> from '$${from type 1}'\n$>    => via { $${construction code 1} }\n$>$>=> from '$${from type 2}'\n$>    => via { $${construction code 2} }\n$>;\n"))
 ;; perltidy region
 (defun perltidy-region (beg end)
   (interactive "r")
