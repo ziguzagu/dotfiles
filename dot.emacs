@@ -307,8 +307,8 @@
                            ;; basics
                            ("formy" . "for my $${val} ($${array}) {\n$>$.\n}")
                            ;; for Moose
-                           ("mhas" . "has '$${name}' => (is => 'rw', isa => '$${type}');\n")
-                           ("msubtype" . "subtype '$${type}'\n$>$.=> as '$${belongs to}'\n$>$.=> where { $${constraints of construction} }\n$>$.;\n")
+                           ("mhas" . "has '$${name}' => (is => 'rw', isa => '$${type}'$.);\n")
+                           ("msubtype" . "subtype '$${type}'\n$>=> as '$${belongs to}'\n$>=> where { $${constraints of construction} }\n$>;\n")
                            )
 ;; perltidy region
 (defun perltidy-region (beg end)
