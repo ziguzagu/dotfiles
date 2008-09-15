@@ -363,21 +363,24 @@
         (replace-match "&gt;" nil t)))))
 ;; urlencode
 (load "urlencode")
-;; snippet
-(snippet-with-abbrev-table 'html-helper-mode-abbrev-table
-                           ;; basics
-                           ("hthref" . "<a href=\"$${url}\" title=\"$${title}\">$${text}</a>")
-                           ("htinput" . "<input type=\"$${type}\" name=\"$${name}\" value=\"$${value}\" />")
-                           ("htimg" . "<img src=\"$${url}\" alt=\"$${alt}\" />")
-                           ("htform" . "<form action=\"$${url}\" method=\"$${get or post}\">\n$>$.\n$></form>\n")
-                           ;; for HTML::Template
-                           ("htincl" . "<TMPL_INCLUDE NAME=\"$${tmpl}\">")
-                           ("htvar" . "<TMPL_VAR NAME=$${var}>")
-                           ;; for TP/MT templates
-                           ("httrans" . "<MT_TRANS phrase=\"$${var}\">")
-                           ("mtset" . "<$MTSetVar name=\"$${name}\" value=\"$${value}\"$>")
-                           ("mtget" . "<$MTGetVar name=\"$${name}\"$>")
-                           ("mtif"  . "<MTIfVar name=\"$${name}\">$${text}</MTIfVar>"))
+;; snippets
+(add-hook 'html-helper-mode-hook
+          (lambda ()
+            (snippet-with-abbrev-table 'html-helper-mode-abbrev-table
+                                       ;; basics
+                                       ("hthref" . "<a href=\"$${url}\" title=\"$${title}\">$${text}</a>")
+                                       ("htinput" . "<input type=\"$${type}\" name=\"$${name}\" value=\"$${value}\" />")
+                                       ("htimg" . "<img src=\"$${url}\" alt=\"$${alt}\" />")
+                                       ("htform" . "<form action=\"$${url}\" method=\"$${get or post}\">\n$>$.\n$></form>\n")
+                                       ;; for HTML::Template
+                                       ("htincl" . "<TMPL_INCLUDE NAME=\"$${tmpl}\">")
+                                       ("htvar" . "<TMPL_VAR NAME=$${var}>")
+                                       ;; for TP/MT templates
+                                       ("httrans" . "<MT_TRANS phrase=\"$${var}\">")
+                                       ("mtset" . "<$MTSetVar name=\"$${name}\" value=\"$${value}\"$>")
+                                       ("mtget" . "<$MTGetVar name=\"$${name}\"$>")
+                                       ("mtif"  . "<MTIfVar name=\"$${name}\">$${text}</MTIfVar>")
+                                       )))
 
 ;;;;;; nxml/nxhtml mode
 ;(load "~/.emacs.d/lisp/nxml/autostart.el")
