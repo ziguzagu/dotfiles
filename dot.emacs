@@ -254,9 +254,11 @@
 (require 'snippet)
 (setq-default abbrev-mode t)
 (snippet-with-abbrev-table 'global-abbrev-table
-                           ("tt" . "[% $${val} %]$.")
-                           ("ttfor" . "[% FOR $${local} IN $${val} -%]\n$>$.")
-                           ("ttend" . "[%- END %]\n$."))
+                           ("ttv" . "[% $${val} %]$.")
+                           ("ttfor" . "[% FOR $${local} IN $${val} -%]\n$>$.\n$>[%- END %]\n")
+                           ("ttif" . "[% IF $${condition} -%]\n$>$.\n[%- END %]\n")
+                           ("ttunless" . "[% UNLESS $${condition} -%]\n$>$.\n[%- END %]\n")
+                           )
 
 
 ;;;;;; generic config file
@@ -367,12 +369,16 @@
 (add-hook 'html-helper-mode-hook
           (lambda ()
             (snippet-with-abbrev-table 'html-helper-mode-abbrev-table
-                                       ("hthref" . "<a href=\"$${url}\">$${text}</a>")
+                                       ;; basics
+                                       ("hthref" . "<a href=\"$${url}\" title=\"$${title}\">$${text}</a>")
                                        ("htinput" . "<input type=\"$${type}\" name=\"$${name}\" value=\"$${value}\" />")
                                        ("htimg" . "<img src=\"$${url}\" alt=\"$${alt}\" />")
-                                       ("httrans" . "<MT_TRANS phrase=\"$${var}\">")
+                                       ("htform" . "<form action=\"$${url}\" method=\"$${get or post}\">\n$>$.\n$></form>\n")
+                                       ;; for HTML::Template
                                        ("htincl" . "<TMPL_INCLUDE NAME=\"$${tmpl}\">")
                                        ("htvar" . "<TMPL_VAR NAME=$${var}>")
+                                       ;; for TP/MT templates
+                                       ("httrans" . "<MT_TRANS phrase=\"$${var}\">")
                                        ("mtset" . "<$MTSetVar name=\"$${name}\" value=\"$${value}\"$>")
                                        ("mtget" . "<$MTGetVar name=\"$${name}\"$>")
                                        ("mtif"  . "<MTIfVar name=\"$${name}\">$${text}</MTIfVar>"))
