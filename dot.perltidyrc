@@ -6,9 +6,9 @@
 -vt=2   # Maximal vertical tightness
 -cti=0  # No extra indentation for closing brackets
 -pt=2   # Medium parenthesis tightness
--bt=2   # Medium brace tightness
 -sbt=2  # Medium square brace tightness
--bbt=2  # Medium block brace tightness
+-bt=1   # Medium brace tightness
+-bbt=0  # Medium block brace tightness
 -nsfs   # No space before semicolons
 -nolq   # Don't outdent long quoted strings
 -wbb="% + - * / x != == >= <= =~ !~ < > | & >= < = **= += *= &= <<= &&= -= /= |= >>= ||= .= %= ^= x="
