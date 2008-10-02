@@ -25,8 +25,9 @@ alias less="less -gj10"
 alias vs="svn st -u"
 alias vd="svn di"
 alias vl="svn log --stop-on-copy"
-alias us="TZ=US/Pacific date"
+alias gs="git-svn"
 alias push="svk push --verbatim"
+alias us="TZ=US/Pacific date"
 alias lc="tr '[:upper:]' '[:lower:]'"
 alias uc="tr '[:lower:]' '[:upper:]'"
 alias htdate="date '+%a, %d %b %Y %X %Z'"
@@ -96,13 +97,6 @@ setopt nolistbeep
 ## no coredump
 limit coredumpsize 0
 
-## ssh with new screen's window
-# function ssh_screen() {
-#     eval server=\${$#}
-#     screen -t $server ssh "$@"
-# }
-# [[ -n $WINDOW ]] && alias ssh=ssh_screen
-
 ## dabbrev on screen
 HARDCOPYFILE=$HOME/.screen-hardcopy
 touch $HARDCOPYFILE
@@ -117,12 +111,6 @@ function dabbrev-complete() {
 zle -C dabbrev-complete menu-complete dabbrev-complete
 bindkey '^o' dabbrev-complete
 bindkey '^o^_' reverse-menu-complete
-
-## href (haskell api documents) complete
-compctl -K _href href
-functions _href () {
-    reply=(`cat /usr/share/href/comptable|awk -F, '{print $2}' | sort -u`)
-}
 
 ## encode/decode base64
 function encode_base64() { perl -MMIME::Base64 -e "print encode_base64('$1')" }
