@@ -34,6 +34,7 @@ alias htdate="date '+%a, %d %b %Y %X %Z'"
 alias prove="prove -lv"
 alias ack="ack --color"
 alias grep="grep --binary-files=without-match --color=always"
+alias t="todo.sh -d $HOME/.todo"
 ## global alias
 alias -g M="| more"
 alias -g L="| lv"
