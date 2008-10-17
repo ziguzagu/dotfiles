@@ -561,8 +561,8 @@
 
 
 ;;;;;; svn/svk staff
-(require 'vc-svk)
-(require 'svk-ediff)
+;; (require 'vc-svk)
+;; (require 'svk-ediff)
 
 
 ;;;;;; sdic
