@@ -251,6 +251,7 @@
 
 
 ;;;;;; snippet and abbrev
+;; elisp: http://www.kazmier.com/computer/snippet.el
 (require 'snippet)
 (setq-default abbrev-mode t)
 (snippet-with-abbrev-table 'global-abbrev-table
@@ -268,6 +269,7 @@
 
 
 ;;;;;; cperl-mode
+;; elisp: http://math.berkeley.edu/~ilya/software/emacs/
 (defalias 'perl-mode 'cperl-mode)
 (setq cperl-close-paren-offset -4)
 (setq cperl-continued-statement-offset 4)
@@ -366,7 +368,7 @@
       (while (search-forward ">" nil t)
         (replace-match "&gt;" nil t)))))
 ;; urlencode
-(load "urlencode")
+;;(load "urlencode")
 ;; snippets
 (defvar html-helper-mode-abbrev-table nil)
 (define-abbrev-table 'html-helper-mode-abbrev-table ())
@@ -412,11 +414,15 @@
 
 
 ;;;;;; kill-summary
+;; elisp: http://mibai.tec.u-ryukyu.ac.jp/~oshiro/Programs/elisp/kill-summary.el
 (autoload 'kill-summary "kill-summary" nil t)
 (define-key global-map "\ey" 'kill-summary)
 
 
 ;;;;;; dabbrev
+;; elisp:
+;;   * http://www.namazu.org/~tsuchiya/elisp/dabbrev-ja.el
+;;   * http://www.namazu.org/~tsuchiya/elisp/dabbrev-highlight.el
 (load "dabbrev-ja")
 (require 'dabbrev-highlight)
 (setq dabbrev-case-fold-search t)
