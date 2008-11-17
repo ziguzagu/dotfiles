@@ -20,6 +20,7 @@ which lv >& /dev/null && export PAGER=lv
 export EDITOR=emacsclient
 export SVN_EDITOR=emacsclient
 export SVKMERGE=EmacsClient
+export GIT_PAGER=cat
 
 ## my
 export REPOS=http://code.norainu.net/svn
