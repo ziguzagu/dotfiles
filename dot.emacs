@@ -51,6 +51,8 @@
 (when v21 (load "emacs21-256color"))
 (require 'font-lock)
 (global-font-lock-mode t)
+(set-face-foreground 'default "white")
+(set-face-background 'default "black")
 (set-face-foreground 'font-lock-comment-face "darkolivegreen3")
 (set-face-foreground 'font-lock-string-face  "coral")
 (set-face-foreground 'font-lock-keyword-face "violet")
