@@ -1,13 +1,3 @@
-2008-12-02 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
-
-	* [10:30] work: 出社
-
-2008-12-01 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
-
-	* [20:26] work: 退社
-
-	* [10:00] work: 出社
-
 2008-11-28 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
 
 	* [20:14] work: 退社
