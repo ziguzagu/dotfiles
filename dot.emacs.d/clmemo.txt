@@ -1,4 +1,30 @@
+2008-12-08 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:13] work: 锣家
+
+	* [10:00] work: 叫家
+
+2008-12-05 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:45] work: 锣家
+
+	* [10:59] work: 叫家
+
+2008-12-04 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [22:06] work: 锣家
+
+	* [10:49] work: 叫家
+
+2008-12-03 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:07] work: 锣家
+
+	* [12:04] work: 叫家
+
 2008-12-02 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [18:02] work: 锣家
 
 	* [10:30] work: 叫家
 
@@ -7,7 +33,7 @@
 	* [20:26] work: 锣家
 
 	* [10:00] work: 叫家
-            
+
 2008-11-28 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
 
 	* [20:14] work: 锣家
