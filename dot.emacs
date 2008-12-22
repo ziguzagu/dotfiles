@@ -65,6 +65,7 @@
 (set-face-foreground 'highlight "black")
 (set-face-background 'region "lightgoldenrod2")
 (set-face-foreground 'region "black")
+(set-cursor-color "green")
 
 
 ;;;;;; common editting
