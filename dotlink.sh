@@ -4,7 +4,7 @@ CMD=`basename $0`
 DOTDIR="$PWD"
 
 DIRS=`find ./ -type d | \grep -v .svn | \grep -v .git | sed -e 's/^\.\///;/^$/d;'`
-FILES=`find ./ -type f | \grep -v .svn | \grep -v .git | sed -e 's/^\.\///;/^$/d;'`
+FILES=`find ./ -type f | \grep -v .svn/ | \grep -v .git/ | sed -e 's/^\.\///;/^$/d;'`
 FILES=${FILES/$CMD/}
 
 cd $HOME
