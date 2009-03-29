@@ -11,10 +11,10 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 ## alias
 setopt complete_aliases
 alias ec="emacsclient -n"
-if [ `uname` = "FreeBSD" ]; then
-    alias ls="ls -FG"
-else
+if [ `uname` = "Linux" ]; then
     alias ls="ls -F --color=auto"
+else
+    alias ls="ls -FG"
 fi
 alias l="ls -l"
 alias ll="ls -al"
