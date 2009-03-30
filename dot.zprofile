@@ -9,7 +9,9 @@ MYPATH=~/bin
 [ -d ~/opt/bin ]      && MYPATH=$MYPATH:~/opt/bin
 [ -d ~/opt/flex/bin ] && MYPATH=$MYPATH:~/opt/flex/bin
 [ -d /var/lib/gems/1.8/bin ] && MYPATH=$MYPATH:/var/lib/gems/1.8/bin
+[ -d /opt/local/bin ] && MYPATH=/opt/local/bin:$MYPATH
 export PATH=$MYPATH:$PATH
+[ -d /opt/local/man ] && export MANTPATH=/opt/local/man:$MANPATH
 ## for sakura
 [ -d ~/MailBox/$USER ] && export MAILPATH=~/MailBox/$USER/maildir
 [ -d ~/opt/cpan-lib ]  && export PERL5LIB=~/opt/cpan-lib:$PERL5LIB
