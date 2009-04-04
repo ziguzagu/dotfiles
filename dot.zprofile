@@ -1,5 +1,4 @@
 ## -*- mode: shell-script; -*-
-## $Id$
 
 export LANGUAGE=ja_JP:ja:en_GB:en
 export LC_ALL=C
@@ -11,7 +10,7 @@ MYPATH=~/bin
 [ -d /var/lib/gems/1.8/bin ] && MYPATH=$MYPATH:/var/lib/gems/1.8/bin
 [ -d /opt/local/bin ] && MYPATH=$MYPATH:/opt/local/bin
 export PATH=$MYPATH:$PATH
-[ -d /opt/local/man ] && export MANTPATH=/opt/local/man:$MANPATH
+[ -d /opt/local/man ] && export MANPATH=/opt/local/man:$MANPATH
 ## for sakura
 [ -d ~/MailBox/$USER ] && export MAILPATH=~/MailBox/$USER/maildir
 [ -d ~/opt/cpan-lib ]  && export PERL5LIB=~/opt/cpan-lib:$PERL5LIB
