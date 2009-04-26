@@ -1,7 +1,15 @@
-Host *
-ControlMaster auto
-ControlPath /tmp/%r@%h:%p
-
 Host sakura
 HostName www828.sakura.ne.jp
 User ziguzagu
+
+Host nobita
+HostName 172.17.3.50
+User hsakai
+
+Host atp
+HostName hsakai-atp.dev.sixapart.com
+User hsakai
+
+Host tp1
+HostName hsakai-tp1.dev.sixapart.com
+User hsakai
