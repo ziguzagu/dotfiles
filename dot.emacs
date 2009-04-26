@@ -11,44 +11,32 @@
               load-path))
 
 
-;;;;;; test OS / Emacs version
-(setq is_linux (string-match "linux" system-configuration))
-(setq v22 (eq emacs-major-version '22))
-(setq v21 (eq emacs-major-version '21))
-
 ;; using unsafe local variables..?
-(when v22
-  (setq safe-local-variable-values (quote ((syntax . elisp)))))
+(setq safe-local-variable-values (quote ((syntax . elisp))))
 
 ;;;;;; Languages
-(when v21
-  (require 'un-define)
-  (require 'jisx0213))
-(when is_linux
-  (set-terminal-coding-system 'utf-8)
-  (set-keyboard-coding-system 'utf-8)
-  (prefer-coding-system 'utf-8))
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
 (set-language-environment "Japanese")
 (set-default-coding-systems 'utf-8)
 
 
 ;;;;;; EmacsClient
-(when is_linux
-  (add-hook 'after-init-hook 'server-start)
-  (shell-command "echo $WINDOW >~/.emacs.d/emacs-server-window")
-  (add-hook 'emacs-kill-hook
-            (lambda ()
-              (shell-command
-               "rm ~/.emacs.d/emacs-server-window")))
-  (add-hook 'server-done-hook
-            (lambda ()
-              (shell-command
-               "screen -X select `cat ~/.emacs.d/emacsclient-caller`")))
-  (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function))
+(add-hook 'after-init-hook 'server-start)
+(shell-command "echo $WINDOW >~/.emacs.d/emacs-server-window")
+(add-hook 'emacs-kill-hook
+          (lambda ()
+            (shell-command
+             "rm ~/.emacs.d/emacs-server-window")))
+(add-hook 'server-done-hook
+          (lambda ()
+            (shell-command
+             "screen -X select `cat ~/.emacs.d/emacsclient-caller`")))
+(remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 
 
 ;;;;;; global font lock
-(when v21 (load "emacs21-256color"))
 (require 'font-lock)
 (global-font-lock-mode t)
 (set-face-foreground 'default "white")
@@ -145,8 +133,6 @@
 (setq inhibit-startup-message t)
 ;; move divided windows by shift with cursor.
 (windmove-default-keybindings)
-;; hide toolbar
-(when v21 (tool-bar-mode 0))
 ;; hide menu bar
 (menu-bar-mode -1)
 ;; resize the temp buffer when necessary
@@ -173,9 +159,8 @@
 ;; color of modeline
 (set-face-foreground 'modeline "skyblue1")
 (set-face-background 'modeline "grey19")
-(when v22
-  (set-face-foreground 'mode-line-inactive "grey51")
-  (set-face-background 'mode-line-inactive "grey19"))
+(set-face-foreground 'mode-line-inactive "grey51")
+(set-face-background 'mode-line-inactive "grey19")
 
 
 ;;;;;; minibuffer
@@ -186,8 +171,7 @@
 ;; fix mini-buffer
 (setq resize-mini-windows nil)
 ;; color
-(when v22
-  (set-face-foreground 'minibuffer-prompt "yellow"))
+(set-face-foreground 'minibuffer-prompt "yellow")
 ;; incremental-searching on minibuffer history
 ;;   elisp: http://www.sodan.org/~knagano/emacs/minibuf-isearch/
 ;; (require 'minibuf-isearch)
@@ -451,8 +435,7 @@
 
 ;;;;;; migemo
 (when (locate-library "migemo")
-  (when is_linux
-    (setq migemo-directory "/usr/share/migemo"))
+  (setq migemo-directory "/usr/share/migemo")
   (load "migemo")
   (migemo-init)
   ;; cache
