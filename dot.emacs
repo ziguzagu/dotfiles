@@ -145,6 +145,23 @@
 (global-auto-revert-mode t)
 
 
+;;;;;; For CarbonEmacs
+(defun mac-toggle-max-window ()
+  (interactive)
+  (if (frame-parameter nil 'fullscreen)
+      (set-frame-parameter nil 'fullscreen nil)
+    (set-frame-parameter nil 'fullscreen 'fullboth)))
+(when (eq window-system 'mac)
+    ;; hide tool bar on CarbonEmacs
+    (tool-bar-mode nil)
+    ;; fullscreen
+    (add-hook 'window-setup-hook
+              (lambda ()
+                (set-frame-parameter nil 'fullscreen 'fullboth)))
+    ;; transparent on CarbonEmacs
+    (set-frame-parameter nil 'alpha 85))
+
+
 ;;;;;; recent file mode
 (recentf-mode 1)
 (setq recentf-max-menu-items 10)
