@@ -12,6 +12,9 @@ bind w windowlist -b
 ## disable xoff
 bind s
 
+## notice when some event rised on hidden windows
+defmonitor on
+
 ## make key bind like emacs on copy mode
 markkeys "h=^B:l=^F:^A=^A:$=^E"
 
