@@ -68,8 +68,8 @@ setopt pushd_ignore_dups
 function history-all { history -E 1 }
 zstyle ':completion:*:default' menu select=1
 
-## test to use color terminal
-eval `test -sQI xterm-256color`
+## set TERM to use color terminal
+eval `tset -sQI xterm-256color`
 
 ## prompt
 setopt prompt_subst
