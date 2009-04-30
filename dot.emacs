@@ -98,8 +98,6 @@
   (scroll-up n))
 (global-set-key "\M-p" 'scroll-up-in-place)
 (global-set-key "\M-n" 'scroll-down-in-place)
-;; undo
-(global-set-key "\C-z" 'undo)
 
 
 ;;;;;; autosave / backup
@@ -129,6 +127,8 @@
 (global-set-key [f1] 'help-for-help)
 ;; backspace
 (global-set-key "\C-h" 'delete-backward-char)
+;; undo
+(global-set-key "\C-z" 'undo)
 
 
 ;;;;;; Misc
