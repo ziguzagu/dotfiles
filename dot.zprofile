@@ -31,8 +31,7 @@ export GREP_COLOR='07;33'
 export GREP_OPTIONS='--exclude=\*.svn\*'
 
 ## local::lib
-LOCAL_LIB_CONF=$(perl -Mlocal::lib 2>/dev/null)
-$LOCAL_LIB && eval $LOCAL_LIB_CONF
+eval `perl -Mlocal::lib 2>/dev/null`
 
 ## changing title of screen's window by preexec()
 if [[ -n $WINDOW ]]; then
