@@ -160,7 +160,7 @@
 
 ;;;;;; For CarbonEmacs
 (defun mac-toggle-max-window ()
-  (interactive)
+ (interactive)
   (if (frame-parameter nil 'fullscreen)
       (set-frame-parameter nil 'fullscreen nil)
     (set-frame-parameter nil 'fullscreen 'fullboth)))
@@ -191,10 +191,10 @@
 ;; (set-face-background 'modeline "grey19")
 ;; (set-face-foreground 'mode-line-inactive "grey51")
 ;; (set-face-background 'mode-line-inactive "grey19")
-(set-face-foreground 'modeline "white")
-(set-face-background 'modeline "blue")
-(set-face-foreground 'mode-line-inactive "black")
-(set-face-background 'mode-line-inactive "white")
+(set-face-foreground 'modeline "black")
+(set-face-background 'modeline "cyan")
+(set-face-foreground 'mode-line-inactive "cyan")
+(set-face-background 'mode-line-inactive "black")
 
 
 ;;;;;; minibuffer
