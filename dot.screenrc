@@ -33,8 +33,13 @@ bind -c resize j eval 'resize +1' 'command -c resize'
 bind -c resize k eval 'resize -2' 'command -c resize'
 
 ## For 256 colors <http://www.frexx.de/xterm-256-notes/>
-termcap kterm hs@
-terminfo kterm hs@
-termcap xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;61'
+# allow bold colors
+attrcolor b ".I"
+# tell screen how to set colors.
+# * AB = background, AF=foreground
+# * put some escape codes after 'is' to avoid resize window at starting screen
+termcapinfo xterm 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;61'
+termcapinfo xterm-color 'AB=\E[48;5;%dm:AF=\E[38;5;%dm:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;61'
+termcapinfo xterm-256color 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;61'
 # erase background with current bg color
 defbce on
