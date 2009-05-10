@@ -54,7 +54,7 @@
 (set-face-foreground 'font-lock-type-face "cyan")
 (set-face-background 'font-lock-warning-face "red")
 (set-face-foreground 'font-lock-warning-face "white")
-(set-face-foreground 'font-lock-builtin-face "cyan")
+(set-face-foreground 'font-lock-builtin-face "yellow")
 (set-face-background 'highlight "yellow")
 (set-face-foreground 'highlight "black")
 (set-face-background 'region "white")
