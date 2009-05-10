@@ -1,5 +1,4 @@
 ;;;; -*- mode: lisp-interaction; syntax: elisp; coding: iso-2022-7bit -*-
-;;;; $Id$
 
 ;;;;;; Basics
 (cd "~")
@@ -9,8 +8,6 @@
       (append (list "~/.emacs.d/lisp"
                     "~/.emacs.d/lisp/blgrep")
               load-path))
-
-
 ;; using unsafe local variables..?
 (setq safe-local-variable-values (quote ((syntax . elisp))))
 
