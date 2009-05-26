@@ -136,8 +136,6 @@
 (global-set-key [f1] 'help-for-help)
 ;; backspace
 (global-set-key "\C-h" 'delete-backward-char)
-;; undo
-(global-set-key "\C-z" 'undo)
 
 
 ;;;;;; Misc
