@@ -4,6 +4,8 @@
 -st     # Output to STDOUT
 -se     # Errors to STDERR
 -vt=2   # Maximal vertical tightness
+-bvt=2
+-bvtc=1
 -cti=0  # No extra indentation for closing brackets
 -pt=2   # Medium parenthesis tightness
 -sbt=2  # Medium square brace tightness
@@ -11,5 +13,7 @@
 -bbt=0  # Medium block brace tightness
 -nsfs   # No space before semicolons
 -nolq   # Don't outdent long quoted strings
+-sohb
+-sct
 -wbb="% + - * / x != == >= <= =~ !~ < > | & >= < = **= += *= &= <<= &&= -= /= |= >>= ||= .= %= ^= x="
         # Break before all operators
