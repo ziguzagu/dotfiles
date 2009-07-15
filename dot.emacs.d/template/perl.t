@@ -1,8 +1,8 @@
-# $Id$
 use strict;
 use warnings;
 
-use Test::More no_plan => 1;
+use Test::More;
 
+done_testing;
 
 __END__
