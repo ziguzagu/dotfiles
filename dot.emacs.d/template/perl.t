@@ -1,8 +1,7 @@
 use strict;
 use warnings;
 
-use Test::More;
+use Test::More no_plan => 1;
 
-done_testing;
 
 __END__
