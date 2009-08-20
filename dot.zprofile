@@ -1,9 +1,13 @@
 ## -*- mode: shell-script; -*-
 
+## lang/locale
 export LANGUAGE=ja_JP:ja:en_GB:en
 export LC_ALL=C
 export LANG=ja_JP.UTF-8
 
+export SHELL=`which zsh`
+
+## path
 MYPATH=~/bin
 [ -d ~/opt/bin ]      && MYPATH=$MYPATH:~/opt/bin
 [ -d ~/opt/flex/bin ] && MYPATH=$MYPATH:~/opt/flex/bin
@@ -11,17 +15,18 @@ MYPATH=~/bin
 [ -d /opt/local/bin ] && MYPATH=$MYPATH:/opt/local/bin
 export PATH=$MYPATH:$PATH
 [ -d /opt/local/man ] && export MANPATH=/opt/local/man:$MANPATH
-## for sakura
+# for sakura
 [ -d ~/MailBox/$USER ] && export MAILPATH=~/MailBox/$USER/maildir
 [ -d ~/opt/cpan-lib ]  && export PERL5LIB=~/opt/cpan-lib:$PERL5LIB
 
-## common environment values
-export SHELL=`which zsh`
+## pager
 which lv >& /dev/null && export PAGER=lv
+export GIT_PAGER=cat
+
+## editor
 export EDITOR=emacscliet
 export ALTERNATE_EDITO=vi
 export SVN_EDITOR=emacsclient
-export GIT_PAGER=cat
 
 ## my
 export REPOS=http://code.norainu.net/svn
