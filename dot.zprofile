@@ -18,9 +18,9 @@ export PATH=$MYPATH:$PATH
 ## common environment values
 export SHELL=`which zsh`
 which lv >& /dev/null && export PAGER=lv
-export EDITOR=emacsclient
+export EDITOR=emacscliet
+export ALTERNATE_EDITO=vi
 export SVN_EDITOR=emacsclient
-export SVKMERGE=EmacsClient
 export GIT_PAGER=cat
 
 ## my
