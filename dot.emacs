@@ -38,23 +38,26 @@
 (global-font-lock-mode t)
 (set-face-foreground 'default "white")
 (set-face-background 'default "black")
-;; (set-face-foreground 'font-lock-comment-face "darkolivegreen3")
-;; (set-face-foreground 'font-lock-string-face  "coral")
-;; (set-face-foreground 'font-lock-keyword-face "violet")
-;; (set-face-foreground 'font-lock-function-name-face "white")
-;; (set-face-foreground 'font-lock-variable-name-face "white")
-;; (set-face-foreground 'font-lock-type-face "skyblue1")
-;; (set-face-foreground 'font-lock-warning-face "yellow")
-;; (set-face-foreground 'font-lock-builtin-face "goldenrod")
-(set-face-foreground 'font-lock-comment-face "green")
-(set-face-foreground 'font-lock-string-face  "red")
-(set-face-foreground 'font-lock-keyword-face "magenta")
-(set-face-foreground 'font-lock-function-name-face "white")
-(set-face-foreground 'font-lock-variable-name-face "white")
-(set-face-foreground 'font-lock-type-face "cyan")
-(set-face-background 'font-lock-warning-face "red")
-(set-face-foreground 'font-lock-warning-face "white")
-(set-face-foreground 'font-lock-builtin-face "yellow")
+(if window-system
+    (progn
+      (set-face-foreground 'font-lock-comment-face "darkolivegreen3")
+      (set-face-foreground 'font-lock-string-face  "coral")
+      (set-face-foreground 'font-lock-keyword-face "violet")
+      (set-face-foreground 'font-lock-function-name-face "white")
+      (set-face-foreground 'font-lock-variable-name-face "white")
+      (set-face-foreground 'font-lock-type-face "skyblue1")
+      (set-face-foreground 'font-lock-warning-face "yellow")
+      (set-face-foreground 'font-lock-builtin-face "goldenrod"))
+  (progn
+    (set-face-foreground 'font-lock-comment-face "green")
+    (set-face-foreground 'font-lock-string-face  "red")
+    (set-face-foreground 'font-lock-keyword-face "magenta")
+    (set-face-foreground 'font-lock-function-name-face "white")
+    (set-face-foreground 'font-lock-variable-name-face "white")
+    (set-face-foreground 'font-lock-type-face "cyan")
+    (set-face-background 'font-lock-warning-face "red")
+    (set-face-foreground 'font-lock-warning-face "white")
+    (set-face-foreground 'font-lock-builtin-face "yellow")))
 (set-face-background 'highlight "yellow")
 (set-face-foreground 'highlight "black")
 (set-face-background 'region "white")
@@ -69,12 +72,15 @@
 ;; highlight selected region
 (setq-default transient-mark-mode t)
 ;; highlight zenkaku space / tab / space
-;; (defface my-face-b-1 '((t (:background "aquamarine1"))) nil)
-;; (defface my-face-u-1 '((t (:foreground "steelblue1" :underline t))) nil)
-;; (defface my-face-b-2 '((t (:background "grey23"))) nil)
-(defface my-face-b-1 '((t (:background "blue"))) nil)
-(defface my-face-u-1 '((t (:foreground "blue" :underline t))) nil)
-(defface my-face-b-2 '((t (:background "blue"))) nil)
+(if window-system
+    (progn
+      (defface my-face-b-1 '((t (:background "aquamarine1"))) nil)
+      (defface my-face-u-1 '((t (:foreground "steelblue1" :underline t))) nil)
+      (defface my-face-b-2 '((t (:background "grey23"))) nil))
+  (progn
+    (defface my-face-b-1 '((t (:background "blue"))) nil)
+    (defface my-face-u-1 '((t (:foreground "blue" :underline t))) nil)
+    (defface my-face-b-2 '((t (:background "blue"))) nil)))
 (defvar my-face-b-1 'my-face-b-1)
 (defvar my-face-b-2 'my-face-b-2)
 (defvar my-face-u-1 'my-face-u-1)
@@ -185,15 +191,18 @@
 ;; show line/column numer
 (line-number-mode t)
 (column-number-mode t)
-;; ;; color of modeline
-;; (set-face-foreground 'modeline "skyblue1")
-;; (set-face-background 'modeline "grey19")
-;; (set-face-foreground 'mode-line-inactive "grey51")
-;; (set-face-background 'mode-line-inactive "grey19")
-(set-face-foreground 'modeline "black")
-(set-face-background 'modeline "cyan")
-(set-face-foreground 'mode-line-inactive "cyan")
-(set-face-background 'mode-line-inactive "black")
+;; color of modeline
+(if window-system
+    (progn
+      (set-face-foreground 'modeline "skyblue1")
+      (set-face-background 'modeline "grey19")
+      (set-face-foreground 'mode-line-inactive "grey51")
+      (set-face-background 'mode-line-inactive "grey19"))
+  (progn
+    (set-face-foreground 'modeline "black")
+    (set-face-background 'modeline "cyan")
+    (set-face-foreground 'mode-line-inactive "cyan")
+    (set-face-background 'mode-line-inactive "black")))
 
 
 ;;;;;; minibuffer
