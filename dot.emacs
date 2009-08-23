@@ -37,9 +37,9 @@
 (require 'font-lock)
 (global-font-lock-mode t)
 (set-face-foreground 'default "white")
-(set-face-background 'default "black")
 (if window-system
     (progn
+      (set-face-background 'default "ARGBCC000000")
       (set-face-foreground 'font-lock-comment-face "darkolivegreen3")
       (set-face-foreground 'font-lock-string-face  "coral")
       (set-face-foreground 'font-lock-keyword-face "violet")
@@ -49,6 +49,7 @@
       (set-face-foreground 'font-lock-warning-face "yellow")
       (set-face-foreground 'font-lock-builtin-face "goldenrod"))
   (progn
+    (set-face-background 'default "black")
     (set-face-foreground 'font-lock-comment-face "green")
     (set-face-foreground 'font-lock-string-face  "red")
     (set-face-foreground 'font-lock-keyword-face "magenta")
@@ -161,23 +162,6 @@
 (setq ring-bell-function 'ignore)
 ;; re-load a file when it was changed by another process
 (global-auto-revert-mode t)
-
-
-;;;;;; For CarbonEmacs
-(defun mac-toggle-max-window ()
- (interactive)
-  (if (frame-parameter nil 'fullscreen)
-      (set-frame-parameter nil 'fullscreen nil)
-    (set-frame-parameter nil 'fullscreen 'fullboth)))
-(when (eq window-system 'mac)
-    ;; hide tool bar on CarbonEmacs
-    (tool-bar-mode nil)
-    ;; fullscreen
-    (add-hook 'window-setup-hook
-              (lambda ()
-                (set-frame-parameter nil 'fullscreen 'fullboth)))
-    ;; transparent on CarbonEmacs
-    (set-frame-parameter nil 'alpha 85))
 
 
 ;;;;;; recent file mode
