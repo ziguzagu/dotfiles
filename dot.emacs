@@ -39,7 +39,7 @@
 (set-face-foreground 'default "white")
 (if window-system
     (progn
-      (set-face-background 'default "ARGBCC000000")
+      (set-face-background 'default "ARGBDD000000")
       (set-face-foreground 'font-lock-comment-face "darkolivegreen3")
       (set-face-foreground 'font-lock-string-face  "coral")
       (set-face-foreground 'font-lock-keyword-face "violet")
