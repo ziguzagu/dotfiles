@@ -76,7 +76,7 @@ if [[ -n $WINDOW ]]; then
 fi
 
 ## change the terminal window title
-precmd() { echo -n "\e]0;$USER@$HOST\a" }
+#precmd() { echo -n "\e]0;$USER@$HOST\a" }
 
 ## at sixapart
 [ -f .zprofile.6a ] && source .zprofile.6a

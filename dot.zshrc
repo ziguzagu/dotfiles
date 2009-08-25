@@ -74,14 +74,21 @@ eval `tset -sQI xterm-256color`
 ## prompt
 setopt prompt_subst
 unsetopt promptcr
-## for emacs (no escape usging)
+# for emacs (no escape usging)
 if [[ $EMACS = t ]]; then
     unsetopt zle
 fi
-#PROMPT='%{[36m%}[%n@%m]%{[m%}%# '
-#RPROMPT='%{[33m%}[%(5~,%-2~/.../%2~,%~)]%{[m%}'
-PROMPT=$'\n''%{[33m%}%~'$'\n''%{[m%}%# '
-RPROMPT='%{[36m%}[%m]%{[m%}'
+PROMPT=$'\n''%F{cyan}%n@%m%f:%F{yellow}%~%f'$'\n''%# '
+# vcs info on RPROMPT
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' formats '(svn) %b'
+zstyle ':vcs_info:*' actionformats '(svn) %b!%a'
+precmd () {
+    psvar=()
+    LANG=en_US.UTF-8 vcs_info
+    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
+RPROMPT="%1(v|%F{red}%1v%f|)"
 
 ## misc
 setopt correct
