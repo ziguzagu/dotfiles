@@ -78,7 +78,7 @@ unsetopt promptcr
 if [[ $EMACS = t ]]; then
     unsetopt zle
 fi
-PROMPT=$'\n''%F{cyan}%n@%m%f:%F{yellow}%~%f'$'\n''%# '
+PROMPT=$'\n''%{[36m%}%n@%m%{[m%}:%{[33m%}%~%{[m%}'$'\n''%# '
 # vcs info on RPROMPT
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats '(svn) %b'
