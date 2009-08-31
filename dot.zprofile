@@ -25,7 +25,7 @@ export GIT_PAGER=cat
 
 ## editor
 export EDITOR=emacscliet
-export ALTERNATE_EDITO=vi
+export ALTERNATE_EDITOR=vi
 export SVN_EDITOR=emacsclient
 
 ## my
