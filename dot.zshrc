@@ -83,9 +83,10 @@ PROMPT=$'\n''%{[36m%}%n@%m%{[m%}:%{[33m%}%~%{[m%}'$'\n''%# '
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats '(%s) %b'
 zstyle ':vcs_info:*' actionformats '(%s) %b!%a'
+zstyle ':vcs_info:svn:*' formats '(%s) %b:r%r'
 precmd () {
     psvar=()
-    LANG=$LANG vcs_info
+    LANG=en_US.UTF-8 vcs_info
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 RPROMPT="%1(v|%F{red}%1v%f|)"
