@@ -303,8 +303,6 @@
             (set-face-foreground 'cperl-nonoverridable-face "cyan")
             (define-key cperl-mode-map "\M-." 'cperl-perldoc-at-point)
             (define-key cperl-mode-map "\C-co" 'cperl-perldoc)
-            (define-key cperl-mode-map "\C-ct" 'perltidy-region)
-            (define-key cperl-mode-map "\C-cT" 'perltidy-buffer)
             ))
 (setq auto-mode-alist
       (append '(("\\.cgi$" . cperl-mode)
@@ -330,21 +328,26 @@
                            ("phas" . "has '$${name}' => (is => 'rw', isa => '$${type}'$.);\n")
                            ("psubtype" . "subtype '$${type}'\n$>=> as '$${belongs to}'\n$>=> where { $${constraints of construction} };\n")
                            ("pcoerce" . "coerce '$${type}'\n$>=> from '$${from type 1}'\n$>    => via { $${construction code 1} }\n$>$>=> from '$${from type 2}'\n$>    => via { $${construction code 2} }\n$>;\n"))
-;; perltidy region
+;; perltidy
 (defun perltidy-region (beg end)
   (interactive "r")
   (shell-command-on-region beg end "perltidy -q" nil t))
-;; perltidy buffer
 (defun perltidy-buffer (buffer)
   "Run the perltidy formatter on the buffer."
   (interactive (list (current-buffer)))
   (with-current-buffer buffer
     (perltidy-region (point-min) (point-max))))
+(add-hook 'cperl-mode-hook
+          (lambda ()
+            (define-key cperl-mode-map "\C-ct" 'perltidy-region)
+            (define-key cperl-mode-map "\C-cT" 'perltidy-buffer)))
 ;; perl-completion with auto-complete
-(add-hook  'cperl-mode-hook
-           (lambda ()
-             (require 'perl-completion)
-             (add-to-list 'ac-sources 'ac-source-perl-completion)))
+(require 'auto-complete)
+(add-hook 'cperl-mode-hook
+          (lambda ()
+            (require 'perl-completion)
+            (add-to-list 'ac-sources 'ac-source-perl-completion)))
+(setq ac-candidate-max 1000)
 
 
 ;;;;;; c/c++
