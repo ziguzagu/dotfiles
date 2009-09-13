@@ -340,6 +340,11 @@
   (interactive (list (current-buffer)))
   (with-current-buffer buffer
     (perltidy-region (point-min) (point-max))))
+;; perl-completion with auto-complete
+(add-hook  'cperl-mode-hook
+           (lambda ()
+             (require 'perl-completion)
+             (add-to-list 'ac-sources 'ac-source-perl-completion)))
 
 
 ;;;;;; c/c++
