@@ -38,6 +38,8 @@ alias t="todo.sh -d $HOME/.todo"
 ## global alias
 alias -g M="| more"
 alias -g L="| lv"
+alias -g H="| head"
+alias -g T="| tail"
 alias -g G="| grep"
 alias -g GV="| grep -v"
 
