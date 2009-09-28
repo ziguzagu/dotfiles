@@ -1,3 +1,103 @@
+2009-09-28 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [10:00] work: 出社
+
+2009-09-25 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:24] work: 退社
+
+	* [10:30] work: 出社
+
+2009-09-24 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:53] work: 退社
+
+	* [10:15] work: 出社
+
+2009-09-18 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:04] work: 退社
+
+	* [11:00] work: 出社
+
+2009-09-17 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:04] work: 退社
+
+	* [10:45] work: 出社
+
+2009-09-15 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:30] work: 退社
+
+	* [10:40] work: 出社
+
+2009-09-09 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:00] work: 退社
+
+	* [09:09] work: 出社
+
+2009-09-08 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [22:00] work: 退社
+
+	* [10:13] work: 出社
+
+2009-09-07 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [22:00] work: 退社
+
+	* [10:00] work: 出社
+
+2009-09-04 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:30] work: 退社
+
+	* [11:30] work: 出社
+
+2009-09-03 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:34] work: 退社
+
+	* [10:03] work: 出社
+
+2009-09-02 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:34] work: 退社
+
+	* [10:30] work: 出社
+
+2009-09-01 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:30] work: 退社
+
+	* [10:30] work: 出社
+
+2009-08-28 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [14:15] work: 退社
+
+	* [10:06] work: 出社
+
+2009-08-27 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:49] work: 退社
+
+	* [10:20] work: 出社
+
+2009-08-26 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:30] work: 退社
+
+	* [10:33] work: 出社
+
+2009-08-25 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:03] work: 退社
+
+	* [10:11] work: 出社
+
 2009-08-24 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
 
 	* [19:15] work: 退社
