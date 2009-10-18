@@ -114,6 +114,9 @@
   (scroll-up n))
 (global-set-key "\M-p" 'scroll-up-in-place)
 (global-set-key "\M-n" 'scroll-down-in-place)
+;; comment
+(global-set-key "\C-c;" 'comment-or-uncomment-region)
+(setq comment-style 'multi-line)
 
 
 ;;;;;; autosave / backup
@@ -136,9 +139,6 @@
 ;; move with HOME/END
 (global-set-key [home] 'beginning-of-buffer)
 (global-set-key [end] 'end-of-buffer)
-;; misc
-(global-set-key "\C-c;" 'comment-region)
-(global-set-key "\C-c:" 'uncomment-region)
 (global-set-key "\C-cg" 'goto-line)
 (global-set-key [f1] 'help-for-help)
 ;; backspace
