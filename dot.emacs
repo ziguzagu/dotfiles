@@ -306,6 +306,7 @@
             ))
 (setq auto-mode-alist
       (append '(("\\.cgi$" . cperl-mode)
+                ("\\.psgi$" . cperl-mode)
                 ("\\.p[hlm]$" . cperl-mode)
                 ("\\.t$" . cperl-mode)) auto-mode-alist))
 ;; ffap with perldoc
