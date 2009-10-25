@@ -5,8 +5,16 @@
 	diff = auto
 	status = auto
 	branch = auto
+	interactive = auto
 [github]
 	user = ziguzagu
 	token = be5c0351d21d18f05bc4d6d20c4b242e
 [core]
 	excludesfile = ~/.gitignore
+[alias]
+	up = pull
+	di = diff
+	ci = commit --verbose
+	st = status -a
+	co = checkout
+	br = branch
