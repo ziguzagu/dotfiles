@@ -595,11 +595,6 @@
              (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 
 
-;;;;;; svn/svk staff
-;; (require 'vc-svk)
-;; (require 'svk-ediff)
-
-
 ;;;;;; sdic
 (when (locate-library "sdic")
   (autoload 'sdic-describe-word
