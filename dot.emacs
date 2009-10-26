@@ -126,7 +126,6 @@
       (cons (cons "\\.*$" (expand-file-name "~/.emacs.d/bakcup"))
             backup-directory-alist))
 (setq backup-by-copying t)
-(setq vc-make-backup-files t)
 (setq version-control t)
 (setq kept-new-versions 5)
 (setq kept-old-versions 5)
@@ -246,6 +245,11 @@
 ;; handle escape sequence
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
+
+;;;;;; vc
+(setq vc-follow-symlinks t)
+(setq vc-make-backup-files t)
 
 
 ;;;;;; autoinsert
