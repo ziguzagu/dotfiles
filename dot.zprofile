@@ -24,7 +24,7 @@ which lv >& /dev/null && export PAGER=lv
 export GIT_PAGER=cat
 
 ## editor
-export EDITOR=emacscliet
+export EDITOR=emacsclient
 export ALTERNATE_EDITOR=vi
 export SVN_EDITOR=emacsclient
 
