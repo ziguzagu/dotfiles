@@ -78,5 +78,10 @@ fi
 ## change the terminal window title
 #precmd() { echo -n "\e]0;$USER@$HOST\a" }
 
+## golang
+export GOROOT=$HOME/go
+export GOOS=darwin
+export GOARCH=amd64
+
 ## at sixapart
 [ -f .zprofile.6a ] && source .zprofile.6a
