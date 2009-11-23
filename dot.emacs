@@ -204,29 +204,22 @@
 
 
 ;;;;;; Dired
-(setq ls-lisp-dirs-first t)
-;; recursive copy/delete
-(setq dired-recursive-copies 'always)
-(setq dired-recursive-deletes 'always)
-;; don't create buffer when move to subdirectory
-(defvar my-dired-before-buffer nil)
-(defadvice dired-advertised-find-file
-  (before kill-dired-buffer activate)
-  (setq my-dired-before-buffer (current-buffer)))
-(defadvice dired-advertised-find-file
-  (after kill-dired-buffer-after activate)
-  (if (eq major-mode 'dired-mode)
-      (kill-buffer my-dired-before-buffer)))
-(defadvice dired-up-directory
-  (before kill-up-dired-buffer activate)
-  (setq my-dired-before-buffer (current-buffer)))
-(defadvice dired-up-directory
-  (after kill-up-dired-buffer-after activate)
-  (if (eq major-mode 'dired-mode)
-      (kill-buffer my-dired-before-buffer)))
+(add-hook 'dired-load-hook
+          '(lambda ()
+                  ;; show directories at the top of buffer
+                  (setq ls-lisp-dirs-first t)
+                  ;; ls options
+                  (setq dired-listing-switches "-lhFG")
+                  ;; recursive copy/delete
+                  (setq dired-recursive-copies 'always)
+                  (setq dired-recursive-deletes 'always)
+                  ;; dummy command
+                  (put 'dired-find-alternate-file 'disabled nil)))
 ;; a lump-sum rename
 (require 'wdired)
 (define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
+;; don't create new buffer when move to subdirectory
+(define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
 ;; uniqufy
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
