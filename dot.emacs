@@ -422,12 +422,10 @@
       (cons '("\\.css$" . css-mode) auto-mode-alist))
 
 
-;;;;;; javascript mode
-(autoload 'javascript-mode "javascript" nil t)
+;;;;;; For javascript editting
+(autoload 'js2-mode "js2" nil t)
 (setq auto-mode-alist
-      (append '(("\\.js$" . javascript-mode)
-                ("\\.json$" . javascript-mode)) auto-mode-alist))
-(setq javascript-indent-level 4)
+      (append '(("\\.js$" . js2-mode) auto-mode-alist)))
 
 
 ;;;;;; actionscript
