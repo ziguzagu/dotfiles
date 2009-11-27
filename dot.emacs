@@ -320,8 +320,8 @@
                            ;; basics
                            ("pfor" . "for my $${var} ($${array}) {\n$>$.\n}")
                            ("psub" . "sub $${name} {\n$>my $self = shift;\n$>$.\n}\n")
-                           ("pif" . "if ($${condition} {\n$>$.\n}\n")
-                           ("punless" . "unless ($${condition} {\n$>$.\n}\n")
+                           ("pif" . "if ($${condition}) {\n$>$.\n}\n")
+                           ("punless" . "unless ($${condition}) {\n$>$.\n}\n")
                            ;; for Moose
                            ("phas" . "has '$${name}' => (is => 'rw', isa => '$${type}'$.);\n")
                            ("psubtype" . "subtype '$${type}'\n$>=> as '$${belongs to}'\n$>=> where { $${constraints of construction} };\n")
