@@ -405,7 +405,7 @@
                            ("htincl" . "<TMPL_INCLUDE NAME=\"$${tmpl}\">")
                            ("htvar" . "<TMPL_VAR NAME=$${var}>")
                            ;; for TP/MT templates
-                           ("httrans" . "<MT_TRANS phrase=\"$${var}\">")
+                           ("mttrans" . "<MT_TRANS phrase=\"$${var}\">")
                            ("mtset" . "<$MTSetVar name=\"$${name}\" value=\"$${value}\"$>")
                            ("mtget" . "<$MTGetVar name=\"$${name}\"$>")
                            ("mtif"  . "<MTIfVar name=\"$${name}\">$${text}</MTIfVar>"))
