@@ -1,4 +1,240 @@
+2009-11-27 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:11] work: 退社
+
+	* [11:00] work: 出社
+
+2009-11-26 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:07] work: 退社
+
+	* [10:00] work: 出社
+
+2009-11-25 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:15] work: 退社
+
+	* [10:30] work: 出社
+
+2009-11-24 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:48] work: 退社
+
+	* [10:30] work: 出社
+
+2009-11-20 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:22] work: 退社
+
+	* [11:30] work: 出社
+
+2009-11-19 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:22] work: 退社
+
+	* [10:45] work: 出社
+
+2009-11-18 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:23] work: 退社
+
+	* [10:19] work: 出社
+
+2009-11-17 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:13] work: 退社
+
+	* [10:00] work: 出社
+
+2009-11-16 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:50] work: 退社
+
+	* [10:30] work: 出社
+
+2009-11-13 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:42] work: 退社
+
+	* [10:30] work: 出社
+
+2009-11-12 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:30] work: 退社
+
+	* [10:30] work: 出社
+
+2009-11-11 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:30] work: 退社
+
+	* [09:50] work: 出社
+
+2009-11-10 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:15] work: 退社
+
+	* [10:00] work: 出社
+
+2009-11-09 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:00] work: 退社
+
+	* [10:00] work: 出社
+
+2009-11-06 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [18:44] work: 退社
+
+	* [10:00] work: 出社
+
+2009-11-05 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [22:24] work: 退社
+
+	* [10:30] work: 出社
+
+2009-11-04 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:15] work: 退社
+
+	* [10:57] work: 出社
+
+2009-11-02 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:30] work: 退社
+
+	* [10:27] work: 出社
+
+2009-10-30 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:32] work: 退社
+
+	* [11:00] work: 出社
+
+2009-10-29 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:00] work: 退社
+
+	* [10:30] work: 出社
+
+2009-10-28 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:09] work: 退社
+
+	* [10:30] work: 出社
+
+2009-10-27 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:10] work: 退社
+
+	* [10:30] work: 出社
+
+2009-10-26 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:30] work: 退社
+
+	* [10:30] work: 出社
+
+2009-10-23 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:05] work: 退社
+
+	* [12:00] work: 出社
+
+2009-10-22 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:38] work: 退社
+
+	* [10:40] work: 出社
+
+2009-10-21 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:02] work: 退社
+
+	* [10:30] work: 出社
+
+2009-10-20 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:06] work: 退社
+
+	* [10:45] work: 出社
+
+2009-10-19 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:10] work: 退社
+
+	* [10:40] work: 出社
+
+2009-10-16 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:59] work: 退社
+
+	* [10:40] work: 出社
+
+2009-10-15 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:29] work: 退社
+
+	* [11:00] work: 出社
+
+2009-10-14 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:40] work: 退社
+
+	* [09:15] work: 出社
+
+2009-10-13 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [23:07] work: 退社
+
+	* [10:15] work: 出社
+
+2009-10-09 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [20:04] work: 退社
+
+	* [10:30] work: 出社
+
+2009-10-08 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:49] work: 退社
+
+	* [14:53] work: 出社
+
+2009-10-05 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:21] work: 退社
+
+	* [10:00] work: 出社
+
+2009-10-02 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:53] work: 退社
+
+	* [11:30] work: 出社
+
+2009-10-01 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:45] work: 退社
+
+	* [10:30] work: 出社
+
+2009-09-30 (Wed)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:37] work: 退社
+
+	* [10:30] work: 出社
+
+2009-09-29 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:43] work: 退社
+
+	* [10:15] work: 出社
+
 2009-09-28 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:13] work: 退社
 
 	* [10:00] work: 出社
 
