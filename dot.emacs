@@ -61,7 +61,7 @@
     (set-face-foreground 'font-lock-builtin-face "yellow")))
 (set-face-background 'highlight "yellow")
 (set-face-foreground 'highlight "black")
-(set-face-background 'region "white")
+(set-face-background 'region "gray")
 (set-face-foreground 'region "black")
 (set-cursor-color "green")
 
@@ -184,8 +184,8 @@
   (progn
     (set-face-foreground 'modeline "black")
     (set-face-background 'modeline "cyan")
-    (set-face-foreground 'mode-line-inactive "cyan")
-    (set-face-background 'mode-line-inactive "black")))
+    (set-face-foreground 'mode-line-inactive "black")
+    (set-face-background 'mode-line-inactive "gray")))
 
 
 ;;;;;; minibuffer
