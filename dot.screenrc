@@ -1,7 +1,7 @@
 ## Basics
 escape ^t^z
 startup_message off
-hardstatus alwayslastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
+hardstatus alwayslastline "[%02c] %`%-w%{kr}%n %t%{-}%+w"
 defhstatus I^En:^EtI
 defscrollback 1000
 vbell off
