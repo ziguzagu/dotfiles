@@ -303,8 +303,8 @@
             ))
 (setq auto-mode-alist
       (append '(("\\.cgi$" . cperl-mode)
-                ("\\.psgi$" . cperl-mode)
                 ("\\.p[hlm]$" . cperl-mode)
+                ("\\.psgi$" . cperl-mode)
                 ("\\.t$" . cperl-mode)) auto-mode-alist))
 ;; ffap with perldoc
 (defun ffap-cperl-mode (file)
@@ -419,19 +419,19 @@
 (setq cssm-indent-function #'cssm-c-style-indenter)
 (setq cssm-indent-level 4)
 (setq auto-mode-alist
-      (cons '("\\.css$" . css-mode) auto-mode-alist))
+      (append '(("\\.css$" . css-mode)) auto-mode-alist))
 
 
 ;;;;;; For javascript editting
 (autoload 'js2-mode "js2-mode" nil t)
 (setq auto-mode-alist
-      (append '(("\\.js$" . js2-mode) auto-mode-alist)))
+      (append '(("\\.js$" . js2-mode)) auto-mode-alist))
 
 
 ;;;;;; actionscript
 (autoload 'actionscript-mode "actionscript-mode" nil t)
 (setq auto-mode-alist
-      (cons '("\\.as$" . actionscript-mode) auto-mode-alist))
+      (append '(("\\.as$" . actionscript-mode)) auto-mode-alist))
 
 
 ;;;;;; kill-summary
