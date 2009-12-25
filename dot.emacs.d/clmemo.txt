@@ -1,3 +1,32 @@
+2009-12-25 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [18:30] work: 退社
+
+	* [18:29] blogzine: case 91322 残り
+
+	- 上級テンプレに変換できなくする
+	- 仕様の確認
+
+	* [10:00] work: 出社
+
+2009-12-24 (Thu)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:30] work: 退社
+
+	* [11:00] work: 出社
+
+2009-12-22 (Tue)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [21:30] work: 退社
+
+	* [10:30] work: 出社
+
+2009-12-21 (Mon)  Hiroshi Sakai  <ziguzagu@gmail.com>
+
+	* [19:08] work: 退社
+
+	* [10:00] work: 出社
+
 2009-12-18 (Fri)  Hiroshi Sakai  <ziguzagu@gmail.com>
 
 	* [19:14] work: 退社
