@@ -17,7 +17,7 @@ else
     alias ls="ls -FG"
 fi
 alias l="ls -lh"
-alias ll="ls -alh"
+alias ll="ls -Alh"
 alias sc="screen -xRU"
 alias gv="grep -v .svn"
 alias lv="lv -c -Ou8"
