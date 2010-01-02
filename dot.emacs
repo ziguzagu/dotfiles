@@ -209,7 +209,7 @@
                   ;; show directories at the top of buffer
                   (setq ls-lisp-dirs-first t)
                   ;; ls options
-                  (setq dired-listing-switches "-lhFG")
+                  (setq dired-listing-switches "-AlhFG")
                   ;; recursive copy/delete
                   (setq dired-recursive-copies 'always)
                   (setq dired-recursive-deletes 'always)
