@@ -9,6 +9,9 @@ shell -$SHELL
 autodetach on
 bind w windowlist -b
 
+# tweak appearance of message and so on from the screen
+sorendition "+rb .G"
+
 ## disable xoff
 bind s
 
