@@ -1,7 +1,6 @@
 ## Basics
 escape ^t^z
 startup_message off
-hardstatus alwayslastline "[%02c] %`%-w%{kr}%n %t%{-}%+w"
 defhstatus I^En:^EtI
 defscrollback 1000
 vbell off
@@ -9,7 +8,9 @@ shell -$SHELL
 autodetach on
 bind w windowlist -b
 
-# tweak appearance of message and so on from the screen
+# tweak appearance of hardstatus, caption and message
+hardstatus string "%?%h%:%t%?"
+caption always "%{=r dd}[%02c] %`%-w%{kr}%n %t%{-}%+w"
 sorendition "+rb .G"
 
 ## disable xoff
