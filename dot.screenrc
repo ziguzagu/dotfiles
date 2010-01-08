@@ -1,15 +1,17 @@
 # basics
 escape ^t^z
 startup_message off
-defhstatus I^En:^EtI
 defscrollback 1000
 vbell off
 shell -$SHELL
 autodetach on
 bind w windowlist -b
 
-# tweak appearance of hardstatus, caption and message
+# hardstatus
+defhstatus "^En:^Et@%H"
 hardstatus string "%?%h%:%t%?"
+
+# caption
 caption always "%{=r dd}[%02c] %`%-w%{+b WK}%n %t%{-}%+w"
 sorendition "+rb .G"
 
