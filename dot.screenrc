@@ -10,7 +10,7 @@ bind w windowlist -b
 
 # tweak appearance of hardstatus, caption and message
 hardstatus string "%?%h%:%t%?"
-caption always "%{=r dd}[%02c] %`%-w%{kr}%n %t%{-}%+w"
+caption always "%{=r dd}[%02c] %`%-w%{+b WK}%n %t%{-}%+w"
 sorendition "+rb .G"
 
 ## disable xoff
