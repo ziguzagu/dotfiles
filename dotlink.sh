@@ -13,16 +13,16 @@ cd $HOME
 for D in $DIRS; do
     D=`echo $D | sed -e 's/^dot//'`
     if [ ! -d "$D" ]; then
-        mkdir "$D"
         echo "mkdir $D"
+        mkdir "$D"
     fi
 done
 
 for F in $FILES; do
     TARGET=`echo $F | sed -e 's/^dot//'`
     if [ ! -L "$TARGET" ]; then
-        ln -s "$DOTDIR/$F" "$TARGET"
         echo "ln -s $DOTDIR/$F $TARGET"
+        ln -s "$DOTDIR/$F" "$TARGET"
     fi
 done
 
