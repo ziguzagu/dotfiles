@@ -1,7 +1,7 @@
-#!/usr/bin/perl -d
-# $Id$
-
+#!/usr/bin/env perl -d
 use strict;
+use warnings;
+
 use constant HISTORY_FILE => qq{$ENV{HOME}/.pd-history};
 
 BEGIN {
