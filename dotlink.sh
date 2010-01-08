@@ -7,8 +7,6 @@ DIRS=`find . -type d | \grep -v .svn | \grep -v .git | sed -e 's/^\.\///;/^$/d;'
 FILES=`find . -type f | \grep -v .svn/ | \grep -v .git/ | sed -e 's/^\.\///;/^$/d;'`
 FILES=${FILES/$CMD/}
 
-echo $DIRS
-
 cd $HOME
 for D in $DIRS; do
     D=`echo $D | sed -e 's/^dot//'`
