@@ -8,7 +8,7 @@ autodetach on
 bind w windowlist -b
 
 # hardstatus
-defhstatus "^En:^Et@%H"
+defhstatus ^En:^Et@^EH
 hardstatus string "%?%h%:%t%?"
 
 # caption
