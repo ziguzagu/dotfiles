@@ -185,7 +185,7 @@
     (set-face-foreground 'modeline "black")
     (set-face-background 'modeline "cyan")
     (set-face-foreground 'mode-line-inactive "black")
-    (set-face-background 'mode-line-inactive "gray")))
+    (set-face-background 'mode-line-inactive "white")))
 
 
 ;;;;;; minibuffer
