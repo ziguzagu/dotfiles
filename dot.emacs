@@ -186,7 +186,7 @@
     (set-face-background 'modeline "cyan")
     (set-face-foreground 'mode-line-buffer-id "white")
     (set-face-foreground 'mode-line-inactive "black")
-    (set-face-background 'mode-line-inactive "white")))
+    (set-face-background 'mode-line-inactive "brightblack")))
 
 
 ;;;;;; minibuffer
@@ -623,3 +623,5 @@
  '(diff-added       ((t (:inherit diff-changed :background "green" :foreground "black"))))
  '(diff-removed     ((t (:inherit diff-changed :background "red"))))
  )
+
+(put 'downcase-region 'disabled nil)
