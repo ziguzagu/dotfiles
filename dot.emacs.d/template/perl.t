@@ -1,7 +1,7 @@
+#!/usr/bin/env perl
 use strict;
 use warnings;
+use Test::More;
 
-use Test::More no_plan => 1;
 
-
-__END__
+done_testing();
