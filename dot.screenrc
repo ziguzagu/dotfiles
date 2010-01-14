@@ -1,11 +1,14 @@
 # basics
 escape ^t^z
-startup_message off
+zombie ^[
 defscrollback 1000
-vbell off
 shell -$SHELL
 autodetach on
 bind w windowlist -b
+
+# shut up!
+startup_message off
+vbell off
 
 # hardstatus
 defhstatus ^En:^Et@^EH
