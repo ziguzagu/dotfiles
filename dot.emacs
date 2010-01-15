@@ -163,6 +163,24 @@
 (global-auto-revert-mode t)
 
 
+;;;;;; window
+;; vertical <-> horizontal
+(defun window-toggle-split ()
+  "toggle splitted windows vertical and horizontal"
+  (interactive)
+  (unless (= (count-windows 1) 2)
+    (error "no splitted windows"))
+  (let (before-height (other-buf (window-buffer (next-window))))
+    (setq before-height (window-height))
+    (delete-other-windows)
+    (if (= (window-height) before-height)
+        (split-window-vertically)
+      (split-window-horizontally))
+    (switch-to-buffer-other-window other-buf)
+    (other-window -1)))
+(global-set-key "\C-x4" 'window-toggle-split)
+
+
 ;;;;;; recent file mode
 (recentf-mode 1)
 (setq recentf-max-menu-items 10)
