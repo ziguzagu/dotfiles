@@ -1,6 +1,6 @@
 # basics
 escape ^t^z
-zombie ^[
+#zombie ^[
 defscrollback 1000
 shell -$SHELL
 autodetach on
