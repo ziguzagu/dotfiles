@@ -178,7 +178,7 @@
       (split-window-horizontally))
     (switch-to-buffer-other-window other-buf)
     (other-window -1)))
-(global-set-key "\C-x4" 'window-toggle-split)
+(global-set-key "\C-x9" 'window-toggle-split)
 
 
 ;;;;;; recent file mode
