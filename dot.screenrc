@@ -45,7 +45,7 @@ bind -c resize k eval 'resize -2' 'command -c resize'
 termcapinfo xterm*|screen* hs:ts=\E]0;:fs=\007:ds=\E]0;\007
 hardstatus on
 
-# for color term. AB/AF are also screen specific.
+# for color term (but they breaks Terminal of Mac...)
 attrcolor b ".I"
 #termcapinfo xterm*|screen* AB=\E[48;5;%dm:AF=\E[38;5;%dm
 #termcapinfo xterm-256color Co#256:pa#32767:AB=\E[48;5;%dm:AF=\E[38;5;%dm
