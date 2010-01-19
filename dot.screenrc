@@ -13,6 +13,8 @@ vbell off
 # hardstatus
 defhstatus ^En:^Et@^EH
 hardstatus string "%?%h%:%t%?"
+termcapinfo xterm*|screen* hs:ts=\E]0;:fs=\007:ds=\E]0;\007
+hardstatus on
 
 # caption
 caption always "%{=r dd}%`%-w%{+b WK}%n %t%{-}%+w %= [%02c]"
@@ -41,11 +43,7 @@ bind -c resize ^] command
 bind -c resize j eval 'resize +1' 'command -c resize'
 bind -c resize k eval 'resize -2' 'command -c resize'
 
-# for hardware status line
-termcapinfo xterm*|screen* hs:ts=\E]0;:fs=\007:ds=\E]0;\007
-hardstatus on
-
-# for color term (but they breaks Terminal of Mac...)
+# for color term (but they break Terminal of Mac...)
 attrcolor b ".I"
 #termcapinfo xterm*|screen* AB=\E[48;5;%dm:AF=\E[38;5;%dm
 #termcapinfo xterm-256color Co#256:pa#32767:AB=\E[48;5;%dm:AF=\E[38;5;%dm
