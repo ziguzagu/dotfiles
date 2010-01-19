@@ -15,7 +15,7 @@ defhstatus ^En:^Et@^EH
 hardstatus string "%?%h%:%t%?"
 
 # caption
-caption always "%{=r dd}%`%-w%{+b WK}%n %t%{-}%+w %?%F%-7=[%02c]%:%=%?"
+caption always "%{=r dd}%`%-w%{+b WK}%n %t%{-}%+w %= [%02c]"
 sorendition "+rb .G"
 
 # disable xoff
