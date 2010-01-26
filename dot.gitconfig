@@ -12,9 +12,10 @@
 [core]
 	excludesfile = ~/.gitignore
 [alias]
-	up = pull
+	up = pull --rebase
 	di = diff
 	ci = commit --verbose
 	st = status -a
 	co = checkout
 	br = branch
+    tree = log --graph --pretty=oneline --abbrev-commit --decorate
