@@ -18,4 +18,4 @@
 	st = status -a
 	co = checkout
 	br = branch
-    tree = log --graph --pretty=oneline --abbrev-commit --decorate
+	tree = log --graph --pretty=oneline --abbrev-commit --decorate
