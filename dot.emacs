@@ -5,7 +5,8 @@
 (setq user-full-name "Hiroshi Sakai")
 (setq user-mail-address "ziguzagu@gmail.com")
 (setq load-path
-      (append (list "~/.emacs.d/lisp"
+      (append (list "~/.emacs.d"
+                    "~/.emacs.d/lisp"
                     "~/.emacs.d/lisp/blgrep")
               load-path))
 ;; using unsafe local variables..?
@@ -33,37 +34,7 @@
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 
 
-;;;;;; global font lock
-(require 'font-lock)
-(global-font-lock-mode t)
-(set-face-foreground 'default "white")
-(if window-system
-    (progn
-      (set-face-background 'default "ARGBDD000000")
-      (set-face-foreground 'font-lock-comment-face "darkolivegreen3")
-      (set-face-foreground 'font-lock-string-face  "coral")
-      (set-face-foreground 'font-lock-keyword-face "violet")
-      (set-face-foreground 'font-lock-function-name-face "white")
-      (set-face-foreground 'font-lock-variable-name-face "white")
-      (set-face-foreground 'font-lock-type-face "skyblue1")
-      (set-face-foreground 'font-lock-warning-face "yellow")
-      (set-face-foreground 'font-lock-builtin-face "goldenrod"))
-  (progn
-    (set-face-background 'default "black")
-    (set-face-foreground 'font-lock-comment-face "green")
-    (set-face-foreground 'font-lock-string-face  "red")
-    (set-face-foreground 'font-lock-keyword-face "magenta")
-    (set-face-foreground 'font-lock-function-name-face "white")
-    (set-face-foreground 'font-lock-variable-name-face "white")
-    (set-face-foreground 'font-lock-type-face "cyan")
-    (set-face-background 'font-lock-warning-face "red")
-    (set-face-foreground 'font-lock-warning-face "white")
-    (set-face-foreground 'font-lock-builtin-face "yellow")))
-(set-face-background 'highlight "yellow")
-(set-face-foreground 'highlight "black")
-(set-face-background 'region "gray")
-(set-face-foreground 'region "black")
-(set-cursor-color "green")
+(require 'init-color)
 
 
 ;;;;;; common editting
@@ -192,19 +163,6 @@
 ;; show line/column numer
 (line-number-mode t)
 (column-number-mode t)
-;; color of modeline
-(if window-system
-    (progn
-      (set-face-foreground 'modeline "skyblue1")
-      (set-face-background 'modeline "grey19")
-      (set-face-foreground 'mode-line-inactive "grey51")
-      (set-face-background 'mode-line-inactive "grey19"))
-  (progn
-    (set-face-foreground 'modeline "black")
-    (set-face-background 'modeline "cyan")
-    (set-face-foreground 'mode-line-buffer-id "white")
-    (set-face-foreground 'mode-line-inactive "black")
-    (set-face-background 'mode-line-inactive "brightblack")))
 
 
 ;;;;;; minibuffer
@@ -214,8 +172,6 @@
 (turn-on-mcomplete-mode)
 ;; fix mini-buffer
 (setq resize-mini-windows nil)
-;; color
-(set-face-foreground 'minibuffer-prompt "yellow")
 ;; incremental-searching on minibuffer history
 ;;   elisp: http://www.sodan.org/~knagano/emacs/minibuf-isearch/
 ;; (require 'minibuf-isearch)
