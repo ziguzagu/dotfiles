@@ -32,3 +32,12 @@
 (set-face-background 'mode-line-inactive "brightblack")
 ;; mini buffer
 (set-face-foreground 'minibuffer-prompt "yellow")
+;; diff-mode
+(custom-set-faces
+ '(diff-file-header ((t (:background "brightblack" :foreground "white"))))
+ '(diff-header      ((t (:background "brightblack" :foreground "white"))))
+ '(diff-context     ((t (:inherit shadow :foreground "white"))))
+ '(diff-changed     ((t (:background "yellow" :foreground "black"))))
+ '(diff-added       ((t (:background "green" :foreground "black"))))
+ '(diff-removed     ((t (:background "brightred" :foreground "black"))))
+ )

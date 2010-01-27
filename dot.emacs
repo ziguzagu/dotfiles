@@ -554,22 +554,4 @@
   )
 
 
-;;;;;; faces for diff-mode
-;; (custom-set-faces
-;;  '(diff-file-header ((t (:foreground "white"))))
-;;  '(diff-header      ((t (:background "grey30" :foreground "white"))))
-;;  '(diff-context     ((t (:inherit shadow :foreground "grey52"))))
-;;  '(diff-changed     ((t (:background "brightgreen" :foreground "black"))))
-;;  '(diff-added       ((t (:inherit diff-changed :background "color-150"))))
-;;  '(diff-removed     ((t (:inherit diff-changed :background "color-211"))))
-;;  )
-(custom-set-faces
- '(diff-file-header ((t (:background "blue" :foreground "white"))))
- '(diff-header      ((t (:background "blue" :foreground "white"))))
- '(diff-context     ((t (:inherit shadow :foreground "white"))))
- '(diff-changed     ((t (:background "yellow" :foreground "black"))))
- '(diff-added       ((t (:inherit diff-changed :background "green" :foreground "black"))))
- '(diff-removed     ((t (:inherit diff-changed :background "red"))))
- )
-
 (put 'downcase-region 'disabled nil)
