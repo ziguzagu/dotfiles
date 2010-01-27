@@ -83,5 +83,8 @@ export GOROOT=$HOME/go
 export GOOS=darwin
 export GOARCH=amd64
 
+## gisty
+export GISTY_DIR=$HOME/dev/gists
+
 ## at sixapart
 [ -f .zprofile.6a ] && source .zprofile.6a
