@@ -7,17 +7,12 @@ export LANG=ja_JP.UTF-8
 
 export SHELL=`which zsh`
 
-## path
-MYPATH=~/bin
-[ -d ~/opt/bin ]      && MYPATH=$MYPATH:~/opt/bin
-[ -d ~/opt/flex/bin ] && MYPATH=$MYPATH:~/opt/flex/bin
-[ -d /var/lib/gems/1.8/bin ] && MYPATH=$MYPATH:/var/lib/gems/1.8/bin
-[ -d /opt/local/bin ] && MYPATH=$MYPATH:/opt/local/bin
-export PATH=$MYPATH:$PATH
-[ -d /opt/local/man ] && export MANPATH=/opt/local/man:$MANPATH
+## path/manpath
+export PATH=$HOME/bin:$PATH
 # for sakura
 [ -d ~/MailBox/$USER ] && export MAILPATH=~/MailBox/$USER/maildir
-[ -d ~/opt/cpan-lib ]  && export PERL5LIB=~/opt/cpan-lib:$PERL5LIB
+# for mac
+[ -d /usr/local/git/man ] && export MANPATH=/usr/local/git/man:$MANPATH
 
 ## pager
 which lv >& /dev/null && export PAGER=lv
@@ -27,9 +22,6 @@ export GIT_PAGER=cat
 export EDITOR=emacsclient
 export ALTERNATE_EDITOR=vi
 export SVN_EDITOR=emacsclient
-
-## my
-export REPOS=http://code.norainu.net/svn
 
 ## grep
 export GREP_COLOR='07;33'
