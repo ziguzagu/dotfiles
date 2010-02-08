@@ -30,6 +30,14 @@ export GREP_OPTIONS='--exclude=\*.svn\*'
 ## local::lib
 eval $(perl -Iperl5/lib/perl5 -Mlocal::lib 2>/dev/null)
 
+## golang
+export GOROOT=$HOME/go
+export GOOS=darwin
+export GOARCH=amd64
+
+## gisty
+export GISTY_DIR=$HOME/dev/gists
+
 ## changing title of screen's window by preexec()
 if [[ -n $WINDOW ]]; then
 #    chpwd () { echo -n "_`dirs`\\" }
@@ -69,14 +77,6 @@ fi
 
 ## change the terminal window title
 #precmd() { echo -n "\e]0;$USER@$HOST\a" }
-
-## golang
-export GOROOT=$HOME/go
-export GOOS=darwin
-export GOARCH=amd64
-
-## gisty
-export GISTY_DIR=$HOME/dev/gists
 
 ## at sixapart
 [ -f .zprofile.6a ] && source .zprofile.6a
