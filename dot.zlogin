@@ -1,5 +1,4 @@
 ## -*- mode: shell-script; -*-
-## $Id$
 
 which keychain >& /dev/null || return
 
