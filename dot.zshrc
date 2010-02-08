@@ -1,12 +1,10 @@
 ## -*- mode: shell-script; -*-
-## $Id$
 
 ## completion
 autoload -U compinit
 compinit
 # case insensitive
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-
 
 ## alias
 setopt complete_aliases
@@ -33,6 +31,7 @@ alias prove="prove -lv"
 alias ack="ack --color"
 alias grep="grep --binary-files=without-match --color=always"
 alias t="todo.sh -d $HOME/.todo"
+
 ## global alias
 alias -g M="| more"
 alias -g L="| lv"
