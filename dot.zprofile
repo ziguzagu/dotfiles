@@ -8,11 +8,14 @@ export LANG=ja_JP.UTF-8
 export SHELL=`which zsh`
 
 ## path/manpath
-export PATH=$HOME/bin:$PATH
-# for sakura
-[ -d ~/MailBox/$USER ] && export MAILPATH=~/MailBox/$USER/maildir
-# for mac
+# sakura
+[ -d $HOME/MailBox/$USER ] && export MAILPATH=~/MailBox/$USER/maildir
+[ -d $HOME/opt/bin ] && export PATH=$HOME/opt/bin
+[ -d $HOME/opt/man ] && export MANPATH=$HOME/opt/man
+# mac
 [ -d /usr/local/git/man ] && export MANPATH=/usr/local/git/man:$MANPATH
+# defaults
+export PATH=$HOME/bin:$PATH
 
 ## pager
 which lv >& /dev/null && export PAGER=lv
