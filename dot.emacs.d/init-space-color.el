@@ -1,10 +1,7 @@
-;;;; -*- mode: lisp-interaction; syntax: elisp; coding: iso-2022-7bit -*-
-;;
-;; jaspace.el: http://homepage3.nifty.com/satomii/software/jaspace.el
-;;
+;;;; -*- mode: lisp-interaction; syntax: elisp; -*-
 
-(provide 'init-space-color)
-
+;; setup color of zenkaku space / leading and trailing space / tab
+;;  * http://homepage3.nifty.com/satomii/software/jaspace.el
 (when (require 'jaspace nil t)
   (when (boundp 'jaspace-modes)
     (setq jaspace-modes (append jaspace-modes
@@ -55,3 +52,5 @@
                                                  :background "unspecified"
                                                  :strike-through nil
                                                  :underline t))))))))
+
+(provide 'init-space-color)
