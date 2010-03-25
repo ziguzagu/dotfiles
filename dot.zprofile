@@ -1,7 +1,5 @@
 ## -*- mode: shell-script; -*-
 
-[ "$__ZPROFILE__" ] && return
-
 ## lang/locale
 export LANGUAGE=ja_JP:ja:en_GB:en
 export LC_ALL=C
@@ -85,5 +83,3 @@ fi
 
 ## at sixapart
 [ -f .zprofile.6a ] && source .zprofile.6a
-
-export __ZPROFILE__=1
