@@ -5,7 +5,7 @@
 -se     # Errors to STDERR
 -vt=2   # Maximal vertical tightness
 -bvt=2
-#-bvtc=1
+-bvtc=1
 -cti=0  # No extra indentation for closing brackets
 -pt=2   # Medium parenthesis tightness
 -sbt=2  # Medium square brace tightness
