@@ -30,8 +30,9 @@ export SVN_EDITOR=emacsclient
 export GREP_COLOR='07;33'
 export GREP_OPTIONS='--exclude=\*.svn\*'
 
-## local::lib
+## local::lib & perlbre
 eval $(perl -Iperl5/lib/perl5 -Mlocal::lib 2>/dev/null)
+[ -f ~/perl5/perlbrew/etc/bashrc ] && source ~/perl5/perlbrew/etc/bashrc
 
 ## golang
 export GOROOT=$HOME/go
