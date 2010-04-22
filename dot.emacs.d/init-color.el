@@ -9,7 +9,7 @@
 (set-cursor-color "green")
 
 ;; common syntax
-(set-face-foreground 'font-lock-comment-face "green")
+(set-face-foreground 'font-lock-comment-face "brightblack")
 (set-face-foreground 'font-lock-string-face  "red")
 (set-face-foreground 'font-lock-keyword-face "magenta")
 (set-face-foreground 'font-lock-function-name-face "white")
