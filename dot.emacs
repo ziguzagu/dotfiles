@@ -35,7 +35,6 @@
 
 
 (require 'init-color)
-(require 'init-space-color)
 
 
 ;;;;;; common editting
