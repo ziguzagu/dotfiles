@@ -24,8 +24,8 @@
 (set-face-foreground 'highlight "black")
 
 ;; region
-(set-face-background 'region "gray")
-(set-face-foreground 'region "black")
+(set-face-background 'region "brightblack")
+(set-face-foreground 'region "white")
 
 ;; modeline
 (set-face-foreground 'modeline "black")
