@@ -68,7 +68,7 @@ function history-all { history -E 1 }
 zstyle ':completion:*:default' menu select=1
 
 ## set TERM to use color terminal
-eval `tset -sQI xterm-256color`
+#eval `tset -sQI xterm-256color`
 
 ## prompt
 setopt prompt_subst
