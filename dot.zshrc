@@ -74,7 +74,7 @@ zstyle ':completion:*:default' menu select=1
 setopt prompt_subst
 unsetopt promptcr
 # for emacs (no escape usging)
-if [[ $EMACS = t ]]; then
+if [ "$EMACS" = t ]; then
     unsetopt zle
 fi
 PROMPT=$'\n''%{[36m%}%n@%m%{[m%}:%{[33m%}%~%{[m%}'$'\n''%# '

@@ -30,7 +30,7 @@ export GREP_OPTIONS='--exclude=\*.svn\*'
 ## trying to use perlbrew or local::lib
 if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
     source ~/perl5/perlbrew/etc/bashrc
-elif [ -n $PERL5LIB ]; then
+elif [ -n "$PERL5LIB" ]; then
     eval $(perl -Iperl5/lib/perl5 -Mlocal::lib 2>/dev/null)
 fi
 
@@ -43,7 +43,7 @@ export GOARCH=amd64
 export GISTY_DIR=$HOME/dev/gists
 
 ## changing title of screen's window by preexec()
-if [[ -n $WINDOW ]]; then
+if [ -n "$WINDOW" ]; then
     preexec() {
         emulate -L zsh
         local -a cmd; cmd=(${(z)2})
