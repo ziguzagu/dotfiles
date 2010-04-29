@@ -1,4 +1,4 @@
-;;;; -*- mode: lisp-interaction; syntax: elisp; -*-
+;;;; -*- mode: lisp-interaction; syntax: elisp; coding: utf-8 -*-
 
 (require 'font-lock)
 (global-font-lock-mode t)
