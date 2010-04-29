@@ -10,7 +10,7 @@
 
 ;; common syntax
 (set-face-foreground 'font-lock-comment-face "brightblack")
-(set-face-foreground 'font-lock-string-face  "red")
+(set-face-foreground 'font-lock-string-face  "green")
 (set-face-foreground 'font-lock-keyword-face "magenta")
 (set-face-foreground 'font-lock-function-name-face "white")
 (set-face-foreground 'font-lock-variable-name-face "white")
