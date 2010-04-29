@@ -27,9 +27,12 @@ export ALTERNATE_EDITOR=vi
 export GREP_COLOR='07;33'
 export GREP_OPTIONS='--exclude=\*.svn\*'
 
-## local::lib & perlbre
-eval $(perl -Iperl5/lib/perl5 -Mlocal::lib 2>/dev/null)
-[ -f ~/perl5/perlbrew/etc/bashrc ] && source ~/perl5/perlbrew/etc/bashrc
+## trying to use perlbrew or local::lib
+if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
+    source ~/perl5/perlbrew/etc/bashrc
+else if [ -n $PERL5LIB ]; then
+    eval $(perl -Iperl5/lib/perl5 -Mlocal::lib 2>/dev/null)
+fi
 
 ## golang
 export GOROOT=$HOME/go
