@@ -14,6 +14,7 @@
 (set-face-foreground 'font-lock-keyword-face "magenta")
 (set-face-foreground 'font-lock-function-name-face "white")
 (set-face-foreground 'font-lock-variable-name-face "white")
+(set-face-foreground 'font-lock-constant-face "red")
 (set-face-foreground 'font-lock-type-face "cyan")
 (set-face-background 'font-lock-warning-face "red")
 (set-face-foreground 'font-lock-warning-face "white")
