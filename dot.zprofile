@@ -10,8 +10,8 @@ export SHELL=`which zsh`
 ## path/manpath
 # sakura
 [ -d $HOME/MailBox/$USER ] && export MAILPATH=~/MailBox/$USER/maildir
-[ -d $HOME/opt/bin ] && export PATH=$HOME/opt/bin
-[ -d $HOME/opt/man ] && export MANPATH=$HOME/opt/man
+[ -d $HOME/opt/bin ] && export PATH=$HOME/opt/bin:$PATH
+[ -d $HOME/opt/man ] && export MANPATH=$HOME/opt/man:$MANPATH
 # mac
 [ -d /usr/local/git/man ] && export MANPATH=/usr/local/git/man:$MANPATH
 # defaults
