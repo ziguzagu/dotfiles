@@ -14,17 +14,14 @@ export SHELL=`which zsh`
 [ -d $HOME/opt/man ] && export MANPATH=$HOME/opt/man:$MANPATH
 # mac
 [ -d /usr/local/git/man ] && export MANPATH=/usr/local/git/man:$MANPATH
-# defaults
-export PATH=$HOME/bin:$PATH
 
 ## pager
 which lv >& /dev/null && export PAGER=lv
 export GIT_PAGER=cat
 
 ## editor
-export EDITOR=emacsclient
+export EDITOR=$HOME/bin/emacsclient
 export ALTERNATE_EDITOR=vi
-export SVN_EDITOR=emacsclient
 
 ## grep
 export GREP_COLOR='07;33'
