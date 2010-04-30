@@ -36,7 +36,7 @@ fi
 if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
     source ~/perl5/perlbrew/etc/bashrc
 elif [ -z "$PERL5LIB" ]; then
-    eval $(perl -Iperl5/lib/perl5 -Mlocal::lib 2>/dev/null)
+    eval `perl -Iperl5/lib/perl5 -Mlocal::lib 2>/dev/null`
 fi
 
 ## golang
