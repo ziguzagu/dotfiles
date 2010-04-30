@@ -40,7 +40,7 @@ TERM Eterm
 # 40=black 41=red 42=green 43=yellow 44=blue 45=magenta 46=cyan 47=white
 NORMAL 00	# global default, although everything should be something.
 FILE 00		# normal file
-DIR 01;34	# directory
+DIR 01;32	# directory
 LINK 01;36	# symbolic link.  (If you set this to 'target' instead of a
 		# numerical value, the color is as for the file pointed to.)
 FIFO 40;33	# pipe
@@ -51,7 +51,7 @@ CHR 40;33;01	# character device driver
 ORPHAN 40;31;01 # symlink to nonexistent file
 
 # This is for files with execute permission:
-EXEC 01;32
+EXEC 00;31
 
 # List any file extensions like '.gz' or '.tar' that you would like ls
 # to colorize below. Put the extension, a space, and the color init string.
@@ -64,19 +64,20 @@ EXEC 01;32
 #.btm 01;32
 #.bat 01;32
 
-.tar 01;31 # archives or compressed (bright red)
-.tgz 01;31
-.arj 01;31
-.taz 01;31
-.lzh 01;31
-.zip 01;31
-.z   01;31
-.Z   01;31
-.gz  01;31
-.bz2 01;31
-.deb 01;31
-.rpm 01;31
-.jar 01;31
+# archives or compressed
+.tar 01;30
+.tgz 01;30
+.arj 01;30
+.taz 01;30
+.lzh 01;30
+.zip 01;30
+.z   01;30
+.Z   01;30
+.gz  01;30
+.bz2 01;30
+.deb 01;30
+.rpm 01;30
+.jar 01;30
 
 # image formats
 .jpg 01;35
