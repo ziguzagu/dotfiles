@@ -30,7 +30,7 @@ export GREP_OPTIONS='--exclude=\*.svn\*'
 ## trying to use perlbrew or local::lib
 if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
     source ~/perl5/perlbrew/etc/bashrc
-elif [ -n "$PERL5LIB" ]; then
+elif [ -z "$PERL5LIB" ]; then
     eval $(perl -Iperl5/lib/perl5 -Mlocal::lib 2>/dev/null)
 fi
 
