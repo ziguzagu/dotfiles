@@ -27,6 +27,9 @@ export ALTERNATE_EDITOR=vi
 export GREP_COLOR='07;33'
 export GREP_OPTIONS='--exclude=\*.svn\*'
 
+## ls colors
+[[ -x `where dircolors` ]] && eval `dircolors $HOME/.dircolors`
+
 ## trying to use perlbrew or local::lib
 if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
     source ~/perl5/perlbrew/etc/bashrc
