@@ -15,5 +15,7 @@
 -nolq   # Don't outdent long quoted strings
 -sohb
 -sct
+-nsbc
+-otr
 -wbb="% + - * / x != == >= <= =~ !~ < > | & >= < = **= += *= &= <<= &&= -= /= |= >>= ||= .= %= ^= x="
         # Break before all operators
