@@ -28,7 +28,7 @@ export GREP_COLOR='07;33'
 export GREP_OPTIONS='--exclude=\*.svn\*'
 
 ## ls colors
-if [ -x `where dircolors` ] && [ -e $HOME/.dircolors ]; then
+if [[ -x `where dircolors` ]] && [ -e $HOME/.dircolors ]; then
     eval `dircolors $HOME/.dircolors`
 fi
 
