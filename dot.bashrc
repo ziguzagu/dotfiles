@@ -1,9 +1,7 @@
-## $Id$
-
-#### alias
+## alias
 alias ls="ls -F --color=auto"
-alias l="ls -l"
-alias ll="ls -al"
+alias l="ls -lh"
+alias ll="ls -Alh"
 alias sc="screen -xRU"
 alias gv="grep -v .svn"
 alias lv="lv -c -Ou8"
@@ -12,7 +10,7 @@ alias vs="svn status -u"
 alias lc="tr '[:upper:]' '[:lower:]'"
 alias uc="tr '[:lower:]' '[:upper:]'"
 
-#### prompt
+## prompt
 PS1="\[\033[00;36m\][\h:\w]\[\033[00m\]\\$ "
 
 # enable programmable completion features (you don't need to enable
