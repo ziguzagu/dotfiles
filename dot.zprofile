@@ -16,7 +16,7 @@ export SHELL=`which zsh`
 [ -d /usr/local/git/man ] && export MANPATH=/usr/local/git/man:$MANPATH
 
 ## pager
-which lv >& /dev/null && export PAGER=lv
+[[ -x `where lv` ]] && export PAGER=lv
 export GIT_PAGER=cat
 
 ## editor
