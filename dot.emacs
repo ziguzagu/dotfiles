@@ -61,6 +61,10 @@
 ;; comment
 (global-set-key "\C-c;" 'comment-or-uncomment-region)
 (setq comment-style 'multi-line)
+;; auto-complete
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/lisp/ac-dict")
+(ac-config-default)
 
 
 ;;;;;; autosave / backup
