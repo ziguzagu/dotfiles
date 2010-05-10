@@ -61,14 +61,17 @@
 ;; comment
 (global-set-key "\C-c;" 'comment-or-uncomment-region)
 (setq comment-style 'multi-line)
-;; anything
-;;  * http://www.emacswiki.org/emacs/Anything
-(require 'anything-config)
 ;; auto-complete
 ;;  * http://www.emacswiki.org/emacs/AutoComplete
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/lisp/ac-dict")
 (ac-config-default)
+
+
+;;;;;; anything
+;;  * http://www.emacswiki.org/emacs/Anything
+(require 'anything-config)
+(global-set-key "\C-cl" 'anything)
 
 
 ;;;;;; autosave / backup
