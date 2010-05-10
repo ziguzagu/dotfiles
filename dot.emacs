@@ -61,6 +61,9 @@
 ;; comment
 (global-set-key "\C-c;" 'comment-or-uncomment-region)
 (setq comment-style 'multi-line)
+;; anything
+;;  * http://www.emacswiki.org/emacs/Anything
+(require 'anything-config)
 ;; auto-complete
 ;;  * http://www.emacswiki.org/emacs/AutoComplete
 (require 'auto-complete-config)
