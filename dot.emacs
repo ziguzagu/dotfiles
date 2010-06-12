@@ -72,6 +72,7 @@
 ;;  * http://www.emacswiki.org/emacs/Anything
 (require 'anything-config)
 (global-set-key "\C-cl" 'anything)
+(add-to-list 'anything-sources 'anything-c-source-emacs-commands)
 
 
 ;;;;;; autosave / backup
