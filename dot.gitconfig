@@ -14,8 +14,8 @@
 [alias]
 	up = pull --rebase
 	di = diff
-	ci = commit --verbose
-	st = status -a
+	ci = commit -v
+	st = status
 	co = checkout
 	br = branch
 	tree = log --graph --pretty=oneline --abbrev-commit --decorate
