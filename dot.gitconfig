@@ -2,10 +2,7 @@
 	name = Hiroshi Sakai
 	email = ziguzagu@gmail.com
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	interactive = auto
+	ui = auto
 [github]
 	user = ziguzagu
 	token = be5c0351d21d18f05bc4d6d20c4b242e
@@ -19,5 +16,5 @@
 	co = checkout
 	br = branch
 	tree = log --graph --pretty=oneline --abbrev-commit --decorate
-    unstage = reset HEAD --
-    last = log -1 HEAD
+	unstage = reset HEAD --
+	last = log -1 HEAD
