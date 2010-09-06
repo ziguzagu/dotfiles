@@ -91,10 +91,14 @@ template: |
   # metadataes
   name '[% dist %]';
   all_from 'lib/[% path %]';
+  readme_from 'lib/[% path %]';
   # dependencies
   build_requires 'Test::More';
-  # misc
+  # tests
+  tests 't/*.t';
+  author_tests 'xt';
   use_test_base;
+  # misc
   auto_include;
   WriteAll;
 
@@ -106,7 +110,7 @@ template: |
 
   BEGIN { use_ok '[% module %]' }
 ---
-file: t/97-podspell.t
+file: xt/podspell.t
 template: |
   use Test::More;
   eval q{ use Test::Spelling };
@@ -117,7 +121,7 @@ template: |
   Hiroshi
   Sakai
 ---
-file: t/98-perlcritic.t
+file: xt/perlcritic.t
 template: |
   use strict;
   use Test::More;
@@ -125,7 +129,7 @@ template: |
   plan skip_all => "Test::Perl::Critic is not installed." if $@;
   all_critic_ok("lib");
 ---
-file: t/99-pod.t
+file: xt/pod.t
 template: |
   use Test::More;
   eval "use Test::Pod 1.00";
@@ -145,15 +149,13 @@ template: |
 
   use strict;
   use warnings;
-  use 5.8.1;
+
   our $VERSION = '0.01';
 
   1;
   __END__
 
-  =encoding utf-8
-
-  =for stopwords
+  =pod
 
   =head1 NAME
 
@@ -185,6 +187,7 @@ template: |
   \bRCS\b
   \bCVS\b
   \.svn/
+  \.git/
   ^MANIFEST\.
   ^Makefile$
   ~$
@@ -194,8 +197,8 @@ template: |
   ^MakeMaker-\d
   \.gz$
   \.cvsignore
+  \.gitignore
   \.shipit
-  ^t/9\d-.*\.t
 ---
 file: README
 template: |
@@ -230,4 +233,5 @@ template: |
 file: .shipit
 template: |
   steps = FindVersion, ChangeVersion, CheckChangeLog, DistTest, Commit, Tag, MakeDist, UploadCPAN
-  svk.tagpattern = %v
+  git.tagpattern = %v
+  git.push_to = origin
