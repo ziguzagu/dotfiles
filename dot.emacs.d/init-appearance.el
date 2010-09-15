@@ -100,4 +100,4 @@
                                                  :strike-through nil
                                                  :underline t))))))))
 
-(provide 'init-color)
+(provide 'init-appearance)
