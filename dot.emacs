@@ -66,6 +66,9 @@
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/lisp/ac-dict")
 (ac-config-default)
+;; enable upcase/downcase-region
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
 
 
 ;;;;;; anything
@@ -172,9 +175,9 @@
                   (setq dired-listing-switches "-AlhFG")
                   ;; recursive copy/delete
                   (setq dired-recursive-copies 'always)
-                  (setq dired-recursive-deletes 'always)
-                  ;; dummy command
-                  (put 'dired-find-alternate-file 'disabled nil)))
+                  (setq dired-recursive-deletes 'always)))
+;; don't create new buffer at moving direcotry
+(put 'dired-find-alternate-file 'disabled nil)
 ;; a lump-sum rename
 (require 'wdired)
 (define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
@@ -492,6 +495,3 @@
   ;; 文字色
   (setq sdic-face-color "brightmagenta")
   )
-
-
-(put 'downcase-region 'disabled nil)
