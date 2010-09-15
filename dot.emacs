@@ -57,7 +57,6 @@
 (global-set-key "\M-p" 'scroll-up-in-place)
 (global-set-key "\M-n" 'scroll-down-in-place)
 ;; comment
-(global-set-key "\C-c;" 'comment-or-uncomment-region)
 (setq comment-style 'multi-line)
 ;; auto-complete
 ;;  * http://www.emacswiki.org/emacs/AutoComplete
