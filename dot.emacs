@@ -73,6 +73,8 @@
 (require 'anything-config)
 (global-set-key "\C-cl" 'anything)
 (add-to-list 'anything-sources 'anything-c-source-emacs-commands)
+;; call show-kill-ring function by hand
+(global-set-key "\M-y" 'anything-show-kill-ring)
 
 
 ;;;;;; autosave / backup
@@ -306,12 +308,6 @@
 (autoload 'actionscript-mode "actionscript-mode" nil t)
 (setq auto-mode-alist
       (append '(("\\.as$" . actionscript-mode)) auto-mode-alist))
-
-
-;;;;;; kill-summary
-;; elisp: http://mibai.tec.u-ryukyu.ac.jp/~oshiro/Programs/elisp/kill-summary.el
-(autoload 'kill-summary "kill-summary" nil t)
-(define-key global-map "\ey" 'kill-summary)
 
 
 ;;;;;; dabbrev
