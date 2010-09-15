@@ -41,8 +41,6 @@
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
 ;(setq fill-column (setq auto-fill-mode nil)
-;; highlight selected region
-(setq-default transient-mark-mode t)
 ;; scroll by line
 (setq scroll-conservatively 35
       scroll-margin 0
@@ -107,17 +105,10 @@
 
 
 ;;;;;; Misc
-(setq inhibit-startup-message t)
 ;; move divided windows by shift with cursor.
 (windmove-default-keybindings)
-;; hide menu bar
-(menu-bar-mode -1)
-;; resize the temp buffer when necessary
-(temp-buffer-resize-mode 1)
 ;; woman
 (global-set-key "\C-cm" 'woman)
-;; turn off both beep and visual bell.
-(setq ring-bell-function 'ignore)
 ;; re-load a file when it was changed by another process
 (global-auto-revert-mode t)
 
@@ -147,19 +138,11 @@
 (define-key global-map "\C-cr" 'recentf-open-files)
 
 
-;;;;;; modeline
-;; show line/column numer
-(line-number-mode t)
-(column-number-mode t)
-
-
 ;;;;;; minibuffer
 ;; powerful complete on minibuffer
 ;;   elisp: http://homepage1.nifty.com/bmonkey/emacs/elisp/mcomplete.el
 (require 'mcomplete)
 (turn-on-mcomplete-mode)
-;; fix mini-buffer
-(setq resize-mini-windows nil)
 ;; incremental-searching on minibuffer history
 ;;   elisp: http://www.sodan.org/~knagano/emacs/minibuf-isearch/
 ;; (require 'minibuf-isearch)

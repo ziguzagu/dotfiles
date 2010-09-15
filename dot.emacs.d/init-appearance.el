@@ -1,5 +1,24 @@
 ;;;; -*- mode: lisp-interaction; syntax: elisp; coding: utf-8 -*-
 
+;; hide startup message
+(setq inhibit-startup-message t)
+
+;; hide menu bar
+(menu-bar-mode -1)
+
+;; turn off both beep and visual bell
+(setq ring-bell-function 'ignore)
+
+;; show line/column numer in modeline
+(line-number-mode t)
+(column-number-mode t)
+
+;; highlight selected region
+(setq-default transient-mark-mode t)
+
+;; fix mini-buffer
+(setq resize-mini-windows nil)
+
 ;; turn on coloring
 (require 'font-lock)
 (global-font-lock-mode t)
