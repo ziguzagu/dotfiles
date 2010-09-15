@@ -1,14 +1,15 @@
 ;;;; -*- mode: lisp-interaction; syntax: elisp; coding: utf-8 -*-
 
+;; turn on coloring
 (require 'font-lock)
 (global-font-lock-mode t)
 
-;; basics
+;; basic colors
 (set-face-foreground 'default "white")
 (set-face-background 'default "black")
 (set-cursor-color "green")
 
-;; common syntax
+;; common syntax colors
 (set-face-foreground 'font-lock-comment-face "brightblack")
 (set-face-foreground 'font-lock-string-face  "green")
 (set-face-foreground 'font-lock-keyword-face "magenta")
@@ -20,25 +21,25 @@
 (set-face-foreground 'font-lock-warning-face "white")
 (set-face-foreground 'font-lock-builtin-face "yellow")
 
-;; highlight
+;; highlight colors
 (set-face-background 'highlight "yellow")
 (set-face-foreground 'highlight "black")
 
-;; region
+;; region colors
 (set-face-background 'region "brightblack")
 (set-face-foreground 'region "white")
 
-;; modeline
+;; modeline colors
 (set-face-foreground 'modeline "black")
 (set-face-background 'modeline "cyan")
 (set-face-foreground 'mode-line-buffer-id "white")
 (set-face-foreground 'mode-line-inactive "black")
 (set-face-background 'mode-line-inactive "brightblack")
 
-;; mini buffer
+;; minibuffer color
 (set-face-foreground 'minibuffer-prompt "yellow")
 
-;; diff-mode
+;; diff-mode colors
 (custom-set-faces
  '(diff-file-header ((t (:background "brightblack" :foreground "white"))))
  '(diff-header      ((t (:background "brightblack" :foreground "white"))))
