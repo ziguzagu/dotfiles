@@ -34,7 +34,7 @@
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 
 
-(require 'init-color)
+(require 'init-appearance)
 
 
 ;;;;;; common editting
