@@ -75,6 +75,9 @@
 (add-to-list 'anything-sources 'anything-c-source-emacs-commands)
 ;; call show-kill-ring function by hand
 (global-set-key "\M-y" 'anything-show-kill-ring)
+;; recentf
+(recentf-mode 1)
+(global-set-key "\C-cr" 'anything-recentf)
 
 
 ;;;;;; autosave / backup
@@ -130,13 +133,6 @@
     (switch-to-buffer-other-window other-buf)
     (other-window -1)))
 (global-set-key "\C-x9" 'window-toggle-split)
-
-
-;;;;;; recent file mode
-(recentf-mode 1)
-(setq recentf-max-menu-items 10)
-(setq recentf-max-saved-items 15)
-(define-key global-map "\C-cr" 'recentf-open-files)
 
 
 ;;;;;; minibuffer
