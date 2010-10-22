@@ -80,8 +80,7 @@
                            anything-c-source-recentf
                            anything-c-source-files-in-current-dir+)
                          "*my anything*"))
-(global-set-key (kbd "C-c;") 'my-anything)
-(global-set-key (kbd "C-x C-b") 'my-anything)
+(global-set-key (kbd "C-c ;") 'my-anything)
 
 
 ;;;;;; autosave / backup
