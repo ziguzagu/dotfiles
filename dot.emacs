@@ -99,7 +99,7 @@
 ;; goto
 (global-set-key "\C-cg" 'goto-line)
 ;; help
-(global-set-key [f1] 'help-for-help)
+(global-set-key "\C-ch" 'help-for-help)
 ;; backspace
 (global-set-key "\C-h" 'delete-backward-char)
 ;; modifiers for Cocoa Emacs
