@@ -71,18 +71,13 @@
 ;;;;;; anything
 ;;  * http://www.emacswiki.org/emacs/Anything
 (require 'anything-config)
+(global-set-key "\C-cl" 'anything)
+(add-to-list 'anything-sources 'anything-c-source-emacs-commands)
 ;; call show-kill-ring function by hand
 (global-set-key "\M-y" 'anything-show-kill-ring)
 ;; recentf
-(setq recentf-max-saved-items 1000)
-;; anything-mini + current directory
-(defun my-anything ()
-  (interactive)
-  (anything-other-buffer '(anything-c-source-buffers+
-                           anything-c-source-recentf
-                           anything-c-source-files-in-current-dir+)
-                         "*my-anything*"))
-(global-set-key "\C-xb" 'my-anything)
+(recentf-mode 1)
+(global-set-key "\C-cr" 'anything-recentf)
 
 
 ;;;;;; autosave / backup
@@ -325,6 +320,22 @@
 (setq dabbrev-case-fold-search t)
 (setq dabbrev-case-replace nil)
 (global-set-key "\C-o" 'dabbrev-expand)
+
+
+;;;;;; iswitchb-mode
+(iswitchb-mode 1)
+(add-hook 'iswitchb-define-mode-map-hook
+          (lambda ()
+            (define-key iswitchb-mode-map "\C-n" 'iswitchb-next-match)
+            (define-key iswitchb-mode-map "\C-p" 'iswitchb-prev-match)
+            (define-key iswitchb-mode-map "\C-f" 'iswitchb-next-match)
+            (define-key iswitchb-mode-map "\C-b" 'iswitchb-prev-match)))
+;; ignoreing buffers
+(setq iswitchb-buffer-ignore
+      '("^ "
+        "*Messages*"
+        "*Buffer*"
+        "Completions"))
 
 
 ;;;;;; migemo
