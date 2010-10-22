@@ -72,7 +72,7 @@
 ;;  * http://www.emacswiki.org/emacs/Anything
 (require 'anything-config)
 ;; call show-kill-ring function by hand
-(global-set-key "\M-y" 'anything-show-kill-ring)
+(global-set-key (kbd "M-y") 'anything-show-kill-ring)
 ;; minimal anything
 (defun my-anything ()
   (interactive)
