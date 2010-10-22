@@ -71,13 +71,17 @@
 ;;;;;; anything
 ;;  * http://www.emacswiki.org/emacs/Anything
 (require 'anything-config)
-(global-set-key "\C-cl" 'anything)
-(add-to-list 'anything-sources 'anything-c-source-emacs-commands)
 ;; call show-kill-ring function by hand
 (global-set-key "\M-y" 'anything-show-kill-ring)
-;; recentf
-(recentf-mode 1)
-(global-set-key "\C-cr" 'anything-recentf)
+;; minimal anything
+(defun my-anything ()
+  (interactive)
+  (anything-other-buffer '(anything-c-source-buffers+
+                           anything-c-source-recentf
+                           anything-c-source-files-in-current-dir+)
+                         "*my anything*"))
+(global-set-key (kbd "C-c;") 'my-anything)
+(global-set-key (kbd "C-x C-b") 'my-anything)
 
 
 ;;;;;; autosave / backup
