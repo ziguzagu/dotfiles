@@ -96,10 +96,9 @@
 ;;;;;; Global key bind
 ;; autoindent at entering newline
 (global-set-key "\r" 'newline-and-indent)
-;; move with HOME/END
-(global-set-key [home] 'beginning-of-buffer)
-(global-set-key [end] 'end-of-buffer)
+;; goto
 (global-set-key "\C-cg" 'goto-line)
+;; help
 (global-set-key [f1] 'help-for-help)
 ;; backspace
 (global-set-key "\C-h" 'delete-backward-char)
