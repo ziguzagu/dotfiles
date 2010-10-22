@@ -119,12 +119,6 @@
 ;; re-load a file when it was changed by another process
 (global-auto-revert-mode t)
 
-;; zlc: zsh like completion of finding file
-;;  * http://github.com/mooz/emacs-zlc/raw/master/zlc.el
-(require 'zlc)
-;; simulate zsh's MENU_COMPLETE
-(setq zlc-select-completion-immediately t)
-
 
 ;;;;;; window
 ;; vertical <-> horizontal
