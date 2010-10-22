@@ -332,6 +332,7 @@
       '("^ "
         "*Messages*"
         "*Buffer*"
+        "*Shell Command Output*"
         "Completions"))
 
 
