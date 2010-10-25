@@ -81,6 +81,12 @@
                            anything-c-source-files-in-current-dir+)
                          "*my anything*"))
 (global-set-key (kbd "C-c ;") 'my-anything)
+;; color-moccur + anything
+(require 'color-moccur)
+(setq moccur-split-word t)
+(require 'anything-c-moccur)
+(setq anything-c-moccur-enable-auto-look-flag t)
+(global-set-key (kbd "M-o") 'anything-c-moccur-occur-by-moccur)
 
 
 ;;;;;; autosave / backup
