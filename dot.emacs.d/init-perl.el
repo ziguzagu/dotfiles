@@ -67,8 +67,7 @@
 (add-hook 'cperl-mode-hook
           (lambda ()
             (require 'perl-completion)
-            (perl-completion-mode t)
-            (add-to-list 'anything-sources 'anything-c-source-man-pages)))
+            (perl-completion-mode t)))
             ;; (when (require 'auto-complete nil t)
             ;;   (auto-complete-mode t)
             ;;   (make-variable-buffer-local 'ac-sources)
