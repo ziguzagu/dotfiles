@@ -63,15 +63,16 @@
             (define-key cperl-mode-map "\C-ct" 'perltidy-region)
             (define-key cperl-mode-map "\C-cT" 'perltidy-buffer)))
 
-;; perl-completion with auto-complete
-;; (add-hook 'cperl-mode-hook
-;;           (lambda ()
-;;             (require 'perl-completion)
-;;             (perl-completion-mode t)
-;;             (when (require 'auto-complete nil t)
-;;               (auto-complete-mode t)
-;;               (make-variable-buffer-local 'ac-sources)
-;;               (add-to-list 'ac-sources 'ac-source-perl-completion))))
+;; perl-completion
+(add-hook 'cperl-mode-hook
+          (lambda ()
+            (require 'perl-completion)
+            (perl-completion-mode t)
+            (add-to-list 'anything-sources 'anything-c-source-man-pages)))
+            ;; (when (require 'auto-complete nil t)
+            ;;   (auto-complete-mode t)
+            ;;   (make-variable-buffer-local 'ac-sources)
+            ;;   (add-to-list 'ac-sources 'ac-source-perl-completion))))
 ;; (setq ac-candidate-max 1000)
 
 (provide 'init-perl)
