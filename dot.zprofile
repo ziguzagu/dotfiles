@@ -14,6 +14,7 @@ export SHELL=`which zsh`
 [ -d $HOME/opt/man ] && export MANPATH=$HOME/opt/man:$MANPATH
 # mac
 [ -d /usr/local/git/man ] && export MANPATH=/usr/local/git/man:$MANPATH
+[ -d /usr/local/mysql/bin ] && export PATH=/usr/local/mysql/bin:$PATH
 
 ## pager
 [[ -x `where lv` ]] && export PAGER=lv
