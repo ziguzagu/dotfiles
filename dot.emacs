@@ -6,9 +6,7 @@
 (setq user-mail-address "ziguzagu@gmail.com")
 (setq load-path
       (append (list "~/.emacs.d"
-                    "~/.emacs.d/lisp"
-                    "~/.emacs.d/lisp/blgrep")
-              load-path))
+                    "~/.emacs.d/lisp") load-path))
 ;; using unsafe local variables..?
 (setq safe-local-variable-values (quote ((syntax . elisp))))
 
@@ -423,32 +421,6 @@
           (function (lambda ()
                       (unless (member "*scratch*" (my-buffer-name-list))
                         (my-make-scratch 1)))))
-
-
-;;;;;; changelog memo
-(autoload 'clmemo "clmemo" "ChangeLog memo mode." t)
-(setq clmemo-file-name "~/.emacs.d/clmemo.txt")
-(global-set-key "\C-xM" 'clmemo)
-;; insert region to clmemo
-(setq clmemo-buffer-function-list
-      '(clmemo-insert-region))
-;; add weekday info
-(setq clmemo-time-string-with-weekday t)
-;; clgrep
-(autoload 'clgrep "clgrep" "ChangeLog grep." t)
-(autoload 'clgrep-item "clgrep" "ChangeLog grep." t)
-(autoload 'clgrep-item-header "clgrep" "ChangeLog grep for item header" t)
-(autoload 'clgrep-item-tag "clgrep" "ChangeLog grep for tag" t)
-(autoload 'clgrep-item-notag "clgrep" "ChangeLog grep for item except for tag" t)
-(autoload 'clgrep-item-nourl "clgrep" "ChangeLog grep item except for url" t)
-(autoload 'clgrep-entry "clgrep" "ChangeLog grep for entry" t)
-(autoload 'clgrep-entry-header "clgrep" "ChangeLog grep for entry header" t)
-(autoload 'clgrep-entry-no-entry-header "clgrep" "ChangeLog grep for entry except entry header" t)
-(autoload 'clgrep-entry-tag "clgrep" "ChangeLog grep for tag" t)
-(autoload 'clgrep-entry-notag "clgrep" "ChangeLog grep for tag" t)
-(autoload 'clgrep-entry-nourl "clgrep" "ChangeLog grep entry except for url" t)
-(add-hook 'clmemo-mode-hook
-          '(lambda () (define-key clmemo-mode-map "\C-c\C-g" 'clgrep)))
 
 
 ;;;;;; yaml-mode
