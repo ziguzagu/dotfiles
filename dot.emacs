@@ -306,12 +306,6 @@
       (append '(("\\.js$" . js2-mode)) auto-mode-alist))
 
 
-;;;;;; actionscript
-(autoload 'actionscript-mode "actionscript-mode" nil t)
-(setq auto-mode-alist
-      (append '(("\\.as$" . actionscript-mode)) auto-mode-alist))
-
-
 ;;;;;; dabbrev
 ;; elisp:
 ;;   * http://www.namazu.org/~tsuchiya/elisp/dabbrev-ja.el
