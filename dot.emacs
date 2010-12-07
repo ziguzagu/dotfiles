@@ -109,9 +109,6 @@
 (global-set-key "\C-ch" 'help-for-help)
 ;; backspace
 (global-set-key "\C-h" 'delete-backward-char)
-;; modifiers for Cocoa Emacs
-(setq ns-command-modifier (quote meta))
-(setq ns-alternate-modifier (quote super))
 
 
 ;;;;;; Misc
