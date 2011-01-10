@@ -5,3 +5,4 @@ Host sakura
 Host prgmr
   Hostname ziguzagu.xen.prgmr.com
   User ziguzagu
+  Compression yes
