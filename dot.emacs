@@ -206,17 +206,6 @@
 ;; (setq auto-insert-query nil)
 
 
-;;;;;; snippet and abbrev
-;; elisp: http://www.kazmier.com/computer/snippet.el
-;; (require 'snippet)
-;; (setq-default abbrev-mode t)
-;; (snippet-with-abbrev-table 'global-abbrev-table
-;;                            ("ttv" . "[% $${val} %]$.")
-;;                            ("ttfor" . "[% FOR $${local} IN $${val} -%]\n$>$.\n$>[%- END %]\n")
-;;                            ("ttif" . "[% IF $${condition} -%]\n$>$.\n[%- END %]\n")
-;;                            ("ttunless" . "[% UNLESS $${condition} -%]\n$>$.\n[%- END %]\n"))
-
-
 ;;;;;; generic config file
 (require 'generic-x)
 (setq auto-mode-alist
@@ -265,25 +254,7 @@
       (goto-char start)
       (while (search-forward ">" nil t)
         (replace-match "&gt;" nil t)))))
-;; urlencode
-;;(load "urlencode")
-;; snippets
-(defvar html-helper-mode-abbrev-table nil)
-(define-abbrev-table 'html-helper-mode-abbrev-table ())
-;; (snippet-with-abbrev-table 'html-helper-mode-abbrev-table
-;;                            ;; basics
-;;                            ("hthref" . "<a href=\"$${url}\" title=\"$${title}\">$${text}</a>")
-;;                            ("htinput" . "<input type=\"$${type}\" name=\"$${name}\" value=\"$${value}\" />")
-;;                            ("htimg" . "<img src=\"$${url}\" alt=\"$${alt}\" />")
-;;                            ("htform" . "<form action=\"$${url}\" method=\"$${get or post}\">\n$>$.\n$></form>\n")
-;;                            ;; for HTML::Template
-;;                            ("htincl" . "<TMPL_INCLUDE NAME=\"$${tmpl}\">")
-;;                            ("htvar" . "<TMPL_VAR NAME=$${var}>")
-;;                            ;; for TP/MT templates
-;;                            ("mttrans" . "<MT_TRANS phrase=\"$${var}\">")
-;;                            ("mtset" . "<$MTSetVar name=\"$${name}\" value=\"$${value}\"$>")
-;;                            ("mtget" . "<$MTGetVar name=\"$${name}\"$>")
-;;                            ("mtif"  . "<MTIfVar name=\"$${name}\">$${text}</MTIfVar>"))
+
 
 ;;;;;; nxml/nxhtml mode
 ;(load "~/.emacs.d/lisp/nxml/autostart.el")
