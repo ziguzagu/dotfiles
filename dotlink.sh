@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 CMD=`basename $0`
 DOTDIR="$PWD"
