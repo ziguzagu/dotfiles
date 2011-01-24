@@ -191,21 +191,6 @@
 (setq vc-make-backup-files t)
 
 
-;;;;;; autoinsert
-;; (require 'autoinsert)
-;; (setq auto-insert-directory "~/.emacs.d/template/")
-;; (setq auto-insert-alist
-;;       (nconc '(("\\.cgi$" . "perl.pl")
-;;                ("\\.pl$" . "perl.pl")
-;;                ("\\.pm$" . "perl.pm")
-;;                ("\\.t$" . "perl.t")
-;;                ("\\.html$" . "html.html")
-;;                ("\\.tt$" . "html.html"))
-;;              auto-insert-alist))
-;; (add-hook 'find-file-not-found-hooks 'auto-insert)
-;; (setq auto-insert-query nil)
-
-
 ;;;;;; generic config file
 (require 'generic-x)
 (setq auto-mode-alist
