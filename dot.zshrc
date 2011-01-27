@@ -56,7 +56,7 @@ setopt list_types
 setopt cdable_vars
 
 ## history settings
-HISTFILE=$HOME/.zsh-history
+HISTFILE=$HOME/.zsh.d/history
 HISTSIZE=100000
 SAVEHIST=100000
 setopt hist_ignore_all_dups
@@ -105,7 +105,7 @@ setopt nolistbeep
 limit coredumpsize 0
 
 ## dabbrev on screen
-HARDCOPYFILE=$HOME/.screen-hardcopy
+HARDCOPYFILE=$HOME/.zsh.d/screen-hardcopy
 touch $HARDCOPYFILE
 
 function dabbrev-complete() {
