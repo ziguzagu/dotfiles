@@ -79,6 +79,12 @@
                            anything-c-source-files-in-current-dir+)
                          "*my anything*"))
 (global-set-key (kbd "C-c ;") 'my-anything)
+;; woman
+(defun my-anything-woman ()
+  (interactive)
+  (anything-other-buffer '(anything-c-source-man-pages)
+                         "*my woman*"))
+(global-set-key (kbd "C-c .") 'my-anything-woman)
 ;; color-moccur + anything
 (require 'color-moccur)
 (setq moccur-split-word t)
@@ -114,8 +120,8 @@
 ;;;;;; Misc
 ;; move divided windows by shift with cursor.
 (windmove-default-keybindings)
-;; woman
-(global-set-key "\C-cm" 'woman)
+;; ;; woman
+;; (global-set-key "\C-cm" 'woman)
 ;; re-load a file when it was changed by another process
 (global-auto-revert-mode t)
 
