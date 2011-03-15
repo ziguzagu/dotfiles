@@ -6,3 +6,8 @@ Host prgmr
   Hostname ziguzagu.xen.prgmr.com
   User ziguzagu
   Compression yes
+
+Host sakk
+  Hostname 60.32.136.102
+  Port 2223
+
