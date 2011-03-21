@@ -49,11 +49,11 @@
 (set-face-foreground 'region "white")
 
 ;; modeline colors
-(set-face-foreground 'modeline "black")
-(set-face-background 'modeline "cyan")
-(set-face-foreground 'mode-line-buffer-id "white")
-(set-face-foreground 'mode-line-inactive "black")
-(set-face-background 'mode-line-inactive "brightblack")
+(set-face-foreground 'modeline "gray70")
+(set-face-background 'modeline "gray32")
+(set-face-foreground 'mode-line-inactive "gray38")
+(set-face-background 'mode-line-inactive "gray16")
+(set-face-foreground 'mode-line-buffer-id "orange")
 
 ;; minibuffer color
 (set-face-foreground 'minibuffer-prompt "yellow")
