@@ -51,7 +51,7 @@
 ;; modeline colors
 (set-face-foreground 'modeline "gray70")
 (set-face-background 'modeline "gray32")
-(set-face-foreground 'mode-line-inactive "gray38")
+(set-face-foreground 'mode-line-inactive "gray32")
 (set-face-background 'mode-line-inactive "gray16")
 (set-face-foreground 'mode-line-buffer-id "orange")
 
