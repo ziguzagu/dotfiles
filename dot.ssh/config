@@ -2,7 +2,7 @@ Host sakura
   Hostname www828.sakura.ne.jp
   User ziguzagu
 
-Host prgmr
+Host moss
   Hostname ziguzagu.xen.prgmr.com
   User ziguzagu
   Compression yes
