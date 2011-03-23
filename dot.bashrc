@@ -19,3 +19,7 @@ PS1="\[\033[00;36m\][\h:\w]\[\033[00m\]\\$ "
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
+
+if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
+    source ~/perl5/perlbrew/etc/bashrc
+fi
