@@ -17,7 +17,7 @@ termcapinfo xterm*|screen* hs:ts=\E]0;:fs=\007:ds=\E]0;\007
 hardstatus on
 
 # caption
-caption always "%{=r dd}%`%-w%{+b WK}%n %t%{-}%+w %= [%02c]"
+caption always "%{=r dd}%`%-w%{wK}%n %t%{-}%+w %= %Y-%m-%d %02c"
 sorendition "+rb .G"
 
 # disable xoff
