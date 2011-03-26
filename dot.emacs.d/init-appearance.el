@@ -29,12 +29,12 @@
 (set-cursor-color "green")
 
 ;; common syntax colors
-(set-face-foreground 'font-lock-comment-face "brightblack")
+(set-face-foreground 'font-lock-comment-face "gray40")
 (set-face-foreground 'font-lock-string-face  "green")
 (set-face-foreground 'font-lock-keyword-face "magenta")
 (set-face-foreground 'font-lock-function-name-face "white")
 (set-face-foreground 'font-lock-variable-name-face "white")
-(set-face-foreground 'font-lock-constant-face "red")
+(set-face-foreground 'font-lock-constant-face "tomato")
 (set-face-foreground 'font-lock-type-face "cyan")
 (set-face-background 'font-lock-warning-face "red")
 (set-face-foreground 'font-lock-warning-face "white")
@@ -45,7 +45,7 @@
 (set-face-foreground 'highlight "black")
 
 ;; region colors
-(set-face-background 'region "brightblack")
+(set-face-background 'region "gray22")
 (set-face-foreground 'region "white")
 
 ;; modeline colors
@@ -60,12 +60,12 @@
 
 ;; diff-mode colors
 (custom-set-faces
- '(diff-file-header ((t (:background "brightblack" :foreground "white"))))
- '(diff-header      ((t (:background "brightblack" :foreground "white"))))
- '(diff-context     ((t (:inherit shadow :foreground "white"))))
+ '(diff-file-header ((t (:background "gray32" :foreground "orange"))))
+ '(diff-header      ((t (:background "gray32" :foreground "gray70"))))
+ '(diff-context     ((t (:inherit shadow :foreground "gray90"))))
  '(diff-changed     ((t (:background "yellow" :foreground "black"))))
  '(diff-added       ((t (:background "green" :foreground "black"))))
- '(diff-removed     ((t (:background "brightred" :foreground "black")))))
+ '(diff-removed     ((t (:background "tomato" :foreground "black")))))
 
 ;; setup color of zenkaku space, leading/trailing space and tab
 ;;  * http://homepage3.nifty.com/satomii/software/jaspace.el
