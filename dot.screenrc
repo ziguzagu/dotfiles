@@ -18,7 +18,7 @@ hardstatus on
 
 # caption
 caption always "%{= KW}%-w%{Rw} %n %t %{-}%+w %= %Y-%m-%d %02c"
-sorendition "=b RK"
+sorendition "=b KR"
 
 # disable xoff
 bind s
