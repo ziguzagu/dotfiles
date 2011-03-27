@@ -32,7 +32,7 @@
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 
 
-(require 'init-appearance)
+(load "~/.emacs.d/init-appearance.el")
 
 
 ;;;;;; common editting
@@ -209,7 +209,7 @@
                 ("\\.cfg$"  . default-generic-mode)) auto-mode-alist))
 
 ;;;;;; perl
-(require 'init-perl)
+(load "~/.emacs.d/init-perl.el")
 
 ;;;;;; c/c++
 (add-hook 'c-mode-common-hook

@@ -53,5 +53,3 @@
           (lambda ()
             (require 'perl-completion)
             (perl-completion-mode t)))
-
-(provide 'init-perl)
