@@ -35,7 +35,7 @@
 (set-face-foreground 'font-lock-function-name-face "white")
 (set-face-foreground 'font-lock-variable-name-face "white")
 (set-face-foreground 'font-lock-constant-face "tomato")
-(set-face-foreground 'font-lock-type-face "cyan")
+(set-face-foreground 'font-lock-type-face "dark turquoise")
 (set-face-background 'font-lock-warning-face "red")
 (set-face-foreground 'font-lock-warning-face "white")
 (set-face-foreground 'font-lock-builtin-face "yellow")
