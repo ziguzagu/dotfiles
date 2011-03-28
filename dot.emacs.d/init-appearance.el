@@ -30,7 +30,7 @@
 
 ;; common syntax colors
 (set-face-foreground 'font-lock-comment-face "gray40")
-(set-face-foreground 'font-lock-string-face  "green")
+(set-face-foreground 'font-lock-string-face  "green yellow")
 (set-face-foreground 'font-lock-keyword-face "magenta")
 (set-face-foreground 'font-lock-function-name-face "white")
 (set-face-foreground 'font-lock-variable-name-face "white")
@@ -64,7 +64,7 @@
  '(diff-header      ((t (:background "gray32" :foreground "gray70"))))
  '(diff-context     ((t (:inherit shadow :foreground "gray90"))))
  '(diff-changed     ((t (:background "yellow" :foreground "black"))))
- '(diff-added       ((t (:background "green" :foreground "black"))))
+ '(diff-added       ((t (:background "yellow green" :foreground "black"))))
  '(diff-removed     ((t (:background "tomato" :foreground "black")))))
 
 ;; setup color of zenkaku space, leading/trailing space and tab
