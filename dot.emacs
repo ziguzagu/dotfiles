@@ -84,7 +84,7 @@
   (interactive)
   (anything-other-buffer '(anything-c-source-man-pages)
                          "*my woman*"))
-(global-set-key (kbd "C-c .") 'my-anything-woman)
+(global-set-key (kbd "C-c m") 'my-anything-woman)
 ;; color-moccur + anything
 (require 'color-moccur)
 (setq moccur-split-word t)
