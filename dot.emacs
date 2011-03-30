@@ -113,7 +113,7 @@
 (global-set-key "\C-cg" 'goto-line)
 ;; help
 (global-set-key "\C-ch" 'help-for-help)
-;; backspace/delete
+;; backspace
 (global-set-key "\C-h" 'delete-backward-char)
 
 
@@ -228,11 +228,12 @@
 
 
 ;;;;;; HTML editting
-(autoload 'html-mode "html-mode" nil t)
+;; html-helper-mode
+(autoload 'html-helper-mode "html-helper-mode" "Yay HTML" t)
 (setq auto-mode-alist
-      (append '(("\\.html$" . html-mode)
-                ("\\.tmpl$" . html-mode)
-                ("\\.tt$" . html-mode)) auto-mode-alist))
+      (append '(("\\.html$" . html-helper-mode)
+                ("\\.tmpl$" . html-helper-mode)
+                ("\\.tt$" . html-helper-mode)) auto-mode-alist))
 ;; HTML escape
 (defun escape-html-region (start end)
   "Escape '&<>' characters in the region using '&amp;', '&lt;', and '&gt;'."
