@@ -228,12 +228,11 @@
 
 
 ;;;;;; HTML editting
-;; html-helper-mode
-(autoload 'html-helper-mode "html-helper-mode" "Yay HTML" t)
+(autoload 'sgml-mode "sgml-mode" nil t)
 (setq auto-mode-alist
-      (append '(("\\.html$" . html-helper-mode)
-                ("\\.tmpl$" . html-helper-mode)
-                ("\\.tt$" . html-helper-mode)) auto-mode-alist))
+      (append '(("\\.html$" . sgml-mode)
+                ("\\.tmpl$" . sgml-mode)
+                ("\\.tt$" . sgml-mode)) auto-mode-alist))
 ;; HTML escape
 (defun escape-html-region (start end)
   "Escape '&<>' characters in the region using '&amp;', '&lt;', and '&gt;'."
@@ -250,10 +249,6 @@
       (goto-char start)
       (while (search-forward ">" nil t)
         (replace-match "&gt;" nil t)))))
-
-
-;;;;;; nxml/nxhtml mode
-;(load "~/.emacs.d/lisp/nxml/autostart.el")
 
 
 ;;;;;; css-mode
