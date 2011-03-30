@@ -13,13 +13,14 @@
 (setq cperl-highlight-variables-indiscriminately t)
 (setq cperl-font-lock t)
 
+(global-set-key (kbd "\C-c .") 'cperl-perldoc)
+
 (add-hook 'cperl-mode-hook
           (lambda ()
             (copy-face 'font-lock-variable-name-face 'cperl-array-face)
             (copy-face 'font-lock-variable-name-face 'cperl-hash-face)
             (set-face-foreground 'cperl-nonoverridable-face "yellow")
-            (define-key cperl-mode-map "\M-." 'cperl-perldoc-at-point)
-            (define-key cperl-mode-map "\C-co" 'cperl-perldoc)))
+            (define-key cperl-mode-map "\M-." 'cperl-perldoc-at-point)))
 
 (setq auto-mode-alist
       (append '(("\\.cgi$" . cperl-mode)
