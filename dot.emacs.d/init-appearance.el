@@ -29,7 +29,7 @@
 (set-cursor-color "green")
 
 ;; common syntax colors
-(set-face-foreground 'font-lock-comment-face "gray40")
+(set-face-foreground 'font-lock-comment-face "gray46")
 (set-face-foreground 'font-lock-string-face  "green yellow")
 (set-face-foreground 'font-lock-keyword-face "magenta")
 (set-face-foreground 'font-lock-function-name-face "white")
