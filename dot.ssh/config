@@ -11,3 +11,4 @@ Host sakk
 
 Host bastion
   Hostname shirley.sixapart.com
+  Compression yes
