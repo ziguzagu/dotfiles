@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+use strict;
+use Fcntl;
+use GDBM_File;
+
+my $file = shift;
+tie my %db, 'GDBM_File', $file, O_RDONLY, 0644 or die "$!";
+while (my ($key, $val) = each %db) {
+    chomp $val;
+    print "$key -> $val\n";
+}
+untie %db;
