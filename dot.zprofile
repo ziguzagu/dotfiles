@@ -28,6 +28,10 @@ export ALTERNATE_EDITOR=vi
 export GREP_COLOR='07;33'
 export GREP_OPTIONS='--exclude=\*.svn\*'
 
+if [ `uname` = "Darwin" ]; then
+    export ARCHFLAGS='-arch i386 -arch x86_64'
+fi
+
 ## ls colors
 if [[ -x `where dircolors` ]] && [ -e $HOME/.dircolors ]; then
     eval `dircolors $HOME/.dircolors`
