@@ -2,9 +2,9 @@
 
 which keychain >& /dev/null || return
 
-for key in $HOME/.ssh/id $HOME/.ssh/6a $HOME/.ssh/sakk
+for key in id 6a sakk
 do
-    test -f $key && keychain $key
+    test -f $HOME/.ssh/$key && keychain $HOME/.ssh/$key
 done
 
 source ~/.keychain/$HOST-sh
