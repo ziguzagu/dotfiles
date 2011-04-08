@@ -4,8 +4,7 @@ CMD=`basename $0`
 DOTDIR="$PWD"
 
 DIRS=`find . -type d | \grep -v .git | sed -e 's/^\.\///;/^$/d;'`
-FILES=`find . -type f | \grep -v .git/ | sed -e 's/^\.\///;/^$/d;'`
-FILES=${FILES/$CMD/}
+FILES=`find . -type f | \grep -v .git/ | \grep -v $CMD | sed -e 's/^\.\///;/^$/d;'`
 
 cd $HOME
 for D in $DIRS; do
