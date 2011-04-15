@@ -208,24 +208,12 @@
       (append '(("\\.conf$" . default-generic-mode)
                 ("\\.cfg$"  . default-generic-mode)) auto-mode-alist))
 
-;;;;;; perl
+
+;;;;;; programming lang
+(load "init-cpp")
 (load "init-perl")
 (load "init-html")
 
-;;;;;; c/c++
-(add-hook 'c-mode-common-hook
-          (lambda ()
-            (setq c-basic-offset 4)
-            (define-key c++-mode-map "\C-cc" 'compile)
-            ))
-(add-hook 'c++-mode-hook
-          (lambda ()
-            (c-set-style "stroustrup")
-            ))
-(setq auto-mode-alist
-      (append '(("\\.c$" . c++-mode)
-                ("\\.cpp$" . c++-mode)
-                ("\\.h$" . c++-mode)) auto-mode-alist))
 
 ;;;;;; dabbrev
 ;; elisp:
