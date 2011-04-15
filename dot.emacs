@@ -33,6 +33,7 @@
 
 
 (load "init-appearance")
+(load "init-complete")
 
 
 ;;;;;; common editting
@@ -56,11 +57,6 @@
 (global-set-key "\M-n" 'scroll-down-in-place)
 ;; comment
 (setq comment-style 'multi-line)
-;; auto-complete
-;;  * http://www.emacswiki.org/emacs/AutoComplete
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/lisp/ac-dict")
-(ac-config-default)
 ;; enable upcase/downcase-region
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
@@ -213,23 +209,6 @@
 (load "init-cpp")
 (load "init-perl")
 (load "init-html")
-
-
-;;;;;; dabbrev
-;; elisp:
-;;   * http://www.namazu.org/~tsuchiya/elisp/dabbrev-ja.el
-;;   * http://www.namazu.org/~tsuchiya/elisp/dabbrev-highlight.el
-(load "dabbrev-ja")
-(require 'dabbrev-highlight)
-(setq dabbrev-case-fold-search t)
-(setq dabbrev-case-replace nil)
-(global-set-key "\C-o" 'dabbrev-expand)
-
-
-;;;;;; yasnippet
-(require 'yasnippet)
-(yas/initialize)
-(yas/load-directory "~/.emacs.d/snippets")
 
 
 ;;;;;; iswitchb-mode
