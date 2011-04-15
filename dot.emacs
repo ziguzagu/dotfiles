@@ -34,33 +34,10 @@
 
 (load "init-appearance")
 (load "init-minibuffer")
+
+;; init editor
+(load "init-global")
 (load "init-complete")
-
-;;;;;; common editting
-(setq-default tab-width 4)
-(setq-default indent-tabs-mode nil)
-;(setq fill-column (setq auto-fill-mode nil)
-;; scroll by line
-(setq scroll-conservatively 35
-      scroll-margin 0
-      scroll-step 1)
-;; scroll by line with holding cursor.
-(defun scroll-up-in-place (n)
-  (interactive "p")
-  (previous-line n)
-  (scroll-down n))
-(defun scroll-down-in-place (n)
-  (interactive "p")
-  (next-line n)
-  (scroll-up n))
-(global-set-key "\M-p" 'scroll-up-in-place)
-(global-set-key "\M-n" 'scroll-down-in-place)
-;; comment
-(setq comment-style 'multi-line)
-;; enable upcase/downcase-region
-(put 'upcase-region 'disabled nil)
-(put 'downcase-region 'disabled nil)
-
 
 ;;;;;; anything
 ;;  * http://www.emacswiki.org/emacs/Anything
@@ -89,37 +66,11 @@
 (global-set-key (kbd "M-o") 'anything-c-moccur-occur-by-moccur)
 
 
-;;;;;; autosave / backup
-(setq auto-save-default t)
-(setq make-backup-files t)
-(setq backup-directory-alist
-      (cons (cons "\\.*$" (expand-file-name "~/.emacs.d/bakcup"))
-            backup-directory-alist))
-(setq backup-by-copying t)
-(setq version-control t)
-(setq kept-new-versions 5)
-(setq kept-old-versions 5)
-(setq delete-old-versions t)
-
-
-;;;;;; Global key bind
-;; autoindent at entering newline
-(global-set-key "\r" 'newline-and-indent)
-;; goto
-(global-set-key "\C-cg" 'goto-line)
-;; help
-(global-set-key "\C-ch" 'help-for-help)
-;; backspace
-(global-set-key "\C-h" 'delete-backward-char)
-
-
 ;;;;;; Misc
 ;; move divided windows by shift with cursor.
 (windmove-default-keybindings)
 ;; ;; woman
 ;; (global-set-key "\C-cm" 'woman)
-;; re-load a file when it was changed by another process
-(global-auto-revert-mode t)
 
 
 ;;;;;; window
@@ -175,11 +126,6 @@
 ;; handle escape sequence
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
-
-
-;;;;;; vc
-(setq vc-follow-symlinks t)
-(setq vc-make-backup-files t)
 
 
 ;;;;;; generic config file
