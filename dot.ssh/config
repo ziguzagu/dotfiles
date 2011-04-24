@@ -5,6 +5,10 @@ Host moss
   Hostname ziguzagu.xen.prgmr.com
   Compression yes
 
+Host code
+  Hostname code.ziguzagu.org
+  IdentityFile ~/.ssh/id
+
 Host sakk
   Hostname 60.32.136.102
   Port 2223
