@@ -42,18 +42,11 @@
 (load "init-complete")
 (load "init-anything")
 
-
-;;;;;; generic config file
-(require 'generic-x)
-(setq auto-mode-alist
-      (append '(("\\.conf$" . default-generic-mode)
-                ("\\.cfg$"  . default-generic-mode)) auto-mode-alist))
-
-
 ;;;;;; programming lang
 (load "init-cpp")
 (load "init-perl")
 (load "init-html")
+(load "init-yaml")
 
 ;;;;;; migemo
 (when (locate-library "migemo")
@@ -75,16 +68,6 @@
     (before migemo-on activate)
     (setq migemo-isearch-enable-p t))
   )
-
-
-;;;;;; yaml-mode
-(autoload 'yaml-mode "yaml-mode" nil t)
-(setq auto-mode-alist
-      (append '(("\\.yml$" . yaml-mode)
-                ("\\.yaml$" . yaml-mode)) auto-mode-alist))
-(add-hook 'yaml-mode-hook
-          '(lambda ()
-             (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 
 
 ;;;;;; sdic
