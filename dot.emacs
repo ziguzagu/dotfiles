@@ -17,8 +17,7 @@
 (set-language-environment "Japanese")
 (set-default-coding-systems 'utf-8)
 
-
-;;;;;; EmacsClient
+;;;;;; emacsclient
 (add-hook 'after-init-hook 'server-start)
 (shell-command "echo $WINDOW >~/.emacs.d/emacs-server-window")
 (add-hook 'emacs-kill-hook
@@ -31,13 +30,14 @@
              "screen -X select `cat ~/.emacs.d/emacsclient-caller`")))
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 
-
+;;;;;; environment
 (load "init-appearance")
 (load "init-minibuffer")
 (load "init-scratch")
 (load "init-dired")
 (load "init-shell")
 
+;;;;;; generic editor functions
 (load "init-general")
 (load "init-complete")
 (load "init-anything")
@@ -68,7 +68,6 @@
     (before migemo-on activate)
     (setq migemo-isearch-enable-p t))
   )
-
 
 ;;;;;; sdic
 (when (locate-library "sdic")
