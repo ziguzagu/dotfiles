@@ -51,3 +51,22 @@
 (setq kept-new-versions 5)
 (setq kept-old-versions 5)
 (setq delete-old-versions t)
+
+;; move divided windows by shift with cursor.
+(windmove-default-keybindings)
+
+;; rotate window divide vertical / horizontal
+(defun window-toggle-split ()
+  "toggle splitted windows vertical and horizontal"
+  (interactive)
+  (unless (= (count-windows 1) 2)
+    (error "no splitted windows"))
+  (let (before-height (other-buf (window-buffer (next-window))))
+    (setq before-height (window-height))
+    (delete-other-windows)
+    (if (= (window-height) before-height)
+        (split-window-vertically)
+      (split-window-horizontally))
+    (switch-to-buffer-other-window other-buf)
+    (other-window -1)))
+(global-set-key "\C-x9" 'window-toggle-split)
