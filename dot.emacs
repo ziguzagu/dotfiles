@@ -36,7 +36,7 @@
 (load "init-minibuffer")
 
 ;; init editor
-(load "init-global")
+(load "init-general")
 (load "init-complete")
 
 ;;;;;; anything
