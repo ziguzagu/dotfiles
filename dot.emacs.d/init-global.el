@@ -32,8 +32,9 @@
 (global-set-key "\C-ch" 'help-for-help)
 (global-set-key "\C-h" 'delete-backward-char)
 
-;; re-load a file when it was changed by another process
+;; reload a file when it was changed by another process (include vc)
 (global-auto-revert-mode t)
+(setq auto-revert-check-vc-info t)
 
 ;; vc
 (setq vc-follow-symlinks t)
