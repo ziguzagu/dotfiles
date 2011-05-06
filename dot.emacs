@@ -1,23 +1,25 @@
 ;;;; -*- mode: lisp-interaction; syntax: elisp; coding: iso-2022-7bit -*-
 
-;;;;;; Basics
+;;;;;; basics
 (cd "~")
-(setq user-full-name "Hiroshi Sakai")
-(setq user-mail-address "ziguzagu@gmail.com")
 (setq load-path
       (append (list "~/.emacs.d"
                     "~/.emacs.d/lisp") load-path))
 ;; using unsafe local variables..?
 (setq safe-local-variable-values (quote ((syntax . elisp))))
 
-;;;;;; Languages
+;;;;;; profile
+(setq user-full-name "Hiroshi Sakai")
+(setq user-mail-address "ziguzagu@gmail.com")
+
+;;;;;; languages
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 (set-language-environment "Japanese")
 (set-default-coding-systems 'utf-8)
 
-;;;;;; emacsclient
+;;;;;; emacsclient on screen
 (add-hook 'after-init-hook 'server-start)
 (shell-command "echo $WINDOW >~/.emacs.d/emacs-server-window")
 (add-hook 'emacs-kill-hook
