@@ -119,10 +119,6 @@ zle -C dabbrev-complete menu-complete dabbrev-complete
 bindkey '^o' dabbrev-complete
 bindkey '^o^_' reverse-menu-complete
 
-## encode/decode base64
-function encode_base64() { perl -MMIME::Base64 -e "print encode_base64('$1')" }
-function decode_base64() { perl -MMIME::Base64 -e "print decode_base64('$1')" }
-
 ## pmtools
 function pmvers() { perl -m$1 -e 'print "$'$1'::VERSION\n"' }
 
