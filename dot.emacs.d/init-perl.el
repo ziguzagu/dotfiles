@@ -28,7 +28,7 @@
                 ("\\.psgi$" . cperl-mode)
                 ("\\.t$" . cperl-mode)) auto-mode-alist))
 
-;; doesn't work...
+;; doesn't work shell-command-to-string in my zsh...
 ;; ;; ffap with perldoc
 ;; (defun ffap-cperl-mode (file)
 ;;   (let ((real-file (shell-command-to-string (concat "perldoc -lm " file))))
