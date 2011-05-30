@@ -47,9 +47,17 @@ if [ -n "$WINDOW" ]; then
             %*)
                 cmd=(builtin jobs -l $cmd[1])
                 ;;
+            ls)
+                return
+                ;;
             cd|ssh)
                 if (( $#cmd == 2)); then
                     cmd[1]=$cmd[2]
+                fi
+                ;&
+            tail)
+                if (( $#cmd == 3)); then
+                    cmd[1]=$cmd[3]
                 fi
                 ;&
             *)
