@@ -18,9 +18,9 @@ for my $file (@files) {
 
     chdir dirname $file;
 
-    $css =~ s{/\*[\s\S]*\*/}{}g;
+    $css =~ s{/\*[\s\S]*\*/}{}msg;
 
-    my %url = map { $_ => 1 } ($css =~ m{url\(\s*([^/]\S+)\s*\)}g);
+    my %url = map { $_ => 1 } ($css =~ m{url\(["\'\s]*((?!/)\S*?)["\'\s]*\)}msg);
     my @notfounds = grep { !-e $_ } keys %url;
     if (@notfounds) {
         print join "\nnot found: ", $file, @notfounds;
