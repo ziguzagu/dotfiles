@@ -6,7 +6,7 @@ export LANG=en_US.UTF-8
 
 export SHELL=`which zsh`
 
-[ -d /usr/local/mysql ] && PATH=/usr/local/mysq/bin:$PATH
+[ -d /usr/local/mysql ] && PATH=/usr/local/mysql/bin:$PATH
 [ -d $HOME/bin ] && PATH=$HOME/bin:$PATH
 ## remove duplicates in PATH with keeping the order
 export PATH="$(echo $PATH | awk -v RS=: -v ORS=: '!($0 in a) {a[$0]; print}')"
