@@ -28,13 +28,12 @@
                 ("\\.psgi$" . cperl-mode)
                 ("\\.t$" . cperl-mode)) auto-mode-alist))
 
-;; doesn't work shell-command-to-string in my zsh...
-;; ;; ffap with perldoc
-;; (defun ffap-cperl-mode (file)
-;;   (let ((real-file (shell-command-to-string (concat "perldoc -lm " file))))
-;;     (unless (string-match "No module found for " real-file)
-;;       (substring real-file (string-match "/" real-file) -1))))
-;; (add-to-list 'ffap-alist '(cperl-mode . ffap-cperl-mode))
+;; ffap with perldoc
+(defun ffap-cperl-mode (file)
+  (let ((real-file (shell-command-to-string (concat "perldoc -lm " file))))
+    (unless (string-match "No module found for " real-file)
+      (substring real-file (string-match "/" real-file) -1))))
+(add-to-list 'ffap-alist '(cperl-mode . ffap-cperl-mode))
 
 ;; perltidy
 (defun perltidy-region (beg end)
