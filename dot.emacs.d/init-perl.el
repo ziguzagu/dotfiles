@@ -55,7 +55,7 @@
             (require 'perl-completion)
             (perl-completion-mode t)))
 
-;; perlbrew with emacs
+;; fix cperl-perldoc with perlbrew
 (load "cl-seq")
 (mapc (lambda (x) (add-to-list 'exec-path x))
       (mapcar (lambda (x) (concat (getenv "HOME") x))
