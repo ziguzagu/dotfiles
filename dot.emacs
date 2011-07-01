@@ -51,3 +51,11 @@
 (load "init-perl")
 (load "init-html")
 (load "init-yaml")
+
+;; testng vcl mode
+(autoload 'vcl-mode "vcl-mode" nil t)
+(setq auto-mode-alist
+      (append '(("\\.vcl$" . vcl-mode)) auto-mode-alist))
+(add-hook 'vcl-mode-hook
+          (lambda ()
+            (setq vcl-indent-level 4)))
