@@ -61,7 +61,7 @@ if [ -n "$WINDOW" ]; then
                 fi
                 ;&
             tail)
-                if (( $#cmd == 3)); then
+                if [[ $cmd[2] = '-f' ]]; then
                     cmd[1]=$cmd[3]
                 fi
                 ;&
