@@ -138,6 +138,7 @@ setopt list_types
 setopt cdable_vars
 
 ## history settings
+[ -d $HOME/.zsh.d ] || mkdir $HOME/.zsh.d
 HISTFILE=$HOME/.zsh.d/history
 HISTSIZE=100000
 SAVEHIST=100000
