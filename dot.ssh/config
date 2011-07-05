@@ -18,3 +18,8 @@ Host bastion
   Hostname shirley.sixapart.com
   Compression yes
   ForwardAgent yes
+
+Host cb
+  Hostname 122.210.54.168
+  IdentityFile ~/.ssh/sakk
+  ForwardAgent yes
