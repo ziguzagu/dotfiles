@@ -1,3 +1,6 @@
+Host *
+  ForwardAgent yes
+
 Host sakura
   Hostname www828.sakura.ne.jp
 
@@ -12,14 +15,11 @@ Host code
 Host sakk
   Hostname 60.32.136.102
   Port 2223
-  ForwardAgent yes
 
 Host bastion
   Hostname shirley.sixapart.com
   Compression yes
-  ForwardAgent yes
 
 Host cb
   Hostname 122.210.54.168
   IdentityFile ~/.ssh/sakk
-  ForwardAgent yes
