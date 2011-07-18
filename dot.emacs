@@ -1,4 +1,4 @@
-;;;; -*- mode: lisp-interaction; syntax: elisp; coding: iso-2022-7bit -*-
+;;;; -*- mode: lisp-interaction; syntax: elisp; coding: utf-8 -*-
 
 ;;;;;; basics
 (cd "~")
