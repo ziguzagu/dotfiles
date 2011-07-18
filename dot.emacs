@@ -59,3 +59,10 @@
 (add-hook 'vcl-mode-hook
           (lambda ()
             (setq vcl-indent-level 4)))
+
+;; testing howm
+(add-to-list 'load-path "~/.emacs.d/lisp/howm")
+(setq howm-menu-lang 'ja)
+(global-set-key "\C-c,," 'howm-menu)
+(autoload 'howm-menu "howm" nil t)
+(setq howm-directory "~/dev/howm")
