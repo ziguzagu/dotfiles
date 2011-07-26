@@ -20,9 +20,12 @@ export ALTERNATE_EDITOR=vi
 export GREP_COLOR='07;33'
 export GISTY_DIR=$HOME/dev/gists
 
-## for compileing XS module on mac
+## for mac
 if [ `uname` = "Darwin" ]; then
+    # set flags to compile XS module
     export ARCHFLAGS='-arch i386 -arch x86_64'
+    # mysql client
+    export DYLD_LIBRARY_PATH=/usr/local/mysql/lib
 fi
 
 if [[ -x `where dircolors` ]] && [ -e $HOME/.dircolors ]; then
