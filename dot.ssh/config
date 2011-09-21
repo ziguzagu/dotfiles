@@ -5,12 +5,12 @@ Host *
 Host sakura
   Hostname www828.sakura.ne.jp
 
+Host sena
+  Hostname www19145u.sakura.ne.jp
+
 Host moss
   Hostname ziguzagu.xen.prgmr.com
   Compression yes
-
-Host sena
-  Hostname www19145u.sakura.ne.jp
 
 Host code
   Hostname code.ziguzagu.org
