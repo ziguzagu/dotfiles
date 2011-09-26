@@ -23,3 +23,7 @@ Host bastion
 Host cb
   Hostname 122.210.54.168
   IdentityFile ~/.ssh/sakk
+
+Host tp
+  Hostname 113.33.195.250
+  ServerAliveInterval 180
