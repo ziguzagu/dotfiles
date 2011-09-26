@@ -1,5 +1,6 @@
 Host *
   ForwardAgent yes
+  ServerAliveInterval 180
 
 Host sakura
   Hostname www828.sakura.ne.jp
@@ -26,4 +27,3 @@ Host cb
 
 Host tp
   Hostname 113.33.195.250
-  ServerAliveInterval 180
