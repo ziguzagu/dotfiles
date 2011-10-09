@@ -2,9 +2,6 @@ Host *
   ForwardAgent yes
   ServerAliveInterval 180
 
-Host sakura
-  Hostname www828.sakura.ne.jp
-
 Host sena
   Hostname www19145u.sakura.ne.jp
 
