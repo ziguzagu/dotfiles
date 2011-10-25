@@ -206,7 +206,7 @@ bindkey '^o' dabbrev-complete
 bindkey '^o^_' reverse-menu-complete
 
 ## pmtools
-function pv() { perl -m$1 -e 'print "$'$1'::VERSION\n"' }
+function pmver() { perl -m$1 -e 'print "$'$1'::VERSION\n"' }
 
 ## perl module development
 function pm {
