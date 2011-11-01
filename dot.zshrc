@@ -91,6 +91,14 @@ compinit
 # case insensitive
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
+## bash-completion
+BASH_COMP_DIR=/usr/local/etc/bash_completion.d
+if [ -d $BASH_COMP_DIR ]; then
+    autoload bashcompinit
+    bashcompinit
+    source $BASH_COMP_DIR/git-completion.bash
+fi
+
 ## alias
 setopt complete_aliases
 alias ec="$HOME/bin/emacsclient -n"
