@@ -124,6 +124,9 @@ alias prove="prove -lv"
 alias ack="ack --color"
 alias grep="grep --binary-files=without-match --color=always"
 alias t="$HOME/bin/todo.sh -d $HOME/.todo"
+# alias for git and uutocomplete for 'g' as well
+alias g=git
+complete -o default -o nospace -F _git g
 
 ## global alias
 alias -g M="| more"
