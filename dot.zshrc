@@ -9,7 +9,7 @@ export SHELL=`which zsh`
 [ -d /usr/local/mysql ] && PATH=/usr/local/mysql/bin:$PATH
 [ -d $HOME/bin ] && PATH=$HOME/bin:$PATH
 ## remove duplicates in PATH with keeping the order
-export PATH="$(echo $PATH | awk -v RS=: -v ORS=: '!($0 in a) {a[$0]; print}')"
+#export PATH="$(echo $PATH | awk -v RS=: -v ORS=: '!($0 in a) {a[$0]; print}')"
 
 [[ -x `where lv` ]] && export PAGER=lv
 export GIT_PAGER=cat
@@ -124,7 +124,7 @@ alias prove="prove -lv"
 alias ack="ack --color"
 alias grep="grep --binary-files=without-match --color=always"
 alias t="$HOME/bin/todo.sh -d $HOME/.todo"
-# alias for git and uutocomplete for 'g' as well
+# alias for git and autocomplete for 'g' as well
 alias g="git"
 complete -o default -o nospace -F _git g
 
