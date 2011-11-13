@@ -15,6 +15,13 @@ Host code.ziguzagu.org
 Host sakk
   Hostname 60.32.136.102
   Port 2223
+  # hsakai.dev.sixapart.jp
+  LocalForward 10080 172.17.3.125:80
+  LocalForward 10443 172.17.3.125:443
+  # intranet.sixapart.jp
+  LocalForward 11080 172.17.2.66:80
+  # fb.sixapart.jp
+  LocalForward 12080 172.17.2.67:80
 
 Host bastion
   Hostname shirley.sixapart.com
