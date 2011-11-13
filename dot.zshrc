@@ -123,7 +123,6 @@ alias htdate="date '+%a, %d %b %Y %X %Z'"
 alias prove="prove -lv --timer"
 alias ack="ack --color"
 alias grep="grep --binary-files=without-match --color=always"
-alias t="$HOME/bin/todo.sh -d $HOME/.todo"
 # alias for git and autocomplete for 'g' as well
 alias g="git"
 complete -o default -o nospace -F _git g
