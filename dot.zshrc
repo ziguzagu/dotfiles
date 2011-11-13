@@ -9,7 +9,7 @@ export SHELL=`which zsh`
 [ -d /usr/local/mysql ] && PATH=/usr/local/mysql/bin:$PATH
 [ -d $HOME/bin ] && PATH=$HOME/bin:$PATH
 ## remove duplicates in PATH with keeping the order
-#export PATH="$(echo $PATH | awk -v RS=: -v ORS=: '!($0 in a) {a[$0]; print}')"
+export PATH="$(echo $PATH | awk -v RS=: -v ORS=: '!($0 in a) {a[$0]; print}' | head -1)"
 
 [[ -x `where lv` ]] && export PAGER=lv
 export GIT_PAGER=cat
