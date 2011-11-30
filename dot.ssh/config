@@ -22,6 +22,8 @@ Host sakk
   LocalForward 11080 172.17.2.66:80
   # fb.sixapart.jp
   LocalForward 12080 172.17.2.67:80
+  # irc.sixapart.jp (wah)
+  LocalForward 16667 172.17.2.68:6667
 
 Host bastion
   Hostname shirley.sixapart.com
