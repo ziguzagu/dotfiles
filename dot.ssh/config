@@ -29,9 +29,5 @@ Host bastion
   Hostname shirley.sixapart.com
   Compression yes
 
-Host cb
-  Hostname 122.210.54.168
-  IdentityFile ~/.ssh/sakk
-
-Host tp
+Host tp-stg01
   Hostname 113.33.195.250
