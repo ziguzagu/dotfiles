@@ -30,4 +30,5 @@ Host bastion
   Compression yes
 
 Host tp-stg01
-  Hostname 113.33.195.250
+  Hostname 202.215.51.147
+  Port 22022
