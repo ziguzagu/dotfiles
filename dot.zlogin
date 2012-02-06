@@ -7,4 +7,4 @@ do
     test -f $HOME/.ssh/$key && keychain $HOME/.ssh/$key
 done
 
-source ~/.keychain/$HOST-sh
+test -f ~/.keychain/$HOST-sh && source ~/.keychain/$HOST-sh
