@@ -91,14 +91,6 @@ compinit
 # case insensitive
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-## bash-completion
-BASH_COMP_DIR=/usr/local/etc/bash_completion.d
-if [ -d $BASH_COMP_DIR ]; then
-    autoload bashcompinit
-    bashcompinit
-    source $BASH_COMP_DIR/git-completion.bash
-fi
-
 ## alias
 setopt complete_aliases
 alias ec="$HOME/bin/emacsclient -n"
@@ -123,8 +115,11 @@ alias htdate="date '+%a, %d %b %Y %X %Z'"
 alias prove="prove -lv --timer"
 alias ack="ack --color"
 alias grep="grep --binary-files=without-match --color=always"
-# alias for git and autocomplete for 'g' as well
+
+## git completion
 alias g="git"
+autoload bashcompinit
+bashcompinit
 complete -o default -o nospace -F _git g
 
 ## global alias
