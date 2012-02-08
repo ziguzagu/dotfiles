@@ -17,13 +17,14 @@ Host sakk
   Port 2223
   # hsakai.dev.sixapart.jp
   LocalForward 16080 172.17.3.125:80
-  LocalForward 16081 172.17.3.125:443
+#  LocalForward 16081 172.17.3.125:443
   # intranet.sixapart.jp
-  LocalForward 16082 172.17.2.66:80
+  LocalForward 16180 172.17.2.66:80
+#  LocalForward 16181 172.17.2.66:443
   # fb.sixapart.jp
-  LocalForward 16083 172.17.2.67:80
+  LocalForward 16280 172.17.2.67:80
   # (review|paste).sixapart.jp
-  LocalForward 16084 172.17.3.231:80
+  LocalForward 16380 172.17.3.231:80
   # irc.sixapart.jp (wah)
   LocalForward 16667 172.17.2.68:6667
 
