@@ -6,10 +6,6 @@ export LANG=ja_JP.UTF-8
 ## the default umask is set in /etc/login.defs
 umask 022
 
-## history
-export HISTCONTROL=ignoredups
-export HISTSIZE=100000
-
 ## include .bashrc if it exists
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc

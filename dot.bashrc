@@ -13,6 +13,17 @@ alias uc="tr '[:lower:]' '[:upper:]'"
 ## prompt
 PS1="\[\033[00;36m\][\h:\w]\[\033[00m\]\\$ "
 
+## sharing history on multiple session
+function share_history {
+    history -a
+    history -c
+    history -r
+}
+PROMPT_COMMAND='share_history'
+shopt -u histappend
+export HISTCONTROL=ignoredups
+export HISTSIZE=10000
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profiles
 # sources /etc/bash.bashrc).
