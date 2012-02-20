@@ -4,6 +4,7 @@
 (global-set-key (kbd "M-y") 'anything-show-kill-ring)
 
 ;; minimal anything
+(setq recentf-max-saved-items 1000)
 (defun my-anything ()
   (interactive)
   (anything-other-buffer '(anything-c-source-buffers+
