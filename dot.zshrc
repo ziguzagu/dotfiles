@@ -6,9 +6,10 @@ export LANG=en_US.UTF-8
 
 export SHELL=`which zsh`
 
-[ -d /usr/local/mysql ] && PATH=/usr/local/mysql/bin:$PATH
+## setup PATH
+[ -d /usr/local/bin ] && PATH=/usr/local/bin:$PATH
 [ -d $HOME/bin ] && PATH=$HOME/bin:$PATH
-## remove duplicates in PATH with keeping the order
+# remove duplicates in PATH with keeping the order
 export PATH="$(echo $PATH | awk -v RS=: -v ORS=: '!($0 in a) {a[$0]; print}' | head -1)"
 
 [[ -x `where lv` ]] && export PAGER=lv
@@ -24,8 +25,6 @@ export GISTY_DIR=$HOME/dev/gists
 if [ `uname` = "Darwin" ]; then
     # set flags to compile XS module
     export ARCHFLAGS='-arch i386 -arch x86_64'
-    # mysql client
-    export DYLD_LIBRARY_PATH=/usr/local/mysql/lib
 fi
 
 if [[ -x `where dircolors` ]] && [ -e $HOME/.dircolors ]; then
