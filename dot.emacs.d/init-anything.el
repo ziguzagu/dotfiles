@@ -1,4 +1,5 @@
 (require 'anything-config)
+(require 'anything-match-plugin)
 
 ;; call show-kill-ring function by hand
 (global-set-key (kbd "M-y") 'anything-show-kill-ring)
@@ -26,3 +27,6 @@
 (require 'anything-c-moccur)
 (setq anything-c-moccur-enable-auto-look-flag t)
 (global-set-key (kbd "M-o") 'anything-c-moccur-occur-by-moccur)
+
+;; improve anything UI
+(require 'anything-show-completion)

@@ -4,7 +4,7 @@
 (cd "~")
 (setq load-path
       (append (list "~/.emacs.d"
-                    "~/.emacs.d/lisp") load-path))
+                    "~/.emacs.d/elisp") load-path))
 ;; using unsafe local variables..?
 (setq safe-local-variable-values (quote ((syntax . elisp))))
 
@@ -31,6 +31,12 @@
             (shell-command
              "screen -X select `cat ~/.emacs.d/emacsclient-caller`")))
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
+
+;;;;;; auto-install
+(require 'auto-install)
+(add-to-list 'load-path auto-install-directory)
+(auto-install-update-emacswiki-package-name t)
+(auto-install-compatibility-setup)
 
 ;;;;;; environment
 (load "init-appearance")
