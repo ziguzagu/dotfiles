@@ -34,7 +34,7 @@
 
 ;;;;;; auto-install
 (require 'auto-install)
-(add-to-list 'load-path auto-install-directory)
+(add-to-list 'load-path "~/.emacs.d/auto-install")
 (auto-install-update-emacswiki-package-name t)
 (auto-install-compatibility-setup)
 
