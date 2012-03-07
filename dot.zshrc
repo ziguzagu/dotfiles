@@ -117,8 +117,9 @@ alias grep="grep --binary-files=without-match --color=always"
 
 ## git completion
 alias g="git"
+autoload bashcompinit
+bashcompinit
 source ~/.zsh.d/git-completion.bash
-complete -o default -o nospace -F _git g
 
 ## global alias
 alias -g M="| more"
