@@ -23,6 +23,13 @@
 (require 'font-lock)
 (global-font-lock-mode t)
 
+;; use 256 colors on screen-256color term
+(defun terminal-init-screen ()
+  "Terminal initialization function for screen-256color."
+  (load "term/xterm")
+  (xterm-register-default-colors)
+  (tty-set-up-initial-frame-faces))
+
 ;; basic colors
 (set-face-foreground 'default "white")
 (set-face-background 'default "black")
