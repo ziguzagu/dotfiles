@@ -65,3 +65,7 @@
           (lambda ()
             (setq vcl-indent-level 4)))
 
+;; testing puppet mode
+(auto-install-from-url "https://raw.github.com/puppetlabs/puppet-syntax-emacs/master/puppet-mode.el")
+(autoload 'puppet-mode "puppet-mode" "Major mode for editing puppet manifests")
+(add-to-list 'auto-mode-alist '("\\.pp$" . puppet-mode))
