@@ -59,9 +59,9 @@
 (load "init-yaml")
 
 ;; testng vcl mode
-(autoload 'vcl-mode "vcl-mode" nil t)
-(setq auto-mode-alist
-      (append '(("\\.vcl$" . vcl-mode)) auto-mode-alist))
+(autoload 'vcl-mode "vcl-mode" "Major mode for editting varnish config file")
+(add-to-list 'auto-mode-alist '("\\.vcl$" . vcl-mode))
 (add-hook 'vcl-mode-hook
           (lambda ()
             (setq vcl-indent-level 4)))
+
