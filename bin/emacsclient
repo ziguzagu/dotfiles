@@ -1,5 +1,4 @@
 #!/bin/sh
-# $Id$
 
 echo $WINDOW >~/.emacs.d/emacsclient-caller
 
