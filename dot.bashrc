@@ -11,7 +11,7 @@ alias lc="tr '[:upper:]' '[:lower:]'"
 alias uc="tr '[:lower:]' '[:upper:]'"
 
 ## prompt
-PS1="\[\033[00;36m\][\h:\w]\[\033[00m\]\\$ "
+PS1="\[\033[00;36m\][\u@\h:\w]\[\033[00m\]\\$ "
 
 ## sharing history on multiple session
 function share_history {
