@@ -1,9 +1,0 @@
-#!/bin/sh
-
-server=~/.emacs.d/emacs-server-window
-
-if [ -f "$server" ]; then
-    tmux select-window -t `cat $server`
-fi
-
-emacsclient --no-wait $*
