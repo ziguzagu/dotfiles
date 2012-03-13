@@ -15,7 +15,7 @@ export PATH="$(echo $PATH | awk -v RS=: -v ORS=: '!($0 in a) {a[$0]; print}' | h
 [[ -x `where lv` ]] && export PAGER=lv
 export GIT_PAGER=cat
 
-export EDITOR=$HOME/bin/emacsclient
+export EDITOR=$HOME/bin/ec-wait
 export ALTERNATE_EDITOR=vi
 
 export GREP_COLOR='07;33'
@@ -92,7 +92,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 ## alias
 setopt complete_aliases
-alias ec="$HOME/bin/emacsclient -n"
+#alias ec="$HOME/bin/emacsclient -n"
 if [ `uname` = "Linux" ]; then
     alias ls="ls -F --color=auto"
 else

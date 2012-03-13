@@ -1,0 +1,11 @@
+#!/bin/sh
+
+server=~/.emacs.d/emacs-server-window
+client=~/.emacs.d/emacs-client-window
+
+if [ -n "$TMUX" ]; then
+    tmux display -p '#I' > $client
+    tmux select-window -t `cat $server`
+fi
+
+emacsclient $*

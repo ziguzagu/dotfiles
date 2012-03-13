@@ -19,9 +19,9 @@
 (set-language-environment "Japanese")
 (set-default-coding-systems 'utf-8)
 
-;;;;;; emacsclient on screen
+;;;;;; emacs server/client on tmux
 (add-hook 'after-init-hook 'server-start)
-(shell-command "echo $WINDOW >~/.emacs.d/emacs-server-window")
+(shell-command "tmux display -p '#I' > ~/.emacs.d/emacs-server-window")
 (add-hook 'emacs-kill-hook
           (lambda ()
             (shell-command
@@ -29,7 +29,7 @@
 (add-hook 'server-done-hook
           (lambda ()
             (shell-command
-             "screen -X select `cat ~/.emacs.d/emacsclient-caller`")))
+             "tmux select-window -t `cat ~/.emacs.d/emacs-client-window`")))
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 
 ;;;;;; auto-install
