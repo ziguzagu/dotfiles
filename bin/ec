@@ -4,6 +4,8 @@ server=~/.emacs.d/emacs-server-window
 
 if [ -n "$TMUX" ]; then
     tmux select-window -t `cat $server`
+elif [ -n "$WINDOW" ]; then
+    screen -X select `cat $server`
 fi
 
 emacsclient --no-wait $*

@@ -6,6 +6,9 @@ client=~/.emacs.d/emacs-client-window
 if [ -n "$TMUX" ]; then
     tmux display -p '#I' > $client
     tmux select-window -t `cat $server`
+elif [ -n "$WINDOW" ]; then
+    echo $WINDOW > $client
+    screen -X select `cat $server`
 fi
 
 emacsclient $*
