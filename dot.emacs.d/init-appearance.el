@@ -61,6 +61,17 @@
 (set-face-foreground 'mode-line-inactive "gray32")
 (set-face-background 'mode-line-inactive "gray16")
 (set-face-foreground 'mode-line-buffer-id "orange")
+;; modeline content
+(setq-default mode-line-format
+              (list "-"
+                    'mode-line-mule-info
+                    'mode-line-modified
+                    'mode-line-buffer-identification
+                    '(:eval (concat (propertize "  %p %l:%c ")))
+                    'vc-mode
+                    "  "
+                    'mode-line-modes
+                    "-%-"))
 
 ;; minibuffer color
 (set-face-foreground 'minibuffer-prompt "yellow")
