@@ -66,6 +66,7 @@
               (list "-"
                     'mode-line-mule-info
                     'mode-line-modified
+                    " "
                     'mode-line-buffer-identification
                     '(:eval (concat (propertize "  %p %l:%c ")))
                     'vc-mode
