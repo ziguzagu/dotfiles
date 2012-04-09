@@ -1,8 +1,8 @@
 ## -*- mode: shell-script; -*-
 
-export LANGUAGE=en_US:en
+export LANGUAGE=en_US:en:ja
 export LC_ALL=C
-export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8:ja_JP.UTF-8
 
 export SHELL=`which zsh`
 
