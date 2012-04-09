@@ -159,6 +159,9 @@ zstyle ':completion:*:default' menu select=1
 
 ## set TERM to use color terminal
 #eval `tset -sQI xterm-256color`
+if [ -n "$TMUX" ]; then
+    export TERM=screen-256color
+fi
 
 ## prompt
 setopt prompt_subst
