@@ -1,12 +1,3 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; popwin
-(auto-install-from-url "https://github.com/m2ym/popwin-el/raw/master/popwin.el")
-(require 'popwin)
-(setq display-buffer-function 'popwin:display-buffer)
-;; popwin with anything
-(setq anything-samewindow nil)
-(push '("*anything*" :height 20) popwin:special-display-config)
-
 ;; auto-complete
 ;;  * http://www.emacswiki.org/emacs/AutoComplete
 (require 'auto-complete-config)

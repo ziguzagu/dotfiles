@@ -30,3 +30,7 @@
 
 ;; improve anything UI
 (require 'anything-show-completion)
+
+;; popwin with anything
+(setq anything-samewindow nil)
+(push '("*minimal-anything*" :height 20) popwin:special-display-config)
