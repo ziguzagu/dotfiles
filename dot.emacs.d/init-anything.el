@@ -11,14 +11,14 @@
   (anything-other-buffer '(anything-c-source-buffers+
                            anything-c-source-recentf
                            anything-c-source-files-in-current-dir+)
-                         "*my anything*"))
+                         "*minimal-anything*"))
 (global-set-key (kbd "C-c ;") 'my-anything)
 
 ;; woman
 (defun my-anything-woman ()
   (interactive)
   (anything-other-buffer '(anything-c-source-man-pages)
-                         "*my woman*"))
+                         "*woman*"))
 (global-set-key (kbd "C-c m") 'my-anything-woman)
 
 ;; color-moccur + anything
