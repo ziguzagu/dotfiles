@@ -1,25 +1,24 @@
-#!/bin/bash
+#!/bin/sh
 
-CMD=`basename $0`
-DOTDIR="$PWD"
-
-DIRS=`find . -type d | \grep -v .git | sed -e 's/^\.\///;/^$/d;'`
-FILES=`find . -type f | \grep -v .git/ | \grep -v $CMD | sed -e 's/^\.\///;/^$/d;'`
+cmd=`basename $0`
+dotdir="$PWD"
+dirs=`find . -type d | \grep -v .git | sed -e 's/^\.\///;/^$/d;'`
+files=`find . -type f | \egrep -v '^#' | \grep -v .git/ | \grep -v $cmd | sed -e 's/^\.\///;/^$/d;'`
 
 cd $HOME
-for D in $DIRS; do
-    D=`echo $D | sed -e 's/^dot//'`
-    if [ ! -d "$D" ]; then
-        echo "mkdir $D"
-        mkdir "$D"
+for dir in $dirs; do
+    dir=`echo $dir | sed -e 's/^dot//'`
+    if [ ! -d "$dir" ]; then
+        echo "mkdir $dir"
+        mkdir "$dir"
     fi
 done
 
-for F in $FILES; do
-    TARGET=`echo $F | sed -e 's/^dot//'`
-    if [ ! -L "$TARGET" ]; then
-        echo "ln -s $DOTDIR/$F $TARGET"
-        ln -s "$DOTDIR/$F" "$TARGET"
+for file in $files; do
+    target=`echo $file | sed -e 's/^dot//'`
+    if [ ! -L "$target" ]; then
+        echo "ln -s $dotdir/$file $target"
+        ln -s "$dotdir/$file" "$target"
     fi
 done
 
