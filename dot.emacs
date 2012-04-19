@@ -22,7 +22,7 @@
 ;;;;;; emacs server/client on tmux/screen
 (add-hook 'after-init-hook 'server-start)
 (if (getenv "TMUX")
-    (shell-command "then tmux display -p '#I' > ~/.emacs.d/emacs-server-window")
+    (shell-command "tmux display -p '#I' > ~/.emacs.d/emacs-server-window")
     (shell-command "echo $WINDOW > ~/.emacs.d/emacs-server-window"))
 (add-hook 'emacs-kill-hook
           (lambda ()
