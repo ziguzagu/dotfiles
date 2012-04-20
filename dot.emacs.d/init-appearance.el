@@ -33,16 +33,16 @@
 ;; basic colors
 (set-face-foreground 'default "white")
 (set-face-background 'default "black")
-(set-cursor-color "green")
+(set-cursor-color "orange")
 
 ;; common syntax colors
 (set-face-foreground 'font-lock-comment-face "gray46")
-(set-face-foreground 'font-lock-string-face  "green yellow")
-(set-face-foreground 'font-lock-keyword-face "magenta")
+(set-face-foreground 'font-lock-string-face  "darkolivegreen3")
+(set-face-foreground 'font-lock-keyword-face "orchid2")
 (set-face-foreground 'font-lock-function-name-face "white")
-(set-face-foreground 'font-lock-variable-name-face "white")
+(set-face-foreground 'font-lock-variable-name-face "turquoise3")
 (set-face-foreground 'font-lock-constant-face "tomato")
-(set-face-foreground 'font-lock-type-face "dark turquoise")
+(set-face-foreground 'font-lock-type-face "goldenrod2")
 (set-face-background 'font-lock-warning-face "red")
 (set-face-foreground 'font-lock-warning-face "white")
 (set-face-foreground 'font-lock-builtin-face "yellow")
