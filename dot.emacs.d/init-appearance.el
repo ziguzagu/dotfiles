@@ -42,13 +42,13 @@
 (set-face-foreground 'font-lock-function-name-face "white")
 (set-face-foreground 'font-lock-variable-name-face "turquoise3")
 (set-face-foreground 'font-lock-constant-face "tomato")
-(set-face-foreground 'font-lock-type-face "goldenrod2")
+(set-face-foreground 'font-lock-type-face "mediumpurple1")
 (set-face-background 'font-lock-warning-face "red")
 (set-face-foreground 'font-lock-warning-face "white")
 (set-face-foreground 'font-lock-builtin-face "yellow")
 
 ;; highlight colors
-(set-face-background 'highlight "yellow")
+(set-face-background 'highlight "green")
 (set-face-foreground 'highlight "black")
 
 ;; region colors
@@ -83,7 +83,7 @@
  '(diff-header      ((t (:background "gray32" :foreground "gray70"))))
  '(diff-context     ((t (:inherit shadow :foreground "gray90"))))
  '(diff-changed     ((t (:background "yellow" :foreground "black"))))
- '(diff-added       ((t (:background "yellow green" :foreground "black"))))
+ '(diff-added       ((t (:background "darkolivegreen3" :foreground "black"))))
  '(diff-removed     ((t (:background "tomato" :foreground "black")))))
 
 ;; setup color of zenkaku space, leading/trailing space and tab
