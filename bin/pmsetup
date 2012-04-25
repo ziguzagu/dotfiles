@@ -75,7 +75,7 @@ sub write_file {
     }
 
     my $tx = Text::Xslate->new(syntax => 'TTerse');
-    my $content = $tx->render(\$template, $vars);
+    my $content = $tx->render_string($template, $vars);
 
     warn "Creating $path\n";
     open my $out, ">", $path or die "$path: $!";
