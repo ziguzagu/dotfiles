@@ -164,23 +164,32 @@ if [ -n "$TMUX" ]; then
 fi
 
 ## prompt
+autoload -U colors && colors
 setopt prompt_subst
 unsetopt promptcr
 # for emacs (no escape usging)
 if [ "$EMACS" = t ]; then
     unsetopt zle
 fi
-PROMPT=$'\n''%{[36m%}%n@%m%{[m%}:%{[33m%}%~%{[m%}'$'\n''%# '
+if [ $UID -eq 0 ]; then
+    PROMPT=$'\n''%{$fg[red]%}%n@%m%{$reset_color%}:%{$fg[yellow]%}%~%{$reset_color%}'$'\n''➜ '
+else
+    PROMPT=$'\n''%{$fg[cyan]%}%n@%m%{$reset_color%}:%{$fg[yellow]%}%~%{$reset_color%}'$'\n''➜ '
+fi
 # vcs info on RPROMPT
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' formats '(%s) %b'
-zstyle ':vcs_info:*' actionformats '(%s) %b!%a'
+zstyle ':vcs_info:*' enable git svn
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' unstagedstr '-'
+zstyle ':vcs_info:git:*' stagedstr '+'
+zstyle ':vcs_info:*' formats '%c%u (%s) %b:%r'
+zstyle ':vcs_info:*' actionformats '%c%u (%s) %b:%r!%a'
 precmd () {
     psvar=()
     LANG=en_US.UTF-8 vcs_info
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
-RPROMPT="%1(v|%F{red}%1v%f|)"
+RPROMPT="%1(v|%F{green}%1v%f|)"
 
 ## misc
 setopt correct
