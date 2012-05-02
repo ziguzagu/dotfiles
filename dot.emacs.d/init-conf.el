@@ -8,10 +8,9 @@
              (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 
 ;; generic config files
-(require 'generic-x)
 (setq auto-mode-alist
-      (append '(("\\.conf$" . default-generic-mode)
-                ("\\.cfg$"  . default-generic-mode)) auto-mode-alist))
+      (append '(("\\.conf$" . conf-mode)
+                ("\\.cfg$"  . conf-mode)) auto-mode-alist))
 
 ;; vcl mode
 (autoload 'vcl-mode "vcl-mode" "Major mode for editting varnish config file")
