@@ -6,10 +6,7 @@ Host sena
   Hostname www19145u.sakura.ne.jp
 
 Host moss
-  Hostname ziguzagu.xen.prgmr.com
-  Compression yes
-
-Host code.ziguzagu.org
+  Hostname ziguzagu.new.xen.prgmr.com
   Compression yes
 
 Host sakk
