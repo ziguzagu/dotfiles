@@ -93,8 +93,8 @@ template: |
   all_from 'lib/[% path %]';
   readme_from 'lib/[% path %]';
   # dependencies
-  build_requires 'Test::More';
   # tests
+  test_requires 'Test::More', 0.96;
   tests 't/*.t';
   author_tests 'xt';
   # misc
