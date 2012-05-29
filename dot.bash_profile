@@ -1,7 +1,7 @@
 ## languages and charsets
-export LANGUAGE=ja_JP:ja:en_GB:en
+export LANGUAGE=en_US
 export LC_ALL=C
-export LANG=ja_JP.UTF-8
+export LANG=en_US.UTF-8
 
 ## the default umask is set in /etc/login.defs
 umask 022
