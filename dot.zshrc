@@ -38,8 +38,8 @@ elif [ -z "$PERL5LIB" ]; then
     eval `perl -Iperl5/lib/perl5 -Mlocal::lib 2>/dev/null`
 fi
 
-## changing title of screen's window by preexec()
-if [ -n "$WINDOW" ]; then
+## changing title of tmux/screen window by preexec()
+if [ -n "$WINDOW" ] || [ -n "$TMUX" ]; then
     preexec() {
         emulate -L zsh
         local -a cmd; cmd=(${(z)2})
