@@ -241,4 +241,4 @@ function pt {
 }
 
 ## at sixapart
-[ -f .zshrc.6a ] && source .zshrc.6a
+[ -f ~/.zshrc.6a ] && source ~/.zshrc.6a
