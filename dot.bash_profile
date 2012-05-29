@@ -8,5 +8,5 @@ umask 022
 
 ## include .bashrc if it exists
 if [ -f ~/.bashrc ]; then
-    . ~/.bashrc
+    source ~/.bashrc
 fi
