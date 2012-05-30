@@ -6,24 +6,23 @@ export LANG=en_US.UTF-8
 
 export SHELL=`which zsh`
 
-## setup PATH
-[ -d /usr/local/bin ] && PATH=/usr/local/bin:$PATH
-[ -d $HOME/bin ] && PATH=$HOME/bin:$PATH
-# remove duplicates in PATH with keeping the order
-export PATH="$(echo $PATH | awk -v RS=: -v ORS=: '!($0 in a) {a[$0]; print}' | head -1)"
+## setup PATH without duplicates path
+PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="$(echo -n $PATH | awk -v RS=: -v ORS=: '!($0 in a) {a[$0]; print}')"
 
-[[ -x `where lv` ]] && export PAGER=lv
+## page and editor
+if [[ -x `where lv` ]]; then
+    export PAGER=lv
+fi
 export GIT_PAGER=cat
-
 export EDITOR=$HOME/bin/ec-wait
 export ALTERNATE_EDITOR=vi
 
 export GREP_COLOR='07;33'
 export GISTY_DIR=$HOME/dev/gists
 
-## for mac
+## set flags to compile XS module on MacOS X
 if [ `uname` = "Darwin" ]; then
-    # set flags to compile XS module
     export ARCHFLAGS='-arch i386 -arch x86_64'
 fi
 
