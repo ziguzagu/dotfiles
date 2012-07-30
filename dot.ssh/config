@@ -21,10 +21,6 @@ Host sakk
   # irc.sixapart.jp (wah)
   LocalForward 16667 172.17.2.68:6667
 
-Host bastion
-  Hostname shirley.sixapart.com
-  Compression yes
-
 Host tp-stg01
   Hostname 202.215.51.147
   Port 22022
