@@ -6,7 +6,7 @@
 
 (autoload 'css-mode "css-mode")
 (setq cssm-indent-function #'cssm-c-style-indenter)
-(setq cssm-indent-level 4)
+(setq cssm-indent-level 2)
 (setq auto-mode-alist
       (append '(("\\.css$" . css-mode)) auto-mode-alist))
 
