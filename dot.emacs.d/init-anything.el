@@ -29,6 +29,7 @@
 (global-set-key (kbd "M-o") 'anything-c-moccur-occur-by-moccur)
 
 ;; improve anything UI
+(auto-install-from-url "http://www.emacswiki.org/cgi-bin/wiki/download/anything-show-completion.el")
 (require 'anything-show-completion)
 
 ;; popwin with anything
