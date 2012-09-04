@@ -37,9 +37,9 @@ elif [ -z "$PERL5LIB" ]; then
     eval `perl -Iperl5/lib/perl5 -Mlocal::lib 2>/dev/null`
 fi
 
-## rvm
-if [ -s ~/.rvm/scripts/rvm ]; then
-    source ~/.rvm/scripts/rvm
+## rbenv
+if which rbenv > /dev/null; then
+    eval "$(rbenv init -)"
 fi
 
 ## changing title of tmux/screen window by preexec()
