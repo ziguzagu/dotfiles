@@ -11,7 +11,7 @@ PATH=$HOME/bin:$HOME/.rvm/bin:/usr/local/bin:$PATH
 export PATH="$(echo -n $PATH | awk -v RS=: -v ORS=: '!($0 in a) {a[$0]; print}')"
 
 ## page and editor
-if [[ -x `where lv` ]]; then
+if which lv > /dev/null; then
     export PAGER=lv
 fi
 export GIT_PAGER=cat
