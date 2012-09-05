@@ -57,19 +57,18 @@
                :url "http://www.bookshelf.jp/elc/color-moccur.el")
         (:name anything-c-moccur
                :type http
-               :url "http://svn.coderepos.org/share/lang/elisp/anything-c-moccur/trunk/anything-c-moccur.el")
+               :url "http://svn.coderepos.org/share/lang/elisp/anything-c-moccur/trunk/anything-c-moccur.el"
+               :depends (anything color-moccur))
         (:name anything-show-completion
                :type http
-               :url "http://www.emacswiki.org/cgi-bin/wiki/download/anything-show-completion.el")
+               :url "http://www.emacswiki.org/cgi-bin/wiki/download/anything-show-completion.el"
+               :depends (anything))
+        (:name dabbrev-highlight
+               :type http
+               :url "http://www.namazu.org/~tsuchiya/elisp/dabbrev-highlight.el")
         ))
 ;; download
 (el-get 'sync)
-
-;;;;;; auto-install
-(require 'auto-install)
-(add-to-list 'load-path "~/.emacs.d/auto-install")
-(auto-install-update-emacswiki-package-name t)
-(auto-install-compatibility-setup)
 
 ;;;;;; environment
 (load "init-appearance")
