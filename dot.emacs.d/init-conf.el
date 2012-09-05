@@ -1,4 +1,10 @@
-;; yaml
+;;;;;; generic config files
+(setq auto-mode-alist
+      (append '(("\\.conf$" . conf-mode)
+                ("\\.cfg$"  . conf-mode)) auto-mode-alist))
+
+;;;;;; yaml
+(el-get 'sync 'yaml-mode)
 (autoload 'yaml-mode "yaml-mode" nil t)
 (setq auto-mode-alist
       (append '(("\\.yml$" . yaml-mode)
@@ -7,19 +13,15 @@
           '(lambda ()
              (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 
-;; generic config files
-(setq auto-mode-alist
-      (append '(("\\.conf$" . conf-mode)
-                ("\\.cfg$"  . conf-mode)) auto-mode-alist))
-
-;; vcl mode
+;;;;;; vcl mode
+(el-get 'sync 'vcl-mode)
 (autoload 'vcl-mode "vcl-mode" "Major mode for editting varnish config file")
 (add-to-list 'auto-mode-alist '("\\.vcl$" . vcl-mode))
 (add-hook 'vcl-mode-hook
           (lambda ()
             (setq vcl-indent-level 4)))
 
-;; puppet mode
-(auto-install-from-url "https://raw.github.com/puppetlabs/puppet-syntax-emacs/master/puppet-mode.el")
+;;;;;; puppet mode
+(el-get 'sync 'puppet-mode)
 (autoload 'puppet-mode "puppet-mode" "Major mode for editing puppet manifests")
 (add-to-list 'auto-mode-alist '("\\.pp$" . puppet-mode))
