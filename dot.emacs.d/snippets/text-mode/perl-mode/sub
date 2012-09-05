@@ -1,5 +1,6 @@
 #name : sub ... { ... }
 # --
 sub ${1:function_name} {
-    $0
+    my \$${2:self} = shift;
+    $0;
 }
