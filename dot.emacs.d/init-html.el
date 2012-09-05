@@ -1,3 +1,4 @@
+;;;;;; use sgml-mode for editting HTML
 (autoload 'sgml-mode "sgml-mode" nil t)
 (setq auto-mode-alist
       (append '(("\\.html$" . sgml-mode)
@@ -10,10 +11,13 @@
 (setq auto-mode-alist
       (append '(("\\.css$" . css-mode)) auto-mode-alist))
 
+;;;;;; js2-mode
+(el-get 'sync 'js2-mode)
 (autoload 'js2-mode "js2-mode" nil t)
 (setq auto-mode-alist
       (append '(("\\.js$" . js2-mode)) auto-mode-alist))
 
+;;;;;; utilities
 (defun escape-html-region (start end)
   "Escape '&<>' characters in the region using '&amp;', '&lt;', and '&gt;'."
   (interactive "*r")
