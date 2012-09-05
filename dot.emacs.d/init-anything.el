@@ -21,15 +21,16 @@
                          "*woman*"))
 (global-set-key (kbd "C-c m") 'my-anything-woman)
 
-;; color-moccur + anything
+;; color-moccur and ...
 (require 'color-moccur)
 (setq moccur-split-word t)
+
+;; then anything-c-moccur
 (require 'anything-c-moccur)
 (setq anything-c-moccur-enable-auto-look-flag t)
 (global-set-key (kbd "M-o") 'anything-c-moccur-occur-by-moccur)
 
 ;; improve anything UI
-(auto-install-from-url "http://www.emacswiki.org/cgi-bin/wiki/download/anything-show-completion.el")
 (require 'anything-show-completion)
 
 ;; popwin with anything
