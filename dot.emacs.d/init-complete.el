@@ -1,6 +1,6 @@
 ;; auto-complete
 ;;  * http://www.emacswiki.org/emacs/AutoComplete
-(el-get 'sync 'auto-complete)
+(el-get 'sync '(popup auto-complete))
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete-dict")
 (ac-config-default)
