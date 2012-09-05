@@ -5,6 +5,7 @@
                 ("\\.tmpl$" . sgml-mode)
                 ("\\.tt$" . sgml-mode)) auto-mode-alist))
 
+;;;;;; css-mode
 (autoload 'css-mode "css-mode")
 (setq cssm-indent-function #'cssm-c-style-indenter)
 (setq cssm-indent-level 2)
