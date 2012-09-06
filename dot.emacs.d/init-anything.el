@@ -1,3 +1,4 @@
+(el-get 'sync 'anything)
 (require 'anything-config)
 (require 'anything-match-plugin)
 
