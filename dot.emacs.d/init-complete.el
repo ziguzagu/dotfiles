@@ -13,5 +13,6 @@
 ;; yasnippet
 (el-get 'sync 'yasnippet)
 (require 'yasnippet)
-(setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+(setq yas-snippet-dirs '("~/.emacs.d/snippets"
+                         "~/.emacs.d/el-get/yasnippet/snippets"))
 (yas-global-mode 1)
