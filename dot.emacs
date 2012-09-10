@@ -53,9 +53,6 @@
 ;; extra recepies
 (setq el-get-sources
       '(
-        (:name color-moccur
-               :type http
-               :url "http://www.bookshelf.jp/elc/color-moccur.el")
         (:name anything-c-moccur
                :type http
                :url "http://svn.coderepos.org/share/lang/elisp/anything-c-moccur/trunk/anything-c-moccur.el"
