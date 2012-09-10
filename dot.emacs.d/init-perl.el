@@ -50,6 +50,7 @@
             (define-key cperl-mode-map "\C-cT" 'perltidy-buffer)))
 
 ;; perl-completion
+(el-get 'sync 'perl-completion)
 (add-hook 'cperl-mode-hook
           (lambda ()
             (require 'perl-completion)
