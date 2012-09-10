@@ -57,10 +57,6 @@
                :type http
                :url "http://svn.coderepos.org/share/lang/elisp/anything-c-moccur/trunk/anything-c-moccur.el"
                :depends (anything color-moccur))
-        (:name anything-show-completion
-               :type http
-               :url "http://www.emacswiki.org/cgi-bin/wiki/download/anything-show-completion.el"
-               :depends (anything))
         (:name dabbrev-highlight
                :type http
                :url "http://www.namazu.org/~tsuchiya/elisp/dabbrev-highlight.el")
