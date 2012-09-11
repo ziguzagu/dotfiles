@@ -1,5 +1,0 @@
-#name : subtest
-# --
-subtest '${1:test name}' => sub {
-    $0
-};
