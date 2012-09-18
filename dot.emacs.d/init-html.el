@@ -3,6 +3,7 @@
 (setq auto-mode-alist
       (append '(("\\.html$" . sgml-mode)
                 ("\\.tmpl$" . sgml-mode)
+                ("\\.tx$" . sgml-mode)
                 ("\\.tt$" . sgml-mode)) auto-mode-alist))
 
 ;;;;;; css-mode
