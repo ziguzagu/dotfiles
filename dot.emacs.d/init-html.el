@@ -6,11 +6,14 @@
                 ("\\.tt$" . sgml-mode)) auto-mode-alist))
 
 ;;;;;; css-mode
-(autoload 'css-mode "css-mode")
-(setq cssm-indent-function #'cssm-c-style-indenter)
-(setq cssm-indent-level 2)
+(el-get 'sync 'scss-mode)
+(autoload 'scss-mode "scss-mode")
 (setq auto-mode-alist
-      (append '(("\\.css$" . css-mode)) auto-mode-alist))
+      (append '(("\\.css$" . scss-mode)
+                ("\\.scss$" . scss-mode)) auto-mode-alist))
+(add-hook 'sccs-mode
+          (setq css-indent-offset 2)
+          (setq scss-compile-at-save nil))
 
 ;;;;;; js2-mode
 (el-get 'sync 'js2-mode)
