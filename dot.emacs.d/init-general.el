@@ -37,6 +37,7 @@
 (setq auto-revert-check-vc-info t)
 
 ;; vc
+(require 'vc-git)
 (setq vc-follow-symlinks t)
 (setq vc-make-backup-files t)
 
