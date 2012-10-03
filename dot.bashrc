@@ -34,3 +34,8 @@ fi
 if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
     source ~/perl5/perlbrew/etc/bashrc
 fi
+
+## at sixapart
+if [ -f /usr/local/6a/etc/bashrc ]; then
+    source /usr/local/6a/etc/bashrc
+fi
