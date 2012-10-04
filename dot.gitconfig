@@ -1,22 +1,26 @@
 [user]
-	name = Hiroshi Sakai
-	email = ziguzagu@gmail.com
+name = Hiroshi Sakai
+email = ziguzagu@gmail.com
+
 [color]
-	ui = auto
+ui = auto
+
 [github]
-	user = ziguzagu
-	token = be5c0351d21d18f05bc4d6d20c4b242e
+user = ziguzagu
+token = be5c0351d21d18f05bc4d6d20c4b242e
+
 [core]
-	excludesfile = ~/.gitignore
+excludesfile = ~/.gitignore
+
 [alias]
-	up = pull --rebase
-	di = diff
-	ci = commit -v
-	st = status -sb
-	co = checkout
-	cp = cherry-pick
-	br = branch
-    hist = log --graph --pretty=format:'%C(red bold)%h%C(cyan)%d%Creset %s %C(black bold)(%ci)%Creset' --decorate
-	unstage = reset HEAD --
-	last = log -1 HEAD
-	info = config --get remote.origin.url
+up = pull --rebase
+di = diff
+ci = commit -v
+st = status -sb
+co = checkout
+cp = cherry-pick
+br = branch
+hist = log --graph --pretty=format:'%C(red bold)%h%C(cyan)%d%Creset %s %C(black bold)(%ci)%Creset' --decorate
+unstage = reset HEAD --
+last = log -1 HEAD
+info = config --get remote.origin.url
