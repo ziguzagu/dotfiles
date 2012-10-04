@@ -12,10 +12,11 @@
 	up = pull --rebase
 	di = diff
 	ci = commit -v
-	st = status
+	st = status -sb
 	co = checkout
+	cp = cherry-pick
 	br = branch
-	tree = log --graph --pretty=oneline --abbrev-commit --decorate
+    hist = log --graph --pretty=format:'%C(red bold)%h%C(cyan)%d%Creset %s %C(black bold)(%ci)%Creset' --decorate
 	unstage = reset HEAD --
 	last = log -1 HEAD
 	info = config --get remote.origin.url
