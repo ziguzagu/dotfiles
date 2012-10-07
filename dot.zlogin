@@ -2,7 +2,7 @@
 
 which keychain >& /dev/null || return
 
-for key in id 6a sakk
+for key in id sakk
 do
     test -f $HOME/.ssh/$key && keychain --quiet --quick --nolock --noask $HOME/.ssh/$key
 done
