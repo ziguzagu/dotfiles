@@ -12,7 +12,7 @@
 
 ;; yasnippet
 (el-get 'sync 'yasnippet)
-(setq yas-trigger-key "TAB")
+(setq yas-trigger-key "C-i")
 (require 'yasnippet)
 (setq yas-snippet-dirs '("~/.emacs.d/snippets"
                          "~/.emacs.d/el-get/yasnippet/snippets"))
