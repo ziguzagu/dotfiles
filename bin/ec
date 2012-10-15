@@ -8,4 +8,9 @@ elif [ -n "$WINDOW" ]; then
     screen -X select `cat $server`
 fi
 
-emacsclient --no-wait $*
+## emacsclient of emacs 24.2 via homebrew doens't get default socket file path...
+if [ -n "$TMPDIR" ]; then
+    emacsclient -s $TMPDIR/emacs`id -u`/server --no-wait $*
+else
+    emacsclient --no-wait $*
+fi
