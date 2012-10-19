@@ -208,7 +208,7 @@ else
     usercolor="cyan"
 fi
 ## prompt
-PROMPT=$'\n''%F{$usercolor}%n@%m%F:%F{yellow}%~%f${vcs_info_msg_0_}$(_my_vcs_info)'$'\n''➜ '
+PROMPT=$'\n''%F{$usercolor}%n@%m%f:%F{yellow}%~%f${vcs_info_msg_0_}$(_my_vcs_info)'$'\n''➜ '
 
 ## misc
 setopt correct
