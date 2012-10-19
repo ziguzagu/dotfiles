@@ -193,24 +193,24 @@ _git_has_not_pushed_commit () {
         done
     fi
 }
-## setup builtin vcs_info and my vcs_info
-precmd () {
-    LANG=en_US.UTF-8 vcs_info
-
-    my_vcs_info=""
+_my_vcs_info () {
     if [ -n "$(_git_has_not_pushed_commit)" ]; then
-        my_vcs_info="${my_vcs_info}%U%B%F{blue}￭￭%f%b%u"
+        echo -n "%U%B%F{blue}￭￭%f%b%u"
     fi
 }
+precmd () {
+    LANG=en_US.UTF-8 vcs_info
+}
 
-# set prompt var for root/user
+## set prompt color for root/user
 local usercolor
 if [ $UID -eq 0 ]; then
     usercolor="red"
 else
     usercolor="cyan"
 fi
-PROMPT=$'\n''%{$fg[$usercolor]%}%n@%m%{$reset_color%}:%{$fg[yellow]%}%~%{$reset_color%}${vcs_info_msg_0_}${my_vcs_info}'$'\n''➜ '
+## prompt
+PROMPT=$'\n''%F{$usercolor}%n@%m%F:%F{yellow}%~%f${vcs_info_msg_0_}$(_my_vcs_info)'$'\n''➜ '
 
 ## misc
 setopt correct
