@@ -204,11 +204,13 @@ precmd () {
 }
 
 # set prompt var for root/user
+local usercolor
 if [ $UID -eq 0 ]; then
-    PROMPT=$'\n''%{$fg[red]%}%n@%m%{$reset_color%}:%{$fg[yellow]%}%~%{$reset_color%}${vcs_info_msg_0_}${my_vcs_info}'$'\n''➜ '
+    usercolor="red"
 else
-    PROMPT=$'\n''%{$fg[cyan]%}%n@%m%{$reset_color%}:%{$fg[yellow]%}%~%{$reset_color%}${vcs_info_msg_0_}${my_vcs_info}'$'\n''➜ '
+    usercolor="cyan"
 fi
+PROMPT=$'\n''%{$fg[$usercolor]%}%n@%m%{$reset_color%}:%{$fg[yellow]%}%~%{$reset_color%}${vcs_info_msg_0_}${my_vcs_info}'$'\n''➜ '
 
 ## misc
 setopt correct
