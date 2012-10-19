@@ -1,3 +1,5 @@
+## -*- mode: shell-script; -*-
+
 ## alias
 alias ls="ls -F --color=auto"
 alias l="ls -lh"
