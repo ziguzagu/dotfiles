@@ -176,8 +176,8 @@ fi
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' unstagedstr '%F{yellow}￭￭%f'
-zstyle ':vcs_info:git:*' stagedstr '%F{red}￭￭%f'
+zstyle ':vcs_info:git:*' unstagedstr '%U%F{yellow}￭￭%f%u'
+zstyle ':vcs_info:git:*' stagedstr '%U%F{red}￭￭%f%u'
 zstyle ':vcs_info:*' formats ' %F{green}(%s:%b)%f %c%u'
 zstyle ':vcs_info:*' actionformats ' %F{green}(%s:%b!%a)%f %c%u'
 ## find commits not pushed yet
@@ -199,7 +199,7 @@ precmd () {
 
     my_vcs_info=""
     if [ -n "$(_git_has_not_pushed_commit)" ]; then
-        my_vcs_info="${my_vcs_info}%F{blue}￭￭%f"
+        my_vcs_info="${my_vcs_info}%U%B%F{blue}￭￭%f%b%u"
     fi
 }
 
