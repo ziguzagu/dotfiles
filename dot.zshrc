@@ -85,9 +85,9 @@ if [ -n "$WINDOW" ] || [ -n "$TMUX" ]; then
     }
 fi
 
-## completion
+## completion files and directories (without secure check -u)
 autoload -U compinit
-compinit
+compinit -u
 # case insensitive
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
