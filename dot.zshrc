@@ -85,9 +85,6 @@ if [ -n "$WINDOW" ] || [ -n "$TMUX" ]; then
     }
 fi
 
-## change the terminal window title
-#precmd() { echo -n "\e]0;$USER@$HOST\a" }
-
 ## completion
 autoload -U compinit
 compinit
