@@ -11,6 +11,8 @@ alias less="less -gj10"
 alias vs="svn status -u"
 alias lc="tr '[:upper:]' '[:lower:]'"
 alias uc="tr '[:lower:]' '[:upper:]'"
+alias grep="grep --binary-files=without-match --color=always"
+alias g="git"
 
 ## prompt
 PS1="\[\033[00;36m\][\u@\h:\w]\[\033[00m\]\\$ "
