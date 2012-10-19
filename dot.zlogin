@@ -2,9 +2,5 @@
 
 which keychain >& /dev/null || return
 
-for key in id sakk
-do
-    test -f $HOME/.ssh/$key && keychain --quiet $HOME/.ssh/$key
-done
-
+keychain --quiet ~/.ssh/id ~/.ssh/sakk
 test -f ~/.keychain/$HOST-sh && source ~/.keychain/$HOST-sh
