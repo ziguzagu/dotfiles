@@ -93,7 +93,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 ## alias
 setopt complete_aliases
-#alias ec="$HOME/bin/emacsclient -n"
 if [ `uname` = "Linux" ]; then
     alias ls="ls -F --color=auto"
 else
