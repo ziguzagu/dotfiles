@@ -181,42 +181,25 @@ zstyle ':vcs_info:git:*' stagedstr '%F{red}￭￭%f'
 zstyle ':vcs_info:*' formats ' %F{green}(%s:%b)%f %c%u'
 zstyle ':vcs_info:*' actionformats ' %F{green}(%s:%b!%a)%f %c%u'
 ## find commits not pushed yet
-_git_has_not_pushed_commits () {
-    if [ -n "$(git remote 2>/dev/null)" ]; then
+_git_has_not_pushed_commit () {
+    if [ "$(git remote 2>/dev/null)" ]; then
         local head="$(git rev-parse HEAD 2>/dev/null)"
         local remote
         for remote in $(git rev-parse --remotes 2>/dev/null); do
-            if [ "$head" = "$remote" ]; then
-                return 0
+            if [ "$head" != "$remote" ]; then
+                echo 1
+                return
             fi
         done
-        return 1
     fi
-    return 0
-}
-## test remote repos is ahead from clone
-_git_has_ahead_remote () {
-    if [ "$(git remote 2>/dev/null)" != "" ]; then
-        if [ "$(git status -sb 2>/dev/null | perl -lne '/\[ahead (\d+)\]\$/ && print \$1')" != ""]; then
-            return 1
-        else
-            return 0
-        fi
-    fi
-    return 0
 }
 ## setup builtin vcs_info and my vcs_info
 precmd () {
     LANG=en_US.UTF-8 vcs_info
 
     my_vcs_info=""
-    _git_has_not_pushed_commits()
-    if [ "$?" == "1" ]; then
-        my_vcs_info="${my_vcs_info}%F{cyan}￭￭%f"
-    fi
-    _git_has_ahead_remote()
-    if [ "$?" == "1" ]; then
-        my_vcs_info="${my_vcs_info}%F{white}[ahead]%f"
+    if [ -n "$(_git_has_not_pushed_commit)" ]; then
+        my_vcs_info="${my_vcs_info}%F{blue}￭￭%f"
     fi
 }
 
