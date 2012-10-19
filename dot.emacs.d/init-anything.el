@@ -5,22 +5,22 @@
 ;; call show-kill-ring function by hand
 (global-set-key (kbd "M-y") 'anything-show-kill-ring)
 
-;; minimal anything
+;; alternative to switch buffer / find recentf by antyhing
 (setq recentf-max-saved-items 1000)
-(defun my-anything ()
+(defun my-switch-buffer ()
   (interactive)
   (anything-other-buffer '(anything-c-source-buffers+
                            anything-c-source-recentf
                            anything-c-source-files-in-current-dir+)
-                         "*minimal-anything*"))
+                         "*my-switch-buffer*"))
 (global-set-key (kbd "C-c ;") 'my-anything)
 
 ;; woman
-(defun my-anything-woman ()
+(defun my-woman ()
   (interactive)
   (anything-other-buffer '(anything-c-source-man-pages)
                          "*woman*"))
-(global-set-key (kbd "C-c m") 'my-anything-woman)
+(global-set-key (kbd "C-c m") 'my-woman)
 
 ;; color-moccur and ...
 (el-get 'sync 'color-moccur)
@@ -39,4 +39,4 @@
 
 ;; popwin with anything
 (setq anything-samewindow nil)
-(push '("*minimal-anything*" :height 20) popwin:special-display-config)
+(push '("*my-switch-buffer*" :height 20) popwin:special-display-config)
