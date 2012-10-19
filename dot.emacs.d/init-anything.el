@@ -13,7 +13,7 @@
                            anything-c-source-recentf
                            anything-c-source-files-in-current-dir+)
                          "*my-switch-buffer*"))
-(global-set-key (kbd "C-c ;") 'my-anything)
+(global-set-key (kbd "C-c ;") 'my-swithc-buffer)
 
 ;; woman
 (defun my-woman ()
