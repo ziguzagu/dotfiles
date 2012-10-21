@@ -135,13 +135,14 @@ bindkey -e
 setopt auto_cd
 setopt auto_pushd
 setopt auto_name_dirs
-setopt auto_remove_slash
 setopt extended_glob
+
+## complete setting
 setopt auto_param_keys
+setopt auto_remove_slash
 setopt auto_list
 setopt auto_menu
 setopt list_types
-setopt cdable_vars
 
 ## history settings
 [ -d $HOME/.zsh.d ] || mkdir $HOME/.zsh.d
