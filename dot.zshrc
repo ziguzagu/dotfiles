@@ -174,26 +174,27 @@ fi
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' unstagedstr '%U%F{yellow}￭￭%f%u'
-zstyle ':vcs_info:git:*' stagedstr '%U%F{red}￭￭%f%u'
+zstyle ':vcs_info:git:*' unstagedstr '%F{yellow}￭￭%f'
+zstyle ':vcs_info:git:*' stagedstr '%F{red}￭￭%f'
 zstyle ':vcs_info:*' formats ' %F{green}(%s:%b)%f %c%u'
-zstyle ':vcs_info:*' actionformats ' %F{green}(%s:%b!%a)%f %c%u'
-## find commits not pushed yet
-_git_has_not_pushed_commit () {
-    if [ "$(git remote 2>/dev/null)" ]; then
-        local head="$(git rev-parse HEAD 2>/dev/null)"
-        local remote
-        for remote in $(git rev-parse --remotes 2>/dev/null); do
-            if [ "$head" != "$remote" ]; then
-                echo 1
-                return
-            fi
-        done
-    fi
-}
-_my_vcs_info () {
-    if [ -n "$(_git_has_not_pushed_commit)" ]; then
-        echo -n "%U%B%F{blue}￭￭%f%b%u"
+zstyle ':vcs_info:*' actionformats ' %F{red}(%s:%b!%a)%f %c%u'
+zstyle ':vcs_info:git*+set-message:*' hooks git-st
+## Show remote ref name and number of commits ahead-of or behind
+function +vi-git-st () {
+    ## get remote's "repos/branch"
+    local remote=${$(git rev-parse --verify ${hook_com[branch]}@{upstream} --symbolic-full-name 2>/dev/null)/refs\/remotes\/}
+
+    if [[ -n "$remote" ]]; then
+        local -a gitstatus
+        local ahead=${$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l)/\s/}
+        (( $ahead )) && gitstatus+=( "+$ahead" )
+
+        local behind=${$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)/\s/}
+        (( $behind )) && gitstatus+=( "-$behind" )
+
+        if [[ -n "$gitstatus" ]]; then
+            hook_com[branch]="${hook_com[branch]} %U${(j:/:)gitstatus}%u"
+        fi
     fi
 }
 precmd () {
@@ -208,7 +209,7 @@ else
     usercolor="cyan"
 fi
 ## prompt
-PROMPT=$'\n''%F{$usercolor}%n@%m%f:%F{yellow}%~%f${vcs_info_msg_0_}$(_my_vcs_info)'$'\n''➜ '
+PROMPT=$'\n''%F{$usercolor}%n@%m%f:%F{yellow}%~%f${vcs_info_msg_0_}'$'\n''➜ '
 
 ## misc
 setopt correct
