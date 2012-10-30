@@ -14,7 +14,8 @@
              (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 
 ;;;;;; vcl mode
-(el-get 'sync 'vcl-mode)
+;; vcl-mode.el is not found on varnish-cache.org :(
+;; (el-get 'sync 'vcl-mode) 
 (autoload 'vcl-mode "vcl-mode" "Major mode for editting varnish config file")
 (add-to-list 'auto-mode-alist '("\\.vcl$" . vcl-mode))
 (add-hook 'vcl-mode-hook
