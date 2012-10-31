@@ -6,7 +6,7 @@ export LANG=en_US.UTF-8
 export SHELL=`which zsh`
 
 ## setup PATH without duplicates path
-PATH=$HOME/bin:$HOME/.rvm/bin:/usr/local/bin:$PATH
+PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="$(echo -n $PATH | awk -v RS=: -v ORS=: '!($0 in a) {a[$0]; print}')"
 
 ## page and editor
