@@ -13,10 +13,9 @@ export PATH="$(echo -n $PATH | awk -v RS=: -v ORS=: '!($0 in a) {a[$0]; print}')
 if which lv > /dev/null; then
     export PAGER=lv
     # -Sb1     - bright white (foreground)
-    # -Sr30;47 - black on white
     # -Sh1;31  - bright red
     # -Su4;36  - cyan with underline
-    export LV="-c -Ou8 -Sb1 -Sr30;47 -Sh1;31 -Su4;36"
+    export LV="-c -Ou8 -Sb1 -Sh1;31 -Su4;36"
 else
     export PAGER=less
     export LESSCHARSET=utf8
@@ -24,7 +23,7 @@ else
     export LESS_TERMCAP_md=$'\E[01;31m'  # begin bold
     export LESS_TERMCAP_me=$'\E[0m'      # end mode
     export LESS_TERMCAP_se=$'\E[0m'      # end standout-mode
-    export LESS_TERMCAP_so=$'\E[30;47m'  # begin standout-mode - info box
+    export LESS_TERMCAP_so=$'\E[7m'      # begin standout-mode
     export LESS_TERMCAP_ue=$'\E[0m'      # end underline
     export LESS_TERMCAP_us=$'\E[04;36m'  # begin underline
 fi
