@@ -1,12 +1,31 @@
 ## -*- mode: shell-script; -*-
 
+## page and editor
+if which lv > /dev/null; then
+    export PAGER=lv
+    # -Sb1     - bright white (foreground)
+    # -Sr30;47 - black on white
+    # -Sh1;31  - bright red
+    # -Su4;36  - cyan with underline
+    export LV="-c -Ou8 -Sb1 -Sr30;47 -Sh1;31 -Su4;36"
+else
+    export PAGER=less
+    export LESSCHARSET=utf8
+    export LESS_TERMCAP_mb=$'\E[01m'     # begin blinking
+    export LESS_TERMCAP_md=$'\E[01;31m'  # begin bold
+    export LESS_TERMCAP_me=$'\E[0m'      # end mode
+    export LESS_TERMCAP_se=$'\E[0m'      # end standout-mode
+    export LESS_TERMCAP_so=$'\E[30;47m'  # begin standout-mode - info box
+    export LESS_TERMCAP_ue=$'\E[0m'      # end underline
+    export LESS_TERMCAP_us=$'\E[04;36m'  # begin underline
+fi
+
 ## alias
 alias ls="ls -F --color=auto"
 alias l="ls -lh"
 alias ll="ls -Alh"
 alias sc="screen -xRU"
 alias gv="grep -v .svn"
-alias lv="lv -c -Ou8"
 alias less="less -gj10"
 alias vs="svn status -u"
 alias lc="tr '[:upper:]' '[:lower:]'"
