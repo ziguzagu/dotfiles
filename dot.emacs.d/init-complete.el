@@ -5,7 +5,7 @@
 (ac-config-default)
 
 ;; dabbrev
-(el-get 'sync (dabbrev-highlight))
+(el-get 'sync 'dabbrev-highlight)
 (require 'dabbrev-highlight)
 (setq dabbrev-case-fold-search t)
 (setq dabbrev-case-replace nil)
