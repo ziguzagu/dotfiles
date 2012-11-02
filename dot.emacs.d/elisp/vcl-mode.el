@@ -65,23 +65,27 @@
      "remove"
      "set"
      "unset"
+     "acl"
+     "backend"
+     "sub"
      )
     'font-lock-keyword-face)
    
-   ;; Types
+   ;; Types / builtin function
    (generic-make-keywords-list
     (list
      "purge_url"
      "regsub"
+     "return"
+     "ban"
+     "hash_data"
+     "error"
      )
     'font-lock-builtin-face)
    
    ;; VCL Functions
    (generic-make-keywords-list
     (list
-     "acl"
-     "backend"
-     "sub"
      "vcl_deliver"
      "vcl_discard"
      "vcl_fetch"
