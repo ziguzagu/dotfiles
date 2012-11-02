@@ -136,6 +136,7 @@
      "req.proto"
      "req.request"
      "req.url"
+     "req.restarts"
      "resp.proto"
      "resp.response"
      "resp.status"
