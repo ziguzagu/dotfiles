@@ -64,6 +64,7 @@
      "if"
      "remove"
      "set"
+     "unset"
      )
     'font-lock-keyword-face)
    
@@ -119,7 +120,7 @@
      "bereq.url"
      "client.ip"
      "now"
-     "obj.cacheable"
+     "obj.hits"
      "obj.lastuse"
      "obj.proto"
      "obj.response"
@@ -134,12 +135,16 @@
      "resp.proto"
      "resp.response"
      "resp.status"
+     "beresp.do_gzip"
+     "beresp.do_esi"
+     "beresp.ttl"
+     "beresp.status"
      "server.ip"
      )
     'font-lock-variable-name-face)
 
    ;; More variables
-   '("\\(\\(be\\)?req\\|resp\\|obj\\)\.http\.[A-Za-z-]+" .
+   '("\\(\\(be\\)?req\\|resp\\|obj\\|beresp\\)\.http\.[A-Za-z-]+" .
      font-lock-variable-name-face))
   
   ;; Filenames to highlight
