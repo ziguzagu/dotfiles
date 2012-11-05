@@ -106,11 +106,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 ## alias
 setopt complete_aliases
-if [ `uname` = "Linux" ]; then
-    alias ls="ls -F --color=auto"
-else
-    alias ls="ls -FG"
-fi
+alias ls="ls -F --color=auto"
 alias l="ls -lh"
 alias ll="ls -Alh"
 alias sc="screen -xRU"
