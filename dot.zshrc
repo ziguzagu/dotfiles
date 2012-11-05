@@ -48,7 +48,7 @@ fi
 
 ## rbenv
 if which rbenv > /dev/null; then
-    eval "$(rbenv init -)"
+    eval `rbenv init -`
 fi
 
 ## changing title of tmux/screen window by preexec()
