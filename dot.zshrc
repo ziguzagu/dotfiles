@@ -5,8 +5,12 @@ export LANG=en_US.UTF-8
 
 export SHELL=`which zsh`
 
-## setup PATH without duplicates path
+## using coreutils on mac installed by homebrew
+if which brew > /dev/null; then
+    PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+fi
 PATH=$HOME/bin:/usr/local/bin:$PATH
+## setup PATH without duplicates path
 export PATH="$(echo -n $PATH | awk -v RS=: -v ORS=: '!($0 in a) {a[$0]; print}')"
 
 ## page and editor
