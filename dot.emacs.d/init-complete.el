@@ -22,7 +22,6 @@
 ;; zlc
 (el-get 'sync 'zlc)
 (require 'zlc)
-(setq zlc-select-completion-immediately t)
 (let ((map minibuffer-local-map))
   (define-key map (kbd "<backtab>") 'zlc-select-previous)
   (define-key map (kbd "S-<tab>") 'zlc-select-previous)
