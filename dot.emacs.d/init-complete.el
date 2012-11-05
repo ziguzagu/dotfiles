@@ -18,3 +18,7 @@
 (setq yas-snippet-dirs '("~/.emacs.d/snippets"
                          "~/.emacs.d/el-get/yasnippet/snippets"))
 (yas-global-mode 1)
+
+;; zlc
+(el-get 'sync 'zlc)
+(require 'zlc)

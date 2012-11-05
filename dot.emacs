@@ -60,6 +60,9 @@
         (:name dabbrev-highlight
                :type http
                :url "http://www.namazu.org/~tsuchiya/elisp/dabbrev-highlight.el")
+        (:name zlc
+               :type github
+               :pkgname "mooz/emacs-zlc")
         ))
 ;; download
 (el-get 'sync)
