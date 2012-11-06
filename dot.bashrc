@@ -8,7 +8,7 @@ export LV="-c -Ou8 -Sb1 -Sh1;31 -Su4;36"
 
 ## less
 export LESS="-R"
-export LESSCHARSET=utf8
+export LESSCHARSET=utf-8
 export LESS_TERMCAP_mb=$'\E[01m'     # begin blinking
 export LESS_TERMCAP_md=$'\E[01;31m'  # begin bold
 export LESS_TERMCAP_me=$'\E[0m'      # end mode
