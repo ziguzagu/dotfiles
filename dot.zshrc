@@ -131,7 +131,7 @@ complete -o default -o nospace -F _git g
 
 ## global alias
 alias -g M="| more"
-alias -g L="| lv"
+alias -g L="| less"
 alias -g H="| head"
 alias -g T="| tail"
 alias -g G="| grep"
