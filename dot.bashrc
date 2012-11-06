@@ -1,23 +1,26 @@
 ## -*- mode: shell-script; -*-
 
+## lv
+# -Sb1     - bright white (foreground)
+# -Sh1;31  - bright red
+# -Su4;36  - cyan with underline
+export LV="-c -Ou8 -Sb1 -Sh1;31 -Su4;36"
+
+## less
+export LESS="-R"
+export LESSCHARSET=utf8
+export LESS_TERMCAP_mb=$'\E[01m'     # begin blinking
+export LESS_TERMCAP_md=$'\E[01;31m'  # begin bold
+export LESS_TERMCAP_me=$'\E[0m'      # end mode
+export LESS_TERMCAP_se=$'\E[0m'      # end standout-mode
+export LESS_TERMCAP_so=$'\E[7m'      # begin standout-mode
+export LESS_TERMCAP_ue=$'\E[0m'      # end underline
+export LESS_TERMCAP_us=$'\E[04;36m'  # begin underline
+
 ## page and editor
-if which lv > /dev/null; then
-    export PAGER=lv
-    # -Sb1     - bright white (foreground)
-    # -Sh1;31  - bright red
-    # -Su4;36  - cyan with underline
-    export LV="-c -Ou8 -Sb1 -Sh1;31 -Su4;36"
-else
-    export PAGER=less
-    export LESSCHARSET=utf8
-    export LESS_TERMCAP_mb=$'\E[01m'     # begin blinking
-    export LESS_TERMCAP_md=$'\E[01;31m'  # begin bold
-    export LESS_TERMCAP_me=$'\E[0m'      # end mode
-    export LESS_TERMCAP_se=$'\E[0m'      # end standout-mode
-    export LESS_TERMCAP_so=$'\E[7m'      # begin standout-mode
-    export LESS_TERMCAP_ue=$'\E[0m'      # end underline
-    export LESS_TERMCAP_us=$'\E[04;36m'  # begin underline
-fi
+export PAGER=less
+export GIT_PAGER=cat
+export EDITOR=vi
 
 ## alias
 alias ls="ls -F --color=auto"
