@@ -20,6 +20,7 @@
 (set-default-coding-systems 'utf-8)
 
 ;;;;;; emacs server/client on tmux/screen
+(setq server-socket-dir "~/.emacs.d")
 (add-hook 'after-init-hook 'server-start)
 (if (getenv "TMUX")
     (shell-command "tmux display -p '#I' > ~/.emacs.d/emacs-server-window")

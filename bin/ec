@@ -1,16 +1,12 @@
 #!/bin/sh
 
-server=~/.emacs.d/emacs-server-window
+server_window=~/.emacs.d/emacs-server-window
+socket=~/.emacs.d/server
 
 if [ -n "$TMUX" ]; then
-    tmux select-window -t `cat $server`
+    tmux select-window -t `cat $server_window`
 elif [ -n "$WINDOW" ]; then
-    screen -X select `cat $server`
+    screen -X select `cat $server_window`
 fi
 
-## emacsclient of emacs 24.2 via homebrew doens't get default socket file path...
-if [ -n "$TMPDIR" ]; then
-    emacsclient -s $TMPDIR/emacs`id -u`/server --no-wait $*
-else
-    emacsclient --no-wait $*
-fi
+emacsclient -s $socket --no-wait $*
