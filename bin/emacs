@@ -6,4 +6,4 @@ if [ ! -e $sokcet ]; then
     /usr/local/bin/emacs --daemon $*
 fi
 
-/usr/local/bin/emacsclient -s $socket -c
+/usr/local/bin/emacsclient -c

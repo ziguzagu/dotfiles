@@ -2,7 +2,6 @@
 
 server_window=~/.emacs.d/emacs-server-window
 client_window=~/.emacs.d/emacs-client-window
-socket=~/.emacs.d/server
 
 if [ -n "$TMUX" ]; then
     tmux display -p '#I' > $client_window
@@ -12,4 +11,4 @@ elif [ -n "$WINDOW" ]; then
     screen -X select `cat $server_window`
 fi
 
-emacsclient -s $socket $*
+emacsclient $*
