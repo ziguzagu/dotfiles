@@ -22,4 +22,9 @@ for file in $files; do
     fi
 done
 
+## make .emacs.d read only for my self to write emacs-server's socket file
+if [ -d ~/.emacs.d ]; then
+    chmod 700 ~/.emacs.d
+fi
+
 exit 0
