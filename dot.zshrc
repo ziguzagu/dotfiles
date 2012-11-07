@@ -13,6 +13,10 @@ PATH=$HOME/bin:/usr/local/bin:$PATH
 ## setup PATH without duplicates path
 export PATH="$(echo -n $PATH | awk -v RS=: -v ORS=: '!($0 in a) {a[$0]; print}')"
 
+## set MANPATH explicitly to lookup /usr/locah/share/man before /usr/share/man
+## on mac os x (10.8).
+export MANPATH="/usr/local/share/man:/usr/share/man"
+
 ## lv (use for japanease encoding document)
 # -Sb1     - bright white (foreground)
 # -Sh1;31  - bright red
