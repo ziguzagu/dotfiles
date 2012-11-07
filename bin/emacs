@@ -1,9 +1,5 @@
 #!/bin/sh
 
-socket=~/.emacs.d/server
-
-if [ ! -e $sokcet ]; then
-    /usr/local/bin/emacs --daemon $*
-fi
-
+/usr/local/bin/emacs --daemon $*
 /usr/local/bin/emacsclient -c
+

@@ -37,7 +37,7 @@ export LESS_TERMCAP_us=$'\E[04;36m'  # begin underline - (underline, red)
 ## editor, pager
 export PAGER=less
 export GIT_PAGER=cat
-export EDITOR=$HOME/bin/ec-wait
+export EDITOR="emacsclient -c"
 export ALTERNATE_EDITOR=vi
 
 ## colorized grep
