@@ -28,15 +28,6 @@
           (lambda ()
             (shell-command
              "rm ~/.emacs.d/emacs-server-window")))
-(if (getenv "TMUX")
-    (add-hook 'server-done-hook
-              (lambda ()
-                (shell-command
-                 "tmux select-window -t `cat ~/.emacs.d/emacs-client-window`")))
-    (add-hook 'server-done-hook
-              (lambda ()
-                (shell-command
-                 "screen -X select `cat ~/.emacs.d/emacs-client-window`"))))
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 
 ;;;;;; el-get
