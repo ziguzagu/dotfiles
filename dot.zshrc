@@ -37,7 +37,9 @@ export LESS_TERMCAP_us=$'\E[04;36m'  # begin underline - (underline, red)
 ## editor, pager
 export PAGER=less
 export GIT_PAGER=cat
-export EDITOR="emacsclient -c"
+# XXX: unset DISPLAY, because mac os x lion (10.7) set DISPLAY and get error:
+#   *ERROR*: Don't know how to create a frame on window system x
+export EDITOR="DISPLAY= emacsclient -c"
 export ALTERNATE_EDITOR=vi
 
 ## colorized grep
