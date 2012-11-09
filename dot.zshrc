@@ -191,8 +191,8 @@ zstyle ':vcs_info:*' enable git svn
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' unstagedstr '%F{yellow}￭￭%f'
 zstyle ':vcs_info:git:*' stagedstr '%F{red}￭￭%f'
-zstyle ':vcs_info:*' formats ' %F{green}(%s:%b)%f %c%u'
-zstyle ':vcs_info:*' actionformats ' %F{red}(%s:%b!%a)%f %c%u'
+zstyle ':vcs_info:*' formats '%F{yellow}(%s:%b)%f %c%u'
+zstyle ':vcs_info:*' actionformats '%F{red}(%s:%b!%a)%f %c%u'
 zstyle ':vcs_info:git*+set-message:*' hooks git-st
 ## Show remote ref name and number of commits ahead-of or behind
 function +vi-git-st () {
@@ -216,15 +216,12 @@ precmd () {
     LANG=en_US.UTF-8 vcs_info
 }
 
-## set prompt color for root/user
-local usercolor
+## use different style prompt betwen root and user
 if [ $UID -eq 0 ]; then
-    usercolor="red"
+    PROMPT=$'\n''%F{red}%S%n@%m:%~%s'$'\n''➜ %f'
 else
-    usercolor="cyan"
+    PROMPT=$'\n''%B%F{red}%n@%m:%f%b%F{cyan}%~%f ${vcs_info_msg_0_}'$'\n''➜ '
 fi
-## prompt
-PROMPT=$'\n''%F{$usercolor}%n@%m%f:%F{yellow}%~%f${vcs_info_msg_0_}'$'\n''➜ '
 
 ## misc
 setopt correct
