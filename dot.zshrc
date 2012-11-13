@@ -39,7 +39,7 @@ export PAGER=less
 export GIT_PAGER=cat
 # XXX: unset DISPLAY, because mac os x lion (10.7) set DISPLAY and get error:
 #   *ERROR*: Don't know how to create a frame on window system x
-export EDITOR="DISPLAY= emacsclient -c"
+export EDITOR="DISPLAY= emacsclient -nw"
 export ALTERNATE_EDITOR=vi
 
 ## colorized grep
