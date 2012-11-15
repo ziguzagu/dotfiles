@@ -45,8 +45,8 @@ export ALTERNATE_EDITOR=vi
 ## colorized grep
 export GREP_COLOR='07;33'
 
-if [[ -x `where dircolors` ]] && [ -e $HOME/.dircolors ]; then
-    eval `dircolors $HOME/.dircolors`
+if which dircolors > /dev/null; then
+    eval `dircolors ~/.dircolors`
 fi
 
 ## trying to use perlbrew or local::lib
