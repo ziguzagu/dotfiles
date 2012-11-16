@@ -236,7 +236,7 @@ else
 fi
 
 ## command line coloring
-zle_highlight=(isearch:bold,underline,fg=magenta region:standout,fg=yellow special:standout,fg=blue suffix:bold)
+zle_highlight=(isearch:bold,underline,fg=cyan region:standout,fg=yellow special:standout,fg=blue suffix:bold)
 
 ## misc
 setopt correct
