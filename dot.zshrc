@@ -1,7 +1,5 @@
 ## -*- mode: shell-script; -*-
 
-## aaaaaaaaaaaaaaaa
-
 export LANGUAGE=en_US:en
 export LANG=en_US.UTF-8
 
