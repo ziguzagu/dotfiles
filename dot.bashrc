@@ -7,7 +7,7 @@
 export LV="-c -Ou8 -Sb1 -Sh1;31 -Su4;36"
 
 ## less
-export LESS="-g -j10 -R"
+export LESS="-qgR -j10"
 export LESSCHARSET=utf-8
 export LESS_TERMCAP_mb=$'\E[01m'     # begin blinking
 export LESS_TERMCAP_md=$'\E[01;31m'  # begin bold
@@ -19,7 +19,7 @@ export LESS_TERMCAP_us=$'\E[04;36m'  # begin underline
 
 ## page and editor
 export PAGER=less
-export GIT_PAGER="less -E"
+export GIT_PAGER="less -FX"
 export EDITOR=vi
 
 ## alias
