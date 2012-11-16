@@ -224,6 +224,9 @@ else
     PROMPT=$'\n''%B%F{red}%n@%m:%f%b%F{cyan}%~%f ${vcs_info_msg_0_}'$'\n''➜ '
 fi
 
+## command line coloring
+zle_highlight=(isearch:bold,underline,fg=magenta region:standout,fg=yellow special:standout,fg=blue suffix:bold)
+
 ## misc
 setopt correct
 setopt no_hup
