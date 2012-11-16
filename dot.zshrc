@@ -62,6 +62,15 @@ if which rbenv > /dev/null; then
     eval "$(rbenv init -)"
 fi
 
+## java
+if [ -x "/usr/libexec/java_home" ]; then
+    export JAVA_HOME="$(/usr/libexec/java_home)"
+fi
+## hive installed by homebrew on mac
+if which hive > /dev/null; then
+    export HIVE_HOME=/usr/local/Cellar/hive/0.9.0/libexec
+fi
+
 ## changing title of tmux/screen window by preexec()
 if [ -n "$WINDOW" ] || [ -n "$TMUX" ]; then
     preexec() {
