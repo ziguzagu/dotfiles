@@ -28,6 +28,15 @@
                 ("\\.psgi$" . cperl-mode)
                 ("\\.t$" . cperl-mode)) auto-mode-alist))
 
+;; setup PATH for perlbrew to find correct perldoc, perltidy and some commands installed by perlbrew
+(load "cl-seq")
+(mapc (lambda (x) (add-to-list 'exec-path x))
+      (mapcar (lambda (x) (concat (getenv "HOME") x))
+              (list "/perl5/perlbrew/bin" "/perl5/perlbrew/perls/current/bin")))
+(setenv "PATH"
+        (reduce (lambda (a b) (concatenate 'string a ":" b))
+                exec-path))
+
 ;; ffap with perldoc
 (defun ffap-cperl-mode (file)
   (let ((real-file (shell-command-to-string (concat "perldoc -lm " file))))
