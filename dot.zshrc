@@ -1,8 +1,6 @@
 ## -*- mode: shell-script; -*-
 
-export LANGUAGE=en_US:en
 export LANG=en_US.UTF-8
-
 export SHELL=`which zsh`
 
 ## using coreutils on mac installed by homebrew
