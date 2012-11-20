@@ -24,13 +24,13 @@ export LV="-c -Ou8 -Sb1 -Sh1;31 -Su4;36"
 ## less
 export LESS="-qgR -j10"
 export LESSCHARSET=utf-8
-export LESS_TERMCAP_mb=$'\E[01m'     # begin blinking
+export LESS_TERMCAP_mb=$'\E[01;31m'  # begin blinking
 export LESS_TERMCAP_md=$'\E[01;31m'  # begin bold (bold, bright red)
 export LESS_TERMCAP_me=$'\E[0m'      # end mode
 export LESS_TERMCAP_se=$'\E[0m'      # end standout-mode
 export LESS_TERMCAP_so=$'\E[7m'      # begin standout-mode
 export LESS_TERMCAP_ue=$'\E[0m'      # end underline
-export LESS_TERMCAP_us=$'\E[04;36m'  # begin underline - (underline, red)
+export LESS_TERMCAP_us=$'\E[04;36m'  # begin underline - (underline, cyan)
 
 ## editor, pager
 export PAGER=less
