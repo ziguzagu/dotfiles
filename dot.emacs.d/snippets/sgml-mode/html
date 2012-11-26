@@ -1,0 +1,12 @@
+#name : start html5
+# --
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>${1:title}</title>
+</head>
+<body>
+  $0
+</body>
+</html>
