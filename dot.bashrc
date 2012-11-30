@@ -50,7 +50,7 @@ export HISTSIZE=10000
 
 ## dircolors
 if which dircolors > /dev/null; then
-    eval `dircolors ~/.dircolors`
+    test -f ~/.dircolors && eval `dircolors ~/.dircolors`
 fi
 
 # enable programmable completion features (you don't need to enable
