@@ -48,6 +48,11 @@ shopt -u histappend
 export HISTCONTROL=ignoredups
 export HISTSIZE=10000
 
+## dircolors
+if which dircolors > /dev/null; then
+    eval `dircolors ~/.dircolors`
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profiles
 # sources /etc/bash.bashrc).
