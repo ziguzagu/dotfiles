@@ -35,7 +35,7 @@ alias grep="grep --binary-files=without-match --color=always"
 alias g="git"
 
 ## prompt
-PS1="\033[31m\][\u@\h \w]\033[00m\]\\$ "
+PS1="\[\e[31m\][\u@\h \w]\[\e[00m\]\\$ "
 
 ## sharing history on multiple session
 function share_history {
