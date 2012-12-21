@@ -65,8 +65,3 @@ if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
 elif [ -z "$PERL5LIB" ]; then
     eval `perl -Iperl5/lib/perl5 -Mlocal::lib 2>/dev/null`
 fi
-
-## at sixapart
-if [ -f /usr/local/6a/etc/bashrc ]; then
-    source /usr/local/6a/etc/bashrc
-fi
