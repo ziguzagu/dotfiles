@@ -45,7 +45,8 @@ function share_history {
 }
 PROMPT_COMMAND='share_history'
 shopt -u histappend
-export HISTCONTROL=ignoredups
+export HISTCONTROL=erasedups
+export HISTIGNORE=cd:history:ls:which
 export HISTSIZE=10000
 
 ## dircolors
