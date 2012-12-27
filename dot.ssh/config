@@ -19,8 +19,6 @@ Host sakk
   LocalForward 16280 172.17.2.67:80
   ## (review|paste).sixapart.jp
   LocalForward 16380 172.17.3.231:80
-  ## irc.sixapart.jp (wah)
-  LocalForward 16667 172.17.2.68:6667
 
 Host tp-stg01
   Hostname 202.215.51.147
