@@ -9,7 +9,7 @@ if which brew > /dev/null; then
 fi
 PATH=$HOME/bin:/usr/local/bin:$PATH
 ## setup PATH without duplicates path
-export PATH="$(echo -n $PATH | awk -v RS=: -v ORS=: '!($0 in a) {a[$0]; print}')"
+export PATH="$(perl -e '%e; print join(":", grep { ! $e{$_}++ } split(/:/,$ENV{PATH}))')"
 
 ## set MANPATH explicitly to lookup /usr/locah/share/man before /usr/share/man
 ## on mac os x (10.8).
