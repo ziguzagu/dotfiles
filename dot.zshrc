@@ -173,6 +173,7 @@ HISTSIZE=100000
 SAVEHIST=100000
 setopt hist_ignore_all_dups
 setopt hist_reduce_blanks
+setopt hist_ignore_space
 setopt share_history
 setopt hist_no_store
 setopt pushd_ignore_dups
@@ -243,7 +244,7 @@ setopt no_flow_control
 
 ## no beep
 setopt no_beep
-setopt nolistbeep
+setopt no_list_beep
 
 ## no coredump
 limit coredumpsize 0
