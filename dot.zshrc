@@ -7,13 +7,13 @@ export SHELL=`which zsh`
 if which brew > /dev/null; then
     PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 fi
-PATH=$HOME/bin:/usr/local/bin:$PATH
 ## setup PATH without duplicates path
+PATH="$HOME/bin:/usr/local/bin:$PATH"
 export PATH="$(perl -e '%e; print join(":", grep { ! $e{$_}++ } split(/:/,$ENV{PATH}))')"
 
-## set MANPATH explicitly to lookup /usr/locah/share/man before /usr/share/man
-## on mac os x (10.8).
-export MANPATH="/usr/local/share/man:/usr/share/man"
+## fix MANPATH lookup /usr/locah/share/man before /usr/share/man on mac os x (10.8).
+MANPATH="/usr/local/share/man:$MANPATH:/usr/share/man"
+export MANPATH="$(perl -e '%e; print join(":", grep { ! $e{$_}++ } split(/:/,$ENV{MANPATH}))')"
 
 ## lv (use for japanease encoding document)
 # -Sb1     - bright white (foreground)
