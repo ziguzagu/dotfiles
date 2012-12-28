@@ -237,7 +237,6 @@ zle_highlight=(isearch:underline,fg=red region:fg=black,bg=yellow special:stando
 ## misc
 setopt correct
 setopt no_hup
-setopt sun_keyboard_hack
 setopt always_last_prompt
 setopt sh_word_split
 setopt no_flow_control
