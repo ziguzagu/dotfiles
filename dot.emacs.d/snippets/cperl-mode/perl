@@ -1,0 +1,21 @@
+# name : perl
+# --
+#!/usr/bin/env perl
+use strict;
+use warnings;
+
+$0
+
+1;
+
+=pod
+
+=head1 NAME
+
+`(buffer-name)` - 
+
+=head1 SYNOPSIS
+
+  $ `(buffer-name)` [options]
+
+=cut
