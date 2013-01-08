@@ -64,13 +64,3 @@
           (lambda ()
             (require 'perl-completion)
             (perl-completion-mode t)))
-
-;; fix cperl-perldoc with perlbrew
-(load "cl-seq")
-(mapc (lambda (x) (add-to-list 'exec-path x))
-      (mapcar (lambda (x) (concat (getenv "HOME") x))
-              (list "/perl5/perlbrew/bin" "/perl5/perlbrew/perls/current/bin")))
-(setenv "PATH"
-        (reduce
-         (lambda (a b) (concatenate 'string a ":" b))
-         exec-path))
