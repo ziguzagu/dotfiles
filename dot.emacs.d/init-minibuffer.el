@@ -8,12 +8,6 @@
 ;; (require 'minibuf-isearch)
 (setq completion-ignore-case t)
 
-;; ;; zlc is the zsh like completion in minibuffer
-;; ;;   * http://d.hatena.ne.jp/mooz/20101003/p1
-;; ;;   * http://github.com/mooz/emacs-zlc
-;; (require 'zlc)
-;; (setq zlc-select-completion-immediately t)
-
 ;; enable iswitchb-mode
 (iswitchb-mode 1)
 (add-hook 'iswitchb-define-mode-map-hook
