@@ -118,7 +118,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 ## alias
 setopt complete_aliases
-alias emacs="emacs --daemon"
+alias emacs="emacs --daemon && emacsclient -t"
 alias ls="ls -F --color=auto"
 alias l="ls -lh"
 alias ll="ls -Alh"
