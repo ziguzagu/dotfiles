@@ -35,7 +35,7 @@ export LESS_TERMCAP_us=$'\E[04;36m'  # begin underline - (underline, cyan)
 ## editor, pager
 export PAGER=less
 export GIT_PAGER="less -FX"
-export EDITOR="emacsclient -nw"
+export EDITOR="emacsclient -t"
 export ALTERNATE_EDITOR=vi
 
 ## colorized grep
@@ -118,6 +118,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 ## alias
 setopt complete_aliases
+alias emacs="emacs --daemon"
 alias ls="ls -F --color=auto"
 alias l="ls -lh"
 alias ll="ls -Alh"

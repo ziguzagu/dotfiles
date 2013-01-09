@@ -1,4 +1,0 @@
-#!/bin/sh
-
-/usr/local/bin/emacs --daemon $*
-/usr/local/bin/emacsclient -nw
