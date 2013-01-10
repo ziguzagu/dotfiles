@@ -36,6 +36,12 @@
 (global-auto-revert-mode t)
 (setq auto-revert-check-vc-info t)
 
+;; cycle buffer
+(defun switch-last-buffer ()
+  (interactive)
+  (switch-to-buffer (other-buffer (current-buffer) 1)))
+(global-set-key (kbd "C-c b") 'switch-last-buffer)
+
 ;; vc
 (require 'vc-git)
 (setq vc-follow-symlinks t)
