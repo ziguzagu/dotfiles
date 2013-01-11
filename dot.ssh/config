@@ -25,3 +25,6 @@ Host tp-stg01
 Host tp-ops01
   Hostname 202.215.51.147
   Port 23022
+
+Host github.com
+  Compression yes
