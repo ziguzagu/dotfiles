@@ -92,6 +92,7 @@ template: |
   name '[% dist %]';
   all_from 'lib/[% path %]';
   readme_from 'lib/[% path %]';
+  license 'perl';
   # dependencies
   # tests
   test_requires 'Test::More', 0.96;
