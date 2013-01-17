@@ -87,21 +87,23 @@ __DATA__
 ---
 file: Makefile.PL
 template: |
-  use inc::Module::Install;
-  # metadataes
-  name '[% dist %]';
-  all_from 'lib/[% path %]';
-  readme_from 'lib/[% path %]';
-  license 'perl';
-  # dependencies
-  # tests
-  test_requires 'Test::More', 0.96;
-  tests 't/*.t';
-  author_tests 'xt';
-  # misc
-  auto_include;
-  WriteAll;
-
+  use ExtUtils::MakeMaker;
+  
+  my $preop =
+      'perldoc -uT $(VERSION_FROM) | tee $(DISTVNAME)/README.pod > README.pod;' .
+      'pod2text README.pod | tee $(DISTVNAME)/README > README';
+  
+  WriteMakefile(
+      NAME           => '[% module %]',
+      AUTHOR         => '[% config.author %] <[% config.email %]>',
+      LICENSE        => 'perl',
+      VERSION_FROM   => 'lib/[% path %]',
+      ABSTRACT_FROM  => 'lib/[% path %]',
+      PREREQ_PM      => {},
+      BUILD_REQUIRES => { 'Test::More' => 0.96 },
+      dist           => { PREOP => $preop, },
+      clean          => { FILES => 'README.pod' },
+  );
 ---
 file: t/00-compile.t
 template: |
@@ -153,7 +155,6 @@ template: |
   our $VERSION = '0.01';
 
   1;
-  __END__
 
   =pod
 
@@ -169,6 +170,8 @@ template: |
 
   [% module %] is
 
+  =head1 SEE ALSO
+      
   =head1 AUTHOR
 
   [% config.author %] E<lt>[% config.email %]E<gt>
@@ -177,8 +180,6 @@ template: |
 
   This library is free software; you can redistribute it and/or modify
   it under the same terms as Perl itself.
-
-  =head1 SEE ALSO
 
   =cut
 ---
@@ -200,38 +201,16 @@ template: |
   \.gitignore
   \.shipit
 ---
-file: README
-template: |
-  This is Perl module [% module %].
-
-  INSTALLATION
-
-  [% module %] installation is straightforward. If your CPAN shell is set up,
-  you should just be able to do
-
-      % cpan [% module %]
-
-  Download it, unpack it, then build it as per the usual:
-
-      % perl Makefile.PL
-      % make && make test
-
-  Then install it:
-
-      % make install
-
-  DOCUMENTATION
-
-  [% module %] documentation is available as in POD. So you can do:
-
-      % perldoc [% module %]
-
-  to read the documentation online with your favorite pager.
-
-  [% config.author %]
----
 file: .shipit
 template: |
   steps = FindVersion, ChangeVersion, CheckChangeLog, DistTest, Commit, Tag, MakeDist, UploadCPAN
   git.tagpattern = %v
   git.push_to = origin
+---
+file: .gitignore
+template: |
+  MANIFEST
+  MYMETA*
+  Makefile*
+  blib
+  pm_to_blib
