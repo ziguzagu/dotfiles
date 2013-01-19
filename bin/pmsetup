@@ -87,23 +87,20 @@ __DATA__
 ---
 file: Makefile.PL
 template: |
-  use ExtUtils::MakeMaker;
-  
-  my $preop =
-      'perldoc -uT $(VERSION_FROM) | tee $(DISTVNAME)/README.pod > README.pod;' .
-      'pod2text README.pod | tee $(DISTVNAME)/README > README';
-  
-  WriteMakefile(
-      NAME           => '[% module %]',
-      AUTHOR         => '[% config.author %] <[% config.email %]>',
-      LICENSE        => 'perl',
-      VERSION_FROM   => 'lib/[% path %]',
-      ABSTRACT_FROM  => 'lib/[% path %]',
-      PREREQ_PM      => {},
-      BUILD_REQUIRES => { 'Test::More' => 0.96 },
-      dist           => { PREOP => $preop, },
-      clean          => { FILES => 'README.pod' },
-  );
+  use inc::Module::Install;
+  # metadataes
+  name '[% dist %]';
+  all_from 'lib/[% path %]';
+  readme_from 'lib/[% path %]';
+  # dependencies
+  # tests
+  test_requires 'Test::More', 0.96;
+  tests 't/*.t';
+  author_tests 'xt';
+  # misc
+  auto_include;
+  # go
+  WriteAll;
 ---
 file: t/00-compile.t
 template: |
@@ -203,7 +200,7 @@ template: |
 ---
 file: .shipit
 template: |
-  steps = FindVersion, ChangeVersion, CheckChangeLog, DistTest, Commit, Tag, MakeDist, UploadCPAN
+  steps = FindVersion, ChangeVersion, CheckChangeLog, Manifest, DistTest, Commit, Tag, MakeDist, UploadCPAN
   git.tagpattern = %v
   git.push_to = origin
 ---
