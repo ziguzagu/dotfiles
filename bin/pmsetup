@@ -1,5 +1,5 @@
 #!/usr/bin/env perl
-use strict;
+use 5.010;
 use warnings;
 use ExtUtils::MakeMaker qw(prompt);
 use File::Basename;
@@ -79,7 +79,7 @@ sub write_file {
 
     warn "Creating $path\n";
     open my $out, ">", $path or die "$path: $!";
-    print $out $content;
+    say $out $content;
     close $out;
 }
 
