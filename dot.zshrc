@@ -8,12 +8,15 @@ if which brew > /dev/null; then
     PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 fi
 ## setup PATH without duplicates path
-PATH="$HOME/bin:/usr/local/bin:$PATH"
+PATH="$HOME/bin:/usr/local/bin:/usr/local/share/npm/bin:$PATH"
 export PATH="$(perl -e '%e; print join(":", grep { ! $e{$_}++ } split(/:/,$ENV{PATH}))')"
 
 ## fix MANPATH lookup /usr/locah/share/man before /usr/share/man on mac os x (10.8).
 MANPATH="/usr/local/share/man:$MANPATH:/usr/share/man"
 export MANPATH="$(perl -e '%e; print join(":", grep { ! $e{$_}++ } split(/:/,$ENV{MANPATH}))')"
+
+## node
+export NODE_PATH="/usr/local/lib/node"
 
 ## lv (use for japanease encoding document)
 # -Sb1     - bright white (foreground)
