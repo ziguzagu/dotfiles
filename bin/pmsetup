@@ -88,18 +88,18 @@ __DATA__
 file: Makefile.PL
 template: |
   use inc::Module::Install;
-  # metadataes
+  ## metadataes
   name '[% dist %]';
   all_from 'lib/[% path %]';
   readme_from 'lib/[% path %]';
-  # dependencies
-  # tests
+  ## dependencies
+  ## tests
   test_requires 'Test::More', 0.96;
   tests 't/*.t';
   author_tests 'xt';
-  # misc
+  ## misc
   auto_include;
-  # go
+  ## go
   WriteAll;
 ---
 file: t/00-compile.t
