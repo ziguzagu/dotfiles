@@ -19,11 +19,10 @@
 (set-language-environment "Japanese")
 (set-default-coding-systems 'utf-8)
 
-;;;;;; emacs server/client on tmux/screen
+;;;;;; emacs server/client on tmux
 (add-hook 'after-init-hook 'server-start)
 (if (getenv "TMUX")
-    (shell-command "tmux display -p '#I' > ~/.emacs.d/emacs-server-window")
-    (shell-command "echo $WINDOW > ~/.emacs.d/emacs-server-window"))
+    (shell-command "tmux display -p '#I' > ~/.emacs.d/emacs-server-window"))
 (add-hook 'emacs-kill-hook
           (lambda ()
             (shell-command

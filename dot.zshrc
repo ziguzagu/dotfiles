@@ -70,8 +70,8 @@ if which hive > /dev/null; then
     export HIVE_HOME=/usr/local/Cellar/hive/0.9.0/libexec
 fi
 
-## changing title of tmux/screen window by preexec()
-if [ -n "$WINDOW" ] || [ -n "$TMUX" ]; then
+## changing title of tmux window by preexec()
+if [ -n "$TMUX" ]; then
     preexec() {
         emulate -L zsh
         local -a cmd; cmd=(${(z)2})
