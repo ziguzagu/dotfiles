@@ -251,20 +251,14 @@ setopt no_list_beep
 ## no coredump
 limit coredumpsize 0
 
-## dabbrev on screen
-HARDCOPYFILE=$HOME/.zsh.d/screen-hardcopy
-touch $HARDCOPYFILE
-
-function dabbrev-complete() {
-    local reply lines=80
-    screen -X eval "hardcopy -h $HARDCOPYFILE"
-    reply=($(sed '/^$/d' $HARDCOPYFILE | sed '$ d' | tail -$lines))
-    compadd - "${reply[@]%[*/=@|]}"
+## dabbrev using current pane contents
+function _dabbrev_from_pane() {
+    local sources
+    sources=($(tmux capture-pane\; show-buffer \; delete-buffer | sed '/^$/d' | sed '$ d'))
+    compadd - "${sources[@]%[*/=@|]}"
 }
-
-zle -C dabbrev-complete menu-complete dabbrev-complete
-bindkey '^o' dabbrev-complete
-bindkey '^o^_' reverse-menu-complete
+zle -C dabbrev-from-pane menu-complete _dabbrev_from_pane
+bindkey '^o' dabbrev-from-pane
 
 ## pmtools
 function pmver() { perl -m$1 -e 'print "$'$1'::VERSION\n"' }
