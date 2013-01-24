@@ -1,0 +1,15 @@
+#!/usr/bin/env perl
+use 5.010;
+use warnings;
+
+use Cwd ();
+use File::Spec ();
+use Plack::Runner;
+use Plack::App::Directory;
+
+my $dir = shift || '';
+my $path = File::Spec->catdir(Cwd::getcwd(), $dir);
+my $app = Plack::App::Directory->new({ root => $path })->to_app;
+my $runner = Plack::Runner->new;
+$runner->parse_options(qw( -p 1977 ));
+$runner->run($app);
