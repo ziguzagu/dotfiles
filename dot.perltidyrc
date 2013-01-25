@@ -3,10 +3,10 @@
 -l=100    # max line width
 -vt=2     # maximal vertical tightness
 -bvt=2
--pt=2     # parenthesis tightness
--sbt=2    # square brace tightness
--bt=1     # brace tightness
--bbt=0    # block brace tightness
+-pt=2     # no spaces within parens
+-sbt=2    # no spaces within square brackets
+-bt=2     # no spaces within braces
+-bbt=0    # a space within block brace
 -sohb
 -sct
 -nsbc
