@@ -22,7 +22,7 @@ export NODE_PATH="/usr/local/lib/node"
 # -Sb1     - bright white (foreground)
 # -Sh1;31  - bright red
 # -Su4;36  - cyan with underline
-export LV="-c -Ou8 -Sb1 -Sh1;31 -Su4;36"
+export LV="-c -Ou8 -Sb1 -Sh1;31 -Su4;36 -Ss0;37;44"
 
 ## less
 export LESS="-q -g -R -j 10"
