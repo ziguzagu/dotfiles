@@ -1,7 +1,6 @@
 -pbp      # start with perl best practice style
 -w        # show warnings
 -l=100    # max line width
--iob      # ignore old breakpoints
 -mbl=2    # no more than 2 blank lines
 -vt=2     # maximal vertical tightness
 -bvt=2
