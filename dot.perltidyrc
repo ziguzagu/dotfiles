@@ -1,4 +1,5 @@
 -pbp      # start with perl best practice style
+-w        # show warnings
 -l=100    # max line width
 -vt=2     # maximal vertical tightness
 -bvt=2
