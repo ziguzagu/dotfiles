@@ -212,5 +212,6 @@ template: |
   META.yml
   Makefile
   Makefile.old
-  blib
-  pm_to_blib
+  blib/
+  pm_to_blib/
+  inc/
