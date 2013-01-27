@@ -31,6 +31,7 @@ alias gv="grep -v .svn"
 alias vs="svn status -u"
 alias lc="tr '[:upper:]' '[:lower:]'"
 alias uc="tr '[:lower:]' '[:upper:]'"
+alias prove="prove -lv --timer"
 alias grep="grep --binary-files=without-match --color=always"
 alias g="git"
 
