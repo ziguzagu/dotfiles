@@ -42,7 +42,7 @@ export EDITOR="emacsclient -t"
 export ALTERNATE_EDITOR=vi
 
 ## colorized grep
-export GREP_COLOR='07;33'
+export GREP_COLORS="ms=0;37;44:mc=01;31:sl=:cx=:fn=35:ln=33:bn=32:se=01;30"
 
 if which dircolors > /dev/null; then
     eval `dircolors ~/.dircolors`
@@ -136,7 +136,7 @@ alias uc="tr '[:lower:]' '[:upper:]'"
 alias htdate="date '+%a, %d %b %Y %X %Z'"
 alias prove="prove -lv --timer"
 alias ack="ack --color"
-alias grep="grep --binary-files=without-match --color=always"
+alias grep="grep --binary-files=without-match --color=auto"
 
 ## git completion work with alias for git
 alias g="git"
