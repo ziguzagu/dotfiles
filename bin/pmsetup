@@ -99,6 +99,7 @@ template: |
   author_tests 'xt';
   ## misc
   auto_include;
+  auto_set_repository;
   ## go
   WriteAll;
 ---
@@ -197,6 +198,8 @@ template: |
   \.cvsignore
   \.gitignore
   \.shipit
+  \.travis.yml
+  MYMETA
 ---
 file: .shipit
 template: |
@@ -215,3 +218,11 @@ template: |
   blib/
   pm_to_blib/
   inc/
+---
+file: .travis.yml
+template: |
+  language: perl
+  before_install:
+    - cpanm inc::Module::Install Module::Install::AuthorTests Module::Install::ReadmeFromPod Module::Install::Repository
+  perl:
+    - "5.10"
