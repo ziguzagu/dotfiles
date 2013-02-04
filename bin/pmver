@@ -1,0 +1,2 @@
+#!/bin/sh
+perl -m$1 -e 'print "$'$1'::VERSION\n"'
