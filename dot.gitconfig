@@ -5,6 +5,10 @@ email = ziguzagu@gmail.com
 [color]
 ui = auto
 
+[color "diff"]
+meta = yellow
+frag = blue bold
+
 [github]
 user = ziguzagu
 token = be5c0351d21d18f05bc4d6d20c4b242e
