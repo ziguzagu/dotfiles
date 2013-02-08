@@ -13,6 +13,11 @@ whitespace = white bold reverse
 [color "status"]
 untracked = blue bold
 
+[color "branch"]
+current = green ul
+local = yellow
+remote = magenta
+
 [github]
 user = ziguzagu
 token = be5c0351d21d18f05bc4d6d20c4b242e
