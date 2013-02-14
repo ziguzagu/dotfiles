@@ -14,5 +14,6 @@ if which vm_stat > /dev/null 2>&1; then
     _total=$(($_free + $_used))
     
     echo "$(($_free * 100 / $_total))%($(($_free / 1024))MB)"
+else
+    free -m | awk '/\-\/\+ / {print $4"MB"}'
 fi
-
