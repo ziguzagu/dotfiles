@@ -8,7 +8,7 @@ if which brew > /dev/null; then
     PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 fi
 ## setup PATH without duplicates path
-PATH="$HOME/bin:/usr/local/bin:/usr/local/share/npm/bin:$PATH"
+PATH="$HOME/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/local/share/npm/bin:$PATH"
 export PATH="$(perl -e '%e; print join(":", grep { ! $e{$_}++ } split(/:/,$ENV{PATH}))')"
 
 ## fix MANPATH lookup /usr/locah/share/man before /usr/share/man on mac os x (10.8).
