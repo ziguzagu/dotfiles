@@ -4,6 +4,7 @@ package ${1:module};
 
 use strict;
 use warnings;
+use utf8;
 
 $0
 
