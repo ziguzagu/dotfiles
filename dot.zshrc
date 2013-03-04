@@ -3,12 +3,23 @@
 export LANG=en_US.UTF-8
 export SHELL=`which zsh`
 
+PATH="/usr/local/share/npm/bin:/usr/local/bin:$PATH"
 ## using coreutils on mac installed by homebrew
 if which brew > /dev/null; then
     PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 fi
-## setup PATH without duplicates path
-PATH="$HOME/bin:$HOME/.rbenv/bin:/usr/local/bin:/usr/local/share/npm/bin:$PATH"
+## plenv path
+if [ -d "$HOME/.plenv" ]; then
+    PATH="${HOME}/.plenv/bin:${HOME}/.plenv/shims:${PATH}"
+fi
+## rbenv path
+if [ -d "$HOME/.rbenv" ]; then
+    PATH="${HOME}/.rbenv/bin/:${HOME}/.rbenv/shims:${PATH}"
+fi
+## my script
+if [ -d "$HOME/bin" ]; then
+    PATH="$HOME/bin:$PATH"
+fi
 export PATH="$(perl -e '%e; print join(":", grep { ! $e{$_}++ } split(/:/,$ENV{PATH}))')"
 
 ## fix MANPATH lookup /usr/locah/share/man before /usr/share/man on mac os x (10.8).
@@ -48,11 +59,9 @@ if which dircolors > /dev/null; then
     eval `dircolors ~/.dircolors`
 fi
 
-## trying to use perlbrew or local::lib
-if [ -f ~/perl5/perlbrew/etc/bashrc ]; then
-    source ~/perl5/perlbrew/etc/bashrc
-#    source ~/perl5/perlbrew/etc/perlbrew-completion.bash
-    export MANPATH="$PERLBREW_ROOT/perls/$PERLBREW_PERL/man:$MANPATH"
+## setup perl env, trying to use plenv or perlbrew or local::lib
+if which plenv > /dev/null; then
+    eval "$(plenv init -)"
 elif [ -z "$PERL5LIB" ]; then
     eval `perl -Iperl5/lib/perl5 -Mlocal::lib 2>/dev/null`
 fi
