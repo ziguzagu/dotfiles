@@ -29,6 +29,7 @@ whitespace = trailing-space
 [alias]
 up = pull --rebase
 di = diff
+dc = diff --cached
 ci = commit -v
 st = status -sb
 co = checkout
