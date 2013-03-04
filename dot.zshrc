@@ -59,7 +59,7 @@ if which dircolors > /dev/null; then
     eval `dircolors ~/.dircolors`
 fi
 
-## setup perl env, trying to use plenv or perlbrew or local::lib
+## setup perl env, trying to use plenv then local::lib
 if which plenv > /dev/null; then
     eval "$(plenv init -)"
 elif [ -z "$PERL5LIB" ]; then
