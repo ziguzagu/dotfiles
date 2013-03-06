@@ -88,19 +88,19 @@ __DATA__
 file: Makefile.PL
 template: |
   use inc::Module::Install;
-  ## metadataes
+  
   name '[% dist %]';
   all_from 'lib/[% path %]';
   readme_from 'lib/[% path %]';
-  ## dependencies
-  ## tests
+  authority 'ZIGUZAGU';
+  
   test_requires 'Test::More', 0.96;
   tests 't/*.t';
   author_tests 'xt';
-  ## misc
+  
   auto_include;
   auto_set_repository;
-  ## go
+  
   WriteAll;
 ---
 file: t/00-compile.t
@@ -223,6 +223,6 @@ file: .travis.yml
 template: |
   language: perl
   before_install:
-    - cpanm inc::Module::Install Module::Install::AuthorTests Module::Install::ReadmeFromPod Module::Install::Repository
+  - cpanm inc::Module::Install Module::Install::AuthorTests Module::Install::ReadmeFromPod Module::Install::Repository Module::Install::Authority
   perl:
     - "5.10"
