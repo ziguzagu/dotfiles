@@ -8,8 +8,11 @@ use File::Spec;
 use Text::Xslate;
 use YAML;
 
-my $path   = File::Spec->catfile($ENV{HOME}, "/.pmsetuprc");
-my $config = eval { YAML::LoadFile($path) } || {};
+my $config = {
+    name  => 'Hiroshi Sakai',
+    email => 'ziguzagu@gmail.com',
+    id    => 'ZIGUZAGU',
+};
 
 my $save;
 while (! $config->{author}) {
@@ -92,7 +95,7 @@ template: |
   name '[% dist %]';
   all_from 'lib/[% path %]';
   readme_from 'lib/[% path %]';
-  authority 'ZIGUZAGU';
+  authority '[% config.id %]';
   
   test_requires 'Test::More', 0.96;
   tests 't/*.t';
