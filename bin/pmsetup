@@ -9,9 +9,9 @@ use Text::Xslate;
 use YAML;
 
 my $config = {
-    name  => 'Hiroshi Sakai',
-    email => 'ziguzagu@gmail.com',
-    id    => 'ZIGUZAGU',
+    author => 'Hiroshi Sakai',
+    email  => 'ziguzagu@gmail.com',
+    id     => 'ZIGUZAGU',
 };
 
 my $save;
