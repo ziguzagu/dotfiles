@@ -216,6 +216,7 @@ template: |
   MYMETA.yml
   MYMETA.json
   META.yml
+  META.json
   Makefile
   Makefile.old
   blib/
