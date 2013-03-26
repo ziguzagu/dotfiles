@@ -156,6 +156,7 @@ template: |
   our $VERSION = '0.01';
 
   1;
+  __END__
 
   =pod
 
@@ -172,7 +173,7 @@ template: |
   [% module %] is
 
   =head1 SEE ALSO
-      
+
   =head1 AUTHOR
 
   [% config.author %] E<lt>[% config.email %]E<gt>
