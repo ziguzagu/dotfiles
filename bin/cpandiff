@@ -6,5 +6,6 @@ use LWP::Simple;
 
 my ($pkg, $from, $to) = @ARGV;
 $pkg =~ s/::/-/g;
-my $content = get("http://search.cpan.org/diff/${pkg}-${from}-${pkg}-${to}.-w.diff");
+my $content = get("http://search.cpan.org/diff/${pkg}-${from}-${pkg}-${to}.-w.diff")
+    or warn "oops. no content. try again!\n";
 print $content;
