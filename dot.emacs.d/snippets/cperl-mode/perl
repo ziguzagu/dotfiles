@@ -5,8 +5,15 @@ use strict;
 use warnings;
 use utf8;
 
+use Getopt::Long qw( :config posix_default no_ignore_case gnu_compat );
+use Pod::Usage;
+
+GetOptions(\my %opt, qw( help ));
+pod2usage(0) if $opt{help};
+
 $0
 
+__END__
 
 =pod
 
