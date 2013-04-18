@@ -29,13 +29,18 @@
                 ("\\.t$" . cperl-mode)) auto-mode-alist))
 
 ;; setup PATH for perlbrew to find correct perldoc, perltidy and some commands installed by perlbrew
-(load "cl-seq")
-(mapc (lambda (x) (add-to-list 'exec-path x))
-      (mapcar (lambda (x) (concat (getenv "HOME") x))
-              (list "/perl5/perlbrew/bin" "/perl5/perlbrew/perls/current/bin")))
-(setenv "PATH"
-        (reduce (lambda (a b) (concatenate 'string a ":" b))
-                exec-path))
+;; (load "cl-seq")
+;; (mapc (lambda (x) (add-to-list 'exec-path x))
+;;       (mapcar (lambda (x) (concat (getenv "HOME") x))
+;;               (list "/perl5/perlbrew/bin" "/perl5/perlbrew/perls/current/bin")))
+;; (setenv "PATH"
+;;         (reduce (lambda (a b) (concatenate 'string a ":" b))
+;;                 exec-path))
+
+;; setup PATH and etc form plenv
+(el-get 'sync 'plenv)
+(require 'plenv)
+(plenv-global "5.16.2")
 
 ;; ffap with perldoc
 (defun ffap-cperl-mode (file)

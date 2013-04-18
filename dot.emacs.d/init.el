@@ -56,6 +56,9 @@
         (:name vcl-mode
                :type http
                :url "https://gist.github.com/UnwashedMeme/3982757/raw/54d91f661269e6587ae448f1754949020cc86573/vcl-mode.el")
+        (:name plenv
+               :type github
+               :pkgname "karupanerura/plenv.el")
         ))
 ;; download
 (el-get 'sync)
