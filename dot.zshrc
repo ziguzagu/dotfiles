@@ -13,7 +13,7 @@ if [ -d "$HOME/.plenv" ]; then
     PATH="${HOME}/.plenv/bin:${HOME}/.plenv/shims:${PATH}"
 fi
 if [ -d "$HOME/.rbenv" ]; then
-    PATH="${HOME}/.rbenv/bin:${HOME}/.rbenv/shims:${PATH}"
+    PATH="${HOME}/.rbenv/bin:${PATH}"
 fi
 if [ -d "$HOME/.pyenv" ]; then
     PATH="${HOME}/.pyenv/bin:${PATH}"
