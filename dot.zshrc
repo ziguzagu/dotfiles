@@ -8,13 +8,15 @@ PATH="/usr/local/share/npm/bin:/usr/local/bin:$PATH"
 if which brew > /dev/null; then
     PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 fi
-## plenv path
+## plenv/rbenv/pyenv path
 if [ -d "$HOME/.plenv" ]; then
     PATH="${HOME}/.plenv/bin:${HOME}/.plenv/shims:${PATH}"
 fi
-## rbenv path
 if [ -d "$HOME/.rbenv" ]; then
-    PATH="${HOME}/.rbenv/bin/:${HOME}/.rbenv/shims:${PATH}"
+    PATH="${HOME}/.rbenv/bin:${HOME}/.rbenv/shims:${PATH}"
+fi
+if [ -d "$HOME/.pyenv" ]; then
+    PATH="${HOME}/.pyenv/bin:${PATH}"
 fi
 ## my script
 if [ -d "$HOME/bin" ]; then
@@ -69,6 +71,11 @@ fi
 ## rbenv
 if which rbenv > /dev/null; then
     eval "$(rbenv init -)"
+fi
+
+## pyenv
+if which pyenv > /dev/null; then
+    eval "$(pyenv init -)"
 fi
 
 ## java
