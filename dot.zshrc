@@ -10,7 +10,7 @@ if which brew > /dev/null; then
 fi
 ## plenv/rbenv/pyenv path
 if [ -d "$HOME/.plenv" ]; then
-    PATH="${HOME}/.plenv/bin:${HOME}/.plenv/shims:${PATH}"
+    PATH="${HOME}/.plenv/bin:${PATH}"
 fi
 if [ -d "$HOME/.rbenv" ]; then
     PATH="${HOME}/.rbenv/bin:${PATH}"
