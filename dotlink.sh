@@ -14,7 +14,7 @@ for dir in $dirs; do
 done
 
 for file in $files; do
-    if [ ! -L "$target" ]; then
+    if [ ! -L "$file" ]; then
         echo "ln -s $dotdir/$file $file"
         ln -s "$dotdir/$file" "$file"
     fi
