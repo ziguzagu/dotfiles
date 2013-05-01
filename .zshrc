@@ -268,6 +268,11 @@ setopt no_list_beep
 ## no coredump
 limit coredumpsize 0
 
+## z
+if [ -f /usr/local/etc/profile.d/z.sh ]; then
+    source /usr/local/etc/profile.d/z.sh
+fi
+
 ## dabbrev using current pane contents
 function _dabbrev_from_pane() {
     local sources
