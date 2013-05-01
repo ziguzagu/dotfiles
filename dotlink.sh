@@ -7,7 +7,6 @@ files=`find . -type f | \egrep -v '^#' | \grep -v .git/ | \grep -v $cmd | sed -e
 
 cd $HOME
 for dir in $dirs; do
-    dir=`echo $dir | sed -e 's/^dot//'`
     if [ ! -d "$dir" ]; then
         echo "mkdir $dir"
         mkdir "$dir"
@@ -15,10 +14,9 @@ for dir in $dirs; do
 done
 
 for file in $files; do
-    target=`echo $file | sed -e 's/^dot//'`
     if [ ! -L "$target" ]; then
-        echo "ln -s $dotdir/$file $target"
-        ln -s "$dotdir/$file" "$target"
+        echo "ln -s $dotdir/$file $file"
+        rm $file && ln -s "$dotdir/$file" "$file"
     fi
 done
 
