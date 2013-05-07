@@ -5,8 +5,23 @@
 ;; call show-kill-ring function by hand
 (global-set-key (kbd "M-y") 'anything-show-kill-ring)
 
-;; alternative to switch buffer / find recentf by antyhing
+;; use recentf-max-saved-items on anythin-c-source-recentf
 (setq recentf-max-saved-items 1000)
+(setq anything-c-source-recentf
+      `((name . "Recentf")
+        (init . (lambda ()
+                  (require 'recentf)
+                  (or recentf-mode (recentf-mode 1))))
+        (disable-shortcuts)
+        (candidates . recentf-list)
+        (keymap . ,anything-generic-files-map)
+        (help-message . anything-generic-file-help-message)
+        (candidate-number-limit . ,recentf-max-saved-items) ;; xxx
+        (mode-line . anything-generic-file-mode-line-string)
+        (match anything-c-match-on-basename)
+        (type . file)))
+
+;; alternative to switch buffer / find recentf by antyhing
 (defun my-switch-buffer ()
   (interactive)
   (anything-other-buffer '(anything-c-source-buffers+
