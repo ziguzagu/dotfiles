@@ -1,17 +1,15 @@
 ;;;;;; use sgml-mode for editting HTML
 (autoload 'sgml-mode "sgml-mode" nil t)
-(setq auto-mode-alist
-      (append '(("\\.html$" . sgml-mode)
-                ("\\.tmpl$" . sgml-mode)
-                ("\\.tx$" . sgml-mode)
-                ("\\.tt$" . sgml-mode)) auto-mode-alist))
+(add-to-list 'auto-mode-alist '("\\.html$" . sgml-mode))
+(add-to-list 'auto-mode-alist '("\\.tmpl$" . sgml-mode))
+(add-to-list 'auto-mode-alist '("\\.tt$"   . sgml-mode))
+(add-to-list 'auto-mode-alist '("\\.tx$"   . sgml-mode))
 
 ;;;;;; css-mode
 (el-get 'sync 'scss-mode)
 (autoload 'scss-mode "scss-mode")
-(setq auto-mode-alist
-      (append '(("\\.css$" . scss-mode)
-                ("\\.scss$" . scss-mode)) auto-mode-alist))
+(add-to-list 'auto-mode-alist '("\\.css$" . scss-mode))
+(add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
 (add-hook 'sccs-mode
           (setq css-indent-offset 2)
           (setq scss-compile-at-save nil))
