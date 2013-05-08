@@ -13,20 +13,18 @@
 (setq cperl-highlight-variables-indiscriminately t)
 (setq cperl-font-lock t)
 
-(global-set-key (kbd "\C-c .") 'cperl-perldoc)
-
 (add-hook 'cperl-mode-hook
           (lambda ()
             (copy-face 'font-lock-variable-name-face 'cperl-array-face)
             (copy-face 'font-lock-variable-name-face 'cperl-hash-face)
             (set-face-foreground 'cperl-nonoverridable-face "yellow")
-            (define-key cperl-mode-map "\M-." 'cperl-perldoc-at-point)))
+            (define-key cperl-mode-map "\M-." 'cperl-perldoc-at-point)
+            (define-key cperl-mode-map "\C-c ." 'cperl-perldoc)))
 
-(setq auto-mode-alist
-      (append '(("\\.cgi$" . cperl-mode)
-                ("\\.p[hlm]$" . cperl-mode)
-                ("\\.psgi$" . cperl-mode)
-                ("\\.t$" . cperl-mode)) auto-mode-alist))
+(add-to-list 'auto-mode-alist '("\\.cgi$" . cperl-mode))
+(add-to-list 'auto-mode-alist '("\\.p[hlm]$" . cperl-mode))
+(add-to-list 'auto-mode-alist '("\\.psgi$" . cperl-mode))
+(add-to-list 'auto-mode-alist '("\\.t$" . cperl-mode))
 
 ;; setup PATH for perlbrew to find correct perldoc, perltidy and some commands installed by perlbrew
 ;; (load "cl-seq")
