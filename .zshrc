@@ -214,6 +214,7 @@ if [ "$EMACS" = t ]; then
     unsetopt zle
 fi
 # vcs info
+autoload -Uz add-zsh-hook
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
 zstyle ':vcs_info:git:*' check-for-changes true
@@ -240,9 +241,10 @@ function +vi-git-st () {
         fi
     fi
 }
-precmd () {
+function _precmd_vcs_info () {
     LANG=en_US.UTF-8 vcs_info
 }
+add-zsh-hook precmd _precmd_vcs_info
 
 ## use different style prompt betwen root and user
 if [ $UID -eq 0 ]; then
