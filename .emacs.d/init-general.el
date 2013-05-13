@@ -30,7 +30,8 @@
 (global-set-key "\r" 'newline-and-indent)
 (global-set-key "\C-cg" 'goto-line)
 (global-set-key "\C-ch" 'help-for-help)
-(global-set-key "\C-h" 'delete-backward-char)
+(global-set-key "\C-h"  'delete-backward-char)
+(global-set-key "\C-ca" 'align-regexp)
 
 ;; reload a file when it was changed by another process (include vc)
 (global-auto-revert-mode t)
