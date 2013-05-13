@@ -83,7 +83,3 @@
 (el-get 'sync 'popwin)
 (require 'popwin)
 (setq display-buffer-function 'popwin:display-buffer)
-
-;; magit
-(el-get 'sync 'magit)
-(require 'magit)
