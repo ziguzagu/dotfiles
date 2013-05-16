@@ -3,10 +3,10 @@
 export LANG=en_US.UTF-8
 export SHELL=`which zsh`
 
-PATH="/usr/local/share/npm/bin:/usr/local/bin:$PATH"
+PATH="/usr/local/bin:$PATH"
 ## using coreutils on mac installed by homebrew
 if which brew > /dev/null; then
-    PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+    PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/share/npm/bin:/usr/local/sbin:$PATH"
 fi
 ## plenv/rbenv/pyenv path
 if [ -d "$HOME/.plenv" ]; then
