@@ -8,15 +8,22 @@ PATH="/usr/local/bin:$PATH"
 if which brew > /dev/null; then
     PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/share/npm/bin:/usr/local/sbin:$PATH"
 fi
-## plenv/rbenv/pyenv path
+## setup perl env, trying to use plenv then local::lib
 if [ -d "$HOME/.plenv" ]; then
     PATH="${HOME}/.plenv/bin:${PATH}"
+    eval "$(plenv init -)"
+elif [ -z "$PERL5LIB" ]; then
+    eval `perl -Iperl5/lib/perl5 -Mlocal::lib 2>/dev/null`
 fi
+## rbenv
 if [ -d "$HOME/.rbenv" ]; then
     PATH="${HOME}/.rbenv/bin:${PATH}"
+    eval "$(rbenv init -)"
 fi
+## pyenv
 if [ -d "$HOME/.pyenv" ]; then
     PATH="${HOME}/.pyenv/bin:${PATH}"
+    eval "$(pyenv init -)"
 fi
 ## my script
 if [ -d "$HOME/bin" ]; then
@@ -59,23 +66,6 @@ export GREP_COLORS="ms=0;37;44:mc=01;31:sl=:cx=:fn=35:ln=33:bn=32:se=01;30"
 
 if which dircolors > /dev/null; then
     eval `dircolors ~/.dircolors`
-fi
-
-## setup perl env, trying to use plenv then local::lib
-if which plenv > /dev/null; then
-    eval "$(plenv init -)"
-elif [ -z "$PERL5LIB" ]; then
-    eval `perl -Iperl5/lib/perl5 -Mlocal::lib 2>/dev/null`
-fi
-
-## rbenv
-if which rbenv > /dev/null; then
-    eval "$(rbenv init -)"
-fi
-
-## pyenv
-if which pyenv > /dev/null; then
-    eval "$(pyenv init -)"
 fi
 
 ## java
