@@ -5,11 +5,10 @@ use strict;
 use warnings;
 use utf8;
 
-use Getopt::Long qw( :config posix_default no_ignore_case gnu_compat );
+use Getopt::Long qw( :config posix_default no_ignore_case gnu_compat auto_help );
 use Pod::Usage;
 
-GetOptions(\my %opt, qw( help ));
-pod2usage(0) if $opt{help};
+GetOptions(\my %opt, qw( h|help )) or pod2usage(1);
 
 $0
 
