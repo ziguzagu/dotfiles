@@ -36,7 +36,7 @@
 (set-cursor-color "orange")
 
 ;; common syntax colors
-(set-face-foreground 'font-lock-comment-face "gray46")
+(set-face-foreground 'font-lock-comment-face "gray52")
 (set-face-foreground 'font-lock-string-face  "darkolivegreen3")
 (set-face-foreground 'font-lock-keyword-face "orchid2")
 (set-face-foreground 'font-lock-function-name-face "white")
