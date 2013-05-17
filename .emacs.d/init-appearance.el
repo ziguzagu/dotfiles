@@ -68,9 +68,9 @@
                     'mode-line-modified
                     " "
                     'mode-line-buffer-identification
-                    '(:eval (concat (propertize "  %p %l:%c ")))
+                    '(:eval (concat (propertize " %c:%l(%p)")))
                     'vc-mode
-                    "  "
+                    " "
                     'mode-line-modes
                     "-%-"))
 
