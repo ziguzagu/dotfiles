@@ -38,7 +38,7 @@
 ;; setup PATH and etc form plenv
 (el-get 'sync 'plenv)
 (require 'plenv)
-(plenv-global "5.16.2")
+;; (plenv-global "5.16.2")
 
 ;; ffap with perldoc
 (defun ffap-cperl-mode (file)
