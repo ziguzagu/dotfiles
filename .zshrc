@@ -29,11 +29,13 @@ fi
 if [ -d "$HOME/bin" ]; then
     PATH="$HOME/bin:$PATH"
 fi
-export PATH="$(perl -e '%e; print join(":", grep { ! $e{$_}++ } split(/:/,$ENV{PATH}))')"
 
 ## fix MANPATH lookup /usr/locah/share/man before /usr/share/man on mac os x (10.8).
 MANPATH="/usr/local/share/man:$MANPATH:/usr/share/man"
-export MANPATH="$(perl -e '%e; print join(":", grep { ! $e{$_}++ } split(/:/,$ENV{MANPATH}))')"
+
+## removed duplicated entries
+typeset -U PATH MANPATH
+export PATH MANPATH
 
 ## node
 export NODE_PATH="/usr/local/lib/node"
