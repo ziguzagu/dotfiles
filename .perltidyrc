@@ -10,4 +10,3 @@
 -bbt=0    # a space within block brace
 -sot      # stack opening token
 -sct      # stack closing token
--otr
