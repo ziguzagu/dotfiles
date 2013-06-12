@@ -3,10 +3,10 @@
 export LANG=en_US.UTF-8
 export SHELL=`which zsh`
 
-PATH="/usr/local/bin:$PATH"
+PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 ## using coreutils on mac installed by homebrew
 if which brew > /dev/null; then
-    PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/share/npm/bin:/usr/local/sbin:$PATH"
+    PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/share/npm/bin:$PATH"
 fi
 ## setup perl env, trying to use plenv then local::lib
 if [ -d "$HOME/.plenv" ]; then
