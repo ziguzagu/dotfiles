@@ -30,8 +30,7 @@ if [ -d "$HOME/bin" ]; then
     PATH="$HOME/bin:$PATH"
 fi
 
-## fix MANPATH lookup /usr/locah/share/man before /usr/share/man on mac os x (10.8).
-MANPATH="/usr/local/share/man:$MANPATH:/usr/share/man"
+MANPATH="/usr/local/share/man:$MANPATH"
 
 ## removed duplicated entries
 typeset -U PATH MANPATH
