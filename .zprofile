@@ -1,28 +1,63 @@
+## -*- mode: shell-script; -*-
+
+export LANG=en_US.UTF-8
+
+########################################
+## PATH
+########################################
+
 PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 ## using coreutils on mac installed by homebrew
 if which brew > /dev/null; then
-    PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/share/npm/bin:$PATH"
+    PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 fi
-## setup perl env, trying to use plenv then local::lib
-if [ -d "$HOME/.plenv" ]; then
-    PATH="${HOME}/.plenv/bin:${PATH}"
+## commands of npm modules installed by homebrew's node
+if [ -d "/usr/local/share/npm/bin" ]; then
+    PATH="/usr/local/share/npm/bin:$PATH"
 fi
-## rbenv
-if [ -d "$HOME/.rbenv" ]; then
-    PATH="${HOME}/.rbenv/bin:${PATH}"
-fi
-## pyenv
-if [ -d "$HOME/.pyenv" ]; then
-    PATH="${HOME}/.pyenv/bin:${PATH}"
-fi
-## my script
-if [ -d "$HOME/bin" ]; then
-    PATH="$HOME/bin:$PATH"
-fi
+PATH="${HOME}/.plenv/bin:${HOME}/.rbenv/bin:${HOME}/.pyenv/bin:${PATH}"
+PATH="$HOME/bin:$PATH"
 
-MANPATH="/usr/local/share/man:$MANPATH"
+typeset -U PATH
 
-## removed duplicated entries
-typeset -U PATH MANPATH
-export PATH MANPATH
+export MANPATH="/usr/local/share/man:$MANPATH"
+
+########################################
+## Editor and Pager
+########################################
+
+## lv (use for japanease encoding document)
+# -Sb1     - bright white (foreground)
+# -Sh1;31  - bright red
+# -Su4;36  - cyan with underline
+export LV="-c -Ou8 -Sb1 -Sh1;31 -Su4;36 -Ss0;37;44"
+
+## less
+export LESS="-q -g -R -j 10"
+export LESSCHARSET=utf-8
+export LESS_TERMCAP_mb=$'\E[01;31m'  # begin blinking
+export LESS_TERMCAP_md=$'\E[01;31m'  # begin bold (bold, bright red)
+export LESS_TERMCAP_me=$'\E[0m'      # end mode
+export LESS_TERMCAP_se=$'\E[0m'      # end standout-mode
+export LESS_TERMCAP_so=$'\E[0;37;44m' # begin standout-mode (white on blue)
+export LESS_TERMCAP_ue=$'\E[0m'      # end underline
+export LESS_TERMCAP_us=$'\E[04;36m'  # begin underline - (underline, cyan)
+
+## editor, pager
+export PAGER=less
+export GIT_PAGER="less -FX"
+export EDITOR="emacsclient -t"
+export ALTERNATE_EDITOR=vi
+
+########################################
+## Misc
+########################################
+
+## colorized grep
+export GREP_COLORS="ms=0;37;44:mc=01;31:sl=:cx=:fn=35:ln=33:bn=32:se=01;30"
+
+## java on mac
+if [ -x "/usr/libexec/java_home" ]; then
+    export JAVA_HOME="$(/usr/libexec/java_home)"
+fi

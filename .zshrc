@@ -1,6 +1,5 @@
 ## -*- mode: shell-script; -*-
 
-export LANG=en_US.UTF-8
 export SHELL=`which zsh`
 
 ## setup perl env, trying to use plenv then local::lib
@@ -9,52 +8,18 @@ if which plenv > /dev/null; then
 elif [ -z "$PERL5LIB" ]; then
     eval `perl -Iperl5/lib/perl5 -Mlocal::lib 2>/dev/null`
 fi
-## rbenv
+## ruby and python
 if which rbenv > /dev/null; then
     eval "$(rbenv init -)"
 fi
-## pyenv
 if which pyenv > /dev/null; then
     eval "$(pyenv init -)"
 fi
 
-## node
-export NODE_PATH="/usr/local/lib/node"
-
-## lv (use for japanease encoding document)
-# -Sb1     - bright white (foreground)
-# -Sh1;31  - bright red
-# -Su4;36  - cyan with underline
-export LV="-c -Ou8 -Sb1 -Sh1;31 -Su4;36 -Ss0;37;44"
-
-## less
-export LESS="-q -g -R -j 10"
-export LESSCHARSET=utf-8
-export LESS_TERMCAP_mb=$'\E[01;31m'  # begin blinking
-export LESS_TERMCAP_md=$'\E[01;31m'  # begin bold (bold, bright red)
-export LESS_TERMCAP_me=$'\E[0m'      # end mode
-export LESS_TERMCAP_se=$'\E[0m'      # end standout-mode
-export LESS_TERMCAP_so=$'\E[0;37;44m' # begin standout-mode (white on blue)
-export LESS_TERMCAP_ue=$'\E[0m'      # end underline
-export LESS_TERMCAP_us=$'\E[04;36m'  # begin underline - (underline, cyan)
-
-## editor, pager
-export PAGER=less
-export GIT_PAGER="less -FX"
-export EDITOR="emacsclient -t"
-export ALTERNATE_EDITOR=vi
-
-## colorized grep
-export GREP_COLORS="ms=0;37;44:mc=01;31:sl=:cx=:fn=35:ln=33:bn=32:se=01;30"
-
 if which dircolors > /dev/null; then
-    eval `dircolors ~/.dircolors`
+    eval "$(dircolors ~/.dircolors)"
 fi
 
-## java
-if [ -x "/usr/libexec/java_home" ]; then
-    export JAVA_HOME="$(/usr/libexec/java_home)"
-fi
 ## hive installed by homebrew on mac
 if which hive > /dev/null; then
     export HIVE_HOME=/usr/local/Cellar/hive/0.9.0/libexec
@@ -280,3 +245,4 @@ function pt {
 if [ -f ~/.zshrc.6a ]; then
     source ~/.zshrc.6a
 fi
+
