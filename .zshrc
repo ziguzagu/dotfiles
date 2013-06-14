@@ -3,38 +3,20 @@
 export LANG=en_US.UTF-8
 export SHELL=`which zsh`
 
-PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-## using coreutils on mac installed by homebrew
-if which brew > /dev/null; then
-    PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/share/npm/bin:$PATH"
-fi
 ## setup perl env, trying to use plenv then local::lib
-if [ -d "$HOME/.plenv" ]; then
-    PATH="${HOME}/.plenv/bin:${PATH}"
+if which plenv > /dev/null; then
     eval "$(plenv init -)"
 elif [ -z "$PERL5LIB" ]; then
     eval `perl -Iperl5/lib/perl5 -Mlocal::lib 2>/dev/null`
 fi
 ## rbenv
-if [ -d "$HOME/.rbenv" ]; then
-    PATH="${HOME}/.rbenv/bin:${PATH}"
+if which rbenv > /dev/null; then
     eval "$(rbenv init -)"
 fi
 ## pyenv
-if [ -d "$HOME/.pyenv" ]; then
-    PATH="${HOME}/.pyenv/bin:${PATH}"
+if which pyenv > /dev/null; then
     eval "$(pyenv init -)"
 fi
-## my script
-if [ -d "$HOME/bin" ]; then
-    PATH="$HOME/bin:$PATH"
-fi
-
-MANPATH="/usr/local/share/man:$MANPATH"
-
-## removed duplicated entries
-typeset -U PATH MANPATH
-export PATH MANPATH
 
 ## node
 export NODE_PATH="/usr/local/lib/node"
