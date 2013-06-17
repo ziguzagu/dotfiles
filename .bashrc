@@ -39,13 +39,8 @@ alias g="git"
 PS1="\[\e[31m\][\u@\h \w]\[\e[00m\]\\$ "
 
 ## sharing history on multiple session
-function share_history {
-    history -a
-    history -c
-    history -r
-}
-PROMPT_COMMAND='share_history'
-shopt -u histappend
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+shopt -s histappend
 export HISTCONTROL=erasedups
 export HISTIGNORE=cd:history:ls:which
 export HISTSIZE=10000
