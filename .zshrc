@@ -109,7 +109,6 @@ alias vl="svn log --stop-on-copy"
 alias us="TZ=US/Pacific date"
 alias lc="tr '[:upper:]' '[:lower:]'"
 alias uc="tr '[:lower:]' '[:upper:]'"
-alias htdate="date '+%a, %d %b %Y %X %Z'"
 alias prove="prove -lv --timer"
 alias ack="ack --color"
 alias grep="grep --binary-files=without-match --color=auto"
@@ -123,10 +122,8 @@ complete -o default -o nospace -F _git g
 alias -g M="| more"
 alias -g L="| less"
 alias -g H="| head"
-alias -g T="| tail"
 alias -g G="| grep"
 alias -g GV="| grep -v"
-alias -g N="> /dev/null 2>&1"
 
 ## sets keybind like emacs
 bindkey -e
