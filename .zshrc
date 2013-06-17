@@ -2,13 +2,21 @@
 
 export SHELL=`which zsh`
 
-## setup perl env, trying to use plenv then local::lib
+if which dircolors > /dev/null; then
+    eval "$(dircolors ~/.dircolors)"
+fi
+
+########################################
+## Development
+########################################
+
+## trying to use plenv then local::lib
 if which plenv > /dev/null; then
     eval "$(plenv init -)"
 elif [ -z "$PERL5LIB" ]; then
     eval `perl -Iperl5/lib/perl5 -Mlocal::lib 2>/dev/null`
 fi
-## ruby and python
+
 if which rbenv > /dev/null; then
     eval "$(rbenv init -)"
 fi
@@ -16,17 +24,21 @@ if which pyenv > /dev/null; then
     eval "$(pyenv init -)"
 fi
 
-if which dircolors > /dev/null; then
-    eval "$(dircolors ~/.dircolors)"
-fi
-
 ## hive installed by homebrew on mac
 if which hive > /dev/null; then
     export HIVE_HOME=/usr/local/Cellar/hive/0.9.0/libexec
 fi
 
-## changing title of tmux window by preexec()
+########################################
+## Tmux
+########################################
+
 if [ -n "$TMUX" ]; then
+
+    ## set TERM to use color terminal
+    export TERM=screen-256color
+    
+    ## changing title of tmux window by preexec()
     preexec() {
         emulate -L zsh
         local -a cmd; cmd=(${(z)2})
@@ -66,6 +78,15 @@ if [ -n "$TMUX" ]; then
             cmd=(${(z)${(e):-\$jt$num}})
             echo -n "k$cmd[1]:t\\") 2>/dev/null
     }
+
+    ## dabbrev using current pane contents
+    function _dabbrev_from_pane() {
+        local sources
+        sources=($(tmux capture-pane\; show-buffer \; delete-buffer | sed '/^$/d' | sed '$ d'))
+        compadd - "${sources[@]%[*/=@|]}"
+    }
+    zle -C dabbrev-from-pane menu-complete _dabbrev_from_pane
+    bindkey '^o' dabbrev-from-pane
 fi
 
 ## completion files and directories (without secure check -u)
@@ -123,7 +144,10 @@ setopt auto_list
 setopt auto_menu
 setopt list_types
 
-## history settings
+########################################
+## History
+########################################
+
 [ -d $HOME/.zsh.d ] || mkdir $HOME/.zsh.d
 HISTFILE=$HOME/.zsh.d/history
 HISTSIZE=100000
@@ -137,21 +161,20 @@ setopt pushd_ignore_dups
 function history-all { history -E 1 }
 zstyle ':completion:*:default' menu select=1
 
-## set TERM to use color terminal
-#eval `tset -sQI xterm-256color`
-if [ -n "$TMUX" ]; then
-    export TERM=screen-256color
-fi
+########################################
+## Prompt
+########################################
 
-## prompt
 autoload -U colors && colors
 setopt prompt_subst
 unsetopt promptcr
+
 # for emacs (no escape usging)
 if [ "$EMACS" = t ]; then
     unsetopt zle
 fi
-# vcs info
+
+## vcs info
 autoload -Uz add-zsh-hook
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
@@ -161,6 +184,7 @@ zstyle ':vcs_info:git:*' stagedstr '%F{red}￭￭%f'
 zstyle ':vcs_info:*' formats '%F{yellow}(%s:%b)%f %c%u'
 zstyle ':vcs_info:*' actionformats '%F{red}(%s:%b!%a)%f %c%u'
 zstyle ':vcs_info:git*+set-message:*' hooks git-st
+
 ## Show remote ref name and number of commits ahead-of or behind
 function +vi-git-st () {
     ## get remote's "repos/branch"
@@ -194,7 +218,10 @@ fi
 ## command line coloring
 zle_highlight=(isearch:underline,fg=red region:fg=black,bg=yellow special:standout,fg=blue suffix:bold)
 
-## misc
+########################################
+## Misc
+########################################
+
 setopt correct
 setopt no_hup
 setopt always_last_prompt
@@ -212,15 +239,6 @@ limit coredumpsize 0
 if [ -f /usr/local/etc/profile.d/z.sh ]; then
     source /usr/local/etc/profile.d/z.sh
 fi
-
-## dabbrev using current pane contents
-function _dabbrev_from_pane() {
-    local sources
-    sources=($(tmux capture-pane\; show-buffer \; delete-buffer | sed '/^$/d' | sed '$ d'))
-    compadd - "${sources[@]%[*/=@|]}"
-}
-zle -C dabbrev-from-pane menu-complete _dabbrev_from_pane
-bindkey '^o' dabbrev-from-pane
 
 ## pmtools
 function pmver() { perl -m$1 -e 'print "$'$1'::VERSION\n"' }
