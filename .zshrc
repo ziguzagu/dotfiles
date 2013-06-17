@@ -225,22 +225,6 @@ bindkey '^o' dabbrev-from-pane
 ## pmtools
 function pmver() { perl -m$1 -e 'print "$'$1'::VERSION\n"' }
 
-## perl module development
-function pm {
-    if [ -f "Makefile.PL" ]; then
-        perl Makefile.PL $@ && make
-    elif [ -f "Build.PL" ]; then
-        perl Build.PL $@ && ./Build
-    fi
-}
-function pt {
-    if [ -f "Makefile" ]; then
-        make test $@
-    elif [ -f "Build" ]; then
-        ./Build test $@
-    fi
-}
-
 ## at sixapart
 if [ -f ~/.zshrc.6a ]; then
     source ~/.zshrc.6a
