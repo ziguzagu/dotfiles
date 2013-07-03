@@ -112,6 +112,7 @@ alias uc="tr '[:lower:]' '[:upper:]'"
 alias prove="prove -lv --timer"
 alias ack="ack --color"
 alias grep="grep --binary-files=without-match --color=auto"
+alias ce="carton exec"
 
 ## git completion work with alias for git
 alias g="git"
