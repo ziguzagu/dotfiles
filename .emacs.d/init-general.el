@@ -88,3 +88,4 @@
 
 ;; markdown
 (el-get 'sync 'markdown-mode)
+(el-get 'sync 'org-mode)
