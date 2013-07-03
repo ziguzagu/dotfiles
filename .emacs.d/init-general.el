@@ -88,4 +88,7 @@
 
 ;; markdown
 (el-get 'sync 'markdown-mode)
+
+;; org
 (el-get 'sync 'org-mode)
+(setq org-directory "~/Dropbox/org/")
