@@ -110,6 +110,7 @@ alias prove="prove -lv --timer"
 alias ack="ack --color"
 alias grep="grep --binary-files=without-match --color=auto"
 alias ce="carton exec"
+alias g="git"
 
 ## global alias
 alias -g M="| more"
@@ -127,16 +128,15 @@ setopt auto_pushd
 setopt auto_name_dirs
 setopt extended_glob
 
-## complete setting
+########################################
+## Completion
+########################################
+
 setopt auto_param_keys
 setopt auto_remove_slash
 setopt auto_list
 setopt auto_menu
 setopt list_types
-
-########################################
-## Completion
-########################################
 
 ## git completion for linux (not installed zsh/git by homebrew)
 if [ "$(uname)" != "Darwin" ]; then
@@ -149,6 +149,9 @@ autoload -U compinit && compinit -u
 
 ## case insensitive at completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+## complete for aliase
+compdef g=git
 
 ########################################
 ## History
