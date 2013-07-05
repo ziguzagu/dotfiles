@@ -117,14 +117,11 @@ alias ack="ack --color"
 alias grep="grep --binary-files=without-match --color=auto"
 alias ce="carton exec"
 
-## git completion work with alias for git
-alias g="git"
-if [ -f "/usr/local/etc/bash_completion.d/git-completion.bash" ]; then
-    source /usr/local/etc/bash_completion.d/git-completion.bash
-else
-    source ~/.zsh.d/git-completion.bash
+## git completion for linux (not installed zsh/git by homebrew)
+if [ "$(uname)" != "Darwin" ]; then
+    zstyle ':completion:*:*:git:*' script ~/.zsh.d/completion/git-completion.bash
+    fpath=(~/.zsh.d/completion $fpath)
 fi
-complete -o default -o nospace -F _git g
 
 ## global alias
 alias -g M="| more"
