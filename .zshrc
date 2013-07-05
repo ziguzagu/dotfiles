@@ -1,5 +1,7 @@
 ## -*- mode: shell-script; -*-
 
+autoload -Uz add-zsh-hook
+
 export SHELL=`which zsh`
 
 if which dircolors > /dev/null; then
@@ -127,6 +129,10 @@ setopt auto_pushd
 setopt auto_name_dirs
 setopt extended_glob
 
+## ls after cd
+_post_chpwd() { ls }
+add-zsh-hook chpwd _post_chpwd
+
 ########################################
 ## Completion
 ########################################
@@ -184,7 +190,6 @@ if [ "$EMACS" = t ]; then
 fi
 
 ## vcs info
-autoload -Uz add-zsh-hook
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
 zstyle ':vcs_info:git:*' check-for-changes true
