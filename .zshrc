@@ -89,12 +89,6 @@ if [ -n "$TMUX" ]; then
     bindkey '^o' dabbrev-from-pane
 fi
 
-## completion files and directories (without secure check -u)
-autoload -U compinit
-compinit -u
-# case insensitive
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-
 ########################################
 ## Aliases
 ########################################
@@ -116,12 +110,6 @@ alias prove="prove -lv --timer"
 alias ack="ack --color"
 alias grep="grep --binary-files=without-match --color=auto"
 alias ce="carton exec"
-
-## git completion for linux (not installed zsh/git by homebrew)
-if [ "$(uname)" != "Darwin" ]; then
-    zstyle ':completion:*:*:git:*' script ~/.zsh.d/completion/git-completion.bash
-    fpath=(~/.zsh.d/completion $fpath)
-fi
 
 ## global alias
 alias -g M="| more"
@@ -145,6 +133,22 @@ setopt auto_remove_slash
 setopt auto_list
 setopt auto_menu
 setopt list_types
+
+########################################
+## Completion
+########################################
+
+## git completion for linux (not installed zsh/git by homebrew)
+if [ "$(uname)" != "Darwin" ]; then
+    zstyle ':completion:*:*:git:*' script ~/.zsh.d/completion/git-completion.bash
+    fpath=(~/.zsh.d/completion $fpath)
+fi
+
+## completion files and directories (without secure check -u)
+autoload -U compinit && compinit -u
+
+## case insensitive at completion
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 ########################################
 ## History
