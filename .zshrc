@@ -95,7 +95,10 @@ compinit -u
 # case insensitive
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-## alias
+########################################
+## Aliases
+########################################
+
 setopt complete_aliases
 alias emacs="emacs --daemon && emacsclient -t"
 alias ls="ls -F --color=auto"
@@ -116,7 +119,11 @@ alias ce="carton exec"
 
 ## git completion work with alias for git
 alias g="git"
-source ~/.zsh.d/git-completion.bash
+if [ -f "/usr/local/etc/bash_completion.d/git-completion.bash" ]; then
+    source /usr/local/etc/bash_completion.d/git-completion.bash
+else
+    source ~/.zsh.d/git-completion.bash
+fi
 complete -o default -o nospace -F _git g
 
 ## global alias
