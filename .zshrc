@@ -110,7 +110,6 @@ alias prove="prove -lv --timer"
 alias ack="ack --color"
 alias grep="grep --binary-files=without-match --color=auto"
 alias ce="carton exec"
-alias g="git"
 
 ## global alias
 alias -g M="| more"
@@ -144,13 +143,14 @@ if [ "$(uname)" != "Darwin" ]; then
     fpath=(~/.zsh.d/completion $fpath)
 fi
 
-## completion files and directories (without secure check -u)
+## init completion (without secure check -u)
 autoload -U compinit && compinit -u
 
 ## case insensitive at completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-## complete for aliase
+## git
+alias g="git"
 compdef g=git
 
 ########################################
