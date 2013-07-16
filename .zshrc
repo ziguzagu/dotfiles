@@ -226,7 +226,7 @@ add-zsh-hook precmd _precmd_vcs_info
 if [ $UID -eq 0 ]; then
     PROMPT=$'\n''%F{red}%S%n@%m:%~%s'$'\n''➜ %f'
 else
-    PROMPT=$'\n''%B%F{red}%n@%m:%f%b%F{cyan}%~%f ${vcs_info_msg_0_}'$'\n''➜ '
+    PROMPT=$'\n''%B%F{yellow}%n@%m:%f%b%F{cyan}%~%f ${vcs_info_msg_0_}'$'\n''➜ '
 fi
 
 ## command line coloring
