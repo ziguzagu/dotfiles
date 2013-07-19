@@ -28,14 +28,14 @@ export MANPATH="/usr/local/share/man:$MANPATH"
 ########################################
 
 # -Sb1     - bright white (foreground)
-# -Sh1;31  - bright red
+# -Sh1;33  - bright yello
 # -Su4;36  - cyan with underline
-export LV="-c -Ou8 -Sb1 -Sh1;31 -Su4;36 -Ss0;37;44"
+export LV="-c -Ou8 -Sb1 -Sh1;33 -Su4;36 -Ss0;37;44"
 
 export LESS="-q -g -R -j 10"
 export LESSCHARSET=utf-8
-export LESS_TERMCAP_mb=$'\E[01;31m'  # begin blinking
-export LESS_TERMCAP_md=$'\E[01;31m'  # begin bold (bold, bright red)
+export LESS_TERMCAP_mb=$'\E[01;33m'  # begin blinking
+export LESS_TERMCAP_md=$'\E[01;33m'  # begin bold (bold, bright yellow)
 export LESS_TERMCAP_me=$'\E[0m'      # end mode
 export LESS_TERMCAP_se=$'\E[0m'      # end standout-mode
 export LESS_TERMCAP_so=$'\E[0;37;44m' # begin standout-mode (white on blue)
@@ -53,7 +53,7 @@ export ALTERNATE_EDITOR=vi
 ########################################
 
 ## colorized grep
-export GREP_COLORS="ms=0;37;44:mc=01;31:sl=:cx=:fn=35:ln=33:bn=32:se=01;30"
+export GREP_COLORS="ms=0;37;44:mc=01;33:sl=:cx=:fn=35:ln=33:bn=32:se=01;30"
 
 ## java on mac
 if [ -x "/usr/libexec/java_home" ]; then
