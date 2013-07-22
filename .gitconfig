@@ -40,3 +40,6 @@ web = browse
 
 [push]
 default = current
+
+[include]
+path = .gitconfig.local
