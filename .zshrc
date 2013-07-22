@@ -130,7 +130,7 @@ setopt auto_name_dirs
 setopt extended_glob
 
 ## ls after cd
-_post_chpwd() { ls }
+function _post_chpwd() { ls }
 add-zsh-hook chpwd _post_chpwd
 
 ########################################
