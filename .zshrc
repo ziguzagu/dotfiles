@@ -40,8 +40,8 @@ if [ -n "$TMUX" ]; then
     ## set TERM to use color terminal
     export TERM=screen-256color
     
-    ## changing title of tmux window by preexec()
-    preexec() {
+    ## changing title of tmux window on executing command
+    function _update_window_title() {
         emulate -L zsh
         local -a cmd; cmd=(${(z)2})
         case $cmd[1] in
@@ -80,6 +80,7 @@ if [ -n "$TMUX" ]; then
             cmd=(${(z)${(e):-\$jt$num}})
             echo -n "k$cmd[1]:t\\") 2>/dev/null
     }
+    add-zsh-hook preexec _update_window_title
 
     ## dabbrev using current pane contents
     function _dabbrev_from_pane() {
