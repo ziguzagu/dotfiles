@@ -144,6 +144,11 @@ setopt auto_list
 setopt auto_menu
 setopt list_types
 
+## additional completions by https://github.com/zsh-users/zsh-completions
+if [ -d /usr/local/share/zsh-completions ]; then
+    fpath=(/usr/local/share/zsh-completions $fpath)    
+fi
+
 ## git completion for linux (not installed zsh/git by homebrew)
 if [ "$(uname)" != "Darwin" ]; then
     zstyle ':completion:*:*:git:*' script ~/.zsh.d/completion/git-completion.bash
