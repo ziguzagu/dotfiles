@@ -162,6 +162,9 @@ autoload -U compinit && compinit -u
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 ## git
+if which hub > /dev/null; then
+    alias git="hub"
+fi
 alias g="git"
 compdef g=git
 
