@@ -37,6 +37,7 @@ last = log -1 HEAD
 info = config --get remote.origin.url
 ## for hub
 web = browse
+pr  = pull-request
 
 [push]
 default = current
