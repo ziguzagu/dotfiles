@@ -53,7 +53,7 @@ export ALTERNATE_EDITOR=vi
 ########################################
 
 ## colorized grep
-export GREP_COLORS="ms=0;37;44:mc=01;33:sl=:cx=:fn=35:ln=33:bn=32:se=01;30"
+export GREP_COLORS="ms=00;04;31:mc=01;33:sl=:cx=:fn=33:ln=33:bn=33:se=01;30"
 
 ## java on mac
 if [ -x "/usr/libexec/java_home" ]; then
