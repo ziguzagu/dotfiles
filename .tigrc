@@ -7,13 +7,13 @@ color   title-focus             255     240
 color   title-blur              255     240
 color   delimiter               213     default
 color   author                  156     default
-color   date                    81      default
+color   date                    15      default
 color   line-number             221     default
 color   mode                    255     default
 
 # main
-color   main-tag                213     default     bold
-color   main-local-tag          213     default
+color   main-tag                81      default
+color   main-local-tag          81      default
 color   main-remote             221     default
 color   main-replace            81      default
 color   main-tracked            221     default     bold
