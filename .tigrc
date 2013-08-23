@@ -1,3 +1,10 @@
+set show-id        = yes
+set show-date      = short
+set show-author    = abbreviated
+set author-width   = 12
+set show-rev-graph = yes
+set show-refs      = yes
+
 # *color* 'area' 'fgcolor' 'bgcolor' '[attributes]'
 
 # general
