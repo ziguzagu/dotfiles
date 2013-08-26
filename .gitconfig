@@ -15,7 +15,7 @@ whitespace = white bold reverse
 untracked = blue bold
 
 [color "branch"]
-current = green ul
+current = green bold
 local = yellow
 remote = magenta
 
