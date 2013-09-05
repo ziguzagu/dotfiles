@@ -88,4 +88,4 @@
 
 ;; highlight trailing spaces
 (setq-default show-trailing-whitespace t)
-(set-face-background 'trailing-whitespace "gray16")
+(set-face-background 'trailing-whitespace "steelblue")
