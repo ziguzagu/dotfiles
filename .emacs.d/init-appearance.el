@@ -61,6 +61,10 @@
 (set-face-foreground 'mode-line-inactive "gray42")
 (set-face-background 'mode-line-inactive "gray16")
 (set-face-foreground 'mode-line-buffer-id "orange")
+;; custom face for vc-mode in mode-line
+(make-face 'mode-line-vc-mode-face)
+(set-face-attribute 'mode-line-vc-mode-face nil
+                    :foreground "sky blue" :weight 'bold)
 ;; modeline content
 (setq-default mode-line-format
               (list "-"
@@ -69,7 +73,7 @@
                     " "
                     'mode-line-buffer-identification
                     '(:eval (concat (propertize " %c:%l(%p)")))
-                    'vc-mode
+                    '(:propertize (:eval vc-mode) face mode-line-vc-mode-face)
                     " "
                     'mode-line-modes
                     "-%-"))
