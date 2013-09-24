@@ -1,12 +1,9 @@
-(add-hook 'dired-load-hook
-          '(lambda ()
-                  ;; show directories at the top of buffer
-                  (setq ls-lisp-dirs-first t)
-                  ;; ls options
-                  (setq dired-listing-switches "-AlhFG")
-                  ;; recursive copy/delete
-                  (setq dired-recursive-copies 'always)
-                  (setq dired-recursive-deletes 'always)))
+;; ls options
+(setq dired-listing-switches "-alhFG --group-directories-first")
+
+;; recursive copy/delete
+(setq dired-recursive-copies 'always)
+(setq dired-recursive-deletes 'always)))
 
 ;; don't create new buffer at moving direcotry
 (put 'dired-find-alternate-file 'disabled nil)
