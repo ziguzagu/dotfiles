@@ -56,7 +56,7 @@
 (set-face-foreground 'region "white")
 
 ;; modeline colors
-(set-face-foreground 'mode-line "white")
+(set-face-foreground 'mode-line "gray72")
 (set-face-background 'mode-line "gray32")
 (set-face-foreground 'mode-line-inactive "gray42")
 (set-face-background 'mode-line-inactive "gray16")
@@ -64,7 +64,7 @@
 ;; custom face for vc-mode in mode-line
 (make-face 'mode-line-vc-mode-face)
 (set-face-attribute 'mode-line-vc-mode-face nil
-                    :foreground "sky blue" :weight 'bold)
+                    :foreground "deep sky blue" :weight 'bold)
 ;; modeline content
 (setq-default mode-line-format
               (list "-"
