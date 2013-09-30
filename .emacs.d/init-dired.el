@@ -3,7 +3,7 @@
 
 ;; recursive copy/delete
 (setq dired-recursive-copies 'always)
-(setq dired-recursive-deletes 'always)))
+(setq dired-recursive-deletes 'always)
 
 ;; don't create new buffer at moving direcotry
 (put 'dired-find-alternate-file 'disabled nil)
