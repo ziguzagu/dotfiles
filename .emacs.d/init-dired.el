@@ -1,5 +1,5 @@
 ;; ls options
-(setq dired-listing-switches "-alhFG --group-directories-first")
+(setq dired-listing-switches "-alhFG")
 
 ;; recursive copy/delete
 (setq dired-recursive-copies 'always)
