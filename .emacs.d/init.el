@@ -53,9 +53,6 @@
         (:name dabbrev-highlight
                :type http
                :url "http://www.namazu.org/~tsuchiya/elisp/dabbrev-highlight.el")
-        (:name zlc
-               :type github
-               :pkgname "mooz/emacs-zlc")
         (:name vcl-mode
                :type http
                :url "https://raw.github.com/ssm/elisp/master/vcl-mode.el")
