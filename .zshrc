@@ -239,13 +239,20 @@ function _precmd_vcs_info () {
 }
 add-zsh-hook precmd _precmd_vcs_info
 
-## use different style prompt betwen root and user
-PROMPT_GO=$'%F{white}%(?,➜ ,✘ )%f'
-if [ $UID -eq 0 ]; then
-    PROMPT=$'\n''%F{red}%S%n@%m:%~%s'$'\n''$PROMPT_GO'
-else
-    PROMPT=$'\n''%B%F{yellow}%n@%m:%f%b%F{cyan}%~%f ${vcs_info_msg_0_}'$'\n''$PROMPT_GO'
-fi
+## build prompt string
+function _render_prompt () {
+    local -a host_attr path_attr cursor
+    cursor='%(?,➜ ,✘ )'
+    if [ $UID -eq 0 ]; then
+        host_attr='%{\e[0;38;5;255;48;5;160m%}'
+        path_attr=''
+    else
+        host_attr='%{\e[0;38;5;214m%}'
+        path_attr='%{\e[0;38;5;117m%}'
+    fi
+    echo -n "${host_attr}%n@%m:${path_attr}%~%{\e[0m%} ${vcs_info_msg_0_}\n$cursor"
+}
+PROMPT=$'\n''$(_render_prompt)'
 
 ## command line coloring
 zle_highlight=(isearch:underline,fg=red region:fg=black,bg=yellow special:standout,fg=blue suffix:bold)
