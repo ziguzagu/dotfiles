@@ -61,11 +61,11 @@
 (set-face-foreground 'mode-line-inactive "gray42")
 (set-face-background 'mode-line-inactive "gray16")
 (set-face-attribute 'mode-line-buffer-id nil
-                    :foreground "orange" :weight 'normal)
+                    :foreground "color-214" :weight 'normal)
 ;; custom face for vc-mode in mode-line
 (make-face 'mode-line-vc-mode-face)
 (set-face-attribute 'mode-line-vc-mode-face nil
-                    :foreground "turquoise" :weight 'normal)
+                    :foreground "color-117" :weight 'normal)
 ;; modeline content
 (setq-default mode-line-format
               (list "-"
