@@ -6,7 +6,7 @@
 (global-set-key (kbd "M-y") 'anything-show-kill-ring)
 
 ;; use recentf-max-saved-items on anythin-c-source-recentf
-(setq recentf-max-saved-items 1000)
+(setq recentf-max-saved-items 5000)
 (setq anything-c-source-recentf
       `((name . "Recentf")
         (init . (lambda ()
