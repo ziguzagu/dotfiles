@@ -89,16 +89,19 @@
 ;; markdown
 (el-get 'sync 'markdown-mode)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; org
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (el-get 'sync 'org-mode)
 (setq org-directory "~/Dropbox/org/")
 (setq org-default-notes-file (concat org-directory "notes.org"))
+;; org-capture
 (setq org-capture-templates
       '(("m" "Memo" entry (file+datetree (concat org-directory "memo.org"))
-         "* %?\n %T\n")
+         "* %?\n")
         ("a" "Annotation" entry (file (concat org-directory "annon.org"))
-         "* %?\n %T\n %a %i\n")
+         "* %?\n %U\n %i\n %a\n")
         ("i" "Idea" entry (file (concat org-directory "ideas.org"))
-         "* %?\n %T\n")
+         "* %?\n %U\n")
         ))
 (global-set-key (kbd "C-c c") 'org-capture)
