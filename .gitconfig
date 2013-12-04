@@ -36,7 +36,7 @@ hist = log --graph --pretty=format:'%C(blue bold)%h%C(cyan)%d%Creset %s %C(black
 last = log -1 HEAD
 info = config --get remote.origin.url
 upstream = "!sh -c 'git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null'"
-remaster = "!sh -c 'branch=`git rev-parse --abbrev-ref HEAD` && git co master && git pull origin master && git co $branch && git rebase master"
+remaster = "!sh -c 'branch=`git rev-parse --abbrev-ref HEAD` && git co master && git pull origin master && git co $branch && git rebase master'"
 ## for hub
 web = browse
 pr  = pull-request
