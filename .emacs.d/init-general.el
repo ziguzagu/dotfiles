@@ -105,3 +105,5 @@
          "* %?\n %U\n")
         ))
 (global-set-key (kbd "C-c c") 'org-capture)
+;; hilight lines in code block
+(setq org-src-fontify-natively t)
