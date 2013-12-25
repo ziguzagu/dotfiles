@@ -39,7 +39,7 @@ if [ -n "$TMUX" ]; then
 
     ## set TERM to use color terminal
     export TERM=screen-256color
-    
+
     ## changing title of tmux window on executing command
     function _update_window_title() {
         emulate -L zsh
@@ -147,7 +147,7 @@ setopt list_types
 
 ## additional completions by https://github.com/zsh-users/zsh-completions
 if [ -d /usr/local/share/zsh-completions ]; then
-    fpath=(/usr/local/share/zsh-completions $fpath)    
+    fpath=(/usr/local/share/zsh-completions $fpath)
 fi
 
 ## git completion for linux (not installed zsh/git by homebrew)
