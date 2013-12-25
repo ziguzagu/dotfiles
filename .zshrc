@@ -113,7 +113,7 @@ alias prove="prove -lv --timer"
 alias ack="ack --color"
 alias grep="grep --binary-files=without-match --color=auto"
 alias ce="carton exec"
-alias minicpanm="cpanm --mirror ~/minicpan --mirror-only"
+alias cpanl="cpanm --mirror ~/minicpan --mirror-only"
 
 ## global alias
 alias -g M="| more"
