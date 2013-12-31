@@ -1,5 +1,5 @@
 #!/bin/sh
-# test
+
 cmd=`basename $0`
 dotdir="$PWD"
 dirs=`find . -type d | \grep -v .git | sed -e 's/^\.\///;/^$/d;'`
