@@ -20,6 +20,10 @@
 (setq-default js2-basic-offset 2)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
+;;;;;; coffee-mode
+(el-get 'sync 'coffee-mode)
+(custom-set-variables '(coffee-tab-width 2))
+
 ;;;;;; utilities
 (defun escape-html-region (start end)
   "Escape '&<>' characters in the region using '&amp;', '&lt;', and '&gt;'."
