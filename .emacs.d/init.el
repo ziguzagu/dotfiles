@@ -59,6 +59,9 @@
         (:name plenv
                :type github
                :pkgname "karupanerura/plenv.el")
+        (:name nginx-mode
+               :type github
+               :pkgname "ajc/nginx-mode")
         ))
 ;; download
 (el-get 'sync)
