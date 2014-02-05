@@ -112,8 +112,8 @@ alias uc="tr '[:lower:]' '[:upper:]'"
 alias prove="prove -lv --timer"
 alias ack="ack --color"
 alias grep="grep --binary-files=without-match --color=auto"
-alias ce="carton exec"
 alias cpanl="cpanm --mirror ~/minicpan --mirror-only"
+alias v="vagrant"
 
 ## global alias
 alias -g M="| more"
