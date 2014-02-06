@@ -86,8 +86,12 @@
 (push '("*vc-diff*" :height 20) popwin:special-display-config)
 (push '("*vc-change-log*" :height 20) popwin:special-display-config)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; markdown
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (el-get 'sync 'markdown-mode)
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . gfm-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; org
