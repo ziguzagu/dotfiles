@@ -92,6 +92,18 @@
 (el-get 'sync 'markdown-mode)
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . gfm-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
+(set-face-attribute 'markdown-header-delimiter-face nil
+                    :foreground "orange")
+(set-face-attribute 'markdown-header-face nil
+                    :foreground "orange")
+(set-face-attribute 'markdown-inline-code-face nil
+                    :foreground "darkolivegreen3")
+(set-face-attribute 'markdown-pre-face nil
+                    :foreground "darkolivegreen3")
+(set-face-attribute 'markdown-language-keyword-face nil
+                    :foreground "gray52")
+(set-face-attribute 'markdown-link-face nil
+                    :foreground "color-69")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; org
