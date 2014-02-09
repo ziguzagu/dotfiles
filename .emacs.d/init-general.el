@@ -94,6 +94,8 @@
 (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
 (set-face-attribute 'markdown-header-delimiter-face nil
                     :foreground "orange")
+(set-face-attribute 'markdown-header-rule-face nil
+                    :foreground "orange")
 (set-face-attribute 'markdown-header-face nil
                     :foreground "orange")
 (set-face-attribute 'markdown-inline-code-face nil
