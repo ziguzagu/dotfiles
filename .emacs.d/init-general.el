@@ -104,8 +104,10 @@
                     :foreground "darkolivegreen3")
 (set-face-attribute 'markdown-language-keyword-face nil
                     :foreground "gray52")
+(set-face-attribute 'markdown-list-face nil
+                    :foreground "mediumpurple1" :weight 'bold)
 (set-face-attribute 'markdown-link-face nil
-                    :foreground "color-69")
+                    :foreground "color-75")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; org
