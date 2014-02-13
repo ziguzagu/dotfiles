@@ -35,14 +35,14 @@
 ;; el-get
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-;; install el-get and use master branch
+
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
       (url-retrieve-synchronously
        "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
-    (let (el-get-master-branch)
-      (goto-char (point-max))
-      (eval-print-last-sexp))))
+    (goto-char (point-max))
+    (eval-print-last-sexp)))
+
 ;; extra recepies
 (setq el-get-sources
       '(
@@ -63,7 +63,7 @@
                :type github
                :pkgname "ajc/nginx-mode")
         ))
-;; download
+
 (el-get 'sync)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
