@@ -87,6 +87,13 @@
 (push '("*vc-change-log*" :height 20) popwin:special-display-config)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; sql
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-hook 'sql-mode-hook
+          (lambda ()
+            (sql-highlight-mysql-keywords)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; markdown
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (el-get 'sync 'markdown-mode)
