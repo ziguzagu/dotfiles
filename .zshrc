@@ -212,14 +212,14 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-st git-stash
 ## Show remote ref name and number of commits ahead-of or behind
 function +vi-git-st () {
     ## get remote's "repos/branch"
-    local remote=${$(\git rev-parse --verify ${hook_com[branch]}@{upstream} --symbolic-full-name 2>/dev/null)/refs\/remotes\/}
+    local remote=${$(command git rev-parse --verify ${hook_com[branch]}@{upstream} --symbolic-full-name 2>/dev/null)/refs\/remotes\/}
 
     if [[ -n "$remote" ]]; then
         local -a gitstatus
-        local ahead=${$(\git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l)/\s/}
+        local ahead=${$(command git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l)/\s/}
         (( $ahead )) && gitstatus+=( "+$ahead" )
 
-        local behind=${$(\git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)/\s/}
+        local behind=${$(command git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)/\s/}
         (( $behind )) && gitstatus+=( "-$behind" )
 
         if [[ -n "$gitstatus" ]]; then
@@ -231,7 +231,7 @@ function +vi-git-st () {
 function +vi-git-stash() {
     local -a stashes counter
     if [[ -s ${hook_com[base]}/.git/refs/stash ]] ; then
-        stashes=$(git stash list 2>/dev/null | wc -l)
+        stashes=$(command git stash list 2>/dev/null | wc -l)
         (( $stashes )) && hook_com[misc]+="stashed:${stashes}";
     fi
 }
