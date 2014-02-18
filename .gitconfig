@@ -32,7 +32,7 @@ st = status -sb
 co = checkout
 pick = cherry-pick
 br = branch
-hist = log --graph --pretty=format:'%C(blue bold)%h%C(cyan)%d%Creset %s %C(black bold)(%ci)%Creset' --decorate
+hist = log --graph --pretty=format:'%C(yellow bold)%h%C(cyan)%d%Creset %s %C(black bold)(%ci)%Creset' --decorate
 last = log -1 HEAD
 info = config --get remote.origin.url
 upstream = "!sh -c 'git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null'"
