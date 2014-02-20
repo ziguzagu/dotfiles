@@ -46,6 +46,9 @@
 ;; extra recepies
 (setq el-get-sources
       '(
+        (:name anything-show-completion
+               :type http
+               :url "http://www.emacswiki.org/cgi-bin/wiki/download/anything-show-completion.el")
         (:name anything-c-moccur
                :type http
                :url "http://svn.coderepos.org/share/lang/elisp/anything-c-moccur/trunk/anything-c-moccur.el"
