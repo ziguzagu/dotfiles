@@ -48,7 +48,10 @@
       '(
         (:name anything-show-completion
                :type http
-               :url "http://www.emacswiki.org/cgi-bin/wiki/download/anything-show-completion.el")
+               :url "http://www.emacswiki.org/emacs/download/anything-show-completion.el")
+        (:name perl-completion
+               :type http
+               :url "http://www.emacswiki.org/emacs/download/perl-completion.el")
         (:name anything-c-moccur
                :type http
                :url "http://svn.coderepos.org/share/lang/elisp/anything-c-moccur/trunk/anything-c-moccur.el"
