@@ -9,9 +9,9 @@ set show-refs      = yes
 
 # general
 color   default                 255     0
-color   cursor                  255     196
-color   title-focus             255     240
-color   title-blur              255     240
+color   cursor                  255     160
+color   title-focus             255     238
+color   title-blur              255     238
 color   delimiter               213     default
 color   author                  156     default
 color   date                    15      default
