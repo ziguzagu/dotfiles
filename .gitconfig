@@ -19,6 +19,12 @@ current = green bold
 local = yellow
 remote = magenta
 
+[color "grep"]
+filename   = green
+linenumber = blue bold
+function   = cyan
+match      = red ul
+
 [core]
 excludesfile = ~/.gitignore
 whitespace = trailing-space
@@ -40,6 +46,7 @@ remaster = "!sh -c 'branch=`git rev-parse --abbrev-ref HEAD` && git co master &&
 ## for hub
 web = browse
 pr  = pull-request
+ag  = grep --heading --break --line-number --color --show-function
 
 [push]
 default = current
