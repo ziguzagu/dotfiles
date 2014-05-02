@@ -1,0 +1,6 @@
+#name : sub
+# --
+sub ${1:method} {
+    my \$${2:self} = shift;
+    $0
+}
