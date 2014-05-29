@@ -185,7 +185,6 @@ setopt hist_ignore_space
 setopt share_history
 setopt hist_no_store
 setopt pushd_ignore_dups
-function history-all { history -E 1 }
 zstyle ':completion:*:default' menu select=1
 
 ########################################
