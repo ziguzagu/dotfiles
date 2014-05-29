@@ -161,6 +161,8 @@ autoload -U compinit && compinit -u
 
 ## case insensitive at completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+## colorized completion
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 ## git
 if which hub > /dev/null; then
