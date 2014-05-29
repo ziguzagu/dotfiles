@@ -261,6 +261,21 @@ PROMPT=$'\n''$(_render_prompt)'
 zle_highlight=(isearch:underline,fg=red region:fg=black,bg=yellow special:standout,fg=blue suffix:bold)
 
 ########################################
+## zaw
+########################################
+source ~/.zaw/zaw.zsh
+
+zstyle ':filter-select:highlight' selected fg=214,bg=238
+zstyle ':filter-select:highlight' title fg=226
+zstyle ':filter-select:highlight' matched fg=117
+zstyle ':filter-select' case-insensitive yes
+zstyle ':filter-select' max-lines 10
+zstyle ':filter-select' extended-search yes
+
+bindkey '^r'   zaw-history
+bindkey '^x^f' zaw-git-files
+
+########################################
 ## Misc
 ########################################
 
@@ -289,4 +304,3 @@ function pmver() { perl -m$1 -e 'print "$'$1'::VERSION\n"' }
 if [ -f ~/.zshrc.6a ]; then
     source ~/.zshrc.6a
 fi
-
