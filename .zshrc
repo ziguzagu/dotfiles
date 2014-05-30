@@ -274,6 +274,26 @@ zstyle ':filter-select' extended-search yes
 bindkey '^r'   zaw-history
 bindkey '^x^f' zaw-git-files
 
+## completion directories in git repos and cd
+function zaw-src-gitdir() {
+    local -a dir ret
+    dir=$(git rev-parse --show-cdup 2>/dev/null)
+    ret=$?
+    if (( ret != 0 )); then
+        return ret
+    fi
+    candidates=( $(git ls-files ${dir} | xargs dirname - | sort -u) )
+    actions=("zaw-src-gitdir-cd")
+    act_descriptions=("cd")
+    return 0
+}
+function zaw-src-gitdir-cd() {
+    BUFFER="cd $1"
+    zle accept-line
+}
+zaw-register-src -n gitdir zaw-src-gitdir
+bindkey '^xd' zaw-gitdir
+
 ########################################
 ## Misc
 ########################################
