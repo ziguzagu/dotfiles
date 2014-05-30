@@ -45,8 +45,9 @@ export LESS_TERMCAP_us=$'\E[04;36m'  # begin underline - (underline, cyan)
 export PAGER=less
 export GIT_PAGER="less -FX"
 
-export EDITOR="emacsclient -t"
+export EDITOR=e
 export ALTERNATE_EDITOR=vi
+export GIT_EDITOR="emacsclient -t"
 
 ########################################
 ## Misc
