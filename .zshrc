@@ -294,6 +294,16 @@ function zaw-src-gitdir-cd() {
 zaw-register-src -n gitdir zaw-src-gitdir
 bindkey '^xd' zaw-gitdir
 
+## completion strings displayed in current tmux pane
+function zaw-src-tmux-pane-strings() {
+    candidates=($(tmux capture-pane\; show-buffer \; delete-buffer | sed '/^$/d' | sed '$ d'))
+    actions=("zaw-callback-append-to-buffer")
+    act_descriptions=("append to edit buffer")
+    return 0
+}
+zaw-register-src -n tmux-pane-strings zaw-src-tmux-pane-strings
+bindkey '^x^o' zaw-tmux-pane-strings
+
 ########################################
 ## Misc
 ########################################
