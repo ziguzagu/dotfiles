@@ -271,7 +271,7 @@ zstyle ':filter-select' case-insensitive yes
 zstyle ':filter-select' max-lines 10
 zstyle ':filter-select' extended-search yes
 
-bindkey '^r'   zaw-history
+bindkey '^x^r'   zaw-history
 bindkey '^x^f' zaw-git-files-legacy
 
 ## completion directories in git repos and cd
