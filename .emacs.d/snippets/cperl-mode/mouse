@@ -1,0 +1,31 @@
+#name : mouse
+# --
+package ${1:module};
+
+use Mouse;
+
+$0
+
+no Mouse;
+
+
+
+__PACKAGE__->meta->make_immutable;
+
+__END__
+
+=pod
+
+=head1 NAME
+
+$1 -
+
+=head1 SYNOPSIS
+
+  use $1;
+
+=head1 DESCRIPTION
+
+$1 is
+
+=cut
