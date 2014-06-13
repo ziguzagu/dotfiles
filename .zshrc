@@ -264,7 +264,7 @@ zle_highlight=(isearch:underline,fg=red region:fg=black,bg=yellow special:stando
 ########################################
 source ~/.zaw/zaw.zsh
 
-zstyle ':filter-select:highlight' selected fg=214,bg=238
+zstyle ':filter-select:highlight' selected fg=117,bg=238
 zstyle ':filter-select:highlight' title fg=226
 zstyle ':filter-select:highlight' matched fg=117
 zstyle ':filter-select' case-insensitive yes
