@@ -296,7 +296,7 @@ bindkey '^xd' zaw-gitdir
 
 ## completion strings displayed in current tmux pane
 function zaw-src-tmux-pane-strings() {
-    candidates=($(tmux capture-pane\; show-buffer \; delete-buffer | sed -e '/^$/d' -e '$ d' -e "/^$USER@/d" -e '/[➜✘]/d'))
+    candidates=($(tmux capture-pane\; show-buffer \; delete-buffer | sed -e '/^$/d' -e '$ d' -e "/^$USER@/d" -e '/^[➜✘]/d'))
     actions=("zaw-callback-append-to-buffer")
     act_descriptions=("append to edit buffer")
     return 0
