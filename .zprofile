@@ -23,6 +23,8 @@ typeset -U PATH
 
 export MANPATH="/usr/local/share/man:$MANPATH"
 
+export GOPATH=$HOME
+
 ########################################
 ## Editor and Pager
 ########################################
