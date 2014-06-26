@@ -121,6 +121,7 @@ alias -g L="| less"
 alias -g H="| head"
 alias -g G="| grep"
 alias -g GV="| grep -v"
+alias -g P="| peco"
 
 ## sets keybind like emacs
 bindkey -e
