@@ -4,7 +4,7 @@ set main-view = id:yes date:short author:abbreviated,width=12 commit-title:yes,g
 
 # general
 color   default                 255     0
-color   cursor                  255     33
+color   cursor                  255     24
 color   title-focus             255     238
 color   title-blur              255     238
 color   delimiter               213     default
