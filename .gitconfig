@@ -44,6 +44,8 @@ info = config --get remote.origin.url
 upstream = "!sh -c 'git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null'"
 remaster = "!sh -c 'branch=`git rev-parse --abbrev-ref HEAD` && git co master && git pull origin master && git co $branch && git rebase master'"
 ag  = grep --heading --break --line-number --color --show-function
+setup-pr = "config --add remote.origin.fetch +refs/pull/*/head:refs/remotes/origin/pr/*"
+
 ## for hub
 web = browse
 pr  = pull-request
