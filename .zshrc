@@ -1,5 +1,7 @@
 ## -*- mode: shell-script; -*-
 
+CACHEDIR="$HOME/.cache"
+
 autoload -Uz add-zsh-hook
 
 export SHELL=`which zsh`
@@ -7,6 +9,8 @@ export SHELL=`which zsh`
 if which dircolors > /dev/null; then
     eval "$(dircolors ~/.dircolors)"
 fi
+
+test -d $CACHEDIR || mkdir $CACHEDIR
 
 ########################################
 ## Development
@@ -93,6 +97,22 @@ if [ -n "$TMUX" ]; then
 fi
 
 ########################################
+## cdr
+########################################
+
+autoload -Uz chpwd_recent_dirs cdr
+
+function _post_chpwd {
+    chpwd_recent_dirs
+    ls
+}
+add-zsh-hook chpwd _post_chpwd
+
+zstyle ':chpwd:*' recent-dirs-max 500
+zstyle ':chpwd:*' recent-dirs-file "$CACHEDIR/chpwd-recent-dirs"
+zstyle ':chpwd:*' recent-dirs-pushd true
+
+########################################
 ## Aliases
 ########################################
 
@@ -131,10 +151,6 @@ setopt auto_cd
 setopt auto_pushd
 setopt auto_name_dirs
 setopt extended_glob
-
-## ls after cd
-function _post_chpwd() { ls }
-add-zsh-hook chpwd _post_chpwd
 
 ########################################
 ## Completion
@@ -331,11 +347,6 @@ setopt no_list_beep
 
 ## no coredump
 limit coredumpsize 0
-
-## z
-if [ -f /usr/local/etc/profile.d/z.sh ]; then
-    source /usr/local/etc/profile.d/z.sh
-fi
 
 ## pmtools
 function pmver() { perl -m$1 -e 'print "$'$1'::VERSION\n"' }
