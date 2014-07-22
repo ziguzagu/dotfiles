@@ -30,11 +30,6 @@ if which pyenv > /dev/null; then
     eval "$(pyenv init -)"
 fi
 
-## hive installed by homebrew on mac
-if which hive > /dev/null; then
-    export HIVE_HOME=/usr/local/Cellar/hive/0.9.0/libexec
-fi
-
 ########################################
 ## Tmux
 ########################################
