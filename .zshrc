@@ -97,22 +97,6 @@ if [ -n "$TMUX" ]; then
 fi
 
 ########################################
-## cdr
-########################################
-
-autoload -Uz chpwd_recent_dirs cdr
-
-function _post_chpwd {
-    chpwd_recent_dirs
-    ls
-}
-add-zsh-hook chpwd _post_chpwd
-
-zstyle ':chpwd:*' recent-dirs-max 500
-zstyle ':chpwd:*' recent-dirs-file "$CACHEDIR/chpwd-recent-dirs"
-zstyle ':chpwd:*' recent-dirs-pushd true
-
-########################################
 ## Aliases
 ########################################
 
@@ -275,6 +259,22 @@ PROMPT=$'\n''$(_render_prompt)'
 
 ## command line coloring
 zle_highlight=(isearch:underline,fg=red region:fg=black,bg=yellow special:standout,fg=blue suffix:bold)
+
+########################################
+## cdr
+########################################
+
+autoload -Uz chpwd_recent_dirs cdr
+
+function _post_chpwd {
+    chpwd_recent_dirs
+    ls
+}
+add-zsh-hook chpwd _post_chpwd
+
+zstyle ':chpwd:*' recent-dirs-max 500
+zstyle ':chpwd:*' recent-dirs-file "$CACHEDIR/chpwd-recent-dirs"
+zstyle ':chpwd:*' recent-dirs-pushd true
 
 ########################################
 ## zaw
