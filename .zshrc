@@ -170,8 +170,7 @@ compdef g=git
 ## History
 ########################################
 
-[ -d $HOME/.zsh.d ] || mkdir $HOME/.zsh.d
-HISTFILE=$HOME/.zsh.d/history
+HISTFILE=$CACHEDIR/history
 HISTSIZE=100000
 SAVEHIST=100000
 setopt hist_ignore_all_dups
