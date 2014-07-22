@@ -300,16 +300,22 @@ function zaw-src-gitdir() {
         return ret
     fi
     candidates=( $(git ls-files ${dir} | xargs dirname - | sort -u) )
-    actions=("zaw-src-gitdir-cd")
+    actions=("zaw-src-cdr-cd")
     act_descriptions=("cd")
     return 0
 }
-function zaw-src-gitdir-cd() {
-    BUFFER="cd $1"
-    zle accept-line
-}
 zaw-register-src -n gitdir zaw-src-gitdir
 bindkey '^xd' zaw-gitdir
+
+## ghq list directories source
+function zaw-src-ghq-cdr() {
+    candidates=( $(command ghq list -p) $(cdr -l | awk '{print $2}') )
+    actions=("zaw-src-cdr-cd")
+    act_descriptions=("cd")
+    return 0
+}
+zaw-register-src -n ghq-cdr zaw-src-ghq-cdr
+bindkey '^xb' zaw-ghq-cdr
 
 ## completion strings displayed in current tmux pane
 function zaw-src-tmux-pane-strings() {
