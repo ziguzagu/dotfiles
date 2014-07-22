@@ -151,12 +151,6 @@ if [ -d /usr/local/share/zsh-completions ]; then
     fpath=(/usr/local/share/zsh-completions $fpath)
 fi
 
-## git completion for linux (not installed zsh/git by homebrew)
-if [ "$(uname)" != "Darwin" ]; then
-    zstyle ':completion:*:*:git:*' script ~/.zsh.d/completion/git-completion.bash
-    fpath=(~/.zsh.d/completion $fpath)
-fi
-
 ## init completion (without secure check -u)
 autoload -U compinit && compinit -u
 
