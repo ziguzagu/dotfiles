@@ -80,7 +80,6 @@
 (global-set-key "\C-x9" 'window-toggle-split)
 
 ;; popwin
-(el-get 'sync 'popwin)
 (require 'popwin)
 (setq display-buffer-function 'popwin:display-buffer)
 (push '("*vc-diff*" :height 20) popwin:special-display-config)
@@ -96,7 +95,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; markdown
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(el-get 'sync 'markdown-mode)
+(require 'markdown-mode)
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . gfm-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . gfm-mode))
 (add-hook 'markdown-mode-hook
@@ -121,7 +120,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; org
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(el-get 'sync 'org-mode)
+;(require 'org-mode)
 (setq org-directory "~/Dropbox/org/")
 (setq org-default-notes-file (concat org-directory "notes.org"))
 ;; org-capture

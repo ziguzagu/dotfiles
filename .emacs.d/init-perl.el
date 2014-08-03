@@ -36,8 +36,8 @@
 ;;                 exec-path))
 
 ;; setup PATH and etc form plenv
-(el-get 'sync 'plenv)
-(require 'plenv)
+;; (el-get 'sync 'plenv)
+;; (require 'plenv)
 ;; (plenv-global "5.16.2")
 
 ;; ffap with perldoc
@@ -62,7 +62,6 @@
             (define-key cperl-mode-map "\C-cT" 'perltidy-buffer)))
 
 ;; perl-completion
-(el-get 'sync 'perl-completion)
 (add-hook 'cperl-mode-hook
           (lambda ()
             (require 'perl-completion)

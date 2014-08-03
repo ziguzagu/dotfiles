@@ -32,51 +32,16 @@
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; el-get
+;; cask
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-
-(unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-      (url-retrieve-synchronously
-       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
-    (goto-char (point-max))
-    (eval-print-last-sexp)))
-
-;; extra recepies
-(setq el-get-sources
-      '(
-        (:name anything-show-completion
-               :type http
-               :url "http://www.emacswiki.org/emacs/download/anything-show-completion.el")
-        (:name perl-completion
-               :type http
-               :url "http://www.emacswiki.org/emacs/download/perl-completion.el")
-        (:name anything-c-moccur
-               :type http
-               :url "http://svn.coderepos.org/share/lang/elisp/anything-c-moccur/trunk/anything-c-moccur.el"
-               :depends (anything color-moccur))
-        (:name dabbrev-highlight
-               :type http
-               :url "http://www.namazu.org/~tsuchiya/elisp/dabbrev-highlight.el")
-        (:name vcl-mode
-               :type http
-               :url "https://raw.github.com/ssm/elisp/master/vcl-mode.el")
-        (:name plenv
-               :type github
-               :pkgname "karupanerura/plenv.el")
-        (:name nginx-mode
-               :type github
-               :pkgname "ajc/nginx-mode")
-        ))
-
-(el-get 'sync)
+(require 'cask)
+(cask-initialize)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; initialize 
+;; initialize
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (load "init-appearance")
-(load "init-minibuffer")
+;; (load "init-minibuffer")
 (load "init-scratch")
 (load "init-dired")
 (load "init-shell")
@@ -84,8 +49,8 @@
 (load "init-general")
 (load "init-complete")
 (load "init-anything")
-(load "init-migemo")
-(load "init-sdic")
+;; (load "init-migemo")
+;; (load "init-sdic")
 
 (load "init-cpp")
 (load "init-perl")

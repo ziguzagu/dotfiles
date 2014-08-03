@@ -1,4 +1,4 @@
-(el-get 'sync 'anything)
+(require 'anything)
 (require 'anything-config)
 (require 'anything-match-plugin)
 
@@ -38,18 +38,15 @@
 (global-set-key (kbd "C-c m") 'my-woman)
 
 ;; color-moccur and ...
-(el-get 'sync 'color-moccur)
 (require 'color-moccur)
 (setq moccur-split-word t)
 
 ;; then anything-c-moccur
-(el-get 'sync 'anything-c-moccur)
-(require 'anything-c-moccur)
-(setq anything-c-moccur-enable-auto-look-flag t)
-(global-set-key (kbd "M-o") 'anything-c-moccur-occur-by-moccur)
+;(require 'anything-c-moccur)
+;(setq anything-c-moccur-enable-auto-look-flag t)
+;(global-set-key (kbd "M-o") 'anything-c-moccur-occur-by-moccur)
 
 ;; improve anything UI
-(el-get 'sync 'anything-show-completion)
 (require 'anything-show-completion)
 
 ;; popwin with anything

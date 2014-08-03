@@ -4,7 +4,6 @@
                 ("\\.cfg$"  . conf-mode)) auto-mode-alist))
 
 ;;;;;; yaml
-(el-get 'sync 'yaml-mode)
 (autoload 'yaml-mode "yaml-mode" nil t)
 (setq auto-mode-alist
       (append '(("\\.yml$" . yaml-mode)
@@ -14,7 +13,6 @@
              (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
 
 ;;;;;; vcl mode
-(el-get 'sync 'vcl-mode)
 (autoload 'vcl-mode "vcl-mode" "Major mode for editting varnish config file")
 (add-to-list 'auto-mode-alist '("\\.vcl$" . vcl-mode))
 (add-to-list 'auto-mode-alist '("\\.vtc$" . vcl-mode))
@@ -23,9 +21,8 @@
             (setq vcl-indent-level 4)))
 
 ;;;;;; puppet mode
-(el-get 'sync 'puppet-mode)
 (autoload 'puppet-mode "puppet-mode" "Major mode for editing puppet manifests")
 (add-to-list 'auto-mode-alist '("\\.pp$" . puppet-mode))
 
 ;;;;;; nginx mode
-(el-get 'sync 'nginx-mode)
+(autoload 'nginx-mode "nginx-mode" nil t)
