@@ -6,7 +6,6 @@
 (add-to-list 'auto-mode-alist '("\\.tx$"   . sgml-mode))
 
 ;;;;;; css-mode
-(el-get 'sync 'scss-mode)
 (autoload 'scss-mode "scss-mode")
 (add-to-list 'auto-mode-alist '("\\.css$" . scss-mode))
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
@@ -15,13 +14,13 @@
           (setq scss-compile-at-save nil))
 
 ;;;;;; js2-mode
-(el-get 'sync 'js2-mode)
 (autoload 'js2-mode "js2-mode" nil t)
 (setq-default js2-basic-offset 2)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;;;;;; coffee-mode
-(el-get 'sync 'coffee-mode)
+(autoload 'js2-mode "coffee-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
 (custom-set-variables '(coffee-tab-width 2))
 
 ;;;;;; utilities
