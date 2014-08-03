@@ -1,9 +1,9 @@
 ;;;;;; use sgml-mode for editting HTML
-(autoload 'sgml-mode "sgml-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.html$" . sgml-mode))
-(add-to-list 'auto-mode-alist '("\\.tmpl$" . sgml-mode))
-(add-to-list 'auto-mode-alist '("\\.tt$"   . sgml-mode))
-(add-to-list 'auto-mode-alist '("\\.tx$"   . sgml-mode))
+(autoload 'web-mode "web-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tmpl$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tt$"   . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tx$"   . web-mode))
 
 ;;;;;; css-mode
 (autoload 'scss-mode "scss-mode")
