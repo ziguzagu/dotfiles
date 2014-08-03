@@ -1,3 +1,4 @@
+;; -*- mode: lisp-interaction; syntax: elisp; coding: utf-8 -*-
 (source gnu)
 (source melpa)
 (source marmalade)
