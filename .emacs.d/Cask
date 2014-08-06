@@ -2,6 +2,7 @@
 (source gnu)
 (source melpa)
 (source marmalade)
+(source org)
 
 (depends-on "cask")
 (depends-on "exec-path-from-shell")
@@ -30,7 +31,7 @@
 (depends-on "markdown-mode")
 (depends-on "go-mode")
 
-(depends-on "org")
+(depends-on "org-plus-contrib")
 
 ;; need to estimate the value to add
 ;(depends-on "bind-key")
