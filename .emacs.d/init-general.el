@@ -79,6 +79,14 @@
     (other-window -1)))
 (global-set-key "\C-x9" 'window-toggle-split)
 
+;; split window or move other window by one keybind
+(defun other-window-or-split ()
+  (interactive)
+  (when (one-window-p)
+    (split-window-horizontally))
+  (other-window 1))
+(global-set-key (kbd "C-z") 'other-window-or-split)
+
 ;; popwin
 (require 'popwin)
 (setq display-buffer-function 'popwin:display-buffer)
