@@ -187,8 +187,8 @@ fi
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' unstagedstr '%F{white}￭￭%f'
-zstyle ':vcs_info:git:*' stagedstr '%F{red}￭￭%f'
+zstyle ':vcs_info:git:*' unstagedstr '%F{red}✹ %f'
+zstyle ':vcs_info:git:*' stagedstr '%F{green}%B✚ %b%f'
 zstyle ':vcs_info:*' formats '%F{yellow}(%s:%b)%f %c%u %F{magenta}%m%f'
 zstyle ':vcs_info:*' actionformats '%F{red}(%s:%b!%a)%f %c%u %F{magenta}%m%f'
 zstyle ':vcs_info:git*+set-message:*' hooks git-st git-stash
