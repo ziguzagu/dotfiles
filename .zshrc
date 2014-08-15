@@ -107,6 +107,11 @@ alias ack="ack --color"
 alias grep="grep --binary-files=without-match --color=auto"
 alias cpanl="cpanm --mirror ~/minicpan --mirror-only"
 alias v="vagrant"
+if [[ -x `which colordiff` ]]; then
+    alias diff="colordiff -u"
+else
+    alias diff='diff -u'
+fi
 
 ## global alias
 alias -g M="| more"
