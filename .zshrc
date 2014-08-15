@@ -6,7 +6,7 @@ autoload -Uz add-zsh-hook
 
 export SHELL=`which zsh`
 
-if which dircolors > /dev/null; then
+if [[ -x `which dircolors` ]]; then
     eval "$(dircolors ~/.dircolors)"
 fi
 
@@ -17,16 +17,16 @@ test -d $CACHEDIR || mkdir $CACHEDIR
 ########################################
 
 ## trying to use plenv then local::lib
-if which plenv > /dev/null; then
+if [[ -x `which plenv` ]]; then
     eval "$(plenv init -)"
 elif [ -z "$PERL5LIB" ]; then
     eval `perl -Iperl5/lib/perl5 -Mlocal::lib 2>/dev/null`
 fi
 
-if which rbenv > /dev/null; then
+if [[ -x `which rbenv` ]]; then
     eval "$(rbenv init -)"
 fi
-if which pyenv > /dev/null; then
+if [[ -x `which pyenv` ]]; then
     eval "$(pyenv init -)"
 fi
 
@@ -154,7 +154,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 ## git
-if which hub > /dev/null; then
+if [[ -x `which hub` ]]; then
     alias git="hub"
 fi
 alias g="git"
