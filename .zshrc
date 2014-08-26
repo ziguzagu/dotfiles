@@ -277,6 +277,7 @@ zstyle ':filter-select' extended-search yes
 
 bindkey '^x^r' zaw-history
 bindkey '^x^f' zaw-git-files-legacy
+bindkey '^x^b' zaw-git-recent-branches
 
 ## completion directories in git repos and cd
 function zaw-src-gitdir() {
