@@ -107,6 +107,7 @@ alias ack="ack --color"
 alias grep="grep --binary-files=without-match --color=auto"
 alias cpanl="cpanm --mirror ~/minicpan --mirror-only"
 alias v="vagrant"
+alias vup="vagrant up && vagrant ssh"
 if [[ -x `which colordiff` ]]; then
     alias diff="colordiff -u"
 else
