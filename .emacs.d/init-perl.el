@@ -26,6 +26,9 @@
 (add-to-list 'auto-mode-alist '("\\.psgi$" . cperl-mode))
 (add-to-list 'auto-mode-alist '("\\.t$" . cperl-mode))
 
+;; plenv
+(require 'plenv)
+
 ;; setup PATH for perlbrew to find correct perldoc, perltidy and some commands installed by perlbrew
 ;; (load "cl-seq")
 ;; (mapc (lambda (x) (add-to-list 'exec-path x))
