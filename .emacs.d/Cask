@@ -30,6 +30,7 @@
 (depends-on "yaml-mode")
 (depends-on "markdown-mode")
 (depends-on "go-mode")
+(depends-on "plenv")
 
 (depends-on "org-plus-contrib")
 
