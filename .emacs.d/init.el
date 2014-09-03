@@ -54,6 +54,7 @@
 ;; (load "init-migemo")
 ;; (load "init-sdic")
 
+(load "init-coding")
 (load "init-cpp")
 (load "init-perl")
 (load "init-html")
