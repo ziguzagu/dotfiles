@@ -6,4 +6,5 @@
   (let ((name (file-relative-name file)))
     (vc-git-command buf 'async nil "blame" "--date=iso" rev "--" name)))
 
-; (add-hook 'after-init-hook #'global-flycheck-mode)
+;; enable flycheck globally
+(add-hook 'after-init-hook #'global-flycheck-mode)
