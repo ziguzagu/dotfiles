@@ -29,20 +29,6 @@
 ;; plenv
 (require 'plenv)
 
-;; setup PATH for perlbrew to find correct perldoc, perltidy and some commands installed by perlbrew
-;; (load "cl-seq")
-;; (mapc (lambda (x) (add-to-list 'exec-path x))
-;;       (mapcar (lambda (x) (concat (getenv "HOME") x))
-;;               (list "/perl5/perlbrew/bin" "/perl5/perlbrew/perls/current/bin")))
-;; (setenv "PATH"
-;;         (reduce (lambda (a b) (concatenate 'string a ":" b))
-;;                 exec-path))
-
-;; setup PATH and etc form plenv
-;; (el-get 'sync 'plenv)
-;; (require 'plenv)
-;; (plenv-global "5.16.2")
-
 ;; ffap with perldoc
 (defun ffap-cperl-mode (file)
   (let ((real-file (shell-command-to-string (concat "perldoc -lm " file))))
@@ -69,3 +55,21 @@
           (lambda ()
             (require 'perl-completion)
             (perl-completion-mode t)))
+
+;; flycheck with Project::Libs
+(flycheck-define-checker perl-project-libs
+    "A perl syntax checker."
+      :command ("perl"
+                "-MProject::Libs lib_dirs => [qw(local/lib/perl5 core/lib typepad/lib mars/lib dolphin/lib)]"
+                "-wc"
+                source-inplace)
+      :error-patterns ((error line-start
+                              (minimal-match (message))
+                              " at " (file-name) " line " line
+                              (or "." (and ", " (zero-or-more not-newline)))
+                              line-end))
+      :modes (cperl-mode))
+(add-hook 'cperl-mode-hook
+          (lambda ()
+            (flycheck-mode t)
+            (setq flycheck-checker 'perl-project-libs)))
