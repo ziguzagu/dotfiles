@@ -7,4 +7,5 @@
     (vc-git-command buf 'async nil "blame" "--date=iso" rev "--" name)))
 
 ;; enable flycheck globally
+(require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
