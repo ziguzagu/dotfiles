@@ -161,6 +161,9 @@ fi
 alias g="git"
 compdef g=git
 
+## awscli installed by homebrew
+test -f /usr/local/share/zsh/site-functions/_aws && source $_
+
 ########################################
 ## History
 ########################################
