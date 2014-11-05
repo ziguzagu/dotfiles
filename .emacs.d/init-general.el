@@ -141,8 +141,6 @@
          "* %<%H:%M:%S>\n %?\n")
         ("a" "Annotation" entry (file (concat org-directory "annon.org"))
          "* %?\n %u\n %i\n %a\n")
-        ("i" "Idea" entry (file (concat org-directory "ideas.org"))
-         "* %?\n %U\n")
         ))
 (global-set-key (kbd "C-c c") 'org-capture)
 ;; hilight lines in code block
