@@ -93,7 +93,6 @@
 (setq popwin:popup-window-position 'bottom)
 (push '("*vc-diff*" :height 20) popwin:special-display-config)
 (push '("*vc-change-log*" :height 20) popwin:special-display-config)
-(push '("*Flycheck error messages*" :height 10 :noselect t) popwin:special-display-config)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; sql
