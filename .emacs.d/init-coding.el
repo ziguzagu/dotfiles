@@ -9,3 +9,8 @@
 ;; enable flycheck globally
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; flycheck-pos-tip extension improves flycheck error display with popup
+(eval-after-load 'flycheck
+  '(custom-set-variables
+    '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages)))

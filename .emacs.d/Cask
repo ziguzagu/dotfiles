@@ -20,6 +20,8 @@
 
 (depends-on "flycheck")
 (depends-on "flycheck-cask")
+(depends-on "flycheck-pos-tip")
+
 (depends-on "puppet-mode")
 (depends-on "web-mode")
 (depends-on "js2-mode")
