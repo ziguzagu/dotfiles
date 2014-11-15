@@ -33,8 +33,10 @@
  '(helm-truncate-lines t)
  '(helm-buffer-max-length 35)
  '(helm-delete-minibuffer-contents-from-point t)
+ ;; skip boring files
  '(helm-ff-skip-boring-files t)
- '(helm-boring-file-regexp-list '("~$" "\\.elc$"))
+ '(helm-boring-file-regexp-list '("~$" "\\.elc$" "^#" "/\.$" "/\.\.$"))
+ ;; shorten
  '(helm-ls-git-show-abs-or-relative 'relative)
  ;; additional source for helm-mini
  '(helm-mini-default-sources '(helm-source-buffers-list
