@@ -7,9 +7,9 @@
 (depends-on "cask")
 (depends-on "exec-path-from-shell")
 
-(depends-on "anything")
-(depends-on "anything-show-completion")
-(depends-on "perl-completion")
+;; helm
+(depends-on "helm")
+(depends-on "helm-ls-git")
 
 (depends-on "popup")
 (depends-on "popwin")

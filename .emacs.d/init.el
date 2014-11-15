@@ -50,7 +50,7 @@
 
 (load "init-general")
 (load "init-complete")
-(load "init-anything")
+(load "init-helm")
 ;; (load "init-migemo")
 ;; (load "init-sdic")
 
