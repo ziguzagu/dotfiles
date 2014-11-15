@@ -300,22 +300,6 @@ function zaw-src-git-recent-branches-checkout () {
 zaw-register-src -n git-recent-branches zaw-src-git-recent-branches
 bindkey '^x^b' zaw-git-recent-branches
 
-## completion directories in git repos and cd
-function zaw-src-gitdir() {
-    local -a dir ret
-    dir=$(git rev-parse --show-cdup 2>/dev/null)
-    ret=$?
-    if (( ret != 0 )); then
-        return ret
-    fi
-    candidates=( $(git ls-files ${dir} | xargs dirname - | sort -u) )
-    actions=("zaw-src-cdr-cd")
-    act_descriptions=("cd")
-    return 0
-}
-zaw-register-src -n gitdir zaw-src-gitdir
-bindkey '^xd' zaw-gitdir
-
 ## ghq list directories source
 function zaw-src-ghq-cdr() {
     candidates=( $(command ghq list -p) $(cdr -l | awk '{print $2}') )
