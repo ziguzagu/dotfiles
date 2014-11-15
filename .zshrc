@@ -283,6 +283,21 @@ zstyle ':filter-select' extended-search yes
 
 bindkey '^x^r' zaw-history
 bindkey '^x^f' zaw-git-files-legacy
+
+## checkout recent used branch
+function zaw-src-git-recent-branches () {
+    command git rev-parse --git-dir >/dev/null 2>&1
+    if [[ $? == 0 ]]; then
+        candidates=( $(command git for-each-ref --format='%(refname:short)' --sort=-committerdate refs/heads) )
+    fi
+    actions=(zaw-src-git-recent-branches-checkout)
+    act_descriptions=("check out")
+}
+function zaw-src-git-recent-branches-checkout () {
+    BUFFER="git checkout $1"
+    zle accept-line
+}
+zaw-register-src -n git-recent-branches zaw-src-git-recent-branches
 bindkey '^x^b' zaw-git-recent-branches
 
 ## completion directories in git repos and cd
