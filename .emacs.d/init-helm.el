@@ -24,6 +24,11 @@
 ;; complete filename by TAB in helm-find-files and helm-read-file
 (define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
 (define-key helm-read-file-map  (kbd "TAB") 'helm-execute-persistent-action)
+;; and prevent to create new buffer by TAB + TAB
+(defadvice helm-ff-kill-or-find-buffer-fname (around execute-only-if-exist activate)
+  "Execute command only if CANDIDATE exists"
+  (when (file-exists-p candidate)
+    ad-do-it))
 
 ;; increase to make helm-source-recentf useful
 (setq recentf-max-saved-items 5000)
@@ -45,7 +50,7 @@
                                helm-source-buffer-not-found)))
 
 ;; enable usual C-h on helm
-(define-key helm-map (kbd "C-h") 'delete-backward-char)
+(define-key helm-map            (kbd "C-h") 'delete-backward-char)
 (define-key helm-find-files-map (kbd "C-h") 'delete-backward-char)
 
 (provide 'init-helm)
