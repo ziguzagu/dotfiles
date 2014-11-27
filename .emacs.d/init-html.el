@@ -19,7 +19,7 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;;;;;; coffee-mode
-(autoload 'js2-mode "coffee-mode" nil t)
+(autoload 'coffee-mode "coffee-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
 (custom-set-variables '(coffee-tab-width 2))
 
