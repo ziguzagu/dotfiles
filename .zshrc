@@ -354,3 +354,15 @@ function pmver() { perl -m$1 -e 'print "$'$1'::VERSION\n"' }
 if [ -f ~/.zshrc.6a ]; then
     source ~/.zshrc.6a
 fi
+
+########################################
+## zsh-syntax-highlighting
+########################################
+source ~/.zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
+
+## tweak styles
+ZSH_HIGHLIGHT_STYLES[path]=none
+ZSH_HIGHLIGHT_STYLES[path_approx]=none
+
+## highlighters
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
