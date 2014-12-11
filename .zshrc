@@ -361,6 +361,7 @@ fi
 source ~/.zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ## tweak styles
+ZSH_HIGHLIGHT_STYLES[unknown-token]=fg:red,underline
 ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_approx]=none
 
