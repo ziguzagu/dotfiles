@@ -11,5 +11,5 @@ my $dir = shift || '';
 my $path = File::Spec->catdir(Cwd::getcwd(), $dir);
 my $app = Plack::App::Directory->new({ root => $path })->to_app;
 my $runner = Plack::Runner->new;
-$runner->parse_options(qw( -p 8800 ));
+$runner->parse_options(qw(-l 127.0.0.1:8800));
 $runner->run($app);
