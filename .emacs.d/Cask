@@ -14,6 +14,7 @@
 (depends-on "popup")
 (depends-on "popwin")
 (depends-on "auto-complete")
+(depends-on "ac-dabbrev")
 (depends-on "yasnippet")
 
 (depends-on "color-moccur")
