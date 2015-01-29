@@ -322,7 +322,7 @@ bindkey '^x^o' zaw-tmux-pane-strings
 
 ## perldoc finding from local/lib/perl5
 function zaw-src-perldoc-local() {
-    candidates=($(command ls local/lib/perl5/**/*.pm))
+    candidates=($(command ls local/lib/perl5/**/*.pm local/lib/perl5/**/*.pod))
     actions=("zaw-callback-perldoc-view")
     act_descriptions=("view perldoc")
     return 0
