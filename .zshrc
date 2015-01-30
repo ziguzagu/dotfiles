@@ -155,6 +155,8 @@ autoload -U compinit && compinit -u
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 ## colorized completion
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+## ignore current directory from ../
+zstyle ':completion:*' ignore-parents parent pwd ..
 
 ## git
 if [[ -x `which hub` ]]; then
