@@ -312,9 +312,9 @@ function zaw-src-ghq-cdr() {
 zaw-register-src -n ghq-cdr zaw-src-ghq-cdr
 bindkey '^xb' zaw-ghq-cdr
 
-## completion strings displayed in current tmux pane
+## completion strings like a filename displayed in current tmux pane
 function zaw-src-tmux-pane-strings() {
-    candidates=($(tmux capture-pane\; show-buffer \; delete-buffer | sed -e '/^$/d' -e '$ d' -e "/^$USER@/d" -e '/^[➜✘]/d'))
+    candidates=($(tmux capture-pane\; show-buffer \; delete-buffer | perl -pne 's/ +/\n/g; print' | sort -u | \grep '[\.\/]'))
     actions=("zaw-callback-append-to-buffer")
     act_descriptions=("append to edit buffer")
     return 0
