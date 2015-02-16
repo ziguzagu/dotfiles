@@ -5,13 +5,18 @@
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete-dict")
 (ac-config-default)
 
-;; replace dabbrev by ac-dabbrev
+;; dabbrev
+(setq dabbrev-case-fold-search t)
+(setq dabbrev-case-replace nil)
+(global-set-key "\C-o" 'dabbrev-expand)
+
+;; dabbrev by ac-dabbrev
 (require 'ac-dabbrev)
 (add-to-list 'ac-sources 'ac-source-dabbrev)
 (defun ac-dabbrev-expand ()
   (interactive)
   (auto-complete '(ac-source-dabbrev)))
-(global-set-key "\C-o" 'ac-dabbrev-expand)
+(global-set-key "\M-o" 'ac-dabbrev-expand)
 
 ;; yasnippet
 (setq yas-trigger-key "M-i")
