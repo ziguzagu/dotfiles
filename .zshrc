@@ -110,6 +110,7 @@ alias v="vagrant"
 alias vup="vagrant up && vagrant ssh"
 alias d="docker"
 alias dvm="boot2docker"
+alias fig="docker-compose"
 
 if [[ -x `which colordiff` ]]; then
     alias diff="colordiff -u"
