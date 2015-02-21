@@ -106,11 +106,6 @@ alias prove="prove -lv --timer"
 alias ack="ack --color"
 alias grep="grep --binary-files=without-match --color=auto"
 alias cpanl="cpanm --mirror ~/minicpan --mirror-only"
-alias v="vagrant"
-alias vup="vagrant up && vagrant ssh"
-alias d="docker"
-alias dvm="boot2docker"
-alias fig="docker-compose"
 
 if [[ -x `which colordiff` ]]; then
     alias diff="colordiff -u"
@@ -165,7 +160,19 @@ if [[ -x `which hub` ]]; then
     alias git="hub"
 fi
 alias g="git"
-compdef g=git
+compdef g="git"
+
+## docker
+alias d="docker"
+alias dvm="boot2docker"
+alias fig="docker-compose"
+compdef d="docker"
+compdef dvm="boot2docker"
+
+## vagrant
+alias v="vagrant"
+alias vup="vagrant up && vagrant ssh"
+compdef v="vagrant"
 
 ## awscli installed by homebrew
 test -f /usr/local/share/zsh/site-functions/_aws && source $_
