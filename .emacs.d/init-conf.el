@@ -26,3 +26,7 @@
 
 ;;;;;; nginx mode
 (autoload 'nginx-mode "nginx-mode" nil t)
+
+;;;;;; dockerfile mode
+(autoload 'dockerfile-mode "dockerfile-mode" nil t)
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
