@@ -95,7 +95,8 @@ fi
 ## Aliases
 ########################################
 
-setopt complete_aliases
+setopt no_complete_aliases
+
 alias emacs="emacs --daemon && emacsclient -t"
 alias ls="ls -F --color=auto"
 alias l="ls -lh"
@@ -112,6 +113,21 @@ if [[ -x `which colordiff` ]]; then
 else
     alias diff='diff -u'
 fi
+
+## git
+if [[ -x `which hub` ]]; then
+    alias git="hub"
+fi
+alias g="git"
+
+## docker
+alias d="docker"
+alias dvm="boot2docker"
+alias fig="docker-compose"
+
+## vagrant
+alias v="vagrant"
+alias vup="vagrant up && vagrant ssh"
 
 ## global alias
 alias -g M="| more"
@@ -154,25 +170,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 ## ignore current directory from ../
 zstyle ':completion:*' ignore-parents parent pwd ..
-
-## git
-if [[ -x `which hub` ]]; then
-    alias git="hub"
-fi
-alias g="git"
-compdef g="git"
-
-## docker
-alias d="docker"
-alias dvm="boot2docker"
-alias fig="docker-compose"
-compdef d="docker"
-compdef dvm="boot2docker"
-
-## vagrant
-alias v="vagrant"
-alias vup="vagrant up && vagrant ssh"
-compdef v="vagrant"
 
 ## awscli installed by homebrew
 test -f /usr/local/share/zsh/site-functions/_aws && source $_
