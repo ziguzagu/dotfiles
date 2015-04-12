@@ -4,6 +4,14 @@
 (add-to-list 'auto-mode-alist '("\\.tmpl$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tt$"   . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tx$"   . web-mode))
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-style-padding 2)
+  (setq web-mode-script-padding 2))
+(add-hook 'web-mode-hook  'my-web-mode-hook)
 
 ;;;;;; css-mode
 (autoload 'scss-mode "scss-mode")
