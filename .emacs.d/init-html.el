@@ -19,6 +19,20 @@
       (let ((web-mode-enable-part-face nil))
         ad-do-it)
     ad-do-it))
+;; JSX syntax checking for web-mode
+(flycheck-define-checker jsxhint-checker
+  "A JSX syntax and style checker based on JSXHint."
+
+  :command ("jsxhint" source)
+  :error-patterns
+  ((error line-start (1+ nonl) ": line " line ", col " column ", " (message) line-end))
+  :modes (web-mode))
+(add-hook 'web-mode-hook
+          (lambda ()
+            (when (equal web-mode-content-type "jsx")
+              ;; enable flycheck
+              (flycheck-select-checker 'jsxhint-checker)
+              (flycheck-mode))))
 
 ;;;;;; css-mode
 (autoload 'scss-mode "scss-mode")
@@ -37,6 +51,17 @@
 (require 'jsx-mode)
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
 (setq jsx-indent-level 2)
+;; syntax checking
+(flycheck-define-checker jsxhint-checker
+  "A JSX syntax and style checker based on JSXHint."
+
+  :command ("jsxhint" source)
+  :error-patterns
+  ((error line-start (1+ nonl) ": line " line ", col " column ", " (message) line-end))
+  :modes (jsx-mode))
+(add-hook 'jsx-mode-hook (lambda ()
+                           (flycheck-select-checker 'jsxhint-checker)
+                           (flycheck-mode)))
 
 ;;;;;; coffee-mode
 (autoload 'coffee-mode "coffee-mode" nil t)
