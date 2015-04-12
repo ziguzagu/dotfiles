@@ -4,6 +4,7 @@
 (add-to-list 'auto-mode-alist '("\\.tmpl$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tt$"   . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tx$"   . web-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
 (defun my-web-mode-hook ()
   "Hooks for Web mode."
   (setq web-mode-markup-indent-offset 2)
@@ -12,6 +13,12 @@
   (setq web-mode-style-padding 2)
   (setq web-mode-script-padding 2))
 (add-hook 'web-mode-hook  'my-web-mode-hook)
+;; JSX syntax highlighting
+(defadvice web-mode-highlight-part (around tweak-jsx activate)
+  (if (equal web-mode-content-type "jsx")
+      (let ((web-mode-enable-part-face nil))
+        ad-do-it)
+    ad-do-it))
 
 ;;;;;; css-mode
 (autoload 'scss-mode "scss-mode")
@@ -25,6 +32,11 @@
 (autoload 'js2-mode "js2-mode" nil t)
 (setq-default js2-basic-offset 2)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
+;;;;;; jsx-mode
+(require 'jsx-mode)
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
+(setq jsx-indent-level 2)
 
 ;;;;;; coffee-mode
 (autoload 'coffee-mode "coffee-mode" nil t)
