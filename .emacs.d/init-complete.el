@@ -21,6 +21,5 @@
 ;; yasnippet
 (setq yas-trigger-key "M-i")
 (require 'yasnippet)
-(setq yas-snippet-dirs '("~/.emacs.d/snippets"
-                         "~/.emacs.d/el-get/yasnippet/snippets"))
+(setq yas-snippet-dirs '("~/.emacs.d/snippets"))
 (yas-global-mode 1)
