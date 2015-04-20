@@ -18,8 +18,8 @@
             (copy-face 'font-lock-variable-name-face 'cperl-array-face)
             (copy-face 'font-lock-variable-name-face 'cperl-hash-face)
             (set-face-foreground 'cperl-nonoverridable-face "yellow")
-            (define-key cperl-mode-map "\M-." 'cperl-perldoc-at-point)
-            (define-key cperl-mode-map "\C-c ." 'cperl-perldoc)))
+            (local-set-key (kbd "M-.") 'cperl-perldoc-at-point)
+            (local-set-key (kbd "C-c .") 'cperl-perldoc)))
 
 (add-to-list 'auto-mode-alist '("\\.cgi$" . cperl-mode))
 (add-to-list 'auto-mode-alist '("\\.p[hlm]$" . cperl-mode))
@@ -47,8 +47,8 @@
     (perltidy-region (point-min) (point-max))))
 (add-hook 'cperl-mode-hook
           (lambda ()
-            (define-key cperl-mode-map "\C-ct" 'perltidy-region)
-            (define-key cperl-mode-map "\C-cT" 'perltidy-buffer)))
+            (local-set-key (kbd "C-c t") 'perltidy-region)
+            (local-set-key (kbd "C-c T") 'perltidy-buffer)))
 
 ;; flycheck with Project::Libs
 (flycheck-define-checker perl-project-libs

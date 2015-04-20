@@ -10,7 +10,7 @@
                 ("\\.yaml$" . yaml-mode)) auto-mode-alist))
 (add-hook 'yaml-mode-hook
           '(lambda ()
-             (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+             (local-set-key (kbd "C-m") 'newline-and-indent)))
 
 ;;;;;; vcl mode
 (autoload 'vcl-mode "vcl-mode" "Major mode for editting varnish config file")
