@@ -50,12 +50,6 @@
             (define-key cperl-mode-map "\C-ct" 'perltidy-region)
             (define-key cperl-mode-map "\C-cT" 'perltidy-buffer)))
 
-;; perl-completion
-(add-hook 'cperl-mode-hook
-          (lambda ()
-            (require 'perl-completion)
-            (perl-completion-mode t)))
-
 ;; flycheck with Project::Libs
 (flycheck-define-checker perl-project-libs
   "A perl syntax checker with Project::Libs."
