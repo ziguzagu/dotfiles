@@ -47,7 +47,7 @@ ag  = grep --heading --break --line-number --color --show-function
 setup-pr = "config --add remote.origin.fetch +refs/pull/*/head:refs/remotes/origin/pr/*"
 
 ## for hub
-web = browse
+web = "!sh -c 'branch=`git rev-parse --abbrev-ref HEAD` && if [ $branch == 'master' ]; then hub browse; else hub browse -- pull/$branch; fi'"
 pr  = pull-request
 
 [push]
