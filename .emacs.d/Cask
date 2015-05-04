@@ -17,6 +17,7 @@
 (depends-on "ac-dabbrev")
 (depends-on "yasnippet")
 (depends-on "expand-region")
+(depends-on "multiple-cursors")
 (depends-on "color-moccur")
 
 (depends-on "flycheck")

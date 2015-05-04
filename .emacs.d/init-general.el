@@ -151,3 +151,12 @@
 (require 'expand-region)
 (global-set-key (kbd "C-]") 'er/expand-region)
 (global-set-key (kbd "M-]") 'er/contract-region)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; multiple-cursors
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'multiple-cursors)
+(global-set-key (kbd "C-M-c") 'mc/edit-lines)
+(global-set-key (kbd "C-M-n") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-M-p") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-M-d") 'mc/mark-all-like-this-dwim)
