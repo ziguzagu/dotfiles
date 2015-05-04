@@ -144,3 +144,10 @@
 (global-set-key (kbd "C-c c") 'org-capture)
 ;; hilight lines in code block
 (setq org-src-fontify-natively t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; expand-region
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'expand-region)
+(global-set-key (kbd "C-]") 'er/expand-region)
+(global-set-key (kbd "C-M-]") 'er/contract-region)
