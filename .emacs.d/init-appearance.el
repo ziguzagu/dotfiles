@@ -65,7 +65,7 @@
 ;; custom face for vc-mode in mode-line
 (make-face 'mode-line-vc-mode-face)
 (set-face-attribute 'mode-line-vc-mode-face nil
-                    :foreground "color-117" :weight 'normal)
+                    :foreground "color-75" :weight 'normal)
 ;; modeline content
 (setq-default mode-line-format
               (list "-"
