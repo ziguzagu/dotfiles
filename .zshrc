@@ -252,7 +252,7 @@ function _render_prompt () {
         path_attr=''
     else
         host_attr='%{\e[0;38;5;208m%}'
-        path_attr='%{\e[0;38;5;117m%}'
+        path_attr='%{\e[0;38;5;75m%}'
     fi
     echo -n "${host_attr}%n@%m:${path_attr}%~%{\e[0m%} ${vcs_info_msg_0_}\n$cursor"
 }
