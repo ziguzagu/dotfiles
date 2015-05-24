@@ -61,7 +61,7 @@
 (set-face-foreground 'mode-line-inactive "gray42")
 (set-face-background 'mode-line-inactive "gray16")
 (set-face-attribute 'mode-line-buffer-id nil
-                    :foreground "color-214" :weight 'normal)
+                    :foreground "color-208" :weight 'normal)
 ;; custom face for vc-mode in mode-line
 (make-face 'mode-line-vc-mode-face)
 (set-face-attribute 'mode-line-vc-mode-face nil
