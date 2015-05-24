@@ -53,5 +53,11 @@
 (define-key helm-map            (kbd "C-h") 'delete-backward-char)
 (define-key helm-find-files-map (kbd "C-h") 'delete-backward-char)
 
+;; customize faces
+(set-face-attribute 'helm-selection nil
+                    :weight 'normal
+                    :background "color-208"
+                    :foreground "color-16")
+
 (provide 'init-helm)
 ;;; init-helm.el ends here
