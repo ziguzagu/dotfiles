@@ -46,3 +46,8 @@
                                 :foreground "mediumpurple1" :weight 'bold)
             (set-face-attribute 'markdown-link-face nil
                                 :foreground "color-75")))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; rust-mode
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
