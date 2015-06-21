@@ -61,9 +61,3 @@ export GREP_COLORS="ms=04;31:mc=01;33:sl=:cx=:fn=33:ln=33:bn=33:se=01;30"
 if [ -x "/usr/libexec/java_home" ]; then
     export JAVA_HOME="$(/usr/libexec/java_home)"
 fi
-
-## aws and ec2-api-tools
-if [ -e "~/.aws" ]; then
-    source ~/.aws
-fi
-export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.6.12.2/libexec"
