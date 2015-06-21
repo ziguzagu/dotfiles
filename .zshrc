@@ -121,9 +121,10 @@ fi
 alias g="git"
 
 ## docker
-alias d="docker"
 alias dvm="boot2docker"
-alias fig="docker-compose"
+alias d="docker"
+alias c="docker-compose"
+alias m="docker-machine"
 
 ## vagrant
 alias v="vagrant"
