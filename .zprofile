@@ -21,7 +21,7 @@ PATH="$HOME/bin:$PATH"
 
 typeset -U PATH
 
-export MANPATH="/usr/local/share/man:$MANPATH"
+export MANPATH="/usr/local/share/man:/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 export GOPATH=$HOME
 
