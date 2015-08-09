@@ -17,7 +17,7 @@
           (lambda ()
             (copy-face 'font-lock-variable-name-face 'cperl-array-face)
             (copy-face 'font-lock-variable-name-face 'cperl-hash-face)
-            (set-face-foreground 'cperl-nonoverridable-face "yellow")
+            (set-face-foreground 'cperl-nonoverridable-face "yellow3")
             (local-set-key (kbd "M-.") 'cperl-perldoc-at-point)
             (local-set-key (kbd "C-c .") 'cperl-perldoc)))
 
