@@ -9,6 +9,15 @@
 ;; enable flycheck globally
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
+(set-face-attribute 'flycheck-warning nil
+                    :foreground "gray1"
+                    :background "yellow"
+                    :weight 'normal)
+(set-face-attribute 'flycheck-error nil
+                    :foreground "white"
+                    :background "red1"
+                    :weight 'normal)
+
 
 ;; flycheck-pos-tip extension improves flycheck error display with popup
 (eval-after-load 'flycheck
