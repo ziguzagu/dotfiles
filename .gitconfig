@@ -30,6 +30,11 @@ excludesfile = ~/.gitignore
 whitespace   = trailing-space
 pager        = less -FX
 
+[pager]
+log  = diff-highlight | less -FX
+show = diff-highlight | less -FX
+diff = diff-highlight | less -FX
+
 [alias]
 up = pull --rebase
 di = diff
