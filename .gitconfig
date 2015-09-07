@@ -27,7 +27,8 @@ match      = red ul
 
 [core]
 excludesfile = ~/.gitignore
-whitespace = trailing-space
+whitespace   = trailing-space
+pager        = less -FX
 
 [alias]
 up = pull --rebase
