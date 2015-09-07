@@ -45,7 +45,6 @@ export LESS_TERMCAP_ue=$'\E[0m'      # end underline
 export LESS_TERMCAP_us=$'\E[04;36m'  # begin underline - (underline, cyan)
 
 export PAGER=less
-export GIT_PAGER="less -FX"
 
 export EDITOR="emacsclient -t"
 export ALTERNATE_EDITOR=vi
