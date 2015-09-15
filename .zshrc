@@ -30,6 +30,8 @@ if [[ -x `which pyenv` ]]; then
     eval "$(pyenv init -)"
 fi
 
+eval "source $(brew --prefix nvm)/nvm.sh"
+
 ########################################
 ## Tmux
 ########################################
