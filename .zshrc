@@ -30,6 +30,7 @@ if [[ -x `which pyenv` ]]; then
     eval "$(pyenv init -)"
 fi
 
+export NVM_DIR=~/.nvm
 eval "source $(brew --prefix nvm)/nvm.sh"
 
 ########################################
