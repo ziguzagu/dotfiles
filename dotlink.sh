@@ -25,4 +25,12 @@ if [ -d ~/.emacs.d ]; then
     chmod 700 ~/.emacs.d
 fi
 
+## go-autocomplete
+if [ ! -d $GOPATH/src/github.com/nsf/gocode ]; then
+    eval "$(go get github.com/nsf/gocode)"
+fi
+if [ -f $GOPATH/src/github.com/nsf/gocode/emacs/go-autocomplete.el ] && [ ! -L ~/.emacs.d/go-autocomplete.el ]; then
+    ln -s $GOPATH/src/github.com/nsf/gocode/emacs/go-autocomplete.el ~/.emacs.d/go-autocomplete.el
+fi
+
 exit 0
