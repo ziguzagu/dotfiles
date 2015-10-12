@@ -18,8 +18,7 @@ fi
 if [ -d "/usr/local/share/npm/bin" ]; then
     PATH="/usr/local/share/npm/bin:$PATH"
 fi
-PATH="${HOME}/.plenv/bin:${HOME}/.rbenv/bin:${HOME}/.pyenv/bin:${PATH}"
-PATH="$HOME/bin:$PATH"
+PATH="$HOME/bin:${HOME}/.plenv/bin:${HOME}/.rbenv/bin:${HOME}/.pyenv/bin:${PATH}"
 
 export MANPATH="/usr/local/share/man:/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
