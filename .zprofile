@@ -8,7 +8,7 @@ export LANG=en_US.UTF-8
 
 typeset -U PATH
 
-PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 
 ## using coreutils on mac installed by homebrew
 if which brew > /dev/null; then
