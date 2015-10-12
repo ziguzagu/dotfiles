@@ -6,6 +6,8 @@ export LANG=en_US.UTF-8
 ## PATH
 ########################################
 
+typeset -U PATH
+
 PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 ## using coreutils on mac installed by homebrew
@@ -18,8 +20,6 @@ if [ -d "/usr/local/share/npm/bin" ]; then
 fi
 PATH="${HOME}/.plenv/bin:${HOME}/.rbenv/bin:${HOME}/.pyenv/bin:${PATH}"
 PATH="$HOME/bin:$PATH"
-
-typeset -U PATH
 
 export MANPATH="/usr/local/share/man:/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
