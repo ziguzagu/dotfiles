@@ -19,20 +19,13 @@
       (let ((web-mode-enable-part-face nil))
         ad-do-it)
     ad-do-it))
-;; JSX syntax checking for web-mode
-(flycheck-define-checker jsxhint-checker
-  "A JSX syntax and style checker based on JSXHint."
-
-  :command ("jsxhint" source)
-  :error-patterns
-  ((error line-start (1+ nonl) ": line " line ", col " column ", " (message) line-end))
-  :modes (web-mode))
-(add-hook 'web-mode-hook
-          (lambda ()
-            (when (equal web-mode-content-type "jsx")
-              ;; enable flycheck
-              (flycheck-select-checker 'jsxhint-checker)
-              (flycheck-mode))))
+;; flycheck by eslint in web-mode
+(flycheck-add-mode 'javascript-eslint 'web-mode)
+;; disable jshint and json-jsonlist
+(setq-default flycheck-disabled-checkers
+              (append flycheck-disabled-checkers
+                      '(javascript-jshint)
+                      '(json-jsonlist)))
 
 ;;;;;; css-mode
 (autoload 'scss-mode "scss-mode")
