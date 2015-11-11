@@ -27,8 +27,12 @@ if [[ -x `which rbenv` ]]; then
     eval "$(rbenv init -)"
 fi
 
-export NVM_DIR=~/.nvm
-eval "source $(brew --prefix nvm)/nvm.sh"
+## load nvm.sh lazy
+function nvm() {
+    unset -f nvm
+    eval "source $(brew --prefix nvm)/nvm.sh"
+    nvm "$@"
+}
 
 ########################################
 ## Tmux
