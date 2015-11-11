@@ -166,8 +166,8 @@ if [ -d /usr/local/share/zsh-completions ]; then
     fpath=(/usr/local/share/zsh-completions $fpath)
 fi
 
-## init completion (without secure check -u)
-autoload -U compinit && compinit -u
+## init completion
+autoload -Uz compinit && compinit
 
 ## case insensitive at completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
