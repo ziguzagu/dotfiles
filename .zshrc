@@ -382,3 +382,10 @@ ZSH_HIGHLIGHT_STYLES[path_approx]=none
 
 ## highlighters
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+
+########################################
+## Profiling by zprof
+########################################
+if [[ -x `which zprof` ]]; then
+    zprof | less
+fi
