@@ -373,7 +373,7 @@ fi
 ########################################
 ## zsh-syntax-highlighting
 ########################################
-source ~/.zsh/syntax-highlighting/zsh-syntax-highlighting.zsh
+eval "source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 ## tweak styles
 ZSH_HIGHLIGHT_STYLES[unknown-token]=fg:red,underline
