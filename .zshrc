@@ -346,6 +346,14 @@ zaw-register-src -n perldoc-local zaw-src-perldoc-local
 bindkey '^x^p' zaw-perldoc-local
 
 ########################################
+## My Functions
+########################################
+
+fpath=(~/.zsh/functions $fpath)
+
+autoload -Uz pmver
+
+########################################
 ## Misc
 ########################################
 
@@ -361,9 +369,6 @@ setopt no_list_beep
 
 ## no coredump
 limit coredumpsize 0
-
-## pmtools
-function pmver() { perl -m$1 -e 'print "$'$1'::VERSION\n"' }
 
 ## at sixapart
 if [ -f ~/.zshrc.6a ]; then
