@@ -391,6 +391,6 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 ########################################
 ## Profiling by zprof
 ########################################
-if [[ -x `which zprof` ]]; then
+if (which zprof > /dev/null); then
     zprof | less
 fi
