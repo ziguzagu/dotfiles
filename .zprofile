@@ -14,10 +14,6 @@ PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 if which brew > /dev/null; then
     PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 fi
-## commands of npm modules installed by homebrew's node
-if [ -d "/usr/local/share/npm/bin" ]; then
-    PATH="/usr/local/share/npm/bin:$PATH"
-fi
 PATH="$HOME/bin:${HOME}/.plenv/bin:${HOME}/.rbenv/bin:${PATH}"
 
 export MANPATH="/usr/local/share/man:/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
