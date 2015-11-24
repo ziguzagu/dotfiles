@@ -6,17 +6,18 @@ export LANG=en_US.UTF-8
 ## PATH
 ########################################
 
-typeset -U PATH
+typeset -U PATH MANPATH
 
 PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
+MANPATH="/usr/local/share/man:/usr/share/man"
 
 ## using coreutils on mac installed by homebrew
 if which brew > /dev/null; then
     PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+    MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
 fi
-PATH="$HOME/bin:${HOME}/.plenv/bin:${HOME}/.rbenv/bin:${PATH}"
 
-export MANPATH="/usr/local/share/man:/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+PATH="$HOME/bin:${HOME}/.plenv/bin:${HOME}/.rbenv/bin:${PATH}"
 
 export GOPATH=$HOME
 
