@@ -1,7 +1,5 @@
 ## -*- mode: shell-script; -*-
 
-CACHEDIR="$HOME/.cache"
-
 autoload -Uz add-zsh-hook
 
 export SHELL=`which zsh`
@@ -9,8 +7,6 @@ export SHELL=`which zsh`
 if [[ -x `which dircolors` ]]; then
     eval "$(dircolors ~/.dircolors)"
 fi
-
-test -d $CACHEDIR || mkdir $CACHEDIR
 
 ########################################
 ## Development
@@ -185,7 +181,7 @@ test -f ~/.travis/travis.sh && source $_
 ## History
 ########################################
 
-HISTFILE=$CACHEDIR/history
+HISTFILE=~/.zsh/history
 HISTSIZE=100000
 SAVEHIST=100000
 setopt hist_ignore_all_dups
@@ -281,7 +277,7 @@ function _post_chpwd {
 add-zsh-hook chpwd _post_chpwd
 
 zstyle ':chpwd:*' recent-dirs-max 500
-zstyle ':chpwd:*' recent-dirs-file "$CACHEDIR/chpwd-recent-dirs"
+zstyle ':chpwd:*' recent-dirs-file "$HOME/.zsh/chpwd-recent-dirs"
 zstyle ':chpwd:*' recent-dirs-pushd true
 
 ########################################
