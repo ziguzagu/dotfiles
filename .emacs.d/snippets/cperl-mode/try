@@ -1,0 +1,8 @@
+# name : try
+# --
+try {
+    $0
+}
+catch {
+    die \$_;
+};
