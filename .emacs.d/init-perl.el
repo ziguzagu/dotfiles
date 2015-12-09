@@ -13,6 +13,9 @@
 (setq cperl-highlight-variables-indiscriminately t)
 (setq cperl-font-lock t)
 
+(font-lock-add-keywords 'cperl-mode
+                        '(("state" . font-lock-keyword-face)))
+
 (add-hook 'cperl-mode-hook
           (lambda ()
             (copy-face 'font-lock-variable-name-face 'cperl-array-face)
