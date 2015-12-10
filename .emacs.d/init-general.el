@@ -106,7 +106,7 @@
 ;; org-capture
 (setq org-capture-templates
       '(("m" "Memo" entry (file+datetree (concat org-directory "memo.org"))
-         "* %?\n")
+         "* [%<%H:%M>] %?\n")
         ("w" "Work Log" entry (file+datetree (concat org-directory "work.org"))
          "* %<%H:%M:%S>\n %?\n")
         ("a" "Annotation" entry (file (concat org-directory "annon.org"))
