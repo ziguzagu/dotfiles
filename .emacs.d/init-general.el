@@ -100,6 +100,9 @@
 ;(require 'org-mode)
 (setq org-directory "~/Dropbox/org/")
 (setq org-default-notes-file (concat org-directory "notes.org"))
+(setq org-startup-truncated nil)
+(setq org-startup-folded nil)
+(setq org-return-follows-link t)
 ;; org-capture
 (setq org-capture-templates
       '(("m" "Memo" entry (file+datetree (concat org-directory "memo.org"))
