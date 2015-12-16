@@ -61,9 +61,6 @@ pr  = pull-request
 [push]
 default = current
 
-[include]
-path = .gitconfig.local
-
 [ghq]
 root = ~/src
 
