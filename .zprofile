@@ -6,8 +6,8 @@ export LANG=en_US.UTF-8
 ## PATH
 ########################################
 
-PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
-MANPATH="/usr/local/share/man:/usr/share/man"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
+export MANPATH="/usr/local/share/man:/usr/share/man"
 
 ## using coreutils on mac installed by homebrew
 if which brew > /dev/null; then
