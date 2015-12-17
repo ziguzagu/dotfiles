@@ -12,13 +12,9 @@ fi
 ## Development
 ########################################
 
-## trying to use plenv then local::lib
 if [[ -x `which plenv` ]]; then
     eval "$(plenv init -)"
-elif [ -z "$PERL5LIB" ]; then
-    eval `perl -Iperl5/lib/perl5 -Mlocal::lib 2>/dev/null`
 fi
-
 if [[ -x `which rbenv` ]]; then
     eval "$(rbenv init -)"
 fi
