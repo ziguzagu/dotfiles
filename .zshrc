@@ -12,10 +12,10 @@ fi
 ## Development
 ########################################
 
-if [[ -x `which plenv` ]]; then
+if (which plenv > /dev/null); then
     eval "$(plenv init -)"
 fi
-if [[ -x `which rbenv` ]]; then
+if (which rbenv > /dev/null); then
     eval "$(rbenv init -)"
 fi
 typeset -U PATH
