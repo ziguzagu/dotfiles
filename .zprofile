@@ -17,7 +17,7 @@ if which brew > /dev/null; then
     MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
 fi
 
-PATH="$HOME/bin"
+PATH="$HOME/bin:$PATH"
 
 export GOPATH=$HOME
 
