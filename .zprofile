@@ -17,7 +17,7 @@ if which brew > /dev/null; then
     MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
 fi
 
-PATH="$HOME/bin:${HOME}/.plenv/bin:${HOME}/.rbenv/bin:${PATH}"
+PATH="$HOME/bin"
 
 export GOPATH=$HOME
 
