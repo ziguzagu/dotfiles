@@ -4,7 +4,7 @@ autoload -Uz add-zsh-hook
 
 export SHELL=`which zsh`
 
-if [[ -x `which dircolors` ]]; then
+if which dircolors > /dev/null; then
     eval "$(dircolors ~/.dircolors)"
 fi
 
@@ -12,10 +12,10 @@ fi
 ## Development
 ########################################
 
-if (which plenv > /dev/null); then
+if which plenv > /dev/null; then
     eval "$(plenv init -)"
 fi
-if (which rbenv > /dev/null); then
+if which rbenv > /dev/null; then
     eval "$(rbenv init -)"
 fi
 typeset -U PATH
@@ -105,14 +105,14 @@ alias ack="ack --color"
 alias grep="grep --binary-files=without-match --color=auto"
 alias cpanl="cpanm --mirror ~/minicpan --mirror-only"
 
-if [[ -x `which colordiff` ]]; then
+if which colordiff > /dev/null; then
     alias diff="colordiff -u"
 else
     alias diff='diff -u'
 fi
 
 ## git
-if [[ -x `which hub` ]]; then
+if which hub > /dev/null; then
     alias git="hub"
 fi
 alias g="git"
@@ -384,6 +384,6 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 ########################################
 ## Profiling by zprof
 ########################################
-if (which zprof > /dev/null); then
+if which zprof > /dev/null; then
     zprof | less
 fi
