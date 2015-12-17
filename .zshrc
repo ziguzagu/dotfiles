@@ -22,6 +22,7 @@ fi
 if [[ -x `which rbenv` ]]; then
     eval "$(rbenv init -)"
 fi
+typeset -U PATH
 
 ## load nvm.sh lazy
 function nvm() {

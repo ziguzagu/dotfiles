@@ -6,8 +6,6 @@ export LANG=en_US.UTF-8
 ## PATH
 ########################################
 
-typeset -U PATH MANPATH
-
 PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 MANPATH="/usr/local/share/man:/usr/share/man"
 
