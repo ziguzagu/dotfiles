@@ -101,7 +101,6 @@ alias ll="ls -Alh"
 alias lc="tr '[:upper:]' '[:lower:]'"
 alias uc="tr '[:lower:]' '[:upper:]'"
 alias prove="prove -lv --timer"
-alias ack="ack --color"
 alias grep="grep --binary-files=without-match --color=auto"
 alias cpanl="cpanm --mirror ~/minicpan --mirror-only"
 
@@ -118,7 +117,6 @@ fi
 alias g="git"
 
 ## docker
-alias dvm="boot2docker"
 alias d="docker"
 alias c="docker-compose"
 alias m="docker-machine"
