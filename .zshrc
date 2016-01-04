@@ -95,7 +95,7 @@ fi
 setopt no_complete_aliases
 
 alias emacs="emacs --daemon && emacsclient -t"
-alias ls="ls -F --color=auto"
+alias ls="ls -F --color=auto --group-directories-first"
 alias l="ls -lh"
 alias ll="ls -Alh"
 alias lc="tr '[:upper:]' '[:lower:]'"
