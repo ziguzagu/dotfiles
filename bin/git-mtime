@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -eu
+
+usage() {
+    cat <<EOF
+Usage:
+    git mtime <files> - Modified file's mtime by last commit date of it
+EOF
+
+    exit 1
+}
+
+if [ $# -eq 0 ]; then
+    usage
+fi
+
+for file in $*; do
+    touch -m -t $(date -d "$(git log -1 --pretty=format:%cd --date=iso $file)" +%Y%m%d%H%M.%S) $file
+done
