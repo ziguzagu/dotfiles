@@ -1,4 +1,3 @@
-;;;;;; use sgml-mode for editting HTML
 (autoload 'web-mode "web-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tmpl$" . web-mode))
@@ -11,8 +10,12 @@
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-code-indent-offset 2)
   (setq web-mode-style-padding 2)
-  (setq web-mode-script-padding 2))
+  (setq web-mode-script-padding 2)
+  (setq web-mode-engines-alist
+      '(("template-toolkit" . "\\.tt$")
+        ("template-toolkit" . "\\.tx$"))))
 (add-hook 'web-mode-hook  'my-web-mode-hook)
+
 ;; JSX syntax highlighting
 (defadvice web-mode-highlight-part (around tweak-jsx activate)
   (if (equal web-mode-content-type "jsx")
