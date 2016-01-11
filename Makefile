@@ -1,5 +1,5 @@
 cwd = $(shell pwd)
-sources = $(shell git ls-files | grep -v Makefile)
+sources = $(shell git ls-files | grep -Ev '^(Makefile|\.gitmodules)$$')
 targets = $(addprefix $(HOME)/,$(sources))
 
 all: $(targets)
