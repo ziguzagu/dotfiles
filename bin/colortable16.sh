@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
+set -eu
 
-# prints a color table of 8bg * 8fg * 2 states (regular/bold)
-echo
-echo Table for 16-color terminal escape sequences.
-echo Replace ESC with \\033 in bash.
-echo
 echo "Background | Foreground colors"
 echo "---------------------------------------------------------------------"
 for((bg=40;bg<=47;bg++)); do
@@ -19,8 +15,5 @@ for((bg=40;bg<=47;bg++)); do
 		done
 		echo -e "\033[0m"
 	done
-	echo "--------------------------------------------------------------------- "
+	echo "---------------------------------------------------------------------"
 done
-
-echo
-echo
