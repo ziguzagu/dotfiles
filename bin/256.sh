@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/usr/bin/env bash
+set -eu
 
 ## system color (0 - 15)
 for i in `seq 0 1`; do
