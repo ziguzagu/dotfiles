@@ -1,2 +1,2 @@
-#!/bin/sh
+#!/usr/bin/env bash
 minicpan && perl -MCPAN -e 'CPAN::Index->force_reload; $c = CPAN::CacheMgr->new; $c->{SCAN} = q/atstart/; $c->scan_cache'
