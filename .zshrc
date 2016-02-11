@@ -374,11 +374,6 @@ setopt no_list_beep
 ## no coredump
 limit coredumpsize 0
 
-## at sixapart
-if [ -f ~/.zshrc.6a ]; then
-    source ~/.zshrc.6a
-fi
-
 ########################################
 ## zsh-syntax-highlighting
 ########################################
