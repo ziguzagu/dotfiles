@@ -333,7 +333,16 @@ function zaw-callback-perldoc-emacs() {
     zle accept-line
 }
 function zaw-src-perldoc-local() {
-    candidates=($(command find local/lib/perl5 -type f -name '*.pm' -or -name '*.pod'))
+    # global modules
+    zaw-src-perldoc
+
+    # local modules installed by carton into local/lib/perl5
+    local -a carton
+    if [ -d local/lib/perl5 ]; then
+        carton=($(command find local/lib/perl5 -type f -name '*.pm' -or -name '*.pod'))
+    fi
+
+    candidates=($carton $candidates)
     actions=("zaw-callback-perldoc-view" "zaw-callback-perldoc-emacs")
     act_descriptions=("view perldoc" "open with emacs")
 }
