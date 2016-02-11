@@ -327,11 +327,15 @@ zaw-register-src -n tmux-pane-strings zaw-src-tmux-pane-strings
 bindkey '^x^o' zaw-tmux-pane-strings
 
 ## perldoc finding from local/lib/perl5
+function zaw-callback-perldoc-emacs() {
+    local orig_buffer="${BUFFER}"
+    BUFFER="emacsclient -t $(perldoc -lm "$1")"
+    zle accept-line
+}
 function zaw-src-perldoc-local() {
     candidates=($(command ls local/lib/perl5/**/*.pm local/lib/perl5/**/*.pod))
-    actions=("zaw-callback-perldoc-view")
-    act_descriptions=("view perldoc")
-    return 0
+    actions=("zaw-callback-perldoc-view" "zaw-callback-perldoc-emacs")
+    act_descriptions=("view perldoc" "open with emacs")
 }
 zaw-register-src -n perldoc-local zaw-src-perldoc-local
 bindkey '^x^p' zaw-perldoc-local
