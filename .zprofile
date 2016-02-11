@@ -59,6 +59,6 @@ export ALTERNATE_EDITOR=vi
 export GREP_COLORS="ms=04;31:mc=01;33:sl=:cx=:fn=33:ln=33:bn=33:se=01;30"
 
 ## java on mac
-if [ -x "/usr/libexec/java_home" ]; then
+if [[ -x "/usr/libexec/java_home" ]]; then
     export JAVA_HOME="$(/usr/libexec/java_home)"
 fi

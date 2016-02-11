@@ -31,7 +31,7 @@ function nvm() {
 ## Tmux
 ########################################
 
-if [ -n "$TMUX" ]; then
+if [[ -n "$TMUX" ]]; then
 
     ## set TERM to use color terminal
     export TERM=screen-256color
@@ -153,7 +153,7 @@ setopt auto_menu
 setopt list_types
 
 ## additional completions by https://github.com/zsh-users/zsh-completions
-if [ -d /usr/local/share/zsh-completions ]; then
+if [[ -d /usr/local/share/zsh-completions ]]; then
     fpath=(/usr/local/share/zsh-completions $fpath)
 fi
 
@@ -196,7 +196,7 @@ setopt prompt_subst
 unsetopt promptcr
 
 # for emacs (no escape usging)
-if [ "$EMACS" = t ]; then
+if [[ "$EMACS" == t ]]; then
     unsetopt zle
 fi
 
@@ -245,7 +245,7 @@ add-zsh-hook precmd _precmd_vcs_info
 function _render_prompt () {
     local -a host_attr path_attr cursor
     cursor='%(?,➜ ,✘ )'
-    if [ $UID -eq 0 ]; then
+    if [[ $UID -eq 0 ]]; then
         host_attr='%{\e[0;38;5;255;48;5;160m%}'
         path_attr=''
     else
@@ -338,7 +338,7 @@ function zaw-src-perldoc-local() {
 
     # local modules installed by carton into local/lib/perl5
     local -a carton
-    if [ -d local/lib/perl5 ]; then
+    if [[ -d local/lib/perl5 ]]; then
         carton=($(command find local/lib/perl5 -type f -name '*.pm' -or -name '*.pod'))
     fi
 
