@@ -333,7 +333,7 @@ function zaw-callback-perldoc-emacs() {
     zle accept-line
 }
 function zaw-src-perldoc-local() {
-    candidates=($(command ls local/lib/perl5/**/*.pm local/lib/perl5/**/*.pod))
+    candidates=($(command find local/lib/perl5 -type f -name '*.pm' -or -name '*.pod'))
     actions=("zaw-callback-perldoc-view" "zaw-callback-perldoc-emacs")
     act_descriptions=("view perldoc" "open with emacs")
 }
