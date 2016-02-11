@@ -80,7 +80,7 @@ if [[ -n "$TMUX" ]]; then
 
     ## dabbrev using current pane contents
     function _dabbrev_from_pane() {
-        local sources
+        local -a sources
         sources=($(tmux capture-pane\; show-buffer \; delete-buffer | sed '/^$/d' | sed '$ d'))
         compadd - "${sources[@]%[*/=@|]}"
     }
@@ -176,9 +176,9 @@ test -f ~/.travis/travis.sh && source $_
 ## History
 ########################################
 
-HISTFILE=~/.zsh/history
-HISTSIZE=100000
-SAVEHIST=100000
+readonly HISTFILE=~/.zsh/history
+readonly HISTSIZE=100000
+readonly SAVEHIST=100000
 setopt hist_ignore_all_dups
 setopt hist_reduce_blanks
 setopt hist_ignore_space
@@ -243,8 +243,8 @@ add-zsh-hook precmd _precmd_vcs_info
 
 ## build prompt string
 function _render_prompt () {
-    local -a host_attr path_attr cursor
-    cursor='%(?,➜ ,✘ )'
+    local -a host_attr path_attr
+    local cursor='%(?,➜ ,✘ )'
     if [[ $UID -eq 0 ]]; then
         host_attr='%{\e[0;38;5;255;48;5;160m%}'
         path_attr=''
