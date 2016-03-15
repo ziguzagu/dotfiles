@@ -91,6 +91,17 @@
  '(diff-added       ((t (:background "darkolivegreen3" :foreground "black"))))
  '(diff-removed     ((t (:background "tomato" :foreground "black")))))
 
-;; highlight trailing spaces
-(setq-default show-trailing-whitespace t)
+;; highlight hard tab, trailing spaces and double width space
+(require 'whitespace)
+(global-whitespace-mode t)
+(setq show-trailing-whitespace t)
+(setq whitespace-style '(tabs tab-mark tailing spaces space-mark))
+(setq whitespace-space-regexp "\\(\x3000+\\)")
+(setq whitespace-display-mappings
+      '((space-mark ?\x3000 [?\□])
+        (tab-mark   ?\t   [?\xBB ?\t])
+        ))
 (set-face-background 'trailing-whitespace "steelblue")
+(set-face-background 'whitespace-space "steelblue")
+(set-face-foreground 'whitespace-tab "steelblue")
+(set-face-background 'whitespace-tab "steelblue")
