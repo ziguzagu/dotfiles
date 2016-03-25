@@ -191,7 +191,6 @@ zstyle ':completion:*:default' menu select=1
 ## Prompt
 ########################################
 
-autoload -U colors && colors
 setopt prompt_subst
 unsetopt promptcr
 
