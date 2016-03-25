@@ -240,19 +240,14 @@ function _precmd_vcs_info () {
 }
 add-zsh-hook precmd _precmd_vcs_info
 
-## build prompt string
-function _render_prompt () {
-    local -a host_attr path_attr
+function _prompt_cwd() {
     if [[ $UID -eq 0 ]]; then
-        host_attr='%{\e[0;38;5;255;48;5;160m%}'
-        path_attr=''
+        echo -n '%F{255}%K{160}%~%k%f'
     else
-        host_attr='%{\e[0;38;5;208m%}'
-        path_attr='%{\e[0;38;5;75m%}'
+        echo -n '%F{214}%~%f'
     fi
-    echo -n "${host_attr}%n@%m:${path_attr}%~%{\e[0m%}"
 }
-PROMPT=$'\n''$(_render_prompt) ${vcs_info_msg_0_}'$'\n''%(?,➜ ,✘ )'
+PROMPT=$'\n''$(_prompt_cwd) ${vcs_info_msg_0_}'$'\n''%(?,➜ ,✘ )'
 
 ## command line coloring
 zle_highlight=(isearch:underline,fg=red region:fg=black,bg=yellow special:standout,fg=blue suffix:bold)
