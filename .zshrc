@@ -205,8 +205,8 @@ zstyle ':vcs_info:*' enable git svn
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' unstagedstr '%F{red}✹ %f'
 zstyle ':vcs_info:git:*' stagedstr '%F{green}%B✚ %b%f'
-zstyle ':vcs_info:*' formats '%F{yellow}(%s:%b)%f %c%u %F{magenta}%m%f'
-zstyle ':vcs_info:*' actionformats '%F{red}(%s:%b!%a)%f %c%u %F{magenta}%m%f'
+zstyle ':vcs_info:*' formats '%F{117}(%s:%b)%f %c%u %F{142}%m%f'
+zstyle ':vcs_info:*' actionformats '%F{red}(%s:%b!%a)%f %c%u %F{142}%m%f'
 zstyle ':vcs_info:git*+set-message:*' hooks git-st git-stash
 
 ## Show remote ref name and number of commits ahead-of or behind
@@ -244,7 +244,7 @@ function _prompt_cwd() {
     if [[ $UID -eq 0 ]]; then
         echo -n '%F{255}%K{160}%~%k%f'
     else
-        echo -n '%F{214}%~%f'
+        echo -n '%F{215}%~%f'
     fi
 }
 PROMPT=$'\n''$(_prompt_cwd) ${vcs_info_msg_0_}'$'\n''%(?,➜ ,✘ )'
