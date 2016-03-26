@@ -203,9 +203,9 @@ fi
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' unstagedstr '%F{160}✱ %f'
-zstyle ':vcs_info:git:*' stagedstr '%F{149}%B✚ %b%f'
-zstyle ':vcs_info:*' formats '%F{153}(%s:%b)%f %c%u%m'
+zstyle ':vcs_info:git:*' unstagedstr '%F{160}%B✘ %b%f'
+zstyle ':vcs_info:git:*' stagedstr '%F{155}%B✔︎ %b%f'
+zstyle ':vcs_info:*' formats '%F{117}(%s:%b)%f %c%u%m'
 zstyle ':vcs_info:*' actionformats '%F{160}(%s:%b!%a)%f %c%u%m'
 zstyle ':vcs_info:git*+set-message:*' hooks git-st git-stash
 
@@ -232,7 +232,7 @@ function +vi-git-stash() {
     local -a stashes
     if [[ -s ${hook_com[base]}/.git/refs/stash ]] ; then
         stashes=$(command git stash list 2>/dev/null | wc -l | sed -e 's/ //g')
-        (( $stashes )) && hook_com[misc]+="%F{219}☁ ${stashes}%f";
+        (( $stashes )) && hook_com[misc]+="%F{252}☁ ${stashes}%f";
     fi
 }
 function _precmd_vcs_info () {
@@ -244,10 +244,10 @@ function _prompt_cwd() {
     if [[ $UID -eq 0 ]]; then
         echo -n '%F{255}%K{160}%~%k%f'
     else
-        echo -n '%F{215}%~%f'
+        echo -n '%F{214}%~%f'
     fi
 }
-PROMPT=$'\n''$(_prompt_cwd) ${vcs_info_msg_0_}'$'\n''%(?,➜ ,✘ )'
+PROMPT=$'\n''$(_prompt_cwd) ${vcs_info_msg_0_}'$'\n''%(?,➜ ,%F{226}⚠ %f)'
 
 ## command line coloring
 zle_highlight=(isearch:underline,fg=red region:fg=black,bg=yellow special:standout,fg=blue suffix:bold)
