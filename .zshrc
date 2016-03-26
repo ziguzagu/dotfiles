@@ -203,10 +203,10 @@ fi
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' unstagedstr '%F{red}✹ %f'
-zstyle ':vcs_info:git:*' stagedstr '%F{green}%B✚ %b%f'
-zstyle ':vcs_info:*' formats '%F{117}(%s:%b)%f %c%u %F{142}%m%f'
-zstyle ':vcs_info:*' actionformats '%F{red}(%s:%b!%a)%f %c%u %F{142}%m%f'
+zstyle ':vcs_info:git:*' unstagedstr '%F{160}✱ %f'
+zstyle ':vcs_info:git:*' stagedstr '%F{149}%B✚ %b%f'
+zstyle ':vcs_info:*' formats '%F{153}(%s:%b)%f %c%u%m'
+zstyle ':vcs_info:*' actionformats '%F{160}(%s:%b!%a)%f %c%u%m'
 zstyle ':vcs_info:git*+set-message:*' hooks git-st git-stash
 
 ## Show remote ref name and number of commits ahead-of or behind
@@ -232,7 +232,7 @@ function +vi-git-stash() {
     local -a stashes
     if [[ -s ${hook_com[base]}/.git/refs/stash ]] ; then
         stashes=$(command git stash list 2>/dev/null | wc -l | sed -e 's/ //g')
-        (( $stashes )) && hook_com[misc]+="stashed:${stashes}";
+        (( $stashes )) && hook_com[misc]+="%F{219}☁ ${stashes}%f";
     fi
 }
 function _precmd_vcs_info () {
