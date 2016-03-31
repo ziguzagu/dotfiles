@@ -212,7 +212,7 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-st git-stash
 ## Show remote ref name and number of commits ahead-of or behind
 function +vi-git-st () {
     ## get remote's "repos/branch"
-    local remote=${$(command git rev-parse --verify ${hook_com[branch]}@{upstream} --symbolic-full-name 2>/dev/null)/refs\/remotes\/}
+    local remote=$(command git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null)
 
     if [[ -n "$remote" ]]; then
         local -a gitstatus
