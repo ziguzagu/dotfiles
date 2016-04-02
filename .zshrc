@@ -216,10 +216,10 @@ function +vi-git-st () {
 
     if [[ -n "$remote" ]]; then
         local -a gitstatus
-        local ahead=${$(command git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l)/\s/}
+        local ahead=$(command git rev-list ${hook_com[branch]}@{u}..HEAD --count 2>/dev/null)
         (( $ahead )) && gitstatus+=( "+$ahead" )
 
-        local behind=${$(command git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)/\s/}
+        local behind=$(command git rev-list HEAD..${hook_com[branch]}@{u} --count 2>/dev/null)
         (( $behind )) && gitstatus+=( "-$behind" )
 
         if [[ -n "$gitstatus" ]]; then
