@@ -20,13 +20,6 @@ if which rbenv > /dev/null; then
 fi
 typeset -U PATH
 
-## load nvm.sh lazy
-function nvm() {
-    unset -f nvm
-    eval "source $(brew --prefix nvm)/nvm.sh"
-    nvm "$@"
-}
-
 ########################################
 ## Tmux
 ########################################
