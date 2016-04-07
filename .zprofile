@@ -19,14 +19,6 @@ PATH="$HOME/bin:$PATH"
 
 export GOPATH=$HOME
 
-export NVM_DIR=~/.nvm
-# XXX: it should be create `default` alias by `nvm default vX.Y.Z`
-PATH=$NVM_DIR/default/bin:$PATH
-MANPATH=$NVM_DIR/default/share/man:$MANPATH
-export NODE_PATH=$NVM_DIR/default/lib/node_modules
-# XXX: resolve symlink `.nvm/default` as `.nvm/vX.Y.Z`
-NODE_PATH=${NODE_PATH:A}
-
 ########################################
 ## Editor and Pager
 ########################################
