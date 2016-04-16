@@ -96,7 +96,7 @@ alias uc="tr '[:lower:]' '[:upper:]'"
 alias prove="prove -lv --timer"
 alias grep="grep --binary-files=without-match --color=auto"
 alias cpanl="cpanm --mirror ~/minicpan --mirror-only"
-alias b="bundle"
+alias b="bundle exec"
 
 if which colordiff > /dev/null; then
     alias diff="colordiff -u"
