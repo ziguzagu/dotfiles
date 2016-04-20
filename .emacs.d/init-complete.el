@@ -1,6 +1,7 @@
 ;; auto-complete
 (require 'popup)
-(require 'go-autocomplete)
+(when (locate-library "go-autocomplete")
+  (require 'go-autocomplete))
 (require 'auto-complete)
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete-dict")
