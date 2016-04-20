@@ -56,6 +56,7 @@
 
 (load "init-coding")
 (load "init-cpp")
+(load "init-ruby")
 (load "init-perl")
 (load "init-web")
 (load "init-conf")
