@@ -35,9 +35,10 @@
 (autoload 'scss-mode "scss-mode")
 (add-to-list 'auto-mode-alist '("\\.css$" . scss-mode))
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
-(add-hook 'sccs-mode
-          (setq css-indent-offset 2)
-          (setq scss-compile-at-save nil))
+(add-hook 'scss-mode-hook
+          (lambda ()
+            (setq css-indent-offset 2)
+            (setq scss-compile-at-save nil)))
 
 ;;;;;; js2-mode
 (autoload 'js2-mode "js2-mode" nil t)
