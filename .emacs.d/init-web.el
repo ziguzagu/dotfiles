@@ -31,7 +31,7 @@
                       '(json-jsonlist)))
 
 ;;;;;; css-mode
-(autoload 'scss-mode "scss-mode")
+(autoload 'scss-mode "scss-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.css$" . scss-mode))
 (add-to-list 'auto-mode-alist '("\\.scss$" . scss-mode))
 (add-hook 'scss-mode-hook
