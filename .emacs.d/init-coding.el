@@ -18,11 +18,8 @@
                     :background "red1"
                     :weight 'normal)
 
-
-;; flycheck-pos-tip extension improves flycheck error display with popup
-(eval-after-load 'flycheck
-  '(custom-set-variables
-    '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages)))
+;; improve flycheck error display with popup
+(with-eval-after-load 'flycheck (flycheck-pos-tip-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; sql-mode
