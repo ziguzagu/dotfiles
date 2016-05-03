@@ -93,15 +93,9 @@
 
 ;; highlight hard tab, trailing spaces and double width space
 (require 'whitespace)
-(global-whitespace-mode t)
 (setq show-trailing-whitespace t)
-(setq whitespace-style '(tabs tab-mark tailing spaces space-mark))
-(setq whitespace-space-regexp "\\(\x3000+\\)")
-(setq whitespace-display-mappings
-      '((space-mark ?\x3000 [?\□])
-        (tab-mark   ?\t   [?\xBB ?\t])
-        ))
-(set-face-background 'trailing-whitespace "steelblue")
-(set-face-background 'whitespace-space "steelblue")
-(set-face-foreground 'whitespace-tab "steelblue")
-(set-face-background 'whitespace-tab "steelblue")
+(setq whitespace-style '(face tabs tab-mark trailing))
+(custom-set-faces
+ '(whitespace-trailing ((t (:foreground "gray90" :background "gray32" :inverse-video nil))))
+ '(whitespace-tab      ((t (:foreground "gray70" :background nil :inverse-video nil)))))
+(global-whitespace-mode t)
