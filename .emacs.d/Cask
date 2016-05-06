@@ -40,6 +40,9 @@
 (depends-on "plenv")
 (depends-on "dockerfile-mode")
 
+(depends-on "ruby-end")
+(depends-on "ruby-block")
+
 (depends-on "org-plus-contrib")
 
 ;; need to estimate the value to add
