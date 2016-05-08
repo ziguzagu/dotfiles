@@ -1,8 +1,7 @@
-;; -*- mode: lisp-interaction; syntax: elisp; coding: utf-8 -*-
+;;; init.el --- initialize emacs
+;;; Commentary:
+;;; Code:
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; basics
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (cd "~")
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/elisp")
@@ -30,20 +29,15 @@
              "rm ~/.emacs.d/emacs-server-window")))
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; cask
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; load and setup packages gracefully
 (require 'cask)
 (cask-initialize)
-
-;; inherit PATH from shell by exec-path-from-shell.el
-(exec-path-from-shell-initialize)
-
 (require 'use-package)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; inherit PATH from shell
+(exec-path-from-shell-initialize)
+
 ;; initialize
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (load "init-appearance")
 ;; (load "init-minibuffer")
 (load "init-scratch")
@@ -62,3 +56,5 @@
 (load "init-perl")
 (load "init-web")
 (load "init-conf")
+
+;;; init.el ends here
