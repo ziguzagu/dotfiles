@@ -39,6 +39,8 @@
 ;; inherit PATH from shell by exec-path-from-shell.el
 (exec-path-from-shell-initialize)
 
+(require 'use-package)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; initialize
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

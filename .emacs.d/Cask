@@ -6,6 +6,7 @@
 
 (depends-on "cask")
 (depends-on "exec-path-from-shell")
+(depends-on "use-package")
 
 ;; helm
 (depends-on "helm")
