@@ -10,12 +10,12 @@
 (require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (set-face-attribute 'flycheck-warning nil
-                    :foreground "gray1"
-                    :background "yellow"
+                    :foreground "yellow"
+                    :underline t
                     :weight 'normal)
 (set-face-attribute 'flycheck-error nil
-                    :foreground "white"
-                    :background "red1"
+                    :foreground "red1"
+                    :underline t
                     :weight 'normal)
 
 ;; improve flycheck error display with popup
