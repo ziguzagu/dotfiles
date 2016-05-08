@@ -31,7 +31,7 @@
 (add-to-list 'auto-mode-alist '("cpanfile" . cperl-mode))
 
 ;; plenv
-(use-pacakge plenv)
+(use-package plenv)
 
 ;; ffap with perldoc
 (defun ffap-cperl-mode (file)
