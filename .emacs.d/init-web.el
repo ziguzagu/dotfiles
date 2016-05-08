@@ -1,3 +1,7 @@
+;;; init-web.el --- customize web mode and frontend stuff
+;;; Commentary:
+;;; Code:
+
 (autoload 'web-mode "web-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.html" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tmpl$" . web-mode))
@@ -76,3 +80,5 @@
       (goto-char start)
       (while (search-forward ">" nil t)
         (replace-match "&gt;" nil t)))))
+
+;;; init-web.el ends here
