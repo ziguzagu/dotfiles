@@ -18,9 +18,6 @@
                     :underline t
                     :weight 'normal)
 
-;; improve flycheck error display with popup
-(with-eval-after-load 'flycheck (flycheck-pos-tip-mode))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; sql-mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
