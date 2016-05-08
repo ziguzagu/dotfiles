@@ -40,26 +40,18 @@
             (setq scss-compile-at-save nil)))
 
 ;;;;;; js2-mode
-(autoload 'js2-mode "js2-mode" nil t)
-(setq-default js2-basic-offset 2)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
+(use-package js2-mode
+  :mode (("\\.js$"   . js2-mode)
+         ("\\.json$" . js2-mode)
+         ("\\.jsx$"  . js2-jsx-mode))
+  :interpreter ("node" . js2-mode)
+  :config
+  (defun my-js2-mode ()
+    (custom-set-variables
+     '(js2-basic-offset 2))
+    (flycheck-mode))
 
-;;;;;; jsx-mode
-(require 'jsx-mode)
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
-(setq jsx-indent-level 2)
-;; syntax checking
-(flycheck-define-checker jsxhint-checker
-  "A JSX syntax and style checker based on JSXHint."
-
-  :command ("jsxhint" source)
-  :error-patterns
-  ((error line-start (1+ nonl) ": line " line ", col " column ", " (message) line-end))
-  :modes (jsx-mode))
-(add-hook 'jsx-mode-hook (lambda ()
-                           (flycheck-select-checker 'jsxhint-checker)
-                           (flycheck-mode)))
+  (add-hook 'js2-mode-hook 'my-js2-mode))
 
 ;;;;;; coffee-mode
 (autoload 'coffee-mode "coffee-mode" nil t)
