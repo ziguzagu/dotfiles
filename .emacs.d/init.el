@@ -3,7 +3,7 @@
 ;;; Code:
 
 (cd "~")
-(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/init")
 (add-to-list 'load-path "~/.emacs.d/elisp")
 
 ;; using unsafe local variables..?
