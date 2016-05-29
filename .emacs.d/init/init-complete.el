@@ -21,7 +21,9 @@
 (global-set-key "\M-o" 'ac-dabbrev-expand)
 
 ;; yasnippet
-(setq yas-trigger-key "M-i")
-(require 'yasnippet)
-(setq yas-snippet-dirs '("~/.emacs.d/snippets"))
-(yas-global-mode 1)
+(use-package yasnippet
+  :bind ("M-i" . yas/expand)
+  :diminish yas-minor-mode
+  :config
+  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+  (yas-global-mode 1))
