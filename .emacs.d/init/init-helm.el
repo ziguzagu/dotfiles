@@ -59,5 +59,10 @@
                     :background "color-208"
                     :foreground "color-16")
 
+;; for projectile
+(use-package helm-projectile
+  :config
+  (helm-projectile-on))
+
 (provide 'init-helm)
 ;;; init-helm.el ends here
