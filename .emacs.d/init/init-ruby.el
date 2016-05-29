@@ -14,7 +14,9 @@
     ;; highlight begining of block cursor on the end
     (require 'ruby-block)
     (ruby-block-mode t)
-    (setq ruby-block-highlight-toggle t))
+    (setq ruby-block-highlight-toggle t)
+    ;; enable projectile
+    (projectile-mode))
 
   (add-hook 'ruby-mode-hook 'my-ruby-mode))
 

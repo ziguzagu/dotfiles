@@ -8,9 +8,10 @@
 (depends-on "exec-path-from-shell")
 (depends-on "use-package")
 
-;; helm
 (depends-on "helm")
 (depends-on "helm-ls-git")
+(depends-on "helm-projectile")
+(depends-on "projectile")
 
 (depends-on "popup")
 (depends-on "popwin")
@@ -53,8 +54,6 @@
 ;(depends-on "nyan-mode")
 ;(depends-on "pallet")
 ;(depends-on "prodigy")
-;(depends-on "projectile")
 ;(depends-on "s")
 ;(depends-on "smartparens")
 ;(depends-on "smex")
-;(depends-on "use-package")
