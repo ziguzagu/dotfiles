@@ -9,6 +9,9 @@
   (defun my-ruby-mode ()
     (custom-set-variables
      '(ruby-insert-encoding-magic-comment nil))
+    ;; use flycheck with rubocop
+    (setq flycheck-checker 'ruby-rubocop)
+    (flycheck-mode 1)
     ;; enable projectile
     (projectile-mode))
 
