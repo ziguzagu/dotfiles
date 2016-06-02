@@ -20,6 +20,10 @@
                       :underline t
                       :weight 'normal))
 
+(use-package flycheck-tip
+  :config
+  (flycheck-tip-use-timer 'verbose))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; sql-mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
