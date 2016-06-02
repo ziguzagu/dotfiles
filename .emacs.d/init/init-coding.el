@@ -6,17 +6,19 @@
   (let ((name (file-relative-name file)))
     (vc-git-command buf 'async nil "blame" "--date=iso" rev "--" name)))
 
-;; enable flycheck globally
-(require 'flycheck)
-(add-hook 'after-init-hook #'global-flycheck-mode)
-(set-face-attribute 'flycheck-warning nil
-                    :foreground "yellow"
-                    :underline t
-                    :weight 'normal)
-(set-face-attribute 'flycheck-error nil
-                    :foreground "red1"
-                    :underline t
-                    :weight 'normal)
+;; flycheck
+(use-package flycheck
+  :init
+  (add-hook 'after-init-hook #'global-flycheck-mode)
+  :config
+  (set-face-attribute 'flycheck-warning nil
+                      :foreground "yellow"
+                      :underline t
+                      :weight 'normal)
+  (set-face-attribute 'flycheck-error nil
+                      :foreground "red1"
+                      :underline t
+                      :weight 'normal))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; sql-mode
