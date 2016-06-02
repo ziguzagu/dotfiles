@@ -132,9 +132,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; expand-region
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'expand-region)
-(global-set-key (kbd "C-]") 'er/expand-region)
-(global-set-key (kbd "M-]") 'er/contract-region)
+(use-package expand-region
+  :bind (("C-]" . er/expand-region)
+         ("M-]" . er/contract-region)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; multiple-cursors
