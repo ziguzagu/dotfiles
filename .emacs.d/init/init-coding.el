@@ -1,4 +1,6 @@
-;; -*- mode: lisp-interaction; syntax: elisp; coding: utf-8 -*-
+;;; init-coding.el --- general coding settings
+;;; Commentary:
+;;; Code:
 
 ;; make compact vc-annotate display
 (defadvice vc-git-annotate-command (around vc-git-annotate-command activate)
@@ -63,3 +65,5 @@
 ;; go-mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'before-save-hook #'gofmt-before-save)
+
+;;; init-coding.el ends here
