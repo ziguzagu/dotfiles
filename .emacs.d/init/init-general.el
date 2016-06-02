@@ -139,11 +139,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; multiple-cursors
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'multiple-cursors)
-(global-set-key (kbd "C-M-c") 'mc/edit-lines)
-(global-set-key (kbd "C-M-n") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-M-p") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-M-d") 'mc/mark-all-like-this-dwim)
+(use-package multiple-cursors
+  :bind (("C-M-c" . mc/edit-lines)
+         ("C-M-n" . mc/mark-next-like-this)
+         ("C-M-p" . mc/mark-previous-like-this)
+         ("C-M-d" . mc/mark-all-like-this-dwim)))
 
 ;; projectile
 (use-package projectile
