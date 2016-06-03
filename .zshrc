@@ -25,10 +25,6 @@ typeset -U PATH
 ########################################
 
 if [[ -n "$TMUX" ]]; then
-
-    ## set TERM to use color terminal
-    export TERM=screen-256color
-
     ## changing title of tmux window on executing command
     function _update_window_title() {
         emulate -L zsh
