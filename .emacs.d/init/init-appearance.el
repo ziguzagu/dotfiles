@@ -36,7 +36,8 @@
 (set-cursor-color "orange")
 
 ;; common syntax colors
-(set-face-foreground 'font-lock-comment-face "gray52")
+(set-face-attribute 'font-lock-comment-face nil
+                    :foreground "gray52" :slant 'italic)
 (set-face-foreground 'font-lock-string-face  "darkolivegreen3")
 (set-face-foreground 'font-lock-keyword-face "goldenrod2")
 (set-face-foreground 'font-lock-function-name-face "azure3")
