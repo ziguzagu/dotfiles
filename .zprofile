@@ -1,6 +1,7 @@
 ## -*- mode: shell-script; -*-
 
 export LANG=en_US.UTF-8
+export TERMINFO=$HOME/.terminfo
 
 ########################################
 ## PATH
