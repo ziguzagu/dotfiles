@@ -1,3 +1,7 @@
+;;; init-complete.el --- Configure completion
+;;; Commentary:
+;;; Code:
+
 ;; auto-complete
 (use-package auto-complete-config
   :diminish auto-complete-mode
@@ -25,3 +29,5 @@
   :config
   (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
   (yas-global-mode 1))
+
+;;; init-complete.el ends here
