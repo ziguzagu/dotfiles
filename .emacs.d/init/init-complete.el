@@ -1,11 +1,9 @@
 ;; auto-complete
-(require 'popup)
-(when (locate-library "go-autocomplete")
-  (require 'go-autocomplete))
-(require 'auto-complete)
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete-dict")
-(ac-config-default)
+(use-package auto-complete-config
+  :diminish auto-complete-mode
+  :config
+  (add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete-dict")
+  (ac-config-default))
 
 ;; dabbrev
 (setq dabbrev-case-fold-search t)
