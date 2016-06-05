@@ -42,7 +42,7 @@
 (set-face-foreground 'font-lock-keyword-face "goldenrod2")
 (set-face-foreground 'font-lock-function-name-face "azure3")
 (set-face-foreground 'font-lock-variable-name-face "darkturquoise")
-(set-face-foreground 'font-lock-constant-face "firebrick1")
+(set-face-foreground 'font-lock-constant-face "indianred")
 (set-face-foreground 'font-lock-type-face "mediumpurple2")
 (set-face-background 'font-lock-warning-face "red")
 (set-face-foreground 'font-lock-warning-face "white")
