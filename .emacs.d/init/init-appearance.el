@@ -1,4 +1,6 @@
-;;;; -*- mode: lisp-interaction; syntax: elisp; coding: utf-8 -*-
+;;; init-appearance.el --- configure appearance
+;;; Commentary:
+;;; Code:
 
 ;; hide startup message
 (setq inhibit-startup-message t)
@@ -102,3 +104,5 @@
    '(whitespace-trailing ((t (:foreground "gray90" :background "gray32" :inverse-video nil))))
    '(whitespace-tab      ((t (:foreground "gray70" :background nil :inverse-video nil)))))
   (global-whitespace-mode t))
+
+;;; init-appearance.el ends here
