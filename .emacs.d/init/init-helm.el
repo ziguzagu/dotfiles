@@ -8,7 +8,7 @@
 
 ;; dispaly helm by popwin
 (setq helm-samewindow nil)
-(push '("^\*helm .+\*$" :regexp t :height 20) popwin:special-display-config)
+(push '("^\*helm" :regexp t :height 20) popwin:special-display-config)
 
 ;; key bindings
 (global-set-key (kbd "M-x")     'helm-M-x)
