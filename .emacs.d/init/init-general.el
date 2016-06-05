@@ -1,3 +1,7 @@
+;;; init-general.el --- general settings
+;;; Commentary:
+;;; Code:
+
 ;; tab/indent
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
@@ -148,3 +152,5 @@
 ;; projectile
 (use-package projectile
   :diminish projectile-mode)
+
+;;; init-general.el ends here
