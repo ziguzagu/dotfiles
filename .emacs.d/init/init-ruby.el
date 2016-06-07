@@ -18,18 +18,14 @@
   (add-hook 'ruby-mode-hook 'my-ruby-mode))
 
 (use-package ruby-end
-  :defer t
   :diminish ruby-end-mode
   :init
   (add-hook 'ruby-mode-hook '(lambda () (ruby-end-mode t))))
 
 (use-package ruby-block
-  :defer t
-  :commands ruby-block-mode
   :diminish ruby-block-mode
   :init
-  (add-hook 'ruby-mode-hook '(lambda () (ruby-block-mode t)))
-  :config
   (setq ruby-block-highlight-toggle t))
+  (add-hook 'ruby-mode-hook '(lambda () (ruby-block-mode t)))
 
 ;;; init-ruby.el ends here
