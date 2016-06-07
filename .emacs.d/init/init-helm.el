@@ -63,7 +63,6 @@
 
 ;; for projectile
 (use-package helm-projectile
-  :commands helm-projectile-switch-project
   :bind ("C-c p p" . helm-projectile-switch-project)
   :config
   (helm-projectile-on))
