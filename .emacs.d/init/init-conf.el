@@ -1,4 +1,7 @@
-;;;;;; generic config files
+;;; init-conf.el --- settings for various middleware's config file modes
+;;; Commentary:
+;;; Code:
+
 (setq auto-mode-alist
       (append '(("\\.conf$" . conf-mode)
                 ("\\.cfg$"  . conf-mode)) auto-mode-alist))
@@ -30,3 +33,5 @@
 ;;;;;; dockerfile mode
 (autoload 'dockerfile-mode "dockerfile-mode" nil t)
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
+
+;;; init-conf.el ends here
