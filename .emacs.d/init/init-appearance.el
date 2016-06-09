@@ -59,8 +59,8 @@
 (set-face-foreground 'region "white")
 
 ;; modeline colors
-(set-face-foreground 'mode-line "gray72")
-(set-face-background 'mode-line "gray28")
+(set-face-foreground 'mode-line "color-250")
+(set-face-background 'mode-line "color-238")
 (set-face-foreground 'mode-line-inactive "gray42")
 (set-face-background 'mode-line-inactive "gray16")
 (set-face-attribute 'mode-line-buffer-id nil
