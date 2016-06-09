@@ -5,6 +5,9 @@
 ;; auto-complete
 (use-package auto-complete-config
   :diminish auto-complete-mode
+  :init
+  (custom-set-faces
+   '(popup-face ((t (:background "gray28" :foreground "gray72")))))
   :config
   (add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete-dict")
   (ac-config-default))
