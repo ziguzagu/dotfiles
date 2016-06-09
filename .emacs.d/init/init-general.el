@@ -151,6 +151,8 @@
 
 ;; projectile
 (use-package projectile
-  :diminish projectile-mode)
+  :diminish projectile-mode
+  :config
+  (projectile-global-mode t))
 
 ;;; init-general.el ends here
