@@ -149,10 +149,4 @@
          ("C-M-p" . mc/mark-previous-like-this)
          ("C-M-d" . mc/mark-all-like-this-dwim)))
 
-;; projectile
-(use-package projectile
-  :diminish projectile-mode
-  :config
-  (projectile-global-mode t))
-
 ;;; init-general.el ends here

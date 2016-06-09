@@ -63,8 +63,10 @@
 
 ;; for projectile
 (use-package helm-projectile
+  :diminish projectile-mode
   :bind ("C-c p p" . helm-projectile-switch-project)
   :config
+  (projectile-global-mode t)
   (helm-projectile-on))
 
 (provide 'init-helm)
