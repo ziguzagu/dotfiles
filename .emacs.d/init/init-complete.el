@@ -10,17 +10,20 @@
   (ac-config-default))
 
 ;; dabbrev
-(setq dabbrev-case-fold-search t)
-(setq dabbrev-case-replace nil)
-(global-set-key "\C-o" 'dabbrev-expand)
+;; (setq dabbrev-case-fold-search t)
+;; (setq dabbrev-case-replace nil)
+;; (global-set-key "\C-o" 'dabbrev-expand)
 
-;; dabbrev by ac-dabbrev
-(require 'ac-dabbrev)
-(add-to-list 'ac-sources 'ac-source-dabbrev)
-(defun ac-dabbrev-expand ()
-  (interactive)
-  (auto-complete '(ac-source-dabbrev)))
-(global-set-key "\M-o" 'ac-dabbrev-expand)
+(use-package ac-dabbrev
+  :init
+  (setq dabbrev-case-fold-search t)
+  (setq dabbrev-case-replace nil)
+  :config
+  (add-to-list 'ac-sources 'ac-source-dabbrev)
+  (defun ac-dabbrev-expand ()
+    (interactive)
+    (auto-complete '(ac-source-dabbrev)))
+  (global-set-key "\C-o" 'ac-dabbrev-expand))
 
 ;; yasnippet
 (use-package yasnippet
