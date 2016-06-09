@@ -11,9 +11,7 @@
      '(ruby-insert-encoding-magic-comment nil))
     ;; use flycheck with rubocop
     (setq flycheck-checker 'ruby-rubocop)
-    (flycheck-mode 1)
-    ;; enable projectile
-    (projectile-mode))
+    (flycheck-mode t))
 
   (add-hook 'ruby-mode-hook 'my-ruby-mode))
 
