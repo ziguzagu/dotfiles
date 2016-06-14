@@ -59,12 +59,12 @@
                     :background "color-208"
                     :foreground "color-16")
 
-(use-package helm-ag)
-
 ;; for projectile
 (use-package helm-projectile
   :diminish projectile-mode
   :bind ("C-c p p" . helm-projectile-switch-project)
+  :init
+  (use-package helm-ag)
   :config
   (projectile-global-mode t)
   (helm-projectile-on))
