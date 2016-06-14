@@ -30,6 +30,9 @@ excludesfile = ~/.gitignore
 whitespace   = trailing-space
 pager        = less -FX
 
+[diff]
+compactionHeuristic = true
+
 [pager]
 log  = diff-highlight | less -FX
 show = diff-highlight | less -FX
