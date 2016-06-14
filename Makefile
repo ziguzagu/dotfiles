@@ -4,7 +4,7 @@ basedir = $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
 sources = $(shell git ls-files | grep -Ev '(Makefile|\.gitmodules|\.terminfo)$$')
 targets = $(addprefix $(home),$(sources))
 
-all: $(targets) ## Install dot files into $HOME as symlink (Default)
+install: $(targets) ## Install dot files into $HOME as symlink (Default)
 
 $(targets):
 	@mkdir -m 700 -p $(dir $@)
