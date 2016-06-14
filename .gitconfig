@@ -28,13 +28,16 @@ match      = red ul
 [core]
 excludesfile = ~/.gitignore
 whitespace   = trailing-space
-pager        = less -FX
+pager        = diff-so-fancy | less -FX
 
 [diff]
 compactionHeuristic = true
 
+[diff-so-fancy]
+stripLeadingSymbols = false
+
 [interactive]
-diffFilter = diff-highlight
+diffFilter = diff-so-fancy
 
 [alias]
 up = pull --rebase
