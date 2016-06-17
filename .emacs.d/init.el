@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(setq init-file-debug t)
+(setq debug-on-error t)
 (cd "~")
 (add-to-list 'load-path "~/.emacs.d/init")
 (add-to-list 'load-path "~/.emacs.d/elisp")
