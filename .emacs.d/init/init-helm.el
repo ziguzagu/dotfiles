@@ -10,10 +10,10 @@
          ("C-c m"   . helm-man-woman)
          ("C-c o"   . helm-occur)
          ;; enable usual C-h on helm
-         (:map helm-map
-               ("C-h" . delete-backward-char))
-         (:map helm-find-files-map
-               ("C-h" . delete-backward-char)))
+         :map helm-map
+         ("C-h" . delete-backward-char)
+         :map helm-find-files-map
+         ("C-h" . delete-backward-char))
   :config
   (use-package helm-ls-git)
   (use-package helm-man)
@@ -70,5 +70,4 @@
   (projectile-global-mode t)
   (helm-projectile-on))
 
-(provide 'init-helm)
 ;;; init-helm.el ends here
