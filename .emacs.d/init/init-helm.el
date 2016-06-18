@@ -3,6 +3,17 @@
 ;;; Code:
 
 (use-package helm-config
+  :bind (("M-x" . helm-M-x)
+         ("C-x b" . helm-mini)
+         ("C-x C-f" . helm-find-files)
+         ("C-c y"   . helm-show-kill-ring)
+         ("C-c m"   . helm-man-woman)
+         ("C-c o"   . helm-occur)
+         ;; enable usual C-h on helm
+         (:map helm-map
+               ("C-h" . delete-backward-char))
+         (:map helm-find-files-map
+               ("C-h" . delete-backward-char)))
   :config
   (use-package helm-ls-git)
   (use-package helm-man)
@@ -11,14 +22,6 @@
 ;; dispaly helm by popwin
 (setq helm-samewindow nil)
 (push '("^\*helm" :regexp t :height 20) popwin:special-display-config)
-
-;; key bindings
-(global-set-key (kbd "M-x")     'helm-M-x)
-(global-set-key (kbd "C-x b")   'helm-mini)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "C-c y")   'helm-show-kill-ring)
-(global-set-key (kbd "C-c m")   'helm-man-woman)
-(global-set-key (kbd "C-c o")   'helm-occur)
 
 ;; enter helm-occur from isearch
 (define-key isearch-mode-map (kbd "C-o") 'helm-occur-from-isearch)
@@ -50,10 +53,6 @@
                                helm-source-recentf
                                helm-source-ls-git
                                helm-source-buffer-not-found)))
-
-;; enable usual C-h on helm
-(define-key helm-map            (kbd "C-h") 'delete-backward-char)
-(define-key helm-find-files-map (kbd "C-h") 'delete-backward-char)
 
 ;; customize faces
 (set-face-attribute 'helm-selection nil
