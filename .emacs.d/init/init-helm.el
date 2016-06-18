@@ -15,9 +15,10 @@
          :map helm-find-files-map
          ("C-h" . delete-backward-char))
   :config
-  (use-package helm-ls-git)
-  (use-package helm-man)
   (helm-mode 1))
+
+(use-package helm-ls-git)
+(use-package helm-man)
 
 ;; dispaly helm by popwin
 (setq helm-samewindow nil)
