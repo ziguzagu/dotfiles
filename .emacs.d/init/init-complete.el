@@ -6,6 +6,7 @@
 (use-package auto-complete-config
   :diminish auto-complete-mode
   :init
+  (setq ac-use-menu-map t)
   (custom-set-faces
    '(popup-face ((t (:background "gray28" :foreground "gray72")))))
   :config
