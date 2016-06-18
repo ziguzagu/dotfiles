@@ -2,9 +2,11 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'helm-config)
-(require 'helm-ls-git)
-(require 'helm-man)
+(use-package helm-config
+  :config
+  (use-package helm-ls-git)
+  (use-package helm-man)
+  (helm-mode 1))
 
 ;; dispaly helm by popwin
 (setq helm-samewindow nil)
