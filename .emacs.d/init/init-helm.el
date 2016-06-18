@@ -14,6 +14,12 @@
          ("C-h" . delete-backward-char)
          :map helm-find-files-map
          ("C-h" . delete-backward-char))
+  :init
+  (custom-set-faces
+   '(helm-source-header    ((t (:background "gray16" :foreground "gray64" :slant italic))))
+   '(helm-candidate-number ((t (:foreground "color-75"))))
+   '(helm-selection        ((t (:background "color-24" :weight normal))))
+   '(helm-match            ((t (:foreground "green")))))
   :config
   (helm-mode 1))
 
@@ -54,12 +60,6 @@
                                helm-source-recentf
                                helm-source-ls-git
                                helm-source-buffer-not-found)))
-
-;; customize faces
-(set-face-attribute 'helm-selection nil
-                    :weight 'normal
-                    :background "color-208"
-                    :foreground "color-16")
 
 ;; for projectile
 (use-package helm-projectile
