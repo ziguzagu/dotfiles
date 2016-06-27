@@ -5,8 +5,9 @@
 ;; hide startup message
 (setq inhibit-startup-message t)
 
-;; hide menu bar
-(menu-bar-mode -1)
+;; hide menu bar and toolbar
+(menu-bar-mode 0)
+(tool-bar-mode 0)
 
 ;; turn off both beep and visual bell
 (setq ring-bell-function 'ignore)
