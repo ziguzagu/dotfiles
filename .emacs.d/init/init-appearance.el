@@ -9,6 +9,9 @@
 (menu-bar-mode 0)
 (tool-bar-mode 0)
 
+;; stop cursor blinking
+(blink-cursor-mode 0)
+
 ;; turn off both beep and visual bell
 (setq ring-bell-function 'ignore)
 
