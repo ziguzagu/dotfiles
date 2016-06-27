@@ -10,7 +10,7 @@
          ("C-c m"   . helm-man-woman)
          ("C-c o"   . helm-occur)
          ;; enable usual C-h on helm
-         :map helm-map
+         :map helm-mode-map
          ("C-h" . delete-backward-char)
          :map helm-find-files-map
          ("C-h" . delete-backward-char))
