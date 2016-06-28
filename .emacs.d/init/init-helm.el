@@ -17,9 +17,9 @@
   :init
   (custom-set-faces
    '(helm-source-header    ((t (:background "gray16" :foreground "gray64" :slant italic))))
-   '(helm-candidate-number ((t (:foreground "color-75"))))
-   '(helm-selection        ((t (:background "color-24" :weight normal))))
-   '(helm-match            ((t (:foreground "green")))))
+   '(helm-candidate-number ((t (:foreground "#5fafff"))))
+   '(helm-selection        ((t (:background "#005f87" :weight normal))))
+   '(helm-match            ((t (:foreground "darkolivegreen3")))))
   :config
   (helm-mode 1))
 

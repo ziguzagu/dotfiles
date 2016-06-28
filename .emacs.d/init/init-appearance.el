@@ -63,16 +63,16 @@
 (set-face-foreground 'region "white")
 
 ;; modeline colors
-(set-face-foreground 'mode-line "color-250")
-(set-face-background 'mode-line "color-238")
+(set-face-foreground 'mode-line "#bcbcbc")
+(set-face-background 'mode-line "#444444")
 (set-face-foreground 'mode-line-inactive "gray42")
 (set-face-background 'mode-line-inactive "gray16")
 (set-face-attribute 'mode-line-buffer-id nil
-                    :foreground "color-208" :weight 'normal)
+                    :foreground "#ff8700" :weight 'normal)
 ;; custom face for vc-mode in mode-line
 (make-face 'mode-line-vc-mode-face)
 (set-face-attribute 'mode-line-vc-mode-face nil
-                    :foreground "color-75" :weight 'normal)
+                    :foreground "#5fafff" :weight 'normal)
 ;; modeline content
 (setq-default mode-line-format
               (list "-"
