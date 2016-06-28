@@ -89,7 +89,9 @@
 ;; minibuffer color
 (set-face-foreground 'minibuffer-prompt "yellow")
 
+;; settings for cocoa emacs
 (when (eq system-type 'darwin)
+  (setq-default line-spacing 0)
   (set-face-attribute 'default nil :family "Source Han Code JP" :height 115))
 
 ;; diff-mode colors
