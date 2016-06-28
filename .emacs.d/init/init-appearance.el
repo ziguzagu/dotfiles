@@ -89,6 +89,9 @@
 ;; minibuffer color
 (set-face-foreground 'minibuffer-prompt "yellow")
 
+(when (eq system-type 'darwin)
+  (set-face-attribute 'default nil :family "Source Han Code JP" :height 115))
+
 ;; diff-mode colors
 (custom-set-faces
  '(diff-file-header ((t (:background "gray32" :foreground "orange"))))
