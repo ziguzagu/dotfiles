@@ -2,6 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
+;; use command key as meta key in cocoa emacs
+(when (eq system-type 'darwin)
+  (setq ns-command-modifier (quote meta)))
+
 ;; tab/indent
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
