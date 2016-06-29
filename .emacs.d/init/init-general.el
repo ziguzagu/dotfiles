@@ -129,6 +129,7 @@
       '(("m" "Memo" entry (file+datetree (concat org-directory "memo.org"))
          "* [%<%H:%M>] %?\n")))
 (global-set-key (kbd "C-c c") 'org-capture)
+(global-set-key (kbd "C-c x") '(lambda () (interactive) (org-capture nil "m")))
 ;; hilight lines in code block
 (setq org-src-fontify-natively t)
 
