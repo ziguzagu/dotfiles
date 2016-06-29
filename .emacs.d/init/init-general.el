@@ -127,12 +127,7 @@
 ;; org-capture
 (setq org-capture-templates
       '(("m" "Memo" entry (file+datetree (concat org-directory "memo.org"))
-         "* [%<%H:%M>] %?\n")
-        ("w" "Work Log" entry (file+datetree (concat org-directory "work.org"))
-         "* %<%H:%M:%S>\n %?\n")
-        ("a" "Annotation" entry (file (concat org-directory "annon.org"))
-         "* %?\n %u\n %i\n %a\n")
-        ))
+         "* [%<%H:%M>] %?\n")))
 (global-set-key (kbd "C-c c") 'org-capture)
 ;; hilight lines in code block
 (setq org-src-fontify-natively t)
