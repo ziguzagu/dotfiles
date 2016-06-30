@@ -21,6 +21,11 @@
 (set-language-environment "Japanese")
 (set-default-coding-systems 'utf-8)
 
+;; prepare to setup packages gracefully
+(require 'cask)
+(cask-initialize)
+(require 'use-package)
+
 ;; emacs server/client on tmux
 (if (getenv "TMUX")
     (shell-command "tmux display -p '#I' > ~/.emacs.d/emacs-server-window"))
@@ -29,11 +34,6 @@
             (shell-command
              "rm ~/.emacs.d/emacs-server-window")))
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
-
-;; load and setup packages gracefully
-(require 'cask)
-(cask-initialize)
-(require 'use-package)
 
 ;; inherit PATH from shell
 (exec-path-from-shell-initialize)
