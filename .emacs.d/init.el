@@ -27,13 +27,17 @@
 (require 'use-package)
 
 ;; emacs server/client on tmux
-(if (getenv "TMUX")
-    (shell-command "tmux display -p '#I' > ~/.emacs.d/emacs-server-window"))
-(add-hook 'emacs-kill-hook
-          (lambda ()
-            (shell-command
-             "rm ~/.emacs.d/emacs-server-window")))
-(remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
+(use-package server
+  :config
+  (unless (server-running-p)
+    (server-start)
+    (if (getenv "TMUX")
+      (shell-command "tmux display -p '#I' > ~/.emacs.d/emacs-server-window")
+      (add-hook 'emacs-kill-hook
+                (lambda ()
+                  (shell-command
+                   "rm -f ~/.emacs.d/emacs-server-window"))))
+    (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)))
 
 ;; inherit PATH from shell
 (exec-path-from-shell-initialize)
