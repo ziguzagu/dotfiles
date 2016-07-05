@@ -3,7 +3,7 @@ set -eu
 
 server_window=~/.emacs.d/emacs-server-window
 
-if [ -n "$TMUX" ]; then
+if [[ $TMUX && -f $server_window ]]; then
     tmux select-window -t `cat $server_window`\; select-pane -t 0
 fi
 
