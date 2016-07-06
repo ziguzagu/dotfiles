@@ -39,7 +39,6 @@
 ;; basic colors
 (set-face-foreground 'default "white")
 (set-face-background 'default "black")
-(set-cursor-color "orange")
 
 ;; common syntax colors
 (set-face-attribute 'font-lock-comment-face nil
@@ -47,7 +46,7 @@
 (set-face-foreground 'font-lock-string-face  "darkolivegreen3")
 (set-face-foreground 'font-lock-keyword-face "goldenrod2")
 (set-face-foreground 'font-lock-function-name-face "azure3")
-(set-face-foreground 'font-lock-variable-name-face "darkturquoise")
+(set-face-foreground 'font-lock-variable-name-face "#81c4c5")
 (set-face-foreground 'font-lock-constant-face "indianred")
 (set-face-foreground 'font-lock-type-face "mediumpurple2")
 (set-face-background 'font-lock-warning-face "red")
