@@ -61,17 +61,13 @@
 (set-face-background 'region "gray22")
 (set-face-foreground 'region "white")
 
-;; modeline colors
-(set-face-foreground 'mode-line "#bcbcbc")
-(set-face-background 'mode-line "#444444")
-(set-face-foreground 'mode-line-inactive "gray42")
-(set-face-background 'mode-line-inactive "gray16")
-(set-face-attribute 'mode-line-buffer-id nil
-                    :foreground "#ff8700" :weight 'normal)
-;; custom face for vc-mode in mode-line
-(make-face 'mode-line-vc-mode-face)
-(set-face-attribute 'mode-line-vc-mode-face nil
-                    :foreground "#5fafff" :weight 'normal)
+;; modeline faces
+(make-face 'mode-line-vc-mode)
+(custom-set-faces
+ '(mode-line           ((t (:foreground "#bcbcbc" :background "#444444" :box nil))))
+ '(mode-line-inactive  ((t (:foreground "gray42" :background "gray16" :box nil))))
+ '(mode-line-buffer-id ((t (:foreground "#ff8700" :weight normal))))
+ '(mode-line-vc-mode   ((t (:foreground "#5fafff" :weight normal)))))
 ;; modeline content
 (setq-default mode-line-format
               (list "-"
@@ -80,7 +76,7 @@
                     " "
                     'mode-line-buffer-identification
                     '(:eval (concat (propertize " %c:%l(%p)")))
-                    '(:propertize (:eval vc-mode) face mode-line-vc-mode-face)
+                    '(:propertize (:eval vc-mode) face mode-line-vc-mode)
                     " "
                     'mode-line-modes
                     "-%-"))
