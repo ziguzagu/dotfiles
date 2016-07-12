@@ -87,7 +87,8 @@
 
 ;; settings for running in GUI world
 (when window-system
-  (set-face-attribute 'default nil :family "Source Han Code JP" :height 110))
+  (setq-default line-spacing 0)
+  (set-face-attribute 'default nil :family "Source Han Code JP" :height 120))
 
 ;; diff-mode colors
 (custom-set-faces
