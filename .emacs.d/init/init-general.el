@@ -40,6 +40,8 @@
 (global-set-key "\C-ch" 'help-for-help)
 (global-set-key "\C-h"  'delete-backward-char)
 (global-set-key "\C-c]" 'align-regexp)
+;; C-h as delete in mini buffer
+(define-key key-translation-map (kbd "C-h") (kbd "<DEL>"))
 
 ;; reload a file when it was changed by another process (include vc)
 (global-auto-revert-mode t)
