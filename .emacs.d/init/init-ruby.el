@@ -26,6 +26,10 @@
   (setq ruby-block-highlight-toggle t))
   (add-hook 'ruby-mode-hook '(lambda () (ruby-block-mode t)))
 
+(use-package rbenv
+  :config
+  (global-rbenv-mode))
+
 (use-package robe
   :init
   (add-hook 'ruby-mode-hook '(lambda () (robe-mode)))

@@ -43,6 +43,7 @@
 
 (depends-on "ruby-end")
 (depends-on "ruby-block")
+(depends-on "rbenv")
 (depends-on "robe")
 
 (depends-on "org-plus-contrib")
