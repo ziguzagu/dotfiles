@@ -116,6 +116,10 @@ alias m="docker-machine"
 alias v="vagrant"
 alias vup="vagrant up && vagrant ssh"
 
+## aws
+alias production="aws --profile=production"
+alias staging="aws --profile=staging"
+
 ## global alias
 alias -g M="| more"
 alias -g L="| less"
