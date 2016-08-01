@@ -16,8 +16,9 @@
          ("C-h" . delete-backward-char))
   :init
   (custom-set-faces
+   '(helm-header           ((t (:background "#3a3a3a" :underline nil))))
    '(helm-source-header    ((t (:background "gray16" :foreground "gray64" :slant italic))))
-   '(helm-candidate-number ((t (:foreground "#5fafff"))))
+   '(helm-candidate-number ((t (:foreground "#00afff"))))
    '(helm-selection        ((t (:background "#005f87" :weight normal))))
    '(helm-match            ((t (:foreground "darkolivegreen3")))))
   :config
