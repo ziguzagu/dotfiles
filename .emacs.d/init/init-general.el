@@ -117,6 +117,22 @@
     (error "The buffer has been modified")))
 (global-set-key "\M-r" 'revert-buffer-no-confirm)
 
+;; send contents cut and copied to clipboard
+(when (eq system-type 'darwin)
+  (defun copy-from-osx ()
+    "Get clipboard contents."
+    (shell-command-to-string "pbpaste"))
+
+  (defun paste-to-osx (text &optional push)
+    "Paste yanked contents to clipboard."
+    (let ((process-connection-type nil))
+      (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
+        (process-send-string proc text)
+        (process-send-eof proc))))
+
+  (setq interprogram-cut-function 'paste-to-osx)
+  (setq interprogram-paste-function 'copy-from-osx))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; org
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
