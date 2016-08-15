@@ -1,7 +1,7 @@
 ## -*- mode: makefile-gmake; -*-
 home    = $(HOME)/
 basedir = $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
-sources = $(shell git ls-files | grep -Ev '(Makefile|\.gitmodules|\.terminfo)$$')
+sources = $(shell git ls-files | grep -Ev '(Makefile|Brewfile\.gitmodules|\.terminfo)$$')
 targets = $(addprefix $(home),$(sources))
 
 install: $(targets) ## Install dot files into $HOME as symlink (Default)
