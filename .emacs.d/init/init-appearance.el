@@ -47,7 +47,7 @@
                     :foreground "gray52" :slant 'italic)
 (set-face-foreground 'font-lock-string-face  "#afd787")
 (set-face-foreground 'font-lock-keyword-face "#ffaf00")
-(set-face-foreground 'font-lock-function-name-face "#ffd7d7")
+(set-face-foreground 'font-lock-function-name-face "#afafaf")
 (set-face-foreground 'font-lock-variable-name-face "#87afd7")
 (set-face-foreground 'font-lock-constant-face "#d75f5f")
 (set-face-foreground 'font-lock-type-face "#af87ff")
