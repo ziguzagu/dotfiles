@@ -39,21 +39,21 @@
   (tty-set-up-initial-frame-faces))
 
 ;; basic colors
-(set-face-foreground 'default "white")
-(set-face-background 'default "black")
+(set-face-foreground 'default "#e4e4e4")
+(set-face-background 'default "#000000")
 
 ;; common syntax colors
 (set-face-attribute 'font-lock-comment-face nil
                     :foreground "gray52" :slant 'italic)
-(set-face-foreground 'font-lock-string-face  "darkolivegreen3")
-(set-face-foreground 'font-lock-keyword-face "goldenrod2")
-(set-face-foreground 'font-lock-function-name-face "azure3")
-(set-face-foreground 'font-lock-variable-name-face "#81c4c5")
-(set-face-foreground 'font-lock-constant-face "indianred")
-(set-face-foreground 'font-lock-type-face "mediumpurple2")
+(set-face-foreground 'font-lock-string-face  "#afd787")
+(set-face-foreground 'font-lock-keyword-face "#ffaf00")
+(set-face-foreground 'font-lock-function-name-face "#ffd7d7")
+(set-face-foreground 'font-lock-variable-name-face "#87afd7")
+(set-face-foreground 'font-lock-constant-face "#d75f5f")
+(set-face-foreground 'font-lock-type-face "#af87ff")
 (set-face-background 'font-lock-warning-face "red")
 (set-face-foreground 'font-lock-warning-face "white")
-(set-face-foreground 'font-lock-builtin-face "plum3")
+(set-face-foreground 'font-lock-builtin-face "#d787d7")
 
 ;; highlight colors
 (set-face-background 'highlight "green")
