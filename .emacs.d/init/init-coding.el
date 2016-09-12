@@ -24,7 +24,7 @@
 
 (use-package flycheck-pos-tip
   :config
-  (flycheck-pos-tip-mode)
+  (flycheck-pos-tip-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; sql-mode
