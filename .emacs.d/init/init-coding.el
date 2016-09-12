@@ -22,9 +22,9 @@
                       :underline t
                       :weight 'normal))
 
-(use-package flycheck-tip
+(use-package flycheck-pos-tip
   :config
-  (flycheck-tip-use-timer 'verbose))
+  (flycheck-pos-tip-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; sql-mode
