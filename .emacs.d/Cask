@@ -46,6 +46,8 @@
 (depends-on "rbenv")
 (depends-on "robe")
 
+(depends-on "elixir-mode")
+
 (depends-on "org-plus-contrib")
 
 ;; need to estimate the value to add
