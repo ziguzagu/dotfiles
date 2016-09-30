@@ -39,9 +39,6 @@ brew 'jq'
 brew 'openssl'
 brew 'libxml2'
 
-brew 'mysql', args: ['--with-blackhole-storage-engine']
-brew 'redis'
-
 cask 'virtualbox'
 cask 'vagrant'
 cask 'google-cloud-sdk'
