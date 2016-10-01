@@ -15,6 +15,8 @@ brew 'plenv'
 brew 'perl-build'
 brew 'go'
 brew 'node'
+brew 'elixir'
+
 brew 'git', args: ['--with-pcre']
 brew 'hub'
 brew 'tig'
