@@ -7,7 +7,7 @@ brew 'mas'
 
 brew 'emacs'
 brew 'cask'
-brew 'global'
+brew 'global', args: ['--with-pygments', '--with-ctags']
 
 brew 'rbenv'
 brew 'ruby-build'
@@ -21,6 +21,7 @@ brew 'git', args: ['--with-pcre']
 brew 'hub'
 brew 'tig'
 brew 'diff-so-fancy'
+brew 'colordiff'
 
 brew 'tmux'
 brew 'reattach-to-user-namespace'
@@ -37,9 +38,12 @@ brew 'coreutils'
 brew 'less', args: ['--with-pcre']
 brew 'tree'
 brew 'jq'
+brew 'wget'
 
 brew 'openssl'
 brew 'libxml2'
+brew 'libyaml'
+brew 'oniguruma'
 
 cask 'virtualbox'
 cask 'vagrant'
