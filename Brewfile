@@ -41,10 +41,16 @@ brew 'jq'
 brew 'wget'
 brew 'tcping'
 
+## libraries to build ruby
 brew 'openssl'
 brew 'libxml2'
 brew 'libyaml'
 brew 'oniguruma'
+
+## for web app development
+brew 'nginx'
+brew 'varnish'
+brew 'redis'
 
 cask 'virtualbox'
 cask 'vagrant'
