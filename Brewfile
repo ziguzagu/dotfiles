@@ -39,6 +39,7 @@ brew 'less', args: ['--with-pcre']
 brew 'tree'
 brew 'jq'
 brew 'wget'
+brew 'tcping'
 
 brew 'openssl'
 brew 'libxml2'
