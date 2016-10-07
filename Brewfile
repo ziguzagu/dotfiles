@@ -62,10 +62,10 @@ cask 'google-cloud-sdk'
 # cask 'alfred'
 # cask 'appcleaner'
 
-mas '1Password', id: 443987910
-mas 'Slack', id: 803453959
-mas 'Dash', id: 449589707
-mas 'Xcode', id: 497799835
-mas 'Skitch', id: 425955336
-mas 'The Unarchiver', id: 425424353
-mas 'Caffeine', id: 411246225
+# mas '1Password', id: 443987910
+# mas 'Slack', id: 803453959
+# mas 'Dash', id: 449589707
+# mas 'Xcode', id: 497799835
+# mas 'Skitch', id: 425955336
+# mas 'The Unarchiver', id: 425424353
+# mas 'Caffeine', id: 411246225
