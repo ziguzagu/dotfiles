@@ -15,6 +15,7 @@ terminfo: ## Install extra terminfo missing of OS X 10.11
 	tic -x tmux.terminfo
 
 update: ## Update homebrew stuff
+	brew update
 	brew bundle
 	brew bundle check
 
