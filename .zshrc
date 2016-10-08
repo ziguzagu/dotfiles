@@ -61,7 +61,7 @@ if [[ -n "$TMUX" ]]; then
                 ;;
         esac
 
-        local -A jt; jt=(${(kv)jobtexts})
+        local -a jt; jt=(${(kv)jobtexts})
 
         $cmd >>(read num rest
             cmd=(${(z)${(e):-\$jt$num}})
