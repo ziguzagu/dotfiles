@@ -98,11 +98,13 @@
 (global-set-key (kbd "C-z") 'other-window-or-split)
 
 ;; popwin
-(require 'popwin)
-(setq display-buffer-function 'popwin:display-buffer)
-(setq popwin:popup-window-position 'bottom)
-(push '("*vc-diff*" :height 20) popwin:special-display-config)
-(push '("*vc-change-log*" :height 20) popwin:special-display-config)
+(use-package popwin
+  :init
+  (setq display-buffer-function 'popwin:display-buffer)
+  (setq popwin:popup-window-position 'bottom)
+  :config
+  (push '("*vc-diff*" :height 20) popwin:special-display-config)
+  (push '("*vc-change-log*" :height 20) popwin:special-display-config))
 
 ;; reload buffer without confirmation
 (defun revert-buffer-no-confirm (&optional force-reverting)
