@@ -31,7 +31,9 @@
 ;; prepare to setup packages gracefully
 (require 'cask "/usr/local/share/emacs/site-lisp/cask/cask.el")
 (cask-initialize)
-(require 'use-package)
+(eval-when-compile (require 'use-package))
+(require 'diminish)
+(require 'bind-key)
 
 ;; emacs server/client on tmux
 (use-package server
