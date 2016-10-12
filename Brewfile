@@ -45,7 +45,6 @@ brew 'tcping'
 brew 'openssl'
 brew 'libxml2'
 brew 'libyaml'
-brew 'oniguruma'
 
 ## for web app development
 brew 'nginx'
