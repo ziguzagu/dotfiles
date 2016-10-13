@@ -29,11 +29,10 @@
 (set-default-coding-systems 'utf-8)
 
 ;; prepare to setup packages gracefully
-(require 'cask "/usr/local/share/emacs/site-lisp/cask/cask.el")
-(cask-initialize)
-(eval-when-compile (require 'use-package))
-(require 'diminish)
-(require 'bind-key)
+;; (require 'cask "/usr/local/share/emacs/site-lisp/cask/cask.el")
+;; (cask-initialize)
+(load "init-packages")
+(require 'use-package)
 
 ;; emacs server/client on tmux
 (use-package server
