@@ -6,7 +6,6 @@ tap 'homebrew/dupes'
 brew 'mas'
 
 brew 'emacs'
-brew 'cask'
 brew 'global', args: ['--with-pygments', '--with-ctags']
 
 brew 'rbenv'
