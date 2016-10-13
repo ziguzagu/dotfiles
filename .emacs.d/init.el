@@ -2,13 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-(package-initialize)
-
 (setq debug-on-error t)
 (cd "~")
 (add-to-list 'load-path "~/.emacs.d/init")
@@ -28,9 +21,10 @@
 (set-language-environment "Japanese")
 (set-default-coding-systems 'utf-8)
 
-;; prepare to setup packages gracefully
-;; (require 'cask "/usr/local/share/emacs/site-lisp/cask/cask.el")
-;; (cask-initialize)
+;; initialize packages
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
 (load "init-packages")
 (require 'use-package)
 
