@@ -21,12 +21,18 @@
 (set-language-environment "Japanese")
 (set-default-coding-systems 'utf-8)
 
-;; initialize packages
+;; initialize packages and prepare use-package
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(setq package-enable-at-startup nil)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
-(load "init-packages")
-(require 'use-package)
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(eval-when-compile
+  (require 'use-package))
+(require 'diminish)
+(require 'bind-key)
 
 ;; emacs server/client on tmux
 (use-package server
