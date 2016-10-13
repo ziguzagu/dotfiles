@@ -2,8 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(package-refresh-contents)
-
 (package-install 'exec-path-from-shell)
 (package-install 'use-package)
 
