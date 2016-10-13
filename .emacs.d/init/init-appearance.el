@@ -7,8 +7,8 @@
 
 ;; hide menu bar, toolbar and scroll bar
 (menu-bar-mode 0)
-(tool-bar-mode 0)
 (when window-system
+  (tool-bar-mode 0)
   (scroll-bar-mode 0))
 
 ;; stop cursor blinking
