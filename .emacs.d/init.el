@@ -35,8 +35,7 @@
 (require 'bind-key)
 
 ;; emacs server/client on tmux
-(use-package server
-  :config
+(with-eval-after-load 'server
   (unless (server-running-p)
     (server-start)
     (cond ((getenv "TMUX")
