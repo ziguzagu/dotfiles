@@ -57,12 +57,16 @@ brew 'sqlite'
 cask 'virtualbox'
 cask 'vagrant'
 cask 'google-cloud-sdk'
+cask 'appcleaner'
+cask 'paw'
+cask 'licecap'
+cask 'kindle'
+# cask 'iterm2'
 # cask 'docker'
 # cask 'dropbox'
 # cask 'firefox'
 # cask 'google-chrome'
 # cask 'alfred'
-# cask 'appcleaner'
 
 mas '1Password', id: 443987910
 mas 'Slack', id: 803453959
