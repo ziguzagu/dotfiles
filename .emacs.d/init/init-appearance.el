@@ -80,7 +80,8 @@
                     '(:eval (concat (propertize " %c:%l(%p)")))
                     '(:propertize (:eval vc-mode) face mode-line-vc-mode)
                     " "
-                    'mode-line-modes
+                    'mode-name
+                    'minor-mode-alist
                     "-%-"))
 
 ;; minibuffer color
