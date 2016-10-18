@@ -13,6 +13,7 @@
   :init
   (add-hook 'after-init-hook #'global-flycheck-mode)
   :config
+  (custom-set-variables '(flycheck-mode-line-prefix "✓"))
   (set-face-attribute 'flycheck-warning nil
                       :foreground "yellow"
                       :underline t
