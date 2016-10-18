@@ -14,14 +14,9 @@
   (add-hook 'after-init-hook #'global-flycheck-mode)
   :config
   (custom-set-variables '(flycheck-mode-line-prefix "✓"))
-  (set-face-attribute 'flycheck-warning nil
-                      :foreground "yellow"
-                      :underline t
-                      :weight 'normal)
-  (set-face-attribute 'flycheck-error nil
-                      :foreground "red1"
-                      :underline t
-                      :weight 'normal))
+  (custom-set-faces
+   '(flycheck-warning ((t (:foreground "yellow" :underline t :weight normal))))
+   '(flycheck-error   ((t (:foreground "red1" :underline t :weight normal))))))
 
 (use-package flycheck-pos-tip
   :config
