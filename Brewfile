@@ -40,18 +40,16 @@ brew 'jq'
 brew 'wget'
 brew 'tcping'
 
-## libraries to build ruby
 brew 'openssl'
 brew 'libxml2'
 brew 'libyaml'
+brew 'jpeg'
+brew 'libpng'
+brew 'imagemagick'
 
-## for web app development
 brew 'nginx'
 brew 'varnish'
 brew 'redis'
-brew 'imagemagick'
-brew 'jpeg'
-brew 'libpng'
 brew 'sqlite'
 
 cask 'virtualbox'
