@@ -47,7 +47,9 @@
     (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)))
 
 ;; inherit PATH from shell
-(exec-path-from-shell-initialize)
+(use-package exec-path-from-shell
+  :config
+  (exec-path-from-shell-initialize))
 
 ;; initialize
 (load "init-appearance")
