@@ -23,7 +23,7 @@ brew 'colordiff'
 
 brew 'tmux'
 brew 'reattach-to-user-namespace'
-brew 'zsh', args: ['--without-etcdir']
+#brew 'zsh', args: ['--without-etcdir']
 brew 'zsh-completions'
 brew 'zsh-syntax-highlighting'
 brew 'the_silver_searcher'
