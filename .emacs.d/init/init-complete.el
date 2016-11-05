@@ -3,13 +3,14 @@
 ;;; Code:
 
 ;; auto-complete
-(use-package auto-complete-config
+(use-package auto-complete
   :diminish auto-complete-mode
   :init
   (setq ac-use-menu-map t)
   (custom-set-faces
    '(popup-face ((t (:background "gray28" :foreground "gray72")))))
   :config
+  (require 'auto-complete-config)
   (add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete-dict")
   (ac-config-default))
 
