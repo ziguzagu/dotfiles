@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package helm-config
+(use-package helm
   :bind (("M-x" . helm-M-x)
          ("C-x b" . helm-mini)
          ("C-x C-f" . helm-find-files)
@@ -25,7 +25,6 @@
   (helm-mode 1))
 
 (use-package helm-ls-git)
-(use-package helm-man)
 
 ;; dispaly helm by popwin
 (setq helm-samewindow nil)
