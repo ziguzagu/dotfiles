@@ -20,6 +20,7 @@ brew 'hub'
 brew 'tig'
 brew 'diff-so-fancy'
 brew 'colordiff'
+brew 'ghq'
 
 brew 'tmux'
 brew 'reattach-to-user-namespace'
