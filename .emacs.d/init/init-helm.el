@@ -38,7 +38,7 @@
 (define-key helm-read-file-map  (kbd "TAB") 'helm-execute-persistent-action)
 ;; and prevent to create new buffer by TAB + TAB
 (defadvice helm-ff-kill-or-find-buffer-fname (around execute-only-if-exist activate)
-  "Execute command only if CANDIDATE exists"
+  "Execute command only if CANDIDATE exists."
   (when (file-exists-p candidate)
     ad-do-it))
 
