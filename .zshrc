@@ -25,8 +25,6 @@ typeset -U PATH
 ########################################
 
 if [[ -n "$TMUX" ]]; then
-    alias mas="reattach-to-user-namespace mas"
-
     ## changing title of tmux window on executing command
     function _update_window_title() {
         emulate -L zsh
