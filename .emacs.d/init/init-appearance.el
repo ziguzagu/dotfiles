@@ -83,6 +83,28 @@
                     'mode-name
                     'minor-mode-alist
                     "-%-"))
+;; rich modeline
+(when window-system
+  (use-package all-the-icons)
+  (defun custom-modeline-mode-icon ()
+    (format "%s"
+          (propertize (all-the-icons-icon-for-file buffer-file-name)
+                      'help-echo (format "Mode: `%s`" mode-name)
+                      'face `(:height 1.2 :family ,(all-the-icons-icon-family-for-buffer))
+                      'display '(raise -0.1))))
+  (setq-default mode-line-format
+                (list "-"
+                      'mode-line-mule-info
+                      'mode-line-modified
+                      " "
+                      '(:eval (custom-modeline-mode-icon))
+                      " "
+                      'mode-line-buffer-identification
+                      '(:eval (concat (propertize " %c:%l(%p)")))
+                      '(:propertize (:eval vc-mode) face mode-line-vc-mode)
+                      " "
+                      'minor-mode-alist
+                      "-%-")))
 
 ;; minibuffer color
 (set-face-foreground 'minibuffer-prompt "yellow")
