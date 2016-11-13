@@ -30,8 +30,8 @@
   (package-refresh-contents)
   (package-install 'use-package))
 (eval-when-compile
-  (setq use-package-always-ensure t)
-  (require 'use-package))
+  (require 'use-package)
+  (setq use-package-always-ensure t))
 (require 'diminish)
 (require 'bind-key)
 
