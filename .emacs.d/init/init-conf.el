@@ -7,13 +7,9 @@
                 ("\\.cfg$"  . conf-mode)) auto-mode-alist))
 
 ;;;;;; yaml
-(autoload 'yaml-mode "yaml-mode" nil t)
-(setq auto-mode-alist
-      (append '(("\\.yml$" . yaml-mode)
-                ("\\.yaml$" . yaml-mode)) auto-mode-alist))
-(add-hook 'yaml-mode-hook
-          '(lambda ()
-             (local-set-key (kbd "C-m") 'newline-and-indent)))
+(use-package yaml-mode
+  :bind (:map yaml-mode-map
+         ("C-m" . newline-and-indent)))
 
 ;;;;;; vcl mode
 (autoload 'vcl-mode "vcl-mode" "Major mode for editting varnish config file")
