@@ -100,6 +100,18 @@
                       'help-echo (format "Mode: `%s`" mode-name)
                       'face `(:height 1.2 :family ,(all-the-icons-icon-family-for-buffer))
                       'display '(raise -0.1))))
+  (defun -custom-modeline-vc-github ()
+    (let ((branch (mapconcat 'concat (cdr (split-string vc-mode "[:-]")) "-")))
+      (concat
+       (propertize (format "%s" (all-the-icons-octicon "git-branch"))
+                   'face `(:height 1.3 :family ,(all-the-icons-octicon-family))
+                   'display '(raise -0.1))
+       (propertize (format " %s" branch) 'face `(:height 0.9)))))
+  (defun custom-modeline-vc-icon ()
+    (when vc-mode
+      (cond
+       ((string-match "Git[:-]" vc-mode) (-custom-modeline-vc-github))
+       (t (format "%s" vc-mode)))))
   (setq-default mode-line-format
                 (list "  "
                       '(:eval (custom-modeline-modified-icon))
@@ -108,7 +120,7 @@
                       "  "
                       'mode-line-buffer-identification
                       "  "
-                      '(:propertize (:eval vc-mode) face mode-line-vc-mode)
+                      '(:eval (custom-modeline-vc-icon))
                       "  "
                       '(:eval (format-mode-line "%4l:%3c"))
                       "  "
