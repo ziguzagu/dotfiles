@@ -86,6 +86,14 @@
 ;; rich modeline
 (when window-system
   (use-package all-the-icons)
+  (defun custom-modeline-modified-icon ()
+    (let* ((config-alist
+            '(("*" all-the-icons-faicon-family all-the-icons-faicon "chain-broken" :height 1.2 :v-adjust -0.0)
+              ("-" all-the-icons-faicon-family all-the-icons-faicon "link" :height 1.2 :v-adjust -0.0)
+              ("%" all-the-icons-octicon-family all-the-icons-octicon "lock" :height 1.2 :v-adjust 0.1)))
+           (result (cdr (assoc (format-mode-line "%*") config-alist))))
+      (propertize (apply (cadr result) (cddr result))
+                  'face `(:family ,(funcall (car result))))))
   (defun custom-modeline-mode-icon ()
     (format "%s"
           (propertize (all-the-icons-icon-for-file buffer-file-name)
@@ -93,18 +101,18 @@
                       'face `(:height 1.2 :family ,(all-the-icons-icon-family-for-buffer))
                       'display '(raise -0.1))))
   (setq-default mode-line-format
-                (list "-"
-                      'mode-line-mule-info
-                      'mode-line-modified
-                      " "
+                (list "  "
+                      '(:eval (custom-modeline-modified-icon))
+                      "  "
                       '(:eval (custom-modeline-mode-icon))
-                      " "
+                      "  "
                       'mode-line-buffer-identification
-                      '(:eval (concat (propertize " %c:%l(%p)")))
+                      "  "
                       '(:propertize (:eval vc-mode) face mode-line-vc-mode)
-                      " "
-                      'minor-mode-alist
-                      "-%-")))
+                      "  "
+                      '(:eval (format-mode-line "%4l:%3c"))
+                      "  "
+                      'minor-mode-alist)))
 
 ;; minibuffer color
 (set-face-foreground 'minibuffer-prompt "yellow")
