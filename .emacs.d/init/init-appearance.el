@@ -96,10 +96,10 @@
                   'face `(:family ,(funcall (car result))))))
   (defun custom-modeline-mode-icon ()
     (format "%s"
-          (propertize (all-the-icons-icon-for-file buffer-file-name)
-                      'help-echo (format "Mode: `%s`" mode-name)
-                      'face `(:height 1.2 :family ,(all-the-icons-icon-family-for-buffer))
-                      'display '(raise -0.1))))
+            (propertize (all-the-icons-icon-for-file buffer-file-name)
+                        'help-echo (format "Mode: `%s`" mode-name)
+                        'face `(:height 1.2 :family ,(all-the-icons-icon-family-for-buffer))
+                        'display '(raise -0.1))))
   (defun -custom-modeline-vc-github ()
     (let ((branch (mapconcat 'concat (cdr (split-string vc-mode "[:-]")) "-")))
       (concat
