@@ -21,6 +21,11 @@
 (set-language-environment "Japanese")
 (set-default-coding-systems 'utf-8)
 
+;; change frame size to good feeling
+(when window-system
+  (add-to-list 'default-frame-alist '(width . 140))
+  (add-to-list 'default-frame-alist '(fullscreen . fullheight)))
+
 ;; initialize packages and prepare use-package
 (require 'package)
 (setq package-enable-at-startup nil)
