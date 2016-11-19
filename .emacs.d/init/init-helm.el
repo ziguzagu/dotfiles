@@ -27,8 +27,21 @@
 (use-package helm-ls-git)
 
 ;; dispaly helm by popwin
-(setq helm-samewindow nil)
-(push '("^\*helm" :regexp t :height 20) popwin:special-display-config)
+(push '("^\\*helm" :regexp t) popwin:special-display-config)
+;; https://github.com/emacs-helm/helm/wiki/Popwin
+(defun helm-popwin-help-mode-off ()
+  "Turn `popwin-mode' off for *Help* buffers."
+  (when (boundp 'popwin:special-display-config)
+    (popwin:display-buffer helm-buffer t)
+    (customize-set-variable 'popwin:special-display-config
+                            (delq 'help-mode popwin:special-display-config))))
+(defun helm-popwin-help-mode-on ()
+  "Turn `popwin-mode' on for *Help* buffers."
+  (when (boundp 'popwin:special-display-config)
+    (customize-set-variable 'popwin:special-display-config
+                            (add-to-list 'popwin:special-display-config 'help-mode nil #'eq))))
+(add-hook 'helm-after-initialize-hook #'helm-popwin-help-mode-off)
+(add-hook 'helm-cleanup-hook #'helm-popwin-help-mode-on)
 
 ;; enter helm-occur from isearch
 (define-key isearch-mode-map (kbd "C-o") 'helm-occur-from-isearch)
