@@ -165,6 +165,6 @@
   :bind (("C-M-c" . mc/edit-lines)
          ("C-M-n" . mc/mark-next-like-this)
          ("C-M-p" . mc/mark-previous-like-this)
-         ("C-M-d" . mc/mark-all-like-this-dwim)))
+         ("C-M-a" . mc/mark-all-like-this)))
 
 ;;; init-general.el ends here
