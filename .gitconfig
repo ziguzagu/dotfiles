@@ -31,7 +31,7 @@ whitespace   = trailing-space
 pager        = diff-so-fancy | less -FX
 
 [diff]
-compactionHeuristic = true
+indentHeuristic = true
 
 [diff-so-fancy]
 stripLeadingSymbols = false
