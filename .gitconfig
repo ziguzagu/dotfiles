@@ -33,6 +33,9 @@ pager        = diff-so-fancy | less -FX
 [diff]
 indentHeuristic = true
 
+[grep]
+patternType = perl
+
 [diff-so-fancy]
 stripLeadingSymbols = false
 
