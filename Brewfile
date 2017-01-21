@@ -14,6 +14,7 @@ brew 'perl-build'
 brew 'go'
 brew 'node'
 brew 'elixir'
+brew 'python3'
 
 brew 'git', args: ['with-pcre']
 brew 'hub'
