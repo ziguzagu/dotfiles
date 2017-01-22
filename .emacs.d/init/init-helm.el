@@ -9,11 +9,13 @@
          ("C-c y"   . helm-show-kill-ring)
          ("C-c m"   . helm-man-woman)
          ("C-c o"   . helm-occur)
-         ;; enable usual C-h on helm
          :map helm-map
          ("C-h" . delete-backward-char)
          :map helm-find-files-map
-         ("C-h" . delete-backward-char))
+         ("C-h" . delete-backward-char)
+         ("TAB" . helm-execute-persistent-action)
+         :map helm-read-file-map
+         ("TAB" . helm-execute-persistent-action))
   :init
   (custom-set-faces
    '(helm-header           ((t (:background "#3a3a3a" :underline nil))))
@@ -46,9 +48,6 @@
 ;; enter helm-occur from isearch
 (define-key isearch-mode-map (kbd "C-o") 'helm-occur-from-isearch)
 
-;; complete filename by TAB in helm-find-files and helm-read-file
-(define-key helm-find-files-map (kbd "TAB") 'helm-execute-persistent-action)
-(define-key helm-read-file-map  (kbd "TAB") 'helm-execute-persistent-action)
 ;; and prevent to create new buffer by TAB + TAB
 (defadvice helm-ff-kill-or-find-buffer-fname (around execute-only-if-exist activate)
   "Execute command only if CANDIDATE exists."
