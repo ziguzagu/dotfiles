@@ -1,8 +1,3 @@
-;; mcomplete
-;;   * elisp: http://homepage1.nifty.com/bmonkey/emacs/elisp/mcomplete.el
-(require 'mcomplete)
-(turn-on-mcomplete-mode)
-
 ;; incremental-searching on minibuffer history
 ;;   elisp: http://www.sodan.org/~knagano/emacs/minibuf-isearch/
 ;; (require 'minibuf-isearch)
