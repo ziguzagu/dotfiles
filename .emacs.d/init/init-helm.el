@@ -9,6 +9,7 @@
          ("C-c y"   . helm-show-kill-ring)
          ("C-c m"   . helm-man-woman)
          ("C-c o"   . helm-occur)
+         ("C-c s"   . helm-imenu)
          :map helm-map
          ("C-h" . delete-backward-char)
          :map helm-find-files-map
