@@ -30,6 +30,9 @@ excludesfile = ~/.gitignore
 whitespace   = trailing-space
 pager        = diff-so-fancy | less -FX
 
+[credential]
+helper = osxkeychain
+
 [diff]
 indentHeuristic = true
 
