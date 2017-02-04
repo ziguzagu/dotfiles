@@ -51,7 +51,7 @@ st = status -sb
 co = checkout
 pick = cherry-pick
 br = branch
-hist = log --graph --pretty=format:'%C(yellow bold)%h%C(cyan)%d%Creset %s %C(black bold)(%ci)%Creset' --decorate
+history = log --graph --branches --remotes --tags --format='%C(cyan)%h%Creset %<|(75,trunc)%s %C(black bold)(%cr)%Creset%C(yellow)%d'
 last = log -1 HEAD
 info = config --get remote.origin.url
 upstream = "!sh -c 'git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null'"
