@@ -19,11 +19,11 @@
          ("TAB" . helm-execute-persistent-action))
   :init
   (custom-set-faces
-   '(helm-header           ((t (:background "#3a3a3a" :underline nil))))
-   '(helm-source-header    ((t (:background "gray16" :foreground "gray64" :slant italic))))
+   '(helm-header           ((t (:background "#3a3a3a" :slant italic :underline nil))))
+   '(helm-source-header    ((t (:background "#292929" :foreground "#a3a3a3" :slant italic))))
    '(helm-candidate-number ((t (:foreground "#00afff"))))
    '(helm-selection        ((t (:background "#005f87" :weight normal))))
-   '(helm-match            ((t (:foreground "darkolivegreen3")))))
+   '(helm-match            ((t (:foreground "#a2cd5a")))))
   :config
   (helm-mode 1))
 
