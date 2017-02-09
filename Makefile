@@ -18,6 +18,7 @@ update: ## Update homebrew stuff
 	brew update
 	brew bundle
 	brew bundle check
+	brew cleanup
 
 keyrepeat:
 	defaults write -g InitialKeyRepeat -int 10
