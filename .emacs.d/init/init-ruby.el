@@ -30,9 +30,10 @@
   :config
   (global-rbenv-mode))
 
-(use-package robe
-  :init
-  (add-hook 'ruby-mode-hook '(lambda () (robe-mode)))
-  (add-hook 'robe-mode-hook '(lambda () (ac-robe-setup))))
+;; It's hard to working rails projects that uses docker
+;; (use-package robe
+;;   :init
+;;   (add-hook 'ruby-mode-hook '(lambda () (robe-mode)))
+;;   (add-hook 'robe-mode-hook '(lambda () (ac-robe-setup))))
 
 ;;; init-ruby.el ends here
