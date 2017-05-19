@@ -21,7 +21,7 @@ update: ## Update homebrew stuff
 	brew cleanup
 
 keyrepeat:
-	defaults write -g InitialKeyRepeat -int 10
+	defaults write -g InitialKeyRepeat -int 15
 	defaults write -g KeyRepeat -int 1
 
 .PHONY: help
