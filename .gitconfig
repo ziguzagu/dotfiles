@@ -60,6 +60,8 @@ uncommit = reset --mixed HEAD~
 history = log --graph --branches --remotes --tags --format='%C(cyan)%h%Creset %<|(75,trunc)%s %C(black bold)(%cr)%Creset%C(yellow)%d'
 last = log -1 HEAD
 info = config --get remote.origin.url
+current = rev-parse --abbrev-ref HEAD
+publish = push -u origin $(git current)
 upstream = "!sh -c 'git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null'"
 remaster = "!sh -c 'branch=`git rev-parse --abbrev-ref HEAD` && git co master && git pull origin master && git co $branch && git rebase master'"
 ag  = grep --heading --break --line-number --color --show-function
