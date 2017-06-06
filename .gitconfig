@@ -46,7 +46,7 @@ stripLeadingSymbols = false
 diffFilter = diff-so-fancy
 
 [alias]
-up = pull --rebase
+up = !git pull --rebase && git submodule update --init --recursive
 di = diff
 dc = diff --cached
 ci = commit -v
