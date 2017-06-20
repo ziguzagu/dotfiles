@@ -138,6 +138,10 @@ setopt auto_pushd
 setopt auto_name_dirs
 setopt extended_glob
 
+## zmv
+autoload -Uz zmv
+alias zmv="noglob zmv -W"
+
 ########################################
 ## Completion
 ########################################
