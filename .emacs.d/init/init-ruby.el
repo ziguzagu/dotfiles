@@ -30,6 +30,10 @@
   :config
   (global-rbenv-mode))
 
+(use-package projectile-rails
+  :config
+  (projectile-rails-global-mode))
+
 ;; It's hard to working rails projects that uses docker
 ;; (use-package robe
 ;;   :init
