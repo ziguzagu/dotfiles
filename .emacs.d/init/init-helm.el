@@ -29,6 +29,11 @@
 
 (use-package helm-ls-git)
 
+(use-package helm-git-grep
+  :bind (("C-x g" . helm-git-grep)
+         :map isearch-mode-map
+         ("C-x g" . helm-git-grep-from-isearch)))
+
 ;; dispaly helm by popwin
 (push '("^\\*helm" :regexp t) popwin:special-display-config)
 ;; https://github.com/emacs-helm/helm/wiki/Popwin
