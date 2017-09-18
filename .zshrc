@@ -112,6 +112,7 @@ alias g="git"
 alias d="docker"
 alias c="docker-compose"
 alias m="docker-machine"
+alias drmi="docker rmi $(docker images -f 'dangling=true' -q)"
 
 ## vagrant
 alias v="vagrant"
