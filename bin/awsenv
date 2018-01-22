@@ -1,0 +1,29 @@
+#!/usr/bin/env perl
+use v5.20;
+use Getopt::Long qw(:config posix_default no_ignore_case gnu_compat);
+use Pod::Usage;
+use Config::Tiny;
+use Data::Printer;
+
+GetOptions(\my %opt, qw(h|help)) or pod2usage(1);
+my $profile = shift or pod2usage("Missing profile name");
+my $ini     = Config::Tiny->read("$ENV{HOME}/.aws/credentials") or die "$!\n";
+my $config  = $ini->{$profile} or die "Unknown profile: $profile\n";
+
+while (my ($k, $v) = each %$config) {
+    say "export @{[uc($k)]}=\"$v\"";
+}
+
+__END__
+
+=pod
+
+=head1 NAME
+
+awsenv - Set environment variables from AWS CLI credentials
+
+=head1 SYNOPSIS
+
+  $ awsenv <profile>
+
+=cut
