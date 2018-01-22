@@ -32,7 +32,7 @@
 
 ;; yasnippet
 (use-package yasnippet
-  :bind ("M-i" . yas/expand)
+  :bind (("C-c i" . yas-expand))
   :diminish yas-minor-mode
   :config
   (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
