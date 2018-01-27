@@ -2,6 +2,7 @@
 cask_args appdir: '/Applications'
 
 tap 'caskroom/cask'
+tap 'caskroom/fonts'
 tap 'homebrew/dupes'
 
 brew 'emacs'
@@ -64,3 +65,4 @@ cask 'firefox'
 cask 'google-chrome'
 cask 'google-japanese-ime'
 cask 'java'
+cask 'font-source-code-pro'
