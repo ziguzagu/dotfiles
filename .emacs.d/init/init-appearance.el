@@ -89,6 +89,20 @@
 
 ;; settings for running in GUI world
 (when window-system
+  ;; powerline
+  (use-package spaceline-config
+    :ensure spaceline
+    :config
+    (setq powerline-default-separator 'wave)
+    (setq ns-use-srgb-colorspace nil) ;; fix wrong separator color
+    (spaceline-helm-mode))
+  (use-package spaceline-all-the-icons
+    :after spaceline
+    :config
+    (setq spaceline-all-the-icons-separator-scale 1.7)
+    (setq spaceline-all-the-icons-separator-type 'wave)
+    (spaceline-all-the-icons-theme))
+  ;; tweak font
   (setq-default line-spacing 0)
   (set-face-attribute 'default nil :family "Source Han Code JP" :height 120))
 
