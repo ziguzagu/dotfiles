@@ -32,7 +32,8 @@ brew 'the_silver_searcher'
 brew 'grep', args: ['with-default-names']
 brew 'awscli'
 brew 'heroku'
-brew 'htop'
+# XXX: macOS 10.13 brokes htop.
+#brew 'htop'
 brew 'coreutils'
 brew 'less', args: ['with-pcre']
 brew 'tree'
