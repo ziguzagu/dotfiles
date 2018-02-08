@@ -37,6 +37,9 @@
 
   (add-hook 'js2-mode-hook 'my-js2-mode))
 
+(use-package typescript-mode
+  :mode "\\.ts\\'")
+
 ;;;;;; coffee-mode
 (use-package coffee-mode
   :mode "\\.coffee$"
