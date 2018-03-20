@@ -5,7 +5,6 @@
 (setq debug-on-error t)
 (cd "~")
 (add-to-list 'load-path "~/.emacs.d/init")
-(add-to-list 'load-path "~/.emacs.d/elisp")
 
 ;; using unsafe local variables..?
 (setq safe-local-variable-values (quote ((syntax . elisp))))
