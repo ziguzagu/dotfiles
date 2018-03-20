@@ -17,6 +17,7 @@
 ;; languages
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
+(set-clipboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 (set-language-environment "Japanese")
 (set-default-coding-systems 'utf-8)
