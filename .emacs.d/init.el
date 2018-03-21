@@ -76,6 +76,5 @@
 (load "init-perl")
 (load "init-web")
 (load "init-conf")
-(load "init-elixir")
 
 ;;; init.el ends here
