@@ -17,14 +17,12 @@
          ("TAB" . helm-execute-persistent-action)
          :map helm-read-file-map
          ("TAB" . helm-execute-persistent-action))
-  :init
-  (custom-set-faces
-   '(helm-header           ((t (:background "#3a3a3a" :slant italic :underline nil))))
-   '(helm-source-header    ((t (:background "#292929" :foreground "#a3a3a3" :slant italic))))
-   '(helm-candidate-number ((t (:foreground "#00afff"))))
-   '(helm-selection        ((t (:background "#005f87" :weight normal))))
-   '(helm-match            ((t (:foreground "#a2cd5a")))))
   :config
+  (set-face-attribute 'helm-header nil :background "#3a3a3a" :slant 'italic :underline nil)
+  (set-face-attribute 'helm-source-header nil :background "#292929" :foreground "#a3a3a3" :slant 'italic)
+  (set-face-attribute 'helm-candidate-number nil :foreground "#00afff")
+  (set-face-attribute 'helm-selection nil :background "#005f87" :weight 'normal)
+  (set-face-attribute 'helm-match nil :foreground "#a2cd5a")
   (helm-mode 1))
 
 (use-package helm-ls-git)
