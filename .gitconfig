@@ -42,8 +42,10 @@ patternType = perl
 [diff-so-fancy]
 stripLeadingSymbols = false
 
-[interactive]
-diffFilter = diff-so-fancy
+# XXX: git 2.17.0 doens't work well with this.
+# see https://github.com/so-fancy/diff-so-fancy/issues/35
+# [interactive]
+# diffFilter = diff-so-fancy
 
 [alias]
 up = !git pull --rebase && git submodule update --init --recursive
