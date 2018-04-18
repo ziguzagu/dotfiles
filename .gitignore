@@ -5,3 +5,6 @@
 .*~
 *~
 .#*
+
+# IntelliJ IDEA
+.idea/
