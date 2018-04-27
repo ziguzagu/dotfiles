@@ -22,10 +22,13 @@ __END__
 
 =head1 NAME
 
-awsenv - Set environment variables from AWS CLI credentials
+awsenv - Pring environment variables from AWS CLI credentials and config
 
 =head1 SYNOPSIS
 
   $ awsenv <profile>
+  export AWS_SECRET_ACCESS_KEY="rXnca7ELDm+xxxxxxxxxxxxxxxxxx"
+  export AWS_ACCESS_KEY_ID="AUIAAASF2O6OTYK9Y8JZ"
+  export AWS_REGION="ap-northeast-1"
 
 =cut
