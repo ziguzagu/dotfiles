@@ -7,10 +7,10 @@ use Data::Printer;
 
 GetOptions(\my %opt, qw(h|help)) or pod2usage(1);
 my $profile = shift or pod2usage("Missing profile name");
-my $ini     = Config::Tiny->read("$ENV{HOME}/.aws/credentials") or die "$!\n";
-my $config  = $ini->{$profile} or die "Unknown profile: $profile\n";
+my $cred    = Config::Tiny->read("$ENV{HOME}/.aws/credentials") or die "$!\n";
+my $env     = $cred->{$profile} or die "Unknown profile: $profile\n";
 
-while (my ($k, $v) = each %$config) {
+while (my ($k, $v) = each %$env) {
     say "export @{[uc($k)]}=\"$v\"";
 }
 
