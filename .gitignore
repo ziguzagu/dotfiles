@@ -6,5 +6,8 @@
 *~
 .#*
 
+# Mac
+.DS_Store
+
 # IntelliJ IDEA
 .idea/
