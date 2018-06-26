@@ -5,7 +5,7 @@ tap 'caskroom/cask'
 tap 'caskroom/fonts'
 tap 'homebrew/dupes'
 
-cask 'emacs'
+brew 'emacs'
 brew 'global', args: ['with-pygments', 'with-ctags']
 
 brew 'rbenv'
