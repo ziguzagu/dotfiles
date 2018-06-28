@@ -24,11 +24,6 @@ export GOPATH=$HOME
 ## Editor and Pager
 ########################################
 
-# -Sb1     - bright white (foreground)
-# -Sh1;33  - bright yello
-# -Su4;36  - cyan with underline
-export LV="-c -Ou8 -Sb1 -Sh1;33 -Su4;36 -Ss0;37;44"
-
 export LESS="-q -g -R -j 10 -M"
 export LESSCHARSET=utf-8
 export LESS_TERMCAP_mb=$'\E[01;33m'  # begin blinking
