@@ -1,0 +1,5 @@
+# name : bash
+# --
+#!/bin/bash
+set -eu -o pipefail
+
