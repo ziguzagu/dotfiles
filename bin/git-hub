@@ -4,9 +4,9 @@ set -eu
 usage() {
     cat <<EOF
 Usage:
-    git pr setup         - Setup to fetch branches as a pull request number
-    git pr find <commit> - Find a pull request including commit hash
-    git pr open <commit> - Open a pull request including commit hash
+    git hub setup         - Setup to fetch branches as a pull request number
+    git hub find <commit> - Find a pull request including commit hash
+    git hub open <commit> - Open a pull request including commit hash
 EOF
 
     exit 1
@@ -24,7 +24,7 @@ case "$1" in
         git log --merges --oneline --reverse --ancestry-path $2...HEAD | grep 'Merge pull request #' | head -n 1 |  perl -lne '/#(\d+)/ && print $1'
         ;;
     "open")
-        open `hub browse -u`/pull/`git pr find $2`
+        open `hub browse -u`/pull/`git hub find $2`
         ;;
     *)
         usage
