@@ -3,7 +3,7 @@
 ;;; Code:
 
 (use-package ruby-mode
-  :mode ("\\.rb$" "Capfile" "Gemfile")
+  :mode ("\\.rb\\'" "Capfile" "Gemfile")
   :interpreter "ruby"
   :config
   (defun my-ruby-mode ()
