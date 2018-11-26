@@ -1,8 +1,8 @@
 ## -*- mode: ruby -*-
 cask_args appdir: '/Applications'
 
-tap 'caskroom/cask'
-tap 'caskroom/fonts'
+tap 'homebrew/cask'
+tap 'homebrew/cask-fonts'
 tap 'homebrew/dupes'
 
 brew 'emacs'
