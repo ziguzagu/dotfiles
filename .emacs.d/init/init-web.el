@@ -3,7 +3,7 @@
 ;;; Code:
 
 (use-package web-mode
-  :mode ("\\.html" "\\.tmpl$" "\\.tt$" "\\.tx$")
+  :mode ("\\.html\\'" "\\.tmpl\\'" "\\.tt\\'" "\\.tx\\'")
   :config
   (defun my-web-mode-hook ()
     (setq web-mode-markup-indent-offset 2)
@@ -12,22 +12,22 @@
     (setq web-mode-style-padding 2)
     (setq web-mode-script-padding 2)
     (setq web-mode-engines-alist
-          '(("template-toolkit" . "\\.tt$")
-            ("template-toolkit" . "\\.tx$"))))
+          '(("template-toolkit" . "\\.tt\\'")
+            ("template-toolkit" . "\\.tx\\'"))))
   (add-hook 'web-mode-hook 'my-web-mode-hook))
 
 ;;;;;; css-mode
 (use-package scss-mode
-  :mode ("\\.css$" "\\.scss$")
+  :mode ("\\.css\\'" "\\.scss\\'")
   :config
   (setq css-indent-offset 2)
   (setq scss-compile-at-save nil))
 
 ;;;;;; js2-mode
 (use-package js2-mode
-  :mode (("\\.js$"   . js2-mode)
-         ("\\.json$" . js2-mode)
-         ("\\.jsx$"  . js2-jsx-mode))
+  :mode (("\\.js\\'"   . js2-mode)
+         ("\\.json\\'" . js2-mode)
+         ("\\.jsx\\'"  . js2-jsx-mode))
   :interpreter ("node" . js2-mode)
   :config
   (defun my-js2-mode ()
@@ -42,7 +42,7 @@
 
 ;;;;;; coffee-mode
 (use-package coffee-mode
-  :mode "\\.coffee$"
+  :mode "\\.coffee\\'"
   :config
   (custom-set-variables
    '(coffee-tab-width 2)

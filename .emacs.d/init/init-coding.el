@@ -33,7 +33,7 @@
 ;; markdown-mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package markdown-mode
-  :mode ("\\.md$" . gfm-mode)
+  :mode ("\\.md\\'" . gfm-mode)
   :config
   (set-face-attribute 'markdown-header-delimiter-face nil
                       :foreground "orange")
