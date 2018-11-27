@@ -21,6 +21,11 @@
 (set-language-environment "Japanese")
 (set-default-coding-systems 'utf-8)
 
+;; custom is junk
+(setq custom-file "~/.emacs.d/custom.el")
+(if (file-exists-p custom-file)
+    (load custom-file))
+
 ;; change frame size to good feeling
 (when window-system
   (add-to-list 'default-frame-alist '(width . 140))
