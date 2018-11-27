@@ -26,7 +26,4 @@
 ;;;;;; nginx mode
 (autoload 'nginx-mode "nginx-mode" nil t)
 
-;;;;;; dockerfile mode
-(use-package dockerfile-mode)
-
 ;;; init-conf.el ends here

@@ -75,5 +75,6 @@
 (load "init-perl")
 (load "init-web")
 (load "init-conf")
+(load "init-docker")
 
 ;;; init.el ends here
