@@ -371,7 +371,8 @@ limit coredumpsize 0
 ########################################
 ## zsh-syntax-highlighting
 ########################################
-eval "source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+ZSH_SYNTAX_HIGHLIGHTING_SRC=/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+eval "source $ZSH_SYNTAX_HIGHLIGHTING_SRC"
 
 ## tweak styles
 ZSH_HIGHLIGHT_STYLES[unknown-token]=fg:red,underline
@@ -380,6 +381,16 @@ ZSH_HIGHLIGHT_STYLES[path_approx]=none
 
 ## highlighters
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+
+########################################
+## compile for speed-up
+########################################
+compile_targets=(~/.zshrc $ZSH_SYNTAX_HIGHLIGHTING_SRC)
+for f in $compile_targets; do
+    if [ ! -f "${f}.zwc" -o $f -nt "${f}.zwc" ]; then
+        zcompile $f
+    fi
+done
 
 ########################################
 ## Profiling by zprof
