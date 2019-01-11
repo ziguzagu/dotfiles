@@ -12,12 +12,16 @@ fi
 ## Development
 ########################################
 
-if which plenv > /dev/null; then
-    eval "$(plenv init -)"
-fi
-if which rbenv > /dev/null; then
-    eval "$(rbenv init - --no-rehash)"
-fi
+function plenv() {
+    eval "$(command plenv init -)"
+    plenv "$@"
+}
+
+function rbenv() {
+    eval "$(command rbenv init -)"
+    rbenv "$@"
+}
+
 typeset -U PATH
 
 ########################################
