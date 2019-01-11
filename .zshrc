@@ -162,8 +162,13 @@ if [[ -d /usr/local/share/zsh-completions ]]; then
     fpath=(/usr/local/share/zsh-completions $fpath)
 fi
 
-## init completion
-autoload -Uz compinit && compinit
+## init completion with reducing checking zcompdump file
+autoload -Uz compinit
+if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
+    compinit
+else
+    compinit -C
+fi
 
 ## case insensitive at completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
