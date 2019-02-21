@@ -56,7 +56,7 @@ st = status -sb
 co = checkout
 pick = cherry-pick
 br = branch
-amend = ci --amend
+amend = ci --amend --no-edit
 unstage = reset -q HEAD --
 uncommit = reset --mixed HEAD~
 history = log --graph --branches --remotes --tags --format='%C(cyan)%h%Creset %<|(75,trunc)%s %C(black bold)(%cr)%Creset%C(yellow)%d'
