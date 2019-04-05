@@ -3,7 +3,6 @@ cask_args appdir: '/Applications'
 
 tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
-tap 'homebrew/dupes'
 
 brew 'emacs'
 brew 'global', args: ['with-pygments', 'with-ctags']
