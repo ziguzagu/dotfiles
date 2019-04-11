@@ -18,9 +18,9 @@
    '(flycheck-warning ((t (:foreground "yellow" :underline t :weight normal))))
    '(flycheck-error   ((t (:foreground "red1" :underline t :weight normal))))))
 
-(use-package flycheck-pos-tip
+(use-package flycheck-popup-tip
   :config
-  (flycheck-pos-tip-mode))
+  (flycheck-popup-tip-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; sql-mode
