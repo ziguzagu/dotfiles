@@ -116,7 +116,6 @@ alias g="git"
 alias d="docker"
 alias c="docker-compose"
 alias m="docker-machine"
-alias drmi="docker rmi $(docker images -f 'dangling=true' -q)"
 
 ## vagrant
 alias v="vagrant"
@@ -132,7 +131,6 @@ alias -g L="| less"
 alias -g H="| head"
 alias -g G="| grep"
 alias -g GV="| grep -v"
-alias -g P="| peco"
 
 ## sets keybind like emacs
 bindkey -e
