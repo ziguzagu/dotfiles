@@ -67,7 +67,6 @@ publish = !git push -u origin $(git current)
 upstream = "!sh -c 'git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null'"
 remaster = "!sh -c 'branch=`git rev-parse --abbrev-ref HEAD` && git co master && git pull origin master && git co $branch && git rebase master'"
 ag  = grep --heading --break --line-number --color --show-function
-web = "!sh -c 'branch=`git rev-parse --abbrev-ref HEAD` && if [ $branch == 'master' ]; then hub browse; else hub browse -- pull/$branch; fi'"
 
 [push]
 default = current
