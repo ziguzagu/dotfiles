@@ -1,0 +1,10 @@
+#!/bin/bash
+set -eu
+
+readonly BRANCH=`git rev-parse --abbrev-ref HEAD`
+
+if [ $BRANCH = 'master' ] || [ $BRANCH = 'develop' ]; then
+    hub browse
+else
+    hub browse -- pull/$BRANCH
+fi
