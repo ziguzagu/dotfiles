@@ -4,6 +4,8 @@ basedir = $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
 sources = $(shell git ls-files | grep -Ev '(Makefile|Brewfile|\.gitmodules|\.terminfo)$$')
 targets = $(addprefix $(home),$(sources))
 
+.DEFAULT_GOAL := help
+
 install: $(targets) ## Install dot files into $HOME as symlink (Default)
 
 $(targets):
