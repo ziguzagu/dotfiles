@@ -4,7 +4,7 @@ set -eu
 usage() {
     cat <<EOF
 Usage:
-    git mtime <files> - Modify file's mtime by last commit date of it
+    git touch <files> - Modify file's mtime by last commit date of it
 EOF
 
     exit 1
