@@ -8,6 +8,15 @@
   (let ((name (file-relative-name file)))
     (vc-git-command buf 'async nil "blame" "--date=iso" rev "--" name)))
 
+;; open Pull Reuqest URL on this line from vc-annotate enter P as same as tig
+(defun vc-annotate-open-pr-at-line ()
+  "Open Pull Request URL at the line from git blame output."
+  (interactive)
+  (let* ((rev-at-line (vc-annotate-extract-revision-at-line))
+         (rev (car rev-at-line)))
+    (shell-command (concat "git hub open " rev))))
+(define-key vc-annotate-mode-map (kbd "P") 'vc-annotate-open-pr-at-line)
+
 ;; flycheck
 (use-package flycheck
   :init
