@@ -33,6 +33,7 @@ brew 'awscli'
 brew 'heroku'
 brew 'htop'
 brew 'coreutils'
+brew 'findutils'
 brew 'less', args: ['with-pcre']
 brew 'tree'
 brew 'jq'
