@@ -22,7 +22,7 @@
 (use-package flycheck
   :init
   (global-flycheck-mode t)
-  (setq flycheck-disabled-checker '(emacs-lisp-checkdoc))
+  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
   :config
   (custom-set-variables '(flycheck-mode-line-prefix "✓"))
   (custom-set-faces
