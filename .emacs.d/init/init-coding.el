@@ -33,12 +33,9 @@
   :config
   (flycheck-popup-tip-mode))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; sql-mode
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-hook 'sql-mode-hook
-          (lambda ()
-            (sql-highlight-mysql-keywords)))
+(use-package sql
+  :config
+  (sql-highlight-mysql-keywords))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; markdown-mode
