@@ -21,7 +21,7 @@
 ;; flycheck
 (use-package flycheck
   :init
-  (add-hook 'after-init-hook #'global-flycheck-mode)
+  (global-flycheck-mode t)
   (setq flycheck-disabled-checker '(emacs-lisp-checkdoc))
   :config
   (custom-set-variables '(flycheck-mode-line-prefix "✓"))
