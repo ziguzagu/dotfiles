@@ -99,6 +99,7 @@ alias grep="grep --binary-files=without-match --color=auto"
 alias cpanl="cpanm --mirror ~/minicpan --mirror-only"
 alias b="bundle exec"
 alias py="python3"
+alias f="gfind"
 
 if which colordiff > /dev/null; then
     alias diff="colordiff -u"
