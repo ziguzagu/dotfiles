@@ -12,14 +12,16 @@ fi
 ## Development
 ########################################
 
-function plenv() {
+perl() {
+    unset -f perl
     eval "$(command plenv init -)"
-    plenv "$@"
+    perl "$@"
 }
 
-function rbenv() {
+ruby() {
+    unset -f ruby
     eval "$(command rbenv init -)"
-    rbenv "$@"
+    ruby "$@"
 }
 
 typeset -U PATH
