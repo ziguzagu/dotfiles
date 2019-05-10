@@ -4,7 +4,7 @@ autoload -Uz add-zsh-hook
 
 export SHELL="$(which zsh)"
 
-if which dircolors > /dev/null; then
+if [[ -x "$(which dircolors)" ]]; then
     eval "$(dircolors ~/.dircolors)"
 fi
 
@@ -101,14 +101,14 @@ alias b="bundle exec"
 alias py="python3"
 alias f="gfind"
 
-if which colordiff > /dev/null; then
+if [[ -x "$(which colordiff)" ]]; then
     alias diff="colordiff -u"
 else
     alias diff='diff -u'
 fi
 
 ## git
-if which hub > /dev/null; then
+if [[ -x "$(which hub)" ]]; then
     alias git="hub"
 fi
 alias g="git"
@@ -403,6 +403,6 @@ done
 ########################################
 ## Profiling by zprof
 ########################################
-if which zprof > /dev/null; then
+if [[ -x "$(which zprof)" ]]; then
     zprof | less
 fi

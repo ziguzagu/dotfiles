@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## for mac os
-if which vm_stat > /dev/null 2>&1; then
+if [[ -x "$(which vm_stat)" ]]; then
   vmstat=$(vm_stat) || return 1
   pages_free=$(echo "$vmstat" | awk '/Pages free/ {print $3}' | tr -d '.')
   pages_active=$(echo "$vmstat" | awk '/Pages active/ {print $3}' | tr -d '.')
