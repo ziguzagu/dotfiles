@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
 if [ -x "/usr/bin/pmset" ]; then
-    /usr/bin/pmset -g ps | grep InternalBattery | perl -anlE '/(\d+%); .* (\d+:\d+)/ && say "$1($2)"'
+  /usr/bin/pmset -g ps | grep InternalBattery | perl -anlE '/(\d+%); .* (\d+:\d+)/ && say "$1($2)"'
 else
-    echo -n ":D"
+  echo -n ":D"
 fi

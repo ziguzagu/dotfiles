@@ -1,2 +1,2 @@
-#!/usr/bin/env bash
+#!/bin/bash
 uptime | perl -lne '/load average: (\d+\.\d+)/ && print $1'
