@@ -1,33 +1,33 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -eu
 
 usage() {
-    cat <<EOF
+  cat <<EOF
 Usage:
-    git hub setup         - Setup to fetch branches as a pull request number
-    git hub find <commit> - Find a pull request including commit hash
-    git hub open <commit> - Open a pull request including commit hash
+  git hub setup         - Setup to fetch branches as a pull request number
+  git hub find <commit> - Find a pull request including commit hash
+  git hub open <commit> - Open a pull request including commit hash
 EOF
 
-    exit 1
+  exit 1
 }
 
 if [ $# -eq 0 ]; then
-    usage
+  usage
 fi
 
 case "$1" in
-    "setup")
-        git config --add remote.origin.fetch +refs/pull/*/head:refs/remotes/origin/pr/*
-        ;;
-    "find")
-        default_branch=`git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'`
-        git log --merges --oneline --reverse --ancestry-path $2...$default_branch | grep 'Merge pull request #' | head -n 1 | perl -lne '/#(\d+)/ && print $1'
-        ;;
-    "open")
-        hub browse -- pull/`git hub find $2`
-        ;;
-    *)
-        usage
-        ;;
+  "setup")
+    git config --add remote.origin.fetch +refs/pull/*/head:refs/remotes/origin/pr/*
+    ;;
+  "find")
+    default_branch=`git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'`
+    git log --merges --oneline --reverse --ancestry-path $2...$default_branch | grep 'Merge pull request #' | head -n 1 | perl -lne '/#(\d+)/ && print $1'
+    ;;
+  "open")
+    hub browse -- pull/`git hub find $2`
+    ;;
+  *)
+    usage
+    ;;
 esac

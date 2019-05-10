@@ -4,7 +4,7 @@ set -eu
 readonly BRANCH=`git rev-parse --abbrev-ref HEAD`
 
 if [ $BRANCH = 'master' ] || [ $BRANCH = 'develop' ]; then
-    hub browse
+  hub browse
 else
-    hub browse -- pull/$BRANCH
+  hub browse -- pull/$BRANCH
 fi

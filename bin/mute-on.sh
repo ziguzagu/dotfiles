@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 #
 # mute-on.sh - Mute on volumn of MacOS X Lion.
 #

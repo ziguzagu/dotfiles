@@ -1,10 +1,10 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -eu
 
 server_window=~/.emacs.d/emacs-server-window
 
 if [[ $TMUX && -f $server_window ]]; then
-    tmux select-window -t `cat $server_window`\; select-pane -t 0
+  tmux select-window -t `cat $server_window`\; select-pane -t 0
 fi
 
 emacsclient --no-wait $*
