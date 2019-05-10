@@ -21,11 +21,11 @@ case "$1" in
     git config --add remote.origin.fetch +refs/pull/*/head:refs/remotes/origin/pr/*
     ;;
   "find")
-    default_branch=`git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'`
+    default_branch="$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')"
     git log --merges --oneline --reverse --ancestry-path $2...$default_branch | grep 'Merge pull request #' | head -n 1 | perl -lne '/#(\d+)/ && print $1'
     ;;
   "open")
-    hub browse -- pull/`git hub find $2`
+    hub browse -- pull/"$(git hub find $2)"
     ;;
   *)
     usage

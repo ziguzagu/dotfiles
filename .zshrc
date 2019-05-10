@@ -2,7 +2,7 @@
 
 autoload -Uz add-zsh-hook
 
-export SHELL=`which zsh`
+export SHELL="$(which zsh)"
 
 if which dircolors > /dev/null; then
     eval "$(dircolors ~/.dircolors)"
