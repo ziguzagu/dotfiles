@@ -1,10 +1,11 @@
 #!/bin/bash
 set -eu
 
-readonly BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+branch="$(git rev-parse --abbrev-ref HEAD)"
 
-if [ $BRANCH = 'master' ] || [ $BRANCH = 'develop' ]; then
+# TODO: get default branch and compares it and 'master'
+if [ $branch = 'master' ] || [ $branch = 'develop' ]; then
   hub browse
 else
-  hub browse -- pull/$BRANCH
+  hub browse -- pull/$branch
 fi
