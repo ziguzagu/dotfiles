@@ -1,0 +1,22 @@
+(use-package counsel
+  :bind (("C-s" . swiper)
+         ("M-x" . counsel-M-x)
+         ("C-x C-f" . counsel-find-file)
+         ("C-x b" . counsel-switch-buffer)
+         ("C-x g" . counsel-git-grep)
+         ("C-c s" . counsel-imenu)
+         ("C-c y" . counsel-yank-pop)
+         ("C-c o" . ivy-occur))
+  :init
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t)
+  (setq ivy-count-format "(%d/%d) ")
+  (setq ivy-height 20))
+
+(use-package counsel-projectile
+  :diminish projectile-mode
+  :bind (("C-c p p" . counsel-projectile-switch-project)
+         ("C-c p f" . counsel-projectile-find-file-dwim))
+  :config
+  (counsel-projectile-mode))
