@@ -65,4 +65,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;(add-hook 'before-save-hook #'gofmt-before-save)
 
+(use-package sh-script
+  :init
+  (setq sh-indentation 2)
+  (setq sh-basic-offset 2)
+  (setq sh-shell-file "/bin/bash"))
+
 ;;; init-coding.el ends here
