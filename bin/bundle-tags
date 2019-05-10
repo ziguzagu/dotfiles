@@ -4,8 +4,7 @@
 #
 set -eu
 
-for dir in $(bundle show --paths)
-do
+for dir in $(bundle show --paths); do
   pushd $dir >/dev/null
   echo "Creating tags for `basename $dir`"
   gtags --gtagslabel=pygments
