@@ -187,9 +187,6 @@ test -f ~/.travis/travis.sh && source $_
 ## History
 ########################################
 
-readonly HISTFILE=~/.zsh/history
-readonly HISTSIZE=100000
-readonly SAVEHIST=100000
 setopt hist_ignore_all_dups
 setopt hist_reduce_blanks
 setopt hist_ignore_space

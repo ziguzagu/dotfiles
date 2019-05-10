@@ -43,5 +43,9 @@ export ALTERNATE_EDITOR=vi
 ## Misc
 ########################################
 
+export HISTFILE=~/.zsh/history
+export HISTSIZE=100000
+export SAVEHIST=100000
+
 ## colorized grep
 export GREP_COLORS="ms=04;31:mc=01;33:sl=:cx=:fn=33:ln=33:bn=33:se=01;30"
