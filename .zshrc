@@ -5,7 +5,7 @@ autoload -Uz add-zsh-hook
 export SHELL="$(which zsh)"
 
 if [[ -x "$(which dircolors)" ]]; then
-    eval "$(dircolors ~/.dircolors)"
+  eval "$(dircolors ~/.dircolors)"
 fi
 
 ########################################
@@ -13,15 +13,15 @@ fi
 ########################################
 
 perl() {
-    unset -f perl
-    eval "$(command plenv init -)"
-    perl "$@"
+  unset -f perl
+  eval "$(command plenv init -)"
+  perl "$@"
 }
 
 ruby() {
-    unset -f ruby
-    eval "$(command rbenv init -)"
-    ruby "$@"
+  unset -f ruby
+  eval "$(command rbenv init -)"
+  ruby "$@"
 }
 
 typeset -U PATH
@@ -31,56 +31,57 @@ typeset -U PATH
 ########################################
 
 if [[ -n "$TMUX" ]]; then
-    ## changing title of tmux window on executing command
-    function _update_window_title() {
-        emulate -L zsh
-        local -a cmd; cmd=(${(z)2})
-        case $cmd[1] in
-            fg)
-                if (( $#cmd == 1 )); then
-                    cmd=(builtin jobs -l %+)
-                else
-                    cmd=(builtin jobs -l $cmd[2])
-                fi
-                ;;
-            %*)
-                cmd=(builtin jobs -l $cmd[1])
-                ;;
-            ls)
-                return
-                ;;
-            cd|ssh)
-                if (( $#cmd == 2)); then
-                    cmd[1]=$cmd[2]
-                fi
-                ;&
-            tail)
-                if [[ $cmd[2] = '-f' ]]; then
-                    cmd[1]=$cmd[3]
-                fi
-                ;&
-            *)
-                echo -n "k$cmd[1]:t\\"
-                return
-                ;;
-        esac
+  ## changing title of tmux window on executing command
+  function _update_window_title() {
+    emulate -L zsh
+    local -a cmd; cmd=(${(z)2})
+    case $cmd[1] in
+      fg)
+        if (( $#cmd == 1 )); then
+          cmd=(builtin jobs -l %+)
+        else
+          cmd=(builtin jobs -l $cmd[2])
+        fi
+        ;;
+      %*)
+        cmd=(builtin jobs -l $cmd[1])
+        ;;
+      ls)
+        return
+        ;;
+      cd|ssh)
+        if (( $#cmd == 2)); then
+          cmd[1]=$cmd[2]
+        fi
+        ;&
+      tail)
+        if [[ $cmd[2] = '-f' ]]; then
+          cmd[1]=$cmd[3]
+        fi
+        ;&
+      *)
+        echo -n "k$cmd[1]:t\\"
+        return
+        ;;
+    esac
 
-        local -a jt; jt=(${(kv)jobtexts})
+    local -a jt; jt=(${(kv)jobtexts})
 
-        $cmd >>(read num rest
-            cmd=(${(z)${(e):-\$jt$num}})
-            echo -n "k$cmd[1]:t\\") 2>/dev/null
-    }
-    add-zsh-hook preexec _update_window_title
+    $cmd >>(read num rest
+      cmd=(${(z)${(e):-\$jt$num}})
+      echo -n "k$cmd[1]:t\\") 2>/dev/null
+  }
 
-    ## dabbrev using current pane contents
-    function _dabbrev_from_pane() {
-        local -a sources
-        sources=($(tmux capture-pane\; show-buffer \; delete-buffer | sed '/^$/d' | sed '$ d'))
-        compadd - "${sources[@]%[*/=@|]}"
-    }
-    zle -C dabbrev-from-pane menu-complete _dabbrev_from_pane
-    bindkey '^o' dabbrev-from-pane
+  add-zsh-hook preexec _update_window_title
+
+  ## dabbrev using current pane contents
+  function _dabbrev_from_pane() {
+    local -a sources
+    sources=($(tmux capture-pane\; show-buffer \; delete-buffer | sed '/^$/d' | sed '$ d'))
+    compadd - "${sources[@]%[*/=@|]}"
+  }
+  zle -C dabbrev-from-pane menu-complete _dabbrev_from_pane
+  bindkey '^o' dabbrev-from-pane
 fi
 
 ########################################
@@ -104,14 +105,14 @@ alias py="python3"
 alias f="gfind"
 
 if [[ -x "$(which colordiff)" ]]; then
-    alias diff="colordiff -u"
+  alias diff="colordiff -u"
 else
-    alias diff='diff -u'
+  alias diff='diff -u'
 fi
 
 ## git
 if [[ -x "$(which hub)" ]]; then
-    alias git="hub"
+  alias git="hub"
 fi
 alias g="git"
 
@@ -160,15 +161,15 @@ setopt list_types
 
 ## additional completions by https://github.com/zsh-users/zsh-completions
 if [[ -d /usr/local/share/zsh-completions ]]; then
-    fpath=(/usr/local/share/zsh-completions $fpath)
+  fpath=(/usr/local/share/zsh-completions $fpath)
 fi
 
 ## init completion with reducing checking zcompdump file
 autoload -Uz compinit
-if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
-    compinit
+if [[ -n ~/.zcompdump(\#qN.mh+24) ]]; then
+  compinit
 else
-    compinit -C
+  compinit -C
 fi
 
 ## case insensitive at completion
@@ -219,41 +220,41 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-st git-stash
 
 ## Show remote ref name and number of commits ahead-of or behind
 function +vi-git-st () {
-    ## get remote's "repos/branch"
-    local remote=$(command git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null)
+  ## get remote's "repos/branch"
+  local remote=$(command git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null)
 
-    if [[ -n "$remote" ]]; then
-        local -a gitstatus
-        local ahead=$(command git rev-list ${hook_com[branch]}@{u}..HEAD --count 2>/dev/null)
-        (( $ahead )) && gitstatus+=( "+$ahead" )
+  if [[ -n "$remote" ]]; then
+    local -a gitstatus
+    local ahead=$(command git rev-list ${hook_com[branch]}@{u}..HEAD --count 2>/dev/null)
+    (( $ahead )) && gitstatus+=( "+$ahead" )
 
-        local behind=$(command git rev-list HEAD..${hook_com[branch]}@{u} --count 2>/dev/null)
-        (( $behind )) && gitstatus+=( "-$behind" )
+    local behind=$(command git rev-list HEAD..${hook_com[branch]}@{u} --count 2>/dev/null)
+    (( $behind )) && gitstatus+=( "-$behind" )
 
-        if [[ -n "$gitstatus" ]]; then
-            hook_com[branch]="${hook_com[branch]} %U${(j:/:)gitstatus}%u"
-        fi
+    if [[ -n "$gitstatus" ]]; then
+      hook_com[branch]="${hook_com[branch]} %U${(j:/:)gitstatus}%u"
     fi
+  fi
 }
 ## show count of stashed
 function +vi-git-stash() {
-    local -a stashes
-    if [[ -s ${hook_com[base]}/.git/refs/stash ]] ; then
-        stashes=$(command git stash list 2>/dev/null | wc -l | sed -e 's/ //g')
-        (( $stashes )) && hook_com[misc]+="%F{252}☁ ${stashes}%f";
-    fi
+  local -a stashes
+  if [[ -s ${hook_com[base]}/.git/refs/stash ]] ; then
+    stashes=$(command git stash list 2>/dev/null | wc -l | sed -e 's/ //g')
+    (( $stashes )) && hook_com[misc]+="%F{252}☁ ${stashes}%f";
+  fi
 }
 function _precmd_vcs_info () {
-    LANG=en_US.UTF-8 vcs_info
+  LANG=en_US.UTF-8 vcs_info
 }
 add-zsh-hook precmd _precmd_vcs_info
 
 function _prompt_cwd() {
-    if [[ $UID -eq 0 ]]; then
-        echo -n '%F{255}%K{160}%~%k%f'
-    else
-        echo -n '%F{214}%~%f'
-    fi
+  if [[ $UID -eq 0 ]]; then
+    echo -n '%F{255}%K{160}%~%k%f'
+  else
+    echo -n '%F{214}%~%f'
+  fi
 }
 PROMPT=$'\n''$(_prompt_cwd) ${vcs_info_msg_0_}'$'\n''%(?,➜ ,%F{226}⚠ %f)'
 
@@ -267,8 +268,8 @@ zle_highlight=(isearch:underline,fg=red region:fg=black,bg=yellow special:stando
 autoload -Uz chpwd_recent_dirs cdr
 
 function _post_chpwd {
-    chpwd_recent_dirs
-    ls
+  chpwd_recent_dirs
+  ls
 }
 add-zsh-hook chpwd _post_chpwd
 
@@ -293,59 +294,59 @@ bindkey '^x^f' zaw-git-files-legacy
 
 ## checkout recent used branch
 function zaw-src-git-recent-branches () {
-    command git rev-parse --git-dir >/dev/null 2>&1
-    if [[ $? == 0 ]]; then
-        candidates=( $(command git for-each-ref --format='%(refname:short)' --sort=-committerdate refs/heads) )
-    fi
-    actions=(zaw-src-git-recent-branches-checkout)
-    act_descriptions=("check out")
+  command git rev-parse --git-dir >/dev/null 2>&1
+  if [[ $? == 0 ]]; then
+    candidates=( $(command git for-each-ref --format='%(refname:short)' --sort=-committerdate refs/heads) )
+  fi
+  actions=(zaw-src-git-recent-branches-checkout)
+  act_descriptions=("check out")
 }
 function zaw-src-git-recent-branches-checkout () {
-    BUFFER="git checkout $1"
-    zle accept-line
+  BUFFER="git checkout $1"
+  zle accept-line
 }
 zaw-register-src -n git-recent-branches zaw-src-git-recent-branches
 bindkey '^x^b' zaw-git-recent-branches
 
 ## ghq list directories source
 function zaw-src-ghq-cdr() {
-    candidates=( $(command ghq list -p) $(cdr -l | awk '{print $2}') )
-    actions=("zaw-src-cdr-cd")
-    act_descriptions=("cd")
-    return 0
+  candidates=( $(command ghq list -p) $(cdr -l | awk '{print $2}') )
+  actions=("zaw-src-cdr-cd")
+  act_descriptions=("cd")
+  return 0
 }
 zaw-register-src -n ghq-cdr zaw-src-ghq-cdr
 bindkey '^xb' zaw-ghq-cdr
 
 ## completion strings like a filename displayed in current tmux pane
 function zaw-src-tmux-pane-strings() {
-    candidates=($(tmux capture-pane\; show-buffer \; delete-buffer | perl -pne 's/ +/\n/g; print' | sort -u | \grep '[\.\/]'))
-    actions=("zaw-callback-append-to-buffer")
-    act_descriptions=("append to edit buffer")
-    return 0
+  candidates=($(tmux capture-pane\; show-buffer \; delete-buffer | perl -pne 's/ +/\n/g; print' | sort -u | \grep '[\.\/]'))
+  actions=("zaw-callback-append-to-buffer")
+  act_descriptions=("append to edit buffer")
+  return 0
 }
 zaw-register-src -n tmux-pane-strings zaw-src-tmux-pane-strings
 bindkey '^x^o' zaw-tmux-pane-strings
 
 ## perldoc finding from local/lib/perl5
 function zaw-callback-perldoc-emacs() {
-    local orig_buffer="${BUFFER}"
-    BUFFER="emacsclient -t $(perldoc -lm "$1")"
-    zle accept-line
+  local orig_buffer="${BUFFER}"
+  BUFFER="emacsclient -t $(perldoc -lm "$1")"
+  zle accept-line
 }
 function zaw-src-perldoc-local() {
-    # global modules
-    zaw-src-perldoc
+  # global modules
+  zaw-src-perldoc
 
-    # local modules installed by carton into local/lib/perl5
-    local -a carton
-    if [[ -d local/lib/perl5 ]]; then
-        carton=($(command find local/lib/perl5 -type f -name '*.pm' -or -name '*.pod'))
-    fi
+  # local modules installed by carton into local/lib/perl5
+  local -a carton
+  if [[ -d local/lib/perl5 ]]; then
+    carton=($(command find local/lib/perl5 -type f -name '*.pm' -or -name '*.pod'))
+  fi
 
-    candidates=($carton $candidates)
-    actions=("zaw-callback-perldoc-view" "zaw-callback-perldoc-emacs")
-    act_descriptions=("view perldoc" "open with emacs")
+  candidates=($carton $candidates)
+  actions=("zaw-callback-perldoc-view" "zaw-callback-perldoc-emacs")
+  act_descriptions=("view perldoc" "open with emacs")
 }
 zaw-register-src -n perldoc-local zaw-src-perldoc-local
 bindkey '^x^p' zaw-perldoc-local
@@ -394,14 +395,14 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 ########################################
 compile_targets=(~/.zshrc $ZSH_SYNTAX_HIGHLIGHTING_SRC)
 for f in $compile_targets; do
-    if [ ! -f "${f}.zwc" -o $f -nt "${f}.zwc" ]; then
-        zcompile $f
-    fi
+  if [ ! -f "${f}.zwc" -o $f -nt "${f}.zwc" ]; then
+    zcompile $f
+  fi
 done
 
 ########################################
 ## Profiling by zprof
 ########################################
 if [[ -x "$(which zprof)" ]]; then
-    zprof | less
+  zprof | less
 fi
