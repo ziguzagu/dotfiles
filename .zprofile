@@ -12,8 +12,8 @@ export MANPATH="/usr/local/share/man:/usr/share/man"
 
 ## using coreutils on mac installed by homebrew
 if [[ -x "$(which brew)" ]]; then
-    PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-    MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+  PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+  MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 fi
 
 PATH="$HOME/bin:$PATH"
