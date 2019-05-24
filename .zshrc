@@ -315,21 +315,20 @@ fzf-git-ls-files() {
 zle -N fzf-git-ls-files
 bindkey '^x^f' fzf-git-ls-files
 
-## checkout recent used branch
-function zaw-src-git-recent-branches () {
-  command git rev-parse --git-dir >/dev/null 2>&1
-  if [[ $? == 0 ]]; then
-    candidates=( $(command git for-each-ref --format='%(refname:short)' --sort=-committerdate refs/heads) )
+# git checkout to selected branches in recent used
+fzf-git-checkout-recent-branch() {
+  git rev-parse --git-dir >& /dev/null || return
+  local branch="$(git for-each-ref --format='%(refname:short)' --sort=-committerdate refs/heads | fzf +m --preview="git checkout {}")"
+  if [[ -z "$branch" ]]; then
+     zle redisplay
+     return 0
   fi
-  actions=(zaw-src-git-recent-branches-checkout)
-  act_descriptions=("check out")
-}
-function zaw-src-git-recent-branches-checkout () {
-  BUFFER="git checkout $1"
+  BUFFER="git checkout $branch"
+  zle reset-prompt
   zle accept-line
 }
-zaw-register-src -n git-recent-branches zaw-src-git-recent-branches
-bindkey '^x^b' zaw-git-recent-branches
+zle -N fzf-git-checkout-recent-branch
+bindkey '^x^b' fzf-git-checkout-recent-branch
 
 ## ghq list directories source
 function zaw-src-ghq-cdr() {
