@@ -281,6 +281,7 @@ zstyle ':chpwd:*' recent-dirs-pushd true
 ## zaw
 ########################################
 source ~/.zaw/zaw.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 zstyle ':filter-select:highlight' selected fg=255,bg=24
 zstyle ':filter-select:highlight' title fg=226
