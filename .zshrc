@@ -290,7 +290,19 @@ zstyle ':filter-select' case-insensitive yes
 zstyle ':filter-select' max-lines 10
 zstyle ':filter-select' extended-search yes
 
-bindkey '^x^r' zaw-history
+# search from history
+fzf-history() {
+  local cmd="$(history -r 1 | while read -u 0 id cmd; do echo ${cmd}; done | fzf +m)"
+  if [[ -z "$cmd" ]]; then
+     zle redisplay
+     return 0
+  fi
+  LBUFFER+="$cmd"
+  zle reset-prompt
+}
+zle -N fzf-history
+bindkey '^r' fzf-history
+
 bindkey '^x^f' zaw-git-files-legacy
 
 ## checkout recent used branch
