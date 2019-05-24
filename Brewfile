@@ -27,6 +27,8 @@ brew 'reattach-to-user-namespace'
 #brew 'zsh', args: ['without-etcdir']
 brew 'zsh-completions'
 brew 'zsh-syntax-highlighting'
+brew 'fzf'
+
 brew 'the_silver_searcher'
 brew 'grep', args: ['with-default-names']
 brew 'awscli'
