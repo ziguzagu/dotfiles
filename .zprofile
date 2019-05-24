@@ -39,6 +39,8 @@ export PAGER=less
 export EDITOR="emacsclient -t"
 export ALTERNATE_EDITOR=vi
 
+export FZF_DEFAULT_OPTS="--height 12 --reverse"
+
 ########################################
 ## Misc
 ########################################
