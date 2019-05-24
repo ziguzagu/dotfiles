@@ -303,7 +303,17 @@ fzf-history() {
 zle -N fzf-history
 bindkey '^r' fzf-history
 
-bindkey '^x^f' zaw-git-files-legacy
+# search from git ls-files
+fzf-git-ls-files() {
+  git rev-parse --git-dir >& /dev/null || return
+  local -a files=($(git ls-files | fzf -m))
+  local ret=$?
+  LBUFFER+=$files
+  zle reset-prompt
+  return $ret
+}
+zle -N fzf-git-ls-files
+bindkey '^x^f' fzf-git-ls-files
 
 ## checkout recent used branch
 function zaw-src-git-recent-branches () {
