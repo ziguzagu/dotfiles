@@ -7,16 +7,8 @@ export TERMINFO=$HOME/.terminfo
 ## PATH
 ########################################
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
-export MANPATH="/usr/local/share/man:/usr/share/man"
-
-## using coreutils on mac installed by homebrew
-if [[ -x "$(which brew)" ]]; then
-  PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-  MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-fi
-
-PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:/usr/local/share/man:/usr/share/man"
 
 export GOPATH=$HOME
 
