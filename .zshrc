@@ -89,12 +89,16 @@ alias ll="ls -Alh"
 alias lc="tr '[:upper:]' '[:lower:]'"
 alias uc="tr '[:lower:]' '[:upper:]'"
 alias prove="prove -lv --timer"
-alias grep="grep --binary-files=without-match --color=auto"
 alias cpanl="cpanm --mirror ~/minicpan --mirror-only"
 alias b="bundle exec"
 alias py="python3"
 alias f="gfind"
 
+## grep
+alias grep="grep --binary-files=without-match --color=auto"
+export GREP_COLORS="ms=04;31:mc=01;33:sl=:cx=:fn=33:ln=33:bn=33:se=01;30"
+
+## diff
 if [[ -x "$(which colordiff)" ]]; then
   alias diff="colordiff -u"
 else
@@ -140,6 +144,17 @@ setopt extended_glob
 autoload -Uz zmv
 alias zmv="noglob zmv -W"
 
+## less
+alias less="less -q -g -R -j 10 -M"
+export LESSCHARSET=utf-8
+export LESS_TERMCAP_mb=$'\E[01;33m'    # begin blinking
+export LESS_TERMCAP_md=$'\E[01;33m'    # begin bold (bold, bright yellow)
+export LESS_TERMCAP_me=$'\E[0m'        # end mode
+export LESS_TERMCAP_se=$'\E[0m'        # end standout-mode
+export LESS_TERMCAP_so=$'\E[0;37;44m'  # begin standout-mode (white on blue)
+export LESS_TERMCAP_ue=$'\E[0m'        # end underline
+export LESS_TERMCAP_us=$'\E[04;36m'    # begin underline - (underline, cyan)
+
 ########################################
 ## Completion
 ########################################
@@ -178,6 +193,10 @@ test -f ~/.travis/travis.sh && source $_
 ########################################
 ## History
 ########################################
+
+export HISTFILE=~/.zsh/history
+export HISTSIZE=100000
+export SAVEHIST=100000
 
 setopt hist_ignore_all_dups
 setopt hist_reduce_blanks
@@ -272,6 +291,8 @@ zstyle ':chpwd:*' recent-dirs-pushd true
 ## fzf
 ########################################
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export FZF_DEFAULT_OPTS="--height 12 --reverse"
 
 # search from history
 fzf-history() {
