@@ -278,17 +278,9 @@ zstyle ':chpwd:*' recent-dirs-file "$HOME/.zsh/chpwd-recent-dirs"
 zstyle ':chpwd:*' recent-dirs-pushd true
 
 ########################################
-## zaw
+## fzf
 ########################################
-source ~/.zaw/zaw.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-zstyle ':filter-select:highlight' selected fg=255,bg=24
-zstyle ':filter-select:highlight' title fg=226
-zstyle ':filter-select:highlight' matched fg=117
-zstyle ':filter-select' case-insensitive yes
-zstyle ':filter-select' max-lines 10
-zstyle ':filter-select' extended-search yes
 
 # search from history
 fzf-history() {
