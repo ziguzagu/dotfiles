@@ -359,28 +359,37 @@ fzf-search-tmux-pane-strings() {
 zle -N fzf-search-tmux-pane-strings
 bindkey '^x^o' fzf-search-tmux-pane-strings
 
-## perldoc finding from local/lib/perl5
-function zaw-callback-perldoc-emacs() {
-  local orig_buffer="${BUFFER}"
-  BUFFER="emacsclient -t $(perldoc -lm "$1")"
-  zle accept-line
-}
-function zaw-src-perldoc-local() {
-  # global modules
-  zaw-src-perldoc
+# find perl modules of core and bundled by carton
+fzf-find-perl-module() {
+  local -a candidates
 
-  # local modules installed by carton into local/lib/perl5
+  # Find core perl modules using _perl_modules zsh completion
+  #
+  # XXX: override _wanted to capture module list _perl_modules generates
+  local code_wanted="${functions[_wanted]}"
+  _wanted() {
+    candidates=("${(P@)${@[7]}}")
+  }
+  # required by _perl_modules
+  local -a words=(perldoc)
+  _perl_modules
+
+  # restore original function
+  eval "function _wanted() { $code_wanted }"
+
+  # find local modules installed by carton into local/lib/perl5
   local -a carton
   if [[ -d local/lib/perl5 ]]; then
-    carton=($(command find local/lib/perl5 -type f -name '*.pm' -or -name '*.pod'))
+    candidates+=($(find local/lib/perl5 -type f -name '*.pm' -or -name '*.pod'))
   fi
 
-  candidates=($carton $candidates)
-  actions=("zaw-callback-perldoc-view" "zaw-callback-perldoc-emacs")
-  act_descriptions=("view perldoc" "open with emacs")
+  # doing fzf
+  local pm="$(print -l $candidates | fzf +m)"
+  LBUFFER+="$pm"
+  zle reset-prompt
 }
-zaw-register-src -n perldoc-local zaw-src-perldoc-local
-bindkey '^x^p' zaw-perldoc-local
+zle -N fzf-find-perl-module
+bindkey '^x^p' fzf-find-perl-module
 
 ########################################
 ## My Functions
