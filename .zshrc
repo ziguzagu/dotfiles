@@ -73,15 +73,6 @@ if [[ -n "$TMUX" ]]; then
   }
 
   add-zsh-hook preexec _update_window_title
-
-  ## dabbrev using current pane contents
-  function _dabbrev_from_pane() {
-    local -a sources
-    sources=($(tmux capture-pane\; show-buffer \; delete-buffer | sed '/^$/d' | sed '$ d'))
-    compadd - "${sources[@]%[*/=@|]}"
-  }
-  zle -C dabbrev-from-pane menu-complete _dabbrev_from_pane
-  bindkey '^o' dabbrev-from-pane
 fi
 
 ########################################
