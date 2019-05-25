@@ -330,15 +330,20 @@ fzf-git-checkout-recent-branch() {
 zle -N fzf-git-checkout-recent-branch
 bindkey '^x^b' fzf-git-checkout-recent-branch
 
-## ghq list directories source
-function zaw-src-ghq-cdr() {
-  candidates=( $(command ghq list -p) $(cdr -l | awk '{print $2}') )
-  actions=("zaw-src-cdr-cd")
-  act_descriptions=("cd")
-  return 0
+# jump to directory selected from ghq / cdr
+fzf-jump-ghq-cdr() {
+  local -a dirs=($(command ghq list -p) $(cdr -l | awk '{print $2}'))
+  local dir="$(print -l $dirs | fzf +m)"
+  if [[ -z "$dir" ]]; then
+     zle redisplay
+     return 0
+  fi
+  BUFFER="cd $dir"
+  zle reset-prompt
+  zle accept-line
 }
-zaw-register-src -n ghq-cdr zaw-src-ghq-cdr
-bindkey '^xb' zaw-ghq-cdr
+zle -N fzf-jump-ghq-cdr
+bindkey '^xb' fzf-jump-ghq-cdr
 
 ## completion strings like a filename displayed in current tmux pane
 function zaw-src-tmux-pane-strings() {
