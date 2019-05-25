@@ -345,15 +345,19 @@ fzf-jump-ghq-cdr() {
 zle -N fzf-jump-ghq-cdr
 bindkey '^xb' fzf-jump-ghq-cdr
 
-## completion strings like a filename displayed in current tmux pane
-function zaw-src-tmux-pane-strings() {
-  candidates=($(tmux capture-pane\; show-buffer \; delete-buffer | perl -pne 's/ +/\n/g; print' | sort -u | \grep '[\.\/]'))
-  actions=("zaw-callback-append-to-buffer")
-  act_descriptions=("append to edit buffer")
-  return 0
+# search strings like a file name displayed in current tmux pane
+fzf-search-tmux-pane-strings() {
+  local -a candidates=($(tmux capture-pane\; show-buffer \; delete-buffer | perl -pne 's/ +/\n/g; print' | sort -u | \grep '[\.\/]'))
+  local str="$(print -l $candidates | fzf +m)"
+  if [[ -z "$str" ]]; then
+    zle redisplay
+    return 0
+  fi
+  LBUFFER+="$str"
+  zle reset-prompt
 }
-zaw-register-src -n tmux-pane-strings zaw-src-tmux-pane-strings
-bindkey '^x^o' zaw-tmux-pane-strings
+zle -N fzf-search-tmux-pane-strings
+bindkey '^x^o' fzf-search-tmux-pane-strings
 
 ## perldoc finding from local/lib/perl5
 function zaw-callback-perldoc-emacs() {
