@@ -278,78 +278,110 @@ zstyle ':chpwd:*' recent-dirs-file "$HOME/.zsh/chpwd-recent-dirs"
 zstyle ':chpwd:*' recent-dirs-pushd true
 
 ########################################
-## zaw
+## fzf
 ########################################
-source ~/.zaw/zaw.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-zstyle ':filter-select:highlight' selected fg=255,bg=24
-zstyle ':filter-select:highlight' title fg=226
-zstyle ':filter-select:highlight' matched fg=117
-zstyle ':filter-select' case-insensitive yes
-zstyle ':filter-select' max-lines 10
-zstyle ':filter-select' extended-search yes
-
-bindkey '^x^r' zaw-history
-bindkey '^x^f' zaw-git-files-legacy
-
-## checkout recent used branch
-function zaw-src-git-recent-branches () {
-  command git rev-parse --git-dir >/dev/null 2>&1
-  if [[ $? == 0 ]]; then
-    candidates=( $(command git for-each-ref --format='%(refname:short)' --sort=-committerdate refs/heads) )
+# search from history
+fzf-history() {
+  local cmd="$(history -r 1 | while read -u 0 id cmd; do echo ${cmd}; done | fzf +m)"
+  if [[ -z "$cmd" ]]; then
+     zle redisplay
+     return 0
   fi
-  actions=(zaw-src-git-recent-branches-checkout)
-  act_descriptions=("check out")
+  LBUFFER+="$cmd"
+  zle reset-prompt
 }
-function zaw-src-git-recent-branches-checkout () {
-  BUFFER="git checkout $1"
+zle -N fzf-history
+bindkey '^r' fzf-history
+
+# search from git ls-files
+fzf-git-ls-files() {
+  git rev-parse --git-dir >& /dev/null || return
+  local -a files=($(git ls-files | fzf -m))
+  local ret=$?
+  LBUFFER+=$files
+  zle reset-prompt
+  return $ret
+}
+zle -N fzf-git-ls-files
+bindkey '^x^f' fzf-git-ls-files
+
+# git checkout to selected branches in recent used
+fzf-git-checkout-recent-branch() {
+  git rev-parse --git-dir >& /dev/null || return
+  local branch="$(git for-each-ref --format='%(refname:short)' --sort=-committerdate refs/heads | fzf +m --preview="git checkout {}")"
+  if [[ -z "$branch" ]]; then
+     zle redisplay
+     return 0
+  fi
+  BUFFER="git checkout $branch"
+  zle reset-prompt
   zle accept-line
 }
-zaw-register-src -n git-recent-branches zaw-src-git-recent-branches
-bindkey '^x^b' zaw-git-recent-branches
+zle -N fzf-git-checkout-recent-branch
+bindkey '^x^b' fzf-git-checkout-recent-branch
 
-## ghq list directories source
-function zaw-src-ghq-cdr() {
-  candidates=( $(command ghq list -p) $(cdr -l | awk '{print $2}') )
-  actions=("zaw-src-cdr-cd")
-  act_descriptions=("cd")
-  return 0
-}
-zaw-register-src -n ghq-cdr zaw-src-ghq-cdr
-bindkey '^xb' zaw-ghq-cdr
-
-## completion strings like a filename displayed in current tmux pane
-function zaw-src-tmux-pane-strings() {
-  candidates=($(tmux capture-pane\; show-buffer \; delete-buffer | perl -pne 's/ +/\n/g; print' | sort -u | \grep '[\.\/]'))
-  actions=("zaw-callback-append-to-buffer")
-  act_descriptions=("append to edit buffer")
-  return 0
-}
-zaw-register-src -n tmux-pane-strings zaw-src-tmux-pane-strings
-bindkey '^x^o' zaw-tmux-pane-strings
-
-## perldoc finding from local/lib/perl5
-function zaw-callback-perldoc-emacs() {
-  local orig_buffer="${BUFFER}"
-  BUFFER="emacsclient -t $(perldoc -lm "$1")"
+# jump to directory selected from ghq / cdr
+fzf-jump-ghq-cdr() {
+  local -a dirs=($(command ghq list -p) $(cdr -l | awk '{print $2}'))
+  local dir="$(print -l $dirs | fzf +m)"
+  if [[ -z "$dir" ]]; then
+     zle redisplay
+     return 0
+  fi
+  BUFFER="cd $dir"
+  zle reset-prompt
   zle accept-line
 }
-function zaw-src-perldoc-local() {
-  # global modules
-  zaw-src-perldoc
+zle -N fzf-jump-ghq-cdr
+bindkey '^xb' fzf-jump-ghq-cdr
 
-  # local modules installed by carton into local/lib/perl5
+# search strings like a file name displayed in current tmux pane
+fzf-search-tmux-pane-strings() {
+  local -a candidates=($(tmux capture-pane\; show-buffer \; delete-buffer | perl -pne 's/ +/\n/g; print' | sort -u | \grep '[\.\/]'))
+  local str="$(print -l $candidates | fzf +m)"
+  if [[ -z "$str" ]]; then
+    zle redisplay
+    return 0
+  fi
+  LBUFFER+="$str"
+  zle reset-prompt
+}
+zle -N fzf-search-tmux-pane-strings
+bindkey '^x^o' fzf-search-tmux-pane-strings
+
+# find perl modules of core and bundled by carton
+fzf-find-perl-module() {
+  local -a candidates
+
+  # Find core perl modules using _perl_modules zsh completion
+  #
+  # XXX: override _wanted to capture module list _perl_modules generates
+  local code_wanted="${functions[_wanted]}"
+  _wanted() {
+    candidates=("${(P@)${@[7]}}")
+  }
+  # required by _perl_modules
+  local -a words=(perldoc)
+  _perl_modules
+
+  # restore original function
+  eval "function _wanted() { $code_wanted }"
+
+  # find local modules installed by carton into local/lib/perl5
   local -a carton
   if [[ -d local/lib/perl5 ]]; then
-    carton=($(command find local/lib/perl5 -type f -name '*.pm' -or -name '*.pod'))
+    candidates+=($(find local/lib/perl5 -type f -name '*.pm' -or -name '*.pod'))
   fi
 
-  candidates=($carton $candidates)
-  actions=("zaw-callback-perldoc-view" "zaw-callback-perldoc-emacs")
-  act_descriptions=("view perldoc" "open with emacs")
+  # doing fzf
+  local pm="$(print -l $candidates | fzf +m)"
+  LBUFFER+="$pm"
+  zle reset-prompt
 }
-zaw-register-src -n perldoc-local zaw-src-perldoc-local
-bindkey '^x^p' zaw-perldoc-local
+zle -N fzf-find-perl-module
+bindkey '^x^p' fzf-find-perl-module
 
 ########################################
 ## My Functions
