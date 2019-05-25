@@ -290,8 +290,6 @@ zstyle ':chpwd:*' recent-dirs-pushd true
 ########################################
 ## fzf
 ########################################
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 export FZF_DEFAULT_OPTS="--height 12 --reverse"
 
 # search from history
