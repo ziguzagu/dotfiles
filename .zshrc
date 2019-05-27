@@ -303,7 +303,7 @@ fzf-history() {
   zle reset-prompt
 }
 zle -N fzf-history
-bindkey '^r' fzf-history
+bindkey '^xr' fzf-history
 
 # search from git ls-files
 fzf-git-ls-files() {
