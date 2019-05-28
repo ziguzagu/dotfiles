@@ -391,7 +391,6 @@ fzf-find-perl-module() {
   eval "function _wanted() { $code_wanted }"
 
   # find local modules installed by carton into local/lib/perl5
-  local -a carton
   if [[ -d local/lib/perl5 ]]; then
     candidates+=($(find local/lib/perl5 -type f -name '*.pm' -or -name '*.pod'))
   fi
