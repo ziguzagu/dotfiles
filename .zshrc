@@ -328,6 +328,18 @@ fzf-git-ls-files() {
 zle -N fzf-git-ls-files
 bindkey '^x^f' fzf-git-ls-files
 
+# select untracked files or changed files
+fzf-git-untracked-or-changed-files() {
+  git rev-parse --git-dir >& /dev/null || return
+  local -a files=($(git status -s | fzf -m --height=40% --preview='git diff {2} | bat -p --color=always' | sed -E 's/^\s*..\s*//'))
+  local ret=$?
+  LBUFFER+=$files
+  zle reset-prompt
+  return $ret
+}
+zle -N fzf-git-untracked-or-changed-files
+bindkey '^x^v' fzf-git-untracked-or-changed-files
+
 # git checkout to selected branches in recent used
 fzf-git-checkout-recent-branch() {
   git rev-parse --git-dir >& /dev/null || return
