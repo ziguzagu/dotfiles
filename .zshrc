@@ -331,7 +331,7 @@ bindkey '^x^f' fzf-git-ls-files
 # git checkout to selected branches in recent used
 fzf-git-checkout-recent-branch() {
   git rev-parse --git-dir >& /dev/null || return
-  local branch="$(git for-each-ref --format='%(refname:short)' --sort=-committerdate refs/heads | fzf +m --preview="git checkout {}")"
+  local branch="$(git for-each-ref --format='%(refname:short)' --sort=-committerdate refs/heads | fzf +m)"
   if [[ -z "$branch" ]]; then
      zle redisplay
      return 0
