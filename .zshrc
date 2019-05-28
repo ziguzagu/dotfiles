@@ -287,6 +287,17 @@ zstyle ':chpwd:*' recent-dirs-max 500
 zstyle ':chpwd:*' recent-dirs-file "$HOME/.zsh/chpwd-recent-dirs"
 zstyle ':chpwd:*' recent-dirs-pushd true
 
+# remove non-existing directories from recent-dirs-file
+cdr-gc() {
+  local abs
+  cdr -l | perl -pe 's/^\d+\s+//' | while read dir; do
+    abs=${dir:s/~/$HOME/}
+    if [[ ! -d $abs ]]; then
+      cdr -P "$dir"
+    fi
+  done
+}
+
 ########################################
 ## fzf
 ########################################
