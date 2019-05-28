@@ -1,1 +1,0 @@
-perl -m$1 -E 'say "$'$1'::VERSION"'

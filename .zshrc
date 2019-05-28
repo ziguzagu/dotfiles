@@ -404,13 +404,11 @@ fzf-find-perl-module() {
 zle -N fzf-find-perl-module
 bindkey '^x^p' fzf-find-perl-module
 
-########################################
-## My Functions
-########################################
-
-fpath=(~/.zsh/functions $fpath)
-
-autoload -Uz pmver
+# display perl module's version
+pmver() {
+  readonly pkg="$1"
+  perl -m${pkg} -E "say \$${pkg}::VERSION"
+}
 
 ########################################
 ## Misc
