@@ -37,6 +37,7 @@ brew 'htop'
 brew 'coreutils'
 brew 'findutils'
 brew 'less', args: ['with-pcre']
+brew 'bat'
 brew 'tree'
 brew 'jq'
 brew 'wget'
