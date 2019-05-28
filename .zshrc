@@ -436,15 +436,10 @@ ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_approx]=none
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
-########################################
-## compile for speed-up
-########################################
-compile_targets=(~/.zshrc)
-for f in $compile_targets; do
-  if [ ! -f "${f}.zwc" -o $f -nt "${f}.zwc" ]; then
-    zcompile $f
-  fi
-done
+## compile
+if [ ! -f "~/.zshrc.zwc" -o "~/.zshrc" -nt "~/.zshrc.zwc" ]; then
+  zcompile ~/.zshrc
+fi
 
 ########################################
 ## Profiling by zprof
