@@ -326,7 +326,7 @@ fzf-git-ls-files() {
   return $ret
 }
 zle -N fzf-git-ls-files
-bindkey '^x^f' fzf-git-ls-files
+bindkey '^xv' fzf-git-ls-files
 
 # select untracked files or changed files
 fzf-git-untracked-or-changed-files() {
