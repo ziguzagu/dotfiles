@@ -90,9 +90,9 @@ alias lc="tr '[:upper:]' '[:lower:]'"
 alias uc="tr '[:lower:]' '[:upper:]'"
 alias prove="prove -lv --timer"
 alias cpanl="cpanm --mirror ~/minicpan --mirror-only"
-alias b="bundle exec"
 alias py="python3"
 alias f="gfind"
+alias b="bat"
 
 ## grep
 alias grep="grep --binary-files=without-match --color=auto"
