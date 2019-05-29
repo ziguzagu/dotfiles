@@ -305,7 +305,7 @@ export FZF_DEFAULT_OPTS="--height 12 --reverse"
 
 # search from history
 fzf-history() {
-  local cmd="$(history -r 1 | while read -u 0 id cmd; do echo ${cmd}; done | fzf +m)"
+  local cmd="$(history -r 1 | while read -u 0 id cmd; do echo ${cmd}; done | fzf +m --bind=ctrl-r:down --bind=ctrl-s:up)"
   if [[ -z "$cmd" ]]; then
      zle redisplay
      return 0
@@ -314,7 +314,7 @@ fzf-history() {
   zle reset-prompt
 }
 zle -N fzf-history
-bindkey '^xr' fzf-history
+bindkey '^r' fzf-history
 
 # search from git ls-files
 fzf-git-ls-files() {
