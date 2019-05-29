@@ -357,8 +357,11 @@ bindkey '^x^b' fzf-git-checkout-recent-branch
 
 # jump to directory selected from ghq / cdr
 fzf-jump-ghq-cdr() {
-  local -a dirs=($(command ghq list -p) $(cdr -l | awk '{print $2}'))
-  local dir="$(print -l $dirs | fzf +m)"
+  local -a dirs=(
+    $(cdr -l | perl -pe 's/^\d+\s+//')
+    $(ghq list -p | perl -pe 's/^\Q$ENV{HOME}\E/~/')
+  )
+  local dir="$(print -l ${(u)dirs} | fzf +m)"
   if [[ -z "$dir" ]]; then
      zle redisplay
      return 0
