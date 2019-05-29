@@ -331,7 +331,7 @@ bindkey '^xv' fzf-git-ls-files
 # select untracked files or changed files
 fzf-git-untracked-or-changed-files() {
   git rev-parse --git-dir >& /dev/null || return
-  local -a files=($(git status -s | fzf -m --height=40% --preview='git diff {2} | bat -p --color=always' | sed -E 's/^\s*..\s*//'))
+  local -a files=($(git status -s | fzf -m --height=40% --preview='git diff {2} | bat -p --color=always' | perl -pe 's/^\s*..\s+//'))
   local ret=$?
   LBUFFER+=$files
   zle reset-prompt
@@ -375,7 +375,7 @@ bindkey '^xb' fzf-jump-ghq-cdr
 
 # search strings like a file name displayed in current tmux pane
 fzf-search-tmux-pane-strings() {
-  local -a candidates=($(tmux capture-pane\; show-buffer \; delete-buffer | perl -pne 's/ +/\n/g; print' | sort -u | \grep '[\.\/]'))
+  local -a candidates=($(tmux capture-pane\; show-buffer \; delete-buffer | perl -pe 's/\s+/\n/g' | sort -u | \grep '[\.\/]'))
   local str="$(print -l $candidates | fzf +m)"
   if [[ -z "$str" ]]; then
     zle redisplay
