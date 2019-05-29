@@ -305,12 +305,12 @@ export FZF_DEFAULT_OPTS="--height 14 --reverse"
 
 # search from history
 fzf-history() {
-  local cmd="$(history -r 1 | while read -u 0 id cmd; do echo ${cmd}; done | fzf +m --bind=ctrl-r:down --bind=ctrl-s:up)"
+  local cmd="$(fc -lnr 1 | fzf +m --bind=ctrl-r:down --bind=ctrl-s:up --query=$LBUFFER)"
   if [[ -z "$cmd" ]]; then
      zle redisplay
      return 0
   fi
-  LBUFFER+="$cmd"
+  LBUFFER="$cmd"
   zle reset-prompt
 }
 zle -N fzf-history
