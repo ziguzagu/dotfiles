@@ -283,6 +283,7 @@ function _post_chpwd {
 }
 add-zsh-hook chpwd _post_chpwd
 
+zstyle ':chpwd:*' recent-dirs-default true
 zstyle ':chpwd:*' recent-dirs-max 500
 zstyle ':chpwd:*' recent-dirs-file "$HOME/.zsh/chpwd-recent-dirs"
 zstyle ':chpwd:*' recent-dirs-pushd true
