@@ -307,7 +307,7 @@ export FZF_DEFAULT_OPTS="--height 14 --reverse"
 
 # search from history
 fzf-history() {
-  local cmd="$(fc -lnr 1 | fzf +m --bind=ctrl-r:down --bind=ctrl-s:up --query=$LBUFFER)"
+  local cmd="$(fc -lnr 1 | fzf +m --tiebreak=index --bind=ctrl-r:down --bind=ctrl-s:up --query=$LBUFFER)"
   if [[ -z "$cmd" ]]; then
      zle redisplay
      return 0
@@ -350,7 +350,7 @@ bindkey '^x^v' fzf-git-untracked-or-changed-files
 # git checkout to selected branches in recent used
 fzf-git-checkout-recent-branch() {
   _is_in_git_repo || return
-  local branch="$(git for-each-ref --format='%(refname:short)' --sort=-committerdate refs/heads | fzf +m)"
+  local branch="$(git for-each-ref --format='%(refname:short)' --sort=-committerdate refs/heads | fzf +m --tiebreak=index)"
   if [[ -z "$branch" ]]; then
      zle redisplay
      return 0
@@ -368,7 +368,7 @@ fzf-jump-ghq-cdr() {
     $(cdr -l | perl -pe 's/^\d+\s+//')
     $(ghq list -p | perl -pe 's/^\Q$ENV{HOME}\E/~/')
   )
-  local dir="$(print -l ${(u)dirs} | fzf +m)"
+  local dir="$(print -l ${(u)dirs} | fzf +m --tiebreak=index)"
   if [[ -z "$dir" ]]; then
      zle redisplay
      return 0
