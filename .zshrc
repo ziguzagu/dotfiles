@@ -333,7 +333,7 @@ fzf-git-ls-files() {
   return $ret
 }
 zle -N fzf-git-ls-files
-bindkey '^xv' fzf-git-ls-files
+bindkey '^x^f' fzf-git-ls-files
 
 # select untracked files or changed files
 fzf-git-untracked-or-changed-files() {
@@ -378,7 +378,7 @@ fzf-jump-ghq-cdr() {
   zle accept-line
 }
 zle -N fzf-jump-ghq-cdr
-bindkey '^xb' fzf-jump-ghq-cdr
+bindkey '^j' fzf-jump-ghq-cdr
 
 # search strings like a file name displayed in current tmux pane
 fzf-search-tmux-pane-strings() {
@@ -392,7 +392,7 @@ fzf-search-tmux-pane-strings() {
   zle reset-prompt
 }
 zle -N fzf-search-tmux-pane-strings
-bindkey '^x^o' fzf-search-tmux-pane-strings
+bindkey '^o' fzf-search-tmux-pane-strings
 
 # find perl modules of core and bundled by carton
 fzf-find-perl-module() {
