@@ -338,7 +338,8 @@ bindkey '^x^f' fzf-git-ls-files
 # select untracked files or changed files
 fzf-git-untracked-or-changed-files() {
   _is_in_git_repo || return
-  local -a files=($(git status -s | fzf -m --height=40% --preview='git diff {2} | bat -p --color=always' | perl -pe 's/^\s*..\s+//'))
+  set -o pipefail
+  local -a files=($(git status -s | fzf -m --height=40% --preview='git preview {2}' | perl -pe 's/^\s*..\s+//'))
   local ret=$?
   LBUFFER+=$files
   zle reset-prompt

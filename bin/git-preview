@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# git-preview: preview tracked/untracked file (mainly for fzf)
+#
+set -eu -o pipefail
+
+readonly file=$1
+
+diff="$(git diff $file)"
+if [[ -n $diff ]]; then
+  echo -n "$diff" | bat -p --color=always
+elif [[ -d $file ]]; then
+  echo ''
+else
+  bat -p --color=always -r :18 $file
+fi
