@@ -307,7 +307,7 @@ export FZF_DEFAULT_OPTS="--height 14 --reverse"
 
 # search from history
 fzf-history() {
-  local cmd="$(fc -lnr 1 | fzf +m --tiebreak=index --bind=ctrl-r:down --bind=ctrl-s:up --query=$LBUFFER)"
+  local cmd="$(fc -lnr 1 | fzf +m -e --tiebreak=index --bind=ctrl-r:down --bind=ctrl-s:up --query=$LBUFFER)"
   if [[ -z "$cmd" ]]; then
      zle redisplay
      return 0
@@ -339,7 +339,7 @@ bindkey '^x^f' fzf-git-ls-files
 fzf-git-untracked-or-changed-files() {
   _is_in_git_repo || return
   set -o pipefail
-  local -a files=($(git status -s | fzf -m --height=40% --preview='git preview {2}' | perl -pe 's/^\s*..\s+//'))
+  local -a files=($(git status -s | fzf -m -e --height=40% --preview='git preview {2}' | perl -pe 's/^\s*..\s+//'))
   local ret=$?
   LBUFFER+=$files
   zle reset-prompt
@@ -351,7 +351,7 @@ bindkey '^x^v' fzf-git-untracked-or-changed-files
 # git checkout to selected branches in recent used
 fzf-git-checkout-recent-branch() {
   _is_in_git_repo || return
-  local branch="$(git for-each-ref --format='%(refname:short)' --sort=-committerdate refs/heads | fzf +m --tiebreak=index)"
+  local branch="$(git for-each-ref --format='%(refname:short)' --sort=-committerdate refs/heads | fzf +m -e --tiebreak=index)"
   if [[ -z "$branch" ]]; then
      zle redisplay
      return 0
@@ -369,7 +369,7 @@ fzf-jump-ghq-cdr() {
     $(cdr -l | perl -pe 's/^\d+\s+//')
     $(ghq list -p | perl -pe 's/^\Q$ENV{HOME}\E/~/')
   )
-  local dir="$(print -l ${(u)dirs} | fzf +m --tiebreak=index)"
+  local dir="$(print -l ${(u)dirs} | fzf +m -e --tiebreak=index)"
   if [[ -z "$dir" ]]; then
      zle redisplay
      return 0
@@ -384,7 +384,7 @@ bindkey '^j' fzf-jump-ghq-cdr
 # search strings like a file name displayed in current tmux pane
 fzf-search-tmux-pane-strings() {
   local -a strings=($(tmux capture-pane -p | perl -pe 's/\s+/\n/g; s/\Q...\E/\n/g' | \grep -E '[a-zA-Z_\-\/]{4,}' | \grep -v '(git:' | tac))
-  local str="$(print -l ${(u)strings} | fzf +m --tiebreak=index)"
+  local str="$(print -l ${(u)strings} | fzf +m -e --tiebreak=index)"
   if [[ -z "$str" ]]; then
     zle redisplay
     return 0
