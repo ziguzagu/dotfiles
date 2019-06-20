@@ -303,7 +303,7 @@ cdr-gc() {
 ########################################
 ## fzf
 ########################################
-export FZF_DEFAULT_OPTS="--height 14 --reverse"
+export FZF_DEFAULT_OPTS="--height 14 --reverse --bind=ctrl-g:print-query"
 
 # search from history
 fzf-history() {
