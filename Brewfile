@@ -1,9 +1,4 @@
 ## -*- mode: ruby -*-
-cask_args appdir: '/Applications'
-
-tap 'homebrew/cask'
-tap 'homebrew/cask-fonts'
-
 brew 'emacs'
 brew 'global', args: ['with-pygments', 'with-ctags']
 
@@ -60,6 +55,8 @@ brew 'sqlite'
 tap 'dkanejs/aws-session-manager-plugin'
 brew 'aws-session-manager-plugin'
 
+cask_args appdir: '/Applications'
+tap 'homebrew/cask'
 cask 'virtualbox'
 cask 'vagrant'
 cask 'google-cloud-sdk'
@@ -73,6 +70,8 @@ cask 'firefox'
 cask 'google-chrome'
 cask 'google-japanese-ime'
 cask 'java'
+cask 'tableau-reader'
+
+tap 'homebrew/cask-fonts'
 cask 'font-source-code-pro'
 cask 'font-source-han-code-jp'
-cask 'tableau-reader'
