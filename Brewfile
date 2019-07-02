@@ -55,6 +55,11 @@ brew 'varnish'
 brew 'redis'
 brew 'sqlite'
 
+# Session Manager Plugin for AWS CLI
+# https://docs.aws.amazon.com/ja_jp/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html
+tap 'dkanejs/aws-session-manager-plugin'
+brew 'aws-session-manager-plugin'
+
 cask 'virtualbox'
 cask 'vagrant'
 cask 'google-cloud-sdk'
