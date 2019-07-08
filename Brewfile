@@ -37,6 +37,7 @@ brew 'tree'
 brew 'jq'
 brew 'wget'
 brew 'tcping'
+brew 'httping'
 
 brew 'openssl'
 brew 'libxml2'
