@@ -43,6 +43,9 @@
 ;; C-h as delete in mini buffer
 (define-key key-translation-map (kbd "C-h") (kbd "<DEL>"))
 
+;; save recentf a lot for helm
+(setq recentf-max-saved-items 5000)
+
 ;; reload a file when it was changed by another process (include vc)
 (global-auto-revert-mode t)
 (setq auto-revert-check-vc-info t)

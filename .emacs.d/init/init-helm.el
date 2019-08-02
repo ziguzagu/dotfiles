@@ -58,9 +58,6 @@
   (when (file-exists-p candidate)
     ad-do-it))
 
-;; increase to make helm-source-recentf useful
-(setq recentf-max-saved-items 5000)
-
 ;; customize default
 (custom-set-variables
  '(helm-truncate-lines t)
