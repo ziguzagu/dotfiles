@@ -25,6 +25,7 @@ brew 'zsh-syntax-highlighting'
 brew 'fzf'
 
 brew 'the_silver_searcher'
+brew 'ripgrep'
 brew 'grep', args: ['with-default-names']
 brew 'awscli'
 brew 'heroku'
