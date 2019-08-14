@@ -76,19 +76,18 @@
     (substring vc-mode 5)))
 ;; modeline content
 (setq-default mode-line-format
-              (list "-"
+              (list " "
                     'mode-line-mule-info
                     'mode-line-modified
                     " "
                     'mode-line-buffer-identification
-                    '(:eval (concat (propertize " %c:%l(%p)")))
+                    " %c:%l(%p)"
                     '(vc-mode
                      ((:propertize " " face mode-line-vc-mode)
                       (:propertize (:eval (vc-branch)) face mode-line-vc-mode)))
                     " "
                     'mode-name
-                    'minor-mode-alist
-                    "-%-"))
+                    'minor-mode-alist))
 
 ;; minibuffer color
 (set-face-foreground 'minibuffer-prompt "yellow")
