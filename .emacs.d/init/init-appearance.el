@@ -70,6 +70,10 @@
  '(mode-line-inactive  ((t (:foreground "gray42" :background "gray16" :box nil))))
  '(mode-line-buffer-id ((t (:foreground "#ff8700" :weight normal))))
  '(mode-line-vc-mode   ((t (:foreground "#5fafff" :weight normal)))))
+;; get rid of 'Git:' from vc-mode
+(defun vc-branch ()
+  (let ((backend (vc-backend buffer-file-name)))
+    (substring vc-mode 5)))
 ;; modeline content
 (setq-default mode-line-format
               (list "-"
@@ -78,7 +82,9 @@
                     " "
                     'mode-line-buffer-identification
                     '(:eval (concat (propertize " %c:%l(%p)")))
-                    '(:propertize (:eval vc-mode) face mode-line-vc-mode)
+                    '(vc-mode
+                     ((:propertize " " face mode-line-vc-mode)
+                      (:propertize (:eval (vc-branch)) face mode-line-vc-mode)))
                     " "
                     'mode-name
                     'minor-mode-alist
