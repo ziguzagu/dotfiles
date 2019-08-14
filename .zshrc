@@ -93,6 +93,7 @@ alias cpanl="cpanm --mirror ~/minicpan --mirror-only"
 alias py="python3"
 alias f="gfind"
 alias b="bat"
+alias q="rg"
 
 ## grep
 alias grep="grep --binary-files=without-match --color=auto"

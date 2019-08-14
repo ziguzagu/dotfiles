@@ -66,7 +66,7 @@ current = rev-parse --abbrev-ref HEAD
 publish = !git push -u origin $(git current)
 unpublish = !git push origin :$(git current)
 upstream = !sh -c 'git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null'
-ag = grep --heading --break --line-number --color --show-function
+q = grep --heading --break --line-number --color --show-function
 
 [push]
 default = current
