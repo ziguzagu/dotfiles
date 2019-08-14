@@ -1,4 +1,5 @@
 (use-package counsel
+  :diminish ivy-mode
   :bind (("C-s" . swiper)
          ("M-x" . counsel-M-x)
          ("C-x C-f" . counsel-find-file)
