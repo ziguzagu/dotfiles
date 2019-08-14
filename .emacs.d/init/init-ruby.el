@@ -31,6 +31,7 @@
   (global-rbenv-mode))
 
 (use-package projectile-rails
+  :diminish projectile-rails-mode
   :config
   (projectile-rails-global-mode))
 
