@@ -63,6 +63,7 @@
 
 ;; initialize
 (load "init-appearance")
+(load "init-modeline")
 ;; (load "init-minibuffer")
 (load "init-scratch")
 (load "init-dired")
