@@ -107,9 +107,8 @@
   (setq sh-shell-file "/bin/bash"))
 
 (use-package dumb-jump
-  :bind (("M-g o" . dumb-jump-go-other-window)
-         ("M-g j" . dumb-jump-go)
-         ("M-g i" . dumb-jump-go-prompt))
+  :bind (("M-." . dumb-jump-go)
+         ("M-," . dumb-jump-back))
   :init
   (setq dumb-jump-selector 'ivy))
 
