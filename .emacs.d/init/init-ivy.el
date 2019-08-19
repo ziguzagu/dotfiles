@@ -9,12 +9,12 @@
          ("C-c y" . counsel-yank-pop)
          ("C-c o" . ivy-occur))
   :init
-  (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)
   (setq enable-recursive-minibuffers t)
   (setq ivy-count-format "(%d/%d) ")
   (setq ivy-height 20)
   :config
+  (ivy-mode 1)
   (custom-set-faces
    '(ivy-current-match ((t (:inherit region))))
    '(ivy-minibuffer-match-face-1 ((t (:inherit region))))
