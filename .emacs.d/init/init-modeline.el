@@ -11,7 +11,7 @@
  '(fc-warning-face     ((t (:foreground "#fabd2f" :weight normal))))
  '(fc-info-face        ((t (:foreground "#83a598" :weight normal)))))
 
-;; get rid of 'Git:' from vc-mode
+;; get rid of leading ' git:' from vc-mode
 (defun vc-branch ()
   (let ((backend (vc-backend buffer-file-name)))
     (substring vc-mode 5)))
