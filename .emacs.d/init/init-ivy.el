@@ -16,9 +16,9 @@
   :config
   (ivy-mode 1)
   (custom-set-faces
-   '(ivy-current-match ((t (:inherit region))))
+   '(ivy-current-match ((t (:inherit ivy-cursor))))
    '(ivy-minibuffer-match-face-1 ((t (:inherit region))))
-   '(ivy-minibuffer-match-face-2 ((t (:inherit highlight))))
+   '(ivy-minibuffer-match-face-2 ((t (:inherit match))))
    '(ivy-minibuffer-match-face-3 ((t (:inherit ivy-minibuffer-match-face-2))))
    '(ivy-minibuffer-match-face-4 ((t (:inherit ivy-minibuffer-match-face-2))))))
 
