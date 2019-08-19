@@ -18,8 +18,6 @@ brew 'colordiff'
 brew 'ghq'
 
 brew 'tmux'
-brew 'reattach-to-user-namespace'
-#brew 'zsh', args: ['without-etcdir']
 brew 'zsh-completions'
 brew 'zsh-syntax-highlighting'
 brew 'fzf'
