@@ -62,6 +62,12 @@
 ;; minibuffer color
 (set-face-foreground 'minibuffer-prompt "yellow")
 
+(set-face-attribute 'header-line nil
+                    :inherit 'mode-line
+                    :weight 'bold
+                    :slant 'italic
+                    :underline t)
+
 ;; diff-mode colors
 (custom-set-faces
  '(diff-file-header ((t (:background "gray32" :foreground "orange"))))
