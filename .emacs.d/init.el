@@ -71,8 +71,8 @@
 
 (load "init-general")
 (load "init-complete")
-;;(load "init-helm")
-(load "init-ivy")
+(load "init-helm")
+;; (load "init-ivy")
 ;; (load "init-migemo")
 ;; (load "init-sdic")
 
