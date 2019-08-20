@@ -83,9 +83,14 @@
   :config
   (setq show-trailing-whitespace t)
   (setq whitespace-style '(face tabs tab-mark trailing))
-  (custom-set-faces
-   '(whitespace-trailing ((t (:foreground "gray90" :background "gray32" :inverse-video nil))))
-   '(whitespace-tab      ((t (:foreground "gray70" :background nil :inverse-video nil)))))
+  (set-face-attribute 'whitespace-trailing nil
+                      :foreground "gray90"
+                      :background "gray32"
+                      :inverse-video nil)
+  (set-face-attribute 'whitespace-tab nil
+                      :foreground "gray70"
+                      :background nil
+                      :inverse-video nil)
   (global-whitespace-mode t))
 
 ;;; init-appearance.el ends here
