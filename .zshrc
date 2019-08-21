@@ -94,6 +94,7 @@ alias py="python3"
 alias f="gfind"
 alias b="bat"
 alias q="rg"
+alias fzf="fzf --color=dark,gutter:0"
 
 ## grep
 alias grep="grep --binary-files=without-match --color=auto"
