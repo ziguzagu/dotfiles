@@ -18,9 +18,9 @@
          :map helm-read-file-map
          ("TAB" . helm-execute-persistent-action))
   :config
-  (set-face-attribute 'helm-header nil :background "#3a3a3a" :slant 'italic :underline nil)
+  (set-face-attribute 'helm-header nil :inherit 'header-line :inverse-video t)
   (set-face-attribute 'helm-source-header nil :background "#292929" :foreground "#a3a3a3" :slant 'italic)
-  (set-face-attribute 'helm-candidate-number nil :foreground "#00afff")
+  (set-face-attribute 'helm-candidate-number nil :foreground "#5fafff" :background nil)
   (set-face-attribute 'helm-selection nil :background "#005f87" :weight 'normal)
   (set-face-attribute 'helm-match nil :foreground "#a2cd5a")
   (helm-mode 1))
