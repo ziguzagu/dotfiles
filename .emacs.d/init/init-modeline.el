@@ -38,13 +38,14 @@
               (list " "
                     'mode-line-mule-info
                     'mode-line-modified
-                    " "
+                    "  "
                     'mode-line-buffer-identification
-                    " %c:%l(%p)"
+                    '(:eval (format " [%s]" (projectile-project-name)))
                     '(vc-mode
-                     ((:propertize " " face mode-line-vc-mode)
+                     ((:propertize "  " face mode-line-vc-mode)
                       (:propertize (:eval (vc-branch)) face mode-line-vc-mode)))
-                    " "
+                    "  "
                     'mode-name
-                    " "
-                    '(:eval (mode-line-chcker))))
+                    "  "
+                    '(:eval (mode-line-chcker))
+                    "  %c:%l(%p)"))
