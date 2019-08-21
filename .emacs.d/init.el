@@ -77,6 +77,7 @@
 (load "init-shell")
 
 (load "init-general")
+(load "init-yasnippet")
 (load "init-complete")
 (load "init-helm")
 ;; (load "init-ivy")
