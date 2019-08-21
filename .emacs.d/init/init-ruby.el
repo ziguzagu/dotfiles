@@ -20,12 +20,6 @@
   :init
   (add-hook 'ruby-mode-hook '(lambda () (ruby-end-mode t))))
 
-(use-package ruby-block
-  :diminish ruby-block-mode
-  :init
-  (setq ruby-block-highlight-toggle t))
-  (add-hook 'ruby-mode-hook '(lambda () (ruby-block-mode t)))
-
 (use-package rbenv
   :config
   (global-rbenv-mode))
