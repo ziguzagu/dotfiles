@@ -95,23 +95,13 @@ alias f="gfind"
 alias b="bat"
 alias q="rg"
 alias fzf="fzf --color=dark,gutter:0"
+alias diff="colordiff -u"
+alias git="hub"
+alias g="git"
 
 ## grep
 alias grep="grep --binary-files=without-match --color=auto"
 export GREP_COLORS="ms=04;31:mc=01;33:sl=:cx=:fn=33:ln=33:bn=33:se=01;30"
-
-## diff
-if [[ -x "$(which colordiff)" ]]; then
-  alias diff="colordiff -u"
-else
-  alias diff='diff -u'
-fi
-
-## git
-if [[ -x "$(which hub)" ]]; then
-  alias git="hub"
-fi
-alias g="git"
 
 ## docker
 alias d="docker"
