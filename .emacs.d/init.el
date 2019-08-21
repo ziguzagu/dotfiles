@@ -31,7 +31,10 @@
   (add-to-list 'default-frame-alist '(width . 140))
   (add-to-list 'default-frame-alist '(fullscreen . fullheight)))
 
-;; initialize packages and prepare use-package
+;; XXX: https://debbugs.gnu.org/cgi/bugreport.cgi?bug=34341
+;; workaround for Emacs 26.2. It will be fixed 26.3 and then remove it.
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
 ;; initialize package.el
 (require 'package)
 (add-to-list 'package-archives
