@@ -32,13 +32,17 @@
   (add-to-list 'default-frame-alist '(fullscreen . fullheight)))
 
 ;; initialize packages and prepare use-package
+;; initialize package.el
 (require 'package)
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/"))
 (package-initialize)
+
+;; prepare to use use-package.el
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
-  (package-install 'use-package))
+  (package-install 'use-package)
+  (package-install 'diminish))
 (eval-when-compile
   (require 'use-package)
   (setq use-package-always-ensure t))
