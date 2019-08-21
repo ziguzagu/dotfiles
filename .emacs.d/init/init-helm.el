@@ -83,6 +83,7 @@
   :bind ("C-c p p" . helm-projectile-switch-project)
   :config
   (projectile-global-mode t)
+  (setq projectile-completion-system 'helm)
   (helm-projectile-on))
 
 ;;; init-helm.el ends here
