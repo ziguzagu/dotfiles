@@ -10,6 +10,8 @@
          ("C-p" . company-select-previous))
   :config
   (global-company-mode t)
+  (setq company-auto-expand t)
+  (setq company-minimum-prefix-length 3)
   (set-face-attribute 'company-tooltip nil
                       :foreground "black"
                       :background "gray72")
