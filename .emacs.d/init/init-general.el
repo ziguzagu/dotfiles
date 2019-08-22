@@ -1,7 +1,3 @@
-;;; init-general.el --- general settings
-;;; Commentary:
-;;; Code:
-
 ;; use command key as meta key in cocoa emacs
 (when (eq system-type 'darwin)
   (setq ns-command-modifier (quote meta)))
@@ -169,5 +165,3 @@
          ("C-M-n" . mc/mark-next-like-this)
          ("C-M-p" . mc/mark-previous-like-this)
          ("C-M-a" . mc/mark-all-like-this)))
-
-;;; init-general.el ends here

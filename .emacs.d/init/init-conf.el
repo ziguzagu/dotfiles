@@ -1,7 +1,3 @@
-;;; init-conf.el --- settings for various middleware's config file modes
-;;; Commentary:
-;;; Code:
-
 (setq auto-mode-alist
       (append '(("\\.conf$" . conf-mode)
                 ("\\.cfg$"  . conf-mode)) auto-mode-alist))
@@ -28,5 +24,3 @@
 
 (use-package hcl-mode
   :mode "\\.tf\\'")
-
-;;; init-conf.el ends here

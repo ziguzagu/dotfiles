@@ -1,7 +1,3 @@
-;;; init-ruby.el --- customize ruby mode
-;;; Commentary:
-;;; Code:
-
 (use-package ruby-mode
   :mode ("\\.rb\\'" "Capfile" "Gemfile")
   :interpreter "ruby"
@@ -34,5 +30,3 @@
 ;;   :init
 ;;   (add-hook 'ruby-mode-hook '(lambda () (robe-mode)))
 ;;   (add-hook 'robe-mode-hook '(lambda () (ac-robe-setup))))
-
-;;; init-ruby.el ends here

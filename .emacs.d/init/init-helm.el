@@ -1,7 +1,3 @@
-;;; init-helm.el --- initialize helm
-;;; Commentary:
-;;; Code:
-
 (use-package helm
   :bind (("M-x" . helm-M-x)
          ("C-x b" . helm-mini)
@@ -85,5 +81,3 @@
   (projectile-global-mode t)
   (setq projectile-completion-system 'helm)
   (helm-projectile-on))
-
-;;; init-helm.el ends here

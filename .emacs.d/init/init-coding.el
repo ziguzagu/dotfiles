@@ -128,5 +128,3 @@
          ("M-," . dumb-jump-back))
   :init
   (setq dumb-jump-selector 'ivy))
-
-;;; init-coding.el ends here

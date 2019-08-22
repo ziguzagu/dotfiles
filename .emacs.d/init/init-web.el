@@ -1,7 +1,3 @@
-;;; init-web.el --- customize web mode and frontend stuff
-;;; Commentary:
-;;; Code:
-
 (use-package web-mode
   :mode ("\\.html\\'" "\\.tmpl\\'" "\\.tt\\'" "\\.tx\\'")
   :config
@@ -64,5 +60,3 @@
       (goto-char start)
       (while (search-forward ">" nil t)
         (replace-match "&gt;" nil t)))))
-
-;;; init-web.el ends here

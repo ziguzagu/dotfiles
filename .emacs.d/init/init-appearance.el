@@ -1,7 +1,3 @@
-;;; init-appearance.el --- configure appearance
-;;; Commentary:
-;;; Code:
-
 ;; hide startup message
 (setq inhibit-startup-message t)
 
@@ -99,5 +95,3 @@
                       :background nil
                       :inverse-video nil)
   (global-whitespace-mode t))
-
-;;; init-appearance.el ends here
