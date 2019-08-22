@@ -1,6 +1,23 @@
-;;; init-coding.el --- general coding settings
-;;; Commentary:
-;;; Code:
+(use-package diff-mode
+  :config
+  (set-face-attribute 'diff-file-header nil
+                      :foreground "orange"
+                      :background "gray32")
+  (set-face-attribute 'diff-header nil
+                      :foreground "gray70"
+                      :background "gray32")
+  (set-face-attribute 'diff-context nil
+                      :inherit 'shadow
+                      :foreground "gray90")
+  (set-face-attribute 'diff-changed nil
+                      :foreground "black"
+                      :background "yellow")
+  (set-face-attribute 'diff-added nil
+                      :foreground "black"
+                      :background "darkolivegreen3")
+  (set-face-attribute 'diff-removed nil
+                      :foreground "black"
+                      :background "tomato"))
 
 ;; make compact vc-annotate display
 (defadvice vc-git-annotate-command (around vc-git-annotate-command activate)

@@ -34,48 +34,55 @@
   (xterm-register-default-colors)
   (tty-set-up-initial-frame-faces))
 
-;; basic colors
-(set-face-foreground 'default "#e4e4e4")
-(set-face-background 'default "#000000")
-
-;; common syntax colors
-(set-face-attribute 'font-lock-comment-face nil
-                    :foreground "gray52" :slant 'italic)
-(set-face-foreground 'font-lock-string-face  "#afd787")
-(set-face-foreground 'font-lock-keyword-face "#ffaf00")
-(set-face-foreground 'font-lock-function-name-face "#afafaf")
-(set-face-foreground 'font-lock-variable-name-face "#87afd7")
-(set-face-foreground 'font-lock-constant-face "#d75f5f")
-(set-face-foreground 'font-lock-type-face "#af87ff")
-(set-face-background 'font-lock-warning-face "red")
-(set-face-foreground 'font-lock-warning-face "white")
-(set-face-foreground 'font-lock-builtin-face "#d787d7")
-
-;; highlight colors
-(set-face-background 'highlight "green")
-(set-face-foreground 'highlight "black")
-
-;; region colors
-(set-face-background 'region "gray22")
-(set-face-foreground 'region "white")
-
-;; minibuffer color
-(set-face-foreground 'minibuffer-prompt "yellow")
-
+;; UI colors
+(set-face-attribute 'default nil
+                    :foreground "#e4e4e4"
+                    :background "#000000")
+(set-face-attribute 'highlight nil
+                    :foreground "black"
+                    :background "green")
+(set-face-attribute 'region nil
+                    :foreground "white"
+                    :background "gray22")
+(set-face-attribute 'minibuffer-prompt nil
+                    :foreground "yellow")
+(set-face-attribute 'mode-line nil
+                    :foreground "#bcbcbc"
+                    :background "#444444")
+(set-face-attribute 'mode-line-inactive nil
+                    :foreground "gray42"
+                    :background "gray16")
+(set-face-attribute 'mode-line-buffer-id nil
+                    :foreground "#ff8700"
+                    :weight 'normal)
 (set-face-attribute 'header-line nil
                     :inherit 'mode-line
                     :weight 'bold
                     :slant 'italic
                     :underline t)
 
-;; diff-mode colors
-(custom-set-faces
- '(diff-file-header ((t (:background "gray32" :foreground "orange"))))
- '(diff-header      ((t (:background "gray32" :foreground "gray70"))))
- '(diff-context     ((t (:inherit shadow :foreground "gray90"))))
- '(diff-changed     ((t (:background "yellow" :foreground "black"))))
- '(diff-added       ((t (:background "darkolivegreen3" :foreground "black"))))
- '(diff-removed     ((t (:background "tomato" :foreground "black")))))
+;; Coding syntax colors
+(set-face-attribute 'font-lock-comment-face nil
+                    :foreground "gray52"
+                    :slant 'italic)
+(set-face-attribute 'font-lock-string-face nil
+                    :foreground "#afd787")
+(set-face-attribute 'font-lock-keyword-face nil
+                    :foreground "#ffaf00")
+(set-face-attribute 'font-lock-function-name-face nil
+                    :foreground "#afafaf")
+(set-face-attribute 'font-lock-variable-name-face nil
+                     :foreground "#87afd7")
+(set-face-attribute 'font-lock-constant-face nil
+                    :foreground "#d75f5f")
+(set-face-attribute 'font-lock-type-face nil
+                    :foreground "#af87ff")
+(set-face-attribute 'font-lock-warning-face nil
+                    :background "red")
+(set-face-attribute 'font-lock-warning-face nil
+                    :foreground "white")
+(set-face-attribute 'font-lock-builtin-face nil
+                    :foreground "#d787d7")
 
 ;; highlight hard tab, trailing spaces and double width space
 (use-package whitespace

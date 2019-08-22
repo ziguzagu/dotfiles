@@ -3,9 +3,6 @@
 (make-face 'fc-warning-face)
 (make-face 'fc-info-face)
 (custom-set-faces
- '(mode-line           ((t (:foreground "#bcbcbc" :background "#444444" :box nil))))
- '(mode-line-inactive  ((t (:foreground "gray42" :background "gray16" :box nil))))
- '(mode-line-buffer-id ((t (:foreground "#ff8700" :weight normal))))
  '(mode-line-vc-mode   ((t (:foreground "#5fafff" :weight normal))))
  '(fc-error-face       ((t (:foreground "#fb4933" :weight normal))))
  '(fc-warning-face     ((t (:foreground "#fabd2f" :weight normal))))
