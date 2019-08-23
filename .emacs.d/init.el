@@ -1,7 +1,3 @@
-;;; init.el --- initialize emacs
-;;; Commentary:
-;;; Code:
-
 (setq debug-on-error t)
 (cd "~")
 (add-to-list 'load-path "~/.emacs.d/init")
@@ -91,5 +87,3 @@
 (load "init-web")
 (load "init-conf")
 (load "init-docker")
-
-;;; init.el ends here
