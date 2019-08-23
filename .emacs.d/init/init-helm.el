@@ -6,6 +6,8 @@
          ("C-c m"   . helm-man-woman)
          ("C-c o"   . helm-occur)
          ("C-c s"   . helm-imenu)
+         :map isearch-mode-map
+         ("C-o" . helm-occur-from-isearch)
          :map helm-map
          ("C-h" . delete-backward-char)
          :map helm-find-files-map
@@ -14,9 +16,16 @@
          :map helm-read-file-map
          ("TAB" . helm-execute-persistent-action))
   :config
+  (setq helm-truncate-lines t)
+  (setq helm-buffer-max-length 35)
+  (setq helm-delete-minibuffer-contents-from-point t)
+  ;; skip boring files
+  (setq helm-ff-skip-boring-files t)
+  (setq helm-boring-file-regexp-list '("~$" "\\.elc$" "^#" "/\\.$" "/\\.\\.$"))
+  ;; faces
   (set-face-attribute 'helm-header nil :inherit 'header-line :inverse-video t)
   (set-face-attribute 'helm-source-header nil :background "#292929" :foreground "#a3a3a3" :slant 'italic)
-  (set-face-attribute 'helm-candidate-number nil :foreground "#5fafff" :background nil)
+  (set-face-attribute 'helm-candidate-number nil :foreground "#5fafff" :background "#444444")
   (set-face-attribute 'helm-selection nil :background "#005f87" :weight 'normal)
   (set-face-attribute 'helm-match nil :foreground "#a2cd5a")
   (helm-mode 1))
@@ -45,30 +54,11 @@
 (add-hook 'helm-after-initialize-hook #'helm-popwin-help-mode-off)
 (add-hook 'helm-cleanup-hook #'helm-popwin-help-mode-on)
 
-;; enter helm-occur from isearch
-(define-key isearch-mode-map (kbd "C-o") 'helm-occur-from-isearch)
-
 ;; and prevent to create new buffer by TAB + TAB
 (defadvice helm-ff-kill-or-find-buffer-fname (around execute-only-if-exist activate)
   "Execute command only if CANDIDATE exists."
   (when (file-exists-p candidate)
     ad-do-it))
-
-;; customize default
-(custom-set-variables
- '(helm-truncate-lines t)
- '(helm-buffer-max-length 35)
- '(helm-delete-minibuffer-contents-from-point t)
- ;; skip boring files
- '(helm-ff-skip-boring-files t)
- '(helm-boring-file-regexp-list '("~$" "\\.elc$" "^#" "/\\.$" "/\\.\\.$"))
- ;; shorten
- '(helm-ls-git-show-abs-or-relative 'relative)
- ;; additional source for helm-mini
- '(helm-mini-default-sources '(helm-source-buffers-list
-                               helm-source-recentf
-                               helm-source-ls-git
-                               helm-source-buffer-not-found)))
 
 (use-package helm-ag
   :config
