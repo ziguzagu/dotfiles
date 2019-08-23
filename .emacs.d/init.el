@@ -76,7 +76,6 @@
 (load "init-yasnippet")
 (load "init-company")
 (load "init-helm")
-;; (load "init-ivy")
 ;; (load "init-migemo")
 ;; (load "init-sdic")
 
