@@ -19,9 +19,10 @@
   (setq helm-truncate-lines t)
   (setq helm-buffer-max-length 35)
   (setq helm-delete-minibuffer-contents-from-point t)
-  ;; skip boring files
+  ;; skip boring files and buffers
   (setq helm-ff-skip-boring-files t)
   (setq helm-boring-file-regexp-list '("~$" "\\.elc$" "^#" "/\\.$" "/\\.\\.$"))
+  (setq helm-boring-buffer-regexp-list '("^\s*\\*[A-Z].+\\*\s*$"))
   ;; faces
   (set-face-attribute 'helm-header nil :inherit 'header-line :inverse-video t)
   (set-face-attribute 'helm-source-header nil :background "#292929" :foreground "#a3a3a3" :slant 'italic)
