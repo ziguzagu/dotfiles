@@ -127,4 +127,4 @@
   :bind (("M-." . dumb-jump-go)
          ("M-," . dumb-jump-back))
   :init
-  (setq dumb-jump-selector 'ivy))
+  (setq dumb-jump-selector 'helm))
