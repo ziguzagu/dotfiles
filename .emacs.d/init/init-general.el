@@ -39,6 +39,7 @@
 (define-key key-translation-map (kbd "C-h") (kbd "<DEL>"))
 
 ;; save recentf a lot for helm
+(require 'recentf)
 (setq recentf-max-saved-items 5000)
 
 ;; reload a file when it was changed by another process (include vc)
