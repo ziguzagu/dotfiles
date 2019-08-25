@@ -12,16 +12,16 @@
       scroll-step 1)
 
 ;; scroll by line with holding cursor.
-(defun scroll-up-in-place (n)
-  (interactive "p")
-  (previous-line n)
-  (scroll-down n))
-(defun scroll-down-in-place (n)
-  (interactive "p")
-  (next-line n)
-  (scroll-up n))
-(global-set-key "\M-p" 'scroll-up-in-place)
-(global-set-key "\M-n" 'scroll-down-in-place)
+(defun scroll-up-in-place ()
+  (interactive)
+  (forward-line -1)
+  (scroll-down 1))
+(defun scroll-down-in-place ()
+  (interactive)
+  (forward-line 1)
+  (scroll-up 1))
+(global-set-key (kbd "M-p") 'scroll-up-in-place)
+(global-set-key (kbd "M-n") 'scroll-down-in-place)
 
 ;; comment style
 (setq comment-style 'multi-line)
