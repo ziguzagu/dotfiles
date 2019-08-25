@@ -31,7 +31,8 @@
   (set-face-attribute 'helm-match nil :foreground "#a2cd5a")
   (helm-mode 1))
 
-(use-package helm-ls-git)
+(use-package helm-ls-git
+  :bind (("C-c f" . helm-browse-project)))
 
 (use-package helm-git-grep
   :bind (("C-x g" . helm-git-grep)
