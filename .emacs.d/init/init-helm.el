@@ -35,9 +35,9 @@
   :bind (("C-c f" . helm-browse-project)))
 
 (use-package helm-git-grep
-  :bind (("C-x g" . helm-git-grep)
+  :bind (("C-c g" . helm-git-grep)
          :map isearch-mode-map
-         ("C-x g" . helm-git-grep-from-isearch)))
+         ("C-c g" . helm-git-grep-from-isearch)))
 
 ;; dispaly helm by popwin
 (push '("^\\*helm" :regexp t) popwin:special-display-config)

@@ -32,7 +32,6 @@
 
 ;; key bind
 (global-set-key "\r" 'newline-and-indent)
-(global-set-key "\C-cg" 'goto-line)
 (global-set-key "\C-ch" 'help-for-help)
 (global-set-key "\C-h"  'delete-backward-char)
 (global-set-key "\C-c]" 'align-regexp)
