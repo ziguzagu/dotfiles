@@ -18,13 +18,6 @@
 (require 'font-lock)
 (global-font-lock-mode t)
 
-;; use 256 colors on screen-256color term
-(defun terminal-init-screen ()
-  "Terminal initialization function for screen-256color."
-  (load "term/xterm")
-  (xterm-register-default-colors)
-  (tty-set-up-initial-frame-faces))
-
 ;; UI colors
 (set-face-attribute 'default nil
                     :foreground "#e4e4e4"

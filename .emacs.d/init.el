@@ -62,7 +62,6 @@
 ;; initialize
 (load "init-appearance")
 (load "init-modeline")
-;; (load "init-minibuffer")
 (load "init-scratch")
 (load "init-dired")
 (load "init-shell")
@@ -71,8 +70,6 @@
 (load "init-yasnippet")
 (load "init-company")
 (load "init-helm")
-;; (load "init-migemo")
-;; (load "init-sdic")
 
 (load "init-coding")
 (load "init-cpp")
