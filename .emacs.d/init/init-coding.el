@@ -73,14 +73,17 @@
 ;; flycheck
 (use-package flycheck
   :init
-  (global-flycheck-mode t)
   (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
   :config
-  (custom-set-variables '(flycheck-mode-line-prefix "✓"))
-  (custom-set-faces
-   '(flycheck-warning ((t (:foreground "yellow" :underline t :weight normal))))
-   '(flycheck-error   ((t (:foreground "red1" :underline t :weight normal))))))
-
+  (global-flycheck-mode t)
+  (set-face-attribute 'flycheck-warning nil
+                      :underline t
+                      :weight 'normal
+                      :slant 'italic)
+  (set-face-attribute 'flycheck-error nil
+                      :underline t
+                      :weight 'bold
+                      :slant 'italic))
 (use-package flycheck-popup-tip
   :config
   (flycheck-popup-tip-mode))
