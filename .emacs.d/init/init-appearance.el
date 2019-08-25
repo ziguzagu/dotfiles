@@ -62,9 +62,7 @@
 (set-face-attribute 'font-lock-type-face nil
                     :foreground "#af87ff")
 (set-face-attribute 'font-lock-warning-face nil
-                    :background "red")
-(set-face-attribute 'font-lock-warning-face nil
-                    :foreground "white")
+                    :foreground "red3")
 (set-face-attribute 'font-lock-builtin-face nil
                     :foreground "#d787d7")
 
