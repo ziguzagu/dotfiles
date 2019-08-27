@@ -72,6 +72,8 @@
 (load "init-helm")
 
 (load "init-coding")
+(load "init-vc")
+
 (load "init-cpp")
 (load "init-ruby")
 (load "init-perl")

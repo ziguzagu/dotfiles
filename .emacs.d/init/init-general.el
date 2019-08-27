@@ -52,11 +52,6 @@
   (switch-to-buffer (other-buffer (current-buffer) 1)))
 (global-set-key (kbd "C-c b") 'switch-last-buffer)
 
-;; vc
-(require 'vc-git)
-(setq vc-follow-symlinks t)
-(setq vc-make-backup-files t)
-
 ;; autosave and backup
 (setq auto-save-default t)
 (setq make-backup-files t)
