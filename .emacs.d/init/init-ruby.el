@@ -1,10 +1,10 @@
 (use-package ruby-mode
   :mode ("\\.rb\\'" "Capfile" "Gemfile")
   :interpreter "ruby"
+  :custom
+  (ruby-insert-encoding-magic-comment nil)
   :config
   (defun my-ruby-mode ()
-    (custom-set-variables
-     '(ruby-insert-encoding-magic-comment nil))
     ;; use flycheck with rubocop
     (setq flycheck-checker 'ruby-rubocop)
     (flycheck-mode t))
