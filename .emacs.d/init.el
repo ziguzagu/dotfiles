@@ -43,6 +43,11 @@
 (require 'diminish)
 (require 'bind-key)
 
+;; inherit PATH from shell
+(use-package exec-path-from-shell
+  :config
+  (exec-path-from-shell-initialize))
+
 ;; emacs server/client on tmux
 (with-eval-after-load 'server
   (unless (server-running-p)
@@ -53,11 +58,6 @@
                      (lambda ()
                        (shell-command "rm -f ~/.emacs.d/emacs-server-window")))))
     (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)))
-
-;; inherit PATH from shell
-(use-package exec-path-from-shell
-  :config
-  (exec-path-from-shell-initialize))
 
 ;; initialize
 (load "init-appearance")
