@@ -93,10 +93,11 @@
 
 ;; popwin
 (use-package popwin
+  :custom
+  (popwin:popup-window-position 'bottom)
+  (popwin:popup-window-height 20)
   :config
-  (popwin-mode 1)
-  (custom-set-variables '(popwin:popup-window-position 'bottom)
-                        '(popwin:popup-window-height 20)))
+  (popwin-mode 1))
 
 ;; reload buffer without confirmation
 (defun revert-buffer-no-confirm (&optional force-reverting)
