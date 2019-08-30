@@ -49,15 +49,15 @@
   (exec-path-from-shell-initialize))
 
 ;; emacs server/client on tmux
-(with-eval-after-load 'server
-  (unless (server-running-p)
-    (server-start)
-    (cond ((getenv "TMUX")
-           (shell-command "tmux display -p '#I' > ~/.emacs.d/emacs-server-window")
-           (add-hook 'kill-emacs-hook
-                     (lambda ()
-                       (shell-command "rm -f ~/.emacs.d/emacs-server-window")))))
-    (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)))
+(require 'server)
+(unless (server-running-p)
+  (server-start)
+  (cond ((getenv "TMUX")
+         (shell-command "tmux display -p '#I' > ~/.emacs.d/emacs-server-window")
+         (add-hook 'kill-emacs-hook
+                   (lambda ()
+                     (shell-command "rm -f ~/.emacs.d/emacs-server-window")))))
+  (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function))
 
 ;; initialize
 (load "init-appearance")
