@@ -25,24 +25,17 @@
          ("\\.json\\'" . js2-mode)
          ("\\.jsx\\'"  . js2-jsx-mode))
   :interpreter ("node" . js2-mode)
-  :config
-  (defun my-js2-mode ()
-    (custom-set-variables
-     '(js2-basic-offset 2))
-    (flycheck-mode))
-
-  (add-hook 'js2-mode-hook 'my-js2-mode))
+  :custom
+  (js2-basic-offset 2))
 
 (use-package typescript-mode
   :mode "\\.ts\\'")
 
-;;;;;; coffee-mode
 (use-package coffee-mode
   :mode "\\.coffee\\'"
-  :config
-  (custom-set-variables
-   '(coffee-tab-width 2)
-   '(coffee-indent-like-python-mode t)))
+  :custom
+  (coffee-tab-width 2)
+  (coffee-indent-like-python-mode t))
 
 ;;;;;; utilities
 (defun escape-html-region (start end)
