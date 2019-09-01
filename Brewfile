@@ -25,7 +25,6 @@ brew 'fzf'
 brew 'ripgrep'
 brew 'grep'
 brew 'awscli'
-brew 'heroku'
 brew 'htop'
 brew 'coreutils'
 brew 'findutils'
@@ -45,6 +44,9 @@ brew 'nginx'
 brew 'varnish'
 brew 'redis'
 brew 'sqlite'
+
+tap 'heroku/brew'
+brew 'heroku'
 
 # Session Manager Plugin for AWS CLI
 # https://docs.aws.amazon.com/ja_jp/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html
