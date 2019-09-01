@@ -18,6 +18,10 @@
       (shell-command (concat "git hub open " rev))))
   (define-key vc-annotate-mode-map (kbd "P") 'vc-annotate-open-pr-at-line))
 
+(defun my/open-by-tig (filename)
+  (interactive "f")
+  (shell-command (concat "tmux new-window - tig " filename "; select-window -t ")))
+
 ;; https://snarfed.org/emacs-vc-git-tweaks
 ;;
 ;; In vc-git and vc-dir for git buffers, make (C-x v) a run git add, u run git

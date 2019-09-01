@@ -1,6 +1,6 @@
 ## -*- mode: ruby -*-
 brew 'emacs'
-brew 'global', args: ['with-pygments', 'with-ctags']
+brew 'global'
 
 brew 'rbenv'
 brew 'ruby-build'
@@ -10,7 +10,7 @@ brew 'go'
 brew 'node'
 brew 'python3'
 
-brew 'git', args: ['with-pcre']
+brew 'git'
 brew 'hub'
 brew 'tig'
 brew 'diff-so-fancy'
@@ -23,13 +23,13 @@ brew 'zsh-syntax-highlighting'
 brew 'fzf'
 
 brew 'ripgrep'
-brew 'grep', args: ['with-default-names']
+brew 'grep'
 brew 'awscli'
 brew 'heroku'
 brew 'htop'
 brew 'coreutils'
 brew 'findutils'
-brew 'less', args: ['with-pcre']
+brew 'less'
 brew 'bat'
 brew 'tree'
 brew 'jq'
