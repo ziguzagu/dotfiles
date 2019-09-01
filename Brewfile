@@ -55,6 +55,8 @@ brew 'aws-session-manager-plugin'
 
 cask_args appdir: '/Applications'
 tap 'homebrew/cask'
+cask 'alfred'
+cask 'dash'
 cask 'dropbox'
 cask 'virtualbox'
 cask 'vagrant'
