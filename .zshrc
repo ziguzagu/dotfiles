@@ -82,7 +82,6 @@ fi
 setopt no_complete_aliases
 
 alias emacsclient="TERM=xterm-256color-italic emacsclient"
-alias emacsd="emacs -nw --daemon && emacsclient -t"
 alias ls="ls -F --color=auto --group-directories-first"
 alias l="ls -lh"
 alias ll="ls -Alh"
