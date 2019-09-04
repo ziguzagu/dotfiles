@@ -5,3 +5,7 @@ if defined?(PryByebug)
   Pry.commands.alias_command 'c', 'continue'
   Pry.commands.alias_command 'f', 'finish'
 end
+
+if defined?(Rails::Console)
+  ActiveRecord::Base.logger = Logger.new(STDOUT)
+end
