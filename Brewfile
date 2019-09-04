@@ -1,6 +1,5 @@
 ## -*- mode: ruby -*-
 brew 'emacs'
-brew 'global'
 
 brew 'rbenv'
 brew 'ruby-build'
@@ -23,7 +22,6 @@ brew 'zsh-syntax-highlighting'
 brew 'fzf'
 
 brew 'ripgrep'
-brew 'grep'
 brew 'awscli'
 brew 'htop'
 brew 'coreutils'
