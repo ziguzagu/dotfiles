@@ -22,10 +22,6 @@
 (if (file-exists-p custom-file)
     (load custom-file))
 
-;; XXX: https://debbugs.gnu.org/cgi/bugreport.cgi?bug=34341
-;; workaround for Emacs 26.2. It will be fixed 26.3 and then remove it.
-(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
-
 ;; initialize package.el
 (require 'package)
 (add-to-list 'package-archives
