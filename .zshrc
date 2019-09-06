@@ -30,50 +30,32 @@ typeset -U PATH
 ## Tmux
 ########################################
 
-if [[ -n "$TMUX" ]]; then
-  ## changing title of tmux window on executing command
-  function _update_window_title() {
-    emulate -L zsh
-    local -a cmd; cmd=(${(z)2})
-    case $cmd[1] in
-      fg)
-        if (( $#cmd == 1 )); then
-          cmd=(builtin jobs -l %+)
-        else
-          cmd=(builtin jobs -l $cmd[2])
-        fi
-        ;;
-      %*)
-        cmd=(builtin jobs -l $cmd[1])
-        ;;
-      ls)
-        return
-        ;;
-      cd|ssh)
-        if (( $#cmd == 2)); then
-          cmd[1]=$cmd[2]
-        fi
-        ;&
-      tail)
-        if [[ $cmd[2] = '-f' ]]; then
-          cmd[1]=$cmd[3]
-        fi
-        ;&
-      *)
-        echo -n "k$cmd[1]:t\\"
-        return
-        ;;
-    esac
+_rename_tmux_window() {
+  [[ -z "$TMUX" ]] && return
 
-    local -a jt; jt=(${(kv)jobtexts})
+  local -a cmd; cmd=(${(z)2})
+  local title
+  case $cmd[1] in
+    ls)
+      return
+      ;;
+    ssh)
+      title=$cmd[-1]
+      ;;
+    *)
+      title=$cmd[1]
+      ;;
+  esac
 
-    $cmd >>(read num rest
-      cmd=(${(z)${(e):-\$jt$num}})
-      echo -n "k$cmd[1]:t\\") 2>/dev/null
-  }
+  local project=${$(command git rev-parse --show-toplevel 2>/dev/null)##*/}
+  if [[ -n "$project" ]]; then
+    tmux rename-window "‹$project›$title"
+  else
+    tmux rename-window "$title"
+  fi
+}
 
-  add-zsh-hook preexec _update_window_title
-fi
+add-zsh-hook preexec _rename_tmux_window
 
 ########################################
 ## Aliases
