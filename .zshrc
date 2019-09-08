@@ -48,10 +48,12 @@ _rename_tmux_window() {
   esac
 
   local project=${$(command git rev-parse --show-toplevel 2>/dev/null)##*/}
-  if [[ -n "$project" ]]; then
-    tmux rename-window "‹$project›$title"
-  else
+  if [[ -z "$project" ]]; then
     tmux rename-window "$title"
+  elif [[ -z "$title" ]]; then
+    tmux rename-window "‹$project›"
+  else
+    tmux rename-window "‹$project›$title"
   fi
 }
 
