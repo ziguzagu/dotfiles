@@ -91,10 +91,6 @@ alias d="docker"
 alias c="docker-compose"
 alias m="docker-machine"
 
-## vagrant
-alias v="vagrant"
-alias vup="vagrant up && vagrant ssh"
-
 ## aws
 alias production="aws --profile=production"
 alias staging="aws --profile=staging"
