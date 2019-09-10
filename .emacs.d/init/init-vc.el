@@ -46,11 +46,11 @@
                      (lambda (files) (vc-git-command nil 0 files "reset" "-q" "--"))))
 
 (with-eval-after-load 'vc-git
-  (define-key vc-prefix-map [(r)] 'vc-revert-buffer)
+  (define-key vc-prefix-map [(r)] 'vc-revert)
   (define-key vc-prefix-map [(a)] 'my-vc-git-add)
   (define-key vc-prefix-map [(u)] 'my-vc-git-reset))
 (with-eval-after-load 'vc-dir
-  (define-key vc-dir-mode-map [(r)] 'vc-revert-buffer)
+  (define-key vc-dir-mode-map [(r)] 'vc-revert)
   (define-key vc-dir-mode-map [(a)] 'my-vc-git-add)
   (define-key vc-dir-mode-map [(u)] 'my-vc-git-reset)
   ;; hide up to date files after refreshing in vc-dir
