@@ -6,7 +6,7 @@ targets = $(addprefix $(home),$(sources))
 
 .DEFAULT_GOAL := help
 
-install: $(targets) ## Install dot files into $HOME as symlink (Default)
+install: $(targets) ## Install dot files into $HOME as symlink
 
 $(targets):
 	@mkdir -m 700 -p $(dir $@)
