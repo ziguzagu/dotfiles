@@ -78,6 +78,9 @@ autostash = true
 [fetch]
 prune = true
 
+[checkout]
+defaultRemote = origin
+
 [ghq]
 root = ~/src
 
