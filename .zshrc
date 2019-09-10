@@ -322,20 +322,20 @@ fzf-git-untracked-or-changed-files() {
 zle -N fzf-git-untracked-or-changed-files
 bindkey '^x^v' fzf-git-untracked-or-changed-files
 
-# git checkout to selected branches in recent used
-fzf-git-checkout-recent-branch() {
+# git switch to selected branches in recent used
+fzf-git-switch-recent-branch() {
   _is_in_git_repo || return
   local branch="$(git for-each-ref --format='%(refname:short)' --sort=-committerdate refs/heads | fzf +m -e --tiebreak=index)"
   if [[ -z "$branch" ]]; then
      zle redisplay
      return 0
   fi
-  BUFFER="git checkout $branch"
+  BUFFER="git switch $branch"
   zle reset-prompt
   zle accept-line
 }
-zle -N fzf-git-checkout-recent-branch
-bindkey '^x^b' fzf-git-checkout-recent-branch
+zle -N fzf-git-switch-recent-branch
+bindkey '^x^b' fzf-git-switch-recent-branch
 
 # jump to directory selected from ghq / cdr
 fzf-jump-ghq-cdr() {
