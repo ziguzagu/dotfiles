@@ -297,6 +297,22 @@ _is_in_git_repo() {
   git rev-parse --git-dir >& /dev/null
 }
 
+# select files and directories in current directory
+fzf-ls() {
+  set -o pipefail
+  local -a list=($(ls -lhF --group-directories-first \
+                     | fzf --header-lines=1 +s -m --nth=-1 \
+                           --bind='ctrl-v:toggle-preview' \
+                           --preview-window=hidden \
+                           --preview='test -d {-1} && ls -lhF --group-directories-first $_ || bat --color=always --style=numbers $_' \
+                     | awk '{print $NF}'))
+  LBUFFER+=$list
+  zle reset-prompt
+  return $ret
+}
+zle -N fzf-ls
+bindkey '^x^f' fzf-ls
+
 # search from git ls-files
 fzf-git-ls-files() {
   _is_in_git_repo || return
