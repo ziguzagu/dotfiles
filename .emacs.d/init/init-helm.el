@@ -32,7 +32,7 @@
   (helm-mode 1))
 
 (use-package helm-ls-git
-  :bind (("C-c f" . helm-browse-project)))
+  :bind (("C-x f" . helm-browse-project)))
 
 (use-package helm-git-grep
   :bind (("C-c g" . helm-git-grep)
