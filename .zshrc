@@ -373,13 +373,11 @@ bindkey '^j' fzf-jump-directory
 
 # search strings like a file name displayed in current tmux pane
 fzf-search-tmux-pane-strings() {
-  local -a strings=($(tmux capture-pane -p | perl -pe 's/\s+/\n/g; s/\Q...\E/\n/g' | \grep -E '[a-zA-Z_\-\/]{4,}' | \grep -v '(git:' | tac))
-  local str="$(print -l ${(u)strings} | fzf +m -e --tiebreak=index)"
-  if [[ -z "$str" ]]; then
-    zle redisplay
-    return 0
-  fi
-  LBUFFER+="$str"
+  local -a candidates=($(tmux capture-pane -p \
+                           | perl -nle 's/\s+/\n/g; s/\Q...\E/\n/g; print' \
+                           | perl -CIO -Mutf8 -nle 'length > 3 && m/\A[\~]?[\w\-\+\.\/]+\z/ && print'))
+  local -a strings=($(print -l ${(u)candidates} | fzf --reverse -m -e --tiebreak=index))
+  LBUFFER+=$strings
   zle reset-prompt
 }
 zle -N fzf-search-tmux-pane-strings
