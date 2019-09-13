@@ -336,7 +336,7 @@ fzf-git-untracked-or-changed-files() {
   return $ret
 }
 zle -N fzf-git-untracked-or-changed-files
-bindkey '^x^v' fzf-git-untracked-or-changed-files
+bindkey '^xv' fzf-git-untracked-or-changed-files
 
 # git switch to selected branches in recent used
 fzf-git-switch-recent-branch() {
@@ -351,7 +351,7 @@ fzf-git-switch-recent-branch() {
   zle accept-line
 }
 zle -N fzf-git-switch-recent-branch
-bindkey '^x^b' fzf-git-switch-recent-branch
+bindkey '^xb' fzf-git-switch-recent-branch
 
 # jump to directory selected from ghq / cdr
 fzf-jump-directory() {
