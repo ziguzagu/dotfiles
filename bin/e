@@ -1,10 +1,10 @@
 #!/bin/bash
+# Open file by `emacsclient -n` collaborating with tmux
 set -eu
 
-server_window=~/.emacs.d/emacs-server-window
-
-if [[ $TMUX && -f $server_window ]]; then
-  tmux select-window -t $(cat $server_window)\; select-pane -t 0
+window=$(test -f ~/.emacs.d/emacs-server-window && cat $_)
+if [[ -n $TMUX && -n $window ]]; then
+  tmux select-window -t $window\; select-pane -t 0
 fi
 
-emacsclient --no-wait $*
+emacsclient -n $*
