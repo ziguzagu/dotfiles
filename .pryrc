@@ -9,3 +9,5 @@ end
 if defined?(Rails::Console)
   ActiveRecord::Base.logger = Logger.new(STDOUT)
 end
+
+Pry.config.editor = proc { |file, line| "emacsclient -n +#{line} #{file}" }
