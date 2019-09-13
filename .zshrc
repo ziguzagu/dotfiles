@@ -338,7 +338,7 @@ zle -N fzf-git-switch-recent-branch
 bindkey '^x^b' fzf-git-switch-recent-branch
 
 # jump to directory selected from ghq / cdr
-fzf-jump-ghq-cdr() {
+fzf-jump-directory() {
   local -a dirs=(
     $(cdr -l | perl -pe 's/^\d+\s+//')
     $(ghq list -p | perl -pe 's/^\Q$ENV{HOME}\E/~/')
@@ -352,8 +352,8 @@ fzf-jump-ghq-cdr() {
   zle reset-prompt
   zle accept-line
 }
-zle -N fzf-jump-ghq-cdr
-bindkey '^j' fzf-jump-ghq-cdr
+zle -N fzf-jump-directory
+bindkey '^j' fzf-jump-directory
 
 # search strings like a file name displayed in current tmux pane
 fzf-search-tmux-pane-strings() {
