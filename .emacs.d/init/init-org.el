@@ -13,3 +13,6 @@
            "* [%<%H:%M>] %?\n"))
   ;; hilight lines in code block
   (setq org-src-fontify-natively t))
+
+(use-package ox-hugo
+  :after ox)
