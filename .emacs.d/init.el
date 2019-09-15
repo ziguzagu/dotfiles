@@ -76,3 +76,4 @@
 (load "init-web")
 (load "init-conf")
 (load "init-docker")
+(load "init-org")
