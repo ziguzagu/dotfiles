@@ -8,8 +8,9 @@ use utf8;
 use Getopt::Long qw(:config posix_default no_ignore_case gnu_compat);
 use Pod::Usage;
 
-GetOptions(\my %opt, qw(h|help))
+GetOptions(\my %opt, qw(help|h))
     or pod2usage(1);
+$opt{help} && pod2usage(0);
 
 $0
 
@@ -24,5 +25,15 @@ __END__
 =head1 SYNOPSIS
 
   $ `(buffer-name)` [options]
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<-h, --help>
+
+Print help document now you see.
+
+=back
 
 =cut
