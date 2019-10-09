@@ -316,7 +316,11 @@ bindkey '^x^f' fzf-ls
 # search from git ls-files
 fzf-git-ls-files() {
   _is_in_git_repo || return
-  local -a files=($(git ls-files | fzf -m))
+  local -a files=($(git ls-files \
+                      | fzf -m -e \
+                            --bind='ctrl-v:toggle-preview' \
+                            --preview-window=hidden \
+                            --preview='test -d {-1} && ls -lhF --group-directories-first $_ || bat --color=always --style=numbers $_'))
   local ret=$?
   LBUFFER+=$files
   zle reset-prompt
