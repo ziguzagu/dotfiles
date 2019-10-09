@@ -1,0 +1,75 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+use utf8;
+
+use Getopt::Long qw(:config posix_default no_ignore_case gnu_compat);
+use Pod::Usage;
+
+GetOptions(\my %opt, qw(help|h all|a verbose|v))
+    or pod2usage(1);
+$opt{help} && pod2usage(0);
+
+my ($profile) = @ARGV;
+$profile ||= 'default';
+
+my @columns = (
+    '.InstanceId',
+    '.ImageId',
+    '.PrivateIpAddress',
+    '(.Tags[] | select(.Key == "Name").Value)',
+    '(.Tags[] | select(.Key == "BlueGreen").Value)',
+    '.PrivateIpAddress',
+    '.InstanceType',
+    '.LaunchTime',
+    '(.Tags[] | select(.Key == "Environment").Value)',
+);
+push @columns, '.State.Name' if $opt{all};
+
+my @filters = ();
+push @filters, ' select(.State.Name == "running")' unless $opt{all};
+
+my $cmd = <<__COMMAND__;
+aws --profile=${profile} ec2 describe-instances | \\
+  jq -r '.Reservations[].Instances[]
+    @{[ @filters > 0 && join('|', '', @filters) ]}
+    | [ @{[join("\n      , ", @columns)]}
+      ]
+    | \@csv'
+__COMMAND__
+
+print $cmd if $opt{verbose};
+
+exec $cmd;
+
+__END__
+
+=pod
+
+=head1 NAME
+
+saba - saba
+
+=head1 SYNOPSIS
+
+$ saba [options] <profile>
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<-a, --all>
+
+Show all state instances. Default is I<running> instance only.
+
+=item B<-v, --verbose>
+
+Print command.
+
+=item B<-h, --help>
+
+Print help document now you see.
+
+=back
+
+=cut
