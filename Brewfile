@@ -1,6 +1,9 @@
-## -*- mode: ruby -*-
+# -*- mode: ruby -*-
+
+# my life
 brew 'emacs'
 
+# programming languages
 brew 'rbenv'
 brew 'ruby-build'
 brew 'plenv'
@@ -9,6 +12,7 @@ brew 'go'
 brew 'node'
 brew 'python3'
 
+# git
 brew 'git'
 brew 'hub'
 brew 'tig'
@@ -16,28 +20,32 @@ brew 'diff-so-fancy'
 brew 'colordiff'
 brew 'ghq'
 
+# shell empowerment
 brew 'tmux'
 brew 'zsh-completions'
 brew 'zsh-syntax-highlighting'
 brew 'fzf'
-
 brew 'ripgrep'
-brew 'awscli'
 brew 'htop'
 brew 'coreutils'
 brew 'findutils'
 brew 'less'
 brew 'bat'
 brew 'tree'
-brew 'jq'
+
+# network tools
+brew 'awscli'
 brew 'wget'
 brew 'tcping'
 brew 'httping'
-
 brew 'openssl'
+
+# text parsers
+brew 'jq'
 brew 'libxml2'
 brew 'libyaml'
 
+# middlware servers
 brew 'nginx'
 brew 'varnish'
 brew 'redis'
