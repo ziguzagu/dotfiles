@@ -39,6 +39,7 @@ brew 'wget'
 brew 'tcping'
 brew 'httping'
 brew 'openssl'
+brew 'mtr'
 
 # text parsers
 brew 'jq'
