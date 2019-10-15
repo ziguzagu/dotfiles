@@ -1,18 +1,13 @@
+(require 'wdired)
+(define-key dired-mode-map "e" 'wdired-change-to-wdired-mode)
+
 ;; ls options
 (setq dired-listing-switches "-alhFG")
-
 ;; recursive copy/delete
 (setq dired-recursive-copies 'always)
 (setq dired-recursive-deletes 'always)
-
 ;; don't create new buffer at moving direcotry
 (put 'dired-find-alternate-file 'disabled nil)
-
-;; a lump-sum rename
-(require 'wdired)
-(define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
-
-;; don't create new buffer when move to subdirectory
 (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
 
 ;; uniqufy
