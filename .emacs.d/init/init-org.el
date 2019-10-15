@@ -8,6 +8,7 @@
   (setq org-startup-folded nil)
   (setq org-return-follows-link t)
   (setq org-src-fontify-natively t) ;; hilight lines in code block
+  (setq org-log-done 'time) ;; insert `CLOSED [timestamp]` after the headline
 
   ;; blog template
   (defun my/blog-subtree-post-capture-template ()
