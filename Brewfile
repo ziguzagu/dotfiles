@@ -52,6 +52,10 @@ brew 'varnish'
 brew 'redis'
 brew 'sqlite'
 
+# blog
+brew 'hugo'
+
+# heroku
 tap 'heroku/brew'
 brew 'heroku'
 
