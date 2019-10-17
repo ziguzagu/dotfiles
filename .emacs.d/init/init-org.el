@@ -11,7 +11,7 @@
   (setq org-log-done 'time) ;; insert `CLOSED [timestamp]` after the headline
 
   ;; blog template
-  (defun my/blog-subtree-post-capture-template ()
+  (defun my:blog-subtree-post-capture-template ()
     "Returns `org-capture' template string for new blog post."
     (let ((section (format-time-string "posts/%Y/%m/" (org-current-time)))
           (date (format-time-string "%Y-%m-%d" (org-current-time))))
@@ -30,7 +30,7 @@
         '(("m" "Memo" entry (file+datetree (concat org-directory "memo.org"))
            "* [%<%H:%M>] %?\n")
           ("b" "Blog Posts" entry (file+olp "~/src/ziguzagu.org/blog.org" "Blog Posts")
-           (function my/blog-subtree-post-capture-template)
+           (function my:blog-subtree-post-capture-template)
            :prepend t :empty-lines 1))))
 
 (use-package ox-hugo
