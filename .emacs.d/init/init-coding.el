@@ -19,7 +19,6 @@
                       :foreground "black"
                       :background "tomato"))
 
-;; flycheck
 (use-package flycheck
   :init
   (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
@@ -41,9 +40,6 @@
   :config
   (sql-highlight-mysql-keywords))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; markdown-mode
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package markdown-mode
   :mode ("\\.md\\'" . gfm-mode)
   :config
@@ -63,11 +59,6 @@
                       :foreground "mediumpurple1" :weight 'bold)
   (set-face-attribute 'markdown-link-face nil
                       :foreground "color-75"))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; go-mode
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;(add-hook 'before-save-hook #'gofmt-before-save)
 
 (use-package sh-script
   :init
