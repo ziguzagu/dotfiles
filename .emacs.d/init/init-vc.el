@@ -18,9 +18,15 @@
       (shell-command (concat "git hub open " rev))))
   (define-key vc-annotate-mode-map (kbd "P") 'vc-annotate-open-pr-at-line))
 
-(defun my/open-by-tig (filename)
-  (interactive "f")
-  (shell-command (concat "tmux new-window - tig " filename "; select-window -t ")))
+;; open current file by tig with blame mode
+(defun my:tig-current-file ()
+  (interactive)
+  (shell-command
+   (format "tmux new-window 'cd %s && tig blame +%s %s'"
+           (file-name-directory buffer-file-name)
+           (line-number-at-pos)
+           (file-name-nondirectory buffer-file-name))))
+(define-key vc-prefix-map [(t)] 'my:tig-current-file)
 
 ;; https://snarfed.org/emacs-vc-git-tweaks
 ;;
