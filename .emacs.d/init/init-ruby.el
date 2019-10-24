@@ -4,12 +4,12 @@
   :custom
   (ruby-insert-encoding-magic-comment nil)
   :config
-  (defun my-ruby-mode ()
+  (defun my:ruby-mode ()
     ;; use flycheck with rubocop
     (setq flycheck-checker 'ruby-rubocop)
     (flycheck-mode t))
 
-  (add-hook 'ruby-mode-hook 'my-ruby-mode))
+  (add-hook 'ruby-mode-hook 'my:ruby-mode))
 
 (use-package ruby-end
   :diminish ruby-end-mode

@@ -9,23 +9,23 @@
  '(fc-info-face        ((t (:foreground "#83a598" :weight normal)))))
 
 ;; get rid of leading ' git:' from vc-mode
-(defun vc-branch ()
+(defun my:vc-branch ()
   (let ((backend (vc-backend buffer-file-name)))
     (substring vc-mode 5)))
 
 ;; customize flycheck modeline display
-(defun mode-line-checker-text (state)
+(defun my:mode-line-checker-text (state)
   (let* ((counts (flycheck-count-errors flycheck-current-errors))
          (errorp (flycheck-has-current-errors-p state))
          (err (or (cdr (assq state counts)) "?"))
          (running (eq 'running flycheck-last-status-change)))
     (if (or errorp running) (format "•%s" err))))
-(defun mode-line-chcker ()
+(defun my:mode-line-chcker ()
   (when (and (bound-and-true-p flycheck-mode)
              (or flycheck-current-errors
                  (eq 'running flycheck-last-status-change)))
     (cl-loop for state in '(error warning info)
-             as ret = (mode-line-checker-text state)
+             as ret = (my:mode-line-checker-text state)
              when ret
              concat (propertize
                      ret
@@ -40,9 +40,9 @@
                     '(:eval (format " [%s]" (projectile-project-name)))
                     '(vc-mode
                      ((:propertize "  " face mode-line-vc-mode)
-                      (:propertize (:eval (vc-branch)) face mode-line-vc-mode)))
+                      (:propertize (:eval (my:vc-branch)) face mode-line-vc-mode)))
                     "  "
                     'mode-name
                     "  "
-                    '(:eval (mode-line-chcker))
+                    '(:eval (my:mode-line-chcker))
                     "  %c:%l(%p)"))

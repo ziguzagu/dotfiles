@@ -1,7 +1,7 @@
 (use-package web-mode
   :mode ("\\.html\\'" "\\.tmpl\\'" "\\.tt\\'" "\\.tx\\'")
   :config
-  (defun my-web-mode-hook ()
+  (defun my:web-mode-hook ()
     (setq web-mode-markup-indent-offset 2)
     (setq web-mode-css-indent-offset 2)
     (setq web-mode-code-indent-offset 2)
@@ -10,7 +10,7 @@
     (setq web-mode-engines-alist
           '(("template-toolkit" . "\\.tt\\'")
             ("template-toolkit" . "\\.tx\\'"))))
-  (add-hook 'web-mode-hook 'my-web-mode-hook))
+  (add-hook 'web-mode-hook 'my:web-mode-hook))
 
 ;;;;;; css-mode
 (use-package scss-mode
@@ -38,7 +38,7 @@
   (coffee-indent-like-python-mode t))
 
 ;;;;;; utilities
-(defun escape-html-region (start end)
+(defun my:escape-html-region (start end)
   "Escape '&<>' characters in the region using '&amp;', '&lt;', and '&gt;'."
   (interactive "*r")
   (save-excursion

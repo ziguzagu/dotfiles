@@ -12,16 +12,16 @@
       scroll-step 1)
 
 ;; scroll by line with holding cursor.
-(defun scroll-up-in-place ()
+(defun my:scroll-up-in-place ()
   (interactive)
   (forward-line -1)
   (scroll-down 1))
-(defun scroll-down-in-place ()
+(defun my:scroll-down-in-place ()
   (interactive)
   (forward-line 1)
   (scroll-up 1))
-(global-set-key (kbd "M-p") 'scroll-up-in-place)
-(global-set-key (kbd "M-n") 'scroll-down-in-place)
+(global-set-key (kbd "M-p") 'my:scroll-up-in-place)
+(global-set-key (kbd "M-n") 'my:scroll-down-in-place)
 
 ;; comment style
 (setq comment-style 'multi-line)
@@ -47,10 +47,10 @@
 (setq auto-revert-check-vc-info t)
 
 ;; cycle buffer
-(defun switch-last-buffer ()
+(defun my:switch-last-buffer ()
   (interactive)
   (switch-to-buffer (other-buffer (current-buffer) 1)))
-(global-set-key (kbd "C-c b") 'switch-last-buffer)
+(global-set-key (kbd "C-c b") 'my:switch-last-buffer)
 
 ;; autosave and backup
 (setq auto-save-default t)
@@ -68,7 +68,7 @@
 (windmove-default-keybindings)
 
 ;; rotate window divide vertical / horizontal
-(defun window-toggle-split ()
+(defun my:window-toggle-split ()
   "toggle splitted windows vertical and horizontal"
   (interactive)
   (unless (= (count-windows 1) 2)
@@ -81,15 +81,15 @@
       (split-window-horizontally))
     (switch-to-buffer-other-window other-buf)
     (other-window -1)))
-(global-set-key "\C-x9" 'window-toggle-split)
+(global-set-key (kbd "C-x 9") 'my:window-toggle-split)
 
 ;; split window or move other window by one keybind
-(defun other-window-or-split ()
+(defun my:other-window-or-split ()
   (interactive)
   (when (one-window-p)
     (split-window-horizontally))
   (other-window 1))
-(global-set-key (kbd "C-z") 'other-window-or-split)
+(global-set-key (kbd "C-z") 'my:other-window-or-split)
 
 ;; popwin
 (use-package popwin
@@ -100,7 +100,7 @@
   (popwin-mode 1))
 
 ;; reload buffer without confirmation
-(defun revert-buffer-no-confirm (&optional force-reverting)
+(defun my:revert-buffer-no-confirm (&optional force-reverting)
   "Interactive call to revert-buffer. Ignoring the auto-save
  file and not requesting for confirmation. When the current buffer
  is modified, the command refuses to revert it, unless you specify
@@ -110,23 +110,23 @@
   (if (or force-reverting (not (buffer-modified-p)))
       (revert-buffer :ignore-auto :noconfirm)
     (error "The buffer has been modified")))
-(global-set-key "\M-r" 'revert-buffer-no-confirm)
+(global-set-key (kbd "M-r") 'my:revert-buffer-no-confirm)
 
 ;; send contents cut and copied to clipboard
 (when (eq system-type 'darwin)
-  (defun copy-from-osx ()
+  (defun my:copy-from-osx ()
     "Get clipboard contents."
     (shell-command-to-string "pbpaste"))
 
-  (defun paste-to-osx (text &optional push)
+  (defun my:paste-to-osx (text &optional push)
     "Paste yanked contents to clipboard."
     (let ((process-connection-type nil))
       (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
         (process-send-string proc text)
         (process-send-eof proc))))
 
-  (setq interprogram-cut-function 'paste-to-osx)
-  (setq interprogram-paste-function 'copy-from-osx))
+  (setq interprogram-cut-function 'my:paste-to-osx)
+  (setq interprogram-paste-function 'my:copy-from-osx))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; expand-region
