@@ -2,9 +2,6 @@
 (cd "~")
 (add-to-list 'load-path "~/.emacs.d/init")
 
-;; using unsafe local variables..?
-(setq safe-local-variable-values (quote ((syntax . elisp))))
-
 ;; profile
 (setq user-full-name "Hiroshi Sakai")
 (setq user-mail-address "ziguzagu@gmail.com")
