@@ -72,8 +72,6 @@ alias ll="ls -Alh"
 alias lc="tr '[:upper:]' '[:lower:]'"
 alias uc="tr '[:lower:]' '[:upper:]'"
 alias prove="prove -lv --timer"
-alias cpanl="cpanm --mirror ~/minicpan --mirror-only"
-alias py="python3"
 alias f="fd"
 alias b="bat"
 alias v="less"
@@ -90,7 +88,6 @@ export GREP_COLORS="ms=04;31:mc=01;33:sl=:cx=:fn=33:ln=33:bn=33:se=01;30"
 ## docker
 alias d="docker"
 alias c="docker-compose"
-alias m="docker-machine"
 
 ## aws
 alias production="aws --profile=production"
