@@ -95,14 +95,6 @@ alias m="docker-machine"
 alias production="aws --profile=production"
 alias staging="aws --profile=staging"
 
-## global alias
-alias -g B="| bat"
-alias -g M="| more"
-alias -g L="| less"
-alias -g H="| head"
-alias -g G="| grep"
-alias -g GV="| grep -v"
-
 ## sets keybind like emacs
 bindkey -e
 
