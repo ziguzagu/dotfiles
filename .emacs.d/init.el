@@ -14,7 +14,7 @@
 (set-language-environment "Japanese")
 (set-default-coding-systems 'utf-8)
 
-;; custom is junk
+;; preseve  my init.el with saving custom variables to another file
 (setq custom-file "~/.emacs.d/custom.el")
 (if (file-exists-p custom-file)
     (load custom-file))
