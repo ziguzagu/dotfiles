@@ -16,6 +16,12 @@
   :init
   (add-hook 'ruby-mode-hook '(lambda () (ruby-end-mode t))))
 
+(use-package rspec-mode
+  :pin melpa ;; I need v >= 1.20.0 to use with docker
+  :custom
+  (rspec-use-docker-when-possible t)
+  (rspec-use-relative-path t))
+
 (use-package rbenv
   :config
   (global-rbenv-mode))
