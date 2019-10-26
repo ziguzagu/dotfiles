@@ -1,12 +1,19 @@
 (make-face 'mode-line-vc-mode)
-(make-face 'fc-error-face)
-(make-face 'fc-warning-face)
 (make-face 'fc-info-face)
-(custom-set-faces
- '(mode-line-vc-mode   ((t (:foreground "#5fafff" :weight normal))))
- '(fc-error-face       ((t (:foreground "#fb4933" :weight normal))))
- '(fc-warning-face     ((t (:foreground "#fabd2f" :weight normal))))
- '(fc-info-face        ((t (:foreground "#83a598" :weight normal)))))
+(make-face 'fc-warning-face)
+(make-face 'fc-error-face)
+(set-face-attribute 'mode-line-vc-mode nil
+                    :foreground "#5fafff"
+                    :weight 'normal)
+(set-face-attribute 'fc-info-face nil
+                    :foreground "#83a598"
+                    :weight 'normal)
+(set-face-attribute 'fc-warning-face nil
+                    :inherit 'fc-info-face
+                    :foreground "#fabd2f")
+(set-face-attribute 'fc-error-face nil
+                    :inherit 'fc-info-face
+                    :foreground "#fb4933")
 
 ;; get rid of leading ' git:' from vc-mode
 (defun my:vc-branch ()
