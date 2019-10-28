@@ -4,8 +4,8 @@ autoload -Uz add-zsh-hook
 
 export SHELL="$(which zsh)"
 
-if [[ -x "$(which dircolors)" ]]; then
-  eval "$(dircolors ~/.dircolors)"
+if [[ -x "$(which gdircolors)" ]]; then
+  eval "$(gdircolors ~/.dircolors)"
 fi
 
 ########################################
@@ -66,7 +66,7 @@ add-zsh-hook preexec _rename_tmux_window
 setopt no_complete_aliases
 
 alias emacsclient="TERM=xterm-256color-italic emacsclient"
-alias ls="ls -F --color=auto --group-directories-first"
+alias ls="gls -F --color=auto --group-directories-first"
 alias l="ls -lh"
 alias ll="ls -Alh"
 alias lc="tr '[:upper:]' '[:lower:]'"

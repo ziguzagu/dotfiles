@@ -7,8 +7,8 @@ export TERMINFO=$HOME/.terminfo
 ## PATH
 ########################################
 
-export PATH="$HOME/bin:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:/usr/local/share/man:/usr/share/man"
+export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
+export MANPATH="/usr/local/share/man:/usr/share/man"
 
 export GOPATH=$HOME
 
