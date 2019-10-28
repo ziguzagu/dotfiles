@@ -83,7 +83,7 @@ alias g="git"
 alias t="tig"
 
 ## grep
-alias grep="grep --binary-files=without-match --color=auto"
+alias grep="grep -I --color=auto"
 export GREP_COLORS="ms=04;31:mc=01;33:sl=:cx=:fn=33:ln=33:bn=33:se=01;30"
 
 ## docker
