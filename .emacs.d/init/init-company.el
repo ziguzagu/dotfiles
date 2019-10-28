@@ -37,3 +37,7 @@
                       :background "darkorange")
   (set-face-attribute 'company-scrollbar-bg nil
                       :background "gray40"))
+
+(use-package company-statistics
+  :config
+  (company-statistics-mode))
