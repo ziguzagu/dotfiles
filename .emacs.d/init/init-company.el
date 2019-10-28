@@ -13,6 +13,9 @@
   (setq company-idle-delay 0.3)
   (setq company-auto-expand t)
   (setq company-minimum-prefix-length 3)
+  ;; tweak backends
+  (add-to-list 'company-backends 'company-dabbrev)
+  ;; faces
   (set-face-attribute 'company-tooltip nil
                       :foreground "black"
                       :background "gray72")
