@@ -80,6 +80,7 @@ alias fzf="fzf --color=dark,gutter:0"
 alias diff="colordiff -u"
 alias git="hub"
 alias g="git"
+alias t="tig"
 
 ## grep
 alias grep="grep --binary-files=without-match --color=auto"
