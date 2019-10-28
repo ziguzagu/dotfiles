@@ -1,5 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env perl
+use strict;
+use warnings;
 
-[[ -x "$(which pmset)" ]] || exit
+my $battery = qx{pmset -g ps | tail -1};
+my ($quantity) = $battery =~ /(\d+)%/;
+my ($remain)   = $battery =~ /(\d+:\d+) remaining/;
+my $color = $quantity <= 20 ? '#[fg=colour196]' # red!
+          : $quantity <= 40 ? '#[fg=colour220]' # yellow!
+          :                   '#[fg=default]'
+          ;
 
-pmset -g ps | tail -1 | perl -anlE '/(\d+%); .* (\d+:\d+)/ && say "$1($2)"'
+print $color . $quantity . '%' . ($remain && "($remain)") . '#[fg=default]'
