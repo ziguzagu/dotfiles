@@ -66,7 +66,7 @@ add-zsh-hook preexec _rename_tmux_window
 setopt no_complete_aliases
 
 alias emacsclient="TERM=xterm-256color-italic emacsclient"
-alias ls="gls -F --color=auto --group-directories-first"
+alias ls="gls -XF --color=auto --group-directories-first"
 alias l="ls -lh"
 alias ll="ls -Alh"
 alias lc="tr '[:upper:]' '[:lower:]'"
