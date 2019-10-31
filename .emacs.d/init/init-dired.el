@@ -2,7 +2,8 @@
 (define-key dired-mode-map "e" 'wdired-change-to-wdired-mode)
 
 ;; ls options
-(setq dired-listing-switches "-alhFG")
+(setq insert-directory-program "gls") ;; homebrew
+(setq dired-listing-switches "-AlhXF --color=auto --group-directories-first")
 ;; recursive copy/delete
 (setq dired-recursive-copies 'always)
 (setq dired-recursive-deletes 'always)
