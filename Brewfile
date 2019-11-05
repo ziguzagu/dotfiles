@@ -34,7 +34,6 @@ brew 'bat'
 brew 'tree'
 
 # network tools
-brew 'awscli'
 brew 'wget'
 brew 'tcping'
 brew 'httping'
@@ -55,10 +54,11 @@ brew 'sqlite'
 # blog
 brew 'hugo'
 
-# heroku
+# *aaS CLI
+brew 'circleci'
 tap 'heroku/brew'
 brew 'heroku'
-
+brew 'awscli'
 # Session Manager Plugin for AWS CLI
 # https://docs.aws.amazon.com/ja_jp/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html
 tap 'dkanejs/aws-session-manager-plugin'

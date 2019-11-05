@@ -81,6 +81,7 @@ alias diff="colordiff -u"
 alias git="hub"
 alias g="git"
 alias t="tig"
+alias ci="circleci"
 
 ## grep
 alias grep="grep -I --color=auto"
