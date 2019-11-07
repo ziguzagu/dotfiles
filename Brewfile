@@ -11,6 +11,7 @@ brew 'perl-build'
 brew 'go'
 brew 'node'
 brew 'python3'
+brew 'clisp'
 
 # git
 brew 'git'
