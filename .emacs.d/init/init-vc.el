@@ -68,3 +68,7 @@
 (add-hook 'vc-git-log-edit-mode-hook (lambda ()
                                        (setq fill-column 72)
                                        (turn-on-auto-fill)))
+
+(use-package browse-at-remote
+  :config
+  (define-key vc-prefix-map [(w)] 'browse-at-remote))
