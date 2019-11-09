@@ -63,3 +63,8 @@
 ;; hide up to date files after refreshing in vc-dir
 (define-key vc-dir-mode-map [(g)]
   (lambda () (interactive) (vc-dir-refresh) (vc-dir-hide-up-to-date)))
+
+;; enable aut-fill-mode at git commit editting for 50/72 rules
+(add-hook 'vc-git-log-edit-mode-hook (lambda ()
+                                       (setq fill-column 72)
+                                       (turn-on-auto-fill)))
