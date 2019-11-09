@@ -6,13 +6,13 @@
 (setq user-full-name "Hiroshi Sakai")
 (setq user-mail-address "ziguzagu@gmail.com")
 
-;; languages
-(set-terminal-coding-system 'utf-8)
+;; encoding
+(prefer-coding-system 'utf-8-unix)
+(set-terminal-coding-system 'utf-8-unix)
 (set-keyboard-coding-system 'utf-8)
 (set-clipboard-coding-system 'utf-8)
-(prefer-coding-system 'utf-8)
-(set-language-environment "Japanese")
-(set-default-coding-systems 'utf-8)
+(set-default-coding-systems 'utf-8-unix)
+(set-language-environment "UTF-8")
 
 ;; preseve  my init.el with saving custom variables to another file
 (setq custom-file "~/.emacs.d/custom.el")
