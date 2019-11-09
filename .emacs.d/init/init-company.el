@@ -10,7 +10,7 @@
          ("C-p" . company-select-previous))
   :config
   (global-company-mode t)
-  (setq company-idle-delay 0.3)
+  (setq company-idle-delay 0.1)
   (setq company-auto-expand t)
   (setq company-minimum-prefix-length 3)
   ;; tweak backends
