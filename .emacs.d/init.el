@@ -1,6 +1,5 @@
 (setq debug-on-error t)
 (cd "~")
-(add-to-list 'load-path "~/.emacs.d/init")
 
 ;; profile
 (setq user-full-name "Hiroshi Sakai")
@@ -56,20 +55,18 @@
   (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function))
 
 ;; initialize
+(add-to-list 'load-path "~/.emacs.d/init")
 (load "init-appearance")
 (load "init-modeline")
 (load "init-scratch")
 (load "init-dired")
 (load "init-shell")
-
 (load "init-general")
 (load "init-yasnippet")
 (load "init-company")
 (load "init-helm")
-
 (load "init-coding")
 (load "init-vc")
-
 (load "init-cpp")
 (load "init-ruby")
 (load "init-perl")
