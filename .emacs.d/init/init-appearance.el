@@ -1,6 +1,3 @@
-;; hide startup message
-(setq inhibit-startup-message t)
-
 (menu-bar-mode 0)
 (tool-bar-mode 0)
 (blink-cursor-mode 0)

@@ -1,6 +1,10 @@
 (setq debug-on-error t)
 (cd "~")
 
+;; quiet startup
+(setq inhibit-startup-message t)
+(setq initial-scratch-message nil)
+
 ;; profile
 (setq user-full-name "Hiroshi Sakai")
 (setq user-mail-address "ziguzagu@gmail.com")
