@@ -65,16 +65,10 @@
 
 ;; highlight hard tab, trailing spaces and double width space
 (use-package whitespace
-  :diminish (global-whitespace-mode whitespace-mode)
   :config
   (setq show-trailing-whitespace t)
   (setq whitespace-style '(face tabs tab-mark trailing))
-  (set-face-attribute 'whitespace-trailing nil
-                      :foreground "gray90"
-                      :background "gray32"
-                      :inverse-video nil)
-  (set-face-attribute 'whitespace-tab nil
-                      :foreground "gray70"
-                      :background nil
-                      :inverse-video nil)
-  (global-whitespace-mode t))
+  (global-whitespace-mode t)
+  :custom-face
+  (whitespace-trailing ((t (:foreground "gray90" :background "gray32"))))
+  (whitespace-tab ((t (:foreground nil :background nil)))))
