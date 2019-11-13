@@ -69,6 +69,8 @@
                                        (setq fill-column 72)
                                        (turn-on-auto-fill)))
 
+(use-package git-commit)
+
 (use-package browse-at-remote
   :config
   (define-key vc-prefix-map [(w)] 'browse-at-remote))
