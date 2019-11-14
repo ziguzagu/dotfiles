@@ -22,6 +22,11 @@
   (rspec-use-docker-when-possible t)
   (rspec-use-relative-path t))
 
+(use-package inf-ruby
+  :hook
+  ((ruby-mode . inf-ruby-minor-mode)
+   (ruby-mode . inf-ruby-switch-setup)))
+
 (use-package rbenv
   :config
   (global-rbenv-mode))
