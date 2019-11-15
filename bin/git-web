@@ -2,9 +2,9 @@
 set -eu
 
 branch="$(git rev-parse --abbrev-ref HEAD)"
+default_branch="$(git symbolic-ref --short HEAD)"
 
-# TODO: get default branch and compares it and 'master'
-if [ $branch = 'master' ] || [ $branch = 'develop' ]; then
+if [ $branch = 'master' ] || [ $branch = $default_branch ]; then
   hub browse
 else
   hub browse -- pull/$branch
