@@ -18,7 +18,7 @@ terminfo: ## Install extra terminfo missing of OS X 10.11
 
 update: ## Update homebrew stuff
 	brew update
-	brew bundle
+	brew bundle --no-lock
 	brew bundle check --verbose
 	brew cleanup
 
