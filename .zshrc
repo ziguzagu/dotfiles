@@ -36,7 +36,7 @@ _rename_tmux_window() {
   local -a cmd; cmd=(${(z)2})
   local title
   case $cmd[1] in
-    ls)
+    gls)
       return
       ;;
     ssh)
@@ -291,11 +291,11 @@ _is_in_git_repo() {
 # select files and directories in current directory
 fzf-ls() {
   set -o pipefail
-  local -a list=($(ls -lhF --group-directories-first \
+  local -a list=($(gls -lhF --group-directories-first \
                      | fzf --header-lines=1 +s -m --nth=-1 \
                            --bind='ctrl-v:toggle-preview' \
                            --preview-window=hidden \
-                           --preview='test -d {-1} && ls -lhF --group-directories-first $_ || bat --color=always --style=numbers $_' \
+                           --preview='test -d {-1} && gls -lhF --group-directories-first $_ || bat --color=always --style=numbers $_' \
                      | awk '{print $NF}'))
   LBUFFER+=$list
   zle reset-prompt
@@ -311,7 +311,7 @@ fzf-git-ls-files() {
                       | fzf -m -e \
                             --bind='ctrl-v:toggle-preview' \
                             --preview-window=hidden \
-                            --preview='test -d {-1} && ls -lhF --group-directories-first $_ || bat --color=always --style=numbers $_'))
+                            --preview='test -d {-1} && gls -lhF --group-directories-first $_ || bat --color=always --style=numbers $_'))
   local ret=$?
   LBUFFER+=$files
   zle reset-prompt
