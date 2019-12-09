@@ -18,11 +18,7 @@ perl() {
   perl "$@"
 }
 
-ruby() {
-  unset -f ruby
-  eval "$(command rbenv init -)"
-  ruby "$@"
-}
+eval "$(command rbenv init -)"
 
 typeset -U PATH
 
