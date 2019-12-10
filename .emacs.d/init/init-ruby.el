@@ -32,7 +32,13 @@
   (global-rbenv-mode))
 
 (use-package projectile-rails
-  :diminish projectile-rails-mode
+  :bind (:map projectile-rails-mode-map
+         ("C-c r m" . projectile-rails-find-current-model)
+         ("C-c r M" . projectile-rails-find-model)
+         ("C-c r c" . projectile-rails-find-current-controller)
+         ("C-c r C" . projectile-rails-find-controller)
+         ("C-c r s" . projectile-rails-find-current-spec)
+         ("C-c r S" . projectile-rails-find-spec))
   :config
   (projectile-rails-global-mode))
 
