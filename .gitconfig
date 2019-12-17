@@ -68,6 +68,7 @@ publish = !git push -u origin $(git current)
 unpublish = !git push origin :$(git current)
 upstream = !sh -c 'git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null'
 q = grep --heading --break --line-number --color --show-function
+prune-branch = !git branch --merged | grep -v '\\* ' | xargs -n 1 git branch -d
 
 [push]
 default = current
