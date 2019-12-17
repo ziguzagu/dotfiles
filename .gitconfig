@@ -39,6 +39,9 @@ indentHeuristic = true
 [grep]
 patternType = perl
 
+[commit]
+verbose = true
+
 [diff-so-fancy]
 stripLeadingSymbols = false
 
