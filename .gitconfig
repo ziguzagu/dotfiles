@@ -57,6 +57,7 @@ co = checkout
 pick = cherry-pick
 br = branch
 sw = switch
+undo = restore
 amend = ci --amend --no-edit
 unstage = reset -q HEAD --
 uncommit = reset --mixed HEAD~
