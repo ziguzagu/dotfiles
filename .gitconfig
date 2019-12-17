@@ -6,20 +6,20 @@ email = ziguzagu@gmail.com
 [color]
 ui = auto
 
-[color "diff"]
+[color.diff]
 meta = yellow
 frag = blue bold
 whitespace = white bold reverse
 
-[color "status"]
+[color.status]
 untracked = blue bold
 
-[color "branch"]
+[color.branch]
 current = green bold
 local = yellow
 remote = magenta
 
-[color "grep"]
+[color.grep]
 filename   = green
 linenumber = blue bold
 function   = cyan
@@ -85,12 +85,12 @@ defaultRemote = origin
 [ghq]
 root = ~/src
 
-[filter "hawser"]
+[filter.hawser]
 clean = git hawser clean %f
 smudge = git hawser smudge %f
 required = true
 
-[filter "lfs"]
+[filter.lfs]
 clean = git lfs clean %f
 smudge = git lfs smudge %f
 required = true
