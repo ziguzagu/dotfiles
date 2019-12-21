@@ -76,6 +76,7 @@ alias fzf="fzf --color=dark,gutter:0"
 alias diff="colordiff -u"
 alias g="hub"
 alias t="tig"
+alias z="fzf"
 alias ci="circleci"
 
 ## grep
