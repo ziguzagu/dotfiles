@@ -363,8 +363,8 @@ fzf-jump-directory() {
 zle -N fzf-jump-directory
 bindkey '^j' fzf-jump-directory
 
-# search strings like a file name displayed in current tmux pane
-fzf-search-tmux-pane-strings() {
+# find strings from current tmux pane
+fzf-find-strings-from-tmux-pane() {
   local -a candidates=($(tmux capture-pane -p \
                            | perl -nle 's/\s+/\n/g; s/\Q...\E/\n/g; print' \
                            | perl -nle 'length > 3 && print' \
@@ -374,8 +374,8 @@ fzf-search-tmux-pane-strings() {
   LBUFFER+=$strings
   zle reset-prompt
 }
-zle -N fzf-search-tmux-pane-strings
-bindkey '^o' fzf-search-tmux-pane-strings
+zle -N fzf-find-strings-from-tmux-pane
+bindkey '^o' fzf-find-strings-from-tmux-pane
 
 # find perl modules of core and bundled by carton
 fzf-find-perl-module() {
