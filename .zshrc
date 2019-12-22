@@ -365,12 +365,7 @@ bindkey '^j' fzf-jump-directory
 
 # find strings from current tmux pane
 fzf-find-strings-from-tmux-pane() {
-  local -a candidates=($(tmux capture-pane -p \
-                           | perl -nle 's/\s+/\n/g; s/\Q...\E/\n/g; print' \
-                           | perl -nle 'length > 3 && print' \
-                           | perl -nle 's/\:\d+//g; s/\W\z//g; print' \
-                           | perl -CIO -Mutf8 -nle 'm/\A[\~]?\w+\S+\z/ && print'))
-  local -a strings=($(print -l ${(u)candidates} | fzf --reverse -m -e --tiebreak=index))
+  local -a strings=($(tmux capture-pane -p | stringus | fzf --reverse +m -e --tiebreak=index))
   LBUFFER+=$strings
   zle reset-prompt
 }
