@@ -1,0 +1,55 @@
+#!/usr/bin/env perl
+use strict;
+use warnings;
+use utf8;
+
+use Getopt::Long qw(:config posix_default no_ignore_case gnu_compat);
+use Pod::Usage;
+
+GetOptions(\my %opt, qw(help|h))
+    or pod2usage(1);
+$opt{help} && pod2usage(0);
+
+my $capture = do { local $/; <STDIN> };
+# prep
+$capture =~ tr/'"()\\[]/ /;
+# seperation
+my (@words) = split /\s+/, $capture;
+# scrub
+for (@words) {
+    s/\:\d+\z//; # remove trailing strings like line number
+    s/\W+\z//;   # remove trailing non-word letters
+}
+# filter
+my %uniq;
+@words =
+    grep { !$uniq{$_}++ }
+    grep { length > 3 }
+    grep { /\A[\~]?\w+\S+\z/ } # extract word likely to make sensce
+    @words;
+# ok
+print join "\n", @words, '';
+
+__END__
+
+=pod
+
+=head1 NAME
+
+stringus - print strings likely to make sensce from STDIN
+
+=head1 SYNOPSIS
+
+  $ tmux capture-pane -p | stringus
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<-h, --help>
+
+Print help document now you see.
+
+=back
+
+=cut
