@@ -61,6 +61,7 @@ co = checkout
 pick = cherry-pick
 br = branch
 sw = switch
+cs = ci-status -v
 undo = restore
 amend = ci --amend --no-edit
 unstage = reset HEAD --
