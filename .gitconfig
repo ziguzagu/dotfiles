@@ -30,6 +30,7 @@ excludesfile = ~/.gitignore
 whitespace   = trailing-space
 pager        = diff-so-fancy | less -FX
 
+# https://help.github.com/en/github/using-git/caching-your-github-password-in-git
 [credential]
 helper = osxkeychain
 
