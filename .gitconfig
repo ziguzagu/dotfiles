@@ -62,19 +62,19 @@ pick = cherry-pick
 br = branch
 sw = switch
 cs = ci-status -v
-undo = restore
+discard = restore
 amend = ci --amend --no-edit
 unstage = reset HEAD --
 uncommit = reset HEAD~
 last = log -1 HEAD
 url = config --get remote.origin.url
-current = branch --show-current
-default = !basename $(git symbolic-ref --short refs/remotes/origin/HEAD)
-publish = !git push -u origin $(git current)
-unpublish = !git push origin :$(git current)
+publish = !git push -u origin $(git current-branch)
+unpublish = !git push origin :$(git current-branch)
 upstream = !git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null
 q = grep --heading --break --line-number --color --show-function
-prune-branch = !git branch --merged | grep -v '\\* ' | xargs -n 1 git branch -d
+current-branch = branch --show-current
+default-branch = !basename $(git symbolic-ref --short refs/remotes/origin/HEAD)
+prune-branch   = !git branch --merged | grep -v '\\* ' | xargs -n 1 git branch -d
 
 [push]
 default = current
