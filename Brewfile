@@ -40,14 +40,9 @@ brew 'tcping'
 brew 'httping'
 brew 'mtr'
 
-# text parsers
+# misc
 brew 'jq'
 brew 'libxml2'
-
-# middlware servers
-brew 'nginx'
-brew 'varnish'
-brew 'redis'
 brew 'sqlite'
 
 # blog
