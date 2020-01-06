@@ -43,7 +43,6 @@ brew 'mtr'
 # text parsers
 brew 'jq'
 brew 'libxml2'
-brew 'libyaml'
 
 # middlware servers
 brew 'nginx'
