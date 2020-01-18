@@ -71,4 +71,4 @@
   (global-whitespace-mode t)
   :custom-face
   (whitespace-trailing ((t (:foreground "gray90" :background "gray32"))))
-  (whitespace-tab ((t (:foreground nil :background nil)))))
+  (whitespace-tab ((t (:foreground "gray40" :background nil)))))
