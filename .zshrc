@@ -87,10 +87,6 @@ export GREP_COLORS="ms=04;31:mc=01;33:sl=:cx=:fn=33:ln=33:bn=33:se=01;30"
 alias d="docker"
 alias c="docker-compose"
 
-## aws
-alias production="aws --profile=production"
-alias staging="aws --profile=staging"
-
 ## sets keybind like emacs
 bindkey -e
 
