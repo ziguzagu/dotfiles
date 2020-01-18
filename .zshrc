@@ -144,8 +144,6 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 ## ignore current directory from ../
 zstyle ':completion:*' ignore-parents parent pwd ..
 
-## awscli installed by homebrew
-test -f /usr/local/share/zsh/site-functions/_aws && source $_
 ## travis completion by travis gem
 test -f ~/.travis/travis.sh && source $_
 
