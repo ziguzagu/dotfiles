@@ -160,11 +160,11 @@ zstyle ':completion:*:default' menu select=1
 ########################################
 
 setopt prompt_subst
-unsetopt promptcr
+setopt no_promptcr
 
 # for emacs (no escape usging)
 if [[ "$EMACS" == t ]]; then
-    unsetopt zle
+    setopt no_zle
 fi
 
 ## vcs info
