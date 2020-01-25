@@ -89,7 +89,7 @@ alias lc="tr '[:upper:]' '[:lower:]'"
 alias uc="tr '[:lower:]' '[:upper:]'"
 alias prove="prove -lv --timer"
 alias f="fd"
-alias b="bat"
+alias b="bat --italic-text=always"
 alias p="less"
 alias s="rg"
 alias fzf="fzf --color=dark,gutter:0"
@@ -410,6 +410,8 @@ pmver() {
 ########################################
 ## Misc
 ########################################
+
+export BAT_THEME='TwoDark'
 
 ## zsh-syntax-highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
