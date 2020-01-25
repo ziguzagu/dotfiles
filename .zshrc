@@ -217,10 +217,8 @@ function +vi-git-stash() {
     (( $stashes )) && hook_com[misc]+="%F{252}☁ ${stashes}%f";
   fi
 }
-function _precmd_vcs_info () {
-  LANG=en_US.UTF-8 vcs_info
-}
-add-zsh-hook precmd _precmd_vcs_info
+
+add-zsh-hook precmd vcs_info
 
 function _prompt_cwd() {
   if [[ $UID -eq 0 ]]; then
