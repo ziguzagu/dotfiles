@@ -118,7 +118,7 @@ autoload -Uz zmv
 alias zmv="noglob zmv -W"
 
 ## less
-alias less="less -q -g -R -j 10 -M"
+alias less="less -giMqR -j10"
 export LESSCHARSET=utf-8
 export LESS_TERMCAP_mb=$'\E[01;33m'    # begin blinking
 export LESS_TERMCAP_md=$'\E[01;33m'    # begin bold (bold, bright yellow)
