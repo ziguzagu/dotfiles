@@ -1,5 +1,27 @@
 ## -*- mode: shell-script; -*-
 
+# emacs mode
+bindkey -e
+
+# try to correct the spelling of commands
+setopt correct
+# for the safety, do not send the HUP to running jobs when the shell exits
+setopt no_hup
+# bash compatible word splitting on unquoted parameter
+setopt sh_word_split
+# no!
+setopt no_flow_control
+# be quite
+setopt no_beep
+setopt no_list_beep
+# eshell can't use zle
+if [[ $EMACS == 't' ]]; then
+  setopt no_zle
+fi
+
+# no coredump needed
+limit coredumpsize 0
+
 autoload -Uz add-zsh-hook
 
 export SHELL="$(which zsh)"
@@ -85,9 +107,6 @@ export GREP_COLORS="ms=04;31:mc=01;33:sl=:cx=:fn=33:ln=33:bn=33:se=01;30"
 alias d="docker"
 alias c="docker-compose"
 
-## sets keybind like emacs
-bindkey -e
-
 ## directory handlings
 setopt auto_cd
 setopt auto_pushd
@@ -161,11 +180,6 @@ zstyle ':completion:*:default' menu select=1
 
 setopt prompt_subst
 setopt no_promptcr
-
-# for emacs (no escape usging)
-if [[ "$EMACS" == t ]]; then
-    setopt no_zle
-fi
 
 ## vcs info
 autoload -Uz vcs_info
@@ -398,18 +412,6 @@ pmver() {
 ########################################
 ## Misc
 ########################################
-
-setopt correct
-setopt no_hup
-setopt sh_word_split
-setopt no_flow_control
-
-## no beep
-setopt no_beep
-setopt no_list_beep
-
-## no coredump
-limit coredumpsize 0
 
 ## zsh-syntax-highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
