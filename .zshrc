@@ -1,5 +1,10 @@
 ## -*- mode: shell-script; -*-
 
+# prepare zprof for profzsh command
+if [[ $ZPROF == 'true' ]]; then
+  zmodload zsh/zprof
+fi
+
 # emacs mode
 bindkey -e
 
@@ -428,6 +433,10 @@ fi
 ########################################
 ## Profiling by zprof
 ########################################
-if [[ -x "$(which zprof)" ]]; then
-  zprof | less
+profzsh() {
+  ZPROF=true $SHELL -i -c exit
+}
+
+if [[ $ZPROF == "true" ]]; then
+  zprof
 fi
