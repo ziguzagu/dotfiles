@@ -39,12 +39,7 @@ fi
 ## Development
 ########################################
 
-perl() {
-  unset -f perl
-  eval "$(command plenv init -)"
-  perl "$@"
-}
-
+eval "$(command plenv init -)"
 eval "$(command rbenv init -)"
 
 typeset -U PATH
