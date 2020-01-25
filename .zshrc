@@ -59,8 +59,6 @@ add-zsh-hook preexec _rename_tmux_window
 ## Aliases
 ########################################
 
-setopt no_complete_aliases
-
 alias emacsclient="TERM=xterm-256color-italic emacsclient"
 alias ls="gls -XF --color=auto --group-directories-first"
 alias l="ls -lh"
@@ -117,12 +115,6 @@ alias lock="osascript -e 'tell application \"System Events\" to keystroke \"q\" 
 ########################################
 ## Completion
 ########################################
-
-setopt auto_param_keys
-setopt auto_remove_slash
-setopt auto_list
-setopt auto_menu
-setopt list_types
 
 ## additional completions by https://github.com/zsh-users/zsh-completions
 if [[ -d /usr/local/share/zsh-completions ]]; then
@@ -409,7 +401,6 @@ pmver() {
 
 setopt correct
 setopt no_hup
-setopt always_last_prompt
 setopt sh_word_split
 setopt no_flow_control
 
