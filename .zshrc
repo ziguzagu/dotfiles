@@ -192,7 +192,7 @@ zstyle ':vcs_info:*' actionformats '%F{160}(%s:%b!%a)%f %c%u%m'
 zstyle ':vcs_info:git*+set-message:*' hooks git-st git-stash
 
 ## Show remote ref name and number of commits ahead-of or behind
-function +vi-git-st () {
++vi-git-st() {
   ## get remote's "repos/branch"
   local remote=$(command git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null)
 
@@ -210,7 +210,7 @@ function +vi-git-st () {
   fi
 }
 ## show count of stashed
-function +vi-git-stash() {
++vi-git-stash() {
   local -a stashes
   if [[ -s ${hook_com[base]}/.git/refs/stash ]] ; then
     stashes=$(command git stash list 2>/dev/null | wc -l | sed -e 's/ //g')
@@ -220,7 +220,7 @@ function +vi-git-stash() {
 
 add-zsh-hook precmd vcs_info
 
-function _prompt_cwd() {
+_prompt_cwd() {
   if [[ $UID -eq 0 ]]; then
     echo -n '%F{255}%K{160}%~%k%f'
   else
@@ -238,7 +238,7 @@ zle_highlight=(isearch:underline,fg=red region:fg=black,bg=yellow special:stando
 
 autoload -Uz chpwd_recent_dirs cdr
 
-function _post_chpwd {
+_post_chpwd() {
   chpwd_recent_dirs
   ls
 }
