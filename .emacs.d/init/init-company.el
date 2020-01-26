@@ -13,6 +13,8 @@
   (setq company-idle-delay 0)
   (setq company-auto-expand t)
   (setq company-minimum-prefix-length 3)
+  ;; go to top at the next of last candidates
+  (setq company-selection-wrap-around t)
   ;; tweak backends
   (add-to-list 'company-backends 'company-dabbrev)
   ;; faces
