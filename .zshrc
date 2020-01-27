@@ -52,19 +52,7 @@ _rename_tmux_window() {
   [[ -z "$TMUX" ]] && return
 
   local -a cmd; cmd=(${(z)2})
-  local title
-  case $cmd[1] in
-    gls)
-      return
-      ;;
-    ssh)
-      title=$cmd[-1]
-      ;;
-    *)
-      title=$cmd[1]
-      ;;
-  esac
-
+  local title="$cmd[1]"
   local project=${$(command git rev-parse --show-toplevel 2>/dev/null)##*/}
   if [[ -z "$project" ]]; then
     tmux rename-window "$title"
