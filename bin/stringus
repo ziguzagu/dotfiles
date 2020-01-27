@@ -18,6 +18,7 @@ my (@words) = split /\s+/, $capture;
 # scrub
 for (@words) {
     s/\:\d+\z//; # remove trailing strings like line number
+    s/\Agit://;  # remove "git:<branch>" of prompt
     s/\W+\z//;   # remove trailing non-word letters
 }
 # filter
