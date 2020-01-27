@@ -11,17 +11,9 @@
       scroll-margin 0
       scroll-step 1)
 
-;; scroll by line with holding cursor.
-(defun my:scroll-up-in-place ()
-  (interactive)
-  (forward-line -1)
-  (scroll-down 1))
-(defun my:scroll-down-in-place ()
-  (interactive)
-  (forward-line 1)
-  (scroll-up 1))
-(global-set-key (kbd "M-p") 'my:scroll-up-in-place)
-(global-set-key (kbd "M-n") 'my:scroll-down-in-place)
+;; scroll up and down
+(global-set-key (kbd "M-p") 'scroll-down)
+(global-set-key (kbd "M-n") 'scroll-up)
 
 ;; comment style
 (setq comment-style 'multi-line)
