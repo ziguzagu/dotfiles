@@ -86,6 +86,7 @@ alias g="hub"
 alias t="tig"
 alias z="fzf"
 alias ci="circleci"
+alias tf="terraform"
 
 ## grep
 alias grep="grep -I --color=auto"
