@@ -32,6 +32,8 @@
   (global-rbenv-mode))
 
 (use-package projectile-rails
+  :bind-keymap
+  ("C-c r" . projectile-rails-command-map)
   :bind (:map projectile-rails-mode-map
          ("C-c r m" . projectile-rails-find-current-model)
          ("C-c r M" . projectile-rails-find-model)
