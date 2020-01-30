@@ -67,9 +67,9 @@
   (setq helm-ag-base-command "rg --no-heading"))
 
 (use-package helm-projectile
-  :diminish projectile-mode
   :bind ("C-c p p" . helm-projectile-switch-project)
+  :init
+  (setq projectile-completion-system 'helm)
   :config
   (projectile-global-mode t)
-  (setq projectile-completion-system 'helm)
   (helm-projectile-on))
