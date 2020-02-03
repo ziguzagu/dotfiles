@@ -10,35 +10,22 @@
          ("C-p" . company-select-previous))
   :config
   (global-company-mode t)
-  (setq company-idle-delay 0)
-  (setq company-auto-expand t)
-  (setq company-minimum-prefix-length 3)
-  ;; go to top at the next of last candidates
-  (setq company-selection-wrap-around t)
   ;; tweak backends
   (add-to-list 'company-backends 'company-dabbrev)
-  ;; faces
-  (set-face-attribute 'company-tooltip nil
-                      :foreground "black"
-                      :background "gray72")
-  (set-face-attribute 'company-tooltip-common nil
-                      :foreground "black"
-                      :background "gray72"
-                      :underline t)
-  (set-face-attribute 'company-tooltip-common-selection nil
-                      :foreground "white"
-                      :background "steelblue"
-                      :underline t)
-  (set-face-attribute 'company-tooltip-selection nil
-                      :foreground "white"
-                      :background "steelblue")
-  (set-face-attribute 'company-preview-common nil
-                      :inherit 'company-tooltip
-                      :underline t)
-  (set-face-attribute 'company-scrollbar-fg nil
-                      :background "darkorange")
-  (set-face-attribute 'company-scrollbar-bg nil
-                      :background "gray40"))
+  :custom
+  (company-idle-delay 0)
+  (company-auto-expand t)
+  (company-minimum-prefix-length 3)
+  ;; go to top at the next of last candidates
+  (company-selection-wrap-around t)
+  :custom-face
+  (company-tooltip ((t (:foreground "black" :background "gray72"))))
+  (company-tooltip-common ((t (:inherit 'company-tooltip :underline t))))
+  (company-tooltip-selection ((t (:foreground "white" :background "steelblue"))))
+  (company-tooltip-common-selection ((t (:inherit 'company-tooltip-selection :underline t))))
+  (company-preview-common ((t (:inherit 'company-tooltip-common))))
+  (company-scrollbar-fg ((t (:background "darkorange"))))
+  (company-scrollbar-bg ((t (:background "gray40")))))
 
 (use-package company-statistics
   :config
