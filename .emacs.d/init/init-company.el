@@ -16,6 +16,7 @@
   (company-idle-delay 0)
   (company-auto-expand t)
   (company-minimum-prefix-length 3)
+  (company-dabbrev-minimum-length 3)
   ;; go to top at the next of last candidates
   (company-selection-wrap-around t)
   :custom-face
