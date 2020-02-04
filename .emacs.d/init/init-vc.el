@@ -69,7 +69,13 @@
                                        (setq fill-column 72)
                                        (turn-on-auto-fill)))
 
-(use-package git-commit)
+(use-package git-commit
+  :config
+  (global-git-commit-mode)
+  :custom
+  ;; 50/72 rules
+  (git-commit-summary-max-length 50)
+  (git-commit-fill-column 72))
 
 (use-package browse-at-remote
   :config
