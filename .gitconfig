@@ -7,8 +7,9 @@ email = ziguzagu@gmail.com
 ui = auto
 
 [color "diff"]
-meta = yellow
-frag = blue bold
+meta = 248 italic
+frag = 117 italic
+func = 183 no-bold italic
 whitespace = white bold reverse
 
 [color "status"]
