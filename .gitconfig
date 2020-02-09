@@ -21,10 +21,11 @@ local = yellow
 remote = magenta
 
 [color "grep"]
-filename   = green
-linenumber = blue bold
-function   = cyan
-match      = red ul
+filename   = 250 238 italic
+linenumber = 117 no-bold
+separator  = 117 no-bold
+function   = 183 no-bold italic
+match      = 214 ul
 
 [core]
 excludesfile = ~/.gitignore
