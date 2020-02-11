@@ -28,7 +28,7 @@
 (set-face-attribute 'minibuffer-prompt nil
                     :foreground "yellow")
 (set-face-attribute 'mode-line nil
-                    :foreground "#bcbcbc"
+                    :foreground "#c6c6c6"
                     :background "#444444")
 (set-face-attribute 'mode-line-inactive nil
                     :foreground "gray42"
