@@ -1,6 +1,9 @@
 set main-view = id:yes date:custom author:abbreviated,width=12 commit-title:yes,graph,refs,overflow=no
 set main-view-date-format = "%Y-%m-%d"
 
+set blame-view = id:yes,color date:custom author:abbreviated,width=12 line-number:yes text
+set blame-view-date-format = "%Y-%m-%d"
+
 bind generic G none
 bind main    R !git rebase -i %(commit)
 bind generic P @git hub open %(commit)
