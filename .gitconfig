@@ -21,7 +21,9 @@ oldNormal    = 210 no-bold
 oldHighlight = 210 52 no-bold
 
 [color "status"]
-untracked = blue bold
+updated   = 148
+changed   = 210
+untracked = 75
 
 [color "branch"]
 current = green bold
