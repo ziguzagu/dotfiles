@@ -10,7 +10,15 @@ ui = auto
 meta = 248 italic
 frag = 117 italic
 func = 183 no-bold italic
+new  = 148
+old  = 210
 whitespace = white bold reverse
+
+[color "diff-highlight"]
+newNormal    = 148 no-bold
+newHighlight = 148 22 no-bold
+oldNormal    = 210 no-bold
+oldHighlight = 210 52 no-bold
 
 [color "status"]
 untracked = blue bold
