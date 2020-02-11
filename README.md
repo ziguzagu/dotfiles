@@ -1,4 +1,4 @@
-# dotfiles
+# dotfiles [![MIT license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 
 ```
 ➜ make help

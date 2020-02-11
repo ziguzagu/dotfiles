@@ -1,7 +1,7 @@
 ## -*- mode: makefile-gmake; -*-
 home    = $(HOME)/
 basedir = $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
-sources = $(shell git ls-files | grep -Ev '(README\.md|Makefile|Brewfile|\.terminfo)$$')
+sources = $(shell git ls-files | grep -Ev '(README\.md|Makefile|Brewfile|\.terminfo|LICENSE\.txt)$$')
 targets = $(addprefix $(home),$(sources))
 
 .DEFAULT_GOAL := help
