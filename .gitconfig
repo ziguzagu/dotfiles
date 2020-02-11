@@ -34,10 +34,10 @@ plain    = 248
 
 [color "grep"]
 filename   = 251 238 italic
-linenumber = 117 no-bold
-separator  = 117 no-bold
+linenumber = 110 no-bold
+separator  = 110 no-bold
 function   = 183 no-bold italic
-match      = 214 ul
+match      = 214 bold
 
 [core]
 excludesfile = ~/.gitignore
