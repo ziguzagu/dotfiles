@@ -21,7 +21,7 @@ local = yellow
 remote = magenta
 
 [color "grep"]
-filename   = 250 238 italic
+filename   = 251 238 italic
 linenumber = 117 no-bold
 separator  = 117 no-bold
 function   = 183 no-bold italic
