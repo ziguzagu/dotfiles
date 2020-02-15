@@ -76,6 +76,7 @@ pick = cherry-pick
 br = branch
 sw = switch
 cs = ci-status -v
+ls = ls-files
 discard = restore
 amend = ci --amend --no-edit
 unstage = reset HEAD --
