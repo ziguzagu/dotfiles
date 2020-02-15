@@ -45,6 +45,10 @@ brew 'jq'
 brew 'libxml2'
 brew 'sqlite'
 
+# https://github.com/kyoshidajp/ghkw
+tap 'kyoshidajp/ghkw'
+brew 'ghkw'
+
 # blog
 brew 'hugo'
 
