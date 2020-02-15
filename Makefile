@@ -12,7 +12,7 @@ $(targets):
 	@mkdir -m 700 -p $(dir $@)
 	ln -sf $(subst $(home),$(basedir),$@) $@
 
-terminfo: ## Install extra terminfo missing of OS X 10.11
+terminfo: ## Install extra terminfo missing of macOS 10.15
 	tic -x xterm.terminfo
 	tic -x tmux.terminfo
 
