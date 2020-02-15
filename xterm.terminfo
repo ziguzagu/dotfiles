@@ -1,17 +1,6 @@
-# Missing term entries that OS X 10.11 doesn't have
-xterm+tmux|advanced xterm features used in tmux,
-	Cr=\E]112\007, Cs=\E]12;%p1%s\007,
-	Ms=\E]52;%p1%s;%p2%s\007, Se=\E[2 q, Ss=\E[%p1%d q,
-
-xterm+256setaf|xterm 256-color (set-only),
-	ccc@,
-	colors#256, pairs#32767,
-	initc@,
-	setab=\E[%?%p1%{8}%<%t4%p1%d%e%p1%{16}%<%t10%p1%{8}%-%d%e48;5;%p1%d%;m,
-	setaf=\E[%?%p1%{8}%<%t3%p1%d%e%p1%{16}%<%t9%p1%{8}%-%d%e38;5;%p1%d%;m,
-	setb@, setf@,
-
-# Fix xterm-256color of OS X 10.11 (El Capitan) that not display italic
-xterm-256color-italic|xterm 256color with italic and underline,
-	ritm=\E[23m, rmso=\E[27m, sitm=\E[3m, smso=\E[7m, Ms@, ncv@,
+# -*- mode: conf -*-
+# Improved `xterm-256color` of macOS 10.15 with italic support
+xterm-256color-italic|xterm 256 colors with italic,
+	ritm=\E[23m,
+	sitm=\E[3m,
 	use=xterm-256color,
