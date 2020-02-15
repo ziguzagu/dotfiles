@@ -81,5 +81,4 @@ cask 'java'
 cask 'tableau-reader'
 
 tap 'homebrew/cask-fonts'
-cask 'font-source-code-pro'
 cask 'font-source-han-code-jp'
