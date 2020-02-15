@@ -416,6 +416,10 @@ if [ ! -f "~/.zshrc.zwc" -o "~/.zshrc" -nt "~/.zshrc.zwc" ]; then
   zcompile ~/.zshrc
 fi
 
+uncolor() {
+  perl -pe 's/\e\[\d+m//g'
+}
+
 ########################################
 ## Profiling by zprof
 ########################################
