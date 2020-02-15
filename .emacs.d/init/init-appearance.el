@@ -17,13 +17,13 @@
 
 ;; UI colors
 (set-face-attribute 'default nil
-                    :foreground "#e4e4e4"
-                    :background "#000000")
+                    :foreground "gray89"
+                    :background "gray3")
 (set-face-attribute 'highlight nil
-                    :foreground "black"
+                    :foreground "gray3"
                     :background "green")
 (set-face-attribute 'region nil
-                    :foreground "white"
+                    :foreground "gray89"
                     :background "gray22")
 (set-face-attribute 'minibuffer-prompt nil
                     :foreground "yellow")

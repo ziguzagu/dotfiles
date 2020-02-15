@@ -20,9 +20,9 @@
   ;; go to top at the next of last candidates
   (company-selection-wrap-around t)
   :custom-face
-  (company-tooltip ((t (:foreground "black" :background "gray72"))))
+  (company-tooltip ((t (:foreground "gray3" :background "gray72"))))
   (company-tooltip-common ((t (:inherit 'company-tooltip :underline t))))
-  (company-tooltip-selection ((t (:foreground "white" :background "steelblue"))))
+  (company-tooltip-selection ((t (:foreground "gray89" :background "steelblue"))))
   (company-tooltip-common-selection ((t (:inherit 'company-tooltip-selection :underline t))))
   (company-preview-common ((t (:inherit 'company-tooltip-common))))
   (company-scrollbar-fg ((t (:background "darkorange"))))

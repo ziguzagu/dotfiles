@@ -10,13 +10,13 @@
                       :inherit 'shadow
                       :foreground "gray90")
   (set-face-attribute 'diff-changed nil
-                      :foreground "black"
+                      :foreground "gray3"
                       :background "yellow")
   (set-face-attribute 'diff-added nil
-                      :foreground "black"
+                      :foreground "gray3"
                       :background "darkolivegreen3")
   (set-face-attribute 'diff-removed nil
-                      :foreground "black"
+                      :foreground "gray3"
                       :background "tomato"))
 
 (use-package flycheck
