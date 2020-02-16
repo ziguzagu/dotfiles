@@ -1,23 +1,11 @@
 (use-package diff-mode
-  :config
-  (set-face-attribute 'diff-file-header nil
-                      :foreground "orange"
-                      :background "gray32")
-  (set-face-attribute 'diff-header nil
-                      :foreground "gray70"
-                      :background "gray32")
-  (set-face-attribute 'diff-context nil
-                      :inherit 'shadow
-                      :foreground "gray90")
-  (set-face-attribute 'diff-changed nil
-                      :foreground "gray3"
-                      :background "yellow")
-  (set-face-attribute 'diff-added nil
-                      :foreground "gray3"
-                      :background "darkolivegreen3")
-  (set-face-attribute 'diff-removed nil
-                      :foreground "gray3"
-                      :background "tomato"))
+  :custom-face
+  (diff-file-header ((t (:foreground "orange" :background "gray32"))))
+  (diff-header      ((t (:foreground "gray70" :background "gray32"))))
+  (diff-context     ((t (:inherit shadow :foreground "gray90"))))
+  (diff-changed     ((t (:foreground "gray3" :background "yellow"))))
+  (diff-added       ((t (:foreground "gray3" :background "darkolivegreen3"))))
+  (diff-removed     ((t (:foreground "gray3" :background "tomato")))))
 
 (use-package flycheck
   :init
