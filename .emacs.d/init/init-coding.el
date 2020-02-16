@@ -50,7 +50,7 @@
   (set-face-attribute 'markdown-list-face nil
                       :foreground "mediumpurple1" :weight 'bold)
   (set-face-attribute 'markdown-link-face nil
-                      :foreground "color-75"))
+                      :foreground "#5fafff"))
 
 (use-package sh-script
   :init
