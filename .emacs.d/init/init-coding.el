@@ -1,11 +1,15 @@
 (use-package diff-mode
   :custom-face
-  (diff-file-header ((t (:foreground "orange" :background "gray32"))))
-  (diff-header      ((t (:foreground "gray70" :background "gray32"))))
-  (diff-context     ((t (:inherit shadow :foreground "gray90"))))
-  (diff-changed     ((t (:foreground "gray3" :background "yellow"))))
-  (diff-added       ((t (:foreground "gray3" :background "darkolivegreen3"))))
-  (diff-removed     ((t (:foreground "gray3" :background "tomato")))))
+  (diff-header         ((t (:foreground "#a8a8a8" :background "#303030" :slant italic))))
+  (diff-file-header    ((t (:inherit diff-header))))
+  (diff-hunk-header    ((t (:inherit diff-header :background "#080808"))))
+  (diff-index          ((t (:inherit diff-hunk-header :foreground "#87d7ff"))))
+  (diff-function       ((t (:inherit diff-hunk-header :foreground "#d7afff"))))
+  (diff-context        ((t (:inherit default))))
+  (diff-added          ((t (:inherit default :foreground "#afd700"))))
+  (diff-removed        ((t (:inherit default :foreground "#ff8787"))))
+  (diff-refine-added   ((t (:inherit diff-added :background "#005f00"))))
+  (diff-refine-removed ((t (:inherit diff-removed :background "#5f0000")))))
 
 (use-package flycheck
   :init
