@@ -111,13 +111,13 @@ alias zmv="noglob zmv -W"
 ## less
 alias less="less -giMqR -j10"
 export LESSCHARSET=utf-8
-export LESS_TERMCAP_mb=$'\E[01;33m'    # begin blinking
-export LESS_TERMCAP_md=$'\E[01;33m'    # begin bold (bold, bright yellow)
-export LESS_TERMCAP_me=$'\E[0m'        # end mode
-export LESS_TERMCAP_se=$'\E[0m'        # end standout-mode
-export LESS_TERMCAP_so=$'\E[0;37;44m'  # begin standout-mode (white on blue)
-export LESS_TERMCAP_ue=$'\E[0m'        # end underline
-export LESS_TERMCAP_us=$'\E[04;36m'    # begin underline - (underline, cyan)
+export LESS_TERMCAP_mb=$'\e[1;31m'     # begin blinking
+export LESS_TERMCAP_md=$'\e[1;33m'     # begin bold
+export LESS_TERMCAP_me=$'\e[0m'        # end mode
+export LESS_TERMCAP_se=$'\e[0m'        # end standout-mode
+export LESS_TERMCAP_so=$'\e[0;30;47m'  # begin standout-mode
+export LESS_TERMCAP_ue=$'\e[0m'        # end underline
+export LESS_TERMCAP_us=$'\e[4;34m'     # begin underline
 
 ## lock screen
 alias lock="osascript -e 'tell application \"System Events\" to keystroke \"q\" using {command down,control down}'"
