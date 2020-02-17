@@ -42,7 +42,7 @@ match      = 214 bold
 [core]
 excludesfile = ~/.gitignore
 whitespace   = trailing-space
-pager        = diff-so-fancy | less -FX
+pager        = diff-so-fancy | less -FSX
 
 # https://help.github.com/en/github/using-git/caching-your-github-password-in-git
 [credential]
