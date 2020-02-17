@@ -8,8 +8,8 @@ ui = auto
 
 [color "diff"]
 meta = 248 italic
-frag = 117 italic
-func = 183 no-bold italic
+frag = 74 italic
+func = 140 no-bold italic
 new  = 107
 old  = 167
 whitespace = white bold reverse
@@ -34,9 +34,9 @@ plain    = 248
 
 [color "grep"]
 filename   = 251 238 italic
-linenumber = 110 no-bold
-separator  = 110 no-bold
-function   = 183 no-bold italic
+linenumber = 74 no-bold
+separator  = 74 no-bold
+function   = 140 no-bold italic
 match      = 214 bold
 
 [core]
