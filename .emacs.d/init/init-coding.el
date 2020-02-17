@@ -6,8 +6,8 @@
   (diff-index          ((t (:inherit diff-hunk-header :foreground "#87d7ff"))))
   (diff-function       ((t (:inherit diff-hunk-header :foreground "#d7afff"))))
   (diff-context        ((t (:inherit default))))
-  (diff-added          ((t (:inherit default :foreground "#afd700"))))
-  (diff-removed        ((t (:inherit default :foreground "#ff8787"))))
+  (diff-added          ((t (:inherit default :foreground "#87af5f"))))
+  (diff-removed        ((t (:inherit default :foreground "#d75f5f"))))
   (diff-refine-added   ((t (:inherit diff-added :background "#005f00"))))
   (diff-refine-removed ((t (:inherit diff-removed :background "#5f0000")))))
 

@@ -10,23 +10,23 @@ ui = auto
 meta = 248 italic
 frag = 117 italic
 func = 183 no-bold italic
-new  = 148
-old  = 210
+new  = 107
+old  = 167
 whitespace = white bold reverse
 
 [color "diff-highlight"]
-newNormal    = 148 no-bold
-newHighlight = 148 22 no-bold
-oldNormal    = 210 no-bold
-oldHighlight = 210 52 no-bold
+newNormal    = 107 no-bold
+newHighlight = 107 22 no-bold
+oldNormal    = 167 no-bold
+oldHighlight = 167 52 no-bold
 
 [color "status"]
-updated   = 148
-changed   = 210
+updated   = 107
+changed   = 167
 untracked = 75
 
 [color "branch"]
-current  = 148
+current  = 107
 local    = 255
 remote   = 110
 upstream = 183
