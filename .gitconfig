@@ -27,7 +27,7 @@ untracked = 75
 
 [color "branch"]
 current  = 107
-local    = 255
+local    = 254
 remote   = 110
 upstream = 183
 plain    = 248

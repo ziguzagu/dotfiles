@@ -213,7 +213,7 @@ add-zsh-hook precmd vcs_info
 
 _prompt_cwd() {
   if [[ $UID -eq 0 ]]; then
-    echo -n '%F{255}%K{160}%~%k%f'
+    echo -n '%F{254}%K{160}%~%k%f'
   else
     echo -n '%F{214}%~%f'
   fi

@@ -15,7 +15,7 @@ bind generic 9 !@sh -c "/bin/echo -n %(commit) | pbcopy"
 # *color* 'area' 'fgcolor' 'bgcolor' '[attributes]'
 
 # general
-color cursor                  255     24
-color title-focus             255     238
-color title-blur              252     235
+color cursor                  251     24
+color title-focus             251     238
+color title-blur              251     235
 color delimiter               213     default
