@@ -7,6 +7,8 @@ targets = $(addprefix $(home),$(sources))
 .DEFAULT_GOAL := help
 
 install: $(targets) ## Install dot files into $HOME as symlink
+	ln -sf $(HOME)/Dropbox/Library/aspell/aspell.en.pws $(HOME)/.aspell.en.pws
+	ln -sf $(HOME)/Dropbox/Library/aspell/aspell.en.prepl $(HOME)/.aspell.en.prepl
 
 $(targets):
 	@mkdir -m 700 -p $(dir $@)
