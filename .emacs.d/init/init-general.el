@@ -135,3 +135,14 @@
          ("C-M-n" . mc/mark-next-like-this)
          ("C-M-p" . mc/mark-previous-like-this)
          ("C-M-a" . mc/mark-all-like-this)))
+
+(use-package flyspell
+  :init
+  (setq ispell-program-name "aspell")
+  (setq ispell-extra-args '("--sug-mode=ultra"
+                            "--lang=en_US"
+                            ;; work for camel case
+                            "--run-together"
+                            "--run-together-min=2"
+                            "--run-together-limit=16"))
+  :hook (prog-mode . flyspell-prog-mode))
