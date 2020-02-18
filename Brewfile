@@ -1,83 +1,68 @@
 # -*- mode: ruby -*-
 
-# my life
-brew 'emacs'
-
-# programming languages
-brew 'rbenv'
-brew 'ruby-build'
-brew 'plenv'
-brew 'perl-build'
-brew 'go'
-brew 'node'
-brew 'python3'
+brew 'awscli'
+brew 'bat'
+brew 'circleci'
 brew 'clisp'
-
-# git
-brew 'git'
-brew 'hub'
-brew 'tig'
-brew 'diff-so-fancy'
 brew 'colordiff'
+brew 'coreutils'
+brew 'diff-so-fancy'
+brew 'emacs'
+brew 'fd'
+brew 'fzf'
 brew 'ghq'
-
-# shell empowerment
+brew 'git'
+brew 'go'
+brew 'htop'
+brew 'httping'
+brew 'hub'
+brew 'hugo'
+brew 'jq'
+brew 'less'
+brew 'libxml2'
+brew 'mtr'
+brew 'node'
+brew 'perl-build'
+brew 'plenv'
+brew 'python3'
+brew 'rbenv'
+brew 'ripgrep'
+brew 'ruby-build'
+brew 'sqlite'
+brew 'tcping'
+brew 'tig'
 brew 'tmux'
+brew 'tree'
+brew 'wget'
 brew 'zsh-completions'
 brew 'zsh-syntax-highlighting'
-brew 'fzf'
-brew 'ripgrep'
-brew 'htop'
-brew 'coreutils'
-brew 'fd'
-brew 'less'
-brew 'bat'
-brew 'tree'
 
-# network tools
-brew 'wget'
-brew 'tcping'
-brew 'httping'
-brew 'mtr'
-
-# misc
-brew 'jq'
-brew 'libxml2'
-brew 'sqlite'
-
-# https://github.com/kyoshidajp/ghkw
 tap 'kyoshidajp/ghkw'
 brew 'ghkw'
 
-# blog
-brew 'hugo'
-
-# *aaS CLI
-brew 'circleci'
 tap 'heroku/brew'
 brew 'heroku'
-brew 'awscli'
+
 # Session Manager Plugin for AWS CLI
 # https://docs.aws.amazon.com/ja_jp/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html
 tap 'dkanejs/aws-session-manager-plugin'
 brew 'aws-session-manager-plugin'
 
-cask_args appdir: '/Applications'
 tap 'homebrew/cask'
 cask 'alfred'
-cask 'dash'
-cask 'dropbox'
-cask 'google-cloud-sdk'
 cask 'appcleaner'
-cask 'paw'
-cask 'licecap'
-cask 'iterm2'
+cask 'dash'
 cask 'docker'
-cask 'keepingyouawake'
+cask 'dropbox'
 cask 'firefox'
 cask 'google-chrome'
+cask 'google-cloud-sdk'
 cask 'google-japanese-ime'
+cask 'iterm2'
 cask 'java'
+cask 'keepingyouawake'
+cask 'licecap'
+cask 'paw'
 cask 'tableau-reader'
 
 tap 'homebrew/cask-fonts'
