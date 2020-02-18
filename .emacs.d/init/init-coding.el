@@ -22,7 +22,9 @@
 
 (use-package flycheck-popup-tip
   :config
-  (flycheck-popup-tip-mode))
+  (flycheck-popup-tip-mode)
+  :custom-face
+  (popup-tip-face ((t (:foreground "#5fafd7" :background "#303030")))))
 
 (use-package sql
   :config
