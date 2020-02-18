@@ -1,7 +1,3 @@
-;; use command key as meta key in cocoa emacs
-(when (eq system-type 'darwin)
-  (setq ns-command-modifier (quote meta)))
-
 ;; tab/indent
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
@@ -120,16 +116,10 @@
   (setq interprogram-cut-function 'my:paste-to-osx)
   (setq interprogram-paste-function 'my:copy-from-osx))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; expand-region
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package expand-region
   :bind (("C-]" . er/expand-region)
          ("M-]" . er/contract-region)))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; multiple-cursors
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package multiple-cursors
   :bind (("C-M-c" . mc/edit-lines)
          ("C-M-n" . mc/mark-next-like-this)
