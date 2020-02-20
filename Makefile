@@ -24,6 +24,14 @@ brew: ## Update homebrew stuff
 	brew bundle check --verbose
 	brew cleanup
 
+gems  = rubocop rubocop-performance rubocop-rspec rubocop-rails reek
+gems += solargraph
+gems += travis
+ruby: ## Install ruby-gems of development utility
+	gem update --system --no-document
+	gem install --no-document --conservative $(gems)
+	gem cleanup $(gems)
+
 keyrepeat: ## Set my best key repeat settings
 	defaults write -g InitialKeyRepeat -int 15
 	defaults write -g KeyRepeat -int 1
