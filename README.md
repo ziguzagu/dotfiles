@@ -2,7 +2,8 @@
 
 ```
 ➜ make help
-brew                Update homebrew stuff
-install             Install dot files into $HOME as symlink
-terminfo            Install extra terminfo missing of macOS 10.15
+brew                 Update homebrew stuff
+install              Install dot files into $HOME as symlink
+keyrepeat            Set my best key repeat settings
+terminfo             Install extra terminfo missing of macOS 10.15
 ```

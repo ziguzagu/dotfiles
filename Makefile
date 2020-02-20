@@ -24,7 +24,7 @@ brew: ## Update homebrew stuff
 	brew bundle check --verbose
 	brew cleanup
 
-keyrepeat:
+keyrepeat: ## Set my best key repeat settings
 	defaults write -g InitialKeyRepeat -int 15
 	defaults write -g KeyRepeat -int 1
 
