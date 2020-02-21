@@ -1,4 +1,7 @@
 # -*- mode: conf -*-
-tmux-256color|tmux 256 colors,
-	use=xterm-256color-italic,
-	use=screen,
+tmux-24bits|tmux with 24-bit direct color mode,
+	ritm=\E[23m,
+	sitm=\E[3m,
+	use=screen-256color,
+	setb24=\E[48:2:%p1%{65536}%/%d:%p1%{256}%/%{255}%&%d:%p1%{255}%&%dm,
+	setf24=\E[38:2:%p1%{65536}%/%d:%p1%{256}%/%{255}%&%d:%p1%{255}%&%dm,
