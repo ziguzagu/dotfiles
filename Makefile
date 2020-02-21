@@ -36,6 +36,9 @@ keyrepeat: ## Set my best key repeat settings
 	defaults write -g InitialKeyRepeat -int 15
 	defaults write -g KeyRepeat -int 1
 
+rainbow: ## Test terminal's 24-bit color support
+	curl -s https://raw.githubusercontent.com/gnachman/iTerm2/master/tests/24-bit-color.sh | bash
+
 .PHONY: help
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
