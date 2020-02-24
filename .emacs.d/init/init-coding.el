@@ -26,6 +26,10 @@
   :custom-face
   (popup-tip-face ((t (:foreground "#5fafd7" :background "#303030")))))
 
+(use-package dash-at-point
+  :bind (("C-c ." . dash-at-point)
+         ("C-c C-." . dash-at-point-with-docset)))
+
 (use-package sql
   :config
   (sql-highlight-mysql-keywords))
