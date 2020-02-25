@@ -35,7 +35,7 @@
   (sql-highlight-mysql-keywords))
 
 (use-package markdown-mode
-  :mode ("\\.md\\'" . gfm-mode)
+  :commands (markdown-mode gfm-mode)
   :config
   (set-face-attribute 'markdown-header-delimiter-face nil
                       :foreground "orange")
