@@ -21,18 +21,18 @@
                     :background "#080808")
 (set-face-attribute 'highlight nil
                     :foreground "#080808"
-                    :background "green")
+                    :background "#00cd00")
 (set-face-attribute 'region nil
                     :foreground "#e4e4e4"
-                    :background "gray22")
+                    :background "#383838")
 (set-face-attribute 'minibuffer-prompt nil
-                    :foreground "yellow")
+                    :foreground "#cdcd00")
 (set-face-attribute 'mode-line nil
                     :foreground "#c6c6c6"
                     :background "#444444")
 (set-face-attribute 'mode-line-inactive nil
                     :foreground "#6c6c6c"
-                    :background "gray16")
+                    :background "#292929")
 (set-face-attribute 'mode-line-buffer-id nil
                     :foreground "#ff8700"
                     :weight 'normal)
@@ -44,7 +44,7 @@
 
 ;; Coding syntax colors
 (set-face-attribute 'font-lock-comment-face nil
-                    :foreground "gray52"
+                    :foreground "#858585"
                     :slant 'italic)
 (set-face-attribute 'font-lock-string-face nil
                     :foreground "#afd787")
@@ -70,7 +70,7 @@
   (setq whitespace-style '(face tabs tab-mark trailing))
   (global-whitespace-mode t)
   :custom-face
-  (whitespace-trailing ((t (:foreground "gray90" :background "gray32"))))
-  (whitespace-tab ((t (:foreground "gray40" :background nil)))))
+  (whitespace-trailing ((t (:foreground "#e5e5e5" :background "#525252"))))
+  (whitespace-tab ((t (:foreground "#666666" :background nil)))))
 
 (use-package rainbow-mode)

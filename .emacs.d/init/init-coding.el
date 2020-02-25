@@ -38,17 +38,17 @@
   :commands (markdown-mode gfm-mode)
   :config
   (set-face-attribute 'markdown-header-delimiter-face nil
-                      :foreground "orange")
+                      :foreground "#ffa500")
   (set-face-attribute 'markdown-header-rule-face nil
-                      :foreground "orange")
+                      :foreground "#ffa500")
   (set-face-attribute 'markdown-header-face nil
-                      :foreground "orange")
+                      :foreground "#ffa500")
   (set-face-attribute 'markdown-inline-code-face nil
                       :foreground "#87d75f")
   (set-face-attribute 'markdown-pre-face nil
                       :foreground "#87d75f")
   (set-face-attribute 'markdown-language-keyword-face nil
-                      :foreground "gray52")
+                      :foreground "#858585")
   (set-face-attribute 'markdown-list-face nil
                       :foreground "#af87ff" :weight 'bold)
   (set-face-attribute 'markdown-link-face nil
