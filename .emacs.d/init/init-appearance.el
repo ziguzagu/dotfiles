@@ -17,13 +17,13 @@
 
 ;; UI colors
 (set-face-attribute 'default nil
-                    :foreground "gray89"
-                    :background "gray3")
+                    :foreground "#e4e4e4"
+                    :background "#080808")
 (set-face-attribute 'highlight nil
-                    :foreground "gray3"
+                    :foreground "#080808"
                     :background "green")
 (set-face-attribute 'region nil
-                    :foreground "gray89"
+                    :foreground "#e4e4e4"
                     :background "gray22")
 (set-face-attribute 'minibuffer-prompt nil
                     :foreground "yellow")
@@ -31,7 +31,7 @@
                     :foreground "#c6c6c6"
                     :background "#444444")
 (set-face-attribute 'mode-line-inactive nil
-                    :foreground "gray42"
+                    :foreground "#6c6c6c"
                     :background "gray16")
 (set-face-attribute 'mode-line-buffer-id nil
                     :foreground "#ff8700"
@@ -53,13 +53,13 @@
 (set-face-attribute 'font-lock-function-name-face nil
                     :foreground "#afafaf")
 (set-face-attribute 'font-lock-variable-name-face nil
-                     :foreground "#87afd7")
+                    :foreground "#87afd7")
 (set-face-attribute 'font-lock-constant-face nil
                     :foreground "#d75f5f")
 (set-face-attribute 'font-lock-type-face nil
                     :foreground "#af87ff")
 (set-face-attribute 'font-lock-warning-face nil
-                    :foreground "red3")
+                    :foreground "#af0000")
 (set-face-attribute 'font-lock-builtin-face nil
                     :foreground "#d787d7")
 

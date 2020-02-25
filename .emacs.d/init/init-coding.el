@@ -44,13 +44,13 @@
   (set-face-attribute 'markdown-header-face nil
                       :foreground "orange")
   (set-face-attribute 'markdown-inline-code-face nil
-                      :foreground "darkolivegreen3")
+                      :foreground "#87d75f")
   (set-face-attribute 'markdown-pre-face nil
-                      :foreground "darkolivegreen3")
+                      :foreground "#87d75f")
   (set-face-attribute 'markdown-language-keyword-face nil
                       :foreground "gray52")
   (set-face-attribute 'markdown-list-face nil
-                      :foreground "mediumpurple1" :weight 'bold)
+                      :foreground "#af87ff" :weight 'bold)
   (set-face-attribute 'markdown-link-face nil
                       :foreground "#5fafff"))
 
