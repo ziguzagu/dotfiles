@@ -63,11 +63,11 @@
 (set-face-attribute 'font-lock-builtin-face nil
                     :foreground "#d787d7")
 
-;; highlight hard tab, trailing spaces and double width space
 (use-package whitespace
+  :custom
+  (show-trailing-whitespace t)
+  (whitespace-style '(face tabs tab-mark trailing))
   :config
-  (setq show-trailing-whitespace t)
-  (setq whitespace-style '(face tabs tab-mark trailing))
   (global-whitespace-mode t)
   :custom-face
   (whitespace-trailing ((t (:foreground "#e5e5e5" :background "#525252"))))
