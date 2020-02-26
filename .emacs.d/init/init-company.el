@@ -20,13 +20,13 @@
   ;; go to top at the next of last candidates
   (company-selection-wrap-around t)
   :custom-face
-  (company-tooltip ((t (:foreground "gray3" :background "gray72"))))
+  (company-tooltip ((t (:foreground "#080808" :background "#b8b8b8"))))
   (company-tooltip-common ((t (:inherit 'company-tooltip :underline t))))
-  (company-tooltip-selection ((t (:foreground "gray89" :background "steelblue"))))
+  (company-tooltip-selection ((t (:foreground "#e4e4e4" :background "#5f87af"))))
   (company-tooltip-common-selection ((t (:inherit 'company-tooltip-selection :underline t))))
   (company-preview-common ((t (:inherit 'company-tooltip-common))))
-  (company-scrollbar-fg ((t (:background "darkorange"))))
-  (company-scrollbar-bg ((t (:background "gray40")))))
+  (company-scrollbar-fg ((t (:background "#ff8700"))))
+  (company-scrollbar-bg ((t (:background "#666666")))))
 
 (use-package company-statistics
   :config
