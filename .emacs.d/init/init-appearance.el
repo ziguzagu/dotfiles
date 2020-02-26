@@ -73,4 +73,5 @@
   (whitespace-trailing ((t (:foreground "#e5e5e5" :background "#525252"))))
   (whitespace-tab ((t (:foreground "#666666" :background nil)))))
 
-(use-package rainbow-mode)
+(use-package rainbow-mode
+  :hook (emacs-lisp-mode . rainbow-mode))
