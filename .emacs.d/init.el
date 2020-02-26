@@ -34,12 +34,10 @@
 ;; prepare to use use-package.el
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
-  (package-install 'use-package)
-  (package-install 'diminish))
+  (package-install 'use-package))
 (eval-when-compile
   (require 'use-package)
   (setq use-package-always-ensure t))
-(require 'diminish)
 (require 'bind-key)
 
 ;; inherit PATH from shell

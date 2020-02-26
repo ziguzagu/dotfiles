@@ -12,7 +12,6 @@
   (add-hook 'ruby-mode-hook 'my:ruby-mode))
 
 (use-package ruby-end
-  :diminish ruby-end-mode
   :init
   (add-hook 'ruby-mode-hook '(lambda () (ruby-end-mode t))))
 
