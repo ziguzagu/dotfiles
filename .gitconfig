@@ -2,6 +2,7 @@
 [user]
 name = ziguzagu
 email = ziguzagu@gmail.com
+signingkey = 359AF850F7735C62
 
 [color]
 ui = auto
