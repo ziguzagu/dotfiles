@@ -57,6 +57,10 @@ patternType = perl
 
 [commit]
 verbose = true
+gpgSign = true
+
+[tag]
+gpgSign = true
 
 [diff-so-fancy]
 stripLeadingSymbols = false
