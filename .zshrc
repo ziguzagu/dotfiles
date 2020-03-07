@@ -273,7 +273,7 @@ _is_in_git_repo() {
 # select files and directories in current directory
 fzf-ls() {
   set -o pipefail
-  local -a list=($(gls -lhF --group-directories-first \
+  local -a list=($(gls -AlhFX --group-directories-first \
                      | fzf --header-lines=1 +s -m --nth=-1 \
                            --bind='ctrl-v:toggle-preview' \
                            --preview-window=hidden \
