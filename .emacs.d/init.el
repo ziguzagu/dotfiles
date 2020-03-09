@@ -72,6 +72,7 @@
 (load "init-cpp")
 (load "init-ruby")
 (load "init-perl")
+(load "init-javascript")
 (load "init-web")
 (load "init-conf")
 (load "init-docker")
