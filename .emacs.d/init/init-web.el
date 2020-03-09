@@ -12,14 +12,12 @@
             ("template-toolkit" . "\\.tx\\'"))))
   (add-hook 'web-mode-hook 'my:web-mode-hook))
 
-;;;;;; css-mode
 (use-package scss-mode
   :mode ("\\.css\\'" "\\.scss\\'")
   :config
   (setq css-indent-offset 2)
   (setq scss-compile-at-save nil))
 
-;;;;;; js2-mode
 (use-package js2-mode
   :mode (("\\.js\\'"   . js2-mode)
          ("\\.json\\'" . js2-mode)
@@ -28,8 +26,7 @@
   :custom
   (js2-basic-offset 2))
 
-(use-package typescript-mode
-  :mode "\\.ts\\'")
+(use-package typescript-mode)
 
 (use-package coffee-mode
   :mode "\\.coffee\\'"
@@ -37,7 +34,6 @@
   (coffee-tab-width 2)
   (coffee-indent-like-python-mode t))
 
-;;;;;; utilities
 (defun my:escape-html-region (start end)
   "Escape '&<>' characters in the region using '&amp;', '&lt;', and '&gt;'."
   (interactive "*r")
