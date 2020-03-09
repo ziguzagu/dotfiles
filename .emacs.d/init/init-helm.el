@@ -23,13 +23,13 @@
   (setq helm-ff-skip-boring-files t)
   (setq helm-boring-file-regexp-list '("~$" "\\.elc$" "^#" "/\\.$" "/\\.\\.$"))
   (setq helm-boring-buffer-regexp-list '("^\s*\\*[A-Z].+\\*\s*$"))
-  ;; faces
-  (set-face-attribute 'helm-header nil :inherit 'header-line :inverse-video t)
-  (set-face-attribute 'helm-source-header nil :background "#292929" :foreground "#a3a3a3" :slant 'italic)
-  (set-face-attribute 'helm-candidate-number nil :foreground "#5fafff" :background "#444444")
-  (set-face-attribute 'helm-selection nil :background "#005f87" :weight 'normal)
-  (set-face-attribute 'helm-match nil :foreground "#a2cd5a")
-  (helm-mode 1))
+  (helm-mode 1)
+  :custom-face
+  (helm-header           ((t (:inherit 'header-line :inverse-video t))))
+  (helm-source-header    ((t (:background "#292929" :foreground "#a3a3a3" :slant italic))))
+  (helm-candidate-number ((t (:foreground "#5fafff" :background "#444444"))))
+  (helm-selection        ((t (:background "#cb0000" :weight normal))))
+  (helm-match            ((t (:foreground "#a2cd5a")))))
 
 (use-package helm-ls-git
   :bind (("C-x f" . helm-browse-project)))
