@@ -6,7 +6,9 @@
   :custom
   (js2-basic-offset 2))
 
-(use-package typescript-mode)
+(use-package typescript-mode
+  :custom
+  (typescript-indent-level 2))
 
 (use-package coffee-mode
   :mode "\\.coffee\\'"
