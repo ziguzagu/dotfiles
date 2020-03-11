@@ -1,15 +1,7 @@
 (use-package ruby-mode
-  :mode ("\\.rb\\'" "Capfile" "Gemfile")
   :interpreter "ruby"
   :custom
-  (ruby-insert-encoding-magic-comment nil)
-  :config
-  (defun my:ruby-mode ()
-    ;; use flycheck with rubocop
-    (setq flycheck-checker 'ruby-rubocop)
-    (flycheck-mode t))
-
-  (add-hook 'ruby-mode-hook 'my:ruby-mode))
+  (ruby-insert-encoding-magic-comment nil))
 
 (use-package ruby-end
   :init
