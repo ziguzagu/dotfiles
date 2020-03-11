@@ -70,7 +70,8 @@
   :config
   (global-whitespace-mode t)
   :custom-face
-  (whitespace-trailing ((t (:foreground "#e5e5e5" :background "#525252"))))
+  (trailing-whitespace ((t (:foreground "#e5e5e5" :background "#525252"))))
+  (whitespace-trailing ((t (:inherit trailing-whitespace))))
   (whitespace-tab ((t (:foreground "#666666" :background nil)))))
 
 (use-package rainbow-mode
