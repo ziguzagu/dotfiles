@@ -2,9 +2,7 @@
   :mode (("\\.js\\'"   . js2-mode)
          ("\\.json\\'" . js2-mode)
          ("\\.jsx\\'"  . js2-jsx-mode))
-  :interpreter ("node" . js2-mode)
-  :custom
-  (js2-basic-offset 2))
+  :interpreter ("node" . js2-mode))
 
 (use-package typescript-mode
   :custom
