@@ -68,6 +68,7 @@
 (load "init-company")
 (load "init-helm")
 (load "init-coding")
+(load "init-flycheck")
 (load "init-vc")
 (load "init-cpp")
 (load "init-ruby")
