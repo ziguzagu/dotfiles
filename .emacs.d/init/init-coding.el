@@ -51,5 +51,3 @@
   :init
   (setq dumb-jump-selector 'helm)
   (setq dumb-jump-default-project nil))
-
-(use-package terraform-mode)

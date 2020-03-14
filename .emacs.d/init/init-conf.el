@@ -16,6 +16,3 @@
 
 ;;;;;; nginx mode
 (autoload 'nginx-mode "nginx-mode" nil t)
-
-(use-package hcl-mode
-  :mode "\\.tf\\'")
