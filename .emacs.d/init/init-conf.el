@@ -2,11 +2,6 @@
       (append '(("\\.conf$" . conf-mode)
                 ("\\.cfg$"  . conf-mode)) auto-mode-alist))
 
-;;;;;; yaml
-(use-package yaml-mode
-  :bind (:map yaml-mode-map
-         ("C-m" . newline-and-indent)))
-
 ;;;;;; vcl mode
 (autoload 'vcl-mode "vcl-mode" "Major mode for editting varnish config file")
 (add-to-list 'auto-mode-alist '("\\.vcl$" . vcl-mode))
