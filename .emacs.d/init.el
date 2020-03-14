@@ -75,7 +75,6 @@
 (load "init-perl")
 (load "init-javascript")
 (load "init-web")
-(load "init-conf")
 (load "init-terraform")
 (load "init-docker")
 (load "init-org")
