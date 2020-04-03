@@ -9,7 +9,7 @@
 (defadvice vc-git-annotate-command (around vc-git-annotate-command activate)
   "Suppress relative path of file from git blame output."
   (let ((name (file-relative-name file)))
-    (vc-git-command buf 'async nil "blame" "--date=iso" rev "--" name)))
+    (vc-git-command buf 'async nil "blame" "--date=short" rev "--" name)))
 
 ;; open Pull Reuqest URL on this line from vc-annotate enter P as same as tig
 (defun my:open-pr-at-line ()
