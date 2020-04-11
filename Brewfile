@@ -67,7 +67,6 @@ cask 'java'
 cask 'keepingyouawake'
 cask 'licecap'
 cask 'paw'
-cask 'tableau-reader'
 
 tap 'homebrew/cask-fonts'
 cask 'font-source-han-code-jp'
