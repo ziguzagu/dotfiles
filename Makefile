@@ -30,6 +30,7 @@ gems += travis
 ruby: ## Install ruby-gems of development utility
 	gem update --system --no-document
 	gem install --no-document --conservative $(gems)
+	gem update --no-document --conservative $(gems)
 	gem cleanup $(gems)
 
 keyrepeat: ## Set my best key repeat settings
