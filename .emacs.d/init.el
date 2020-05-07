@@ -78,3 +78,4 @@
 (load "init-terraform")
 (load "init-docker")
 (load "init-org")
+(load "init-lisp")
