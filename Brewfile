@@ -50,6 +50,7 @@ tap 'dkanejs/aws-session-manager-plugin'
 brew 'aws-session-manager-plugin'
 
 tap 'homebrew/cask'
+cask '1password'
 cask 'alfred'
 cask 'appcleaner'
 cask 'cleanmymac'
