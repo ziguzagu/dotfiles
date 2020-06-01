@@ -43,7 +43,7 @@ match      = 214 bold
 [core]
 excludesfile = ~/.gitignore
 whitespace   = trailing-space
-pager        = diff-so-fancy | less -FSX
+pager        = delta --hunk-style=plain | less -FSX
 
 # https://help.github.com/en/github/using-git/caching-your-github-password-in-git
 [credential]
@@ -65,10 +65,8 @@ gpgSign = true
 [diff-so-fancy]
 stripLeadingSymbols = false
 
-# XXX: git 2.17.0 doens't work well with this.
-# see https://github.com/so-fancy/diff-so-fancy/issues/35
-# [interactive]
-# diffFilter = diff-so-fancy
+[interactive]
+diffFilter = delta --color-only
 
 [alias]
 up = !git pull --rebase && git submodule update --init --recursive
