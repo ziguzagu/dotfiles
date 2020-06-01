@@ -22,8 +22,9 @@
   ;; skip boring files and buffers
   (setq helm-ff-skip-boring-files t)
   (setq helm-boring-file-regexp-list '("~$" "\\.elc$" "^#" "/\\.$" "/\\.\\.$"))
-  (setq helm-boring-buffer-regexp-list '("^\s*\\*[A-Z].+\\*\s*$"))
   (helm-mode 1)
+  :custom
+  (helm-boring-buffer-regexp-list '("\\` " "\\*helm" "\\*vc" "\\*Annotate "))
   :custom-face
   (helm-header           ((t (:inherit 'header-line :inverse-video t))))
   (helm-source-header    ((t (:background "#292929" :foreground "#a3a3a3" :slant italic))))
