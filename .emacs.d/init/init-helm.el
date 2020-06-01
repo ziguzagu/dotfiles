@@ -16,14 +16,13 @@
          :map helm-read-file-map
          ("TAB" . helm-execute-persistent-action))
   :config
-  (setq helm-truncate-lines t)
-  (setq helm-buffer-max-length 35)
-  (setq helm-delete-minibuffer-contents-from-point t)
-  ;; skip boring files and buffers
-  (setq helm-ff-skip-boring-files t)
-  (setq helm-boring-file-regexp-list '("~$" "\\.elc$" "^#" "/\\.$" "/\\.\\.$"))
   (helm-mode 1)
   :custom
+  (helm-truncate-lines t)
+  (helm-buffer-max-length 35)
+  (helm-delete-minibuffer-contents-from-point t)
+  (helm-ff-skip-boring-files t)
+  (helm-boring-file-regexp-list '("~$" "\\.elc$" "^#" "/\\.$" "/\\.\\.$"))
   (helm-boring-buffer-regexp-list '("\\` " "\\*helm" "\\*vc" "\\*Annotate "))
   :custom-face
   (helm-header           ((t (:inherit 'header-line :inverse-video t))))
