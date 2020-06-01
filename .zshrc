@@ -72,6 +72,7 @@ add-zsh-hook preexec _rename_tmux_window
 alias ls="gls -AXF --color=auto --group-directories-first"
 alias rg="rg --heading --colors=match:fg:214 --colors=match:style:nobold --colors=match:style:underline --colors=line:fg:117 --colors=path:fg:251 --colors=path:bg:238"
 alias ssh="TERM=xterm-256color ssh"
+alias delta="delta --hunk-style=plain"
 alias l="ls -lh"
 alias lc="tr '[:upper:]' '[:lower:]'"
 alias uc="tr '[:lower:]' '[:upper:]'"
