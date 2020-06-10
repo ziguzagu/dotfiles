@@ -82,10 +82,13 @@ alias s="rg"
 alias fzf="fzf --color=dark,gutter:0"
 alias diff="colordiff -u"
 alias g="hub"
+alias p="less"
 alias t="tig"
 alias z="fzf"
 alias ci="circleci"
 alias tf="terraform"
+
+alias -g P="| less"
 
 ## grep
 alias grep="grep -I --color=auto"
