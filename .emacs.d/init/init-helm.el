@@ -6,7 +6,7 @@
          ("C-c y"   . helm-show-kill-ring)
          ("C-c m"   . helm-man-woman)
          ("C-c o"   . helm-occur)
-         ("C-c s"   . helm-imenu)
+         ("C-c s"   . helm-semantic-or-imenu)
          :map isearch-mode-map
          ("C-o" . helm-occur-from-isearch)
          :map helm-map
@@ -25,6 +25,9 @@
   (helm-ff-skip-boring-files t)
   (helm-boring-file-regexp-list '("~$" "\\.elc$" "^#" "/\\.$" "/\\.\\.$"))
   (helm-boring-buffer-regexp-list '("\\` " "\\*helm" "\\*vc" "\\*Annotate "))
+  ;; for using helm-semantic-or-imenu
+  (helm-semantic-fuzzy-match t)
+  (helm-imenu-fuzzy-match    t)
   :custom-face
   (helm-header           ((t (:inherit 'header-line :inverse-video t))))
   (helm-source-header    ((t (:background "#292929" :foreground "#a3a3a3" :slant italic))))
