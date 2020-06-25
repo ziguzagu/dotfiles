@@ -136,3 +136,5 @@
                             "--run-together-min=2"
                             "--run-together-limit=16"))
   :hook (prog-mode . flyspell-prog-mode))
+
+(use-package wgrep)
