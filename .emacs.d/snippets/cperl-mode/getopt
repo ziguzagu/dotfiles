@@ -1,6 +1,7 @@
 # name : getopt
 # --
-use Getopt::Long qw( :config posix_default no_ignore_case gnu_compat auto_help );
+use Getopt::Long qw( :config posix_default no_ignore_case gnu_compat);
 use Pod::Usage;
 
-GetOptions(\my %opt, qw( h|help )) or pod2usage(1);
+GetOptions(\my %opt, qw(h|help)) or pod2usage(1);
+pod2usage(0) if $opt{help};
