@@ -71,7 +71,6 @@ add-zsh-hook preexec _rename_tmux_window
 
 ## overwrite commands with better defaults
 alias bat="bat --italic-text=always"
-alias delta="delta --hunk-style=plain"
 alias diff="colordiff -u"
 alias fzf="fzf --color=dark,gutter:0"
 alias grep="grep -I --color=auto"
