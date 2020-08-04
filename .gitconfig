@@ -15,12 +15,6 @@ new  = 107
 old  = 167
 whitespace = white bold reverse
 
-[color "diff-highlight"]
-newNormal    = 107 no-bold
-newHighlight = 107 22 no-bold
-oldNormal    = 167 no-bold
-oldHighlight = 167 52 no-bold
-
 [color "status"]
 updated   = 107
 changed   = 167
@@ -61,9 +55,6 @@ gpgSign = true
 
 [tag]
 gpgSign = true
-
-[diff-so-fancy]
-stripLeadingSymbols = false
 
 [interactive]
 diffFilter = delta --color-only
