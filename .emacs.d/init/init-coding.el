@@ -21,23 +21,15 @@
 
 (use-package markdown-mode
   :commands (markdown-mode gfm-mode)
-  :config
-  (set-face-attribute 'markdown-header-delimiter-face nil
-                      :foreground "#ffa500")
-  (set-face-attribute 'markdown-header-rule-face nil
-                      :foreground "#ffa500")
-  (set-face-attribute 'markdown-header-face nil
-                      :foreground "#ffa500")
-  (set-face-attribute 'markdown-inline-code-face nil
-                      :foreground "#87d75f")
-  (set-face-attribute 'markdown-pre-face nil
-                      :foreground "#87d75f")
-  (set-face-attribute 'markdown-language-keyword-face nil
-                      :foreground "#858585")
-  (set-face-attribute 'markdown-list-face nil
-                      :foreground "#af87ff" :weight 'bold)
-  (set-face-attribute 'markdown-link-face nil
-                      :foreground "#5fafff"))
+  :custom-face
+  (markdown-header-delimiter-face ((t (:foreground "#ffa500"))))
+  (markdown-header-rule-face      ((t (:foreground "#ffa500"))))
+  (markdown-header-face           ((t (:foreground "#ffa500"))))
+  (markdown-inline-code-face      ((t (:foreground "#87d75f"))))
+  (markdown-pre-face              ((t (:foreground "#87d75f"))))
+  (markdown-language-keyword-face ((t (:foreground "#858585"))))
+  (markdown-list-face             ((t (:foreground "#af87ff" :weight bold))))
+  (markdown-link-face             ((t (:foreground "#5fafff")))))
 
 (use-package sh-script
   :init
