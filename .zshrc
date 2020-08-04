@@ -69,34 +69,41 @@ add-zsh-hook preexec _rename_tmux_window
 ## Aliases
 ########################################
 
+## overwrite commands with better defaults
+alias bat="bat --italic-text=always"
+alias delta="delta --hunk-style=plain"
+alias diff="colordiff -u"
+alias fzf="fzf --color=dark,gutter:0"
+alias grep="grep -I --color=auto"
+alias less="less -giMqR -j10"
 alias ls="gls -AXF --color=auto --group-directories-first"
+alias prove="prove -lv --timer"
 alias rg="rg --heading --colors=match:fg:214 --colors=match:style:nobold --colors=match:style:underline --colors=line:fg:117 --colors=path:fg:251 --colors=path:bg:238"
 alias ssh="TERM=xterm-256color ssh"
-alias delta="delta --hunk-style=plain"
-alias l="ls -lh"
-alias lc="tr '[:upper:]' '[:lower:]'"
-alias uc="tr '[:lower:]' '[:upper:]'"
-alias prove="prove -lv --timer"
-alias b="bat --italic-text=always"
-alias s="rg"
-alias fzf="fzf --color=dark,gutter:0"
-alias diff="colordiff -u"
-alias g="hub"
-alias p="less"
-alias t="tig"
-alias z="fzf"
-alias ci="circleci"
-alias tf="terraform"
 
+## shortcuts
+alias b="bat"
+alias c="docker-compose"
+alias ci="circleci"
+alias d="docker"
+alias g="hub"
+alias l="ls -lh"
+alias p="less"
+alias s="rg"
+alias t="tig"
+alias tf="terraform"
+alias z="fzf"
+
+## one-line utilities
+alias lc="tr '[:upper:]' '[:lower:]'"
+alias lock="osascript -e 'tell application \"System Events\" to keystroke \"q\" using {command down,control down}'"
+alias uc="tr '[:lower:]' '[:upper:]'"
+
+## global aliases
 alias -g P="| less"
 
 ## grep
-alias grep="grep -I --color=auto"
 export GREP_COLORS="ms=04;31:mc=01;33:sl=:cx=:fn=33:ln=33:bn=33:se=01;30"
-
-## docker
-alias d="docker"
-alias c="docker-compose"
 
 ## directory handlings
 setopt auto_cd
@@ -105,7 +112,6 @@ setopt auto_name_dirs
 setopt extended_glob
 
 ## less
-alias less="less -giMqR -j10"
 export LESSCHARSET=utf-8
 export LESS_TERMCAP_mb=$'\e[1;31m'     # begin blinking
 export LESS_TERMCAP_md=$'\e[1;33m'     # begin bold
@@ -114,9 +120,6 @@ export LESS_TERMCAP_se=$'\e[0m'        # end standout-mode
 export LESS_TERMCAP_so=$'\e[0;30;47m'  # begin standout-mode
 export LESS_TERMCAP_ue=$'\e[0m'        # end underline
 export LESS_TERMCAP_us=$'\e[4;34m'     # begin underline
-
-## lock screen
-alias lock="osascript -e 'tell application \"System Events\" to keystroke \"q\" using {command down,control down}'"
 
 ########################################
 ## Completion
