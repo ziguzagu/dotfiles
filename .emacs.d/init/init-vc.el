@@ -80,3 +80,7 @@
 (use-package browse-at-remote
   :config
   (define-key vc-prefix-map [(w)] 'browse-at-remote))
+
+(use-package gitconfig-mode)
+
+(use-package gitignore-mode)
