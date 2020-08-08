@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: data
+# --
+data "${1:source}" "${2:name}" {
+  $0
+}
