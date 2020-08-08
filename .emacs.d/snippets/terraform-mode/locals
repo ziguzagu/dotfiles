@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: locals
+# key: loc
+# --
+locals {
+  ${1:name} = ${2:value}
+}
