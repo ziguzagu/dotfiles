@@ -151,7 +151,7 @@ test -f ~/.travis/travis.sh && source $_
 ## History
 ########################################
 
-export HISTFILE=~/.zsh/history
+export HISTFILE=~/.local/share/zsh/history
 export HISTSIZE=100000
 export SAVEHIST=100000
 
@@ -235,7 +235,7 @@ add-zsh-hook chpwd _post_chpwd
 
 zstyle ':chpwd:*' recent-dirs-default true
 zstyle ':chpwd:*' recent-dirs-max 500
-zstyle ':chpwd:*' recent-dirs-file "$HOME/.zsh/chpwd-recent-dirs"
+zstyle ':chpwd:*' recent-dirs-file "$HOME/.local/share/zsh/chpwd-recent-dirs"
 zstyle ':chpwd:*' recent-dirs-pushd true
 
 # remove non-existing directories from recent-dirs-file
