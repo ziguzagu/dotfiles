@@ -1,0 +1,4 @@
+;; -*- mode: Emacs-Lisp -*-
+(setq skk-user-directory "~/.local/share/ddskk")
+
+(setq skk-jisyo-code 'utf-8)
