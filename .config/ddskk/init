@@ -6,3 +6,6 @@
       skk-server-report-response t)
 
 (setq skk-jisyo-code 'utf-8)
+
+(setq skk-show-inline 'vertical)
+(setq skk-show-tooltip t)
