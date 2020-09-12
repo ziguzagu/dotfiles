@@ -3,9 +3,6 @@ name = ziguzagu
 email = ziguzagu@gmail.com
 signingkey = 359AF850F7735C62
 
-[color]
-ui = auto
-
 [color "diff"]
 meta = 248 italic
 frag = 74 italic
@@ -40,9 +37,6 @@ pager      = delta --hunk-style=plain | less -FSX
 # https://help.github.com/en/github/using-git/caching-your-github-password-in-git
 [credential]
 helper = osxkeychain
-
-[diff]
-indentHeuristic = true
 
 [grep]
 patternType = perl
