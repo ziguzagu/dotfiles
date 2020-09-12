@@ -18,7 +18,7 @@
   (let* ((rev-at-line (vc-annotate-extract-revision-at-line))
          (rev (car rev-at-line)))
     (shell-command (concat "git hub open " rev))))
-(define-key vc-annotate-mode-map (kbd "P") 'my:open-pr-at-line)
+(define-key vc-annotate-mode-map (kbd "8") 'my:open-pr-at-line)
 
 ;; open current file by tig with blame mode
 (defun my:tig-current-file ()
