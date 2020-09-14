@@ -1,7 +1,7 @@
 (use-package ddskk
   :bind ("C-x C-j" . skk-mode)
   :init
-  (setq skk-init-file "~/.config/ddskk/init")
+  (setq skk-init-file "~/.config/ddskk/init.el")
   (setq skk-user-directory "~/.local/share/ddskk")
   (setq default-input-method "japanese-skk")
   (setq skk-preload t)

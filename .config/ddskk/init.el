@@ -1,5 +1,3 @@
-;; -*- mode: Emacs-Lisp -*-
-
 ;; Use AquaSKK's server
 (setq skk-server-host "localhost"
       skk-server-portnum 1178
