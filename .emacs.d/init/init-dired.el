@@ -11,7 +11,12 @@
   (setq dired-recursive-copies 'always
         dired-recursive-deletes 'always)
   ;; don't create new buffer at moving direcotry
-  (put 'dired-find-alternate-file 'disabled nil))
+  (put 'dired-find-alternate-file 'disabled nil)
+  :config
+  ;; use dired-jump
+  (use-package dired-x
+    :ensure nil
+    :bind ("C-x C-d" . dired-jump)))
 
 ;; uniqufy
 (require 'uniquify)
