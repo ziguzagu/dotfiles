@@ -129,7 +129,8 @@
 (use-package flyspell
   :init
   (setq ispell-program-name "aspell")
-  (setq ispell-extra-args '("--sug-mode=ultra"
+  (setq ispell-extra-args '("--ignore-case"
+                            "--sug-mode=ultra"
                             "--lang=en_US"
                             ;; work for camel case
                             "--run-together"
