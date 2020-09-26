@@ -1,6 +1,7 @@
 (use-package dired
   :ensure nil
   :bind (:map dired-mode-map
+              ("e" . wdired-change-to-wdired-mode)
               ("RET" . dired-find-alternate-file))
   :init
   ;; use GNU ls installed by homebrew to use its own options, not have BSD ls.
@@ -11,9 +12,6 @@
         dired-recursive-deletes 'always)
   ;; don't create new buffer at moving direcotry
   (put 'dired-find-alternate-file 'disabled nil))
-
-(require 'wdired)
-(define-key dired-mode-map "e" 'wdired-change-to-wdired-mode)
 
 ;; uniqufy
 (require 'uniquify)
