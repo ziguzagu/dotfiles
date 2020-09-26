@@ -1,8 +1,15 @@
+(defun my:dired-open-file-by-open ()
+  "Open file by `open` command in dired mode."
+  (interactive)
+  (let ((file (dired-get-file-for-visit)))
+    (shell-command-to-string (concat "open " (shell-quote-argument file)))))
+
 (use-package dired
   :ensure nil
   :bind (:map dired-mode-map
               ("e" . wdired-change-to-wdired-mode)
-              ("RET" . dired-find-alternate-file))
+              ("RET" . dired-find-alternate-file)
+              ("M-o" . my:dired-open-file-by-open))
   :init
   ;; use GNU ls installed by homebrew to use its own options, not have BSD ls.
   (setq insert-directory-program "gls"
