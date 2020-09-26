@@ -18,10 +18,11 @@
     :ensure nil
     :bind ("C-x C-d" . dired-jump)))
 
-;; uniqufy
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
-(setq uniquify-ignore-buffers-re "*[^*]+*")
+(use-package uniquify
+  :ensure nil
+  :init
+  (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+  (setq uniquify-ignore-buffers-re "*[^*]+*"))
 
 ;; using ffap
 (ffap-bindings)
