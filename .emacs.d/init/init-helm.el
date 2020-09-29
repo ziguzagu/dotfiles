@@ -29,11 +29,13 @@
   (helm-semantic-fuzzy-match t)
   (helm-imenu-fuzzy-match    t)
   :custom-face
-  (helm-header           ((t (:inherit 'header-line :inverse-video t))))
-  (helm-source-header    ((t (:background "#292929" :foreground "#a3a3a3" :slant italic))))
-  (helm-candidate-number ((t (:foreground "#5fafff" :background "#444444"))))
-  (helm-selection        ((t (:background "#cb0000" :weight normal))))
-  (helm-match            ((t (:foreground "#a2cd5a")))))
+  (helm-header            ((t (:inherit 'header-line :inverse-video t))))
+  (helm-source-header     ((t (:background "#292929" :foreground "#a3a3a3" :slant italic))))
+  (helm-candidate-number  ((t (:foreground "#5fafff" :background "#444444"))))
+  (helm-selection         ((t (:background "#cb0000" :weight normal))))
+  (helm-match             ((t (:foreground "#a2cd5a"))))
+  (helm-ff-file           ((t (:inherit 'default))))
+  (helm-ff-file-extension ((t (:inherit 'default)))))
 
 (use-package helm-ls-git
   :bind (("C-x f" . helm-browse-project)))
