@@ -45,7 +45,7 @@
          :map isearch-mode-map
          ("C-c g" . helm-git-grep-from-isearch)))
 
-;; dispaly helm by popwin
+;; display helm by popwin
 (push '("^\\*helm" :regexp t) popwin:special-display-config)
 ;; https://github.com/emacs-helm/helm/wiki/Popwin
 (defun my:helm-popwin-help-mode-off ()
