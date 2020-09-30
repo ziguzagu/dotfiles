@@ -2,7 +2,7 @@
   "Open file by `open` command in dired mode."
   (interactive)
   (let ((file (dired-get-file-for-visit)))
-    (shell-command-to-string (concat "open " (shell-quote-argument file)))))
+    (shell-command (concat "open " (shell-quote-argument file)))))
 
 (use-package dired
   :ensure nil
