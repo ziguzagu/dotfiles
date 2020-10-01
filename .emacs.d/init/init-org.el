@@ -27,7 +27,7 @@
 
   ;; org-capture
   (setq org-capture-templates
-        '(("m" "Memo" entry (file+datetree (concat org-directory "memo.org"))
+        '(("m" "Memo" entry (file+datetree (lambda () (concat org-directory "memo.org")))
            "* [%<%H:%M>] %?\n")
           ("b" "Blog Posts" entry (file+olp "~/src/ziguzagu.org/blog.org" "Blog Posts")
            (function my:blog-subtree-post-capture-template)
