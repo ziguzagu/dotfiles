@@ -1,3 +1,5 @@
+(setq initial-scratch-message nil)
+
 (use-package unkillable-scratch
   :config (unkillable-scratch t))
 

@@ -3,7 +3,6 @@
 
 ;; quiet startup
 (setq inhibit-startup-message t)
-(setq initial-scratch-message nil)
 
 ;; preseve  my init.el with saving custom variables to another file
 (setq custom-file "~/.emacs.d/custom.el")
