@@ -5,18 +5,6 @@
 (setq inhibit-startup-message t)
 (setq initial-scratch-message nil)
 
-;; profile
-(setq user-full-name "Hiroshi Sakai")
-(setq user-mail-address "ziguzagu@gmail.com")
-
-;; encoding
-(prefer-coding-system 'utf-8-unix)
-(set-terminal-coding-system 'utf-8-unix)
-(set-keyboard-coding-system 'utf-8)
-(set-clipboard-coding-system 'utf-8)
-(set-default-coding-systems 'utf-8-unix)
-(set-language-environment "UTF-8")
-
 ;; preseve  my init.el with saving custom variables to another file
 (setq custom-file "~/.emacs.d/custom.el")
 (if (file-exists-p custom-file)
