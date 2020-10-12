@@ -52,9 +52,6 @@
 (setq kept-old-versions 5)
 (setq delete-old-versions t)
 
-;; move divided windows by shift with cursor.
-(windmove-default-keybindings)
-
 ;; rotate window divide vertical / horizontal
 (defun my:window-toggle-split ()
   "toggle splitted windows vertical and horizontal"
@@ -86,19 +83,6 @@
   (popwin:popup-window-height 20)
   :config
   (popwin-mode 1))
-
-;; reload buffer without confirmation
-(defun my:revert-buffer-no-confirm (&optional force-reverting)
-  "Interactive call to revert-buffer. Ignoring the auto-save
- file and not requesting for confirmation. When the current buffer
- is modified, the command refuses to revert it, unless you specify
- the optional argument: force-reverting to true."
-  (interactive "P")
-  ;;(message "force-reverting value is %s" force-reverting)
-  (if (or force-reverting (not (buffer-modified-p)))
-      (revert-buffer :ignore-auto :noconfirm)
-    (error "The buffer has been modified")))
-(global-set-key (kbd "M-r") 'my:revert-buffer-no-confirm)
 
 ;; send contents cut and copied to clipboard
 (when (eq system-type 'darwin)
