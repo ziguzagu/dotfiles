@@ -5,17 +5,9 @@
 ;; turn off both beep and visual bell
 (setq ring-bell-function 'ignore)
 
-;; highlight selected region
-(setq-default transient-mark-mode t)
-
 ;; fix mini-buffer
 (setq resize-mini-windows nil)
 
-;; turn on coloring
-(require 'font-lock)
-(global-font-lock-mode t)
-
-;; UI colors
 (set-face-attribute 'default nil
                     :foreground "#e4e4e4"
                     :background "#080808")
