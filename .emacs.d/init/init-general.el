@@ -19,10 +19,10 @@
 (put 'downcase-region 'disabled nil)
 
 ;; key bind
-(global-set-key "\r" 'newline-and-indent)
-(global-set-key "\C-ch" 'help-for-help)
-(global-set-key "\C-h"  'delete-backward-char)
-(global-set-key "\C-c]" 'align-regexp)
+(global-set-key (kbd "RET") 'newline-and-indent)
+(global-set-key (kbd "C-c h") 'help-for-help)
+(global-set-key (kbd "C-h")  'delete-backward-char)
+(global-set-key (kbd "C-c ]") 'align-regexp)
 ;; C-h as delete in mini buffer
 (define-key key-translation-map (kbd "C-h") (kbd "<DEL>"))
 
