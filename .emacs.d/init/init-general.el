@@ -26,6 +26,14 @@
 ;; C-h as delete in mini buffer
 (define-key key-translation-map (kbd "C-h") (kbd "<DEL>"))
 
+(defun my:delete-word-at-point ()
+  "Delete the word at point."
+  (interactive)
+  (let ((bounds (bounds-of-thing-at-point 'word)))
+    (when bounds
+      (kill-region (car bounds) (cdr bounds)))))
+(global-set-key (kbd "M-d") 'my:delete-word-at-point)
+
 ;; save recentf a lot for helm
 (require 'recentf)
 (setq recentf-max-saved-items 5000)
