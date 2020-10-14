@@ -49,7 +49,6 @@
 (load "init-modeline")
 (load "init-scratch")
 (load "init-dired")
-(load "init-shell")
 (load "init-general")
 (load "init-skk")
 (load "init-yasnippet")
