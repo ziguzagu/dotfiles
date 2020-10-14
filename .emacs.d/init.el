@@ -13,9 +13,9 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(setq package-archive-priorities '(("melpa" . 10)
-                                   ("melpa-stable" . 5)
-                                   ("gnu" . 1)))
+(setq package-archive-priorities '(("melpa-stable" . 10)
+                                   ("gnu" . 5)
+                                   ("melpa" . 0)))
 (package-initialize)
 
 ;; prepare to use use-package.el

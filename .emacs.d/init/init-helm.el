@@ -1,5 +1,4 @@
 (use-package helm
-  :pin melpa-stable
   :bind (("M-x" . helm-M-x)
          ("C-x b" . helm-mini)
          ("C-x C-f" . helm-find-files)
