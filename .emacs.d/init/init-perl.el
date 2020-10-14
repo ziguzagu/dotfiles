@@ -60,7 +60,7 @@
   :command ("plenv"
             "exec"
             "perl"
-            "-MProject::Libs lib_dirs => [qw(local/lib/perl5 core/lib typepad/lib mars/lib dolphin/lib)]"
+            "-MProject::Libs lib_dirs => [qw(local/lib/perl5)]"
             "-wc"
             source-inplace)
   :error-patterns ((error line-start
