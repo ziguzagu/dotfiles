@@ -4,10 +4,7 @@
 ;; quiet startup
 (setq inhibit-startup-message t)
 
-;; preseve  my init.el with saving custom variables to another file
-(setq custom-file "~/.emacs.d/custom.el")
-(if (file-exists-p custom-file)
-    (load custom-file))
+(setq custom-file (expand-file-name "custom.el" temporary-file-directory))
 
 ;; initialize package.el
 (require 'package)
