@@ -32,19 +32,9 @@
   :config
   (exec-path-from-shell-initialize))
 
-;; emacs server/client on tmux
-(require 'server)
-(unless (server-running-p)
-  (server-start)
-  (cond ((getenv "TMUX")
-         (shell-command "tmux display -p '#I' > ~/.emacs.d/emacs-server-window")
-         (add-hook 'kill-emacs-hook
-                   (lambda ()
-                     (shell-command "rm -f ~/.emacs.d/emacs-server-window")))))
-  (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function))
-
 ;; initialize
 (add-to-list 'load-path "~/.emacs.d/init")
+(load "init-server")
 (load "init-appearance")
 (load "init-modeline")
 (load "init-scratch")
