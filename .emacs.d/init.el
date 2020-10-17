@@ -1,5 +1,4 @@
 (setq debug-on-error t)
-(cd "~")
 
 ;; quiet startup
 (setq inhibit-startup-message t)
