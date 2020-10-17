@@ -6,19 +6,17 @@
 
 (setq custom-file (expand-file-name "custom.el" temporary-file-directory))
 
-;; initialize package.el
-(require 'package)
-(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(setq package-archive-priorities '(("melpa-stable" . 10)
-                                   ("gnu" . 5)
-                                   ("melpa" . 0)))
-(package-initialize)
+(eval-and-compile
+  (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+  (setq package-archive-priorities '(("melpa-stable" . 10)
+                                     ("gnu" . 5)
+                                     ("melpa" . 0)))
+  (package-initialize)
+  (unless (package-installed-p 'use-package)
+    (package-refresh-contents)
+    (package-install 'use-package)))
 
-;; prepare to use use-package.el
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
 (eval-when-compile
   (require 'use-package)
   (setq use-package-always-ensure t))
