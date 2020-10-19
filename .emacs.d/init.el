@@ -1,6 +1,5 @@
 (setq debug-on-error t)
 
-;; quiet startup
 (setq inhibit-startup-message t)
 
 (setq custom-file (expand-file-name "custom.el" temporary-file-directory))
@@ -21,12 +20,10 @@
   (setq use-package-always-ensure t))
 (require 'bind-key)
 
-;; inherit PATH from shell
 (use-package exec-path-from-shell
   :config
   (exec-path-from-shell-initialize))
 
-;; initialize
 (add-to-list 'load-path "~/.emacs.d/init")
 (load "init-server")
 (load "init-appearance")
