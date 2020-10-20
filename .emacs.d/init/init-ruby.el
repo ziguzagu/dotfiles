@@ -11,7 +11,9 @@
   :pin melpa ;; I need v >= 1.20.0 to use with docker
   :custom
   (rspec-use-docker-when-possible t)
-  (rspec-use-relative-path t))
+  (rspec-use-relative-path t)
+  :config
+  (rspec-install-snippets))
 
 (use-package inf-ruby
   :hook
