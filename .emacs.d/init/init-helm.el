@@ -36,9 +36,6 @@
   (helm-ff-file           ((t (:inherit 'default))))
   (helm-ff-file-extension ((t (:inherit 'default)))))
 
-(use-package helm-ls-git
-  :bind (("C-x f" . helm-browse-project)))
-
 (use-package helm-git-grep
   :bind (("C-c g" . helm-git-grep)
          :map isearch-mode-map
@@ -72,7 +69,8 @@
   (setq helm-ag-base-command "rg --no-heading"))
 
 (use-package helm-projectile
-  :bind ("C-c p p" . helm-projectile-switch-project)
+  :bind (("C-c p p" . helm-projectile-switch-project)
+         ("C-x f" . helm-projectile))
   :init
   (setq projectile-completion-system 'helm)
   :config
