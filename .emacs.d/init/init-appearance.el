@@ -5,9 +5,6 @@
 ;; turn off both beep and visual bell
 (setq ring-bell-function 'ignore)
 
-;; fix mini-buffer
-(setq resize-mini-windows nil)
-
 (set-face-attribute 'default nil
                     :foreground "#e4e4e4"
                     :background "#080808")
