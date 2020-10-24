@@ -38,6 +38,7 @@
 (load "init-coding")
 (load "init-flycheck")
 (load "init-vc")
+(load "init-lsp")
 (load "init-ruby")
 (load "init-perl")
 (load "init-javascript")
