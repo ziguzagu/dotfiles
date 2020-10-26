@@ -26,7 +26,7 @@ my %uniq;
 @words =
     grep { !$uniq{$_}++ }
     grep { length > 3 }
-    grep { /\A[\~]?\w+\S+\z/ } # extract word likely to make sensce
+    grep { /\A\~?[\w\/]+\S+\z/ } # extract word likely to make sensce
     @words;
 # ok
 print join "\n", @words, '';
