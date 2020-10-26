@@ -6,9 +6,11 @@ use utf8;
 use Getopt::Long qw(:config posix_default no_ignore_case gnu_compat);
 use Pod::Usage;
 
-GetOptions(\my %opt, qw(help|h))
+GetOptions(\my %opt, qw(length|l=i help|h))
     or pod2usage(1);
 $opt{help} && pod2usage(0);
+
+$opt{length} //= 4;
 
 my $capture = do { local $/; <STDIN> };
 # prep
@@ -25,7 +27,7 @@ for (@words) {
 my %uniq;
 @words =
     grep { !$uniq{$_}++ }
-    grep { length > 3 }
+    grep { length >= $opt{length} }
     grep { /\A\~?[\w\/]+\S+\z/ } # extract word likely to make sensce
     @words;
 # ok
@@ -46,6 +48,10 @@ stringus - print strings likely to make sensce from STDIN
 =head1 OPTIONS
 
 =over 4
+
+=item B<-l|--length <number>>
+
+Minimum length of extracing words. Default is 4.
 
 =item B<-h, --help>
 
