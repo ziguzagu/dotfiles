@@ -4,7 +4,3 @@
   :hook
   ((terraform-mode . terraform-format-on-save-mode)
    (terraform-mode . lsp-deferred)))
-
-(use-package company-terraform
-  :config
-  (company-terraform-init))
