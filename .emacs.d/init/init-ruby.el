@@ -6,8 +6,8 @@
   (ruby-insert-encoding-magic-comment nil))
 
 (use-package ruby-end
-  :init
-  (add-hook 'ruby-mode-hook '(lambda () (ruby-end-mode t))))
+  :hook
+  (ruby-mode . ruby-end-mode))
 
 (use-package rspec-mode
   :pin melpa ;; I need v >= 1.20.0 to use with docker
