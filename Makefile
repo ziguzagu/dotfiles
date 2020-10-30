@@ -34,6 +34,9 @@ ruby: ## Install ruby-gems of development utility
 	gem update --no-document --conservative $(gems)
 	gem cleanup $(gems)
 
+go: ## Setup Go environment
+	go get -u golang.org/x/tools/gopls
+
 keyrepeat: ## Set my best key repeat settings
 	defaults write -g InitialKeyRepeat -int 15
 	defaults write -g KeyRepeat -int 1
