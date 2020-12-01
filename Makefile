@@ -20,7 +20,7 @@ terminfo: ## Install extra terminfo missing of macOS 10.15
 	tic -x tmux.terminfo
 
 brew: ## Update homebrew stuff
-	brew update
+	brew update --verbose
 	brew bundle --no-lock
 	brew bundle check --verbose
 	brew cleanup
