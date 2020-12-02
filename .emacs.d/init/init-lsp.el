@@ -7,6 +7,6 @@
   ;; Use terraform-ls instead of terraform-lsp to be stable
   ;; https://github.com/hashicorp/terraform-ls/blob/master/docs/USAGE.md#emacs
   (lsp-register-client
-   (make-lsp-client :new-connection (lsp-stdio-connection '("/usr/local/bin/terraform-ls" "serve"))
+   (make-lsp-client :new-connection (lsp-stdio-connection '("terraform-ls" "serve"))
                     :major-modes '(terraform-mode)
                     :server-id 'terraform-ls)))

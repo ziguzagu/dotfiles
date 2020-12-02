@@ -3,8 +3,7 @@
 export LANG=en_US.UTF-8
 export TERMINFO=$HOME/.terminfo
 
-export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
-export MANPATH="/usr/local/share/man:/usr/share/man"
+export PATH=$HOME/bin:$PATH
 export GOPATH=$HOME
 
 export PAGER=less
@@ -13,3 +12,5 @@ export EDITOR="emacsclient -t"
 export ALTERNATE_EDITOR=vi
 
 export GPG_TTY=$(tty)
+
+eval $(/usr/local/bin/brew shellenv)

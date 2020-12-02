@@ -125,8 +125,8 @@ export LESS_TERMCAP_us=$'\e[4;34m'     # begin underline
 ########################################
 
 ## additional completions by https://github.com/zsh-users/zsh-completions
-if [[ -d /usr/local/share/zsh-completions ]]; then
-  fpath=(/usr/local/share/zsh-completions $fpath)
+if [[ -d $HOMEBREW_PREFIX/share/zsh-completions ]]; then
+  fpath=($HOMEBREW_PREFIX/share/zsh-completions $fpath)
 fi
 
 ## init completion with reducing checking zcompdump file
@@ -403,7 +403,7 @@ pmver() {
 export BAT_THEME='TwoDark'
 
 ## zsh-syntax-highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_STYLES[unknown-token]=fg:red,underline
 ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_approx]=none
