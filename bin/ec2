@@ -52,7 +52,7 @@ ec2 - Describe EC2 instances
 
 =head1 SYNOPSIS
 
-$ saba [options] <profile>
+$ ec2 [options] <profile>
 
 =head1 OPTIONS
 
