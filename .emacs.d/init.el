@@ -31,7 +31,6 @@
 (load "init-scratch")
 (load "init-dired")
 (load "init-general")
-(load "init-skk")
 (load "init-yasnippet")
 (load "init-company")
 (load "init-helm")
