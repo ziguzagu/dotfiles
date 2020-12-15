@@ -1,5 +1,6 @@
 (use-package company
   :bind (("C-o" . company-complete)
+         ("M-o" . company-dabbrev)
          :map company-active-map
          ("C-n" . company-select-next)
          ("C-p" . company-select-previous)
@@ -10,8 +11,6 @@
          ("C-p" . company-select-previous))
   :config
   (global-company-mode t)
-  ;; tweak backends
-  (add-to-list 'company-backends 'company-dabbrev)
   :custom
   (company-idle-delay 0)
   (company-auto-expand t)
