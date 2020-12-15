@@ -5,7 +5,14 @@
   (add-hook 'before-save-hook #'lsp-format-buffer t t)
   (add-hook 'before-save-hook #'lsp-organize-imports t t))
 
+(defun my:insert-short-var-declaration-op ()
+  (interactive)
+  (insert ":="))
+
 (use-package go-mode
+  :bind
+  ;; map `C-=` to default ascii codes `^[[61;5u` by iTerm's key map
+  (("C-=" . my:insert-short-var-declaration-op))
   :hook
   (go-mode . lsp-deferred)
   (go-mode . lsp-go-install-save-hooks))
