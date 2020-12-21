@@ -34,4 +34,5 @@
            :prepend t :empty-lines 1))))
 
 (use-package ox-hugo
+  :pin melpa
   :after ox)
