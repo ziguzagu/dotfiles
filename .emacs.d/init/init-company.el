@@ -1,6 +1,5 @@
 (use-package company
-  :bind (("C-o" . company-complete)
-         ("M-o" . company-dabbrev)
+  :bind (("C-o" . company-dabbrev)
          :map company-active-map
          ("C-n" . company-select-next)
          ("C-p" . company-select-previous)
