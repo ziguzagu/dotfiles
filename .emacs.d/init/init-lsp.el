@@ -10,3 +10,8 @@
    (make-lsp-client :new-connection (lsp-stdio-connection '("terraform-ls" "serve"))
                     :major-modes '(terraform-mode)
                     :server-id 'terraform-ls)))
+
+(use-package company-lsp
+  :pin melpa
+  :defer t
+  :after lsp company)
