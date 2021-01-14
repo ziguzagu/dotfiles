@@ -56,6 +56,7 @@
   :custom
   (show-trailing-whitespace t)
   (whitespace-style '(face tabs tab-mark trailing))
+  (whitespace-global-modes '(not go-mode))
   :config
   (global-whitespace-mode t)
   :custom-face
