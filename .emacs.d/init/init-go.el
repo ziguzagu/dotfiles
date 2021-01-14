@@ -6,8 +6,13 @@
   (add-hook 'before-save-hook #'lsp-organize-imports t t))
 
 (defun my:insert-short-var-declaration-op ()
+  "Insert `:=` at the point"
   (interactive)
-  (insert ":="))
+  (unless (string= (string (char-before)) " ")
+    (insert " "))
+  (insert ":=")
+  (unless (string= (string (char-after)) " ")
+    (insert " ")))
 
 (use-package go-mode
   :bind
