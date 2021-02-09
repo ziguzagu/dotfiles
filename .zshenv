@@ -1,7 +1,7 @@
 # -*- mode: shell-script; -*-
 
 export LANG=en_US.UTF-8
-export TERMINFO=$HOME/.terminfo
+export TERMINFO=~/.local/share/terminfo
 
 export PATH=$HOME/bin:$PATH
 export GOPATH=$HOME
