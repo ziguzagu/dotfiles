@@ -9,7 +9,7 @@ targets = $(addprefix $(home),$(sources))
 install: $(targets) ## Install dot files into $HOME as symlink
 	ln -sf ~/Dropbox/Library/aspell/aspell.en.pws ~/.aspell.en.pws
 	ln -sf ~/Dropbox/Library/aspell/aspell.en.prepl ~/.aspell.en.prepl
-	@mkdir -p ~/.local/share/{tig,zsh,terminfo}
+	@mkdir -p $(XDG_DATA_HOME)/{tig,zsh,terminfo}
 
 $(targets):
 	@mkdir -m 700 -p $(dir $@)
