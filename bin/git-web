@@ -1,11 +1,11 @@
 #!/bin/bash
 set -eu
 
-branch="$(git rev-parse --abbrev-ref HEAD)"
+default_branch="$(git default-branch)"
+current_branch="$(git current-branch)"
 
-# TODO: get default branch and compares it and 'master'
-if [ $branch = 'master' ] || [ $branch = 'develop' ]; then
+if [ $default_branch = $current_branch ]; then
   hub browse
 else
-  hub browse -- pull/$branch
+  hub browse -- pull/$current_branch
 fi
