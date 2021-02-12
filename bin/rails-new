@@ -1,0 +1,45 @@
+#!/usr/bin/env ruby
+#
+# rails-new: Run `rails new` with no rails gem
+#
+
+require 'optparse'
+require 'pathname'
+
+opt = OptionParser.new
+opt.banner = 'Usage: rails-new <app_path> [-h] [options]'
+opt.on('-h', '--help', 'Print this help') do
+  puts opt
+  exit
+end
+
+app_path = Pathname.new(ARGV.first)
+
+rails_new_options = []
+begin
+  opt.parse!
+rescue OptionParser::InvalidOption => e
+  rails_new_options << e.args[0]
+  retry
+end
+
+abort "#{app_path} directory exists." if app_path.exist?
+app_path.mkpath
+Dir.chdir(app_path)
+
+File.open('Gemfile', 'w') do |f|
+  f << <<~EOF
+    source "https://rubygems.org"
+    gem "rails"
+  EOF
+end
+
+def msg(str)
+  puts "\e[1;38;5;215m⚡ #{str}\e[0m"
+end
+
+msg 'Prepare to run rails new...'
+system('bundle', 'install', '--quiet', exception: true)
+
+msg "rails new #{rails_new_options.join(' ')}"
+system('bundle', 'exec', 'rails', 'new', '.', '--force', *rails_new_options, exception: true)
