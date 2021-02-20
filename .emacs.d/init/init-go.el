@@ -15,6 +15,7 @@
     (insert " ")))
 
 (use-package go-mode
+  :pin melpa
   :bind
   ;; map `C-=` to default ascii codes `^[[61;5u` by iTerm's key map
   (("C-=" . my:insert-short-var-declaration-op))
