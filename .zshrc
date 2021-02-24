@@ -44,6 +44,10 @@ eval "$(command rbenv init -)"
 
 typeset -U PATH
 
+export GO111MODULE=on
+export GOBIN=$HOME/bin
+export GOMODCACHE=$HOME/.cache/go_mod
+
 ########################################
 ## Tmux
 ########################################
