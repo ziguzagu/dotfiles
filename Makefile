@@ -35,7 +35,7 @@ ruby: ## Install ruby-gems of development utility
 	gem cleanup $(gems)
 
 go: ## Setup Go environment
-	go get golang.org/x/tools/gopls@latest
+	go get golang.org/x/tools/gopls
 	go get github.com/motemen/gore/cmd/gore
 	go get github.com/mdempsky/gocode
 	go get github.com/k0kubun/pp
