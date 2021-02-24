@@ -5,9 +5,10 @@
 ```
 ➜ make help
 brew                 Update homebrew stuff
+go                   Update local development environment of Go
 install              Install dot files into $HOME as symlink
 keyrepeat            Set my best key repeat settings
 rainbow              Test terminal's 24-bit color support
-ruby                 Install ruby-gems of development utility
+ruby                 Update local development environment of Ruby
 terminfo             Install extra terminfo missing of macOS 10.15
 ```

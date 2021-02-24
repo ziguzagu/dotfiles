@@ -28,13 +28,13 @@ brew: ## Update homebrew stuff
 gems  = rubocop rubocop-performance rubocop-rspec rubocop-rails reek
 gems += solargraph
 gems += travis
-ruby: ## Install ruby-gems of development utility
+ruby: ## Update local development environment of Ruby
 	gem update --system --no-document
 	gem install --no-document --conservative $(gems)
 	gem update --no-document --conservative $(gems)
 	gem cleanup $(gems)
 
-go: ## Setup Go environment
+go: ## Update local development environment of Go
 	go get golang.org/x/tools/gopls
 	go get github.com/motemen/gore/cmd/gore
 	go get github.com/mdempsky/gocode
