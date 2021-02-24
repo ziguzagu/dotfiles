@@ -418,7 +418,8 @@ if [ ! -f "~/.zshrc.zwc" -o "~/.zshrc" -nt "~/.zshrc.zwc" ]; then
   zcompile ~/.zshrc
 fi
 
-uncolor() {
+# get rid of ANSI escape sequences to pipe STDOUT to pbcopy
+decolor() {
   perl -pe 's/\e\[\d+m//g'
 }
 
