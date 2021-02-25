@@ -97,10 +97,6 @@ alias t="tig"
 alias tf="terraform"
 alias z="fzf"
 
-## one-line utilities
-alias lc="tr '[:upper:]' '[:lower:]'"
-alias uc="tr '[:lower:]' '[:upper:]'"
-
 ## global aliases
 alias -g P="| less"
 
@@ -393,12 +389,6 @@ fzf-find-perl-module() {
 zle -N fzf-find-perl-module
 bindkey '^x^p' fzf-find-perl-module
 
-# display perl module's version
-pmver() {
-  readonly pkg="$1"
-  perl -m${pkg} -E "say \$${pkg}::VERSION"
-}
-
 ########################################
 ## Misc
 ########################################
@@ -417,9 +407,26 @@ if [ ! -f "~/.zshrc.zwc" -o "~/.zshrc" -nt "~/.zshrc.zwc" ]; then
   zcompile ~/.zshrc
 fi
 
+########################################
+## Command
+########################################
+
 # get rid of ANSI escape sequences to pipe STDOUT to pbcopy
 decolor() {
   perl -pe 's/\e\[\d+m//g'
+}
+
+lc() {
+  tr '[:upper:]' '[:lower:]'
+}
+
+pmver() {
+  readonly pkg="$1"
+  perl -m${pkg} -E "say \$${pkg}::VERSION"
+}
+
+uc() {
+  tr '[:lower:]' '[:upper:]'
 }
 
 ########################################
