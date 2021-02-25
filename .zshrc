@@ -99,7 +99,6 @@ alias z="fzf"
 
 ## one-line utilities
 alias lc="tr '[:upper:]' '[:lower:]'"
-alias lock="osascript -e 'tell application \"System Events\" to keystroke \"q\" using {command down,control down}'"
 alias uc="tr '[:lower:]' '[:upper:]'"
 
 ## global aliases
