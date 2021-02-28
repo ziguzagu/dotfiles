@@ -104,3 +104,6 @@ required = true
 
 [init]
 defaultBranch = main
+
+[include]
+path = ~/.config/git/config.local
