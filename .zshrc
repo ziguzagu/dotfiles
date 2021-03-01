@@ -41,8 +41,13 @@ fi
 ## Development
 ########################################
 
-eval "$(command plenv init -)"
-eval "$(command rbenv init -)"
+if [[ -x "$(which plenv)" ]]; then
+  eval "$(command plenv init -)"
+fi
+
+if [[ -x "$(which rbenv)" ]]; then
+  eval "$(command rbenv init -)"
+fi
 
 typeset -U PATH
 
