@@ -13,5 +13,3 @@ export EDITOR="emacsclient -t"
 export ALTERNATE_EDITOR=vi
 
 export GPG_TTY=$(tty)
-
-eval $(/usr/local/bin/brew shellenv)

@@ -1,5 +1,7 @@
 ## -*- mode: shell-script; -*-
 
+eval $(brew shellenv)
+
 # prepare zprof for profzsh command
 if [[ $ZPROF == 'true' ]]; then
   zmodload zsh/zprof
