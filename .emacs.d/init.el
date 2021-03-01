@@ -5,6 +5,7 @@
 (setq custom-file (expand-file-name "custom.el" temporary-file-directory))
 
 (eval-and-compile
+  (require 'package)
   (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
   (setq package-archive-priorities '(("melpa-stable" . 10)
