@@ -1,110 +1,110 @@
 [user]
-name = ziguzagu
-email = ziguzagu@gmail.com
-signingkey = 359AF850F7735C62
+	name = ziguzagu
+	email = ziguzagu@gmail.com
+	signingkey = 359AF850F7735C62
 
 [color "diff"]
-meta = 248 italic
-frag = 74 italic
-func = 140 no-bold italic
-new  = 107
-old  = 167
-whitespace = white bold reverse
+	meta = 248 italic
+	frag = 74 italic
+	func = 140 no-bold italic
+	new  = 107
+	old  = 167
+	whitespace = white bold reverse
 
 [color "status"]
-updated   = 107
-changed   = 167
-untracked = 75
+	updated   = 107
+	changed   = 167
+	untracked = 75
 
 [color "branch"]
-current  = 107
-local    = 254
-remote   = 110
-upstream = 183
-plain    = 248
+	current  = 107
+	local    = 254
+	remote   = 110
+	upstream = 183
+	plain    = 248
 
 [color "grep"]
-filename   = 251 238 italic
-linenumber = 74 no-bold
-separator  = 74 no-bold
-function   = 140 no-bold italic
-match      = 214 bold
+	filename   = 251 238 italic
+	linenumber = 74 no-bold
+	separator  = 74 no-bold
+	function   = 140 no-bold italic
+	match      = 214 bold
 
 [core]
-whitespace = trailing-space
-pager      = delta --hunk-style=plain | less -FSX
+	whitespace = trailing-space
+	pager      = delta --hunk-style=plain | less -FSX
 
 # https://help.github.com/en/github/using-git/caching-your-github-password-in-git
 [credential]
-helper = osxkeychain
+	helper = osxkeychain
 
 [grep]
-patternType = perl
+	patternType = perl
 
 [commit]
-verbose = true
-gpgSign = true
+	verbose = true
+	gpgSign = true
 
 [tag]
-gpgSign = true
+	gpgSign = true
 
 [interactive]
-diffFilter = delta --color-only
+	diffFilter = delta --color-only
 
 [alias]
-up = !git pull --rebase && git submodule update --init --recursive
-di = diff
-dc = diff --cached
-ci = commit
-st = status -s
-co = checkout
-pick = cherry-pick
-br = branch
-sw = switch
-cs = ci-status -v
-ls = ls-files
-discard = restore
-amend = ci --amend --no-edit
-unstage = reset HEAD --
-uncommit = reset HEAD~
-last = log -1 HEAD
-url = config --get remote.origin.url
-publish = !git push -u origin $(git current-branch)
-unpublish = !git push origin :$(git current-branch)
-upstream = !git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null
-s = grep --heading --break --line-number --color --show-function
-current-branch = branch --show-current
-default-branch = !basename $(git symbolic-ref --short refs/remotes/origin/HEAD)
-prune-branches = !git branch --merged | grep -v '\\* ' | xargs -n 1 git branch -d
+	up = !git pull --rebase && git submodule update --init --recursive
+	di = diff
+	dc = diff --cached
+	ci = commit
+	st = status -s
+	co = checkout
+	pick = cherry-pick
+	br = branch
+	sw = switch
+	cs = ci-status -v
+	ls = ls-files
+	discard = restore
+	amend = ci --amend --no-edit
+	unstage = reset HEAD --
+	uncommit = reset HEAD~
+	last = log -1 HEAD
+	url = config --get remote.origin.url
+	publish = !git push -u origin $(git current-branch)
+	unpublish = !git push origin :$(git current-branch)
+	upstream = !git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null
+	s = grep --heading --break --line-number --color --show-function
+	current-branch = branch --show-current
+	default-branch = !basename $(git symbolic-ref --short refs/remotes/origin/HEAD)
+	prune-branches = !git branch --merged | grep -v '\\* ' | xargs -n 1 git branch -d
 
 [push]
-default = current
+	default = current
 
 [rebase]
-autostash = true
+	autostash = true
 
 [fetch]
-prune = true
-parallel = 2
+	prune = true
+	parallel = 2
 
 [checkout]
-defaultRemote = origin
+	defaultRemote = origin
 
 [ghq]
-root = ~/src
+	root = ~/src
 
 [filter "hawser"]
-clean = git hawser clean %f
-smudge = git hawser smudge %f
-required = true
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
 
 [filter "lfs"]
-clean = git lfs clean %f
-smudge = git lfs smudge %f
-required = true
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
 
 [init]
-defaultBranch = main
+	defaultBranch = main
 
 [include]
-path = ~/.config/git/config.local
+	path = ~/.config/git/config.local
