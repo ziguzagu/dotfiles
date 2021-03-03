@@ -13,7 +13,7 @@ install: $(targets) ## Install dot files into $HOME as symlink
 
 $(targets):
 	@mkdir -m 700 -p $(dir $@)
-	ln -sf $(subst $(home),$(basedir),$@) $@
+	ln -s $(subst $(home),$(basedir),$@) $@
 
 terminfo: ## Install extra terminfo missing of macOS 10.15
 	tic -x xterm.terminfo
