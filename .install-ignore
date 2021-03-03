@@ -1,0 +1,7 @@
+*.md
+*.terminfo
+*.txt
+.git-blame-ignore-revs
+.install-ignore
+Brewfile
+Makefile

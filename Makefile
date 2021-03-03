@@ -1,7 +1,9 @@
 ## -*- mode: makefile-gmake; -*-
+SHELL = /bin/zsh
+
 home    = $(HOME)/
 basedir = $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
-sources = $(shell git ls-files | grep -Ev '(Makefile|Brewfile|\.terminfo|\.md|\.txt)$$')
+sources = $(shell cat <(git ls-files) <(git ls-files -i -X .install-ignore) | sort | uniq -u)
 targets = $(addprefix $(home),$(sources))
 
 .DEFAULT_GOAL := help
