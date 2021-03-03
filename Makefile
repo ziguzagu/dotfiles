@@ -20,7 +20,7 @@ $(targets):
 ~/.aspell.en.prepl: ~/Dropbox/Library/aspell/aspell.en.prepl
 	ln -s $< $@
 
-terminfo: ## Install extra terminfo missing of macOS 10.15
+terminfo: ## Install extra terminfo missing of macOS
 	tic -x xterm.terminfo
 	tic -x tmux.terminfo
 

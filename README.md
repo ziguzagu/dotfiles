@@ -10,5 +10,5 @@ install              Install dot files into $HOME as symlink
 keyrepeat            Set my best key repeat settings
 rainbow              Test terminal's 24-bit color support
 ruby                 Update local development environment of Ruby
-terminfo             Install extra terminfo missing of macOS 10.15
+terminfo             Install extra terminfo missing of macOS
 ```
