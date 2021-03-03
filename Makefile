@@ -8,14 +8,17 @@ targets = $(addprefix $(home),$(sources))
 
 .DEFAULT_GOAL := help
 
-install: $(targets) ## Install dot files into $HOME as symlink
-	ln -sf ~/Dropbox/Library/aspell/aspell.en.pws ~/.aspell.en.pws
-	ln -sf ~/Dropbox/Library/aspell/aspell.en.prepl ~/.aspell.en.prepl
+install: $(targets) --dropbox ## Install dot files into $HOME as symlink
 	@mkdir -p $(XDG_DATA_HOME)/{tig,zsh,terminfo}
 
 $(targets):
 	@mkdir -m 700 -p $(dir $@)
 	ln -s $(subst $(home),$(basedir),$@) $@
+
+--dropbox: ~/.aspell.en.pws ~/.aspell.en.prepl
+~/.aspell.en.pws: ~/Dropbox/Library/aspell/aspell.en.pws
+~/.aspell.en.prepl: ~/Dropbox/Library/aspell/aspell.en.prepl
+	ln -s $< $@
 
 terminfo: ## Install extra terminfo missing of macOS 10.15
 	tic -x xterm.terminfo
