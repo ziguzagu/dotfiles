@@ -41,5 +41,6 @@
   :bind (("M-." . dumb-jump-go)
          ("M-," . dumb-jump-back))
   :init
+  (setq dumb-jump-prefer-searcher 'rg)
   (setq dumb-jump-selector 'helm)
   (setq dumb-jump-default-project nil))
