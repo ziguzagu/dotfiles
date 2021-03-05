@@ -39,4 +39,5 @@
   :config
   (projectile-rails-global-mode))
 
-(use-package haml-mode)
+(use-package haml-mode
+  :pin melpa)
