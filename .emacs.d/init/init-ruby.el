@@ -40,9 +40,3 @@
   (projectile-rails-global-mode))
 
 (use-package haml-mode)
-
-;; It's hard to working rails projects that uses docker
-;; (use-package robe
-;;   :init
-;;   (add-hook 'ruby-mode-hook '(lambda () (robe-mode)))
-;;   (add-hook 'robe-mode-hook '(lambda () (ac-robe-setup))))
