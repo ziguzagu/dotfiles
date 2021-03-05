@@ -39,6 +39,8 @@
   :config
   (projectile-rails-global-mode))
 
+(use-package haml-mode)
+
 ;; It's hard to working rails projects that uses docker
 ;; (use-package robe
 ;;   :init
