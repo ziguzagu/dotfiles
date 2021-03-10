@@ -9,3 +9,4 @@
 .idea/
 .yardoc/
 .dir-locals.el
+/vendor/bundle/
