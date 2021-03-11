@@ -70,7 +70,6 @@
                                        (turn-on-auto-fill)))
 
 (use-package git-commit
-  :pin melpa
   :config
   (global-git-commit-mode)
   :custom

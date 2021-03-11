@@ -12,6 +12,5 @@
                     :server-id 'terraform-ls)))
 
 (use-package company-lsp
-  :pin melpa
   :defer t
   :after lsp company)

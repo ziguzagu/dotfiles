@@ -10,7 +10,6 @@
   (ruby-mode . ruby-end-mode))
 
 (use-package rspec-mode
-  :pin melpa ;; I need v >= 1.20.0 to use with docker
   :custom
   (rspec-use-docker-when-possible t)
   (rspec-use-relative-path t)
@@ -39,5 +38,4 @@
   :config
   (projectile-rails-global-mode))
 
-(use-package haml-mode
-  :pin melpa)
+(use-package haml-mode)
