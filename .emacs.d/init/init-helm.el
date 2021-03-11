@@ -68,6 +68,9 @@
   :config
   (setq helm-ag-base-command "rg --no-heading"))
 
+(use-package projectile
+  :pin melpa) ;; workaround for https://github.com/asok/projectile-rails/issues/132
+
 (use-package helm-projectile
   :bind (("C-c p p" . helm-projectile-switch-project)
          ("C-x f" . helm-projectile))
