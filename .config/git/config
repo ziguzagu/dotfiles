@@ -32,7 +32,7 @@
 
 [core]
 	whitespace = trailing-space
-	pager      = delta --hunk-style=plain | less -FSX
+	pager      = delta
 
 # https://help.github.com/en/github/using-git/caching-your-github-password-in-git
 [credential]
