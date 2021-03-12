@@ -74,7 +74,7 @@
 	upstream = !git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null
 	s = grep --heading --break --line-number --color --show-function
 	current-branch = branch --show-current
-	default-branch = !basename $(git symbolic-ref --short refs/remotes/origin/HEAD)
+	default-branch = !basename $(git symbolic-ref --short refs/remotes/$(git remote | grep upstream || echo 'origin')/HEAD)
 	prune-branches = !git branch --merged | grep -v '\\* ' | xargs -n 1 git branch -d
 
 [push]
