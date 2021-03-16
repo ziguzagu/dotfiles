@@ -48,3 +48,8 @@
 (load "init-docker")
 (load "init-org")
 (load "init-lisp")
+
+(eval-and-compile
+  (let ((host-local-config "~/.emacs.d/init-local.el"))
+    (when (file-exists-p host-local-config)
+      (load host-local-config))))
