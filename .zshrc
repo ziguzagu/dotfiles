@@ -81,9 +81,9 @@ add-zsh-hook preexec _rename_tmux_window
 ########################################
 
 ## overwrite commands with better defaults
-alias bat="bat --italic-text=always"
+alias bat="bat --theme=TwoDark --italic-text=always"
 alias diff="colordiff -u"
-alias fzf="fzf --color=dark,gutter:0"
+alias fzf="fzf --color=dark,gutter:0 --height=14 --reverse --bind=ctrl-g:print-query"
 alias grep="grep -I --color=auto"
 alias less="less -giMqR -j10"
 alias ls="gls -AXF --color=auto --group-directories-first"
@@ -259,7 +259,6 @@ cdr-gc() {
 ########################################
 ## fzf
 ########################################
-export FZF_DEFAULT_OPTS="--height=14 --reverse --bind=ctrl-g:print-query"
 
 # search from history
 fzf-history() {
@@ -400,8 +399,6 @@ bindkey '^x^p' fzf-find-perl-module
 ########################################
 ## Misc
 ########################################
-
-export BAT_THEME='TwoDark'
 
 ## zsh-syntax-highlighting
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
