@@ -1,5 +1,5 @@
-# name : bash
+# name : zsh
 # --
-#!/bin/bash
+#!/bin/zsh
 set -eu -o pipefail
 
