@@ -33,7 +33,6 @@
 
 (use-package sh-script
   :init
-  (setq sh-indentation 2)
   (setq sh-basic-offset 2)
   (setq sh-shell-file "/bin/bash"))
 
