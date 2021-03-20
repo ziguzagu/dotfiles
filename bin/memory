@@ -4,17 +4,12 @@
 #
 set -eu -o pipefail
 
-## for mac os
 if [[ -x "$(which vm_stat)" ]]; then
-    vmstat=$(vm_stat) || return 1
-    pages_free=$(echo "$vmstat" | awk '/Pages free/ {print $3}' | tr -d '.')
-    pages_active=$(echo "$vmstat" | awk '/Pages active/ {print $3}' | tr -d '.')
-    pages_inactive=$(echo "$vmstat" | awk '/Pages inactive/ {print $3}' | tr -d '.')
-    pages_speculative=$(echo "$vmstat" | awk '/Pages speculative/ {print $3}' | tr -d '.')
-    pages_wired=$(echo "$vmstat" | awk '/Pages wired down/ {print $4}' | tr -d '.')
+    typeset -A stat
+    stat=($(vm_stat | awk -F': +' '/^Pages/ {gsub("Pages ", "", $1); gsub(" ", "_", $1); gsub("\\.", "", $2); print $1" "$2}'))
 
-    free=$((($pages_free + $pages_speculative) * 4096 / 1024))
-    used=$((($pages_active + $pages_inactive + $pages_wired) * 4096 / 1024))
+    free=$(($stat[free] + $stat[speculative]))
+    used=$(($stat[active] + $stat[inactive] + $stat[wired_down] + $stat[occupied_by_compressor]))
     total=$(($free + $used))
 
     echo "$(($free * 100 / $total))%"
