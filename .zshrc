@@ -407,6 +407,9 @@ ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_approx]=none
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
+## signing git commit and tags with GPG
+export GPG_TTY=$(tty)
+
 ## compile
 if [ ! -f "~/.zshrc.zwc" -o "~/.zshrc" -nt "~/.zshrc.zwc" ]; then
     zcompile ~/.zshrc
