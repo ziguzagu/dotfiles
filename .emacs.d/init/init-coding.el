@@ -32,9 +32,9 @@
   (markdown-link-face             ((t (:foreground "#5fafff")))))
 
 (use-package sh-script
-  :init
-  (setq sh-basic-offset 2)
-  (setq sh-shell-file "/bin/bash"))
+  :custom
+  (sh-basic-offset 2)
+  (sh-shell-file "/bin/zsh"))
 
 (use-package dumb-jump
   :bind (("M-." . dumb-jump-go)
