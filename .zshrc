@@ -2,7 +2,7 @@
 
 # prepare zprof for profzsh command
 if [[ $ZPROF == 'true' ]]; then
-  zmodload zsh/zprof
+    zmodload zsh/zprof
 fi
 
 eval $(brew shellenv)
@@ -23,7 +23,7 @@ setopt no_beep
 setopt no_list_beep
 # eshell can't use zle
 if [[ $EMACS == 't' ]]; then
-  setopt no_zle
+    setopt no_zle
 fi
 
 # no coredump needed
@@ -34,7 +34,7 @@ autoload -Uz add-zsh-hook
 export SHELL="$(which zsh)"
 
 if [[ -x "$(which gdircolors)" ]]; then
-  eval "$(gdircolors ~/.dircolors)"
+    eval "$(gdircolors ~/.dircolors)"
 fi
 
 ########################################
@@ -42,11 +42,11 @@ fi
 ########################################
 
 if [[ -x "$(which plenv)" ]]; then
-  eval "$(command plenv init -)"
+    eval "$(command plenv init -)"
 fi
 
 if [[ -x "$(which rbenv)" ]]; then
-  eval "$(command rbenv init -)"
+    eval "$(command rbenv init -)"
 fi
 
 typeset -U PATH
@@ -60,18 +60,18 @@ export GOMODCACHE=$HOME/.cache/go_mod
 ########################################
 
 _rename_tmux_window() {
-  [[ -z "$TMUX" ]] && return
+    [[ -z "$TMUX" ]] && return
 
-  local -a cmd; cmd=(${(z)2})
-  local title="$cmd[1]"
-  local project=${$(command git rev-parse --show-toplevel 2>/dev/null)##*/}
-  if [[ -z "$project" ]]; then
-    tmux rename-window "$title"
-  elif [[ -z "$title" ]]; then
-    tmux rename-window "‹$project›"
-  else
-    tmux rename-window "‹$project›$title"
-  fi
+    local -a cmd; cmd=(${(z)2})
+    local title="$cmd[1]"
+    local project=${$(command git rev-parse --show-toplevel 2>/dev/null)##*/}
+    if [[ -z "$project" ]]; then
+        tmux rename-window "$title"
+    elif [[ -z "$title" ]]; then
+        tmux rename-window "‹$project›"
+    else
+        tmux rename-window "‹$project›$title"
+    fi
 }
 
 add-zsh-hook preexec _rename_tmux_window
@@ -133,15 +133,15 @@ export LESS_TERMCAP_us=$'\e[4;34m'     # begin underline
 
 ## additional completions by https://github.com/zsh-users/zsh-completions
 if [[ -d $HOMEBREW_PREFIX/share/zsh-completions ]]; then
-  fpath=($HOMEBREW_PREFIX/share/zsh-completions $fpath)
+    fpath=($HOMEBREW_PREFIX/share/zsh-completions $fpath)
 fi
 
 ## init completion with reducing checking zcompdump file
 autoload -Uz compinit
 if [[ -n ~/.zcompdump(\#qN.mh+24) ]]; then
-  compinit
+    compinit
 else
-  compinit -C
+    compinit -C
 fi
 
 ## case insensitive at completion
@@ -189,39 +189,39 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-st git-stash
 
 ## Show remote ref name and number of commits ahead-of or behind
 +vi-git-st() {
-  ## get remote's "repos/branch"
-  local remote=$(command git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null)
+    ## get remote's "repos/branch"
+    local remote=$(command git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null)
 
-  if [[ -n "$remote" ]]; then
-    local -a gitstatus
-    local ahead=$(command git rev-list ${hook_com[branch]}@{u}..HEAD --count 2>/dev/null)
-    (( $ahead )) && gitstatus+=( "+$ahead" )
+    if [[ -n "$remote" ]]; then
+        local -a gitstatus
+        local ahead=$(command git rev-list ${hook_com[branch]}@{u}..HEAD --count 2>/dev/null)
+        (( $ahead )) && gitstatus+=( "+$ahead" )
 
-    local behind=$(command git rev-list HEAD..${hook_com[branch]}@{u} --count 2>/dev/null)
-    (( $behind )) && gitstatus+=( "-$behind" )
+        local behind=$(command git rev-list HEAD..${hook_com[branch]}@{u} --count 2>/dev/null)
+        (( $behind )) && gitstatus+=( "-$behind" )
 
-    if [[ -n "$gitstatus" ]]; then
-      hook_com[branch]="${hook_com[branch]} %U${(j:/:)gitstatus}%u"
+        if [[ -n "$gitstatus" ]]; then
+            hook_com[branch]="${hook_com[branch]} %U${(j:/:)gitstatus}%u"
+        fi
     fi
-  fi
 }
 ## show count of stashed
 +vi-git-stash() {
-  local -a stashes
-  if [[ -s ${hook_com[base]}/.git/refs/stash ]] ; then
-    stashes=$(command git stash list 2>/dev/null | wc -l | sed -e 's/ //g')
-    (( $stashes )) && hook_com[misc]+="%F{252}☁ ${stashes}%f";
-  fi
+    local -a stashes
+    if [[ -s ${hook_com[base]}/.git/refs/stash ]] ; then
+        stashes=$(command git stash list 2>/dev/null | wc -l | sed -e 's/ //g')
+        (( $stashes )) && hook_com[misc]+="%F{252}☁ ${stashes}%f";
+    fi
 }
 
 add-zsh-hook precmd vcs_info
 
 _prompt_cwd() {
-  if [[ $UID -eq 0 ]]; then
-    echo -n '%F{254}%K{160}%~%k%f'
-  else
-    echo -n '%F{214}%~%f'
-  fi
+    if [[ $UID -eq 0 ]]; then
+        echo -n '%F{254}%K{160}%~%k%f'
+    else
+        echo -n '%F{214}%~%f'
+    fi
 }
 PROMPT=$'\n''$(_prompt_cwd) ${vcs_info_msg_0_}'$'\n''%(?,➜ ,%F{226}⚠ %f)'
 
@@ -235,8 +235,8 @@ zle_highlight=(isearch:underline,fg=red region:fg=black,bg=yellow special:stando
 autoload -Uz chpwd_recent_dirs cdr
 
 _post_chpwd() {
-  chpwd_recent_dirs
-  ls
+    chpwd_recent_dirs
+    ls
 }
 add-zsh-hook chpwd _post_chpwd
 
@@ -247,13 +247,13 @@ zstyle ':chpwd:*' recent-dirs-pushd true
 
 # remove non-existing directories from recent-dirs-file
 cdr-gc() {
-  local abs
-  cdr -l | perl -pe 's/^\d+\s+//' | while read dir; do
-    abs=${dir:s/~/$HOME/}
-    if [[ ! -d $abs ]]; then
-      cdr -P "$dir"
-    fi
-  done
+    local abs
+    cdr -l | perl -pe 's/^\d+\s+//' | while read dir; do
+        abs=${dir:s/~/$HOME/}
+        if [[ ! -d $abs ]]; then
+            cdr -P "$dir"
+        fi
+    done
 }
 
 ########################################
@@ -262,136 +262,136 @@ cdr-gc() {
 
 # search from history
 fzf-history() {
-  local cmd="$(fc -lnr 1 | fzf +m -e --tiebreak=index --bind=ctrl-r:down --bind=ctrl-s:up --query=$LBUFFER)"
-  if [[ -z "$cmd" ]]; then
-     zle redisplay
-     return 0
-  fi
-  LBUFFER="$cmd"
-  zle reset-prompt
+    local cmd="$(fc -lnr 1 | fzf +m -e --tiebreak=index --bind=ctrl-r:down --bind=ctrl-s:up --query=$LBUFFER)"
+    if [[ -z "$cmd" ]]; then
+        zle redisplay
+        return 0
+    fi
+    LBUFFER="$cmd"
+    zle reset-prompt
 }
 zle -N fzf-history
 bindkey '^r' fzf-history
 
 # return 0 if the current directory is git repo
 _is_in_git_repo() {
-  git rev-parse --git-dir >& /dev/null
+    git rev-parse --git-dir >& /dev/null
 }
 
 # select files and directories in current directory
 fzf-ls() {
-  set -o pipefail
-  local -a list=($(gls -AlhFX --group-directories-first \
-                     | fzf --header-lines=1 +s -m --nth=-1 \
-                           --bind='ctrl-v:toggle-preview' \
-                           --preview-window=hidden \
-                           --preview='test -d {-1} && gls -lhF --group-directories-first $_ || bat --color=always --style=numbers $_' \
-                     | awk '{print $NF}'))
-  LBUFFER+=$list
-  zle reset-prompt
-  return $ret
+    set -o pipefail
+    local -a list=($(gls -AlhFX --group-directories-first \
+                         | fzf --header-lines=1 +s -m --nth=-1 \
+                               --bind='ctrl-v:toggle-preview' \
+                               --preview-window=hidden \
+                               --preview='test -d {-1} && gls -lhF --group-directories-first $_ || bat --color=always --style=numbers $_' \
+                         | awk '{print $NF}'))
+    LBUFFER+=$list
+    zle reset-prompt
+    return $ret
 }
 zle -N fzf-ls
 bindkey '^x^f' fzf-ls
 
 # search from git ls-files
 fzf-git-ls-files() {
-  _is_in_git_repo || return
-  local -a files=($(git ls-files \
-                      | fzf -m -e \
-                            --bind='ctrl-v:toggle-preview' \
-                            --preview-window=hidden \
-                            --preview='test -d {-1} && gls -lhF --group-directories-first $_ || bat --color=always --style=numbers $_'))
-  local ret=$?
-  LBUFFER+=$files
-  zle reset-prompt
-  return $ret
+    _is_in_git_repo || return
+    local -a files=($(git ls-files \
+                          | fzf -m -e \
+                                --bind='ctrl-v:toggle-preview' \
+                                --preview-window=hidden \
+                                --preview='test -d {-1} && gls -lhF --group-directories-first $_ || bat --color=always --style=numbers $_'))
+    local ret=$?
+    LBUFFER+=$files
+    zle reset-prompt
+    return $ret
 }
 zle -N fzf-git-ls-files
 bindkey '^xf' fzf-git-ls-files
 
 # select untracked files or changed files
 fzf-git-untracked-or-changed-files() {
-  _is_in_git_repo || return
-  set -o pipefail
-  local -a files=($(git status -s | fzf -m -e --height=40% --preview='git preview {2}' | perl -pe 's/^\s*..\s+//'))
-  local ret=$?
-  LBUFFER+=$files
-  zle reset-prompt
-  return $ret
+    _is_in_git_repo || return
+    set -o pipefail
+    local -a files=($(git status -s | fzf -m -e --height=40% --preview='git preview {2}' | perl -pe 's/^\s*..\s+//'))
+    local ret=$?
+    LBUFFER+=$files
+    zle reset-prompt
+    return $ret
 }
 zle -N fzf-git-untracked-or-changed-files
 bindkey '^xv' fzf-git-untracked-or-changed-files
 
 # git switch to selected branches in recent used
 fzf-git-switch-recent-branch() {
-  _is_in_git_repo || return
-  local branch="$(git for-each-ref --format='%(refname:short)' --sort=-committerdate refs/heads | fzf +m -e --tiebreak=index)"
-  if [[ -z "$branch" ]]; then
-     zle redisplay
-     return 0
-  fi
-  BUFFER="git switch $branch"
-  zle reset-prompt
-  zle accept-line
+    _is_in_git_repo || return
+    local branch="$(git for-each-ref --format='%(refname:short)' --sort=-committerdate refs/heads | fzf +m -e --tiebreak=index)"
+    if [[ -z "$branch" ]]; then
+        zle redisplay
+        return 0
+    fi
+    BUFFER="git switch $branch"
+    zle reset-prompt
+    zle accept-line
 }
 zle -N fzf-git-switch-recent-branch
 bindkey '^xb' fzf-git-switch-recent-branch
 
 # jump to directory selected from ghq / cdr
 fzf-jump-directory() {
-  local -a dirs=(
-    $(cdr -l | perl -pe 's/^\d+\s+//')
-    $(ghq list -p | perl -pe 's/^\Q$ENV{HOME}\E/~/')
-  )
-  local dir="$(print -l ${(u)dirs} | fzf +m -e --tiebreak=index)"
-  if [[ -z "$dir" ]]; then
-     zle redisplay
-     return 0
-  fi
-  BUFFER="cd $dir"
-  zle reset-prompt
-  zle accept-line
+    local -a dirs=(
+        $(cdr -l | perl -pe 's/^\d+\s+//')
+        $(ghq list -p | perl -pe 's/^\Q$ENV{HOME}\E/~/')
+    )
+    local dir="$(print -l ${(u)dirs} | fzf +m -e --tiebreak=index)"
+    if [[ -z "$dir" ]]; then
+        zle redisplay
+        return 0
+    fi
+    BUFFER="cd $dir"
+    zle reset-prompt
+    zle accept-line
 }
 zle -N fzf-jump-directory
 bindkey '^j' fzf-jump-directory
 
 # find strings from current tmux pane
 fzf-find-strings-from-tmux-pane() {
-  local -a strings=($(tmux capture-pane -p -S -40 | stringus | fzf --reverse +m -e --tiebreak=index))
-  LBUFFER+=$strings
-  zle reset-prompt
+    local -a strings=($(tmux capture-pane -p -S -40 | stringus | fzf --reverse +m -e --tiebreak=index))
+    LBUFFER+=$strings
+    zle reset-prompt
 }
 zle -N fzf-find-strings-from-tmux-pane
 bindkey '^o' fzf-find-strings-from-tmux-pane
 
 # find perl modules of core and bundled by carton
 fzf-find-perl-module() {
-  local -a candidates
+    local -a candidates
 
-  # Find core perl modules using _perl_modules zsh completion
-  #
-  # XXX: override _wanted to capture module list _perl_modules generates
-  local code_wanted="${functions[_wanted]}"
-  _wanted() {
-    candidates=("${(P@)${@[7]}}")
-  }
-  # required by _perl_modules
-  local -a words=(perldoc)
-  _perl_modules
+    # Find core perl modules using _perl_modules zsh completion
+    #
+    # XXX: override _wanted to capture module list _perl_modules generates
+    local code_wanted="${functions[_wanted]}"
+    _wanted() {
+        candidates=("${(P@)${@[7]}}")
+    }
+    # required by _perl_modules
+    local -a words=(perldoc)
+    _perl_modules
 
-  # restore original function
-  eval "function _wanted() { $code_wanted }"
+    # restore original function
+    eval "function _wanted() { $code_wanted }"
 
-  # find local modules installed by carton into local/lib/perl5
-  if [[ -d local/lib/perl5 ]]; then
-    candidates+=($(find local/lib/perl5 -type f -name '*.pm' -or -name '*.pod'))
-  fi
+    # find local modules installed by carton into local/lib/perl5
+    if [[ -d local/lib/perl5 ]]; then
+        candidates+=($(find local/lib/perl5 -type f -name '*.pm' -or -name '*.pod'))
+    fi
 
-  # doing fzf
-  local pm="$(print -l $candidates | fzf +m)"
-  LBUFFER+="$pm"
-  zle reset-prompt
+    # doing fzf
+    local pm="$(print -l $candidates | fzf +m)"
+    LBUFFER+="$pm"
+    zle reset-prompt
 }
 zle -N fzf-find-perl-module
 bindkey '^x^p' fzf-find-perl-module
@@ -409,7 +409,7 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
 ## compile
 if [ ! -f "~/.zshrc.zwc" -o "~/.zshrc" -nt "~/.zshrc.zwc" ]; then
-  zcompile ~/.zshrc
+    zcompile ~/.zshrc
 fi
 
 ########################################
@@ -418,29 +418,29 @@ fi
 
 # get rid of ANSI escape sequences to pipe STDOUT to pbcopy
 decolor() {
-  perl -pe 's/\e\[\d+m//g'
+    perl -pe 's/\e\[\d+m//g'
 }
 
 lc() {
-  tr '[:upper:]' '[:lower:]'
+    tr '[:upper:]' '[:lower:]'
 }
 
 pmver() {
-  readonly pkg="$1"
-  perl -m${pkg} -E "say \$${pkg}::VERSION"
+    readonly pkg="$1"
+    perl -m${pkg} -E "say \$${pkg}::VERSION"
 }
 
 uc() {
-  tr '[:lower:]' '[:upper:]'
+    tr '[:lower:]' '[:upper:]'
 }
 
 ########################################
 ## Profiling by zprof
 ########################################
 profzsh() {
-  ZPROF=true $SHELL -i -c exit
+    ZPROF=true $SHELL -i -c exit
 }
 
 if [[ $ZPROF == "true" ]]; then
-  zprof
+    zprof
 fi

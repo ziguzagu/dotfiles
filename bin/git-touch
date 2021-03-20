@@ -2,18 +2,18 @@
 set -eu
 
 usage() {
-  cat <<EOF
+    cat <<EOF
 Usage:
   git touch <files> - Modify file's mtime by last commit date of it
 EOF
 
-  exit 1
+    exit 1
 }
 
 if [ $# -eq 0 ]; then
-  usage
+    usage
 fi
 
 for file in $*; do
-  touch -m -t $(date -d "$(git log -1 --pretty=format:%cd --date=iso $file)" +%Y%m%d%H%M.%S) $file
+    touch -m -t $(date -d "$(git log -1 --pretty=format:%cd --date=iso $file)" +%Y%m%d%H%M.%S) $file
 done

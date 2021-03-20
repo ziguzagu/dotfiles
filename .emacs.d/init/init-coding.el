@@ -33,7 +33,6 @@
 
 (use-package sh-script
   :custom
-  (sh-basic-offset 2)
   (sh-shell-file "/bin/zsh"))
 
 (use-package dumb-jump

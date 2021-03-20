@@ -4,7 +4,7 @@ set -eu
 
 window=$(test -f ~/.emacs.d/emacs-server-window && cat $_)
 if [[ -n $TMUX && -n $window ]]; then
-  tmux select-window -t $window\; select-pane -t 0
+    tmux select-window -t $window\; select-pane -t 0
 fi
 
 emacsclient -n $*
