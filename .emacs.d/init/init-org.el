@@ -1,15 +1,14 @@
 (use-package org
   :bind (("C-c c" . org-capture))
-
-  :config
-  (setq org-directory "~/Dropbox/org/")
-  (setq org-default-notes-file (concat org-directory "notes.org"))
-  (setq org-startup-truncated nil)
-  (setq org-startup-folded nil)
-  (setq org-return-follows-link t)
-  (setq org-src-fontify-natively t) ;; hilight lines in code block
-  (setq org-log-done 'time) ;; insert `CLOSED [timestamp]` after the headline
-
+  :custom
+  (org-directory "~/Dropbox/org/")
+  (org-default-notes-file (concat org-directory "notes.org"))
+  (org-startup-truncated nil)
+  (org-startup-folded nil)
+  (org-return-follows-link t)
+  (org-src-fontify-natively t) ;; hilight lines in code block
+  (org-log-done 'time) ;; insert `CLOSED [timestamp]` after the headline
+  :init
   ;; blog template
   (defun my:blog-subtree-post-capture-template ()
     "Returns `org-capture' template string for new blog post."
@@ -24,7 +23,6 @@
                    "  :END:"
                    "\n")
                  "\n")))
-
   ;; org-capture
   (setq org-capture-templates
         '(("m" "Memo" entry (file+datetree (lambda () (concat org-directory "memo.org")))
