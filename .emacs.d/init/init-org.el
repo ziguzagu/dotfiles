@@ -29,7 +29,9 @@
            "* [%<%H:%M>] %?\n")
           ("b" "Blog Posts" entry (file+olp "~/src/ziguzagu.org/blog.org" "Blog Posts")
            (function my:blog-subtree-post-capture-template)
-           :prepend t :empty-lines 1))))
+           :prepend t :empty-lines 1)))
+  :config
+  (require 'org-tempo))
 
 (use-package ox-hugo
   :after ox)
