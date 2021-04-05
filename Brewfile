@@ -41,9 +41,6 @@ brew 'wget'
 brew 'zsh-completions'
 brew 'zsh-syntax-highlighting'
 
-tap 'kyoshidajp/ghkw'
-brew 'ghkw'
-
 tap 'heroku/brew'
 brew 'heroku'
 
