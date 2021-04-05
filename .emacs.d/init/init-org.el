@@ -11,7 +11,7 @@
   :init
   ;; blog template
   (defun my:blog-subtree-post-capture-template ()
-    "Returns `org-capture' template string for new blog post."
+    "Returns `org-capture' template for new blog post."
     (let ((section (format-time-string "posts/%Y/%m/" (org-current-time)))
           (date (format-time-string "%Y-%m-%d" (org-current-time))))
       (mapconcat 'identity
