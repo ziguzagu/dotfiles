@@ -415,6 +415,8 @@ if [ ! -f "~/.zshrc.zwc" -o "~/.zshrc" -nt "~/.zshrc.zwc" ]; then
     zcompile ~/.zshrc
 fi
 
+eval "$(direnv hook zsh)"
+
 ########################################
 ## Command
 ########################################
