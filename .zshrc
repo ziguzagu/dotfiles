@@ -83,6 +83,7 @@ add-zsh-hook preexec _rename_tmux_window
 ## overwrite commands with better defaults
 alias bat="bat --theme=TwoDark --italic-text=always"
 alias diff="colordiff -u"
+alias emacs="emacs --daemon && emacsclient -t"
 alias fzf="fzf --color=dark,gutter:0 --height=14 --reverse --bind=ctrl-g:print-query"
 alias grep="grep -I --color=auto"
 alias less="less -giMqR -j10"
