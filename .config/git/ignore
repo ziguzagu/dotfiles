@@ -6,7 +6,8 @@
 *~
 .#*
 .DS_Store
+.dir-locals.el
+.envrc
 .idea/
 .yardoc/
-.dir-locals.el
 /vendor/bundle/
