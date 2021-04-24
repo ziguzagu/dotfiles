@@ -1,5 +1,3 @@
-;;;; -*- mode: lisp-interaction; syntax: elisp; -*-
-
 (defalias 'perl-mode 'cperl-mode)
 (setq cperl-close-paren-offset -4)
 (setq cperl-continued-statement-offset 4)
