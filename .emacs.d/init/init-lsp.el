@@ -13,4 +13,4 @@
 
 (use-package company-lsp
   :defer t
-  :after lsp company)
+  :after lsp-mode company)
