@@ -1,3 +1,9 @@
+(eval-and-compile
+  (setq-default tab-width 4
+                indent-tabs-mode nil)
+
+  (setq comment-style 'extra-line))
+
 (use-package diff-mode
   :custom-face
   (diff-header         ((t (:foreground "#a8a8a8" :background "#303030" :slant italic))))

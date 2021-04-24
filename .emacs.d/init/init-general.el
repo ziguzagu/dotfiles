@@ -1,7 +1,3 @@
-;; tab/indent
-(setq-default tab-width 4)
-(setq-default indent-tabs-mode nil)
-
 ;; scroll by line
 (setq scroll-conservatively 35
       scroll-margin 0
@@ -10,9 +6,6 @@
 ;; scroll up and down
 (global-set-key (kbd "M-p") 'scroll-down)
 (global-set-key (kbd "M-n") 'scroll-up)
-
-;; comment style
-(setq comment-style 'multi-line)
 
 ;; enable upcase/downcase-region
 (put 'upcase-region 'disabled nil)
