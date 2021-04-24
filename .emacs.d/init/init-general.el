@@ -42,15 +42,13 @@
 (global-set-key (kbd "C-c b") 'my:switch-last-buffer)
 
 ;; backup
-(setq make-backup-files t)
 (setq backup-directory-alist
-      (cons (cons "\\.*$" (expand-file-name "~/.emacs.d/bakcup"))
-            backup-directory-alist))
-(setq backup-by-copying t)
-(setq version-control t)
-(setq kept-new-versions 5)
-(setq kept-old-versions 5)
-(setq delete-old-versions t)
+      `((".*" . ,(expand-file-name "emacs-backup" temporary-file-directory))))
+(setq backup-by-copying t
+      version-control t
+      kept-new-versions 5
+      kept-old-versions 1
+      delete-old-versions t)
 
 ;; rotate window divide vertical / horizontal
 (defun my:window-toggle-split ()
