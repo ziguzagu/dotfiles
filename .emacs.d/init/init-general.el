@@ -41,8 +41,7 @@
   (switch-to-buffer (other-buffer (current-buffer) 1)))
 (global-set-key (kbd "C-c b") 'my:switch-last-buffer)
 
-;; autosave and backup
-(setq auto-save-default t)
+;; backup
 (setq make-backup-files t)
 (setq backup-directory-alist
       (cons (cons "\\.*$" (expand-file-name "~/.emacs.d/bakcup"))
