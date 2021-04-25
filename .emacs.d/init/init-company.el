@@ -27,8 +27,9 @@
   (company-scrollbar-bg ((t (:background "#666666")))))
 
 (use-package company-lsp
-  :defer t
-  :after lsp-mode company)
+  :after lsp-mode company
+  :config
+  (push 'company-lsp company-backends))
 
 (use-package company-statistics
   :config
