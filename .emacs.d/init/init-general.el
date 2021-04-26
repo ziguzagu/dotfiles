@@ -42,8 +42,10 @@
 (global-set-key (kbd "C-c b") 'my:switch-last-buffer)
 
 ;; backup
-(setq backup-directory-alist
-      `((".*" . ,(expand-file-name "emacs-backup" temporary-file-directory))))
+(defconst my-backup-dir (expand-file-name (format "emacs%d/backup" (user-uid)) temporary-file-directory))
+(setq backup-directory-alist `((".*" . ,my-backup-dir))
+      auto-save-file-name-transforms `((".*" ,my-backup-dir t))
+      auto-save-list-file-prefix my-backup-dir)
 (setq backup-by-copying t
       version-control t
       kept-new-versions 5
