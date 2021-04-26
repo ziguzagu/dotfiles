@@ -1,7 +1,3 @@
-(setq debug-on-error t)
-
-(setq inhibit-startup-message t)
-
 (setq custom-file (expand-file-name "custom.el" temporary-file-directory))
 
 (eval-and-compile
