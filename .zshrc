@@ -146,6 +146,7 @@ else
     compinit -C
 fi
 
+zstyle ':completion:*' cache-patch ~/.cache/zsh/zcompcache
 ## case insensitive at completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 ## colorized completion
