@@ -21,10 +21,6 @@ setopt no_flow_control
 # be quite
 setopt no_beep
 setopt no_list_beep
-# eshell can't use zle
-if [[ $EMACS == 't' ]]; then
-    setopt no_zle
-fi
 
 # no coredump needed
 limit coredumpsize 0
