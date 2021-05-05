@@ -157,9 +157,9 @@ test -f ~/.travis/travis.sh && source $_
 ## History
 ########################################
 
-export HISTFILE=$XDG_DATA_HOME/zsh/history
-export HISTSIZE=100000
-export SAVEHIST=100000
+HISTFILE=$XDG_DATA_HOME/zsh/history
+HISTSIZE=100000
+SAVEHIST=100000
 
 setopt hist_ignore_all_dups
 setopt hist_reduce_blanks
