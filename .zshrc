@@ -133,10 +133,11 @@ fi
 
 ## init completion with reducing checking zcompdump file
 autoload -Uz compinit
-if [[ -n ~/.zcompdump(\#qN.mh+24) ]]; then
-    compinit
+ZCOMPDUMP=~/.cache/zsh/zcompdump-$ZSH_VERSION
+if [[ -n $ZCOMPDUMP(#qN.mh+24) ]]; then
+    compinit -d $ZCOMPDUMP
 else
-    compinit -C
+    compinit -d $ZCOMPDUMP -C
 fi
 
 zstyle ':completion:*' cache-patch ~/.cache/zsh/zcompcache
