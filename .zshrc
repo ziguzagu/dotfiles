@@ -1,11 +1,9 @@
 ## -*- mode: shell-script; -*-
 
-# prepare zprof for profzsh command
 if [[ $ZPROF == 'true' ]]; then
     zmodload zsh/zprof
 fi
 
-# emacs mode
 bindkey -e
 
 # Changing Directories
@@ -36,7 +34,6 @@ setopt sh_word_split
 # Zle
 setopt no_beep
 
-# no coredump needed
 limit coredumpsize 0
 
 autoload -Uz add-zsh-hook
@@ -150,7 +147,6 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 ## ignore current directory from ../
 zstyle ':completion:*' ignore-parents parent pwd ..
 
-## travis completion by travis gem
 test -f ~/.travis/travis.sh && source $_
 
 ########################################
@@ -214,7 +210,6 @@ _prompt_cwd() {
 }
 PROMPT=$'\n''$(_prompt_cwd) ${vcs_info_msg_0_}'$'\n''%(?,➜ ,%F{226}⚠ %f)'
 
-## command line coloring
 zle_highlight=(isearch:underline,fg=red region:fg=black,bg=yellow special:standout,fg=blue suffix:bold)
 
 ########################################
@@ -389,14 +384,12 @@ bindkey '^x^p' fzf-find-perl-module
 ## Misc
 ########################################
 
-## zsh-syntax-highlighting
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_STYLES[unknown-token]=fg:red,underline
 ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_approx]=none
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
-## compile
 if [ ! -f "~/.zshrc.zwc" -o "~/.zshrc" -nt "~/.zshrc.zwc" ]; then
     zcompile ~/.zshrc
 fi
