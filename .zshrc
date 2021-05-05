@@ -5,8 +5,6 @@ if [[ $ZPROF == 'true' ]]; then
     zmodload zsh/zprof
 fi
 
-eval $(brew shellenv)
-
 # emacs mode
 bindkey -e
 
@@ -43,18 +41,14 @@ limit coredumpsize 0
 
 autoload -Uz add-zsh-hook
 
-########################################
-## Development
-########################################
-
+# PATH
+eval $(brew shellenv)
 if [[ -x "$(which plenv)" ]]; then
     eval "$(command plenv init -)"
 fi
-
 if [[ -x "$(which rbenv)" ]]; then
     eval "$(command rbenv init -)"
 fi
-
 typeset -U PATH
 
 # Environment Variables
