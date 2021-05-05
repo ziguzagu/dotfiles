@@ -44,10 +44,10 @@ autoload -Uz add-zsh-hook
 # PATH
 eval $(brew shellenv)
 if [[ -x "$(which plenv)" ]]; then
-    eval "$(command plenv init -)"
+    eval "$(plenv init -)"
 fi
 if [[ -x "$(which rbenv)" ]]; then
-    eval "$(command rbenv init -)"
+    eval "$(rbenv init -)"
 fi
 typeset -U PATH
 
