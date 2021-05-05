@@ -425,13 +425,6 @@ uc() {
     tr '[:lower:]' '[:upper:]'
 }
 
-########################################
-## Profiling by zprof
-########################################
 profzsh() {
-    ZPROF=true $SHELL -i -c exit
+    ZPROF=true $SHELL -i -c zprof
 }
-
-if [[ $ZPROF == "true" ]]; then
-    zprof
-fi
