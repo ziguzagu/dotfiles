@@ -43,13 +43,6 @@ limit coredumpsize 0
 
 autoload -Uz add-zsh-hook
 
-export SHELL="$(which zsh)"
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-
-if [[ -x "$(which gdircolors)" ]]; then
-    eval "$(gdircolors ~/.config/dircolors)"
-fi
-
 ########################################
 ## Development
 ########################################
@@ -64,9 +57,25 @@ fi
 
 typeset -U PATH
 
+# Environment Variables
+if [[ -x "$(which gdircolors)" ]]; then
+    eval "$(gdircolors ~/.config/dircolors)"
+fi
 export GO111MODULE=on
 export GOBIN=$HOME/bin
 export GOMODCACHE=$HOME/.cache/go_mod
+export GPG_TTY=$(tty)
+export GREP_COLORS="ms=04;31:mc=01;33:sl=:cx=:fn=33:ln=33:bn=33:se=01;30"
+export LESSCHARSET=utf-8
+export LESS_TERMCAP_mb=$'\e[1;31m'     # begin blinking
+export LESS_TERMCAP_md=$'\e[1;33m'     # begin bold
+export LESS_TERMCAP_me=$'\e[0m'        # end mode
+export LESS_TERMCAP_se=$'\e[0m'        # end standout-mode
+export LESS_TERMCAP_so=$'\e[0;30;47m'  # begin standout-mode
+export LESS_TERMCAP_ue=$'\e[0m'        # end underline
+export LESS_TERMCAP_us=$'\e[4;34m'     # begin underline
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export SHELL="$(which zsh)"
 
 ########################################
 ## Tmux
@@ -121,19 +130,6 @@ alias z="fzf"
 
 ## global aliases
 alias -g P="| less"
-
-## grep
-export GREP_COLORS="ms=04;31:mc=01;33:sl=:cx=:fn=33:ln=33:bn=33:se=01;30"
-
-## less
-export LESSCHARSET=utf-8
-export LESS_TERMCAP_mb=$'\e[1;31m'     # begin blinking
-export LESS_TERMCAP_md=$'\e[1;33m'     # begin bold
-export LESS_TERMCAP_me=$'\e[0m'        # end mode
-export LESS_TERMCAP_se=$'\e[0m'        # end standout-mode
-export LESS_TERMCAP_so=$'\e[0;30;47m'  # begin standout-mode
-export LESS_TERMCAP_ue=$'\e[0m'        # end underline
-export LESS_TERMCAP_us=$'\e[4;34m'     # begin underline
 
 ########################################
 ## Completion
@@ -405,9 +401,6 @@ ZSH_HIGHLIGHT_STYLES[unknown-token]=fg:red,underline
 ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_approx]=none
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
-
-## signing git commit and tags with GPG
-export GPG_TTY=$(tty)
 
 ## compile
 if [ ! -f "~/.zshrc.zwc" -o "~/.zshrc" -nt "~/.zshrc.zwc" ]; then
