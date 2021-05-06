@@ -10,17 +10,33 @@ eval $(brew shellenv)
 # emacs mode
 bindkey -e
 
-# try to correct the spelling of commands
-setopt correct
-# for the safety, do not send the HUP to running jobs when the shell exits
-setopt no_hup
-# bash compatible word splitting on unquoted parameter
-setopt sh_word_split
-# no!
-setopt no_flow_control
-# be quite
-setopt no_beep
+# Changing Directories
+setopt auto_cd
+setopt auto_pushd
+setopt pushd_ignore_dups
+# Completion
+setopt auto_name_dirs
 setopt no_list_beep
+# Expansion and Globbing
+setopt extended_glob
+# History
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt hist_no_store
+setopt hist_reduce_blanks
+setopt share_history
+# Input/Output
+setopt correct
+setopt no_flow_control
+# Job Control
+setopt no_hup
+# Prompting
+setopt prompt_subst
+setopt no_promptcr
+# Shell Emulation
+setopt sh_word_split
+# Zle
+setopt no_beep
 
 # no coredump needed
 limit coredumpsize 0
@@ -109,12 +125,6 @@ alias -g P="| less"
 ## grep
 export GREP_COLORS="ms=04;31:mc=01;33:sl=:cx=:fn=33:ln=33:bn=33:se=01;30"
 
-## directory handlings
-setopt auto_cd
-setopt auto_pushd
-setopt auto_name_dirs
-setopt extended_glob
-
 ## less
 export LESSCHARSET=utf-8
 export LESS_TERMCAP_mb=$'\e[1;31m'     # begin blinking
@@ -161,22 +171,12 @@ HISTFILE=$XDG_DATA_HOME/zsh/history
 HISTSIZE=100000
 SAVEHIST=100000
 
-setopt hist_ignore_all_dups
-setopt hist_reduce_blanks
-setopt hist_ignore_space
-setopt share_history
-setopt hist_no_store
-setopt pushd_ignore_dups
 zstyle ':completion:*:default' menu select=1
 
 ########################################
 ## Prompt
 ########################################
 
-setopt prompt_subst
-setopt no_promptcr
-
-## vcs info
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git:*' check-for-changes true
