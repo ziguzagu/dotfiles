@@ -32,6 +32,7 @@ limit coredumpsize 0
 autoload -Uz add-zsh-hook
 
 export SHELL="$(which zsh)"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 if [[ -x "$(which gdircolors)" ]]; then
     eval "$(gdircolors ~/.dircolors)"
