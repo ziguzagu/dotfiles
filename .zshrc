@@ -126,12 +126,10 @@ alias -g P="| less"
 ## Completion
 ########################################
 
-## additional completions by https://github.com/zsh-users/zsh-completions
 if [[ -d $HOMEBREW_PREFIX/share/zsh-completions ]]; then
     fpath=($HOMEBREW_PREFIX/share/zsh-completions $fpath)
 fi
 
-## init completion with reducing checking zcompdump file
 autoload -Uz compinit
 ZCOMPDUMP=~/.cache/zsh/zcompdump-$ZSH_VERSION
 if [[ -n $ZCOMPDUMP(#qN.mh+24) ]]; then
@@ -141,12 +139,10 @@ else
 fi
 
 zstyle ':completion:*' cache-patch ~/.cache/zsh/zcompcache
-## case insensitive at completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-## colorized completion
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-## ignore current directory from ../
 zstyle ':completion:*' ignore-parents parent pwd ..
+zstyle ':completion:*:default' menu select=1
 
 test -f ~/.travis/travis.sh && source $_
 
@@ -157,8 +153,6 @@ test -f ~/.travis/travis.sh && source $_
 HISTFILE=$XDG_DATA_HOME/zsh/history
 HISTSIZE=100000
 SAVEHIST=100000
-
-zstyle ':completion:*:default' menu select=1
 
 ########################################
 ## Prompt
