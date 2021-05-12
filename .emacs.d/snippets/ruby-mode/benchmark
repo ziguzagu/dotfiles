@@ -1,0 +1,7 @@
+#name : benchmark
+# --
+require 'benchmark'
+
+Benchmark.bm(16) do |x|
+  x.report('$0') { }
+end
