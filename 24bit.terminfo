@@ -1,9 +1,16 @@
 # -*- mode: conf -*-
 # Extra xterm variant with italic and 24-bit color
 # See also: https://www.gnu.org/software/emacs/manual/html_node/efaq/Colors-on-a-TTY.html
-xterm-24bits|xterm with 24-bit direct color mode,
+xterm-24bit|xterm with 24-bit direct color mode,
 	ritm=\E[23m,
 	sitm=\E[3m,
 	use=xterm-256color,
+	setb24=\E[48:2:%p1%{65536}%/%d:%p1%{256}%/%{255}%&%d:%p1%{255}%&%dm,
+	setf24=\E[38:2:%p1%{65536}%/%d:%p1%{256}%/%{255}%&%d:%p1%{255}%&%dm,
+
+tmux-24bit|tmux with 24-bit direct color mode,
+	ritm=\E[23m,
+	sitm=\E[3m,
+	use=screen-256color,
 	setb24=\E[48:2:%p1%{65536}%/%d:%p1%{256}%/%{255}%&%d:%p1%{255}%&%dm,
 	setf24=\E[38:2:%p1%{65536}%/%d:%p1%{256}%/%{255}%&%d:%p1%{255}%&%dm,

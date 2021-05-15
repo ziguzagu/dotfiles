@@ -21,8 +21,7 @@ $(targets):
 	ln -s $< $@
 
 terminfo: ## Install extra terminfo missing of macOS
-	tic -x xterm.terminfo
-	tic -x tmux.terminfo
+	tic -x 24bit.terminfo
 
 brew: ## Update homebrew stuff
 	brew update --verbose
