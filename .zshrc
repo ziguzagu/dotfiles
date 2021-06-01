@@ -39,11 +39,13 @@ limit coredumpsize 0
 autoload -Uz add-zsh-hook
 
 # PATH
-eval $(brew shellenv)
+if [[ -z "$HOMEBREW_PREFIX" ]]; then
+    eval $(brew shellenv)
+fi
 if [[ -x "$(which plenv)" ]]; then
     eval "$(plenv init -)"
 fi
-if [[ -x "$(which rbenv)" ]]; then
+if [[ -x "$(which rbenv)" ]] && [[ -z "$RBENV_SHELL" ]]; then
     eval "$(rbenv init -)"
 fi
 typeset -U PATH
