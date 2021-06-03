@@ -3,6 +3,8 @@
   (lsp lsp-deferred)
   :init
   (setq lsp-keymap-prefix "C-c l")
+  :custom
+  (lsp-headerline-breadcrumb-enable nil)
   :config
   ;; Use terraform-ls instead of terraform-lsp to be stable
   ;; https://github.com/hashicorp/terraform-ls/blob/master/docs/USAGE.md#emacs
