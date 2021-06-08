@@ -48,3 +48,6 @@
   (setq dumb-jump-prefer-searcher 'rg)
   (setq dumb-jump-selector 'helm)
   (setq dumb-jump-default-project nil))
+
+(use-package jsonnet-mode
+  :defer t)
