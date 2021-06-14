@@ -5,7 +5,7 @@
          ("C-c y"   . helm-show-kill-ring)
          ("C-c m"   . helm-man-woman)
          ("C-c o"   . helm-occur)
-         ("C-c s"   . helm-semantic-or-imenu)
+         ;; ("C-c s"   . helm-semantic-or-imenu)
          :map isearch-mode-map
          ("C-o" . helm-occur-from-isearch)
          :map helm-map
