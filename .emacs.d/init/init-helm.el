@@ -15,8 +15,8 @@
          ("TAB" . helm-execute-persistent-action)
          :map helm-read-file-map
          ("TAB" . helm-execute-persistent-action))
-  :config
-  (helm-mode 1)
+  ;; :config
+  ;; (helm-mode 1)
   :custom
   (helm-truncate-lines t)
   (helm-buffer-max-length 35)

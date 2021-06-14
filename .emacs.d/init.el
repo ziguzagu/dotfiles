@@ -30,6 +30,7 @@
 (load "init-general")
 (load "init-yasnippet")
 (load "init-company")
+(load "init-completion")
 (load "init-helm")
 (load "init-coding")
 (load "init-flycheck")
