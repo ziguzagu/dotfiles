@@ -745,9 +745,15 @@
       (while (search-forward ">" nil t)
         (replace-match "&gt;" nil t)))))
 
+(use-package hcl-mode)
+
+(use-package terraform-mode
+  :hook
+  ((terraform-mode . terraform-format-on-save-mode)
+   (terraform-mode . lsp-deferred)))
+
 (add-to-list 'load-path "~/.emacs.d/init")
 ;(load "init-helm")
-(load "init-terraform")
 (load "init-docker")
 (load "init-org")
 (load "init-lisp")
