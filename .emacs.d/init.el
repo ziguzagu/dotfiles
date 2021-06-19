@@ -802,9 +802,6 @@
 
 (use-package slime-company)
 
-(add-to-list 'load-path "~/.emacs.d/init")
-;(load "init-helm")
-
 (eval-and-compile
   (let ((host-local-config "~/.emacs.d/init-local.el"))
     (when (file-exists-p host-local-config)
