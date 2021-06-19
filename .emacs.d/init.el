@@ -154,8 +154,17 @@
                       '(:eval (my:mode-line-chcker))
                       "  %c:%l(%p)")))
 
+(setq initial-scratch-message nil)
+
+(use-package unkillable-scratch
+  :config (unkillable-scratch t))
+
+(use-package persistent-scratch
+  :config
+  (persistent-scratch-setup-default)
+  (persistent-scratch-autosave-mode 1))
+
 (add-to-list 'load-path "~/.emacs.d/init")
-(load "init-scratch")
 (load "init-dired")
 (load "init-general")
 (load "init-yasnippet")
