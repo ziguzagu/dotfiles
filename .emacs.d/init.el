@@ -382,7 +382,7 @@
   (completion-styles '(orderless)))
 
 (add-to-list 'load-path "~/.emacs.d/init")
-(load "init-helm")
+;(load "init-helm")
 (load "init-coding")
 (load "init-flycheck")
 (load "init-vc")
