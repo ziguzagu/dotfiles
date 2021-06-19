@@ -798,9 +798,12 @@
 (use-package ox-hugo
   :after ox)
 
+(use-package slime)
+
+(use-package slime-company)
+
 (add-to-list 'load-path "~/.emacs.d/init")
 ;(load "init-helm")
-(load "init-lisp")
 
 (eval-and-compile
   (let ((host-local-config "~/.emacs.d/init-local.el"))
