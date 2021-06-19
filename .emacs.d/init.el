@@ -328,8 +328,13 @@
 
 (use-package wgrep)
 
+(use-package yasnippet
+  :bind (("C-c i" . yas-expand))
+  :config
+  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+  (yas-global-mode 1))
+
 (add-to-list 'load-path "~/.emacs.d/init")
-(load "init-yasnippet")
 (load "init-company")
 (load "init-completion")
 (load "init-helm")
