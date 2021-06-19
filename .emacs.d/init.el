@@ -164,8 +164,44 @@
   (persistent-scratch-setup-default)
   (persistent-scratch-autosave-mode 1))
 
+(defun my:dired-open-file-by-open ()
+  "Open file by `open` command in dired mode."
+  (interactive)
+  (let ((file (dired-get-file-for-visit)))
+    (shell-command (concat "open " (shell-quote-argument file)))))
+
+(use-package dired
+  :ensure nil
+  :bind (:map dired-mode-map
+              ("e" . wdired-change-to-wdired-mode)
+              ("RET" . dired-find-alternate-file)
+              ("M-o" . my:dired-open-file-by-open))
+  :init
+  ;; use GNU ls installed by homebrew to use its own options, not have BSD ls.
+  (setq insert-directory-program "gls"
+        dired-listing-switches "-AlhXF --color=auto --group-directories-first")
+  ;; recursive copy/delete
+  (setq dired-recursive-copies 'always
+        dired-recursive-deletes 'always)
+  ;; don't create new buffer at moving direcotry
+  (put 'dired-find-alternate-file 'disabled nil)
+  :config
+  ;; use dired-jump
+  (use-package dired-x
+    :ensure nil
+    :bind ("C-x C-d" . dired-jump)))
+
+(use-package uniquify
+  :ensure nil
+  :init
+  (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+  (setq uniquify-ignore-buffers-re "*[^*]+*"))
+
+;; using ffap
+(ffap-bindings)
+(setq read-file-name-completion-ignore-case t)
+
 (add-to-list 'load-path "~/.emacs.d/init")
-(load "init-dired")
 (load "init-general")
 (load "init-yasnippet")
 (load "init-company")
