@@ -21,8 +21,14 @@
   :config
   (exec-path-from-shell-initialize))
 
+(eval-and-compile
+  (when (and (daemonp) (getenv "TMUX"))
+    (shell-command "tmux display -p '#I' > ~/.emacs.d/emacs-server-window")
+    (add-hook 'kill-emacs-hook
+              (lambda ()
+                (delete-file "~/.emacs.d/emacs-server-window")))))
+
 (add-to-list 'load-path "~/.emacs.d/init")
-(load "init-server")
 (load "init-appearance")
 (load "init-modeline")
 (load "init-scratch")
