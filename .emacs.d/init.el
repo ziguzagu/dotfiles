@@ -13,6 +13,7 @@
     (package-install 'use-package)))
 
 (eval-when-compile
+  (setq use-package-enable-imenu-support t)
   (require 'use-package)
   (setq use-package-always-ensure t))
 (require 'bind-key)
