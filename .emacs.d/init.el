@@ -539,9 +539,23 @@
 
 (use-package magit)
 
+(use-package lsp-mode
+  :commands
+  (lsp lsp-deferred)
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :custom
+  (lsp-headerline-breadcrumb-enable nil)
+  :config
+  ;; Use terraform-ls instead of terraform-lsp to be stable
+  ;; https://github.com/hashicorp/terraform-ls/blob/master/docs/USAGE.md#emacs
+  (lsp-register-client
+   (make-lsp-client :new-connection (lsp-stdio-connection '("terraform-ls" "serve"))
+                    :major-modes '(terraform-mode)
+                    :server-id 'terraform-ls)))
+
 (add-to-list 'load-path "~/.emacs.d/init")
 ;(load "init-helm")
-(load "init-lsp")
 (load "init-go")
 (load "init-ruby")
 (load "init-perl")
