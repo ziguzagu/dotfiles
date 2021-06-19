@@ -27,9 +27,11 @@
       (kill-region (car bounds) (cdr bounds)))))
 (global-set-key (kbd "M-d") 'my:delete-word-at-point)
 
-;; save recentf a lot for helm
-(require 'recentf)
-(setq recentf-max-saved-items 5000)
+(use-package recentf
+  :custom
+  (recentf-max-saved-items 5000)
+  :config
+  (recentf-mode 1))
 
 ;; reload a file when it was changed by another process (include vc)
 (global-auto-revert-mode t)
