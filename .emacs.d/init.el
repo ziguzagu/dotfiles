@@ -752,9 +752,16 @@
   ((terraform-mode . terraform-format-on-save-mode)
    (terraform-mode . lsp-deferred)))
 
+(use-package yaml-mode
+  :bind (:map yaml-mode-map
+         ("C-m" . newline-and-indent)))
+
+(use-package docker-compose-mode)
+
+(use-package dockerfile-mode)
+
 (add-to-list 'load-path "~/.emacs.d/init")
 ;(load "init-helm")
-(load "init-docker")
 (load "init-org")
 (load "init-lisp")
 
