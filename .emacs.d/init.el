@@ -379,8 +379,14 @@
 
 (use-package consult
   :pin melpa-stable
-  :bind (("C-x b" . consult-buffer)
-         ("C-c s" . consult-imenu)))
+  :bind (("C-x C-f" . consult-find)
+         ("C-x b" . consult-buffer)
+         ("C-c s" . consult-imenu))
+  :custom
+  (consult-find-command "fd --color=never --hidden --full-path ARG OPTS")
+  :config
+  (autoload 'projectile-project-root "projectile")
+  (setq consult-project-root-function #'projectile-project-root))
 
 (use-package orderless
   :pin melpa-stable
