@@ -375,7 +375,8 @@
 
 (use-package consult
   :pin melpa-stable
-  :bind (("C-c s" . consult-imenu)))
+  :bind (("C-x b" . consult-buffer)
+         ("C-c s" . consult-imenu)))
 
 (use-package orderless
   :pin melpa-stable
