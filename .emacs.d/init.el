@@ -377,6 +377,10 @@
   :config
   (vertico-mode))
 
+(use-package savehist
+  :config
+  (savehist-mode))
+
 (use-package consult
   :pin melpa-stable
   :bind (("C-x C-f" . consult-find)
