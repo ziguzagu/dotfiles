@@ -44,6 +44,15 @@
 
   (setq custom-file (expand-file-name "custom.el" temporary-file-directory))
 
+  (setq scroll-conservatively 35
+        scroll-margin 0
+        scroll-step 1)
+
+  (setq-default tab-width 4
+                indent-tabs-mode nil)
+
+  (setq comment-style 'extra-line)
+
   :custom-face
   (default ((t (:foreground "#e4e4e4" :background "#080808"))))
   (highlight ((t (:foreground "#080808" :background "#00cd00"))))
@@ -181,11 +190,6 @@
 ;; using ffap
 (ffap-bindings)
 (setq read-file-name-completion-ignore-case t)
-
-;; scroll by line
-(setq scroll-conservatively 35
-      scroll-margin 0
-      scroll-step 1)
 
 ;; enable upcase/downcase-region
 (put 'upcase-region 'disabled nil)
@@ -367,12 +371,6 @@
   :pin melpa-stable
   :custom
   (completion-styles '(orderless)))
-
-(eval-and-compile
-  (setq-default tab-width 4
-                indent-tabs-mode nil)
-
-  (setq comment-style 'extra-line))
 
 (use-package diff-mode
   :custom-face
