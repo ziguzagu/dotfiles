@@ -371,6 +371,7 @@
   :pin melpa-stable
   :bind (("C-x C-f" . consult-find)
          ("C-x b" . consult-buffer)
+         ("C-c g" . consult-git-grep)
          ("C-c s" . consult-imenu))
   :custom
   (consult-find-command "fd --color=never --hidden --full-path ARG OPTS")
