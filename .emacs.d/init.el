@@ -28,6 +28,13 @@
                 (delete-file "~/.emacs.d/emacs-server-window")))))
 
 (use-package emacs
+  :bind (("RET" . newline-and-indent)
+         ("C-c ]" . align-regexp)
+         ("C-c h" . help-for-help)
+         ("C-h" . delete-backward-char)
+         ("M-n" . scroll-up)
+         ("M-p" . scroll-down))
+
   :init
   (menu-bar-mode 0)
   (tool-bar-mode 0)
@@ -180,19 +187,10 @@
       scroll-margin 0
       scroll-step 1)
 
-;; scroll up and down
-(global-set-key (kbd "M-p") 'scroll-down)
-(global-set-key (kbd "M-n") 'scroll-up)
-
 ;; enable upcase/downcase-region
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 
-;; key bind
-(global-set-key (kbd "RET") 'newline-and-indent)
-(global-set-key (kbd "C-c h") 'help-for-help)
-(global-set-key (kbd "C-h")  'delete-backward-char)
-(global-set-key (kbd "C-c ]") 'align-regexp)
 ;; C-h as delete in mini buffer
 (define-key key-translation-map (kbd "C-h") (kbd "<DEL>"))
 
