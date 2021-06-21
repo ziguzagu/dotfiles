@@ -212,9 +212,12 @@
   :config
   (recentf-mode 1))
 
-;; reload a file when it was changed by another process (include vc)
-(global-auto-revert-mode t)
-(setq auto-revert-check-vc-info t)
+(use-package autorevert
+  :delight auto-revert-mode
+  :custom
+  (auto-revert-check-vc-info t)
+  :config
+  (global-auto-revert-mode t))
 
 ;; cycle buffer
 (defun my:switch-last-buffer ()
