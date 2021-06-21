@@ -354,6 +354,12 @@
   :config
   (company-statistics-mode))
 
+(use-package projectile
+  :bind (("C-x f" . projectile-find-file-dwim)
+         ("C-x p" . projectile-switch-project))
+  :config
+  (projectile-mode t))
+
 (use-package vertico
   :pin melpa-stable
   :custom-face
