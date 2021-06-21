@@ -51,8 +51,6 @@
   (setq-default tab-width 4
                 indent-tabs-mode nil)
 
-  (setq comment-style 'extra-line)
-
   :custom-face
   (default ((t (:foreground "#e4e4e4" :background "#080808"))))
   (highlight ((t (:foreground "#080808" :background "#00cd00"))))
@@ -187,9 +185,20 @@
   (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
   (setq uniquify-ignore-buffers-re "*[^*]+*"))
 
-;; using ffap
-(ffap-bindings)
-(setq read-file-name-completion-ignore-case t)
+(use-package ffap
+  :ensure nil
+  :config
+  (ffap-bindings))
+
+(use-package minibuffer
+  :ensure nil
+  :custom
+  (read-file-name-completion-ignore-case t))
+
+(use-package newcomment
+  :ensure nil
+  :custom
+  (comment-style 'extra-line))
 
 ;; enable upcase/downcase-region
 (put 'upcase-region 'disabled nil)
