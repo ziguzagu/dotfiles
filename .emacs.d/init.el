@@ -1,5 +1,3 @@
-(setq custom-file (expand-file-name "custom.el" temporary-file-directory))
-
 (eval-and-compile
   (require 'package)
   (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
@@ -29,57 +27,34 @@
               (lambda ()
                 (delete-file "~/.emacs.d/emacs-server-window")))))
 
-(eval-and-compile
+(use-package emacs
+  :init
   (menu-bar-mode 0)
   (tool-bar-mode 0)
   (blink-cursor-mode 0)
-  (setq ring-bell-function 'ignore)
+  (setq ring-bell-function 'ignore
+        initial-scratch-message nil)
 
-  (set-face-attribute 'default nil
-                      :foreground "#e4e4e4"
-                      :background "#080808")
-  (set-face-attribute 'highlight nil
-                      :foreground "#080808"
-                      :background "#00cd00")
-  (set-face-attribute 'region nil
-                      :foreground "#e4e4e4"
-                      :background "#383838")
-  (set-face-attribute 'minibuffer-prompt nil
-                      :foreground "#cdcd00")
-  (set-face-attribute 'mode-line nil
-                      :foreground "#c6c6c6"
-                      :background "#444444")
-  (set-face-attribute 'mode-line-inactive nil
-                      :foreground "#6c6c6c"
-                      :background "#292929")
-  (set-face-attribute 'mode-line-buffer-id nil
-                      :foreground "#ff8700"
-                      :weight 'normal)
-  (set-face-attribute 'header-line nil
-                      :inherit 'mode-line
-                      :weight 'bold
-                      :slant 'italic
-                      :underline t)
+  (setq custom-file (expand-file-name "custom.el" temporary-file-directory))
 
-  (set-face-attribute 'font-lock-comment-face nil
-                      :foreground "#858585"
-                      :slant 'italic)
-  (set-face-attribute 'font-lock-string-face nil
-                      :foreground "#afd787")
-  (set-face-attribute 'font-lock-keyword-face nil
-                      :foreground "#ffaf00")
-  (set-face-attribute 'font-lock-function-name-face nil
-                      :foreground "#afafaf")
-  (set-face-attribute 'font-lock-variable-name-face nil
-                      :foreground "#87afd7")
-  (set-face-attribute 'font-lock-constant-face nil
-                      :foreground "#d75f5f")
-  (set-face-attribute 'font-lock-type-face nil
-                      :foreground "#af87ff")
-  (set-face-attribute 'font-lock-warning-face nil
-                      :foreground "#af0000")
-  (set-face-attribute 'font-lock-builtin-face nil
-                      :foreground "#d787d7"))
+  :custom-face
+  (default ((t (:foreground "#e4e4e4" :background "#080808"))))
+  (highlight ((t (:foreground "#080808" :background "#00cd00"))))
+  (region ((t (:foreground "#e4e4e4" :background "#383838"))))
+  (minibuffer-prompt ((t (:foreground "#cdcd00"))))
+  (mode-line ((t (:foreground "#c6c6c6" :background "#444444"))))
+  (mode-line-inactive ((t (:foreground "#6c6c6c" :background "#292929"))))
+  (mode-line-buffer-id ((t (:foreground "#ff8700" :weight normal))))
+  (header-line ((t (:inherit mode-line :weight bold :slant italic :underline t))))
+  (font-lock-comment-face ((t (:foreground "#858585" :slant italic))))
+  (font-lock-string-face ((t (:foreground "#afd787"))))
+  (font-lock-keyword-face ((t (:foreground "#ffaf00"))))
+  (font-lock-function-name-face ((t (:foreground "#afafaf"))))
+  (font-lock-variable-name-face ((t (:foreground "#87afd7"))))
+  (font-lock-constant-face ((t (:foreground "#d75f5f"))))
+  (font-lock-type-face ((t (:foreground "#af87ff"))))
+  (font-lock-warning-face ((t (:foreground "#af0000"))))
+  (font-lock-builtin-face ((t (:foreground "#d787d7")))))
 
 (use-package whitespace
   :custom
@@ -154,8 +129,6 @@
                       "  "
                       '(:eval (my:mode-line-chcker))
                       "  %c:%l(%p)")))
-
-(setq initial-scratch-message nil)
 
 (use-package unkillable-scratch
   :config (unkillable-scratch t))
