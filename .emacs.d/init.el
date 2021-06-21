@@ -375,7 +375,8 @@
 
 (use-package consult
   :pin melpa-stable
-  :bind (("C-x C-f" . consult-find)
+  :bind (("C-s" . consult-line)
+         ("C-x C-f" . consult-find)
          ("C-x b" . consult-buffer)
          ("C-c g" . consult-git-grep)
          ("C-c s" . consult-imenu))
