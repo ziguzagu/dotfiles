@@ -51,6 +51,9 @@
   (setq-default tab-width 4
                 indent-tabs-mode nil)
 
+  (put 'upcase-region 'disabled nil)
+  (put 'downcase-region 'disabled nil)
+
   :custom-face
   (default ((t (:foreground "#e4e4e4" :background "#080808"))))
   (highlight ((t (:foreground "#080808" :background "#00cd00"))))
@@ -199,10 +202,6 @@
   :ensure nil
   :custom
   (comment-style 'extra-line))
-
-;; enable upcase/downcase-region
-(put 'upcase-region 'disabled nil)
-(put 'downcase-region 'disabled nil)
 
 ;; C-h as delete in mini buffer
 (define-key key-translation-map (kbd "C-h") (kbd "<DEL>"))
