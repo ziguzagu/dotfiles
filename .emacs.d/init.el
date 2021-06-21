@@ -629,58 +629,53 @@
 
 (use-package haml-mode)
 
-(defalias 'perl-mode 'cperl-mode)
-(setq cperl-close-paren-offset -4)
-(setq cperl-continued-statement-offset 4)
-(setq cperl-indent-level 4)
-(setq cperl-label-offset -4)
-(setq cperl-indent-parens-as-block t)
-(setq cperl-tab-always-indent t)
-(setq cperl-auto-newline nil)
-(setq cperl-electric-linefeed nil)
-(setq cperl-autoindent-on-semi t)
-(setq cperl-highlight-variables-indiscriminately t)
-(setq cperl-font-lock t)
+(use-package cperl-mode
+  :mode ("\\.t\\'" "\\.psgi\\'" "cpanfile")
+  :interpreter "perl"
+  :bind (:map cperl-mode-map
+         ("M-?" . cperl-perldoc-at-point)
+         ("C-c ." . cperl-perldoc)
+         ("C-c t" . my:perltidy-region)
+         ("C-c T" . my:perltidy-buffer))
+  :custom
+  (cperl-close-paren-offset -4)
+  (cperl-continued-statement-offset 4)
+  (cperl-indent-level 4)
+  (cperl-label-offset -4)
+  (cperl-indent-parens-as-block t)
+  (cperl-tab-always-indent t)
+  (cperl-auto-newline nil)
+  (cperl-electric-linefeed nil)
+  (cperl-autoindent-on-semi t)
+  (cperl-highlight-variables-indiscriminately t)
+  (cperl-font-lock t)
+  :custom-face
+  (cperl-array-face ((t (:inherit font-lock-variable-name-face))))
+  (cperl-hash-face ((t (:inherit font-lock-variable-name-face))))
+  (cperl-nonoverridable-face ((t (:foreground "#d7d700"))))
+  :init
+  (defun my:perltidy-region (beg end)
+    (interactive "r")
+    (shell-command-on-region beg end "perltidy -q" nil t))
 
-(font-lock-add-keywords 'cperl-mode
-                        '(("state" . font-lock-keyword-face)))
+  (defun my:perltidy-buffer (buffer)
+    "Run the perltidy formatter on the buffer."
+    (interactive (list (current-buffer)))
+    (with-current-buffer buffer
+      (perltidy-region (point-min) (point-max))))
+  :config
+  (defalias 'perl-mode 'cperl-mode)
 
-(add-hook 'cperl-mode-hook
-          (lambda ()
-            (copy-face 'font-lock-variable-name-face 'cperl-array-face)
-            (copy-face 'font-lock-variable-name-face 'cperl-hash-face)
-            (set-face-foreground 'cperl-nonoverridable-face "#d7d700")
-            (local-set-key (kbd "M-?") 'cperl-perldoc-at-point)
-            (local-set-key (kbd "C-c .") 'cperl-perldoc)))
+  (font-lock-add-keywords 'cperl-mode '(("state" . font-lock-keyword-face)))
 
-(add-to-list 'auto-mode-alist '("\\.cgi$" . cperl-mode))
-(add-to-list 'auto-mode-alist '("\\.p[hlm]$" . cperl-mode))
-(add-to-list 'auto-mode-alist '("\\.psgi$" . cperl-mode))
-(add-to-list 'auto-mode-alist '("\\.t$" . cperl-mode))
-(add-to-list 'auto-mode-alist '("cpanfile" . cperl-mode))
+  ;; ffap with perldoc
+  (defun my:ffap-cperl-mode (file)
+    (let ((real-file (shell-command-to-string (concat "perldoc -lm " file))))
+      (unless (string-match "No module found for " real-file)
+        (substring real-file (string-match "/" real-file) -1))))
+  (add-to-list 'ffap-alist '(cperl-mode . my:ffap-cperl-mode)))
 
 (use-package plenv)
-
-;; ffap with perldoc
-(defun my:ffap-cperl-mode (file)
-  (let ((real-file (shell-command-to-string (concat "perldoc -lm " file))))
-    (unless (string-match "No module found for " real-file)
-      (substring real-file (string-match "/" real-file) -1))))
-(add-to-list 'ffap-alist '(cperl-mode . my:ffap-cperl-mode))
-
-;; perltidy
-(defun my:perltidy-region (beg end)
-  (interactive "r")
-  (shell-command-on-region beg end "perltidy -q" nil t))
-(defun my:perltidy-buffer (buffer)
-  "Run the perltidy formatter on the buffer."
-  (interactive (list (current-buffer)))
-  (with-current-buffer buffer
-    (perltidy-region (point-min) (point-max))))
-(add-hook 'cperl-mode-hook
-          (lambda ()
-            (local-set-key (kbd "C-c t") 'my:perltidy-region)
-            (local-set-key (kbd "C-c T") 'my:perltidy-buffer)))
 
 ;; flycheck with Project::Libs
 (flycheck-define-checker perl-project-libs
