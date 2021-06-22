@@ -439,12 +439,11 @@
   (sh-shell-file "/bin/zsh"))
 
 (use-package dumb-jump
-  :bind (("M-." . dumb-jump-go)
-         ("M-," . dumb-jump-back))
-  :init
-  (setq dumb-jump-prefer-searcher 'rg)
-  (setq dumb-jump-selector 'helm)
-  (setq dumb-jump-default-project nil))
+  :hook
+  (xref-backend-functions . dumb-jump-xref-activate)
+  :custom
+  (dumb-jump-prefer-searcher rg)
+  (dumb-jump-default-project nil))
 
 (use-package jsonnet-mode
   :defer t)
