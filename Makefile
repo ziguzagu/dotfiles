@@ -3,7 +3,7 @@ SHELL = /bin/zsh
 
 home    = $(HOME)/
 basedir = $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
-sources = $(shell cat <(git ls-files) <(git ls-files -i -X .install-ignore) | sort | uniq -u)
+sources = $(shell cat <(git ls-files) <(git ls-files -ic -X .install-ignore) | sort | uniq -u)
 targets = $(addprefix $(home),$(sources))
 
 .DEFAULT_GOAL := help
