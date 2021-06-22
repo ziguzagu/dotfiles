@@ -366,6 +366,8 @@
   (vertico-current ((t (:background "#cb0000" :weight normal))))
   (vertico-group-title ((t (:background "#292929" :foreground "#a3a3a3" :slant italic))))
   (vertico-group-separator ((t (:inherit 'vertico-group-title))))
+  :custom
+  (vertico-count 15)
   :config
   (vertico-mode))
 
