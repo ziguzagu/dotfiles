@@ -376,10 +376,10 @@
 
 (use-package consult
   :pin melpa-stable
-  :bind (("C-s" . consult-line)
-         ("C-x C-f" . consult-find)
-         ("C-x b" . consult-buffer)
+  :bind (("C-x b" . consult-buffer)
+         ("C-c f" . consult-find)
          ("C-c g" . consult-git-grep)
+         ("C-c l" . consult-line)
          ("C-c s" . consult-imenu))
   :custom
   (consult-find-command "fd --color=never --hidden --full-path ARG OPTS")
