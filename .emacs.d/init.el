@@ -360,7 +360,6 @@
   (projectile-mode t))
 
 (use-package vertico
-  :pin melpa-stable
   :custom-face
   (vertico-current ((t (:background "#cb0000" :weight normal))))
   (vertico-group-title ((t (:background "#292929" :foreground "#a3a3a3" :slant italic))))
