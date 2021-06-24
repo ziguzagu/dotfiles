@@ -435,11 +435,11 @@
   (sh-shell-file "/bin/zsh"))
 
 (use-package dumb-jump
-  :hook
-  (xref-backend-functions . dumb-jump-xref-activate)
   :custom
-  (dumb-jump-prefer-searcher rg)
-  (dumb-jump-default-project nil))
+  (dumb-jump-prefer-searcher 'rg)
+  (dumb-jump-default-project nil)
+  :config
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
 (use-package jsonnet-mode
   :defer t)
