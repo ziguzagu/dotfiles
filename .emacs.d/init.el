@@ -692,9 +692,9 @@
             (setq flycheck-checker 'perl-project-libs)))
 
 (use-package js2-mode
-  :mode (("\\.js\\'"   . js2-mode)
-         ("\\.jsx\\'"  . js2-jsx-mode))
-  :interpreter ("node" . js2-mode)
+  :mode (("\\.js\\'"  . js2-mode)
+         ("\\.jsx\\'" . js2-jsx-mode))
+  :interpreter "node"
   :custom
   (js2-basic-offset 2))
 
@@ -716,23 +716,23 @@
 
 (use-package web-mode
   :mode ("\\.html\\'" "\\.tmpl\\'" "\\.tt\\'" "\\.tx\\'")
-  :config
-  (defun my:web-mode-hook ()
-    (setq web-mode-markup-indent-offset 2)
-    (setq web-mode-css-indent-offset 2)
-    (setq web-mode-code-indent-offset 2)
-    (setq web-mode-style-padding 2)
-    (setq web-mode-script-padding 2)
-    (setq web-mode-engines-alist
-          '(("template-toolkit" . "\\.tt\\'")
-            ("template-toolkit" . "\\.tx\\'"))))
-  (add-hook 'web-mode-hook 'my:web-mode-hook))
+  :custom
+  (web-mode-markup-indent-offset 2)
+  (web-mode-css-indent-offset 2)
+  (web-mode-code-indent-offset 2)
+  (web-mode-style-padding 2)
+  (web-mode-script-padding 2)
+  (web-mode-engines-alist '(("template-toolkit" . "\\.tt\\'")
+                            ("template-toolkit" . "\\.tx\\'"))))
+
+(use-package css-mode
+  :custom
+  (css-indent-offset 2))
 
 (use-package scss-mode
   :mode ("\\.css\\'" "\\.scss\\'")
-  :config
-  (setq css-indent-offset 2)
-  (setq scss-compile-at-save nil))
+  :custom
+  (scss-compile-at-save nil))
 
 (defun my:escape-html-region (start end)
   "Escape '&<>' characters in the region using '&amp;', '&lt;', and '&gt;'."
