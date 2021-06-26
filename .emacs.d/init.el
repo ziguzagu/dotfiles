@@ -375,8 +375,8 @@
   :bind (("C-x b" . consult-buffer)
          ("C-c f" . consult-find)
          ("C-c g" . consult-git-grep)
-         ("C-c l" . consult-line)
-         ("C-c s" . consult-imenu))
+         ("C-c s" . consult-line)
+         ("C-c j" . consult-imenu))
   :custom
   (consult-find-command "fd --color=never --hidden --full-path ARG OPTS")
   :config
@@ -551,8 +551,8 @@
 (use-package lsp-mode
   :commands
   (lsp lsp-deferred)
-  :init
-  (setq lsp-keymap-prefix "C-c l")
+  :bind-keymap
+  ("C-c l" . lsp-command-map)
   :custom
   (lsp-headerline-breadcrumb-enable nil)
   :config
