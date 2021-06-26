@@ -313,8 +313,9 @@
 
 (use-package yasnippet
   :bind (("C-c i" . yas-expand))
+  :custom
+  (yas-snippet-dirs `(,(expand-file-name "snippets" user-emacs-directory)))
   :config
-  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
   (yas-global-mode 1))
 
 (use-package company
@@ -808,6 +809,6 @@
 (use-package slime-company)
 
 (eval-and-compile
-  (let ((host-local-config "~/.emacs.d/init-local.el"))
+  (let ((host-local-config (expand-file-name "init-local.el" user-emacs-directory)))
     (when (file-exists-p host-local-config)
       (load host-local-config))))
