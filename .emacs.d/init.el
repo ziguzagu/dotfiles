@@ -546,7 +546,8 @@
 
 (use-package gitignore-mode)
 
-(use-package magit)
+(use-package magit
+  :bind (("C-c v" . magit-file-dispatch)))
 
 (use-package lsp-mode
   :commands
