@@ -180,9 +180,8 @@
 
 (use-package uniquify
   :ensure nil
-  :init
-  (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
-  (setq uniquify-ignore-buffers-re "*[^*]+*"))
+  :custom
+  (uniquify-ignore-buffers-re "*[^*]+*"))
 
 (use-package ffap
   :ensure nil
