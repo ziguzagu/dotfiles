@@ -301,16 +301,15 @@
          ("C-M-a" . mc/mark-all-like-this)))
 
 (use-package flyspell
-  :init
-  (setq ispell-program-name "aspell")
-  (setq ispell-extra-args '("--ignore-case"
-                            "--sug-mode=ultra"
-                            "--lang=en_US"
-                            ;; work for camel case
-                            "--run-together"
-                            "--run-together-min=2"
-                            "--run-together-limit=16"))
-  :hook (prog-mode . flyspell-prog-mode))
+  :hook (prog-mode . flyspell-prog-mode)
+  :custom
+  (spell-extra-args ("--ignore-case"
+                     "--sug-mode=ultra"
+                     "--lang=en_US"
+                     ;; work for camel case
+                     "--run-together"
+                     "--run-together-min=2"
+                     "--run-together-limit=16")))
 
 (use-package wgrep)
 
