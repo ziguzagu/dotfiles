@@ -145,7 +145,8 @@
                       "  %c:%l(%p)")))
 
 (use-package unkillable-scratch
-  :config (unkillable-scratch t))
+  :config
+  (unkillable-scratch t))
 
 (use-package persistent-scratch
   :config
