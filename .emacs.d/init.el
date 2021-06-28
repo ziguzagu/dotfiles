@@ -228,16 +228,19 @@
   (switch-to-buffer (other-buffer (current-buffer) 1)))
 (global-set-key (kbd "C-c b") 'my:switch-last-buffer)
 
-;; backup
-(defconst my-backup-dir (expand-file-name (format "emacs%d/backup" (user-uid)) temporary-file-directory))
-(setq backup-directory-alist `((".*" . ,my-backup-dir))
-      auto-save-file-name-transforms `((".*" ,my-backup-dir t))
-      auto-save-list-file-prefix my-backup-dir)
-(setq backup-by-copying t
-      version-control t
-      kept-new-versions 5
-      kept-old-versions 1
-      delete-old-versions t)
+(use-package files
+  :ensure nil
+  :custom
+  (backup-by-copying t)
+  (version-control t)
+  (kept-new-versions 5)
+  (kept-old-versions 1)
+  (delete-old-versions t)
+  :config
+  (let ((my-backup-dir (expand-file-name (format "emacs%d/backup" (user-uid)) temporary-file-directory)))
+    (setq backup-directory-alist `((".*" . ,my-backup-dir)))
+    (setq auto-save-file-name-transforms `((".*" ,my-backup-dir t)))
+    (setq auto-save-list-file-prefix my-backup-dir)))
 
 ;; rotate window divide vertical / horizontal
 (defun my:window-toggle-split ()
