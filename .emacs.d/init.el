@@ -602,7 +602,6 @@
 
 (use-package rspec-mode
   :custom
-  (rspec-use-docker-when-possible t)
   (rspec-use-relative-path t)
   :config
   (rspec-install-snippets))
