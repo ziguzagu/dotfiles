@@ -51,9 +51,6 @@ fi
 typeset -U PATH
 
 # Environment Variables
-if [[ -x "$(which gdircolors)" ]]; then
-    eval "$(gdircolors ~/.config/dircolors)"
-fi
 export GO111MODULE=on
 export GOBIN=$HOME/bin
 export GOMODCACHE=$HOME/.cache/go_mod
