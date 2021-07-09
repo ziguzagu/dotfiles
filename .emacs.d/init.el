@@ -314,7 +314,6 @@
 (use-package wgrep)
 
 (use-package yasnippet
-  :bind (("C-c i" . yas-expand))
   :custom
   (yas-snippet-dirs `(,(expand-file-name "snippets" user-emacs-directory)))
   :config
@@ -339,7 +338,7 @@
   (company-dabbrev-minimum-length 3)
   ;; go to top at the next of last candidates
   (company-selection-wrap-around t)
-  (company-backends '(company-capf company-semantic company-dabbrev-code company-dabbrev company-keywords))
+  (company-backends '(company-capf company-semantic company-dabbrev-code company-dabbrev company-keywords company-yasnippet))
   :custom-face
   (company-tooltip ((t (:foreground "#080808" :background "#b8b8b8"))))
   (company-tooltip-common ((t (:inherit 'company-tooltip :underline t))))
