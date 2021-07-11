@@ -655,7 +655,7 @@
     "Run the perltidy formatter on the buffer."
     (interactive (list (current-buffer)))
     (with-current-buffer buffer
-      (perltidy-region (point-min) (point-max))))
+      (my:perltidy-region (point-min) (point-max))))
   :config
   (defalias 'perl-mode 'cperl-mode)
 
