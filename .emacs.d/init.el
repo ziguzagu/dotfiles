@@ -9,11 +9,11 @@
 
 (eval-when-compile
   (setq use-package-enable-imenu-support t)
-  (require 'use-package)
-  (setq use-package-always-ensure t))
+  (require 'use-package))
 (require 'bind-key)
 
 (use-package exec-path-from-shell
+  :ensure t
   :config
   (exec-path-from-shell-initialize))
 
@@ -83,6 +83,7 @@
   (whitespace-tab ((t (:foreground "#666666" :background nil)))))
 
 (use-package rainbow-mode
+  :ensure t
   :hook (emacs-lisp-mode . rainbow-mode))
 
 (eval-and-compile
@@ -145,10 +146,12 @@
                       "  %c:%l(%p)")))
 
 (use-package unkillable-scratch
+  :ensure t
   :config
   (unkillable-scratch t))
 
 (use-package persistent-scratch
+  :ensure t
   :config
   (persistent-scratch-setup-default)
   (persistent-scratch-autosave-mode 1))
@@ -160,7 +163,6 @@
     (shell-command (concat "open " (shell-quote-argument file)))))
 
 (use-package dired
-  :ensure nil
   :bind (:map dired-mode-map
               ("e" . wdired-change-to-wdired-mode)
               ("RET" . dired-find-alternate-file)
@@ -176,26 +178,21 @@
   (put 'dired-find-alternate-file 'disabled nil))
 
 (use-package dired-x
-  :after dired
-  :ensure nil)
+  :after dired)
 
 (use-package uniquify
-  :ensure nil
   :custom
   (uniquify-ignore-buffers-re "*[^*]+*"))
 
 (use-package ffap
-  :ensure nil
   :config
   (ffap-bindings))
 
 (use-package minibuffer
-  :ensure nil
   :custom
   (read-file-name-completion-ignore-case t))
 
 (use-package newcomment
-  :ensure nil
   :custom
   (comment-style 'extra-line))
 
@@ -217,7 +214,6 @@
   (recentf-mode 1))
 
 (use-package autorevert
-  :delight auto-revert-mode
   :custom
   (auto-revert-check-vc-info t)
   :config
@@ -230,7 +226,6 @@
 (global-set-key (kbd "C-c b") 'my:switch-last-buffer)
 
 (use-package files
-  :ensure nil
   :custom
   (backup-by-copying t)
   (version-control t)
@@ -268,6 +263,7 @@
 (global-set-key (kbd "C-z") 'my:other-window-or-split)
 
 (use-package popwin
+  :ensure t
   :custom
   (popwin:popup-window-position 'bottom)
   (popwin:popup-window-height 20)
@@ -291,16 +287,19 @@
     (setq interprogram-paste-function 'my:copy-from-osx)))
 
 (use-package expand-region
+  :ensure t
   :bind (("C-]" . er/expand-region)
          ("M-]" . er/contract-region)))
 
 (use-package multiple-cursors
+  :ensure t
   :bind (("C-M-c" . mc/edit-lines)
          ("C-M-n" . mc/mark-next-like-this)
          ("C-M-p" . mc/mark-previous-like-this)
          ("C-M-a" . mc/mark-all-like-this)))
 
 (use-package flyspell
+  :ensure t
   :hook (prog-mode . flyspell-prog-mode)
   :custom
   (spell-extra-args ("--ignore-case"
@@ -311,15 +310,18 @@
                      "--run-together-min=2"
                      "--run-together-limit=16")))
 
-(use-package wgrep)
+(use-package wgrep
+  :ensure t)
 
 (use-package yasnippet
+  :ensure t
   :custom
   (yas-snippet-dirs `(,(expand-file-name "snippets" user-emacs-directory)))
   :config
   (yas-global-mode 1))
 
 (use-package company
+  :ensure t
   :bind (("C-o" . company-dabbrev)
          :map company-active-map
          ("C-n" . company-select-next)
@@ -349,16 +351,19 @@
   (company-scrollbar-bg ((t (:background "#666666")))))
 
 (use-package company-statistics
+  :ensure t
   :config
   (company-statistics-mode))
 
 (use-package projectile
+  :ensure t
   :bind (("C-x f" . projectile-find-file-dwim)
          ("C-x p" . projectile-switch-project))
   :config
   (projectile-mode t))
 
 (use-package vertico
+  :ensure t
   :custom-face
   (vertico-current ((t (:background "#cb0000" :weight normal))))
   (vertico-group-title ((t (:background "#292929" :foreground "#a3a3a3" :slant italic))))
@@ -373,6 +378,7 @@
   (savehist-mode))
 
 (use-package consult
+  :ensure t
   :pin melpa-stable
   :bind (("C-x b" . consult-buffer)
          ("C-c f" . consult-find)
@@ -386,6 +392,7 @@
   (setq consult-project-root-function #'projectile-project-root))
 
 (use-package helm
+  :ensure t
   :bind (("C-c y" . helm-show-kill-ring))
   :custom-face
   (helm-header           ((t (:inherit 'header-line :inverse-video t))))
@@ -395,6 +402,7 @@
   (helm-match            ((t (:foreground "#a2cd5a")))))
 
 (use-package orderless
+  :ensure t
   :pin melpa-stable
   :custom
   (completion-styles '(orderless)))
@@ -413,6 +421,7 @@
   (diff-refine-removed ((t (:inherit diff-removed :background "#5f0000")))))
 
 (use-package dash-at-point
+  :ensure t
   :bind (("C-c ." . dash-at-point)
          ("C-c C-." . dash-at-point-with-docset)))
 
@@ -421,6 +430,7 @@
   (sql-highlight-mysql-keywords))
 
 (use-package markdown-mode
+  :ensure t
   :commands (markdown-mode gfm-mode)
   :custom-face
   (markdown-header-delimiter-face ((t (:foreground "#ffa500"))))
@@ -437,16 +447,17 @@
   (sh-shell-file "/bin/zsh"))
 
 (use-package dumb-jump
+  :ensure t
   :custom
   (dumb-jump-prefer-searcher 'rg)
   (dumb-jump-default-project nil)
   :config
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
-(use-package jsonnet-mode
-  :defer t)
+(use-package jsonnet-mode)
 
 (use-package flycheck
+  :ensure t
   :custom
   (flycheck-disabled-checkers '(emacs-lisp-checkdoc))
   :custom-face
@@ -456,6 +467,7 @@
   (global-flycheck-mode t))
 
 (use-package flycheck-popup-tip
+  :ensure t
   :config
   (flycheck-popup-tip-mode)
   :custom-face
@@ -533,6 +545,7 @@
                                        (turn-on-auto-fill)))
 
 (use-package git-commit
+  :ensure t
   :config
   (global-git-commit-mode)
   :custom
@@ -541,17 +554,22 @@
   (git-commit-fill-column 72))
 
 (use-package browse-at-remote
+  :ensure t
   :config
   (define-key vc-prefix-map [(w)] 'browse-at-remote))
 
-(use-package gitconfig-mode)
+(use-package gitconfig-mode
+  :ensure t)
 
-(use-package gitignore-mode)
+(use-package gitignore-mode
+  :ensure t)
 
 (use-package magit
+  :ensure t
   :bind (("C-c v" . magit-file-dispatch)))
 
 (use-package lsp-mode
+  :ensure t
   :commands
   (lsp lsp-deferred)
   :bind-keymap
@@ -596,25 +614,30 @@
   (ruby-insert-encoding-magic-comment nil))
 
 (use-package ruby-end
+  :ensure t
   :hook
   (ruby-mode . ruby-end-mode))
 
 (use-package rspec-mode
+  :ensure t
   :custom
   (rspec-use-relative-path t)
   :config
   (rspec-install-snippets))
 
 (use-package inf-ruby
+  :ensure t
   :hook
   ((ruby-mode . inf-ruby-minor-mode)
    (ruby-mode . inf-ruby-switch-setup)))
 
 (use-package rbenv
+  :ensure t
   :config
   (global-rbenv-mode))
 
 (use-package projectile-rails
+  :ensure t
   :bind-keymap
   ("C-c r" . projectile-rails-command-map)
   :config
@@ -691,15 +714,18 @@
             (setq flycheck-checker 'perl-project-libs)))
 
 (use-package js2-mode
+  :ensure t
   :mode (("\\.js\\'"  . js2-mode)
          ("\\.jsx\\'" . js2-jsx-mode))
   :interpreter "node"
   :custom
   (js2-basic-offset 2))
 
-(use-package json-mode)
+(use-package json-mode
+  :ensure t)
 
 (use-package typescript-mode
+  :ensure t
   :custom
   (typescript-indent-level 2))
 
@@ -714,6 +740,7 @@
   (js2-mode . prettier-js))
 
 (use-package web-mode
+  :ensure t
   :mode ("\\.html\\'" "\\.tmpl\\'" "\\.tt\\'" "\\.tx\\'")
   :custom
   (web-mode-markup-indent-offset 2)
@@ -729,6 +756,7 @@
   (css-indent-offset 2))
 
 (use-package scss-mode
+  :ensure t
   :mode ("\\.css\\'" "\\.scss\\'")
   :custom
   (scss-compile-at-save nil))
@@ -749,20 +777,21 @@
       (while (search-forward ">" nil t)
         (replace-match "&gt;" nil t)))))
 
-(use-package hcl-mode)
-
 (use-package terraform-mode
+  :ensure t
   :hook
   ((terraform-mode . terraform-format-on-save-mode)
    (terraform-mode . lsp-deferred)))
 
 (use-package yaml-mode
+  :ensure t
   :bind (:map yaml-mode-map
          ("C-m" . newline-and-indent)))
 
 (use-package docker-compose-mode)
 
-(use-package dockerfile-mode)
+(use-package dockerfile-mode
+  :ensure t)
 
 (use-package org
   :bind (("C-c c" . org-capture))
