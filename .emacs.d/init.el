@@ -82,6 +82,10 @@
   (whitespace-trailing ((t (:inherit trailing-whitespace))))
   (whitespace-tab ((t (:foreground "#666666" :background nil)))))
 
+(use-package saveplace
+  :config
+  (save-place-mode 1))
+
 (use-package rainbow-mode
   :ensure t
   :hook (emacs-lisp-mode . rainbow-mode))
