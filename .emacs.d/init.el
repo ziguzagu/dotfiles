@@ -646,7 +646,11 @@
   (cperl-array-face ((t (:inherit font-lock-variable-name-face))))
   (cperl-hash-face ((t (:inherit font-lock-variable-name-face))))
   (cperl-nonoverridable-face ((t (:foreground "#d7d700"))))
-  :init
+  :config
+  (defalias 'perl-mode 'cperl-mode)
+
+  (font-lock-add-keywords 'cperl-mode '(("state" . font-lock-keyword-face)))
+
   (defun my:perltidy-region (beg end)
     (interactive "r")
     (shell-command-on-region beg end "perltidy -q" nil t))
@@ -656,10 +660,6 @@
     (interactive (list (current-buffer)))
     (with-current-buffer buffer
       (my:perltidy-region (point-min) (point-max))))
-  :config
-  (defalias 'perl-mode 'cperl-mode)
-
-  (font-lock-add-keywords 'cperl-mode '(("state" . font-lock-keyword-face)))
 
   ;; ffap with perldoc
   (defun my:ffap-cperl-mode (file)
