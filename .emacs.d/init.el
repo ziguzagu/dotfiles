@@ -26,9 +26,15 @@
 
 (use-package emacs
   :bind (("RET" . newline-and-indent)
+         ("C-M-r" . isearch-backward)
+         ("C-M-s" . isearch-forward)
          ("C-c ]" . align-regexp)
          ("C-c h" . help-for-help)
          ("C-h" . delete-backward-char)
+         ("C-r" . isearch-backward-regexp)
+         ("C-s" . isearch-forward-regexp)
+         ("C-x C-b" . ibuffer)
+         ("M-/" . hippie-expand)
          ("M-n" . scroll-up)
          ("M-p" . scroll-down))
 
@@ -186,6 +192,7 @@
 
 (use-package uniquify
   :custom
+  (uniquify-buffer-name-style 'forward)
   (uniquify-ignore-buffers-re "*[^*]+*"))
 
 (use-package ffap
