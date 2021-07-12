@@ -166,12 +166,6 @@
   (persistent-scratch-setup-default)
   (persistent-scratch-autosave-mode 1))
 
-(defun my:dired-open-file-by-open ()
-  "Open file by `open` command in dired mode."
-  (interactive)
-  (let ((file (dired-get-file-for-visit)))
-    (shell-command (concat "open " (shell-quote-argument file)))))
-
 (use-package dired
   :bind (:map dired-mode-map
               ("e" . wdired-change-to-wdired-mode)
@@ -181,11 +175,18 @@
   ;; use GNU ls installed by homebrew to use its own options, not have BSD ls.
   (setq insert-directory-program "gls"
         dired-listing-switches "-AlhXF --color=auto --group-directories-first")
-  ;; recursive copy/delete
-  (setq dired-recursive-copies 'always
-        dired-recursive-deletes 'always)
+  :custom
+  (dired-recursive-copies 'always)
+  (dired-recursive-deletes 'always)
+  :config
   ;; don't create new buffer at moving direcotry
-  (put 'dired-find-alternate-file 'disabled nil))
+  (put 'dired-find-alternate-file 'disabled nil)
+
+  (defun my:dired-open-file-by-open ()
+    "Open file by `open` command in dired mode."
+    (interactive)
+    (let ((file (dired-get-file-for-visit)))
+      (shell-command (concat "open " (shell-quote-argument file))))))
 
 (use-package dired-x
   :after dired)
