@@ -466,7 +466,6 @@
   :config
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
-(use-package jsonnet-mode)
 
 (use-package flycheck
   :ensure t
@@ -799,6 +798,8 @@
   :ensure t
   :bind (:map yaml-mode-map
          ("C-m" . newline-and-indent)))
+
+(use-package jsonnet-mode)
 
 (use-package docker-compose-mode)
 
