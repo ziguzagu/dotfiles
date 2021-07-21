@@ -466,7 +466,6 @@
   :config
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
-
 (use-package flycheck
   :ensure t
   :custom
@@ -800,6 +799,8 @@
          ("C-m" . newline-and-indent)))
 
 (use-package jsonnet-mode)
+
+(use-package protobuf-mode)
 
 (use-package docker-compose-mode)
 
