@@ -849,6 +849,25 @@
 
 (use-package slime-company)
 
+(use-package processing-mode
+  :custom
+  (processing-location "/usr/local/bin/processing-java")
+  :config
+  ;; import processing-company.el
+  ;; https://github.com/ptrv/processing2-emacs/blob/448aba82970c98322629eaf2746e73be6c30c98e/processing-company.el
+  (defvar processing-company--keywords
+    (cons 'processing-mode (append processing-functions
+                                   processing-builtins
+                                   processing-constants)))
+  (defun processing-company--init ()
+    (setq-local company-backends '((company-keywords
+                                    :with
+                                    company-yasnippet
+                                    company-dabbrev-code)))
+    (make-local-variable 'company-keywords-alist)
+    (add-to-list 'company-keywords-alist processing-company--keywords))
+  (add-hook 'processing-mode-hook 'processing-company--init))
+
 (eval-and-compile
   (let ((host-local-config (expand-file-name "init-local.el" user-emacs-directory)))
     (when (file-exists-p host-local-config)
