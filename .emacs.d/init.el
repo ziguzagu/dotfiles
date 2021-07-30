@@ -620,6 +620,8 @@
 
 (use-package ruby-mode
   :interpreter "ruby"
+  :hook
+  (ruby-mode . lsp-deferred)
   :custom
   (ruby-insert-encoding-magic-comment nil))
 
