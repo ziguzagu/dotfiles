@@ -738,6 +738,7 @@
 
 (use-package typescript-mode
   :ensure t
+  :mode ("\\.ts\\'" "\\.tsx\\'")
   :custom
   (typescript-indent-level 2))
 
