@@ -339,11 +339,12 @@
 (use-package company
   :ensure t
   :bind (("C-o" . company-dabbrev)
+         ("TAB" . company-indent-or-complete-common)
          :map company-active-map
          ("C-n" . company-select-next)
          ("C-p" . company-select-previous)
          ("C-s" . company-filter-candidates)
-         ("TAB" . company-complete-selection)
+         ("TAB" . company-complete-common-or-cycle)
          :map company-search-map
          ("C-n" . company-select-next)
          ("C-p" . company-select-previous))
