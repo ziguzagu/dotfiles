@@ -19,10 +19,10 @@
 
 (eval-and-compile
   (when (and (daemonp) (getenv "TMUX"))
-    (shell-command "tmux display -p '#I' > ~/.emacs.d/emacs-server-window")
+    (shell-command (concat "tmux display -p '#I' > " (expand-file-name "emacs-server-window" temporary-file-directory)))
     (add-hook 'kill-emacs-hook
               (lambda ()
-                (delete-file "~/.emacs.d/emacs-server-window")))))
+                (delete-file (expand-file-name "emacs-server-window" temporary-file-directory))))))
 
 (use-package emacs
   :bind (("RET" . newline-and-indent)
