@@ -123,7 +123,7 @@ alias tf="terraform"
 alias z="fzf"
 
 ## global aliases
-alias -g P="| less"
+alias -g L="| less"
 
 ########################################
 ## Completion
