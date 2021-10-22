@@ -109,7 +109,7 @@ alias rg="rg --heading --colors=match:fg:214 --colors=match:style:nobold --color
 alias ssh="TERM=xterm-256color ssh"
 
 ## shortcuts
-alias b="bat"
+alias b="bundle"
 alias c="docker-compose"
 alias ci="circleci"
 alias d="docker"
