@@ -408,16 +408,6 @@
   (autoload 'projectile-project-root "projectile")
   (setq consult-project-root-function #'projectile-project-root))
 
-;; (use-package helm
-;;   :ensure t
-;;   :bind (("C-c y" . helm-show-kill-ring))
-;;   :custom-face
-;;   (helm-header           ((t (:inherit 'header-line :inverse-video t))))
-;;   (helm-source-header    ((t (:background "#292929" :foreground "#a3a3a3" :slant italic))))
-;;   (helm-candidate-number ((t (:foreground "#5fafff" :background "#444444"))))
-;;   (helm-selection        ((t (:background "#cb0000" :weight normal))))
-;;   (helm-match            ((t (:foreground "#a2cd5a")))))
-
 (use-package orderless
   :ensure t
   :pin melpa-stable
