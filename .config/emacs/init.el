@@ -416,7 +416,7 @@
 
 (use-package browse-kill-ring
   :ensure t
-  :bind (("C-c y" . browse-kill-ring))
+  :bind (("C-c y" . browse-kill-ring)))
 
 (use-package diff-mode
   :custom-face
