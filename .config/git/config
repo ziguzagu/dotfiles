@@ -52,6 +52,7 @@
 	diffFilter = delta --color-only
 
 [alias]
+	aliases = !git config --get-regexp "alias\\." | perl -pe 's/^alias\\.(\\S+)\\s*/$1 = /'
 	up = !git pull --rebase && git submodule update --init --recursive
 	di = diff
 	dc = diff --cached
