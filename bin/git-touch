@@ -1,5 +1,5 @@
-#!/bin/bash
-set -eu
+#!/bin/zsh
+set -eu -o pipefail
 
 usage() {
     cat <<EOF

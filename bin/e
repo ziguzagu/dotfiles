@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/zsh
 # Open file by `emacsclient -n` collaborating with tmux
-set -eu
+set -eu -o pipefail
 
 window=$(test -f "${TMPDIR}emacs-server-window" && cat $_)
 if [[ -n $TMUX && -n $window ]]; then

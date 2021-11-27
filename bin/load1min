@@ -1,2 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
+set -eu -o pipefail
+
 uptime | perl -lne '/load averages: (\d+\.\d+)/ && print $1'
