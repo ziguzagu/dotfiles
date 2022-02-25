@@ -75,7 +75,6 @@
 	s = grep --heading --break --line-number --color=auto --show-function
 	current-branch = branch --show-current
 	default-branch = !basename $(git symbolic-ref --short refs/remotes/$(git remote | grep upstream || echo 'origin')/HEAD)
-	prune-branches = !git branch --merged | grep -v -e 'master' -e "$(git default-branch)" -e "$(git current-branch)" | xargs -n 1 git branch -d
 
 [push]
 	default = current

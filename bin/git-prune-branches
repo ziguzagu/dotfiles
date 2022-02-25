@@ -1,0 +1,15 @@
+#!/bin/zsh
+set -eu
+
+default_branch=$(git default-branch)
+
+# remove merged branches
+git branch --merged | grep -v -e 'master' -e 'main' -e $default_branch -e "$(git current-branch)" | xargs -n 1 git branch -d
+
+# remove squash merged branches
+git for-each-ref refs/heads/ '--format=%(refname:short)' |
+    while read branch; do
+        ancestor=$(git merge-base $default_branch $branch) &&
+            [[ $(git cherry $default_branch $(git commit-tree $(git rev-parse $branch^{tree}) -p $ancestor -m _)) == "-"* ]] &&
+            git branch -D $branch
+    done
