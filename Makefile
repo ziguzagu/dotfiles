@@ -29,15 +29,6 @@ brew: ## Update homebrew stuff
 	brew bundle check --verbose
 	brew cleanup
 
-gems  = rubocop rubocop-performance rubocop-rspec rubocop-rails reek
-gems += solargraph
-gems += travis
-ruby: ## Update local development environment of Ruby
-	gem update --system --no-document
-	gem install --no-document --conservative $(gems)
-	gem update --no-document --conservative $(gems)
-	gem cleanup $(gems)
-
 go: ## Update local development environment of Go
 	go get golang.org/x/tools/gopls
 	go get github.com/motemen/gore/cmd/gore
