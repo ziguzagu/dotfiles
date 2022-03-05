@@ -178,6 +178,7 @@
   :custom
   (dired-recursive-copies 'always)
   (dired-recursive-deletes 'always)
+  (wdired-allow-to-change-permissions t)
   :config
   ;; don't create new buffer at moving direcotry
   (put 'dired-find-alternate-file 'disabled nil)
