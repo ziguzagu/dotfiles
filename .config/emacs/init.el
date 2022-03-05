@@ -360,13 +360,13 @@
   (company-selection-wrap-around t)
   (company-backends '(company-capf company-semantic company-dabbrev-code company-dabbrev company-keywords company-yasnippet))
   :custom-face
-  (company-tooltip ((t (:foreground "#080808" :background "#b8b8b8"))))
+  (company-tooltip ((t (:foreground "#e3e3e3" :background "#292929"))))
   (company-tooltip-common ((t (:inherit 'company-tooltip :underline t))))
-  (company-tooltip-selection ((t (:foreground "#e4e4e4" :background "#5f87af"))))
+  (company-tooltip-selection ((t (:background "#4682b4"))))
   (company-tooltip-common-selection ((t (:inherit 'company-tooltip-selection :underline t))))
   (company-preview-common ((t (:inherit 'company-tooltip-common))))
-  (company-scrollbar-fg ((t (:background "#ff8700"))))
-  (company-scrollbar-bg ((t (:background "#666666")))))
+  (company-scrollbar-fg ((t (:background "#ff8c00"))))
+  (company-scrollbar-bg ((t (:background "#525252")))))
 
 (use-package company-statistics
   :ensure t
