@@ -58,18 +58,18 @@
   (put 'downcase-region 'disabled nil)
 
   :custom-face
-  (default ((t (:foreground "#e4e4e4" :background "#080808"))))
+  (default ((t (:foreground "#e3e3e3" :background "#080808"))))
   (highlight ((t (:foreground "#080808" :background "#00cd00"))))
-  (region ((t (:foreground "#e4e4e4" :background "#383838"))))
+  (region ((t (:foreground "#e3e3e3" :background "#383838"))))
   (minibuffer-prompt ((t (:foreground "#cdcd00"))))
-  (mode-line ((t (:foreground "#c6c6c6" :background "#444444"))))
-  (mode-line-inactive ((t (:foreground "#6c6c6c" :background "#292929"))))
+  (mode-line ((t (:foreground "#c6c6c6" :background "#454545"))))
+  (mode-line-inactive ((t (:foreground "#6b6b6b" :background "#292929"))))
   (mode-line-buffer-id ((t (:foreground "#ff8700" :weight normal))))
   (header-line ((t (:inherit mode-line :weight bold :slant italic :underline t))))
   (font-lock-comment-face ((t (:foreground "#858585" :slant italic))))
   (font-lock-string-face ((t (:foreground "#afd787"))))
   (font-lock-keyword-face ((t (:foreground "#ffaf00"))))
-  (font-lock-function-name-face ((t (:foreground "#afafaf"))))
+  (font-lock-function-name-face ((t (:foreground "#b0b0b0"))))
   (font-lock-variable-name-face ((t (:foreground "#87afd7"))))
   (font-lock-constant-face ((t (:foreground "#d75f5f"))))
   (font-lock-type-face ((t (:foreground "#af87ff"))))
@@ -84,7 +84,7 @@
   :config
   (global-whitespace-mode t)
   :custom-face
-  (trailing-whitespace ((t (:foreground "#e5e5e5" :background "#525252"))))
+  (trailing-whitespace ((t (:foreground "#e3e3e3" :background "#525252"))))
   (whitespace-trailing ((t (:inherit trailing-whitespace))))
   (whitespace-tab ((t (:foreground "#666666" :background nil)))))
 
@@ -481,7 +481,7 @@
   :config
   (flycheck-popup-tip-mode)
   :custom-face
-  (popup-tip-face ((t (:foreground "#5fafd7" :background "#303030")))))
+  (popup-tip-face ((t (:foreground "#5fafd7" :background "#292929")))))
 
 (require 'vc-git)
 (require 'vc-dir)
