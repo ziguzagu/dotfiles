@@ -370,6 +370,11 @@
 (use-package company-prescient
   :ensure t)
 
+(use-package company-quickhelp
+  :ensure t
+  :config
+  (company-quickhelp-mode))
+
 (use-package projectile
   :ensure t
   :bind (("C-x f" . projectile-find-file-dwim)
