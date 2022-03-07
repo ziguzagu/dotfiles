@@ -1,3 +1,7 @@
+;;; init.el --- Initialization file for Emacs
+;;; Commentary:
+;;; Code:
+
 (eval-and-compile
   (require 'package)
   (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
@@ -470,8 +474,6 @@
 
 (use-package flycheck
   :ensure t
-  :custom
-  (flycheck-disabled-checkers '(emacs-lisp-checkdoc))
   :custom-face
   (flycheck-warning ((t (:underline t :weight normal :slant italic))))
   (flycheck-error   ((t (:underline t :weight bold :slant italic))))
@@ -877,3 +879,5 @@
   (let ((host-local-config (expand-file-name "init-local.el" user-emacs-directory)))
     (when (file-exists-p host-local-config)
       (load host-local-config))))
+
+;;; init.el ends here
