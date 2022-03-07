@@ -368,10 +368,8 @@
   (company-scrollbar-fg ((t (:background "#ff8c00"))))
   (company-scrollbar-bg ((t (:background "#525252")))))
 
-(use-package company-statistics
-  :ensure t
-  :config
-  (company-statistics-mode))
+(use-package company-prescient
+  :ensure t)
 
 (use-package projectile
   :ensure t
