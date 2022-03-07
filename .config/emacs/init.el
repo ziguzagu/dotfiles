@@ -362,11 +362,10 @@
   :custom-face
   (company-tooltip ((t (:foreground "#e3e3e3" :background "#292929"))))
   (company-tooltip-common ((t (:inherit 'company-tooltip :underline t))))
-  (company-tooltip-selection ((t (:background "#4682b4"))))
   (company-tooltip-common-selection ((t (:inherit 'company-tooltip-selection :underline t))))
-  (company-preview-common ((t (:inherit 'company-tooltip-common))))
-  (company-scrollbar-fg ((t (:background "#ff8c00"))))
-  (company-scrollbar-bg ((t (:background "#525252")))))
+  (company-tooltip-scrollbar-track ((t (:foreground "#ff8c00" :background "#525252"))))
+  (company-tooltip-selection ((t (:background "#4682b4"))))
+  (company-preview-common ((t (:inherit 'company-tooltip-common)))))
 
 (use-package company-prescient
   :ensure t)
