@@ -255,21 +255,21 @@
     (setq auto-save-file-name-transforms `((".*" ,my-backup-dir t)))
     (setq auto-save-list-file-prefix my-backup-dir)))
 
-;; rotate window divide vertical / horizontal
-(defun my:window-toggle-split ()
-  "toggle splitted windows vertical and horizontal"
-  (interactive)
-  (unless (= (count-windows 1) 2)
-    (error "no splitted windows"))
-  (let (before-height (other-buf (window-buffer (next-window))))
-    (setq before-height (window-height))
-    (delete-other-windows)
-    (if (= (window-height) before-height)
-        (split-window-vertically)
-      (split-window-horizontally))
-    (switch-to-buffer-other-window other-buf)
-    (other-window -1)))
-(global-set-key (kbd "C-x 9") 'my:window-toggle-split)
+(eval-and-compile
+  (defun my:rotate-split-windows ()
+    "Rotate split windows vertical and horizontal."
+    (interactive)
+    (unless (= (count-windows 1) 2)
+      (error "No split windows"))
+    (let (before-height (other-buf (window-buffer (next-window))))
+      (setq before-height (window-height))
+      (delete-other-windows)
+      (if (= (window-height) before-height)
+          (split-window-vertically)
+        (split-window-horizontally))
+      (switch-to-buffer-other-window other-buf)
+      (other-window -1)))
+  (global-set-key (kbd "C-x 9") 'my:rotate-split-windows))
 
 ;; split window or move other window by one keybind
 (defun my:other-window-or-split ()
