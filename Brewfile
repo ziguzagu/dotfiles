@@ -54,7 +54,6 @@ brew 'aws-session-manager-plugin'
 
 tap 'homebrew/cask'
 cask 'alfred'
-cask 'appcleaner'
 cask 'choosy'
 cask 'cleanmymac'
 cask 'dash'
