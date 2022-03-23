@@ -572,10 +572,7 @@
   :config
   (define-key vc-prefix-map [(w)] 'browse-at-remote))
 
-(use-package gitconfig-mode
-  :ensure t)
-
-(use-package gitignore-mode
+(use-package git-modes
   :ensure t)
 
 (use-package magit
