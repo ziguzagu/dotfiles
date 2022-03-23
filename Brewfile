@@ -68,6 +68,3 @@ cask 'iterm2'
 cask 'karabiner-elements'
 cask 'keepingyouawake'
 cask 'paw'
-
-tap 'homebrew/cask-fonts'
-cask 'font-source-han-code-jp'
