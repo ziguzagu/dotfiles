@@ -36,7 +36,7 @@ go: ## Update local development environment of Go
 	go get github.com/k0kubun/pp
 
 keyrepeat: ## Set my best key repeat settings
-	defaults write -g InitialKeyRepeat -int 15
+	defaults write -g InitialKeyRepeat -int 11
 	defaults write -g KeyRepeat -int 1
 
 rainbow: ## Test terminal's 24-bit color support
