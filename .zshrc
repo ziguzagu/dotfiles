@@ -379,11 +379,13 @@ bindkey '^x^p' fzf-find-perl-module
 ## Misc
 ########################################
 
-source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-ZSH_HIGHLIGHT_STYLES[unknown-token]=fg:red,underline
-ZSH_HIGHLIGHT_STYLES[path]=none
-ZSH_HIGHLIGHT_STYLES[path_approx]=none
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+if [[ -f $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+    source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    ZSH_HIGHLIGHT_STYLES[unknown-token]=fg:red,underline
+    ZSH_HIGHLIGHT_STYLES[path]=none
+    ZSH_HIGHLIGHT_STYLES[path_approx]=none
+    ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+fi
 
 if [ ! -f "~/.zshrc.zwc" -o "~/.zshrc" -nt "~/.zshrc.zwc" ]; then
     zcompile ~/.zshrc
