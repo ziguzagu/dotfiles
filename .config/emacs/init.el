@@ -872,6 +872,11 @@
     (add-to-list 'company-keywords-alist processing-company--keywords))
   (add-hook 'processing-mode-hook 'processing-company--init))
 
+(use-package lsp-java
+  :after lsp
+  :config
+  (add-hook 'java-mode-hook 'lsp))
+
 (eval-and-compile
   (let ((host-local-config (expand-file-name "init-local.el" user-emacs-directory)))
     (when (file-exists-p host-local-config)
