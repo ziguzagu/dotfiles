@@ -193,8 +193,7 @@
     (let ((file (dired-get-file-for-visit)))
       (shell-command (concat "open " (shell-quote-argument file))))))
 
-(use-package dired-x
-  :after dired)
+(use-package dired-x)
 
 (use-package uniquify
   :custom
@@ -338,8 +337,7 @@
   (yas-global-mode 1))
 
 (use-package yasnippet-snippets
-  :ensure t
-  :after yasnippet)
+  :ensure t)
 
 (use-package company
   :ensure t
@@ -873,7 +871,6 @@
   (add-hook 'processing-mode-hook 'processing-company--init))
 
 (use-package lsp-java
-  :after lsp
   :config
   (add-hook 'java-mode-hook 'lsp))
 
