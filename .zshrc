@@ -254,7 +254,7 @@ zle -N fzf-history
 bindkey '^r' fzf-history
 
 # return 0 if the current directory is git repo
-_is_in_git_repo() {
+git-repo() {
     git rev-parse --git-dir >& /dev/null
 }
 
@@ -276,7 +276,7 @@ bindkey '^x^f' fzf-ls
 
 # search from git ls-files
 fzf-git-ls-files() {
-    _is_in_git_repo || return
+    git-repo || return
     local -a files=($(git ls-files \
                           | fzf -m -e \
                                 --bind='ctrl-v:toggle-preview' \
@@ -292,7 +292,7 @@ bindkey '^xf' fzf-git-ls-files
 
 # select untracked files or changed files
 fzf-git-untracked-or-changed-files() {
-    _is_in_git_repo || return
+    git-repo || return
     set -o pipefail
     local -a files=($(git status -s | fzf -m -e --height=40% --preview='git preview {2}' | perl -pe 's/^\s*..\s+//'))
     local ret=$?
@@ -305,7 +305,7 @@ bindkey '^xv' fzf-git-untracked-or-changed-files
 
 # git switch to selected branches in recent used
 fzf-git-switch-recent-branch() {
-    _is_in_git_repo || return
+    git-repo || return
     local branch="$(git for-each-ref --format='%(refname:short)' --sort=-committerdate refs/heads | fzf +m -e --tiebreak=index)"
     if [[ -z "$branch" ]]; then
         zle redisplay
