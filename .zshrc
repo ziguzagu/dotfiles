@@ -153,6 +153,7 @@ test -f ~/.travis/travis.sh && source $_
 HISTFILE=$XDG_DATA_HOME/zsh/history
 HISTSIZE=100000
 SAVEHIST=100000
+HISTORY_IGNORE="(cd|l|ls)"
 
 ########################################
 ## Prompt
