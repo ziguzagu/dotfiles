@@ -55,8 +55,9 @@
         scroll-margin 0
         scroll-step 1)
 
-  (setq-default tab-width 4
-                indent-tabs-mode nil)
+  (add-hook 'prog-mode-hook (lambda ()
+                              (setq tab-width 4
+                                    indent-tabs-mode nil)))
 
   (put 'upcase-region 'disabled nil)
   (put 'downcase-region 'disabled nil)
