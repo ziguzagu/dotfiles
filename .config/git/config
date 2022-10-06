@@ -38,6 +38,9 @@
 [credential]
 	helper = osxkeychain
 
+[diff]
+	algorithm = histogram
+
 [grep]
 	patternType = perl
 
