@@ -574,10 +574,6 @@
 (use-package git-modes
   :ensure t)
 
-(use-package magit
-  :ensure t
-  :bind (("C-c v" . magit-file-dispatch)))
-
 (use-package lsp-mode
   :ensure t
   :commands
