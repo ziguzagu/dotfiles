@@ -207,14 +207,13 @@
 
 (use-package minibuffer
   :custom
-  (read-file-name-completion-ignore-case t))
+  (read-file-name-completion-ignore-case t)
+  :config
+  (define-key key-translation-map (kbd "C-h") (kbd "<DEL>")))
 
 (use-package newcomment
   :custom
   (comment-style 'extra-line))
-
-;; C-h as delete in mini buffer
-(define-key key-translation-map (kbd "C-h") (kbd "<DEL>"))
 
 (defun my:delete-word-at-point ()
   "Delete the word at point."
