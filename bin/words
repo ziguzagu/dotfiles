@@ -5,6 +5,7 @@ use utf8;
 
 use Getopt::Long qw(:config posix_default no_ignore_case gnu_compat);
 use Pod::Usage;
+use List::Util qw(uniqstr);
 
 GetOptions(\my %opt, qw(length|l=i help|h))
     or pod2usage(1);
@@ -24,12 +25,10 @@ for (@words) {
     s/\W+\z//;   # remove trailing non-word letters
 }
 # filter
-my %uniq;
 @words =
-    grep { !$uniq{$_}++ }
     grep { length >= $opt{length} }
     grep { /\A\~?[\w\/\.]+\S+\z/ } # extract word likely to make sensce
-    @words;
+    uniqstr @words;
 # ok
 print join "\n", @words, '';
 
