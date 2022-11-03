@@ -235,12 +235,6 @@
   :config
   (global-auto-revert-mode t))
 
-;; cycle buffer
-(defun my:switch-last-buffer ()
-  (interactive)
-  (switch-to-buffer (other-buffer (current-buffer) 1)))
-(global-set-key (kbd "C-c b") 'my:switch-last-buffer)
-
 (use-package files
   :custom
   (backup-by-copying t)
@@ -254,8 +248,12 @@
     (setq auto-save-file-name-transforms `((".*" ,my-backup-dir t)))
     (setq auto-save-list-file-prefix my-backup-dir)))
 
-(eval-and-compile
-  (defun my:rotate-split-windows ()
+(use-package window
+  :bind (("C-c b" . my:switch-last-buffer)
+         ("C-x 9" . my:rotate-windows)
+         ("C-x o" . my:other-window-or-split))
+   :config
+  (defun my:rotate-windows ()
     "Rotate split windows vertical and horizontal."
     (interactive)
     (unless (= (count-windows 1) 2)
@@ -268,15 +266,18 @@
         (split-window-horizontally))
       (switch-to-buffer-other-window other-buf)
       (other-window -1)))
-  (global-set-key (kbd "C-x 9") 'my:rotate-split-windows))
 
-;; split window or move other window by one keybind
-(defun my:other-window-or-split ()
-  (interactive)
-  (when (one-window-p)
-    (split-window-horizontally))
-  (other-window 1))
-(global-set-key (kbd "C-z") 'my:other-window-or-split)
+  (defun my:switch-last-buffer ()
+    "Switch to last buffer."
+    (interactive)
+    (switch-to-buffer (other-buffer (current-buffer) 1)))
+
+  (defun my:other-window-or-split ()
+    "Move into other window or split window."
+    (interactive)
+    (when (one-window-p)
+      (split-window-horizontally))
+    (other-window 1)))
 
 (use-package popwin
   :ensure t
