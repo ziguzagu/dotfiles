@@ -14,22 +14,21 @@ $opt{help} && pod2usage(0);
 $opt{length} //= 4;
 
 my $capture = do { local $/; <STDIN> };
-# prep
+# split roughly
 $capture =~ tr/'"()\\[]/ /;
-# seperation
-my (@words) = split /\s+/, $capture;
+my @words = split /\s+/, $capture;
 # scrub
 for (@words) {
-    s/\:\d+\z//; # remove trailing strings like line number
+    s/\:\d+\z//; # remove line number
     s/\Agit://;  # remove "git:<branch>" of prompt
     s/\W+\z//;   # remove trailing non-word letters
 }
 # filter
 @words =
+    grep { /\A\~?[\w\/\.]+\S+\z/ }
     grep { length >= $opt{length} }
-    grep { /\A\~?[\w\/\.]+\S+\z/ } # extract word likely to make sensce
     uniqstr @words;
-# ok
+
 print join "\n", @words, '';
 
 __END__
@@ -50,7 +49,7 @@ words - find the words for command options
 
 =item B<-l|--length <number>>
 
-Minimum length of extracing words. Default is 4.
+Minimum word length. Default is 4.
 
 =item B<-h, --help>
 
