@@ -39,11 +39,11 @@ __END__
 
 =head1 NAME
 
-stringus - print strings likely to make sensce from STDIN
+words - find the words for command options
 
 =head1 SYNOPSIS
 
-  $ tmux capture-pane -p | stringus
+  $ tmux capture-pane -p | words
 
 =head1 OPTIONS
 
