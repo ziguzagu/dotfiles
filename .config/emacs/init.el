@@ -677,8 +677,8 @@
   (cperl-highlight-variables-indiscriminately t)
   (cperl-font-lock t)
   :custom-face
-  (cperl-array-face ((t (:inherit font-lock-variable-name-face))))
-  (cperl-hash-face ((t (:inherit font-lock-variable-name-face))))
+  (cperl-array-face ((t (:foreground "#87afd7" :background nil :slant normal :weight normal))))
+  (cperl-hash-face ((t (:foreground "#87afd7" :background nil :slant normal :weight normal))))
   (cperl-nonoverridable-face ((t (:foreground "#d7d700"))))
   :config
   (defalias 'perl-mode 'cperl-mode)
