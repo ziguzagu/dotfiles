@@ -252,7 +252,7 @@
   :bind (("C-c b" . my:switch-last-buffer)
          ("C-x 9" . my:rotate-windows)
          ("C-x o" . my:other-window-or-split))
-   :config
+  :config
   (defun my:rotate-windows ()
     "Rotate split windows vertical and horizontal."
     (interactive)
