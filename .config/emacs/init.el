@@ -595,20 +595,13 @@
 (use-package consult-lsp
   :ensure t)
 
-;; https://github.com/golang/tools/blob/master/gopls/doc/emacs.md
-;; Set up before-save hooks to format buffer and add/delete imports.
-;; Make sure you don't have other gofmt/goimports hooks enabled.
-(defun my:lsp-go-install-save-hooks ()
-  (add-hook 'before-save-hook #'lsp-format-buffer t t)
-  (add-hook 'before-save-hook #'lsp-organize-imports t t))
-
 (use-package go-mode
   :bind (:map go-mode-map
          ;; map `C-=` to default ascii codes `^[[61;5u` by iTerm's key map
          ("C-=" . my:insert-short-var-declaration-op))
-  :hook
-  (go-mode . lsp-deferred)
-  (go-mode . my:lsp-go-install-save-hooks)
+  :hook ((go-mode . lsp-deferred)
+         (before-save . lsp-format-buffer)
+         (before-save . lsp-organize-imports))
   :config
   (defun my:insert-short-var-declaration-op ()
     "Insert `:=` at the point"
