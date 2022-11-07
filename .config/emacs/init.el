@@ -832,8 +832,7 @@
   (add-hook 'processing-mode-hook 'processing-company--init))
 
 (use-package lsp-java
-  :config
-  (add-hook 'java-mode-hook 'lsp))
+  :hook (java-mode . lsp-deferred))
 
 (eval-and-compile
   (let ((host-local-config (expand-file-name "init-local.el" user-emacs-directory)))
