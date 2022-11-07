@@ -583,14 +583,7 @@
   :bind-keymap
   ("C-c l" . lsp-command-map)
   :custom
-  (lsp-headerline-breadcrumb-enable nil)
-  :config
-  ;; Use terraform-ls instead of terraform-lsp to be stable
-  ;; https://github.com/hashicorp/terraform-ls/blob/master/docs/USAGE.md#emacs
-  (lsp-register-client
-   (make-lsp-client :new-connection (lsp-stdio-connection '("terraform-ls" "serve"))
-                    :major-modes '(terraform-mode)
-                    :server-id 'terraform-ls)))
+  (lsp-headerline-breadcrumb-enable nil))
 
 (use-package consult-lsp
   :ensure t)
@@ -760,9 +753,8 @@
 
 (use-package terraform-mode
   :ensure t
-  :hook
-  ((terraform-mode . terraform-format-on-save-mode)
-   (terraform-mode . lsp-deferred)))
+  :hook ((terraform-mode . terraform-format-on-save-mode)
+         (terraform-mode . lsp-deferred)))
 
 (use-package yaml-mode
   :ensure t
