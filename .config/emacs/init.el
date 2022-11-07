@@ -202,6 +202,8 @@
   (uniquify-ignore-buffers-re "*[^*]+*"))
 
 (use-package ffap
+  :custom
+  (ffap-machine-p-known 'reject)
   :config
   (ffap-bindings))
 
