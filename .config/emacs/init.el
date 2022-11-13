@@ -561,8 +561,6 @@
 
 (use-package git-commit
   :ensure t
-  :config
-  (global-git-commit-mode)
   :custom
   ;; 50/72 rules
   (git-commit-summary-max-length 50)
