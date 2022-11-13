@@ -773,6 +773,11 @@
 (use-package dockerfile-mode
   :ensure t)
 
+(use-package docker
+  :bind ("C-c d" . docker))
+
+(use-package docker-tramp)
+
 (use-package org
   :bind (("C-c c" . org-capture))
   :custom
