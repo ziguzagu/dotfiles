@@ -568,8 +568,8 @@
 
 (use-package browse-at-remote
   :ensure t
-  :config
-  (define-key vc-prefix-map [(w)] 'browse-at-remote))
+  :bind (:map vc-prefix-map
+              ("w" . browse-at-remote)))
 
 (use-package git-modes
   :ensure t)
