@@ -778,6 +778,8 @@
 
 (use-package docker-tramp)
 
+(use-package jenkinsfile-mode)
+
 (use-package org
   :bind (("C-c c" . org-capture))
   :custom
