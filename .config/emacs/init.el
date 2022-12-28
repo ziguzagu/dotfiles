@@ -609,6 +609,7 @@
       (insert " "))))
 
 (use-package ruby-mode
+  :mode "Dangerfile"
   :interpreter "ruby"
   :hook
   (ruby-mode . lsp-deferred)
