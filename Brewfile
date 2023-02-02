@@ -44,6 +44,7 @@ brew 'zsh-completions'
 brew 'zsh-syntax-highlighting'
 
 tap 'homebrew/cask'
+cask '1password-cli'
 cask 'alfred'
 cask 'choosy'
 cask 'cleanmymac'
