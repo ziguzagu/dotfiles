@@ -777,8 +777,6 @@
 (use-package docker
   :bind ("C-c d" . docker))
 
-(use-package docker-tramp)
-
 (use-package jenkinsfile-mode)
 
 (use-package org
