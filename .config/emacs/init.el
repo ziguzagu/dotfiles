@@ -91,7 +91,7 @@
   :custom-face
   (trailing-whitespace ((t (:foreground "#e3e3e3" :background "#525252"))))
   (whitespace-trailing ((t (:inherit trailing-whitespace))))
-  (whitespace-tab ((t (:foreground "#666666" :background nil)))))
+  (whitespace-tab ((t (:foreground "#666666" :background unspecified)))))
 
 (use-package saveplace
   :config
@@ -669,8 +669,8 @@
   (cperl-highlight-variables-indiscriminately t)
   (cperl-font-lock t)
   :custom-face
-  (cperl-array-face ((t (:foreground "#87afd7" :background nil :slant normal :weight normal))))
-  (cperl-hash-face ((t (:foreground "#87afd7" :background nil :slant normal :weight normal))))
+  (cperl-array-face ((t (:foreground "#87afd7" :background unspecified :slant normal :weight normal))))
+  (cperl-hash-face ((t (:foreground "#87afd7" :background unspecified :slant normal :weight normal))))
   (cperl-nonoverridable-face ((t (:foreground "#d7d700"))))
   :config
   (defalias 'perl-mode 'cperl-mode)
