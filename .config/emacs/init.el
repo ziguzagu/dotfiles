@@ -6,15 +6,11 @@
   (require 'package)
   (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-  (package-initialize)
-  (unless (package-installed-p 'use-package)
-    (package-refresh-contents)
-    (package-install 'use-package)))
+  (package-initialize))
 
 (eval-when-compile
   (setq use-package-enable-imenu-support t)
   (require 'use-package))
-(require 'bind-key)
 
 (use-package exec-path-from-shell
   :ensure t
