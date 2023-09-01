@@ -1,7 +1,7 @@
 [user]
 	name = ziguzagu
 	email = ziguzagu@gmail.com
-	signingkey = 359AF850F7735C62
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPsrU5HoiwMITvf1nu7wfch+ramjVy3ucEbaGZPoPode
 
 [color "diff"]
 	meta = 248 italic
@@ -43,6 +43,12 @@
 
 [grep]
 	patternType = perl
+
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+	program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 
 [commit]
 	verbose = true
