@@ -398,6 +398,11 @@ if [[ -x "$(which direnv)" ]]; then
     eval "$(direnv hook zsh)"
 fi
 
+
+if [[ -f ~/.config/op/plugins.sh ]]; then
+    source ~/.config/op/plugins.sh
+fi
+
 ########################################
 ## Command
 ########################################
