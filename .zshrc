@@ -390,17 +390,17 @@ if [[ -f $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.
     ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 fi
 
+## 1password CLI
+if [[ -f ~/.config/op/plugins.sh ]]; then
+    source ~/.config/op/plugins.sh
+fi
+
 if [ ! -f "~/.zshrc.zwc" -o "~/.zshrc" -nt "~/.zshrc.zwc" ]; then
     zcompile ~/.zshrc
 fi
 
 if [[ -x "$(which direnv)" ]]; then
     eval "$(direnv hook zsh)"
-fi
-
-
-if [[ -f ~/.config/op/plugins.sh ]]; then
-    source ~/.config/op/plugins.sh
 fi
 
 ########################################
