@@ -9,7 +9,6 @@ brew 'clisp'
 brew 'colordiff'
 brew 'coreutils'
 brew 'direnv'
-brew 'emacs'
 brew 'fd'
 brew 'fzf'
 brew 'gh'
@@ -42,6 +41,9 @@ brew 'tree'
 brew 'wget'
 brew 'zsh-completions'
 brew 'zsh-syntax-highlighting'
+
+tap 'd12frosted/emacs-plus'
+brew 'emacs-plus@29', args: %w[without-cocoa with-native-comp]
 
 tap 'homebrew/cask'
 cask '1password-cli'
