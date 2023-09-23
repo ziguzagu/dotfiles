@@ -582,7 +582,12 @@
   :bind-keymap
   ("C-c l" . lsp-command-map)
   :custom
-  (lsp-headerline-breadcrumb-enable nil))
+  (lsp-headerline-breadcrumb-enable nil)
+  :config
+  ;; https://emacs-lsp.github.io/lsp-mode/page/performance/#adjust-gc-cons-threshold
+  (setq gc-cons-threshold 100000000)
+  ;; https://emacs-lsp.github.io/lsp-mode/page/performance/#increase-the-amount-of-data-which-emacs-reads-from-the-process
+  (setq read-process-output-max (* 1024 1024)))
 
 (use-package consult-lsp
   :ensure t)
