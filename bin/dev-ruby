@@ -2,31 +2,14 @@
 set -eu -o pipefail
 
 readonly gems=(
+    reek
     rubocop
     rubocop-performance
-    rubocop-rspec
     rubocop-rails
-    reek
-    solargraph
+    rubocop-rspec
+    ruby-lsp
 )
 
 gem install --no-document --conservative $gems
 gem update --no-document --conservative $gems
-rehash
-
-
-if [[ -f 'bin/rails' ]]; then
-    if [[ ! -f '.solargraph.yml' ]]; then
-        solargraph config
-        echo '/.solargraph.yml' >> .git/info/exclude
-    fi
-    if [[ ! -f 'config/definitions.rb' ]]; then
-        curl 'https://gist.githubusercontent.com/castwide/28b349566a223dfb439a337aea29713e/raw/715473535f11cf3eeb9216d64d01feac2ea37ac0/rails.rb' > config/definitions.rb
-        echo '/config/definitions.rb' >> .git/info/exclude
-    fi
-fi
-
-if [[ -f 'Gemfile' ]]; then
-    bundle install
-    solargraph bundle
-fi
+rbenv rehash

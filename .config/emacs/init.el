@@ -584,6 +584,10 @@
   :custom
   (lsp-headerline-breadcrumb-enable nil)
   :config
+  ;; rubocop-ls is highest priority (-1) in ruby language servers, however
+  ;; I want use ruby-lsp because it uses rubocop as formatter and provides
+  ;; other features.
+  (add-to-list 'lsp-disabled-clients 'rubocop-ls)
   ;; https://emacs-lsp.github.io/lsp-mode/page/performance/#adjust-gc-cons-threshold
   (setq gc-cons-threshold 100000000)
   ;; https://emacs-lsp.github.io/lsp-mode/page/performance/#increase-the-amount-of-data-which-emacs-reads-from-the-process
