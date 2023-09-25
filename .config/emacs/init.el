@@ -2,11 +2,20 @@
 ;;; Commentary:
 ;;; Code:
 
+;; Install/Load straight.el according to README: https://github.com/radian-software/straight.el#getting-started
 (eval-and-compile
-  (require 'package)
-  (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
-  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-  (package-initialize))
+  (defvar bootstrap-version)
+  (let ((bootstrap-file
+         (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+        (bootstrap-version 6))
+    (unless (file-exists-p bootstrap-file)
+      (with-current-buffer
+          (url-retrieve-synchronously
+           "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+           'silent 'inhibit-cookies)
+        (goto-char (point-max))
+        (eval-print-last-sexp)))
+    (load bootstrap-file nil 'nomessage)))
 
 (eval-when-compile
   (setq use-package-enable-imenu-support t)
@@ -341,7 +350,8 @@
 (use-package company
   :ensure t
   :bind (("C-o" . company-dabbrev)
-         ("TAB" . company-indent-or-complete-common)
+         ;; Bind TAB to copilot for now. Remove this when it's stable.
+         ;; ("TAB" . company-indent-or-complete-common)
          :map company-active-map
          ("C-n" . company-select-next)
          ("C-p" . company-select-previous)
@@ -400,7 +410,6 @@
 
 (use-package consult
   :ensure t
-  :pin melpa-stable
   :bind (("C-x b" . consult-buffer)
          ("C-c f" . consult-find)
          ("C-c g" . consult-git-grep)
@@ -414,7 +423,6 @@
 
 (use-package orderless
   :ensure t
-  :pin melpa-stable
   :custom
   (completion-styles '(orderless)))
 
@@ -595,6 +603,23 @@
 
 (use-package consult-lsp
   :ensure t)
+
+(use-package copilot
+  :straight (:host github :repo "zerolfx/copilot.el" :files ("dist" "*.el"))
+  :ensure t
+  :after (company yasnippet)
+  :hook (prog-mode . copilot-mode)
+  :bind (("TAB" . my:copilot-tab)
+         :map copilot-completion-map
+         ("C-n" . copilot-next-completion)
+         ("C-p" . copilot-previous-completion)
+         ("TAB" . copilot-accept-completion))
+  :config
+  (defun my:copilot-tab ()
+    (interactive)
+    (or (copilot-accept-completion)
+        (company-yasnippet-or-completion)
+        (company-indent-or-complete-common nil))))
 
 (use-package go-mode
   :bind (:map go-mode-map
