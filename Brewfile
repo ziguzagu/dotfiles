@@ -45,7 +45,6 @@ brew 'zsh-syntax-highlighting'
 tap 'd12frosted/emacs-plus'
 brew 'emacs-plus@29', args: %w[without-cocoa with-native-comp]
 
-tap 'homebrew/cask'
 cask '1password-cli'
 cask 'alfred'
 cask 'choosy'
