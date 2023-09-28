@@ -375,6 +375,8 @@
          ("C-p" . company-select-previous))
   :config
   (global-company-mode t)
+  ;; disable inline preview for coexistence with copilot
+  (delq 'company-preview-if-just-one-frontend company-frontends)
   :custom
   (company-idle-delay 0)
   (company-auto-expand t)
