@@ -757,7 +757,7 @@
 
 (use-package typescript-mode
   :ensure t
-  :mode ("\\.ts\\'" "\\.tsx\\'")
+  :mode ("\\.ts\\'")
   :custom
   (typescript-indent-level 2))
 
@@ -767,7 +767,7 @@
 
 (use-package web-mode
   :ensure t
-  :mode ("\\.html\\'" "\\.tmpl\\'" "\\.tt\\'" "\\.tx\\'")
+  :mode ("\\.tsx\\'" "\\.html\\'" "\\.tmpl\\'" "\\.tt\\'" "\\.tx\\'")
   :custom
   (web-mode-markup-indent-offset 2)
   (web-mode-css-indent-offset 2)
