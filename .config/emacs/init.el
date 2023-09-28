@@ -626,7 +626,6 @@
   (defun my:copilot-tab ()
     (interactive)
     (or (copilot-accept-completion)
-        (company-yasnippet-or-completion)
         (company-indent-or-complete-common nil))))
 
 (use-package go-mode
