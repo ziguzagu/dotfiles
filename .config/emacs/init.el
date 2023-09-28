@@ -165,6 +165,11 @@
                       '(:eval (my:mode-line-chcker))
                       "  %c:%l(%p)")))
 
+(use-package tramp
+  :config
+  ;; Improve tramp performance: https://www.emacswiki.org/emacs/TrampMode#h5o-8
+  (setq tramp-chunksize 500))
+
 (use-package unkillable-scratch
   :ensure t
   :config
@@ -498,6 +503,9 @@
 
 (setq vc-follow-symlinks t)
 (setq vc-make-backup-files t)
+;; Limit vc backends to Git only to improve performance of tramp:
+;; https://www.gnu.org/software/emacs/manual/html_node/tramp/Frequently-Asked-Questions.html
+(setq vc-handled-backends '(Git))
 
 ;; make compact vc-annotate display
 (defadvice vc-git-annotate-command (around vc-git-annotate-command activate)
