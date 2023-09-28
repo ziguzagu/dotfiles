@@ -623,7 +623,7 @@
 (use-package copilot
   :straight (:host github :repo "zerolfx/copilot.el" :files ("dist" "*.el"))
   :ensure t
-  :after (company yasnippet)
+  :after (company)
   :hook (prog-mode . copilot-mode)
   :bind (("TAB" . my:copilot-tab)
          :map copilot-completion-map
