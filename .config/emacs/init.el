@@ -629,6 +629,7 @@
   :hook (prog-mode . copilot-mode)
   :bind (("TAB" . my:copilot-tab)
          :map copilot-completion-map
+         ("C-g" . copilot-clear-overlay)
          ("C-n" . copilot-next-completion)
          ("C-p" . copilot-previous-completion)
          ("TAB" . copilot-accept-completion))
