@@ -166,6 +166,9 @@
                       "  %c:%l(%p)")))
 
 (use-package tramp
+  :custom
+  ;; Use ssh config for ControlMaster
+  (tramp-use-ssh-controlmaster-options . nil)
   :config
   ;; Improve tramp performance: https://www.emacswiki.org/emacs/TrampMode#h5o-8
   (setq tramp-chunksize 500))
