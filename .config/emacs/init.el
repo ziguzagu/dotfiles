@@ -678,6 +678,9 @@
 
 (use-package haml-mode)
 
+(use-package slim-mode
+  :straight (:host github :repo "slim-template/emacs-slim" :files ("slim-mode.el")))
+
 (use-package cperl-mode
   :mode ("\\.t\\'" "\\.psgi\\'" "cpanfile")
   :interpreter "perl"
