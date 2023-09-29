@@ -170,8 +170,9 @@
   ;; Use ssh config for ControlMaster
   (tramp-use-ssh-controlmaster-options . nil)
   :config
-  ;; Improve tramp performance: https://www.emacswiki.org/emacs/TrampMode#h5o-8
-  (setq tramp-chunksize 500))
+  ;; Improve tramp performance: https://www.gnu.org/software/emacs/manual/html_node/tramp/Frequently-Asked-Questions.html
+  (setq tramp-chunksize 500)
+  (setq remote-file-name-inhibit-cache nil))
 
 (use-package unkillable-scratch
   :ensure t
