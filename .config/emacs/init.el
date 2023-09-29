@@ -509,15 +509,17 @@
   :custom-face
   (popup-tip-face ((t (:foreground "#5fafd7" :background "#292929")))))
 
+(use-package vc
+  :custom
+  (vc-follow-symlinks t)
+  (vc-make-backup-files t)
+  ;; Limit vc backends to Git only to improve performance of tramp:)
+  ;; https://www.gnu.org/software/emacs/manual/html_node/tramp/Frequently-Asked-Questions.html
+  (vc-handled-backends '(Git)))
+
 (require 'vc-git)
 (require 'vc-dir)
 (require 'vc-annotate)
-
-(setq vc-follow-symlinks t)
-(setq vc-make-backup-files t)
-;; Limit vc backends to Git only to improve performance of tramp:
-;; https://www.gnu.org/software/emacs/manual/html_node/tramp/Frequently-Asked-Questions.html
-(setq vc-handled-backends '(Git))
 
 ;; make compact vc-annotate display
 (defadvice vc-git-annotate-command (around vc-git-annotate-command activate)
