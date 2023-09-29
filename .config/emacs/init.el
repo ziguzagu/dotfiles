@@ -168,11 +168,9 @@
 (use-package tramp
   :custom
   ;; Use ssh config for ControlMaster
-  (tramp-use-ssh-controlmaster-options . nil)
-  :config
+  (tramp-use-ssh-controlmaster-options nil)
   ;; Improve tramp performance: https://www.gnu.org/software/emacs/manual/html_node/tramp/Frequently-Asked-Questions.html
-  (setq tramp-chunksize 500)
-  (setq remote-file-name-inhibit-cache nil))
+  (tramp-chunksize 500))
 
 (use-package unkillable-scratch
   :ensure t
@@ -258,6 +256,9 @@
   (kept-new-versions 5)
   (kept-old-versions 1)
   (delete-old-versions t)
+  ;; Improve tramp performance: https://www.gnu.org/software/emacs/manual/html_node/tramp/Frequently-Asked-Questions.html
+  (remote-file-name-inhibit-cache nil)
+  (remote-file-name-inhibit-locks t)
   :config
   (let ((my-backup-dir (expand-file-name (format "emacs%d/backup" (user-uid)) temporary-file-directory)))
     (setq backup-directory-alist `((".*" . ,my-backup-dir)))
