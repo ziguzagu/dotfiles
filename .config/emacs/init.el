@@ -167,8 +167,6 @@
 
 (use-package tramp
   :custom
-  ;; Use ssh config for ControlMaster
-  (tramp-use-ssh-controlmaster-options nil)
   ;; Improve tramp performance: https://www.gnu.org/software/emacs/manual/html_node/tramp/Frequently-Asked-Questions.html
   (tramp-chunksize 500))
 
