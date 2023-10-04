@@ -306,12 +306,10 @@
   (when (eq system-type 'darwin)
     (defun my:copy-from-osx ()
       "Get clipboard contents."
-      (let ((pbpaste (purecopy "pbpaste")))
-        (if (and (eq system-type 'darwin)
-                 (file-exists-p pbpaste))
-            (let ((tramp-mode nil)
-                  (default-directory "~"))
-              (shell-command-to-string "pbpaste")))))
+      (let ((pbpaste (purecopy "pbpaste"))
+            (tramp-mode nil)
+            (default-directory "~"))
+        (shell-command-to-string "pbpaste")))
 
     (defun my:paste-to-osx (text &optional push)
       "Paste yanked contents to clipboard."
