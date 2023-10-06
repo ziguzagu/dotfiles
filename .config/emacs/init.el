@@ -2,24 +2,20 @@
 ;;; Commentary:
 ;;; Code:
 
-;; Install/Load straight.el according to README: https://github.com/radian-software/straight.el#getting-started
 (eval-and-compile
-  (defvar bootstrap-version)
-  (let ((bootstrap-file
-         (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-        (bootstrap-version 6))
-    (unless (file-exists-p bootstrap-file)
-      (with-current-buffer
-          (url-retrieve-synchronously
-           "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
-           'silent 'inhibit-cookies)
-        (goto-char (point-max))
-        (eval-print-last-sexp)))
-    (load bootstrap-file nil 'nomessage)))
+  (require 'package)
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+  (package-initialize))
 
 (eval-when-compile
   (setq use-package-enable-imenu-support t)
   (require 'use-package))
+
+(use-package quelpa
+  :ensure t)
+
+(use-package quelpa-use-package
+  :ensure t)
 
 (use-package exec-path-from-shell
   :ensure t
@@ -623,7 +619,7 @@
   :ensure t)
 
 (use-package copilot
-  :straight (:host github :repo "zerolfx/copilot.el" :files ("dist" "*.el"))
+  :quelpa (copilot :fetcher github :repo "zerolfx/copilot.el" :files ("dist" "*.el"))
   :ensure t
   :after (company)
   :hook (prog-mode . copilot-mode)
@@ -697,7 +693,7 @@
 (use-package haml-mode)
 
 (use-package slim-mode
-  :straight (:host github :repo "slim-template/emacs-slim" :files ("slim-mode.el")))
+  :quelpa (slim-mode :fetcher github :repo "slim-template/emacs-slim" :files ("slim-mode.el")))
 
 (use-package cperl-mode
   :mode ("\\.t\\'" "\\.psgi\\'" "cpanfile")
