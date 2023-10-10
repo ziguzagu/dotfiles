@@ -250,6 +250,8 @@
   (kept-new-versions 5)
   (kept-old-versions 1)
   (delete-old-versions t)
+  ;; Find .dir-locals.el in remote hosts by tramp
+  (enable-remote-dir-locals t)
   ;; Improve tramp performance: https://www.gnu.org/software/emacs/manual/html_node/tramp/Frequently-Asked-Questions.html
   (remote-file-name-inhibit-cache nil)
   (remote-file-name-inhibit-locks t)
