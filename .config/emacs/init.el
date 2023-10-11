@@ -426,8 +426,6 @@
          ("C-c g" . consult-git-grep)
          ("C-c s" . consult-line)
          ("C-c j" . consult-imenu))
-  :custom
-  (consult-find-command "fd --color=never --hidden --full-path ARG OPTS")
   :config
   (autoload 'projectile-project-root "projectile")
   (setq consult-project-root-function #'projectile-project-root))
