@@ -11,3 +11,4 @@
 .idea/
 .yardoc/
 /vendor/bundle/
+/.lsp-docker/
