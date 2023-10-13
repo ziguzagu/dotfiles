@@ -891,8 +891,11 @@
   :hook (java-mode . lsp-deferred))
 
 (eval-and-compile
+  ;; load additional config per machine
   (let ((host-local-config (expand-file-name "init-local.el" user-emacs-directory)))
     (when (file-exists-p host-local-config)
-      (load host-local-config))))
+      (load host-local-config)))
+  ;; to know that GC is running
+  (setq garbage-collection-messages t))
 
 ;;; init.el ends here
