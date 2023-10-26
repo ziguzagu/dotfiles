@@ -164,6 +164,7 @@
 (use-package tramp
   :custom
   ;; Improve tramp performance: https://www.gnu.org/software/emacs/manual/html_node/tramp/Frequently-Asked-Questions.html
+  (tramp-verbose 1)
   (tramp-chunksize 500))
 
 (use-package unkillable-scratch
