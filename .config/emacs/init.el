@@ -153,7 +153,7 @@
                       '(:eval (when (fboundp 'projectile-project-name)
                                 (format " [%s]" (projectile-project-name))))
                       '(vc-mode
-                        ((:propertize "  " face mode-line-vc-mode)
+                        (("  ")
                          (:propertize (:eval (my:vc-branch)) face mode-line-vc-mode)))
                       "  "
                       'mode-name
