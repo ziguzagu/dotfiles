@@ -163,8 +163,11 @@
 
 (use-package tramp
   :custom
-  ;; Improve tramp performance: https://www.gnu.org/software/emacs/manual/html_node/tramp/Frequently-Asked-Questions.html
+  ;; Improve tramp performance:
+  ;; * https://www.gnu.org/software/emacs/manual/html_node/tramp/Frequently-Asked-Questions.html
+  ;; * https://www.gnu.org/software/tramp/tramp-emacs.html
   (tramp-verbose 1)
+  (tramp-completion-reread-directory-timeout nil)
   (tramp-chunksize 500))
 
 (use-package unkillable-scratch
