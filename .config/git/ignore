@@ -1,12 +1,13 @@
-*.o
-*.lo
+# sort by alphabetically
 *.la
-.*~
+*.lo
+*.o
 *~
+.*~
 .DS_Store
 .dir-locals.el
 .envrc
 .idea/
 .yardoc/
-/vendor/bundle/
 /.lsp-docker/
+/vendor/bundle/
