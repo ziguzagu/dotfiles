@@ -8,6 +8,7 @@
 .dir-locals.el
 .envrc
 .idea/
+.irb_history
 .yardoc/
 /.lsp-docker/
 /vendor/bundle/
