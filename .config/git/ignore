@@ -10,5 +10,10 @@
 .idea/
 .irb_history
 .yardoc/
-/.lsp-docker/
 /vendor/bundle/
+
+# lsp-docker (lsp-mode)
+# https://github.com/emacs-lsp/lsp-docker
+/.lsp-docker/
+/.lsp-docker.yml
+/Dockerfile.lsp
