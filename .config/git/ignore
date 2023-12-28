@@ -15,5 +15,5 @@
 # lsp-docker (lsp-mode)
 # https://github.com/emacs-lsp/lsp-docker
 /.lsp-docker/
-/.lsp-docker.yml
+/.lsp-docker.yaml
 /Dockerfile.lsp
