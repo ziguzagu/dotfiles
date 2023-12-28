@@ -16,4 +16,3 @@
 # https://github.com/emacs-lsp/lsp-docker
 /.lsp-docker/
 /.lsp-docker.yaml
-/Dockerfile.lsp
