@@ -2,8 +2,16 @@
 use strict;
 use warnings;
 
+# `pmset -g ps` returns following string:
+#
+#   Now drawing from 'Battery Power'
+#    -InternalBattery-0 (id=21102691) 91%; discharging; 19:05 remaining present: true`
+#
+# However, if the mac doesn't have battery, it returns as following:
+#
+#   Now drawing from 'AC Power'
 my $battery = qx{pmset -g ps | tail -1};
-my ($quantity) = $battery =~ /(\d+)%/;
+my ($quantity) = $battery =~ /(\d+)%/ or exit;
 my ($remain)   = $battery =~ /(\d+:\d+) remaining/;
 my $color = $quantity <= 20 ? '#[fg=colour196]' # red!
           : $quantity <= 40 ? '#[fg=colour220]' # yellow!
