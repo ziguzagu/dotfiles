@@ -47,7 +47,6 @@ brew 'emacs-plus@29', args: %w[without-cocoa with-native-comp]
 
 cask '1password-cli'
 cask 'alfred'
-cask 'choosy'
 cask 'cleanmymac'
 cask 'dash'
 cask 'docker'
