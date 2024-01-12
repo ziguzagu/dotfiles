@@ -677,6 +677,9 @@
   (rspec-docker-file-name "compose.yaml")
   ;; Most projects use Compose and have a Rails server running during development
   (rspec-docker-command "docker compose exec")
+  ;; Use binstub to run RSpec to use Spring for faster startup
+  (rspec-use-bundler-when-possible nil)
+  (rspec-spec-command "bin/rspec")
   :config
   (rspec-install-snippets))
 
