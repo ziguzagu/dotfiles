@@ -2,6 +2,7 @@
 SHELL = /bin/zsh
 
 home    = $(HOME)/
+datadir = $(HOME)/.local/share
 basedir = $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
 sources = $(shell cat <(git ls-files) <(git ls-files -ic -X .install-ignore) | sort | uniq -u)
 targets = $(addprefix $(home),$(sources))
@@ -9,7 +10,7 @@ targets = $(addprefix $(home),$(sources))
 .DEFAULT_GOAL := help
 
 install: $(targets) --dropbox ## Install dot files into $HOME as symlink
-	@mkdir -p $(XDG_DATA_HOME)/{tig,zsh,terminfo}
+	@mkdir -p $(datadir)/{tig,zsh,terminfo}
 
 $(targets):
 	@mkdir -m 700 -p $(dir $@)
