@@ -2,12 +2,12 @@
 set -eu -o pipefail
 
 readonly gems=(
-    reek
     rubocop
     rubocop-performance
     rubocop-rails
     rubocop-rspec
     ruby-lsp
+    ruby-lsp-rails
 )
 
 gem install --no-document --conservative $gems
