@@ -798,7 +798,7 @@
   (scss-compile-at-save nil))
 
 (defun my:escape-html-region (start end)
-  "Escape '&<>' characters in the region using '&amp;', '&lt;', and '&gt;'."
+  "Escape HTML unsafe characters in the region between START and END."
   (interactive "*r")
   (save-excursion
     (save-restriction
