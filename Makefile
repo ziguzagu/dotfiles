@@ -10,7 +10,7 @@ targets = $(addprefix $(home),$(sources))
 .DEFAULT_GOAL := help
 
 install: $(targets) --dropbox ## Install dot files into $HOME as symlink
-	@mkdir -p $(datadir)/{tig,zsh,terminfo}
+	@mkdir -p $(datadir)/{tig,zsh,terminfo,ssh}
 
 $(targets):
 	@mkdir -m 700 -p $(dir $@)
