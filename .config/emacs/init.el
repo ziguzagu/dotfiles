@@ -426,12 +426,22 @@
   :ensure t
   :bind (("C-x b" . consult-buffer)
          ("C-c f" . consult-find)
-         ("C-c g" . consult-git-grep)
+         ("C-c g" . my:consult-git-grep-dwim)
          ("C-c s" . consult-line)
          ("C-c j" . consult-imenu))
   :config
   (autoload 'projectile-project-root "projectile")
-  (setq consult-project-root-function #'projectile-project-root))
+  (setq consult-project-root-function #'projectile-project-root)
+  ;; Start consult-git-grep with active region
+  ;; see also: https://github.com/minad/consult/wiki#start-consult-ripgrep-search-with-active-region
+  (defun my:consult-git-grep-dwim ()
+    "Pass the region to consult-git-grep if available."
+    (interactive)
+    (if (use-region-p)
+        (let ((initial (buffer-substring-no-properties (region-beginning) (region-end))))
+          (deactivate-mark t)
+          (consult-git-grep nil initial))
+      (consult-git-grep))))
 
 (use-package orderless
   :ensure t
