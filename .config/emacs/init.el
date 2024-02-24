@@ -766,8 +766,7 @@
 
 (use-package js2-mode
   :ensure t
-  :mode (("\\.js\\'"  . js2-mode)
-         ("\\.jsx\\'" . js2-jsx-mode))
+  :mode ("\\.js\\'"  . js2-mode)
   :interpreter "node"
   :custom
   (js2-basic-offset 2))
