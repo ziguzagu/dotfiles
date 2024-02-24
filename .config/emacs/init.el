@@ -788,7 +788,7 @@
 
 (use-package web-mode
   :ensure t
-  :mode ("\\.jsx\\'" "\\.tsx\\'" "\\.html\\'" "\\.tmpl\\'" "\\.tt\\'" "\\.tx\\'")
+  :mode ("\\.jsx\\'" "\\.tsx\\'" "\\.html\\'" "\\.tt\\'" "\\.tx\\'")
   :custom
   (web-mode-attr-indent-offset nil)
   (web-mode-markup-indent-offset 2)
