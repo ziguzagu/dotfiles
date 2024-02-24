@@ -782,8 +782,10 @@
   (typescript-indent-level 2))
 
 (use-package prettier-js
+  :ensure t
   :hook
-  (js2-mode . prettier-js))
+  (js2-mode . prettier-js)
+  (typescript-mode . prettier-js))
 
 (use-package web-mode
   :ensure t
