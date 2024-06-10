@@ -673,7 +673,42 @@
   :hook
   (ruby-mode . lsp-deferred)
   :custom
-  (ruby-insert-encoding-magic-comment nil))
+  (ruby-insert-encoding-magic-comment nil)
+  :config
+  ;; imenu for schema.rb
+  (defun rails-schema-imenu-create-index ()
+    "Create an imenu index for Ruby on Rails schema.rb."
+    (let ((index-alist '())
+          (tables '())
+          (foreign-keys '())
+          (table-regex "^\\s-*create_table\\s-+\"\\([^\"]+\\)\"")
+          (foreign-key-regex "^\\s-*add_foreign_key\\s-+\"\\([^\"]+\\)\",\\s-+\"\\([^\"]+\\)\""))
+      (goto-char (point-min))
+      (while (re-search-forward table-regex nil t)
+        (let ((table-name (match-string 1))
+              (table-pos (match-beginning 0)))
+          (push (cons table-name table-pos) tables)))
+      (goto-char (point-min))
+      (while (re-search-forward foreign-key-regex nil t)
+        (let ((from-table (match-string 1))
+              (to-table (match-string 2))
+              (foreign-key-pos (match-beginning 0)))
+          (push (cons (format "%s -> %s" from-table to-table) foreign-key-pos) foreign-keys)))
+      (setq index-alist (append index-alist
+                                (list (cons "Tables" (nreverse tables))
+                                      (cons "Foreign Keys" (nreverse foreign-keys)))))
+      index-alist))
+  (defun rails-schema-imenu-setup ()
+    "Setup imenu for Ruby on Rails schema.rb."
+    ;; disable lsp--imenu-create-index provided by lsp-mode
+    (when (fboundp 'lsp-mode)
+      (lsp-mode -1))
+    (setq-local imenu-create-index-function 'rails-schema-imenu-create-index))
+  (add-hook 'ruby-mode-hook
+            (lambda ()
+              (when (and (buffer-file-name)
+                         (string-match-p "db/schema\\.rb\\'" (buffer-file-name)))
+                (rails-schema-imenu-setup)))))
 
 (use-package ruby-end
   :ensure t
