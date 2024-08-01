@@ -949,6 +949,8 @@
 (use-package lsp-java
   :hook (java-mode . lsp-deferred))
 
+(use-package groovy-mode)
+
 (eval-and-compile
   ;; load additional config per machine
   (let ((host-local-config (expand-file-name "init-local.el" user-emacs-directory)))
