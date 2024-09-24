@@ -590,7 +590,7 @@
                                        (setq fill-column 72)
                                        (turn-on-auto-fill)))
 
-(use-package git-commit
+(use-package magit
   :ensure t
   :custom
   ;; 50/72 rules
