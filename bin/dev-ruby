@@ -3,6 +3,7 @@ set -eu -o pipefail
 
 readonly gems=(
     rubocop
+    rubocop-factory_bot
     rubocop-performance
     rubocop-rails
     rubocop-rspec
