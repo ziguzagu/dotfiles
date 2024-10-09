@@ -6,7 +6,10 @@ readonly gems=(
     rubocop-factory_bot
     rubocop-performance
     rubocop-rails
+    rubocop-rake
     rubocop-rspec
+    rubocop-rspec_rails
+    rubocop-thread_safety
     ruby-lsp
     ruby-lsp-rails
 )
