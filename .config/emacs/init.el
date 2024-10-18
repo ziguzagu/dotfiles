@@ -883,6 +883,7 @@
   :ensure t)
 
 (use-package docker
+  :ensure t
   :bind ("C-c d" . docker))
 
 (use-package org
