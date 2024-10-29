@@ -245,6 +245,11 @@ cdr-gc() {
 ## fzf
 ########################################
 
+# Enable `**<TAB>` completion
+if type -p fzf >/dev/null 2>&1; then
+    source "$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh"
+fi
+
 # search from history
 fzf-history() {
     local cmd="$(fc -lnr 1 | fzf +m -e --tiebreak=index --bind=ctrl-r:down --bind=ctrl-s:up --query=$LBUFFER)"
