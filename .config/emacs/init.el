@@ -83,7 +83,14 @@
   (font-lock-constant-face ((t (:foreground "#d75f5f"))))
   (font-lock-type-face ((t (:foreground "#af87ff"))))
   (font-lock-warning-face ((t (:foreground "#af0000"))))
-  (font-lock-builtin-face ((t (:foreground "#d787d7")))))
+  (font-lock-builtin-face ((t (:foreground "#d787d7"))))
+
+  :config
+  (when (display-graphic-p)
+    ;; make max frame height
+    (let* ((display-height (display-pixel-height))
+         (frame-height (floor (/ display-height (frame-char-height)))))
+      (set-frame-size (selected-frame) 140 frame-height))))
 
 (use-package whitespace
   :custom
