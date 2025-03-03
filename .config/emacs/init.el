@@ -90,7 +90,14 @@
     ;; make max frame height
     (let* ((display-height (display-pixel-height))
          (frame-height (floor (/ display-height (frame-char-height)))))
-      (set-frame-size (selected-frame) 140 frame-height))))
+      (set-frame-size (selected-frame) 140 frame-height))
+    ;; font
+    (set-face-attribute 'default nil
+                      :family "Source Han Code JP"
+                      :height 110
+                      :weight 'medium)
+    (set-fontset-font t 'japanese-jisx0208
+                      (font-spec :family "Source Han Code JP" :weight 'medium))))
 
 (use-package whitespace
   :custom
