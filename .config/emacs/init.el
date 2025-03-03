@@ -30,19 +30,6 @@
                 (delete-file (expand-file-name "emacs-server-window" temporary-file-directory))))))
 
 (use-package emacs
-  :bind (("RET" . newline-and-indent)
-         ("C-M-r" . isearch-backward)
-         ("C-M-s" . isearch-forward)
-         ("C-c ]" . align-regexp)
-         ("C-c h" . help-for-help)
-         ("C-h" . delete-backward-char)
-         ("C-r" . isearch-backward-regexp)
-         ("C-s" . isearch-forward-regexp)
-         ("C-x C-b" . ibuffer)
-         ("M-/" . hippie-expand)
-         ("M-n" . scroll-up)
-         ("M-p" . scroll-down))
-
   :init
   (menu-bar-mode 0)
   (tool-bar-mode 0)
@@ -62,6 +49,19 @@
 
   (put 'upcase-region 'disabled nil)
   (put 'downcase-region 'disabled nil)
+
+  :bind (("RET" . newline-and-indent)
+         ("C-M-r" . isearch-backward)
+         ("C-M-s" . isearch-forward)
+         ("C-c ]" . align-regexp)
+         ("C-c h" . help-for-help)
+         ("C-h" . delete-backward-char)
+         ("C-r" . isearch-backward-regexp)
+         ("C-s" . isearch-forward-regexp)
+         ("C-x C-b" . ibuffer)
+         ("M-/" . hippie-expand)
+         ("M-n" . scroll-up)
+         ("M-p" . scroll-down))
 
   :custom-face
   (default ((t (:foreground "#e3e3e3" :background "#080808"))))
