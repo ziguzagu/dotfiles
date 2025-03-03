@@ -40,15 +40,13 @@ brew 'wget'
 brew 'zsh-completions'
 brew 'zsh-syntax-highlighting'
 
-tap 'd12frosted/emacs-plus'
-brew 'emacs-plus@29', args: %w[without-cocoa with-native-comp]
-
 cask '1password-cli'
 cask 'alfred'
 cask 'cleanmymac'
 cask 'dash'
 cask 'docker'
 cask 'dropbox'
+cask 'emacs'
 cask 'firefox'
 cask 'google-chrome'
 cask 'google-cloud-sdk'
