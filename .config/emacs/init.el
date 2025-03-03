@@ -50,6 +50,9 @@
   (put 'upcase-region 'disabled nil)
   (put 'downcase-region 'disabled nil)
 
+  (setq ns-command-modifier 'meta)  ;; make Command ⌘ to Meta
+  (setq ns-option-modifier 'super)  ;; make Option ⌥ to Super
+
   :bind (("RET" . newline-and-indent)
          ("C-M-r" . isearch-backward)
          ("C-M-s" . isearch-forward)
