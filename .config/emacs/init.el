@@ -975,6 +975,11 @@
     (when (file-exists-p host-local-config)
       (load host-local-config)))
   ;; to know that GC is running
-  (setq garbage-collection-messages t))
+  (setq garbage-collection-messages t)
+  ;; start server for emacsclient
+  (when (display-graphic-p)
+    (require 'server)
+    (unless (server-running-p)
+      (server-start))))
 
 ;;; init.el ends here
