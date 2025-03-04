@@ -11,12 +11,6 @@
   (setq use-package-enable-imenu-support t)
   (require 'use-package))
 
-(use-package quelpa
-  :ensure t)
-
-(use-package quelpa-use-package
-  :ensure t)
-
 (use-package exec-path-from-shell
   :ensure t
   :config
@@ -651,7 +645,7 @@
   :ensure t)
 
 (use-package copilot
-  :quelpa (copilot :fetcher github :repo "zerolfx/copilot.el" :files ("dist" "*.el"))
+  :vc (:url "https://github.com/copilot-emacs/copilot.el" :rev :newest :branch "main")
   :ensure t
   :after (company)
   :hook (prog-mode . copilot-mode)
@@ -766,7 +760,7 @@
 (use-package haml-mode)
 
 (use-package slim-mode
-  :quelpa (slim-mode :fetcher github :repo "slim-template/emacs-slim" :files ("slim-mode.el")))
+  :vc (:url "https://github.com/slim-template/emacs-slim" :rev :newest :branch "master"))
 
 (use-package cperl-mode
   :mode ("\\.t\\'" "\\.psgi\\'" "cpanfile")
