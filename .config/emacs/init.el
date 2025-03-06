@@ -47,6 +47,13 @@
   (setq ns-command-modifier 'meta)  ;; make Command ⌘ to Meta
   (setq ns-option-modifier 'super)  ;; make Option ⌥ to Super
 
+  (defun my:delete-word-at-point ()
+    "Delete the word at point."
+    (interactive)
+    (let ((bounds (bounds-of-thing-at-point 'word)))
+      (when bounds
+        (kill-region (car bounds) (cdr bounds)))))
+
   :bind (("RET" . newline-and-indent)
          ("C-M-r" . isearch-backward)
          ("C-M-s" . isearch-forward)
@@ -57,6 +64,7 @@
          ("C-s" . isearch-forward-regexp)
          ("C-x C-b" . ibuffer)
          ("M-/" . hippie-expand)
+         ("M-d" . my:delete-word-at-point)
          ("M-n" . scroll-up)
          ("M-p" . scroll-down))
 
@@ -91,7 +99,24 @@
                       :height 110
                       :weight 'medium)
     (set-fontset-font t 'japanese-jisx0208
-                      (font-spec :family "Source Han Code JP" :weight 'medium))))
+                      (font-spec :family "Source Han Code JP" :weight 'medium)))
+
+  (when (eq system-type 'darwin)
+    (defun my:copy-from-osx ()
+      "Get clipboard contents."
+      (let ((pbpaste (purecopy "pbpaste"))
+            (tramp-mode nil)
+            (default-directory "~"))
+        (shell-command-to-string "pbpaste")))
+    (setq interprogram-cut-function 'my:paste-to-osx)
+
+    (defun my:paste-to-osx (text &optional push)
+      "Paste yanked contents to clipboard."
+      (let ((process-connection-type nil))
+        (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
+          (process-send-string proc text)
+          (process-send-eof proc))))
+    (setq interprogram-paste-function 'my:copy-from-osx)))
 
 (use-package whitespace
   :custom
@@ -238,14 +263,6 @@
   :custom
   (comment-style 'extra-line))
 
-(defun my:delete-word-at-point ()
-  "Delete the word at point."
-  (interactive)
-  (let ((bounds (bounds-of-thing-at-point 'word)))
-    (when bounds
-      (kill-region (car bounds) (cdr bounds)))))
-(global-set-key (kbd "M-d") 'my:delete-word-at-point)
-
 (use-package recentf
   :custom
   (recentf-max-saved-items 5000)
@@ -313,25 +330,6 @@
   (popwin:popup-window-height 20)
   :config
   (popwin-mode 1))
-
-(eval-and-compile
-  (when (eq system-type 'darwin)
-    (defun my:copy-from-osx ()
-      "Get clipboard contents."
-      (let ((pbpaste (purecopy "pbpaste"))
-            (tramp-mode nil)
-            (default-directory "~"))
-        (shell-command-to-string "pbpaste")))
-
-    (defun my:paste-to-osx (text &optional push)
-      "Paste yanked contents to clipboard."
-      (let ((process-connection-type nil))
-        (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
-          (process-send-string proc text)
-          (process-send-eof proc))))
-
-    (setq interprogram-cut-function 'my:paste-to-osx)
-    (setq interprogram-paste-function 'my:copy-from-osx)))
 
 (use-package expand-region
   :ensure t
