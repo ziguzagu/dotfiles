@@ -601,6 +601,13 @@
 
 (use-package magit
   :ensure t
+  :init
+  (defun my:magit-diff-unstaged ()
+    "Show unstaged changes in magit without prompting."
+    (interactive)
+    (magit-diff-unstaged))
+  :bind (("C-x v s" . magit-status)
+         ("C-x v =" . my:magit-diff-unstaged))
   :custom
   ;; 50/72 rules
   (git-commit-summary-max-length 50)
