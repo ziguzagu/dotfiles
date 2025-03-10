@@ -626,28 +626,36 @@
   :config
   (editorconfig-mode 1))
 
-(use-package lsp-mode
+(use-package eglot
   :ensure t
-  :commands
-  (lsp lsp-deferred)
-  :bind-keymap
-  ("C-c l" . lsp-command-map)
-  :custom
-  (lsp-headerline-breadcrumb-enable nil)
+  :hook ((ruby-mode . eglot-ensure)
+         (typescript-mode . eglot-ensure)
+         (java-mode . eglot-ensure))
   :config
-  ;; rubocop-ls is highest priority (-1) in ruby language servers, however
-  ;; I want use ruby-lsp because it uses rubocop as formatter and provides
-  ;; other features.
-  (add-to-list 'lsp-disabled-clients 'rubocop-ls)
-  ;; https://emacs-lsp.github.io/lsp-mode/page/performance/#adjust-gc-cons-threshold
-  (setq gc-cons-threshold 100000000)
-  ;; https://emacs-lsp.github.io/lsp-mode/page/performance/#increase-the-amount-of-data-which-emacs-reads-from-the-process
-  (setq read-process-output-max (* 1024 1024)))
+  (add-to-list 'eglot-server-programs '(ruby-mode "ruby-lsp")))
 
-(use-package lsp-docker)
+;; (use-package lsp-mode
+;;   :ensure t
+;;   :commands
+;;   (lsp lsp-deferred)
+;;   :bind-keymap
+;;   ("C-c l" . lsp-command-map)
+;;   :custom
+;;   (lsp-headerline-breadcrumb-enable nil)
+;;   :config
+;;   ;; rubocop-ls is highest priority (-1) in ruby language servers, however
+;;   ;; I want use ruby-lsp because it uses rubocop as formatter and provides
+;;   ;; other features.
+;;   (add-to-list 'lsp-disabled-clients 'rubocop-ls)
+;;   ;; https://emacs-lsp.github.io/lsp-mode/page/performance/#adjust-gc-cons-threshold
+;;   (setq gc-cons-threshold 100000000)
+;;   ;; https://emacs-lsp.github.io/lsp-mode/page/performance/#increase-the-amount-of-data-which-emacs-reads-from-the-process
+;;   (setq read-process-output-max (* 1024 1024)))
 
-(use-package consult-lsp
-  :ensure t)
+;; (use-package lsp-docker)
+
+;; (use-package consult-lsp
+;;   :ensure t)
 
 (use-package copilot
   :vc (:url "https://github.com/copilot-emacs/copilot.el" :rev :newest :branch "main")
@@ -686,8 +694,8 @@
 (use-package ruby-mode
   :mode "Dangerfile"
   :interpreter "ruby"
-  :hook
-  (ruby-mode . lsp-deferred)
+  ;; :hook
+  ;; (ruby-mode . lsp-deferred)
   :custom
   (ruby-insert-encoding-magic-comment nil)
   :config
@@ -963,8 +971,8 @@
     (add-to-list 'company-keywords-alist processing-company--keywords))
   (add-hook 'processing-mode-hook 'processing-company--init))
 
-(use-package lsp-java
-  :hook (java-mode . lsp-deferred))
+;; (use-package lsp-java
+;;   :hook (java-mode . lsp-deferred))
 
 (use-package groovy-mode)
 
