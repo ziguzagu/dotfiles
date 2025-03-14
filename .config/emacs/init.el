@@ -25,11 +25,8 @@
 
 (use-package emacs
   :init
-  (menu-bar-mode 0)
-  (tool-bar-mode 0)
+  (menu-bar-mode -1)
   (blink-cursor-mode 0)
-  (setq ring-bell-function 'ignore
-        initial-scratch-message nil)
 
   (setq custom-file (expand-file-name "custom.el" temporary-file-directory))
 
