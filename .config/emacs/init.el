@@ -671,23 +671,6 @@
     (or (copilot-accept-completion)
         (company-indent-or-complete-common nil))))
 
-(use-package go-mode
-  :bind (:map go-mode-map
-         ;; map `C-=` to default ascii codes `^[[61;5u` by iTerm's key map
-         ("C-=" . my:insert-short-var-declaration-op))
-  :hook ((go-mode . lsp-deferred)
-         (before-save . lsp-format-buffer)
-         (before-save . lsp-organize-imports))
-  :config
-  (defun my:insert-short-var-declaration-op ()
-    "Insert `:=` at the point"
-    (interactive)
-    (unless (string= (string (char-before)) " ")
-      (insert " "))
-    (insert ":=")
-    (unless (string= (string (char-after)) " ")
-      (insert " "))))
-
 (use-package ruby-mode
   :mode "Dangerfile"
   :interpreter "ruby"
@@ -766,8 +749,6 @@
   ("C-c r" . projectile-rails-command-map)
   :config
   (projectile-rails-global-mode))
-
-(use-package haml-mode)
 
 (use-package slim-mode
   :vc (:url "https://github.com/slim-template/emacs-slim" :rev :newest :branch "master"))
@@ -893,10 +874,6 @@
   :bind (:map yaml-mode-map
          ("C-m" . newline-and-indent)))
 
-(use-package jsonnet-mode)
-
-(use-package protobuf-mode)
-
 (use-package docker-compose-mode
   :ensure t)
 
@@ -944,29 +921,6 @@
 
 (use-package ox-hugo
   :after ox)
-
-(use-package slime)
-
-(use-package slime-company)
-
-(use-package processing-mode
-  :custom
-  (processing-location "/usr/local/bin/processing-java")
-  :config
-  ;; import processing-company.el
-  ;; https://github.com/ptrv/processing2-emacs/blob/448aba82970c98322629eaf2746e73be6c30c98e/processing-company.el
-  (defvar processing-company--keywords
-    (cons 'processing-mode (append processing-functions
-                                   processing-builtins
-                                   processing-constants)))
-  (defun processing-company--init ()
-    (setq-local company-backends '((company-keywords
-                                    :with
-                                    company-yasnippet
-                                    company-dabbrev-code)))
-    (make-local-variable 'company-keywords-alist)
-    (add-to-list 'company-keywords-alist processing-company--keywords))
-  (add-hook 'processing-mode-hook 'processing-company--init))
 
 ;; (use-package lsp-java
 ;;   :hook (java-mode . lsp-deferred))
