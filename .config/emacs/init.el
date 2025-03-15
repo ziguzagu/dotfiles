@@ -408,6 +408,22 @@
   :custom
   (sh-shell-file "/bin/zsh"))
 
+(use-package emacs-lisp
+  :init
+  (defun my:describe-symbol-at-point ()
+    "Describe the function or variable at point."
+    (interactive)
+    (let* ((sym (symbol-at-point)))
+      (if (not sym)
+          (message "No valid symbol at point")
+        (cond
+         ((fboundp sym) (describe-function sym))
+         ((boundp sym) (describe-variable sym))
+         (t (message "Symbol `%s' is neither a function nor a variable" sym))))))
+
+  :bind (:map emacs-lisp-mode-map
+              ("C-c h ." . my:describe-symbol-at-point)))
+
 (use-package dumb-jump
   :ensure t
   :custom
