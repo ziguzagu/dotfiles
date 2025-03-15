@@ -23,6 +23,25 @@
               (lambda ()
                 (delete-file (expand-file-name "emacs-server-window" temporary-file-directory))))))
 
+(use-package monokai-theme
+  :ensure t
+  :config
+  (load-theme 'monokai t))
+
+(use-package nerd-icons
+  :ensure t
+  :config
+  (when (and (eq system-type 'darwin) (display-graphic-p))
+    (let* ((fonts-dir (expand-file-name "~/Library/Fonts"))
+           (font-file (expand-file-name "NFM.ttf" fonts-dir)))
+      (unless (file-exists-p font-file)
+        (nerd-icons-install-fonts t)))))
+
+(use-package doom-modeline
+  :ensure t
+  :after nerd-icons
+  :hook (after-init . doom-modeline-mode))
+
 (use-package emacs
   :init
   (menu-bar-mode -1)
@@ -65,25 +84,6 @@
          ("M-n" . scroll-up)
          ("M-p" . scroll-down))
 
-  :custom-face
-  (default ((t (:foreground "#e3e3e3" :background "#080808"))))
-  (highlight ((t (:foreground "#080808" :background "#00cd00"))))
-  (region ((t (:foreground "#e3e3e3" :background "#383838"))))
-  (minibuffer-prompt ((t (:foreground "#cdcd00"))))
-  (mode-line ((t (:foreground "#c6c6c6" :background "#454545"))))
-  (mode-line-inactive ((t (:foreground "#6b6b6b" :background "#292929"))))
-  (mode-line-buffer-id ((t (:foreground "#ff8700" :weight normal))))
-  (header-line ((t (:inherit mode-line :weight bold :slant italic :underline t))))
-  (font-lock-comment-face ((t (:foreground "#858585" :slant italic))))
-  (font-lock-string-face ((t (:foreground "#afd787"))))
-  (font-lock-keyword-face ((t (:foreground "#ffaf00"))))
-  (font-lock-function-name-face ((t (:foreground "#b0b0b0"))))
-  (font-lock-variable-name-face ((t (:foreground "#87afd7"))))
-  (font-lock-constant-face ((t (:foreground "#d75f5f"))))
-  (font-lock-type-face ((t (:foreground "#af87ff"))))
-  (font-lock-warning-face ((t (:foreground "#af0000"))))
-  (font-lock-builtin-face ((t (:foreground "#d787d7"))))
-
   :config
   (when (display-graphic-p)
     ;; make max frame height
@@ -121,11 +121,7 @@
   (whitespace-style '(face tabs tab-mark trailing))
   (whitespace-global-modes '(not go-mode))
   :config
-  (global-whitespace-mode t)
-  :custom-face
-  (trailing-whitespace ((t (:foreground "#e3e3e3" :background "#525252"))))
-  (whitespace-trailing ((t (:inherit trailing-whitespace))))
-  (whitespace-tab ((t (:foreground "#666666" :background unspecified)))))
+  (global-whitespace-mode t))
 
 (use-package saveplace
   :config
@@ -134,65 +130,6 @@
 (use-package rainbow-mode
   :ensure t
   :hook (emacs-lisp-mode . rainbow-mode))
-
-(eval-and-compile
-  (make-face 'mode-line-vc-mode)
-  (make-face 'fc-info-face)
-  (make-face 'fc-warning-face)
-  (make-face 'fc-error-face)
-  (set-face-attribute 'mode-line-vc-mode nil
-                      :foreground "#5fafff"
-                      :weight 'normal)
-  (set-face-attribute 'fc-info-face nil
-                      :foreground "#83a598"
-                      :weight 'normal)
-  (set-face-attribute 'fc-warning-face nil
-                      :inherit 'fc-info-face
-                      :foreground "#fabd2f")
-  (set-face-attribute 'fc-error-face nil
-                      :inherit 'fc-info-face
-                      :foreground "#fb4933")
-
-  ;; get rid of leading ' git:' from vc-mode
-  (defun my:vc-branch ()
-    (let ((backend (vc-backend buffer-file-name)))
-      (substring vc-mode 5)))
-
-  ;; customize flycheck modeline display
-  (defun my:mode-line-checker-text (state)
-    (let* ((counts (flycheck-count-errors flycheck-current-errors))
-           (errorp (flycheck-has-current-errors-p state))
-           (err (or (cdr (assq state counts)) "?"))
-           (running (eq 'running flycheck-last-status-change)))
-      (if (or errorp running) (format "•%s" err))))
-
-  (defun my:mode-line-chcker ()
-    (when (and (bound-and-true-p flycheck-mode)
-               (or flycheck-current-errors
-                   (eq 'running flycheck-last-status-change)))
-      (cl-loop for state in '(error warning info)
-               as ret = (my:mode-line-checker-text state)
-               when ret
-               concat (propertize
-                       ret
-                       'face (intern (format "fc-%S-face" state))))))
-
-  (setq-default mode-line-format
-                (list " "
-                      'mode-line-mule-info
-                      'mode-line-modified
-                      "  "
-                      'mode-line-buffer-identification
-                      '(:eval (when (fboundp 'projectile-project-name)
-                                (format " [%s]" (projectile-project-name))))
-                      '(vc-mode
-                        (("  ")
-                         (:propertize (:eval (my:vc-branch)) face mode-line-vc-mode)))
-                      "  "
-                      'mode-name
-                      "  "
-                      '(:eval (my:mode-line-chcker))
-                      "  %c:%l(%p)")))
 
 (use-package tramp
   :custom
@@ -415,10 +352,6 @@
 
 (use-package vertico
   :ensure t
-  :custom-face
-  (vertico-current ((t (:background "#cb0000" :foreground "#e3e3d3" :weight normal))))
-  (vertico-group-title ((t (:background "#292929" :foreground "#a3a3a3" :slant italic))))
-  (vertico-group-separator ((t (:inherit 'vertico-group-title))))
   :custom
   (vertico-count 15)
   :config
@@ -458,19 +391,6 @@
   :ensure t
   :bind (("C-c y" . browse-kill-ring)))
 
-(use-package diff-mode
-  :custom-face
-  (diff-header         ((t (:foreground "#a8a8a8" :background "#303030" :slant italic))))
-  (diff-file-header    ((t (:inherit diff-header))))
-  (diff-hunk-header    ((t (:inherit diff-header :background "#080808"))))
-  (diff-index          ((t (:inherit diff-hunk-header :foreground "#5fafd7"))))
-  (diff-function       ((t (:inherit diff-hunk-header :foreground "#af87d7"))))
-  (diff-context        ((t (:inherit default))))
-  (diff-added          ((t (:inherit default :foreground "#87af5f"))))
-  (diff-removed        ((t (:inherit default :foreground "#d75f5f"))))
-  (diff-refine-added   ((t (:inherit diff-added :background "#005f00"))))
-  (diff-refine-removed ((t (:inherit diff-removed :background "#5f0000")))))
-
 (use-package dash-at-point
   :ensure t
   :bind (("C-c ." . dash-at-point)
@@ -482,16 +402,7 @@
 
 (use-package markdown-mode
   :ensure t
-  :commands (markdown-mode gfm-mode)
-  :custom-face
-  (markdown-header-delimiter-face ((t (:foreground "#ffa500"))))
-  (markdown-header-rule-face      ((t (:foreground "#ffa500"))))
-  (markdown-header-face           ((t (:foreground "#ffa500"))))
-  (markdown-inline-code-face      ((t (:foreground "#87d75f"))))
-  (markdown-pre-face              ((t (:foreground "#87d75f"))))
-  (markdown-language-keyword-face ((t (:foreground "#858585"))))
-  (markdown-list-face             ((t (:foreground "#af87ff" :weight bold))))
-  (markdown-link-face             ((t (:foreground "#5fafff")))))
+  :commands (markdown-mode gfm-mode))
 
 (use-package sh-script
   :custom
