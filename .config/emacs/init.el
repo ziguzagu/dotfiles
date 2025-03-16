@@ -99,21 +99,21 @@
                       (font-spec :family "Source Han Code JP" :weight 'medium)))
 
   (when (eq system-type 'darwin)
-    (defun my:copy-from-osx ()
+    (defun my:copy-from-macos ()
       "Get clipboard contents."
       (let ((pbpaste (purecopy "pbpaste"))
             (tramp-mode nil)
             (default-directory "~"))
         (shell-command-to-string "pbpaste")))
-    (setq interprogram-cut-function 'my:paste-to-osx)
+    (setq interprogram-cut-function 'my:paste-to-macos)
 
-    (defun my:paste-to-osx (text &optional push)
+    (defun my:paste-to-macos (text &optional push)
       "Paste yanked contents to clipboard."
       (let ((process-connection-type nil))
         (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
           (process-send-string proc text)
           (process-send-eof proc))))
-    (setq interprogram-paste-function 'my:copy-from-osx)))
+    (setq interprogram-paste-function 'my:copy-from-macos)))
 
 (use-package whitespace
   :custom
