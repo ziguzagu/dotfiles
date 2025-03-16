@@ -796,12 +796,6 @@
   :custom
   (css-indent-offset 2))
 
-(use-package scss-mode
-  :ensure t
-  :mode ("\\.css\\'" "\\.scss\\'")
-  :custom
-  (scss-compile-at-save nil))
-
 (defun my:escape-html-region (start end)
   "Escape HTML unsafe characters in the region between START and END."
   (interactive "*r")
