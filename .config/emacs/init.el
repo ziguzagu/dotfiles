@@ -43,6 +43,7 @@
   :hook (after-init . doom-modeline-mode))
 
 (use-package emacs
+  :ensure nil
   :init
   (menu-bar-mode -1)
   (blink-cursor-mode 0)
@@ -143,6 +144,7 @@
     (setq interprogram-paste-function 'my:copy-from-macos)))
 
 (use-package whitespace
+  :ensure nil
   :custom
   (show-trailing-whitespace t)
   (whitespace-style '(face tabs tab-mark trailing))
@@ -151,6 +153,7 @@
   (global-whitespace-mode t))
 
 (use-package saveplace
+  :ensure nil
   :config
   (save-place-mode 1))
 
@@ -159,6 +162,7 @@
   :hook (emacs-lisp-mode . rainbow-mode))
 
 (use-package tramp
+  :ensure nil
   :custom
   ;; Improve tramp performance:
   ;; * https://www.gnu.org/software/emacs/manual/html_node/tramp/Frequently-Asked-Questions.html
@@ -179,6 +183,7 @@
   (persistent-scratch-autosave-mode 1))
 
 (use-package dired
+  :ensure nil
   :bind (:map dired-mode-map
               ("e" . wdired-change-to-wdired-mode)
               ("RET" . dired-find-alternate-file)
@@ -201,42 +206,50 @@
     (let ((file (dired-get-file-for-visit)))
       (shell-command (concat "open " (shell-quote-argument file))))))
 
-(use-package dired-x)
+(use-package dired-x
+  :ensure nil)
 
 (use-package uniquify
+  :ensure nil
   :custom
   (uniquify-buffer-name-style 'forward)
   (uniquify-ignore-buffers-re "*[^*]+*"))
 
 (use-package ffap
+  :ensure nil
   :custom
   (ffap-machine-p-known 'reject)
   :config
   (ffap-bindings))
 
 (use-package minibuffer
+  :ensure nil
   :custom
   (read-file-name-completion-ignore-case t)
   :config
   (define-key key-translation-map (kbd "C-h") (kbd "<DEL>")))
 
 (use-package newcomment
+  :ensure nil
   :custom
   (comment-style 'extra-line))
 
 (use-package recentf
+  :ensure nil
   :custom
   (recentf-max-saved-items 5000)
   :config
   (recentf-mode 1))
 
 (use-package autorevert
+  :ensure nil
   :custom
   (auto-revert-check-vc-info t)
   :config
   (global-auto-revert-mode t))
 
 (use-package files
+  :ensure nil
   :custom
   (backup-by-copying t)
   (version-control t)
@@ -254,6 +267,7 @@
     (setq auto-save-list-file-prefix my-backup-dir)))
 
 (use-package window
+  :ensure nil
   :bind (("C-c b" . my:switch-last-buffer)
          ("C-x 9" . my:rotate-windows)
          ("C-x o" . my:other-window-or-split))
@@ -385,6 +399,7 @@
   (vertico-mode))
 
 (use-package savehist
+  :ensure nil
   :config
   (savehist-mode))
 
@@ -424,6 +439,7 @@
          ("C-c C-." . dash-at-point-with-docset)))
 
 (use-package sql
+  :ensure nil
   :config
   (sql-highlight-mysql-keywords))
 
@@ -432,10 +448,12 @@
   :commands (markdown-mode gfm-mode))
 
 (use-package sh-script
+  :ensure nil
   :custom
   (sh-shell-file "/bin/zsh"))
 
 (use-package emacs-lisp
+  :ensure nil
   :init
   (defun my:describe-symbol-at-point ()
     "Describe the function or variable at point."
@@ -475,6 +493,7 @@
   (popup-tip-face ((t (:foreground "#5fafd7" :background "#292929")))))
 
 (use-package vc
+  :ensure nil
   :custom
   (vc-follow-symlinks t)
   (vc-make-backup-files t)
@@ -626,6 +645,7 @@
         (company-indent-or-complete-common nil))))
 
 (use-package ruby-mode
+  :ensure nil
   :mode "Dangerfile"
   :interpreter "ruby"
   ;; :hook
@@ -708,6 +728,7 @@
   :vc (:url "https://github.com/slim-template/emacs-slim" :rev :newest :branch "master"))
 
 (use-package cperl-mode
+  :ensure nil
   :mode ("\\.t\\'" "\\.psgi\\'" "cpanfile")
   :interpreter "perl"
   :bind (:map cperl-mode-map
@@ -793,6 +814,7 @@
                             ("template-toolkit" . "\\.tx\\'"))))
 
 (use-package css-mode
+  :ensure nil
   :custom
   (css-indent-offset 2))
 
@@ -833,6 +855,7 @@
   :bind ("C-c d" . docker))
 
 (use-package org
+  :ensure nil
   :bind (("C-c c" . org-capture))
   :custom
   (org-directory "~/Dropbox/org/")
