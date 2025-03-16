@@ -165,7 +165,7 @@
   (dired-recursive-deletes 'always)
   (wdired-allow-to-change-permissions t)
   :config
-  ;; don't create new buffer at moving direcotry
+  ;; don't create new buffer at moving directory
   (put 'dired-find-alternate-file 'disabled nil)
 
   (defun my:dired-open-file-by-open ()
