@@ -23,25 +23,6 @@
               (lambda ()
                 (delete-file (expand-file-name "emacs-server-window" temporary-file-directory))))))
 
-(use-package monokai-theme
-  :ensure t
-  :config
-  (load-theme 'monokai t))
-
-(use-package nerd-icons
-  :ensure t
-  :config
-  (when (and (eq system-type 'darwin) (display-graphic-p))
-    (let* ((fonts-dir (expand-file-name "~/Library/Fonts"))
-           (font-file (expand-file-name "NFM.ttf" fonts-dir)))
-      (unless (file-exists-p font-file)
-        (nerd-icons-install-fonts t)))))
-
-(use-package doom-modeline
-  :ensure t
-  :after nerd-icons
-  :hook (after-init . doom-modeline-mode))
-
 (use-package emacs
   :ensure nil
   :init
@@ -142,6 +123,25 @@
           (process-send-string proc text)
           (process-send-eof proc))))
     (setq interprogram-paste-function 'my:copy-from-macos)))
+
+(use-package monokai-theme
+  :ensure t
+  :config
+  (load-theme 'monokai t))
+
+(use-package nerd-icons
+  :ensure t
+  :config
+  (when (and (eq system-type 'darwin) (display-graphic-p))
+    (let* ((fonts-dir (expand-file-name "~/Library/Fonts"))
+           (font-file (expand-file-name "NFM.ttf" fonts-dir)))
+      (unless (file-exists-p font-file)
+        (nerd-icons-install-fonts t)))))
+
+(use-package doom-modeline
+  :ensure t
+  :after nerd-icons
+  :hook (after-init . doom-modeline-mode))
 
 (use-package whitespace
   :ensure nil
