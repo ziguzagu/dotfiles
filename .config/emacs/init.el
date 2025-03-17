@@ -138,6 +138,10 @@
       (unless (file-exists-p font-file)
         (nerd-icons-install-fonts t)))))
 
+(use-package nerd-icons-dired
+  :ensure t
+  :hook (dired-mode . nerd-icons-dired-mode))
+
 (use-package doom-modeline
   :ensure t
   :after nerd-icons
@@ -148,7 +152,7 @@
   :custom
   (show-trailing-whitespace t)
   (whitespace-style '(face tabs tab-mark trailing))
-  (whitespace-global-modes '(not go-mode))
+  (whitespace-global-modes '(not dired-mode go-mode))
   :config
   (global-whitespace-mode t))
 
