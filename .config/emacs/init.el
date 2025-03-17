@@ -470,7 +470,7 @@
   :ensure nil
   :bind (:map emacs-lisp-mode-map
               ("C-c h ." . my:describe-symbol-at-point))
-  :config
+  :init
   (defun my:describe-symbol-at-point ()
     "Describe the function or variable at point."
     (interactive)
