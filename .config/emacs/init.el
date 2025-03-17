@@ -95,10 +95,12 @@
       (keyboard-quit))))
 
   (when (display-graphic-p)
-    ;; make max frame height
-    (let* ((display-height (display-pixel-height))
-         (frame-height (floor (/ display-height (frame-char-height)))))
-      (set-frame-size (selected-frame) 140 frame-height))
+    ;; make frame height to fit the display height
+    (add-hook 'window-setup-hook
+              (lambda ()
+                (let* ((display-height (display-pixel-height))
+                       (frame-height (floor (/ display-height (frame-char-height)))))
+                  (set-frame-size (selected-frame) 140 frame-height))))
     ;; font
     (set-face-attribute 'default nil
                       :family "Source Han Code JP"
