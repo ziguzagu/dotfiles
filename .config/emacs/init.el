@@ -128,7 +128,9 @@
 (use-package doom-modeline
   :ensure t
   :after nerd-icons
-  :hook (after-init . doom-modeline-mode))
+  :hook (after-init . doom-modeline-mode)
+  :custom
+  (doom-modeline-env-version nil))
 
 (use-package whitespace
   :ensure nil
