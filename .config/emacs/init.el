@@ -633,7 +633,7 @@
 (use-package copilot
   :vc (:url "https://github.com/copilot-emacs/copilot.el" :rev :newest :branch "main")
   :ensure t
-  :after (company)
+  :after company
   :hook (prog-mode . copilot-mode)
   :bind (("TAB" . my:copilot-tab)
          :map copilot-completion-map
@@ -693,8 +693,7 @@
 
 (use-package ruby-end
   :ensure t
-  :hook
-  (ruby-mode . ruby-end-mode))
+  :hook (ruby-mode . ruby-end-mode))
 
 (use-package rspec-mode
   :ensure t
@@ -711,9 +710,8 @@
 
 (use-package inf-ruby
   :ensure t
-  :hook
-  ((ruby-mode . inf-ruby-minor-mode)
-   (ruby-mode . inf-ruby-switch-setup)))
+  :hook ((ruby-mode . inf-ruby-minor-mode)
+         (ruby-mode . inf-ruby-switch-setup)))
 
 (use-package rbenv
   :ensure t
@@ -781,7 +779,7 @@
 
 (use-package js2-mode
   :ensure t
-  :mode ("\\.js\\'"  . js2-mode)
+  :mode "\\.js\\'"
   :interpreter "node"
   :custom
   (js2-basic-offset 2))
@@ -791,15 +789,14 @@
 
 (use-package typescript-mode
   :ensure t
-  :mode ("\\.ts\\'")
+  :mode "\\.ts\\'"
   :custom
   (typescript-indent-level 2))
 
 (use-package prettier-js
   :ensure t
-  :hook
-  (js2-mode . prettier-js)
-  (typescript-mode . prettier-js))
+  :hook ((js2-mode . prettier-js)
+         (typescript-mode . prettier-js)))
 
 (use-package web-mode
   :ensure t
