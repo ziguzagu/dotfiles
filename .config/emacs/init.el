@@ -21,26 +21,6 @@
 
 (use-package emacs
   :ensure nil
-  :init
-  (menu-bar-mode -1)
-  (blink-cursor-mode 0)
-
-  (setq custom-file (expand-file-name "custom.el" temporary-file-directory))
-
-  (setq scroll-conservatively 35
-        scroll-margin 0
-        scroll-step 1)
-
-  (add-hook 'prog-mode-hook (lambda ()
-                              (setq tab-width 4
-                                    indent-tabs-mode nil)))
-
-  (put 'upcase-region 'disabled nil)
-  (put 'downcase-region 'disabled nil)
-
-  (setq ns-command-modifier 'meta)  ;; make Command ⌘ to Meta
-  (setq ns-option-modifier 'super)  ;; make Option ⌥ to Super
-
   :bind (("RET" . newline-and-indent)
          ("C-M-r" . isearch-backward)
          ("C-M-s" . isearch-forward)
@@ -55,8 +35,24 @@
          ("M-d" . my:delete-word-at-point)
          ("M-n" . scroll-up)
          ("M-p" . scroll-down))
-
+  :custom
+  (scroll-conservatively 35)
+  (scroll-margin 0)
+  (scroll-step 1)
+  (ns-command-modifier 'meta)  ;; make Command ⌘ to Meta
+  (ns-option-modifier 'super)  ;; make Option ⌥ to Super
+  :init
+  (setq custom-file (expand-file-name "custom.el" temporary-file-directory))
   :config
+  (menu-bar-mode -1)
+  (blink-cursor-mode 0)
+
+  (setq-default tab-width 4)
+  (setq-default indent-tabs-mode nil)
+
+  (put 'upcase-region 'disabled nil)
+  (put 'downcase-region 'disabled nil)
+
   (defun my:delete-word-at-point ()
     "Delete the word at point."
     (interactive)
@@ -64,21 +60,10 @@
       (when bounds
         (kill-region (car bounds) (cdr bounds)))))
 
-  ;; Make C-g a bit more helpful
+  ;; make C-g a bit more helpful:
   ;; https://protesilaos.com/codelog/2024-11-28-basic-emacs-configuration/
   (defun my:keyboard-quit-dwim ()
-    "Do-What-I-Mean behaviour for a general `keyboard-quit'.
-
-    The generic `keyboard-quit' does not do the expected thing when
-    the minibuffer is open.  Whereas we want it to close the
-    minibuffer, even without explicitly focusing it.
-
-    The DWIM behaviour of this command is as follows:
-
-    - When the region is active, disable it.
-    - When a minibuffer is open, but not focused, close the minibuffer.
-    - When the Completions buffer is selected, close it.
-    - In every other case use the regular `keyboard-quit'."
+    "Do-What-I-Mean behaviour for a general `keyboard-quit'."
     (interactive)
     (cond
      ((region-active-p)
