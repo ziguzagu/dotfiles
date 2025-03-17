@@ -213,6 +213,14 @@
 (use-package dired-x
   :ensure nil)
 
+(use-package dired-subtree
+  :ensure t
+  :after dired
+  :bind (:map dired-mode-map
+              ("TAB" . dired-subtree-toggle))
+  :custom
+  (dired-subtree-use-backgrounds nil))
+
 (use-package uniquify
   :ensure nil
   :custom
