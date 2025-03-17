@@ -42,6 +42,7 @@ brew 'zsh-syntax-highlighting'
 
 cask '1password-cli'
 cask 'alfred'
+cask 'chatgpt'
 cask 'cleanmymac'
 cask 'dash'
 cask 'docker'
