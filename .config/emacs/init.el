@@ -45,6 +45,22 @@
   (setq ns-command-modifier 'meta)  ;; make Command ⌘ to Meta
   (setq ns-option-modifier 'super)  ;; make Option ⌥ to Super
 
+  :bind (("RET" . newline-and-indent)
+         ("C-M-r" . isearch-backward)
+         ("C-M-s" . isearch-forward)
+         ("C-c ]" . align-regexp)
+         ("C-c h" . help-for-help)
+         ("C-g" . my:keyboard-quit-dwim)
+         ("C-h" . delete-backward-char)
+         ("C-r" . isearch-backward-regexp)
+         ("C-s" . isearch-forward-regexp)
+         ("C-x C-b" . ibuffer)
+         ("M-/" . hippie-expand)
+         ("M-d" . my:delete-word-at-point)
+         ("M-n" . scroll-up)
+         ("M-p" . scroll-down))
+
+  :config
   (defun my:delete-word-at-point ()
     "Delete the word at point."
     (interactive)
@@ -78,22 +94,6 @@
      (t
       (keyboard-quit))))
 
-  :bind (("RET" . newline-and-indent)
-         ("C-M-r" . isearch-backward)
-         ("C-M-s" . isearch-forward)
-         ("C-c ]" . align-regexp)
-         ("C-c h" . help-for-help)
-         ("C-g" . my:keyboard-quit-dwim)
-         ("C-h" . delete-backward-char)
-         ("C-r" . isearch-backward-regexp)
-         ("C-s" . isearch-forward-regexp)
-         ("C-x C-b" . ibuffer)
-         ("M-/" . hippie-expand)
-         ("M-d" . my:delete-word-at-point)
-         ("M-n" . scroll-up)
-         ("M-p" . scroll-down))
-
-  :config
   (when (display-graphic-p)
     ;; make max frame height
     (let* ((display-height (display-pixel-height))
@@ -458,7 +458,9 @@
 
 (use-package emacs-lisp
   :ensure nil
-  :init
+  :bind (:map emacs-lisp-mode-map
+              ("C-c h ." . my:describe-symbol-at-point))
+  :config
   (defun my:describe-symbol-at-point ()
     "Describe the function or variable at point."
     (interactive)
@@ -468,10 +470,7 @@
         (cond
          ((fboundp sym) (describe-function sym))
          ((boundp sym) (describe-variable sym))
-         (t (message "Symbol `%s' is neither a function nor a variable" sym))))))
-
-  :bind (:map emacs-lisp-mode-map
-              ("C-c h ." . my:describe-symbol-at-point)))
+         (t (message "Symbol `%s' is neither a function nor a variable" sym)))))))
 
 (use-package dumb-jump
   :ensure t
@@ -575,17 +574,17 @@
 
 (use-package magit
   :ensure t
-  :init
-  (defun my:magit-diff-unstaged ()
-    "Show unstaged changes in magit without prompting."
-    (interactive)
-    (magit-diff-unstaged))
   :bind (("C-x v s" . magit-status)
          ("C-x v =" . my:magit-diff-unstaged))
   :custom
   ;; 50/72 rules
   (git-commit-summary-max-length 50)
-  (git-commit-fill-column 72))
+  (git-commit-fill-column 72)
+  :config
+  (defun my:magit-diff-unstaged ()
+    "Show unstaged changes in magit without prompting."
+    (interactive)
+    (magit-diff-unstaged)))
 
 (use-package browse-at-remote
   :ensure t
