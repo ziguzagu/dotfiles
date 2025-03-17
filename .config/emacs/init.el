@@ -194,11 +194,10 @@
               ("e" . wdired-change-to-wdired-mode)
               ("RET" . dired-find-alternate-file)
               ("M-o" . my:dired-open-file-by-open))
-  :init
-  ;; use GNU ls installed by homebrew to use its own options, not have BSD ls.
-  (setq insert-directory-program "gls"
-        dired-listing-switches "-AlhXF --color=auto --group-directories-first")
+  :hook ((dired-mode . dired-hide-details-mode)
+         (dired-mode . hl-line-mode))
   :custom
+  (dired-listing-switches "-AlhXF --color=auto --group-directories-first")
   (dired-recursive-copies 'always)
   (dired-recursive-deletes 'always)
   (wdired-allow-to-change-permissions t)
@@ -275,6 +274,10 @@
   ;; Improve tramp performance: https://www.gnu.org/software/emacs/manual/html_node/tramp/Frequently-Asked-Questions.html
   (remote-file-name-inhibit-locks t)
   :config
+  ;; macOS ls doesn't support some options like --group-directories-first, so use coreutils ls both on macOS and Linux
+  (when (eq system-type 'darwin)
+    (setq insert-directory-program "gls"))
+  ;; I don't want to see backup files in the same directory
   (let ((my-backup-dir (expand-file-name (format "emacs%d/backup" (user-uid)) temporary-file-directory)))
     (setq backup-directory-alist `((".*" . ,my-backup-dir)))
     (setq auto-save-file-name-transforms `((".*" ,my-backup-dir t)))
