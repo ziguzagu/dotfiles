@@ -1,7 +1,3 @@
-;;; init.el --- Initialization file for Emacs
-;;; Commentary:
-;;; Code:
-
 (eval-and-compile
   (require 'package)
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
@@ -473,6 +469,7 @@
   :ensure nil
   :bind (:map emacs-lisp-mode-map
               ("C-c h ." . my:describe-symbol-at-point))
+  :hook (emacs-lisp-mode . my:disable-flycheck-in-init)
   :init
   (defun my:describe-symbol-at-point ()
     "Describe the function or variable at point."
@@ -483,7 +480,13 @@
         (cond
          ((fboundp sym) (describe-function sym))
          ((boundp sym) (describe-variable sym))
-         (t (message "Symbol `%s' is neither a function nor a variable" sym)))))))
+         (t (message "Symbol `%s' is neither a function nor a variable" sym))))))
+
+  (defun my:disable-flycheck-in-init ()
+    "Disable specific flycheck checkers in init.el."
+    (when (and buffer-file-name
+               (string-equal (file-truename buffer-file-name) (file-truename user-init-file)))
+      (setq-local flycheck-disabled-checkers '(emacs-lisp emacs-lisp-checkdoc)))))
 
 (use-package dumb-jump
   :ensure t
@@ -923,5 +926,3 @@
     (require 'server)
     (unless (server-running-p)
       (server-start))))
-
-;;; init.el ends here
