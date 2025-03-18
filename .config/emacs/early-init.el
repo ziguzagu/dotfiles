@@ -1,6 +1,8 @@
-(setq-default default-frame-alist '((menu-bar-lines . 0)
-                                    (tool-bar-lines . 0)
-                                    (vertical-scroll-bars . nil)))
+(setq default-frame-alist '((menu-bar-lines . 0)
+                            (tool-bar-lines . 0)
+                            (vertical-scroll-bars . nil)
+                            (top . 0)
+                            (left . 0)))
 
 (setq ring-bell-function 'ignore)
 
