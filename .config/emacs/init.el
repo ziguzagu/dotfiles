@@ -585,6 +585,13 @@
   ;; 50/72 rules
   (git-commit-summary-max-length 50)
   (git-commit-fill-column 72)
+  ;; blame
+  (magit-blame-read-only t)
+  (magit-blame-styles '((margin
+                         (margin-format . ("%.8H %.10C %.12a"))
+                         (margin-width . 33)
+                         (margin-face . magit-blame-margin)
+                         (margin-body-face . magit-blame-dimmed))))
   :config
   (defun my:magit-diff-unstaged ()
     "Show unstaged changes in magit without prompting."
