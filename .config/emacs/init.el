@@ -367,14 +367,7 @@
   (company-dabbrev-minimum-length 3)
   ;; go to top at the next of last candidates
   (company-selection-wrap-around t)
-  (company-backends '(company-capf company-semantic company-dabbrev-code company-dabbrev company-keywords company-yasnippet))
-  :custom-face
-  (company-tooltip ((t (:foreground "#e3e3e3" :background "#292929"))))
-  (company-tooltip-common ((t (:inherit 'company-tooltip :underline t))))
-  (company-tooltip-common-selection ((t (:inherit 'company-tooltip-selection :underline t))))
-  (company-tooltip-scrollbar-track ((t (:foreground "#ff8c00" :background "#525252"))))
-  (company-tooltip-selection ((t (:background "#4682b4"))))
-  (company-preview-common ((t (:inherit 'company-tooltip-common)))))
+  (company-backends '(company-capf company-semantic company-dabbrev-code company-dabbrev company-keywords company-yasnippet)))
 
 (use-package company-prescient
   :ensure t)
@@ -487,9 +480,6 @@
 
 (use-package flycheck
   :ensure t
-  :custom-face
-  (flycheck-warning ((t (:underline t :weight normal :slant italic))))
-  (flycheck-error   ((t (:underline t :weight bold :slant italic))))
   :config
   (global-flycheck-mode t))
 
