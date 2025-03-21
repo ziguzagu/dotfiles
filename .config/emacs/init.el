@@ -121,6 +121,10 @@
       (unless (file-exists-p font-file)
         (nerd-icons-install-fonts t)))))
 
+(use-package nerd-icons-completion
+  :ensure t
+  :hook (after-init . nerd-icons-completion-mode))
+
 (use-package nerd-icons-dired
   :ensure t
   :hook (dired-mode . nerd-icons-dired-mode))
