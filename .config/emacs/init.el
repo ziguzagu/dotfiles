@@ -193,6 +193,7 @@
   (dired-listing-switches "-AlhXF --color=auto --group-directories-first")
   (dired-recursive-copies 'always)
   (dired-recursive-deletes 'always)
+  (delete-by-moving-to-trash t)
   (wdired-allow-to-change-permissions t)
   :config
   ;; don't create new buffer at moving directory
