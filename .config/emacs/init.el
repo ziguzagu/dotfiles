@@ -432,7 +432,9 @@
 (use-package orderless
   :ensure t
   :custom
-  (completion-styles '(orderless)))
+  (completion-styles '(orderless basic))
+  (completion-category-defaults nil)
+  (completion-category-overrides nil))
 
 (use-package browse-kill-ring
   :ensure t
