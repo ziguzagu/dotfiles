@@ -7,6 +7,12 @@
   (setq use-package-enable-imenu-support t)
   (require 'use-package))
 
+;; prevent to pop up *Warnings* and *Compile-Log* buffers because it is not useful for me
+(add-to-list 'display-buffer-alist
+             '("\\`\\*\\(Warnings\\|Compile-Log\\)\\*\\'"
+               (display-buffer-no-window)
+               (allow-no-window . t)))
+
 (use-package exec-path-from-shell
   :ensure t
   :config
