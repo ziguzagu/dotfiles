@@ -131,6 +131,12 @@
   :ensure t
   :hook (after-init . nerd-icons-completion-mode))
 
+(use-package nerd-icons-corfu
+  :ensure t
+  :after corfu
+  :config
+  (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
+
 (use-package nerd-icons-dired
   :ensure t
   :hook (dired-mode . nerd-icons-dired-mode))
@@ -354,7 +360,28 @@
 (use-package yasnippet-snippets
   :ensure t)
 
+(use-package corfu
+  :ensure t
+  :hook (after-init . global-corfu-mode)
+  :bind (:map corfu-map
+              ("TAB" . corfu-complete))
+  :custom
+  (corfu-auto t)
+  (corfu-auto-delay 0)
+  (corfu-auto-prefix 1)
+  (tab-always-indent 'complete)
+  (corfu-preview-current nil)
+  (corfu-min-width 20)
+  (corfu-popupinfo-delay '(1.25 . 0.5))
+  :config
+  (corfu-popupinfo-mode 1)
+  ;; sort by input history (no need to modify `corfu-sort-function').
+  (with-eval-after-load 'savehist
+    (corfu-history-mode 1)
+    (add-to-list 'savehist-additional-variables 'corfu-history)))
+
 (use-package company
+  :disabled t
   :ensure t
   :bind (("C-o" . company-dabbrev)
          ;; Bind TAB to copilot for now. Remove this when it's stable.
@@ -381,9 +408,11 @@
   (company-backends '(company-capf company-semantic company-dabbrev-code company-dabbrev company-keywords company-yasnippet)))
 
 (use-package company-prescient
+  :disabled t
   :ensure t)
 
 (use-package company-quickhelp
+  :disabled t
   :ensure t
   :config
   (company-quickhelp-mode))
