@@ -367,8 +367,6 @@
               ("TAB" . corfu-complete))
   :custom
   (corfu-auto t)
-  (corfu-auto-delay 0)
-  (corfu-auto-prefix 1)
   (tab-always-indent 'complete)
   (corfu-preview-current nil)
   (corfu-min-width 20)
