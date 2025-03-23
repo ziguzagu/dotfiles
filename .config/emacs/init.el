@@ -463,6 +463,7 @@
   :ensure t
   :custom
   (completion-styles '(orderless basic))
+  ;; disable default completion styles to use orderless for every completions
   (completion-category-defaults nil)
   (completion-category-overrides nil))
 
