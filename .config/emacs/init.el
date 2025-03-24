@@ -857,8 +857,6 @@
   (web-mode-markup-indent-offset 2)
   (web-mode-css-indent-offset 2)
   (web-mode-code-indent-offset 2)
-  (indent-tabs-mode nil)
-  (tab-width 2)
   (web-mode-style-padding 2)
   (web-mode-script-padding 2)
   (web-mode-engines-alist '(("template-toolkit" . "\\.tt\\'")
