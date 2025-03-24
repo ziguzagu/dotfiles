@@ -378,6 +378,14 @@
     (corfu-history-mode 1)
     (add-to-list 'savehist-additional-variables 'corfu-history)))
 
+(use-package cape
+  :ensure t
+  :bind ("C-o" . cape-dabbrev)
+  :config
+  (add-hook 'completion-at-point-functions #'cape-dabbrev)
+  (add-hook 'completion-at-point-functions #'cape-file)
+  (add-hook 'completion-at-point-functions #'cape-keyword))
+
 (use-package company
   :disabled t
   :ensure t
