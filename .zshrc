@@ -111,7 +111,7 @@ alias ssh="TERM=xterm-256color ssh"
 ## shortcuts
 alias b="bundle"
 alias c="docker compose"
-alias ci="circleci"
+alias cps='docker compose ps -a --format "table {{.Service}}\t{{.RunningFor}}\t{{.Status}}"'
 alias d="docker"
 alias g="git"
 alias ka="killall"
