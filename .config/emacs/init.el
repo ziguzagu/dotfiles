@@ -386,43 +386,6 @@
   (add-hook 'completion-at-point-functions #'cape-file)
   (add-hook 'completion-at-point-functions #'cape-keyword))
 
-(use-package company
-  :disabled t
-  :ensure t
-  :bind (("C-o" . company-dabbrev)
-         ;; Bind TAB to copilot for now. Remove this when it's stable.
-         ;; ("TAB" . company-indent-or-complete-common)
-         :map company-active-map
-         ("C-n" . company-select-next)
-         ("C-p" . company-select-previous)
-         ("C-s" . company-filter-candidates)
-         ("TAB" . company-complete-common-or-cycle)
-         :map company-search-map
-         ("C-n" . company-select-next)
-         ("C-p" . company-select-previous))
-  :config
-  (global-company-mode t)
-  ;; disable inline preview for coexistence with copilot
-  (delq 'company-preview-if-just-one-frontend company-frontends)
-  :custom
-  (company-idle-delay 0)
-  (company-auto-expand t)
-  (company-minimum-prefix-length 3)
-  (company-dabbrev-minimum-length 3)
-  ;; go to top at the next of last candidates
-  (company-selection-wrap-around t)
-  (company-backends '(company-capf company-semantic company-dabbrev-code company-dabbrev company-keywords company-yasnippet)))
-
-(use-package company-prescient
-  :disabled t
-  :ensure t)
-
-(use-package company-quickhelp
-  :disabled t
-  :ensure t
-  :config
-  (company-quickhelp-mode))
-
 (use-package projectile
   :ensure t
   :bind (("C-x f" . projectile-find-file-dwim)
