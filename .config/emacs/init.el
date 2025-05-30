@@ -722,11 +722,6 @@
   :config
   (rspec-install-snippets))
 
-(use-package inf-ruby
-  :ensure t
-  :hook ((ruby-mode . inf-ruby-minor-mode)
-         (ruby-mode . inf-ruby-switch-setup)))
-
 (use-package rbenv
   :ensure t
   :config
