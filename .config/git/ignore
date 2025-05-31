@@ -16,3 +16,5 @@
 # https://github.com/emacs-lsp/lsp-docker
 /.lsp-docker/
 /.lsp-docker.yaml
+
+**/.claude/settings.local.json
