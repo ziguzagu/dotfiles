@@ -46,3 +46,9 @@ This is a personal dotfiles repository that manages development environment conf
 - Terminal: iTerm2 with 24-bit color support
 - Version control: Git with custom commands and delta integration
 - Package managers: Homebrew, rbenv, plenv, tfenv
+
+## Code Style
+- Follow `.editorconfig` settings for consistent formatting across all files
+- Use 2 spaces for indentation (except Makefiles which use tabs)
+- Ensure UTF-8 encoding and LF line endings
+- Always include final newline in files

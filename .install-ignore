@@ -1,6 +1,7 @@
 *.md
 *.terminfo
 *.txt
+.editorconfig
 .git-blame-ignore-revs
 .install-ignore
 Brewfile
