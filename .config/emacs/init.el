@@ -617,32 +617,10 @@
   :ensure t
   :hook ((ruby-mode . eglot-ensure)
          (typescript-mode . eglot-ensure)
-         (java-mode . eglot-ensure))
+         (java-mode . eglot-ensure)
+         (terraform-mode . eglot-ensure))
   :config
   (add-to-list 'eglot-server-programs '(ruby-mode "ruby-lsp")))
-
-;; (use-package lsp-mode
-;;   :ensure t
-;;   :commands
-;;   (lsp lsp-deferred)
-;;   :bind-keymap
-;;   ("C-c l" . lsp-command-map)
-;;   :custom
-;;   (lsp-headerline-breadcrumb-enable nil)
-;;   :config
-;;   ;; rubocop-ls is highest priority (-1) in ruby language servers, however
-;;   ;; I want use ruby-lsp because it uses rubocop as formatter and provides
-;;   ;; other features.
-;;   (add-to-list 'lsp-disabled-clients 'rubocop-ls)
-;;   ;; https://emacs-lsp.github.io/lsp-mode/page/performance/#adjust-gc-cons-threshold
-;;   (setq gc-cons-threshold 100000000)
-;;   ;; https://emacs-lsp.github.io/lsp-mode/page/performance/#increase-the-amount-of-data-which-emacs-reads-from-the-process
-;;   (setq read-process-output-max (* 1024 1024)))
-
-;; (use-package lsp-docker)
-
-;; (use-package consult-lsp
-;;   :ensure t)
 
 (use-package copilot
   :vc (:url "https://github.com/copilot-emacs/copilot.el" :rev :newest :branch "main")
@@ -665,8 +643,6 @@
   :ensure nil
   :mode "Dangerfile"
   :interpreter "ruby"
-  ;; :hook
-  ;; (ruby-mode . lsp-deferred)
   :custom
   (ruby-insert-encoding-magic-comment nil)
   :config
@@ -695,9 +671,6 @@
       index-alist))
   (defun rails-schema-imenu-setup ()
     "Setup imenu for Ruby on Rails schema.rb."
-    ;; disable lsp--imenu-create-index provided by lsp-mode
-    (when (fboundp 'lsp-mode)
-      (lsp-mode -1))
     (setq-local imenu-create-index-function 'rails-schema-imenu-create-index))
   (add-hook 'ruby-mode-hook
             (lambda ()
@@ -843,8 +816,7 @@
 
 (use-package terraform-mode
   :ensure t
-  :hook ((terraform-mode . terraform-format-on-save-mode)
-         (terraform-mode . lsp-deferred)))
+  :hook ((terraform-mode . terraform-format-on-save-mode)))
 
 (use-package yaml-mode
   :ensure t
@@ -899,9 +871,6 @@
 
 (use-package ox-hugo
   :after ox)
-
-;; (use-package lsp-java
-;;   :hook (java-mode . lsp-deferred))
 
 (use-package groovy-mode)
 
