@@ -625,19 +625,12 @@
 (use-package copilot
   :vc (:url "https://github.com/copilot-emacs/copilot.el" :rev :newest :branch "main")
   :ensure t
-  :after company
   :hook (prog-mode . copilot-mode)
-  :bind (("TAB" . my:copilot-tab)
-         :map copilot-completion-map
+  :bind (:map copilot-completion-map
          ("C-g" . copilot-clear-overlay)
          ("C-n" . copilot-next-completion)
          ("C-p" . copilot-previous-completion)
-         ("TAB" . copilot-accept-completion))
-  :config
-  (defun my:copilot-tab ()
-    (interactive)
-    (or (copilot-accept-completion)
-        (company-indent-or-complete-common nil))))
+         ("TAB" . copilot-accept-completion)))
 
 (use-package ruby-mode
   :ensure nil
