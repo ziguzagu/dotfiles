@@ -613,7 +613,9 @@
 (use-package browse-at-remote
   :ensure t
   :bind (:map vc-prefix-map
-              ("w" . browse-at-remote)))
+          ("w" . browse-at-remote))
+  :config
+  (browse-at-remote-add-line-number-if-no-region-selected nil))
 
 (use-package git-modes
   :ensure t)
