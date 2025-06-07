@@ -582,7 +582,9 @@
 (use-package magit
   :ensure t
   :bind (("C-x v s" . magit-status)
-         ("C-x v =" . my:magit-diff-unstaged))
+         ("C-x v =" . my:magit-diff-unstaged)
+         :map magit-blame-mode-map
+         ("8" . my:open-pr-at-line-magit))
   :custom
   ;; 50/72 rules
   (git-commit-summary-max-length 50)
@@ -598,7 +600,15 @@
   (defun my:magit-diff-unstaged ()
     "Show unstaged changes in magit without prompting."
     (interactive)
-    (magit-diff-unstaged)))
+    (magit-diff-unstaged))
+
+  (defun my:open-pr-at-line-magit ()
+    "Open Pull Request URL at the line from magit blame output."
+    (interactive)
+    (when (derived-mode-p 'magit-blame-mode)
+      (let ((rev (magit-blame-chunk-get :hash)))
+        (when rev
+          (shell-command (concat "git hub open " rev)))))))
 
 (use-package browse-at-remote
   :ensure t
