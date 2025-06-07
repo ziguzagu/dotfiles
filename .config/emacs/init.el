@@ -879,6 +879,48 @@
 
 (use-package groovy-mode)
 
+(use-package claude-code
+  :vc (:url "https://github.com/stevemolitor/claude-code.el" :rev :newest)
+  :ensure t
+  :bind-keymap
+  ("C-c C-l" . claude-code-command-map)
+  :bind (:map claude-code-command-map
+         ("b" . my:claude-code-buffer)
+         ("R" . my:claude-code-resize))
+  :config
+  ;; Configure window display using display-buffer-alist
+  (add-to-list 'display-buffer-alist
+               '("^\\*claude\\*"
+                 (display-buffer-in-side-window)
+                 (side . right)
+                 (window-width . 0.4)))
+
+  ;; Hook to fix font rendering issues in Claude Code terminal
+  ;; Source Han Code JP font causes prompt border lines to wrap incorrectly
+  ;; due to inconsistent character width calculations in terminal emulation
+  (add-hook 'eat-mode-hook
+            (lambda ()
+              (when (string-match "claude" (buffer-name))
+                ;; Use Menlo font to prevent Claude Code prompt border line wrapping
+                ;; Menlo has more consistent monospace character width than Source Han Code JP
+                (face-remap-add-relative 'default :family "Menlo" :height 120))))
+
+  (defun my:claude-code-buffer ()
+    "Send entire buffer to Claude Code."
+    (interactive)
+    (claude-code-send-region (point-min) (point-max)))
+
+  (defun my:claude-code-resize ()
+    "Manually resize Claude Code terminal to match window."
+    (interactive)
+    (when (and (eq major-mode 'eat-mode)
+               (string-match "claude" (buffer-name)))
+      (let* ((window (get-buffer-window (current-buffer)))
+             (width (window-body-width window))
+             (height (window-body-height window)))
+        (eat-term-send-string (format "\e[8;%d;%dt" height width))
+        (message "Resized terminal to %dx%d" width height)))))
+
 (eval-and-compile
   ;; load additional config per machine
   (let ((host-local-config (expand-file-name "init-local.el" user-emacs-directory)))
