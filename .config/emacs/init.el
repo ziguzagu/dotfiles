@@ -153,7 +153,7 @@
   :custom
   (show-trailing-whitespace t)
   (whitespace-style '(face tabs tab-mark trailing))
-  (whitespace-global-modes '(not dired-mode go-mode eat-mode))
+  (whitespace-global-modes '(not dired-mode go-mode eat-mode vterm-mode))
   :config
   (global-whitespace-mode t))
 
@@ -878,6 +878,44 @@
   :after ox)
 
 (use-package groovy-mode)
+
+(use-package vterm
+  :ensure t
+  :bind (("C-c t" . vterm)
+         ("C-c T" . vterm-other-window)
+         ("C-l" . my:vterm-send-c-l)
+         ("C-u" . my:vterm-send-c-u))
+  :custom
+  (vterm-max-scrollback 10000)
+  (vterm-buffer-name-string "vterm %s")
+  :config
+  ;; Display vterm buffer at bottom with 30% height, respecting current buffer
+  (add-to-list 'display-buffer-alist
+               '("\\*vterm.*\\*"
+                 (display-buffer-below-selected)
+                 (window-height . 0.3)))
+
+  (defun my:vterm-send-c-l ()
+    "Send C-l directly to terminal for zsh clear-screen behavior."
+    (interactive)
+    (vterm-send-key "l" nil nil t))
+
+  (defun my:vterm-send-c-u ()
+    "Send C-u directly to terminal for zsh kill-whole-line behavior."
+    (interactive)
+    (vterm-send-key "u" nil nil t))
+
+  (add-hook 'vterm-mode-hook
+            (lambda ()
+              ;; Disable trailing whitespace highlighting in vterm buffers
+              (setq-local show-trailing-whitespace nil)))
+
+  ;; Delete vterm buffer and window when the process is killed
+  (add-hook 'vterm-exit-functions
+            (lambda (buffer event)
+              (when-let ((window (get-buffer-window buffer)))
+                (delete-window window))
+              (kill-buffer buffer))))
 
 (use-package claude-code
   :vc (:url "https://github.com/stevemolitor/claude-code.el" :rev :newest)
