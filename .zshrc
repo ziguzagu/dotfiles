@@ -54,9 +54,6 @@ typeset -U PATH
 if [[ -x "$(which gdircolors)" ]]; then
     eval "$(gdircolors ~/.config/dircolors)"
 fi
-export GO111MODULE=on
-export GOBIN=$HOME/bin
-export GOMODCACHE=$HOME/.cache/go_mod
 export GPG_TTY=$(tty)
 export GREP_COLORS="ms=04;31:mc=01;33:sl=:cx=:fn=33:ln=33:bn=33:se=01;30"
 export LESSCHARSET=utf-8
@@ -149,7 +146,6 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' ignore-parents parent pwd ..
 zstyle ':completion:*:default' menu select=1
 
-test -f ~/.travis/travis.sh && source $_
 
 ########################################
 ## History
