@@ -47,6 +47,12 @@ This is a personal dotfiles repository that manages development environment conf
 - Version control: Git with custom commands and delta integration
 - Package managers: Homebrew, rbenv, plenv, tfenv
 
+## Environment Notes
+- Target platform: macOS with BSD commands (not GNU)
+- Use Homebrew-installed GNU tools when needed (prefixed with 'g': gls, gdircolors)
+- Prefer zsh built-in features over external commands for compatibility
+- bc calculator not available by default - use zsh arithmetic where possible
+
 ## Code Style
 - Follow `.editorconfig` settings for consistent formatting across all files
 - Use 2 spaces for indentation (except Makefiles which use tabs)
