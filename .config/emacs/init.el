@@ -153,7 +153,7 @@
   :custom
   (show-trailing-whitespace t)
   (whitespace-style '(face tabs tab-mark trailing))
-  (whitespace-global-modes '(not dired-mode go-mode))
+  (whitespace-global-modes '(not dired-mode go-mode eat-mode))
   :config
   (global-whitespace-mode t))
 
@@ -903,7 +903,9 @@
               (when (string-match "claude" (buffer-name))
                 ;; Use Menlo font to prevent Claude Code prompt border line wrapping
                 ;; Menlo has more consistent monospace character width than Source Han Code JP
-                (face-remap-add-relative 'default :family "Menlo" :height 120))))
+                (face-remap-add-relative 'default :family "Menlo" :height 120)
+                ;; Disable trailing whitespace highlighting in Claude buffers
+                (setq-local show-trailing-whitespace nil))))
 
   (defun my:claude-code-buffer ()
     "Send entire buffer to Claude Code."
