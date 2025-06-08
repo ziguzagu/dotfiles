@@ -923,10 +923,8 @@
   :bind-keymap
   ("C-c C-l" . claude-code-command-map)
   :bind (:map claude-code-command-map
-         ("b" . my:claude-code-buffer)
-         ("R" . my:claude-code-resize))
+         ("b" . my:claude-code-buffer))
   :config
-  ;; Configure window display using display-buffer-alist
   (add-to-list 'display-buffer-alist
                '("^\\*claude\\*"
                  (display-buffer-in-side-window)
@@ -948,18 +946,7 @@
   (defun my:claude-code-buffer ()
     "Send entire buffer to Claude Code."
     (interactive)
-    (claude-code-send-region (point-min) (point-max)))
-
-  (defun my:claude-code-resize ()
-    "Manually resize Claude Code terminal to match window."
-    (interactive)
-    (when (and (eq major-mode 'eat-mode)
-               (string-match "claude" (buffer-name)))
-      (let* ((window (get-buffer-window (current-buffer)))
-             (width (window-body-width window))
-             (height (window-body-height window)))
-        (eat-term-send-string (format "\e[8;%d;%dt" height width))
-        (message "Resized terminal to %dx%d" width height)))))
+    (claude-code-send-region (point-min) (point-max))))
 
 (eval-and-compile
   ;; load additional config per machine
