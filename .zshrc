@@ -390,27 +390,9 @@ bindkey '^x^p' fzf-find-perl-module
 ## Misc
 ########################################
 
-if [[ -f $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
-    source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    ZSH_HIGHLIGHT_STYLES[unknown-token]=fg:red,underline
-    ZSH_HIGHLIGHT_STYLES[path]=none
-    ZSH_HIGHLIGHT_STYLES[path_approx]=none
-    ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
-fi
-
-## 1password CLI
 if [[ -f ~/.config/op/plugins.sh ]]; then
     source ~/.config/op/plugins.sh
 fi
-
-
-if [[ -x "$(which direnv)" ]]; then
-    eval "$(direnv hook zsh)"
-fi
-
-########################################
-## Command
-########################################
 
 # get rid of ANSI escape sequences to pipe STDOUT to pbcopy
 decolor() {
@@ -433,3 +415,19 @@ uc() {
 profzsh() {
     ZPROF=true $SHELL -i -c zprof
 }
+
+########################################
+## Code to be written near the end of file
+########################################
+
+if [[ -x "$(which direnv)" ]]; then
+    eval "$(direnv hook zsh)"
+fi
+
+if [[ -f $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+    source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    ZSH_HIGHLIGHT_STYLES[unknown-token]=fg:red,underline
+    ZSH_HIGHLIGHT_STYLES[path]=none
+    ZSH_HIGHLIGHT_STYLES[path_approx]=none
+    ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
+fi
