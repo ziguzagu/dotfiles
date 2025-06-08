@@ -943,6 +943,19 @@
                 ;; Disable trailing whitespace highlighting in Claude buffers
                 (setq-local show-trailing-whitespace nil))))
 
+  ;; Advice to switch to Claude buffer after toggle or start
+  (defadvice claude-code-toggle (after claude-code-switch-to-buffer activate)
+    "Switch to Claude Code buffer after toggle."
+    (when-let ((claude-buffer (get-buffer "*claude*")))
+      (when (get-buffer-window claude-buffer)
+        (select-window (get-buffer-window claude-buffer)))))
+
+  (defadvice claude-code (after claude-code-switch-to-buffer-on-start activate)
+    "Switch to Claude Code buffer after starting."
+    (when-let ((claude-buffer (get-buffer "*claude*")))
+      (when (get-buffer-window claude-buffer)
+        (select-window (get-buffer-window claude-buffer)))))
+
   (defun my:claude-code-buffer ()
     "Send entire buffer to Claude Code."
     (interactive)
