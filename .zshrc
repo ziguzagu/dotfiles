@@ -403,9 +403,6 @@ if [[ -f ~/.config/op/plugins.sh ]]; then
     source ~/.config/op/plugins.sh
 fi
 
-if [ ! -f "~/.zshrc.zwc" -o "~/.zshrc" -nt "~/.zshrc.zwc" ]; then
-    zcompile ~/.zshrc
-fi
 
 if [[ -x "$(which direnv)" ]]; then
     eval "$(direnv hook zsh)"
