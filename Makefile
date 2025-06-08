@@ -30,11 +30,6 @@ brew: ## Update homebrew stuff
 	brew bundle check --verbose
 	brew cleanup
 
-go: ## Update local development environment of Go
-	go get golang.org/x/tools/gopls
-	go get github.com/motemen/gore/cmd/gore
-	go get github.com/mdempsky/gocode
-	go get github.com/k0kubun/pp
 
 keyrepeat: ## Set my best key repeat settings
 	defaults write -g InitialKeyRepeat -int 11

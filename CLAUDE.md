@@ -10,7 +10,6 @@ This is a personal dotfiles repository that manages development environment conf
 
 - `make install` - Install dotfiles as symlinks to $HOME directory
 - `make brew` - Update homebrew packages using Brewfile
-- `make go` - Update Go development tools
 - `make terminfo` - Install 24-bit color terminal support
 - `make keyrepeat` - Set optimal key repeat settings for macOS
 - `make rainbow` - Test terminal 24-bit color support
@@ -32,7 +31,6 @@ This is a personal dotfiles repository that manages development environment conf
 
 ### Package Management
 - Homebrew packages managed via `Brewfile` with both brews and casks
-- Go tools installed via `make go` target
 - Development environment includes tools like ripgrep, fd, fzf, gh, etc.
 
 ### Editor Configuration
