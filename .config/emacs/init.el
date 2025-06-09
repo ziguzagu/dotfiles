@@ -47,6 +47,9 @@
   (scroll-step 1)
   (ns-command-modifier 'meta)  ;; make Command ⌘ to Meta
   (ns-option-modifier 'super)  ;; make Option ⌥ to Super
+  :custom-face
+  (default ((t (:family "Source Han Code JP" :height 120 :weight regular))))
+  (fixed-pitch ((t (:inherit default))))
   :init
   (setq custom-file (expand-file-name "custom.el" temporary-file-directory))
   :config
@@ -58,6 +61,8 @@
 
   (put 'upcase-region 'disabled nil)
   (put 'downcase-region 'disabled nil)
+
+  (set-fontset-font t nil "Source Han Code JP")
 
   (defun my:delete-word-at-point ()
     "Delete the word at point."
@@ -87,14 +92,7 @@
               (lambda ()
                 (let* ((display-height (display-pixel-height))
                        (frame-height (floor (/ display-height (frame-char-height)))))
-                  (set-frame-size (selected-frame) 140 frame-height))))
-    ;; font
-    (set-face-attribute 'default nil
-                      :family "Source Han Code JP"
-                      :height 110
-                      :weight 'medium)
-    (set-fontset-font t 'japanese-jisx0208
-                      (font-spec :family "Source Han Code JP" :weight 'medium)))
+                  (set-frame-size (selected-frame) 140 frame-height)))))
 
   (when (eq system-type 'darwin)
     (defun my:copy-from-macos ()
