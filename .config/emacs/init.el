@@ -149,7 +149,6 @@
 (use-package whitespace
   :ensure nil
   :custom
-  (show-trailing-whitespace t)
   (whitespace-style '(face tabs tab-mark trailing))
   (whitespace-global-modes '(not dired-mode go-mode eat-mode vterm-mode))
   :config
@@ -906,9 +905,7 @@
   (add-hook 'vterm-mode-hook
             (lambda ()
               ;; JuliaMono has excellent Unicode symbols support and Claude Code uses its thinking icons
-              (face-remap-add-relative 'default :family "JuliaMono" :weight regular)
-              ;; Disable trailing whitespace highlighting in vterm buffers
-              (setq-local show-trailing-whitespace nil)))
+              (face-remap-add-relative 'default :family "JuliaMono" :weight regular)))
 
   ;; Delete vterm buffer and window when the process is killed
   (add-hook 'vterm-exit-functions
@@ -932,12 +929,6 @@
                  (display-buffer-in-side-window)
                  (side . right)
                  (window-width . 0.4)))
-
-  (add-hook 'eat-mode-hook
-            (lambda ()
-              (when (string-match "claude" (buffer-name))
-                ;; Disable trailing whitespace highlighting in Claude buffers
-                (setq-local show-trailing-whitespace nil))))
 
   ;; Advice to switch to Claude buffer after toggle or start
   (defadvice claude-code-toggle (after claude-code-switch-to-buffer activate)
