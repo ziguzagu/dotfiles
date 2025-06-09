@@ -907,6 +907,8 @@
 
   (add-hook 'vterm-mode-hook
             (lambda ()
+              ;; JuliaMono has excellent Unicode symbols support and Claude Code uses its thinking icons
+              (face-remap-add-relative 'default :family "JuliaMono" :weight regular)
               ;; Disable trailing whitespace highlighting in vterm buffers
               (setq-local show-trailing-whitespace nil)))
 
@@ -924,6 +926,8 @@
   ("C-c C-l" . claude-code-command-map)
   :bind (:map claude-code-command-map
          ("b" . my:claude-code-buffer))
+  :custom-face
+  (claude-code-repl-face ((t (:family "JuliaMono" :weight regular))))
   :config
   (add-to-list 'display-buffer-alist
                '("^\\*claude\\*"
@@ -931,15 +935,9 @@
                  (side . right)
                  (window-width . 0.4)))
 
-  ;; Hook to fix font rendering issues in Claude Code terminal
-  ;; Source Han Code JP font causes prompt border lines to wrap incorrectly
-  ;; due to inconsistent character width calculations in terminal emulation
   (add-hook 'eat-mode-hook
             (lambda ()
               (when (string-match "claude" (buffer-name))
-                ;; Use Menlo font to prevent Claude Code prompt border line wrapping
-                ;; Menlo has more consistent monospace character width than Source Han Code JP
-                (face-remap-add-relative 'default :family "Menlo" :height 120)
                 ;; Disable trailing whitespace highlighting in Claude buffers
                 (setq-local show-trailing-whitespace nil))))
 
