@@ -513,10 +513,11 @@
 (require 'vc-annotate)
 
 ;; make compact vc-annotate display
-(defadvice vc-git-annotate-command (around vc-git-annotate-command activate)
+(defun my:vc-git-annotate-command (orig-fn buf file rev)
   "Suppress relative path of file from git blame output."
   (let ((name (file-relative-name file)))
     (vc-git-command buf 'async nil "blame" "--date=short" rev "--" name)))
+(advice-add 'vc-git-annotate-command :around #'my:vc-git-annotate-command)
 
 ;; open Pull Reuqest URL on this line from vc-annotate enter P as same as tig
 (defun my:open-pr-at-line ()
@@ -931,17 +932,14 @@
                  (window-width . 0.4)))
 
   ;; Advice to switch to Claude buffer after toggle or start
-  (defadvice claude-code-toggle (after claude-code-switch-to-buffer activate)
-    "Switch to Claude Code buffer after toggle."
+  (defun my:claude-code-switch-to-buffer (&rest _)
+    "Switch to Claude Code buffer after toggle or start."
     (when-let ((claude-buffer (get-buffer "*claude*")))
       (when (get-buffer-window claude-buffer)
         (select-window (get-buffer-window claude-buffer)))))
 
-  (defadvice claude-code (after claude-code-switch-to-buffer-on-start activate)
-    "Switch to Claude Code buffer after starting."
-    (when-let ((claude-buffer (get-buffer "*claude*")))
-      (when (get-buffer-window claude-buffer)
-        (select-window (get-buffer-window claude-buffer)))))
+  (advice-add 'claude-code-toggle :after #'my:claude-code-switch-to-buffer)
+  (advice-add 'claude-code :after #'my:claude-code-switch-to-buffer)
 
   (defun my:claude-code-buffer ()
     "Send entire buffer to Claude Code."
