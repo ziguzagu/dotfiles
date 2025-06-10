@@ -26,7 +26,7 @@ terminfo: ## Install extra terminfo missing of macOS
 
 brew: ## Update homebrew stuff
 	brew update --verbose
-	brew bundle --no-lock
+	brew bundle
 	brew bundle check --verbose
 	brew cleanup
 
