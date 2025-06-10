@@ -1,10 +1,12 @@
 # -*- mode: ruby -*-
 
+
 brew 'aspell'
 brew 'awscli'
 brew 'bat'
 brew 'bluetoothconnector'
 brew 'clisp'
+brew 'cmake' # vterm build dependency
 brew 'colordiff'
 brew 'coreutils'
 brew 'direnv'
@@ -18,6 +20,7 @@ brew 'htop'
 brew 'hugo'
 brew 'jq'
 brew 'less'
+brew 'libtool' # vterm build dependency
 brew 'mtr'
 brew 'node'
 brew 'noti'
@@ -56,3 +59,5 @@ cask 'keepingyouawake'
 cask 'monitorcontrol'
 cask 'session-manager-plugin'
 cask 'slack'
+
+cask 'font-juliamono' # using for vterm with claude code
