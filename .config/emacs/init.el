@@ -512,13 +512,6 @@
 (require 'vc-dir)
 (require 'vc-annotate)
 
-;; make compact vc-annotate display
-(defun my:vc-git-annotate-command (orig-fn buf file rev)
-  "Suppress relative path of file from git blame output."
-  (let ((name (file-relative-name file)))
-    (vc-git-command buf 'async nil "blame" "--date=short" rev "--" name)))
-(advice-add 'vc-git-annotate-command :around #'my:vc-git-annotate-command)
-
 ;; open Pull Reuqest URL on this line from vc-annotate enter P as same as tig
 (defun my:open-pr-at-line ()
   "Open Pull Request URL at the line from git blame output."
