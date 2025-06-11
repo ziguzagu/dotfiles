@@ -1,6 +1,5 @@
 # -*- mode: ruby -*-
 
-
 brew 'aspell'
 brew 'awscli'
 brew 'bat'
