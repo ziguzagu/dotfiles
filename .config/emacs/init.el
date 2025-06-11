@@ -917,6 +917,10 @@
          ("b" . my:claude-code-buffer))
   :custom-face
   (claude-code-repl-face ((t (:family "JuliaMono" :weight regular))))
+  :custom
+  ;; setting `(claude-code-term-name "xterm-256color")` doesn't fix color issues
+  ;; so set eat-term-name directly
+  (eat-term-name "xterm-256color")
   :config
   (add-to-list 'display-buffer-alist
                '("^\\*claude\\*"
