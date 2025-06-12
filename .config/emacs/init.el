@@ -54,7 +54,6 @@
   (setq custom-file (expand-file-name "custom.el" temporary-file-directory))
   :config
   (menu-bar-mode -1)
-  (blink-cursor-mode 0)
 
   (setq-default tab-width 4)
   (setq-default indent-tabs-mode nil)
