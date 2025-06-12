@@ -574,6 +574,7 @@
   :ensure t
   :bind (("C-x v s" . magit-status)
          ("C-x v =" . my:magit-diff-unstaged)
+         ("C-x v g" . my:magit-blame-toggle)
          :map magit-blame-mode-map
          ("8" . my:open-pr-at-line-magit))
   :custom
@@ -592,6 +593,13 @@
     "Show unstaged changes in magit without prompting."
     (interactive)
     (magit-diff-unstaged))
+
+  (defun my:magit-blame-toggle ()
+    "Toggle magit blame mode like vc-annotate."
+    (interactive)
+    (if (bound-and-true-p magit-blame-mode)
+        (magit-blame-quit)
+      (magit-blame-addition "HEAD")))
 
   (defun my:open-pr-at-line-magit ()
     "Open Pull Request URL at the line from magit blame output."
