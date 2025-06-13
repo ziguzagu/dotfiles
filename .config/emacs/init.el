@@ -9,9 +9,9 @@
 
 ;; prevent to pop up *Warnings* and *Compile-Log* buffers because it is not useful for me
 (add-to-list 'display-buffer-alist
-             '("\\`\\*\\(Warnings\\|Compile-Log\\)\\*\\'"
-               (display-buffer-no-window)
-               (allow-no-window . t)))
+  '("\\`\\*\\(Warnings\\|Compile-Log\\)\\*\\'"
+     (display-buffer-no-window)
+     (allow-no-window . t)))
 
 (use-package exec-path-from-shell
   :ensure t
@@ -22,25 +22,25 @@
   (when (and (daemonp) (getenv "TMUX"))
     (shell-command (concat "tmux display -p '#I' > " (expand-file-name "emacs-server-window" temporary-file-directory)))
     (add-hook 'kill-emacs-hook
-              (lambda ()
-                (delete-file (expand-file-name "emacs-server-window" temporary-file-directory))))))
+      (lambda ()
+        (delete-file (expand-file-name "emacs-server-window" temporary-file-directory))))))
 
 (use-package emacs
   :ensure nil
   :bind (("RET" . newline-and-indent)
-         ("C-M-r" . isearch-backward)
-         ("C-M-s" . isearch-forward)
-         ("C-c ]" . align-regexp)
-         ("C-c h" . help-for-help)
-         ("C-g" . my:keyboard-quit-dwim)
-         ("C-h" . delete-backward-char)
-         ("C-r" . isearch-backward-regexp)
-         ("C-s" . isearch-forward-regexp)
-         ("C-x C-b" . ibuffer)
-         ("M-/" . hippie-expand)
-         ("M-d" . my:delete-word-at-point)
-         ("M-n" . scroll-up)
-         ("M-p" . scroll-down))
+          ("C-M-r" . isearch-backward)
+          ("C-M-s" . isearch-forward)
+          ("C-c ]" . align-regexp)
+          ("C-c h" . help-for-help)
+          ("C-g" . my:keyboard-quit-dwim)
+          ("C-h" . delete-backward-char)
+          ("C-r" . isearch-backward-regexp)
+          ("C-s" . isearch-forward-regexp)
+          ("C-x C-b" . ibuffer)
+          ("M-/" . hippie-expand)
+          ("M-d" . my:delete-word-at-point)
+          ("M-n" . scroll-up)
+          ("M-p" . scroll-down))
   :custom
   (scroll-conservatively 35)
   (scroll-margin 0)
@@ -76,29 +76,29 @@
     "Do-What-I-Mean behaviour for a general `keyboard-quit'."
     (interactive)
     (cond
-     ((region-active-p)
-      (keyboard-quit))
-     ((derived-mode-p 'completion-list-mode)
-      (delete-completion-window))
-     ((> (minibuffer-depth) 0)
-      (abort-recursive-edit))
-     (t
-      (keyboard-quit))))
+      ((region-active-p)
+        (keyboard-quit))
+      ((derived-mode-p 'completion-list-mode)
+        (delete-completion-window))
+      ((> (minibuffer-depth) 0)
+        (abort-recursive-edit))
+      (t
+        (keyboard-quit))))
 
   (when (display-graphic-p)
     ;; make frame height to fit the display height
     (add-hook 'window-setup-hook
-              (lambda ()
-                (let* ((display-height (display-pixel-height))
-                       (frame-height (floor (/ display-height (frame-char-height)))))
-                  (set-frame-size (selected-frame) 140 frame-height)))))
+      (lambda ()
+        (let* ((display-height (display-pixel-height))
+                (frame-height (floor (/ display-height (frame-char-height)))))
+          (set-frame-size (selected-frame) 140 frame-height)))))
 
   (when (eq system-type 'darwin)
     (defun my:copy-from-macos ()
       "Get clipboard contents."
       (let ((pbpaste (purecopy "pbpaste"))
-            (tramp-mode nil)
-            (default-directory "~"))
+             (tramp-mode nil)
+             (default-directory "~"))
         (shell-command-to-string "pbpaste")))
     (setq interprogram-cut-function 'my:paste-to-macos)
 
@@ -120,7 +120,7 @@
   :config
   (when (and (eq system-type 'darwin) (display-graphic-p))
     (let* ((fonts-dir (expand-file-name "~/Library/Fonts"))
-           (font-file (expand-file-name "NFM.ttf" fonts-dir)))
+            (font-file (expand-file-name "NFM.ttf" fonts-dir)))
       (unless (file-exists-p font-file)
         (nerd-icons-install-fonts t)))))
 
@@ -186,11 +186,11 @@
 (use-package dired
   :ensure nil
   :bind (:map dired-mode-map
-              ("e" . wdired-change-to-wdired-mode)
-              ("RET" . dired-find-alternate-file)
-              ("M-o" . my:dired-open-file-by-open))
+          ("e" . wdired-change-to-wdired-mode)
+          ("RET" . dired-find-alternate-file)
+          ("M-o" . my:dired-open-file-by-open))
   :hook ((dired-mode . dired-hide-details-mode)
-         (dired-mode . hl-line-mode))
+          (dired-mode . hl-line-mode))
   :custom
   (dired-listing-switches "-AlhXF --color=auto --group-directories-first")
   (dired-recursive-copies 'always)
@@ -214,7 +214,7 @@
   :ensure t
   :after dired
   :bind (:map dired-mode-map
-              ("TAB" . dired-subtree-toggle))
+          ("TAB" . dired-subtree-toggle))
   :custom
   (dired-subtree-use-backgrounds nil))
 
@@ -282,8 +282,8 @@
 (use-package window
   :ensure nil
   :bind (("C-c b" . my:switch-last-buffer)
-         ("C-x 9" . my:rotate-windows)
-         ("C-x o" . my:other-window-or-split))
+          ("C-x 9" . my:rotate-windows)
+          ("C-x o" . my:other-window-or-split))
   :config
   (defun my:rotate-windows ()
     "Rotate split windows vertical and horizontal."
@@ -294,7 +294,7 @@
       (setq before-height (window-height))
       (delete-other-windows)
       (if (= (window-height) before-height)
-          (split-window-vertically)
+        (split-window-vertically)
         (split-window-horizontally))
       (switch-to-buffer-other-window other-buf)
       (other-window -1)))
@@ -322,26 +322,26 @@
 (use-package expand-region
   :ensure t
   :bind (("C-]" . er/expand-region)
-         ("M-]" . er/contract-region)))
+          ("M-]" . er/contract-region)))
 
 (use-package multiple-cursors
   :ensure t
   :bind (("C-M-c" . mc/edit-lines)
-         ("C-M-n" . mc/mark-next-like-this)
-         ("C-M-p" . mc/mark-previous-like-this)
-         ("C-M-a" . mc/mark-all-like-this)))
+          ("C-M-n" . mc/mark-next-like-this)
+          ("C-M-p" . mc/mark-previous-like-this)
+          ("C-M-a" . mc/mark-all-like-this)))
 
 (use-package flyspell
   :ensure t
   :hook (prog-mode . flyspell-prog-mode)
   :custom
   (spell-extra-args ("--ignore-case"
-                     "--sug-mode=ultra"
-                     "--lang=en_US"
-                     ;; work for camel case
-                     "--run-together"
-                     "--run-together-min=2"
-                     "--run-together-limit=16")))
+                      "--sug-mode=ultra"
+                      "--lang=en_US"
+                      ;; work for camel case
+                      "--run-together"
+                      "--run-together-min=2"
+                      "--run-together-limit=16")))
 
 (use-package wgrep
   :ensure t)
@@ -386,7 +386,7 @@
 (use-package projectile
   :ensure t
   :bind (("C-x f" . projectile-find-file-dwim)
-         ("C-x p" . projectile-switch-project))
+          ("C-x p" . projectile-switch-project))
   :bind-keymap
   ("C-c p" . projectile-command-map)
   :config
@@ -407,10 +407,10 @@
 (use-package consult
   :ensure t
   :bind (("C-x b" . consult-buffer)
-         ("C-c f" . consult-find)
-         ("C-c g" . my:consult-git-grep-dwim)
-         ("C-c s" . consult-line)
-         ("C-c j" . consult-imenu))
+          ("C-c f" . consult-find)
+          ("C-c g" . my:consult-git-grep-dwim)
+          ("C-c s" . consult-line)
+          ("C-c j" . consult-imenu))
   :config
   (autoload 'projectile-project-root "projectile")
   (setq consult-project-root-function #'projectile-project-root)
@@ -420,9 +420,9 @@
     "Pass the region to consult-git-grep if available."
     (interactive)
     (if (use-region-p)
-        (let ((initial (buffer-substring-no-properties (region-beginning) (region-end))))
-          (deactivate-mark t)
-          (consult-git-grep nil initial))
+      (let ((initial (buffer-substring-no-properties (region-beginning) (region-end))))
+        (deactivate-mark t)
+        (consult-git-grep nil initial))
       (consult-git-grep))))
 
 (use-package orderless
@@ -440,7 +440,7 @@
 (use-package dash-at-point
   :ensure t
   :bind (("C-c ." . dash-at-point)
-         ("C-c C-." . dash-at-point-with-docset)))
+          ("C-c C-." . dash-at-point-with-docset)))
 
 (use-package sql
   :ensure nil
@@ -459,7 +459,7 @@
 (use-package emacs-lisp
   :ensure nil
   :bind (:map emacs-lisp-mode-map
-              ("C-c h ." . my:describe-symbol-at-point))
+          ("C-c h ." . my:describe-symbol-at-point))
   :hook (emacs-lisp-mode . my:disable-flycheck-in-init)
   :init
   (defun my:describe-symbol-at-point ()
@@ -467,16 +467,16 @@
     (interactive)
     (let* ((sym (symbol-at-point)))
       (if (not sym)
-          (message "No valid symbol at point")
+        (message "No valid symbol at point")
         (cond
-         ((fboundp sym) (describe-function sym))
-         ((boundp sym) (describe-variable sym))
-         (t (message "Symbol `%s' is neither a function nor a variable" sym))))))
+          ((fboundp sym) (describe-function sym))
+          ((boundp sym) (describe-variable sym))
+          (t (message "Symbol `%s' is neither a function nor a variable" sym))))))
 
   (defun my:disable-flycheck-in-init ()
     "Disable specific flycheck checkers in init.el."
     (when (and buffer-file-name
-               (string-equal (file-truename buffer-file-name) (file-truename user-init-file)))
+            (string-equal (file-truename buffer-file-name) (file-truename user-init-file)))
       (setq-local flycheck-disabled-checkers '(emacs-lisp emacs-lisp-checkdoc)))))
 
 (use-package dumb-jump
@@ -517,7 +517,7 @@
   "Open Pull Request URL at the line from git blame output."
   (interactive)
   (let* ((rev-at-line (vc-annotate-extract-revision-at-line))
-         (rev (car rev-at-line)))
+          (rev (car rev-at-line)))
     (shell-command (concat "git hub open " rev))))
 (define-key vc-annotate-mode-map (kbd "8") 'my:open-pr-at-line)
 
@@ -525,10 +525,10 @@
 (defun my:tig-current-file ()
   (interactive)
   (shell-command
-   (format "tmux new-window 'cd %s && tig blame +%s %s'"
-           (file-name-directory buffer-file-name)
-           (line-number-at-pos)
-           (file-name-nondirectory buffer-file-name))))
+    (format "tmux new-window 'cd %s && tig blame +%s %s'"
+      (file-name-directory buffer-file-name)
+      (line-number-at-pos)
+      (file-name-nondirectory buffer-file-name))))
 (define-key vc-prefix-map [(t)] 'my:tig-current-file)
 
 ;; https://snarfed.org/emacs-vc-git-tweaks
@@ -537,12 +537,12 @@
 ;; reset, and r run git reset and checkout from head.
 (defun my:vc-git-command (verb fn)
   (let* ((fileset-arg (or vc-fileset (vc-deduce-fileset nil t)))
-         (backend (car fileset-arg))
-         (files (nth 1 fileset-arg)))
+          (backend (car fileset-arg))
+          (files (nth 1 fileset-arg)))
     (if (eq backend 'Git)
-        (progn (funcall fn files)
-               (message (concat verb " " (number-to-string (length files))
-                                " file(s).")))
+      (progn (funcall fn files)
+        (message (concat verb " " (number-to-string (length files))
+                   " file(s).")))
       (message "Not in a vc git buffer."))))
 
 (defun my:vc-git-add (&optional revision vc-fileset comment)
@@ -554,7 +554,7 @@
 (defun my:vc-git-reset (&optional revision vc-fileset comment)
   (interactive "P")
   (my:vc-git-command "Unstaged"
-                     (lambda (files) (vc-git-command nil 0 files "reset" "-q" "--"))))
+    (lambda (files) (vc-git-command nil 0 files "reset" "-q" "--"))))
 (define-key vc-prefix-map [(u)] 'my:vc-git-reset)
 (define-key vc-dir-mode-map [(u)] 'my:vc-git-reset)
 ;; Remap vc-revert to `r` from `u`
@@ -573,10 +573,10 @@
 (use-package magit
   :ensure t
   :bind (("C-x v s" . magit-status)
-         ("C-x v =" . my:magit-diff-unstaged)
-         ("C-x v g" . my:magit-blame-toggle)
-         :map magit-blame-mode-map
-         ("8" . my:open-pr-at-line-magit))
+          ("C-x v =" . my:magit-diff-unstaged)
+          ("C-x v g" . my:magit-blame-toggle)
+          :map magit-blame-mode-map
+          ("8" . my:open-pr-at-line-magit))
   :custom
   ;; 50/72 rules
   (git-commit-summary-max-length 50)
@@ -584,10 +584,10 @@
   ;; blame
   (magit-blame-read-only t)
   (magit-blame-styles '((margin
-                         (margin-format . ("%.8H %.10C %.12a"))
-                         (margin-width . 33)
-                         (margin-face . magit-blame-margin)
-                         (margin-body-face . magit-blame-dimmed))))
+                          (margin-format . ("%.8H %.10C %.12a"))
+                          (margin-width . 33)
+                          (margin-face . magit-blame-margin)
+                          (margin-body-face . magit-blame-dimmed))))
   :config
   (defun my:magit-diff-unstaged ()
     "Show unstaged changes in magit without prompting."
@@ -598,7 +598,7 @@
     "Toggle magit blame mode like vc-annotate."
     (interactive)
     (if (bound-and-true-p magit-blame-mode)
-        (magit-blame-quit)
+      (magit-blame-quit)
       (magit-blame-addition "HEAD")))
 
   (defun my:open-pr-at-line-magit ()
@@ -627,9 +627,9 @@
 (use-package eglot
   :ensure t
   :hook ((ruby-mode . eglot-ensure)
-         (typescript-mode . eglot-ensure)
-         (java-mode . eglot-ensure)
-         (terraform-mode . eglot-ensure))
+          (typescript-mode . eglot-ensure)
+          (java-mode . eglot-ensure)
+          (terraform-mode . eglot-ensure))
   :config
   (add-to-list 'eglot-server-programs '(ruby-mode "ruby-lsp")))
 
@@ -638,10 +638,10 @@
   :ensure t
   :hook (prog-mode . copilot-mode)
   :bind (:map copilot-completion-map
-         ("C-g" . copilot-clear-overlay)
-         ("C-n" . copilot-next-completion)
-         ("C-p" . copilot-previous-completion)
-         ("TAB" . copilot-accept-completion)))
+          ("C-g" . copilot-clear-overlay)
+          ("C-n" . copilot-next-completion)
+          ("C-p" . copilot-previous-completion)
+          ("TAB" . copilot-accept-completion)))
 
 (use-package ruby-mode
   :ensure nil
@@ -654,33 +654,33 @@
   (defun rails-schema-imenu-create-index ()
     "Create an imenu index for Ruby on Rails schema.rb."
     (let ((index-alist '())
-          (tables '())
-          (foreign-keys '())
-          (table-regex "^\\s-*create_table\\s-+\"\\([^\"]+\\)\"")
-          (foreign-key-regex "^\\s-*add_foreign_key\\s-+\"\\([^\"]+\\)\",\\s-+\"\\([^\"]+\\)\""))
+           (tables '())
+           (foreign-keys '())
+           (table-regex "^\\s-*create_table\\s-+\"\\([^\"]+\\)\"")
+           (foreign-key-regex "^\\s-*add_foreign_key\\s-+\"\\([^\"]+\\)\",\\s-+\"\\([^\"]+\\)\""))
       (goto-char (point-min))
       (while (re-search-forward table-regex nil t)
         (let ((table-name (match-string 1))
-              (table-pos (match-beginning 0)))
+               (table-pos (match-beginning 0)))
           (push (cons table-name table-pos) tables)))
       (goto-char (point-min))
       (while (re-search-forward foreign-key-regex nil t)
         (let ((from-table (match-string 1))
-              (to-table (match-string 2))
-              (foreign-key-pos (match-beginning 0)))
+               (to-table (match-string 2))
+               (foreign-key-pos (match-beginning 0)))
           (push (cons (format "%s -> %s" from-table to-table) foreign-key-pos) foreign-keys)))
       (setq index-alist (append index-alist
-                                (list (cons "Tables" (nreverse tables))
-                                      (cons "Foreign Keys" (nreverse foreign-keys)))))
+                          (list (cons "Tables" (nreverse tables))
+                            (cons "Foreign Keys" (nreverse foreign-keys)))))
       index-alist))
   (defun rails-schema-imenu-setup ()
     "Setup imenu for Ruby on Rails schema.rb."
     (setq-local imenu-create-index-function 'rails-schema-imenu-create-index))
   (add-hook 'ruby-mode-hook
-            (lambda ()
-              (when (and (buffer-file-name)
-                         (string-match-p "db/schema\\.rb\\'" (buffer-file-name)))
-                (rails-schema-imenu-setup)))))
+    (lambda ()
+      (when (and (buffer-file-name)
+              (string-match-p "db/schema\\.rb\\'" (buffer-file-name)))
+        (rails-schema-imenu-setup)))))
 
 (use-package ruby-end
   :ensure t
@@ -719,10 +719,10 @@
   :mode ("\\.t\\'" "\\.psgi\\'" "cpanfile")
   :interpreter "perl"
   :bind (:map cperl-mode-map
-         ("M-?" . cperl-perldoc-at-point)
-         ("C-c ." . cperl-perldoc)
-         ("C-c t" . my:perltidy-region)
-         ("C-c T" . my:perltidy-buffer))
+          ("M-?" . cperl-perldoc-at-point)
+          ("C-c ." . cperl-perldoc)
+          ("C-c t" . my:perltidy-region)
+          ("C-c T" . my:perltidy-buffer))
   :custom
   (cperl-close-paren-offset -4)
   (cperl-continued-statement-offset 4)
@@ -782,7 +782,7 @@
 (use-package prettier-js
   :ensure t
   :hook ((js2-mode . prettier-js)
-         (typescript-mode . prettier-js)))
+          (typescript-mode . prettier-js)))
 
 (use-package web-mode
   :ensure t
@@ -795,7 +795,7 @@
   (web-mode-style-padding 2)
   (web-mode-script-padding 2)
   (web-mode-engines-alist '(("template-toolkit" . "\\.tt\\'")
-                            ("template-toolkit" . "\\.tx\\'"))))
+                             ("template-toolkit" . "\\.tx\\'"))))
 
 (use-package css-mode
   :ensure nil
@@ -825,7 +825,7 @@
 (use-package yaml-mode
   :ensure t
   :bind (:map yaml-mode-map
-         ("C-m" . newline-and-indent)))
+          ("C-m" . newline-and-indent)))
 
 (use-package docker-compose-mode
   :ensure t)
@@ -853,23 +853,23 @@
   (defun my:blog-subtree-post-capture-template ()
     "Returns `org-capture' template for new blog post."
     (let ((section (format-time-string "posts/%Y/%m/" (org-current-time)))
-          (date (format-time-string "%Y-%m-%d" (org-current-time))))
+           (date (format-time-string "%Y-%m-%d" (org-current-time))))
       (mapconcat 'identity
-                 `("** TODO %?"
-                   "  :PROPERTIES:"
-                   "  :EXPORT_FILE_NAME: "
-                   ,(concat "  :EXPORT_DATE: " date)
-                   ,(concat "  :EXPORT_HUGO_SECTION: " section)
-                   "  :END:"
-                   "\n")
-                 "\n")))
+        `("** TODO %?"
+           "  :PROPERTIES:"
+           "  :EXPORT_FILE_NAME: "
+           ,(concat "  :EXPORT_DATE: " date)
+           ,(concat "  :EXPORT_HUGO_SECTION: " section)
+           "  :END:"
+           "\n")
+        "\n")))
   ;; org-capture
   (setq org-capture-templates
-        '(("n" "Notes" entry (file+datetree (lambda () (concat org-directory "notes.org")))
-           "* [%<%H:%M>] %?\n")
-          ("b" "Blog Posts" entry (file+olp "~/src/ziguzagu.org/blog.org" "Blog Posts")
-           (function my:blog-subtree-post-capture-template)
-           :prepend t :empty-lines 1)))
+    '(("n" "Notes" entry (file+datetree (lambda () (concat org-directory "notes.org")))
+        "* [%<%H:%M>] %?\n")
+       ("b" "Blog Posts" entry (file+olp "~/src/ziguzagu.org/blog.org" "Blog Posts")
+         (function my:blog-subtree-post-capture-template)
+         :prepend t :empty-lines 1)))
   :config
   (require 'org-tempo))
 
@@ -881,18 +881,18 @@
 (use-package vterm
   :ensure t
   :bind (("C-c t" . vterm)
-         ("C-c T" . vterm-other-window)
-         ("C-l" . my:vterm-send-c-l)
-         ("C-u" . my:vterm-send-c-u))
+          ("C-c T" . vterm-other-window)
+          ("C-l" . my:vterm-send-c-l)
+          ("C-u" . my:vterm-send-c-u))
   :custom
   (vterm-max-scrollback 10000)
   (vterm-buffer-name-string "vterm %s")
   :config
   ;; Display vterm buffer at bottom with 30% height, respecting current buffer
   (add-to-list 'display-buffer-alist
-               '("\\*vterm.*\\*"
-                 (display-buffer-below-selected)
-                 (window-height . 0.3)))
+    '("\\*vterm.*\\*"
+       (display-buffer-below-selected)
+       (window-height . 0.3)))
 
   (defun my:vterm-send-c-l ()
     "Send C-l directly to terminal for zsh clear-screen behavior."
@@ -905,16 +905,16 @@
     (vterm-send-key "u" nil nil t))
 
   (add-hook 'vterm-mode-hook
-            (lambda ()
-              ;; JuliaMono has excellent Unicode symbols support and Claude Code uses its thinking icons
-              (face-remap-add-relative 'default :family "JuliaMono" :weight 'regular)))
+    (lambda ()
+      ;; JuliaMono has excellent Unicode symbols support and Claude Code uses its thinking icons
+      (face-remap-add-relative 'default :family "JuliaMono" :weight 'regular)))
 
   ;; Delete vterm buffer and window when the process is killed
   (add-hook 'vterm-exit-functions
-            (lambda (buffer event)
-              (when-let ((window (get-buffer-window buffer)))
-                (delete-window window))
-              (kill-buffer buffer))))
+    (lambda (buffer event)
+      (when-let ((window (get-buffer-window buffer)))
+        (delete-window window))
+      (kill-buffer buffer))))
 
 (use-package claude-code
   :vc (:url "https://github.com/stevemolitor/claude-code.el" :rev :newest)
@@ -922,7 +922,7 @@
   :bind-keymap
   ("C-c C-l" . claude-code-command-map)
   :bind (:map claude-code-command-map
-         ("b" . my:claude-code-buffer))
+          ("b" . my:claude-code-buffer))
   :custom-face
   (claude-code-repl-face ((t (:family "JuliaMono" :weight regular))))
   :custom
@@ -931,10 +931,10 @@
   (eat-term-name "xterm-256color")
   :config
   (add-to-list 'display-buffer-alist
-               '("^\\*claude\\*"
-                 (display-buffer-in-side-window)
-                 (side . right)
-                 (window-width . 0.4)))
+    '("^\\*claude\\*"
+       (display-buffer-in-side-window)
+       (side . right)
+       (window-width . 0.4)))
 
   ;; Advice to switch to Claude buffer after toggle or start
   (defun my:claude-code-switch-to-buffer (&rest _)
