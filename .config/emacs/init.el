@@ -360,7 +360,8 @@
   :ensure t
   :hook (after-init . global-corfu-mode)
   :bind (:map corfu-map
-              ("TAB" . corfu-complete))
+          ("TAB" . corfu-complete)
+          ("RET" . nil))
   :custom
   (corfu-auto t)
   (tab-always-indent 'complete)
