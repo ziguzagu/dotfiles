@@ -8,5 +8,10 @@ export PATH=$HOME/bin:$PATH
 
 export PAGER=less
 
-export EDITOR="emacsclient -t"
+# Set EDITOR to avoid infinite loop when running git commit in vterm
+if [[ -n "$INSIDE_EMACS" ]]; then
+  export EDITOR="emacsclient"
+else
+  export EDITOR="emacsclient -t"
+fi
 export ALTERNATE_EDITOR=vi
