@@ -34,19 +34,21 @@ This is a personal dotfiles repository that manages development environment conf
 - Development environment includes tools like ripgrep, fd, fzf, gh, etc.
 
 ### Editor Configuration
-- Emacs configuration with extensive snippets for multiple languages
+- Emacs 30.1 with configuration at `.config/emacs/init.el`
+- Extensive snippets for multiple languages and tree-sitter mode support
 - Language-specific snippets for Perl, Ruby, TypeScript, JavaScript, Terraform, etc.
 - Git integration with tig, delta, and custom git commands
 
 ## Development Environment
-- Shell: zsh with syntax highlighting and completions
-- Editor: Emacs with language-specific configurations
+- Shell: zsh 5.9 with syntax highlighting and completions
+- Editor: Emacs 30.1 with language-specific configurations
 - Terminal: iTerm2 with 24-bit color support
-- Version control: Git with custom commands and delta integration
-- Package managers: Homebrew, rbenv, plenv, tfenv
+- Version control: Git 2.49.0 with custom commands and delta integration
+- Package managers: Homebrew 4.5.6, rbenv, plenv, tfenv
+- Build system: GNU Make 3.81
 
 ## Environment Notes
-- Target platform: macOS with BSD commands (not GNU)
+- Target platform: macOS 15.5 (Sequoia) with BSD commands (not GNU)
 - Use Homebrew-installed GNU tools when needed (prefixed with 'g': gls, gdircolors)
 - Prefer zsh built-in features over external commands for compatibility
 - bc calculator not available by default - use zsh arithmetic where possible
