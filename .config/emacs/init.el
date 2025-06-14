@@ -45,6 +45,7 @@
   (scroll-conservatively 35)
   (scroll-margin 0)
   (scroll-step 1)
+  (tab-always-indent 'complete)
   (ns-command-modifier 'meta)  ;; make Command ⌘ to Meta
   (ns-option-modifier 'super)  ;; make Option ⌥ to Super
   :custom-face
@@ -358,30 +359,39 @@
 
 (use-package corfu
   :ensure t
-  :hook (after-init . global-corfu-mode)
   :bind (:map corfu-map
           ("TAB" . corfu-complete)
           ("RET" . nil))
   :custom
   (corfu-auto t)
-  (tab-always-indent 'complete)
+  (corfu-auto-delay 0.1)
+  (corfu-cycle t)
+  (corfu-max-width 100)
+  (corfu-scroll-margin 4)
   (corfu-preview-current nil)
   (corfu-min-width 20)
-  (corfu-popupinfo-delay '(1.25 . 0.5))
+  (corfu-popupinfo-delay '(0.8 . 0.3))
   :config
-  (corfu-popupinfo-mode 1)
-  ;; sort by input history (no need to modify `corfu-sort-function').
-  (with-eval-after-load 'savehist
-    (corfu-history-mode 1)
-    (add-to-list 'savehist-additional-variables 'corfu-history)))
+  (global-corfu-mode)
+  (corfu-popupinfo-mode)
+  (corfu-history-mode))
 
 (use-package cape
   :ensure t
   :bind ("C-o" . cape-dabbrev)
+  :custom
+  (cape-dabbrev-min-length 3)
+  (cape-dabbrev-check-other-buffers t)
   :config
+  ;; Add global completion functions
   (add-hook 'completion-at-point-functions #'cape-dabbrev)
   (add-hook 'completion-at-point-functions #'cape-file)
-  (add-hook 'completion-at-point-functions #'cape-keyword))
+  (add-hook 'completion-at-point-functions #'cape-keyword)
+
+  ;; Add mode-specific completions
+  (add-hook 'emacs-lisp-mode-hook
+    (lambda ()
+      (add-hook 'completion-at-point-functions #'cape-elisp-symbol -10 t))))
 
 (use-package projectile
   :ensure t
