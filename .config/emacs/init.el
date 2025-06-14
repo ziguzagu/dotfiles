@@ -627,7 +627,8 @@
 (use-package eglot
   :ensure t
   :hook ((ruby-mode . eglot-ensure)
-          (typescript-mode . eglot-ensure)
+          (typescript-ts-mode . eglot-ensure)
+          (tsx-ts-mode . eglot-ensure)
           (java-mode . eglot-ensure)
           (terraform-mode . eglot-ensure))
   :config
@@ -773,20 +774,27 @@
 (use-package json-mode
   :ensure t)
 
-(use-package typescript-mode
-  :ensure t
+(use-package typescript-ts-mode
+  :ensure nil
   :mode "\\.ts\\'"
   :custom
-  (typescript-indent-level 2))
+  (typescript-ts-mode-indent-offset 2))
+
+(use-package tsx-ts-mode
+  :ensure nil
+  :mode "\\.tsx\\'"
+  :custom
+  (tsx-ts-mode-indent-offset 2))
 
 (use-package prettier-js
   :ensure t
   :hook ((js2-mode . prettier-js)
-          (typescript-mode . prettier-js)))
+          (typescript-ts-mode . prettier-js)
+          (tsx-ts-mode . prettier-js)))
 
 (use-package web-mode
   :ensure t
-  :mode ("\\.jsx\\'" "\\.tsx\\'" "\\.html\\'" "\\.tt\\'" "\\.tx\\'")
+  :mode ("\\.jsx\\'" "\\.html\\'" "\\.tt\\'" "\\.tx\\'")
   :custom
   (web-mode-attr-indent-offset nil)
   (web-mode-markup-indent-offset 2)
