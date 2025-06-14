@@ -900,6 +900,7 @@
   :ensure t
   :bind (("C-c t" . vterm)
           ("C-c T" . vterm-other-window)
+          :map vterm-mode-map
           ("C-l" . my:vterm-send-c-l)
           ("C-u" . my:vterm-send-c-u))
   :custom
