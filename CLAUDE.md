@@ -35,7 +35,7 @@ This is a personal dotfiles repository that manages development environment conf
 
 ### Editor Configuration
 - Emacs configuration with extensive snippets for multiple languages
-- Language-specific snippets for Perl, Ruby, Python, JavaScript, Terraform, etc.
+- Language-specific snippets for Perl, Ruby, TypeScript, JavaScript, Terraform, etc.
 - Git integration with tig, delta, and custom git commands
 
 ## Development Environment
