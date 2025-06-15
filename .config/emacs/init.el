@@ -28,9 +28,6 @@
 (use-package emacs
   :ensure nil
   :bind (("RET" . newline-and-indent)
-          ("C-M-r" . isearch-backward)
-          ("C-M-s" . isearch-forward)
-          ("C-c ]" . align-regexp)
           ("C-c h" . help-for-help)
           ("C-g" . my:keyboard-quit-dwim)
           ("C-h" . delete-backward-char)
