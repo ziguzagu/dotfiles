@@ -952,7 +952,7 @@
   (eat-term-name "xterm-256color")
   :config
   (add-to-list 'display-buffer-alist
-    '("^\\*claude\\*"
+    '("^\\*claude:"
        (display-buffer-in-side-window)
        (side . right)
        (window-width . 0.4)))
@@ -960,7 +960,9 @@
   ;; Advice to switch to Claude buffer after toggle or start
   (defun my:claude-code-switch-to-buffer (&rest _)
     "Switch to Claude Code buffer after toggle or start."
-    (when-let ((claude-buffer (get-buffer "*claude*")))
+    (when-let ((claude-buffer (seq-find (lambda (buf)
+                                          (string-match "^\\*claude:" (buffer-name buf)))
+                                (buffer-list))))
       (when (get-buffer-window claude-buffer)
         (select-window (get-buffer-window claude-buffer)))))
 
