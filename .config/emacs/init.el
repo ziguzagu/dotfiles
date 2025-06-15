@@ -81,14 +81,6 @@
       (t
         (keyboard-quit))))
 
-  (when (display-graphic-p)
-    ;; make frame height to fit the display height
-    (add-hook 'window-setup-hook
-      (lambda ()
-        (let* ((display-height (display-pixel-height))
-                (frame-height (floor (/ display-height (frame-char-height)))))
-          (set-frame-size (selected-frame) 140 frame-height)))))
-
   (when (eq system-type 'darwin)
     (defun my:copy-from-macos ()
       "Get clipboard contents."
@@ -973,8 +965,15 @@
     (when (file-exists-p host-local-config)
       (load host-local-config)))
 
-  ;; start server for emacsclient
   (when (display-graphic-p)
+    ;; make frame height to fit the display height
+    (add-hook 'window-setup-hook
+      (lambda ()
+        (let* ((display-height (display-pixel-height))
+                (frame-height (floor (/ display-height (frame-char-height)))))
+          (set-frame-size (selected-frame) 140 frame-height))))
+
+    ;; start server for emacsclient
     (require 'server)
     (unless (server-running-p)
       (server-start))))
