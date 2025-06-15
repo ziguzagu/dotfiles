@@ -712,6 +712,8 @@
 
 (use-package rbenv
   :ensure t
+  :custom
+  (rbenv-show-active-ruby-in-modeline nil)
   :config
   (global-rbenv-mode))
 
