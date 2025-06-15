@@ -33,6 +33,12 @@ This is a personal dotfiles repository that manages development environment conf
 - Homebrew packages managed via `Brewfile` with both brews and casks
 - Development environment includes tools like ripgrep, fd, fzf, gh, etc.
 
+#### Brewfile Management Rules
+- **Alphabetical sorting**: All `brew` and `cask` entries must be sorted alphabetically
+- **Prefer Homebrew**: Use Homebrew over other package managers (npm, pip, etc.) for development tools when available
+- **Comments allowed**: Inline comments are acceptable for packages that need explanation (e.g., build dependencies)
+- **Consistency**: Maintain consistent formatting with single quotes around package names
+
 ### Editor Configuration
 - Emacs 30.1 with configuration at `.config/emacs/init.el`
 - Extensive snippets for multiple languages and tree-sitter mode support
