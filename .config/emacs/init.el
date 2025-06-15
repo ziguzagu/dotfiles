@@ -1,7 +1,5 @@
-(eval-and-compile
-  (require 'package)
-  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-  (package-initialize))
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 
 (eval-when-compile
   (setq use-package-enable-imenu-support t)
@@ -572,10 +570,10 @@
 (define-key vc-dir-mode-map [(g)]
   (lambda () (interactive) (vc-dir-refresh) (vc-dir-hide-up-to-date)))
 
-;; enable aut-fill-mode at git commit editting for 50/72 rules
+;; enable auto-fill-mode at git commit editing for 50/72 rules
 (add-hook 'vc-git-log-edit-mode-hook (lambda ()
                                        (setq fill-column 72)
-                                       (turn-on-auto-fill)))
+                                       (auto-fill-mode 1)))
 
 (use-package magit
   :ensure t
@@ -744,7 +742,6 @@
   (cperl-electric-linefeed nil)
   (cperl-autoindent-on-semi t)
   (cperl-highlight-variables-indiscriminately t)
-  (cperl-font-lock t)
   :custom-face
   (cperl-array-face ((t (:foreground "#87afd7" :background unspecified :slant normal :weight normal))))
   (cperl-hash-face ((t (:foreground "#87afd7" :background unspecified :slant normal :weight normal))))
@@ -863,7 +860,6 @@
   (org-startup-truncated nil)
   (org-startup-folded nil)
   (org-return-follows-link t)
-  (org-src-fontify-natively t) ;; hilight lines in code block
   (org-log-done 'time) ;; insert `CLOSED [timestamp]` after the headline
   :init
   ;; blog template
