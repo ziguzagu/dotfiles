@@ -972,8 +972,7 @@
   (let ((host-local-config (expand-file-name "init-local.el" user-emacs-directory)))
     (when (file-exists-p host-local-config)
       (load host-local-config)))
-  ;; to know that GC is running
-  (setq garbage-collection-messages t)
+
   ;; start server for emacsclient
   (when (display-graphic-p)
     (require 'server)
