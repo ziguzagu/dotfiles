@@ -837,10 +837,6 @@
 (use-package dockerfile-mode
   :ensure t)
 
-(use-package docker
-  :ensure t
-  :bind ("C-c d" . docker))
-
 (use-package org
   :ensure nil
   :bind (("C-c c" . org-capture))
