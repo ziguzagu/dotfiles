@@ -624,13 +624,13 @@
 
 (use-package eglot
   :ensure t
-  :hook ((ruby-mode . eglot-ensure)
+  :hook ((ruby-ts-mode . eglot-ensure)
           (typescript-ts-mode . eglot-ensure)
           (tsx-ts-mode . eglot-ensure)
           (java-mode . eglot-ensure)
           (terraform-mode . eglot-ensure))
   :config
-  (add-to-list 'eglot-server-programs '(ruby-mode "ruby-lsp")))
+  (add-to-list 'eglot-server-programs '(ruby-ts-mode "ruby-lsp")))
 
 (use-package copilot
   :vc (:url "https://github.com/copilot-emacs/copilot.el" :rev :newest :branch "main")
@@ -642,7 +642,7 @@
           ("C-p" . copilot-previous-completion)
           ("TAB" . copilot-accept-completion)))
 
-(use-package ruby-mode
+(use-package ruby-ts-mode
   :ensure nil
   :mode "Dangerfile"
   :interpreter "ruby"
@@ -675,7 +675,7 @@
   (defun rails-schema-imenu-setup ()
     "Setup imenu for Ruby on Rails schema.rb."
     (setq-local imenu-create-index-function 'rails-schema-imenu-create-index))
-  (add-hook 'ruby-mode-hook
+  (add-hook 'ruby-ts-mode-hook
     (lambda ()
       (when (and (buffer-file-name)
               (string-match-p "db/schema\\.rb\\'" (buffer-file-name)))
@@ -683,7 +683,7 @@
 
 (use-package ruby-end
   :ensure t
-  :hook (ruby-mode . ruby-end-mode))
+  :hook (ruby-ts-mode . ruby-end-mode))
 
 (use-package rspec-mode
   :ensure t
@@ -761,31 +761,26 @@
 
 (use-package plenv)
 
-(use-package js2-mode
-  :ensure t
+(use-package js-ts-mode
+  :ensure nil
   :mode "\\.js\\'"
   :interpreter "node"
   :custom
-  (js2-basic-offset 2))
+  (js-indent-level 2))
 
-(use-package json-mode
-  :ensure t)
+(use-package json-ts-mode
+  :ensure nil
+  :mode "\\.json\\'")
 
 (use-package typescript-ts-mode
-  :ensure nil
-  :mode "\\.ts\\'"
-  :custom
-  (typescript-ts-mode-indent-offset 2))
+  :ensure nil)
 
 (use-package tsx-ts-mode
-  :ensure nil
-  :mode "\\.tsx\\'"
-  :custom
-  (tsx-ts-mode-indent-offset 2))
+  :ensure nil)
 
 (use-package prettier-js
   :ensure t
-  :hook ((js2-mode . prettier-js)
+  :hook ((js-ts-mode . prettier-js)
           (typescript-ts-mode . prettier-js)
           (tsx-ts-mode . prettier-js)))
 
@@ -827,16 +822,17 @@
   :ensure t
   :hook ((terraform-mode . terraform-format-on-save-mode)))
 
-(use-package yaml-mode
-  :ensure t
-  :bind (:map yaml-mode-map
+(use-package yaml-ts-mode
+  :ensure nil
+  :bind (:map yaml-ts-mode-map
           ("C-m" . newline-and-indent)))
 
 (use-package docker-compose-mode
   :ensure t)
 
-(use-package dockerfile-mode
-  :ensure t)
+(use-package dockerfile-ts-mode
+  :ensure nil
+  :mode "Dockerfile\\'")
 
 (use-package org
   :ensure nil
