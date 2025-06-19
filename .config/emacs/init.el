@@ -684,6 +684,8 @@
   :ensure nil
   :mode "Dangerfile"
   :interpreter "ruby"
+  :init
+  (add-to-list 'major-mode-remap-alist '(ruby-mode . ruby-ts-mode))
   :custom
   (ruby-insert-encoding-magic-comment nil)
   :config
