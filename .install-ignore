@@ -1,4 +1,5 @@
 *.md
+!.config/claude/CLAUDE.md
 *.terminfo
 *.txt
 .editorconfig

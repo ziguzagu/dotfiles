@@ -17,4 +17,5 @@
 /.lsp-docker/
 /.lsp-docker.yaml
 
+CLAUDE.local.md
 **/.claude/settings.local.json
