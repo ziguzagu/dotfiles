@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require 'rack'
+require 'rackup'
+
+dir = ARGV[0] || ''
+path = File.expand_path(dir, Dir.pwd)
+
+Rackup::Server.start(
+  app: Rack::Directory.new(path),
+  Host: '127.0.0.1',
+  Port: 8800
+)
