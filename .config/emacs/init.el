@@ -340,15 +340,18 @@
 
 (use-package flyspell
   :ensure t
-  :hook (prog-mode . flyspell-prog-mode)
+  :hook ((prog-mode . flyspell-prog-mode)
+         (text-mode . flyspell-mode)
+         (git-commit-mode . flyspell-mode))
   :custom
-  (spell-extra-args ("--ignore-case"
-                      "--sug-mode=ultra"
-                      "--lang=en_US"
-                      ;; work for camel case
-                      "--run-together"
-                      "--run-together-min=2"
-                      "--run-together-limit=16")))
+  (ispell-program-name "aspell")
+  (ispell-extra-args '("--ignore-case"
+                       "--sug-mode=ultra"
+                       "--lang=en_US"
+                       ;; work for camel case
+                       "--run-together"
+                       "--run-together-min=2"
+                       "--run-together-limit=16")))
 
 (use-package wgrep
   :ensure t)
