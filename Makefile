@@ -9,16 +9,16 @@ targets = $(addprefix $(home),$(sources))
 
 .DEFAULT_GOAL := help
 
-install: $(targets) --dropbox ## Install dot files into $HOME as symlink
+install: $(targets) aspell ## Install dot files into $HOME as symlink
 	@mkdir -p $(datadir)/{tig,zsh,terminfo,ssh}
 
 $(targets):
 	@mkdir -m 700 -p $(dir $@)
 	ln -s $(subst $(home),$(basedir),$@) $@
 
---dropbox: ~/.aspell.en.pws ~/.aspell.en.prepl
-~/.aspell.en.pws: ~/Dropbox/Library/aspell/aspell.en.pws
-~/.aspell.en.prepl: ~/Dropbox/Library/aspell/aspell.en.prepl
+aspell: ~/.aspell.en.pws ~/.aspell.en.prepl
+
+~/.aspell.en.%: ~/Dropbox/Library/aspell/aspell.en.%
 	ln -s $< $@
 
 terminfo: ## Install extra terminfo missing of macOS
