@@ -346,7 +346,6 @@
   :custom
   (ispell-program-name "aspell")
   (ispell-extra-args '("--ignore-case"
-                       "--sug-mode=ultra"
                        "--lang=en_US"
                        ;; work for camel case
                        "--run-together"
