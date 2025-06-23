@@ -139,7 +139,7 @@
   :init
   (setq treesit-language-source-alist
     '((css "https://github.com/tree-sitter/tree-sitter-css")
-       (javascript"https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
+       (javascript "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
        (json "https://github.com/tree-sitter/tree-sitter-json")
        (ruby "https://github.com/tree-sitter/tree-sitter-ruby")
        (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
