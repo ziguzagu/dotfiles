@@ -505,16 +505,32 @@
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
 (use-package flycheck
+  :disabled
   :ensure t
   :config
   (global-flycheck-mode t))
 
 (use-package flycheck-popup-tip
+  :disabled
   :ensure t
   :config
   (flycheck-popup-tip-mode)
   :custom-face
   (popup-tip-face ((t (:foreground "#5fafd7" :background "#292929")))))
+
+(use-package flymake
+  :ensure nil
+  :hook (prog-mode . flymake-mode))
+
+(use-package posframe
+  :ensure t)
+
+(use-package flymake-posframe
+  :vc (:url "https://github.com/Ladicle/flymake-posframe.git" :rev :newest)
+  :after posframe
+  :hook (flymake-mode . flymake-posframe-mode)
+  :custom-face
+  (flymake-posframe-face ((t (:foreground "#5fafd7" :background "#292929")))))
 
 (use-package vc
   :ensure nil
