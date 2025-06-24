@@ -671,6 +671,7 @@
   (add-to-list 'eglot-server-programs '(ruby-ts-mode "ruby-lsp")))
 
 (use-package copilot
+  :disabled
   :vc (:url "https://github.com/copilot-emacs/copilot.el" :rev :newest :branch "main")
   :ensure t
   :hook (prog-mode . copilot-mode)
