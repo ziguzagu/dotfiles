@@ -527,7 +527,6 @@
 
 (use-package flymake-posframe
   :vc (:url "https://github.com/Ladicle/flymake-posframe.git" :rev :newest)
-  :after posframe
   :hook (flymake-mode . flymake-posframe-mode)
   :custom-face
   (flymake-posframe-face ((t (:foreground "#5fafd7" :background "#292929")))))
@@ -547,13 +546,13 @@
           ("g" . my:vc-dir-refresh-and-hide-up-to-date)
           :map vc-annotate-mode-map
           ("8" . my:open-pr-at-line))
+  :hook (vc-git-log-edit-mode . my:vc-git-log-edit-setup)
   :custom
   (vc-follow-symlinks t)
   (vc-make-backup-files t)
   ;; Limit vc backends to Git only to improve performance of tramp:)
   ;; https://www.gnu.org/software/emacs/manual/html_node/tramp/Frequently-Asked-Questions.html
   (vc-handled-backends '(Git))
-  :hook (vc-git-log-edit-mode . my:vc-git-log-edit-setup)
   :config
   (defun my:open-pr-at-line ()
     "Open Pull Request URL at the line from git blame output."
@@ -685,10 +684,10 @@
   :ensure nil
   :mode "Dangerfile"
   :interpreter "ruby"
-  :init
-  (add-to-list 'major-mode-remap-alist '(ruby-mode . ruby-ts-mode))
   :custom
   (ruby-insert-encoding-magic-comment nil)
+  :init
+  (add-to-list 'major-mode-remap-alist '(ruby-mode . ruby-ts-mode))
   :config
   ;; imenu for schema.rb
   (defun rails-schema-imenu-create-index ()
@@ -957,16 +956,16 @@
 (use-package claude-code
   :vc (:url "https://github.com/stevemolitor/claude-code.el" :rev :newest)
   :ensure t
-  :bind-keymap
-  ("C-c C-l" . claude-code-command-map)
   :bind (:map claude-code-command-map
           ("b" . my:claude-code-buffer))
-  :custom-face
-  (claude-code-repl-face ((t (:family "JuliaMono" :weight regular))))
+  :bind-keymap
+  ("C-c C-l" . claude-code-command-map)
   :custom
   ;; setting `(claude-code-term-name "xterm-256color")` doesn't fix color issues
   ;; so set eat-term-name directly
   (eat-term-name "xterm-256color")
+  :custom-face
+  (claude-code-repl-face ((t (:family "JuliaMono" :weight regular))))
   :config
   (add-to-list 'display-buffer-alist
     '("^\\*claude:"
