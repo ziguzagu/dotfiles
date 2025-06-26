@@ -533,19 +533,11 @@
 
 (use-package vc
   :ensure nil
-  :demand t
   :bind (:map vc-prefix-map
           ("t" . my:tig-current-file)
           ("a" . my:vc-git-add)
           ("u" . my:vc-git-reset)
-          ("r" . vc-revert)
-          :map vc-dir-mode-map
-          ("a" . my:vc-git-add)
-          ("u" . my:vc-git-reset)
-          ("r" . vc-revert)
-          ("g" . my:vc-dir-refresh-and-hide-up-to-date)
-          :map vc-annotate-mode-map
-          ("8" . my:open-pr-at-line))
+          ("r" . vc-revert))
   :hook (vc-git-log-edit-mode . my:vc-git-log-edit-setup)
   :custom
   (vc-follow-symlinks t)
@@ -554,13 +546,6 @@
   ;; https://www.gnu.org/software/emacs/manual/html_node/tramp/Frequently-Asked-Questions.html
   (vc-handled-backends '(Git))
   :config
-  (defun my:open-pr-at-line ()
-    "Open Pull Request URL at the line from git blame output."
-    (interactive)
-    (let* ((rev-at-line (vc-annotate-extract-revision-at-line))
-            (rev (car rev-at-line)))
-      (shell-command (concat "git hub open " rev))))
-
   (defun my:tig-current-file ()
     "Open current file by tig with blame mode."
     (interactive)
@@ -592,16 +577,36 @@
     (my:vc-git-command "Unstaged"
       (lambda (files) (vc-git-command nil 0 files "reset" "-q" "--"))))
 
-  (defun my:vc-dir-refresh-and-hide-up-to-date ()
-    "Refresh vc-dir and hide up-to-date files."
-    (interactive)
-    (vc-dir-refresh)
-    (vc-dir-hide-up-to-date))
-
   (defun my:vc-git-log-edit-setup ()
     "Setup for git commit editing with 50/72 rules."
     (setq fill-column 72)
     (auto-fill-mode 1)))
+
+(use-package vc-dir
+  :ensure nil
+  :bind (:map vc-dir-mode-map
+          ("a" . my:vc-git-add)
+          ("u" . my:vc-git-reset)
+          ("g" . my:vc-dir-refresh-and-hide-up-to-date))
+          ("r" . vc-revert)
+  :config
+  (defun my:vc-dir-refresh-and-hide-up-to-date ()
+    "Refresh vc-dir and hide up-to-date files."
+    (interactive)
+    (vc-dir-refresh)
+    (vc-dir-hide-up-to-date)))
+
+(use-package vc-annotate
+  :ensure nil
+  :bind (:map vc-annotate-mode-map
+          ("8" . my:open-pr-at-line))
+  :config
+  (defun my:open-pr-at-line ()
+    "Open Pull Request URL at the line from git blame output."
+    (interactive)
+    (let* ((rev-at-line (vc-annotate-extract-revision-at-line))
+            (rev (car rev-at-line)))
+      (shell-command (concat "git hub open " rev)))))
 
 (use-package magit
   :ensure t
