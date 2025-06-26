@@ -40,7 +40,7 @@ autoload -Uz add-zsh-hook
 
 # PATH
 if [[ -x "$(which plenv)" ]]; then
-    eval "$(plenv init -)"
+    eval "$(plenv init - zsh)"
 fi
 if [[ -x "$(which rbenv)" ]] && [[ -z "$RBENV_SHELL" ]]; then
     eval "$(rbenv init -)"
