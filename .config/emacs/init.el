@@ -820,9 +820,6 @@
 (use-package typescript-ts-mode
   :ensure nil)
 
-(use-package tsx-ts-mode
-  :ensure nil)
-
 (use-package prettier-js
   :ensure t
   :hook ((js-ts-mode . prettier-js)
