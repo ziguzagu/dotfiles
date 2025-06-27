@@ -808,14 +808,12 @@
 
 (use-package js-ts-mode
   :ensure nil
-  :mode "\\.js\\'"
   :interpreter "node"
   :custom
   (js-indent-level 2))
 
 (use-package json-ts-mode
-  :ensure nil
-  :mode "\\.json\\'")
+  :ensure nil)
 
 (use-package typescript-ts-mode
   :ensure nil)
@@ -828,7 +826,7 @@
 
 (use-package web-mode
   :ensure t
-  :mode ("\\.jsx\\'" "\\.html\\'" "\\.tt\\'" "\\.tx\\'")
+  :mode ("\\.html\\'" "\\.tt\\'" "\\.tx\\'")
   :custom
   (web-mode-attr-indent-offset nil)
   (web-mode-markup-indent-offset 2)
@@ -873,8 +871,7 @@
   :ensure t)
 
 (use-package dockerfile-ts-mode
-  :ensure nil
-  :mode "Dockerfile\\'")
+  :ensure nil)
 
 (use-package org
   :ensure nil
