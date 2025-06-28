@@ -805,9 +805,11 @@
 
 (use-package plenv)
 
-(use-package js-ts-mode
+(use-package js-mode
   :ensure nil
   :interpreter "node"
+  :init
+  (add-to-list 'major-mode-remap-alist '(javascript-mode . js-ts-mode))
   :custom
   (js-indent-level 2))
 
