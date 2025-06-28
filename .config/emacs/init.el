@@ -107,8 +107,7 @@
   :ensure t
   :config
   (when (and (eq system-type 'darwin) (display-graphic-p))
-    (let* ((fonts-dir (expand-file-name "~/Library/Fonts"))
-            (font-file (expand-file-name "NFM.ttf" fonts-dir)))
+    (let ((font-file (expand-file-name "~/Library/Fonts/NFM.ttf")))
       (unless (file-exists-p font-file)
         (nerd-icons-install-fonts t)))))
 
