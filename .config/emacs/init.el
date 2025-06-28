@@ -1002,9 +1002,10 @@
       (lambda ()
         (let* ((display-height (display-pixel-height))
                 (frame-height (floor (/ display-height (frame-char-height)))))
-          (set-frame-size (selected-frame) 140 frame-height))))
+          (set-frame-size (selected-frame) 140 frame-height))))))
 
-    ;; start server for emacsclient
-    (require 'server)
-    (unless (server-running-p)
-      (server-start))))
+(use-package server
+  :ensure nil
+  :config
+  (unless (server-running-p)
+    (server-start)))
