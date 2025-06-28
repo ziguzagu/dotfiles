@@ -871,8 +871,8 @@
 (use-package docker-compose-mode
   :ensure t)
 
-(use-package dockerfile-ts-mode
-  :ensure nil)
+(use-package dockerfile-mode
+  :ensure t)
 
 (use-package org
   :ensure nil
