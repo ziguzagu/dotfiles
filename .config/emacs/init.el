@@ -113,7 +113,8 @@
 
 (use-package nerd-icons-completion
   :ensure t
-  :hook (after-init . nerd-icons-completion-mode))
+  :hook
+  (after-init . nerd-icons-completion-mode))
 
 (use-package nerd-icons-corfu
   :ensure t
@@ -123,12 +124,14 @@
 
 (use-package nerd-icons-dired
   :ensure t
-  :hook (dired-mode . nerd-icons-dired-mode))
+  :hook
+  (dired-mode . nerd-icons-dired-mode))
 
 (use-package doom-modeline
   :ensure t
   :after nerd-icons
-  :hook (after-init . doom-modeline-mode)
+  :hook
+  (after-init . doom-modeline-mode)
   :custom
   (doom-modeline-env-version nil))
 
@@ -166,7 +169,8 @@
 
 (use-package rainbow-mode
   :ensure t
-  :hook (emacs-lisp-mode . rainbow-mode))
+  :hook
+  (emacs-lisp-mode . rainbow-mode))
 
 (use-package tramp
   :ensure nil
@@ -195,8 +199,9 @@
           ("e" . wdired-change-to-wdired-mode)
           ("RET" . dired-find-alternate-file)
           ("M-o" . my:dired-open-file-by-open))
-  :hook ((dired-mode . dired-hide-details-mode)
-          (dired-mode . hl-line-mode))
+  :hook
+  (dired-mode . dired-hide-details-mode)
+  (dired-mode . hl-line-mode)
   :custom
   (dired-listing-switches "-AlhXF --color=auto --group-directories-first")
   (dired-recursive-copies 'always)
@@ -339,8 +344,9 @@
 
 (use-package flyspell
   :ensure t
-  :hook ((prog-mode . flyspell-prog-mode)
-         (text-mode . flyspell-mode))
+  :hook
+  (prog-mode . flyspell-prog-mode)
+  (text-mode . flyspell-mode)
   :custom
   (ispell-program-name "aspell")
   (ispell-extra-args '("--ignore-case"
@@ -476,7 +482,8 @@
   :ensure nil
   :bind (:map emacs-lisp-mode-map
           ("C-c h ." . my:describe-symbol-at-point))
-  :hook (emacs-lisp-mode . my:disable-flycheck-in-init)
+  :hook
+  (emacs-lisp-mode . my:disable-flycheck-in-init)
   :init
   (defun my:describe-symbol-at-point ()
     "Describe the function or variable at point."
@@ -519,14 +526,16 @@
 
 (use-package flymake
   :ensure nil
-  :hook (prog-mode . flymake-mode))
+  :hook
+  (prog-mode . flymake-mode))
 
 (use-package posframe
   :ensure t)
 
 (use-package flymake-posframe
   :vc (:url "https://github.com/Ladicle/flymake-posframe.git" :rev :newest)
-  :hook (flymake-mode . flymake-posframe-mode)
+  :hook
+  (flymake-mode . flymake-posframe-mode)
   :custom-face
   (flymake-posframe-face ((t (:foreground "#5fafd7" :background "#292929")))))
 
@@ -537,7 +546,8 @@
           ("a" . my:vc-git-add)
           ("u" . my:vc-git-reset)
           ("r" . vc-revert))
-  :hook (vc-git-log-edit-mode . my:vc-git-log-edit-setup)
+  :hook
+  (vc-git-log-edit-mode . my:vc-git-log-edit-setup)
   :custom
   (vc-follow-symlinks t)
   (vc-make-backup-files t)
@@ -665,11 +675,12 @@
 
 (use-package eglot
   :ensure t
-  :hook ((ruby-ts-mode . eglot-ensure)
-          (typescript-ts-mode . eglot-ensure)
-          (tsx-ts-mode . eglot-ensure)
-          (java-mode . eglot-ensure)
-          (terraform-mode . eglot-ensure))
+  :hook
+  (ruby-ts-mode . eglot-ensure)
+  (typescript-ts-mode . eglot-ensure)
+  (tsx-ts-mode . eglot-ensure)
+  (java-mode . eglot-ensure)
+  (terraform-mode . eglot-ensure)
   :config
   (add-to-list 'eglot-server-programs '(ruby-ts-mode "ruby-lsp")))
 
@@ -677,12 +688,12 @@
   :disabled
   :vc (:url "https://github.com/copilot-emacs/copilot.el" :rev :newest :branch "main")
   :ensure t
-  :hook (prog-mode . copilot-mode)
   :bind (:map copilot-completion-map
           ("C-g" . copilot-clear-overlay)
           ("C-n" . copilot-next-completion)
           ("C-p" . copilot-previous-completion)
-          ("TAB" . copilot-accept-completion)))
+          ("TAB" . copilot-accept-completion))
+  :hook (prog-mode . copilot-mode))
 
 (use-package ruby-ts-mode
   :ensure nil
@@ -727,7 +738,8 @@
 
 (use-package ruby-end
   :ensure t
-  :hook (ruby-ts-mode . ruby-end-mode))
+  :hook
+  (ruby-ts-mode . ruby-end-mode))
 
 (use-package rspec-mode
   :ensure t
@@ -821,9 +833,10 @@
 
 (use-package prettier-js
   :ensure t
-  :hook ((js-ts-mode . prettier-js)
-          (typescript-ts-mode . prettier-js)
-          (tsx-ts-mode . prettier-js)))
+  :hook
+  (js-ts-mode . prettier-js)
+  (typescript-ts-mode . prettier-js)
+  (tsx-ts-mode . prettier-js))
 
 (use-package web-mode
   :ensure t
@@ -863,7 +876,8 @@
 
 (use-package terraform-mode
   :ensure t
-  :hook ((terraform-mode . terraform-format-on-save-mode)))
+  :hook
+  (terraform-mode . terraform-format-on-save-mode))
 
 (use-package yaml-ts-mode
   :ensure nil
