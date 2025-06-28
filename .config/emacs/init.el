@@ -839,6 +839,8 @@
 
 (use-package css-mode
   :ensure nil
+  :init
+  (add-to-list 'major-mode-remap-alist '(css-mode . css-ts-mode))
   :custom
   (css-indent-offset 2))
 
