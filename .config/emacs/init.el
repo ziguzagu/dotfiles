@@ -510,20 +510,6 @@
   :config
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
-(use-package flycheck
-  :disabled
-  :ensure t
-  :config
-  (global-flycheck-mode t))
-
-(use-package flycheck-popup-tip
-  :disabled
-  :ensure t
-  :config
-  (flycheck-popup-tip-mode)
-  :custom-face
-  (popup-tip-face ((t (:foreground "#5fafd7" :background "#292929")))))
-
 (use-package flymake
   :ensure nil
   :hook
@@ -683,17 +669,6 @@
   (terraform-mode . eglot-ensure)
   :config
   (add-to-list 'eglot-server-programs '(ruby-ts-mode "ruby-lsp")))
-
-(use-package copilot
-  :disabled
-  :vc (:url "https://github.com/copilot-emacs/copilot.el" :rev :newest :branch "main")
-  :ensure t
-  :bind (:map copilot-completion-map
-          ("C-g" . copilot-clear-overlay)
-          ("C-n" . copilot-next-completion)
-          ("C-p" . copilot-previous-completion)
-          ("TAB" . copilot-accept-completion))
-  :hook (prog-mode . copilot-mode))
 
 (use-package ruby-ts-mode
   :ensure nil
