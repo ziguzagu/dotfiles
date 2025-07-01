@@ -459,11 +459,6 @@
   :ensure t
   :bind (("C-c y" . browse-kill-ring)))
 
-(use-package dash-at-point
-  :ensure t
-  :bind (("C-c ." . dash-at-point)
-          ("C-c C-." . dash-at-point-with-docset)))
-
 (use-package sql
   :ensure nil
   :config
@@ -501,29 +496,6 @@
     (when (and buffer-file-name
             (string-equal (file-truename buffer-file-name) (file-truename user-init-file)))
       (setq-local flycheck-disabled-checkers '(emacs-lisp emacs-lisp-checkdoc)))))
-
-(use-package dumb-jump
-  :ensure t
-  :custom
-  (dumb-jump-prefer-searcher 'rg)
-  (dumb-jump-default-project nil)
-  :config
-  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
-
-(use-package flymake
-  :ensure nil
-  :hook
-  (prog-mode . flymake-mode))
-
-(use-package posframe
-  :ensure t)
-
-(use-package flymake-posframe
-  :vc (:url "https://github.com/Ladicle/flymake-posframe.git" :rev :newest)
-  :hook
-  (flymake-mode . flymake-posframe-mode)
-  :custom-face
-  (flymake-posframe-face ((t (:foreground "#5fafd7" :background "#292929")))))
 
 (use-package vc
   :ensure nil
@@ -669,6 +641,34 @@
   (terraform-mode . eglot-ensure)
   :config
   (add-to-list 'eglot-server-programs '(ruby-ts-mode "ruby-lsp")))
+
+(use-package flymake
+  :ensure nil
+  :hook
+  (prog-mode . flymake-mode))
+
+(use-package posframe
+  :ensure t)
+
+(use-package flymake-posframe
+  :vc (:url "https://github.com/Ladicle/flymake-posframe.git" :rev :newest)
+  :hook
+  (flymake-mode . flymake-posframe-mode)
+  :custom-face
+  (flymake-posframe-face ((t (:foreground "#5fafd7" :background "#292929")))))
+
+(use-package dumb-jump
+  :ensure t
+  :custom
+  (dumb-jump-prefer-searcher 'rg)
+  (dumb-jump-default-project nil)
+  :config
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
+
+(use-package dash-at-point
+  :ensure t
+  :bind (("C-c ." . dash-at-point)
+          ("C-c C-." . dash-at-point-with-docset)))
 
 (use-package ruby-ts-mode
   :ensure nil
