@@ -859,9 +859,6 @@
   :bind (:map yaml-ts-mode-map
           ("C-m" . newline-and-indent)))
 
-(use-package docker-compose-mode
-  :ensure t)
-
 (use-package dockerfile-mode
   :ensure t)
 
