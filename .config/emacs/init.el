@@ -915,7 +915,7 @@
   :config
   ;; Display vterm buffer at bottom with 30% height, respecting current buffer
   (add-to-list 'display-buffer-alist
-    '("\\*vterm.*\\*"
+    '("^\\*vterm"
        (display-buffer-below-selected)
        (window-height . 0.3)))
 
@@ -956,7 +956,7 @@
   (claude-code-repl-face ((t (:family "JuliaMono" :weight regular))))
   :config
   (add-to-list 'display-buffer-alist
-    '("^\\*claude:"
+    '("^\\*claude"
        (display-buffer-in-side-window)
        (side . right)
        (window-width . 0.4)))
@@ -965,7 +965,7 @@
   (defun my:claude-code-switch-to-buffer (&rest _)
     "Switch to Claude Code buffer after toggle or start."
     (when-let ((claude-buffer (seq-find (lambda (buf)
-                                          (string-match "^\\*claude:" (buffer-name buf)))
+                                          (string-match "^\\*claude" (buffer-name buf)))
                                 (buffer-list))))
       (when (get-buffer-window claude-buffer)
         (select-window (get-buffer-window claude-buffer)))))
