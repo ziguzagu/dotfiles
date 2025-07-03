@@ -862,6 +862,10 @@
 (use-package dockerfile-mode
   :ensure t)
 
+(use-package conf-mode
+  :ensure nil
+  :mode ("\\.env\\'" . conf-unix-mode))
+
 (use-package org
   :ensure nil
   :bind (("C-c c" . org-capture))
