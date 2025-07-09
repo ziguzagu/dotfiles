@@ -1,1 +1,4 @@
 macos-option-as-alt = true
+
+cursor-style = block
+shell-integration-features = no-cursor
