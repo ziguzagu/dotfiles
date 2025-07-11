@@ -82,7 +82,7 @@
 	publish = !git push -u origin $(git current-branch)
 	unpublish = !git push origin :$(git current-branch)
 	upstream = !git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null
-	s = grep --heading --break --line-number --color=auto --show-function
+	s = grep --heading --break --line-number --color=auto
 	current-branch = branch --show-current
 	default-branch = !basename $(git symbolic-ref --short refs/remotes/$(git remote | grep upstream || echo 'origin')/HEAD)
 
