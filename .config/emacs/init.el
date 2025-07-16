@@ -815,7 +815,7 @@
 
 (use-package web-mode
   :ensure t
-  :mode ("\\.html\\'" "\\.tt\\'" "\\.tx\\'")
+  :mode ("\\.html\\'" "\\.erb\\'" "\\.tt\\'" "\\.tx\\'")
   :custom
   (web-mode-attr-indent-offset nil)
   (web-mode-markup-indent-offset 2)
