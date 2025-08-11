@@ -868,7 +868,7 @@
 
 (use-package org
   :ensure nil
-  :bind (("C-c c" . org-capture))
+  :bind (("C-x m" . org-capture))
   :custom
   (org-directory "~/Dropbox/org/")
   (org-default-notes-file (concat org-directory "notes.org"))
@@ -951,7 +951,7 @@
   :bind (:map claude-code-command-map
           ("b" . my:claude-code-buffer))
   :bind-keymap
-  ("C-c C-l" . claude-code-command-map)
+  ("C-c c" . claude-code-command-map)
   :custom
   ;; setting `(claude-code-term-name "xterm-256color")` doesn't fix color issues
   ;; so set eat-term-name directly
