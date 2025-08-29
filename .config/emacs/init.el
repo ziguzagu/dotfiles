@@ -175,6 +175,7 @@
 (use-package tramp
   :ensure nil
   :custom
+  (tramp-default-method "rsync")
   ;; Improve tramp performance:
   ;; * https://www.gnu.org/software/emacs/manual/html_node/tramp/Frequently-Asked-Questions.html
   ;; * https://www.gnu.org/software/tramp/tramp-emacs.html
