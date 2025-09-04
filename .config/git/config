@@ -63,7 +63,7 @@
 
 [alias]
 	aliases = !git config --get-regexp "alias\\." | perl -pe 's/^alias\\.(\\S+)\\s*/$1 = /'
-	up = !git pull --rebase && git submodule update --init --recursive
+	up = !git pull --rebase && git submodule update --init
 	di = diff
 	dc = diff --cached
 	ci = commit
