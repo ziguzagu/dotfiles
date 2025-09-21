@@ -1,6 +1,8 @@
 cursor-style = block
 shell-integration-features = no-cursor
 
+font-feature = -calt
+
 macos-option-as-alt = true
 
 # keybinds for eamcs
