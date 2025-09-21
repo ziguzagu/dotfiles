@@ -194,6 +194,15 @@
   (persistent-scratch-setup-default)
   (persistent-scratch-autosave-mode 1))
 
+(use-package replace
+  :ensure nil
+  :bind (:prefix-map my:replace-command-map
+          :prefix-docstring "My replace command map"
+          :prefix "C-c q"
+          ("q" . query-replace)
+          ("r" . query-replace-regexp)
+          ("s" . replace-string)))
+
 (use-package dired
   :ensure nil
   :bind (:map dired-mode-map
