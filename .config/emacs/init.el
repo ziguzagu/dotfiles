@@ -408,8 +408,7 @@
 
 (use-package projectile
   :ensure t
-  :bind (("C-x f" . projectile-find-file-dwim)
-          ("C-x p" . projectile-switch-project))
+  :bind ("C-x f" . projectile-find-file-dwim)
   :bind-keymap
   ("C-c p" . projectile-command-map)
   :config
