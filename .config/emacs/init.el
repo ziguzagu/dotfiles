@@ -592,6 +592,7 @@
           :map magit-blame-mode-map
           ("8" . my:open-pr-at-line-magit))
   :hook
+  (git-commit-setup . git-commit-turn-on-autofill)
   (git-commit-setup . git-commit-turn-on-flyspell)
   :custom
   ;; 50/72 rules
