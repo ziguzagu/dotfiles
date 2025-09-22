@@ -438,7 +438,7 @@
 (use-package consult
   :ensure t
   :bind (("C-x b" . consult-buffer)
-          ("C-c f" . consult-find)
+          ("C-c f" . consult-flymake)
           ("C-c g" . my:consult-git-grep-dwim)
           ("C-c s" . consult-line)
           ("C-c j" . consult-imenu))
