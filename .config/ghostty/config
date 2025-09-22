@@ -15,6 +15,5 @@ keybind = cmd+o=esc:o
 keybind = cmd+p=esc:p
 keybind = cmd+shift+,=esc:<
 keybind = cmd+shift+.=esc:>
-keybind = cmd+v=esc:v
 keybind = cmd+w=esc:w
 keybind = cmd+x=esc:x
