@@ -597,7 +597,6 @@
   :custom
   ;; 50/72 rules
   (git-commit-summary-max-length 50)
-  (git-commit-fill-column 72)
   ;; blame
   (magit-blame-read-only t)
   (magit-blame-styles '((margin
