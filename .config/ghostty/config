@@ -1,3 +1,5 @@
+confirm-close-surface = false
+
 cursor-style = block
 shell-integration-features = no-cursor
 
@@ -17,3 +19,4 @@ keybind = cmd+shift+,=esc:<
 keybind = cmd+shift+.=esc:>
 keybind = cmd+w=esc:w
 keybind = cmd+x=esc:x
+
