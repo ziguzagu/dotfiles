@@ -513,6 +513,20 @@
           ("a" . my:vc-git-add)
           ("u" . my:vc-git-reset)
           ("r" . vc-revert))
+  :init
+  (defun my:vc-git-log-edit-setup ()
+    "Setup commit message editing."
+    (setq-local fill-column 72)
+    (auto-fill-mode 1))
+
+  (defun my:commit-editmsg-setup ()
+    "Setup COMMIT_EDITMSG buffer."
+    (when (equal (file-name-nondirectory buffer-file-name) "COMMIT_EDITMSG")
+      (unless (derived-mode-p 'text-mode)
+        (text-mode))
+      (my:vc-git-log-edit-setup)))
+
+  (add-hook 'find-file-hook #'my:commit-editmsg-setup)
   :hook
   (vc-git-log-edit-mode . my:vc-git-log-edit-setup)
   :custom
@@ -551,12 +565,7 @@
     "Unstage files with git reset."
     (interactive "P")
     (my:vc-git-command "Unstaged"
-      (lambda (files) (vc-git-command nil 0 files "reset" "-q" "--"))))
-
-  (defun my:vc-git-log-edit-setup ()
-    "Setup for git commit editing with 50/72 rules."
-    (setq fill-column 72)
-    (auto-fill-mode 1)))
+      (lambda (files) (vc-git-command nil 0 files "reset" "-q" "--")))))
 
 (use-package vc-dir
   :ensure nil
