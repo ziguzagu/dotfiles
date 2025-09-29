@@ -5,6 +5,10 @@ shell-integration-features = no-cursor
 
 font-feature = -calt
 
+# set window to about 40% width and maximum height of my main display (DELL P2223HC)
+window-width = 96
+window-height = 56
+
 macos-option-as-alt = true
 
 # keybinds for eamcs using cmd as meta
