@@ -7,7 +7,7 @@ font-feature = -calt
 
 macos-option-as-alt = true
 
-# keybinds for eamcs
+# keybinds for eamcs using cmd as meta
 keybind = cmd+,=esc:,
 keybind = cmd+.=esc:.
 keybind = cmd+/=esc:/
@@ -19,4 +19,3 @@ keybind = cmd+shift+,=esc:<
 keybind = cmd+shift+.=esc:>
 keybind = cmd+w=esc:w
 keybind = cmd+x=esc:x
-
