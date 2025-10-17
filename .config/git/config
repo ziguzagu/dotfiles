@@ -85,6 +85,7 @@
 	s = grep --heading --break --line-number --color=auto
 	current-branch = branch --show-current
 	default-branch = !basename $(git symbolic-ref --short refs/remotes/$(git remote | grep upstream || echo 'origin')/HEAD)
+	history = log --pretty='format:%C(green)%cs%C(reset) %C(yellow)%h%C(reset) %C(white bold)%<(12,trunc)%an%C(reset) %s'
 
 [push]
 	default = current
