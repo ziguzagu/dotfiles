@@ -145,11 +145,10 @@
        (json "https://github.com/tree-sitter/tree-sitter-json")
        (ruby "https://github.com/tree-sitter/tree-sitter-ruby")
        (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
-       (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
-       (yaml "https://github.com/ikatyang/tree-sitter-yaml")))
+       (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")))
 
   ;; install grammars
-  (dolist (lang '(css javascript json ruby tsx typescript yaml))
+  (dolist (lang '(css javascript json ruby tsx typescript))
     (unless (treesit-language-available-p lang)
       (ignore-errors
         (treesit-install-language-grammar lang)))))
@@ -872,10 +871,9 @@
   :hook
   (terraform-mode . terraform-format-on-save-mode))
 
-(use-package yaml-ts-mode
-  :ensure nil
-  :bind (:map yaml-ts-mode-map
-          ("C-m" . newline-and-indent)))
+(use-package yaml-mode
+  :ensure t
+  :bind (("C-m" . newline-and-indent)))
 
 (use-package dockerfile-mode
   :ensure t)
