@@ -887,7 +887,7 @@
   :ensure nil
   :bind (("C-x m" . org-capture))
   :custom
-  (org-directory "~/Dropbox/org/")
+  (org-directory "~/Library/Mobile Documents/Documents/org/")
   (org-default-notes-file (concat org-directory "notes.org"))
   (org-startup-truncated nil)
   (org-startup-folded nil)
