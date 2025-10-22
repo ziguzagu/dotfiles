@@ -593,6 +593,7 @@
       (shell-command (concat "git hub open " rev)))))
 
 (use-package magit
+  :disabled
   :ensure t
   :bind (("C-x v s" . magit-status)
           ("C-x v =" . my:magit-diff-unstaged)
