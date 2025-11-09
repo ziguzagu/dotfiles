@@ -4,7 +4,7 @@ export XDG_DATA_HOME=$HOME/.local/share
 
 export LANG=en_US.UTF-8
 
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 export PAGER=less
 
