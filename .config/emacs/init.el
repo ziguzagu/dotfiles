@@ -32,6 +32,7 @@
           ("C-r" . isearch-backward-regexp)
           ("C-s" . isearch-forward-regexp)
           ("C-x C-b" . ibuffer)
+          ("C-t" . nil) ;; I make typos a lot, but I never intentionally transpose-chars
           ("M-/" . hippie-expand)
           ("M-d" . my:delete-word-at-point)
           ("M-n" . scroll-up)
