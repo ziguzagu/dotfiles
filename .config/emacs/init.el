@@ -950,11 +950,6 @@
     (interactive)
     (vterm-send-key "u" nil nil t))
 
-  (add-hook 'vterm-mode-hook
-    (lambda ()
-      ;; JuliaMono has excellent Unicode symbols support and Claude Code uses its thinking icons
-      (face-remap-add-relative 'default :family "JuliaMono" :weight 'regular)))
-
   ;; Delete vterm buffer and window when the process is killed
   (add-hook 'vterm-exit-functions
     (lambda (buffer event)

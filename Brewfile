@@ -61,4 +61,4 @@ cask 'monitorcontrol'
 cask 'session-manager-plugin'
 cask 'slack'
 
-cask 'font-juliamono' # using for vterm with claude code
+cask 'font-juliamono' # use with claude-code.el
