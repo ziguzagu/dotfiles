@@ -292,9 +292,6 @@
   ;; Improve tramp performance: https://www.gnu.org/software/emacs/manual/html_node/tramp/Frequently-Asked-Questions.html
   (remote-file-name-inhibit-locks t)
   :config
-  ;; macOS ls doesn't support some options like --group-directories-first, so use coreutils ls both on macOS and Linux
-  (when (eq system-type 'darwin)
-    (setq insert-directory-program "gls"))
   ;; I don't want to see backup files in the same directory
   (let ((my-backup-dir (expand-file-name (format "emacs%d/backup" (user-uid)) temporary-file-directory)))
     (setq backup-directory-alist `((".*" . ,my-backup-dir)))
