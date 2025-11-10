@@ -591,48 +591,6 @@
             (rev (car rev-at-line)))
       (shell-command (concat "git hub open " rev)))))
 
-(use-package magit
-  :disabled
-  :ensure t
-  :bind (("C-x v s" . magit-status)
-          ("C-x v =" . my:magit-diff-unstaged)
-          ("C-x v g" . my:magit-blame-toggle)
-          :map magit-blame-mode-map
-          ("8" . my:open-pr-at-line-magit))
-  :hook
-  (git-commit-setup . git-commit-turn-on-autofill)
-  (git-commit-setup . git-commit-turn-on-flyspell)
-  :custom
-  ;; 50/72 rules
-  (git-commit-summary-max-length 50)
-  ;; blame
-  (magit-blame-read-only t)
-  (magit-blame-styles '((margin
-                          (margin-format . ("%.8H %.10C %.12a"))
-                          (margin-width . 33)
-                          (margin-face . magit-blame-margin)
-                          (margin-body-face . magit-blame-dimmed))))
-  :config
-  (defun my:magit-diff-unstaged ()
-    "Show unstaged changes in magit without prompting."
-    (interactive)
-    (magit-diff-unstaged))
-
-  (defun my:magit-blame-toggle ()
-    "Toggle magit blame mode like vc-annotate."
-    (interactive)
-    (if (bound-and-true-p magit-blame-mode)
-      (magit-blame-quit)
-      (magit-blame-addition "HEAD")))
-
-  (defun my:open-pr-at-line-magit ()
-    "Open Pull Request URL at the line from magit blame output."
-    (interactive)
-    (when (derived-mode-p 'magit-blame-mode)
-      (let ((rev (magit-blame-chunk-get :hash)))
-        (when rev
-          (shell-command (concat "git hub open " rev)))))))
-
 (use-package browse-at-remote
   :ensure t
   :bind (:map vc-prefix-map
