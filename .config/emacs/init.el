@@ -833,6 +833,11 @@
   :ensure t
   :bind (("C-m" . newline-and-indent)))
 
+(use-package yaml-imenu-mode
+  :ensure t
+  :config
+  (yaml-imenu-enable))
+
 (use-package dockerfile-mode
   :ensure t)
 
