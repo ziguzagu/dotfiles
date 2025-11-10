@@ -11,6 +11,8 @@
      (display-buffer-no-window)
      (allow-no-window . t)))
 
+(setq custom-file (expand-file-name "custom.el" temporary-file-directory))
+
 (use-package exec-path-from-shell
   :ensure t
   :config
@@ -47,8 +49,6 @@
   :custom-face
   (default ((t (:family "Source Han Code JP" :height 120 :weight regular))))
   (fixed-pitch ((t (:inherit default))))
-  :init
-  (setq custom-file (expand-file-name "custom.el" temporary-file-directory))
   :config
   (menu-bar-mode -1)
   (context-menu-mode 1)
