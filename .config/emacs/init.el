@@ -833,7 +833,7 @@
   :ensure t
   :bind (("C-m" . newline-and-indent)))
 
-(use-package yaml-imenu-mode
+(use-package yaml-imenu
   :ensure t
   :config
   (yaml-imenu-enable))
