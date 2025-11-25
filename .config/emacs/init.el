@@ -695,11 +695,14 @@
   :ensure t
   :custom
   (rspec-use-relative-path t)
+  (rspec-use-docker-where-possible t)
   (rspec-docker-file-name "compose.yaml")
+  (rspec-docker-container "app")
   ;; Most projects use Compose and have a Rails server running during development
   (rspec-docker-command "docker compose exec")
   ;; Use binstub to run RSpec to use Spring for faster startup
   (rspec-use-bundler-when-possible nil)
+  (rspec-use-spring-when-possible nil)
   (rspec-spec-command "bin/rspec")
   :config
   (rspec-install-snippets))
