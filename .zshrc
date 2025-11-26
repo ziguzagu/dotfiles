@@ -4,6 +4,11 @@ if [[ $ZPROF == 'true' ]]; then
     zmodload zsh/zprof
 fi
 
+ZSH_CACHE_DIR="$HOME/.cache/zsh"
+if [[ ! -d $ZSH_CACHE_DIR ]]; then
+  mkdir -p $ZSH_CACHE_DIR
+fi
+
 bindkey -e
 
 # Changing Directories
@@ -132,14 +137,15 @@ if [[ -d $HOMEBREW_PREFIX/share/zsh-completions ]]; then
 fi
 
 autoload -Uz compinit
-ZCOMPDUMP=~/.cache/zsh/zcompdump-$ZSH_VERSION
+ZCOMPDUMP="${ZSH_CACHE_DIR}/zcompdump-${ZSH_VERSION}"
 if [[ -n $ZCOMPDUMP(#qN.mh+24) ]]; then
     compinit -d $ZCOMPDUMP
 else
     compinit -d $ZCOMPDUMP -C
 fi
 
-zstyle ':completion:*' cache-patch ~/.cache/zsh/zcompcache
+zstyle ':completion:*' use-cache yes
+zstyle ':completion:*' cache-path "${ZSH_CACHE_DIR}/zcompcache"
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' ignore-parents parent pwd ..
