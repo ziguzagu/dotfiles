@@ -50,9 +50,6 @@ fi
 if [[ -x "$(which rbenv)" ]] && [[ -z "$RBENV_SHELL" ]]; then
     eval "$(rbenv init -)"
 fi
-if [[ -d "$HOME/.embulk/bin" ]]; then
-    export PATH="$HOME/.embulk/bin:$PATH"
-fi
 typeset -U PATH
 
 # Environment Variables
