@@ -61,4 +61,5 @@ cask 'monitorcontrol'
 cask 'session-manager-plugin'
 cask 'slack'
 
-cask 'font-juliamono' # use with claude-code.el
+cask 'font-jetbrains-mono-nerd-font' # use with claude-code.el
+cask 'font-source-han-code-jp'

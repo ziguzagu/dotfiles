@@ -934,7 +934,7 @@
   ;; so set eat-term-name directly
   (eat-term-name "xterm-256color")
   :custom-face
-  (claude-code-repl-face ((t (:family "JuliaMono" :weight regular))))
+  (claude-code-repl-face ((t (:family "JetBrainsMono Nerd Font" :weight regular))))
   :config
   (add-to-list 'display-buffer-alist
     '("^\\*claude"
