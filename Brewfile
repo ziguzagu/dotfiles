@@ -52,7 +52,6 @@ cask 'claude'
 cask 'claude-code'
 cask 'dash'
 cask 'docker-desktop'
-cask 'emacs-app'
 cask 'firefox'
 cask 'gcloud-cli'
 cask 'ghostty'
@@ -65,3 +64,6 @@ cask 'slack'
 
 cask 'font-jetbrains-mono-nerd-font' # use with claude-code.el
 cask 'font-source-han-code-jp'
+
+tap 'd12frosted/emacs-plus'
+brew 'emacs-plus'
