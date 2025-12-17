@@ -342,7 +342,7 @@ fzf-jump-directory() {
     zle accept-line
 }
 zle -N fzf-jump-directory
-bindkey '^]' fzf-jump-directory
+bindkey '^xj' fzf-jump-directory
 
 # find strings from current tmux pane
 fzf-find-strings-from-tmux-pane() {
