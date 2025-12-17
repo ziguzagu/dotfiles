@@ -353,37 +353,6 @@ fzf-find-strings-from-tmux-pane() {
 zle -N fzf-find-strings-from-tmux-pane
 bindkey '^o' fzf-find-strings-from-tmux-pane
 
-# find perl modules of core and bundled by carton
-fzf-find-perl-module() {
-    local -a candidates
-
-    # Find core perl modules using _perl_modules zsh completion
-    #
-    # XXX: override _wanted to capture module list _perl_modules generates
-    local code_wanted="${functions[_wanted]}"
-    _wanted() {
-        candidates=("${(P@)${@[7]}}")
-    }
-    # required by _perl_modules
-    local -a words=(perldoc)
-    _perl_modules
-
-    # restore original function
-    eval "function _wanted() { $code_wanted }"
-
-    # find local modules installed by carton into local/lib/perl5
-    if [[ -d local/lib/perl5 ]]; then
-        candidates+=($(find local/lib/perl5 -type f -name '*.pm' -or -name '*.pod'))
-    fi
-
-    # doing fzf
-    local pm="$(print -l $candidates | fzf +m)"
-    LBUFFER+="$pm"
-    zle reset-prompt
-}
-zle -N fzf-find-perl-module
-bindkey '^x^p' fzf-find-perl-module
-
 ########################################
 ## Misc
 ########################################
