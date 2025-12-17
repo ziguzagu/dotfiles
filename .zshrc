@@ -248,7 +248,7 @@ if type -p fzf >/dev/null 2>&1; then
     source "$HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh"
 fi
 
-# search from history
+# find a history
 fzf-history() {
     local cmd="$(fc -lnr 1 | fzf +m -e --tiebreak=index --bind=ctrl-r:down --bind=ctrl-s:up --query=$LBUFFER)"
     if [[ -z "$cmd" ]]; then
@@ -266,7 +266,7 @@ git-repo() {
     git rev-parse --git-dir >& /dev/null
 }
 
-# select files and directories in current directory
+# find a file/directory in the current directory
 fzf-ls() {
     set -o pipefail
     local -a list=($(gls -AlhFX --group-directories-first \
@@ -282,7 +282,7 @@ fzf-ls() {
 zle -N fzf-ls
 bindkey '^x^f' fzf-ls
 
-# search from git ls-files
+# find a file with git ls-files
 fzf-git-ls-files() {
     git-repo || return
     local -a files=($(git ls-files \
@@ -298,7 +298,7 @@ fzf-git-ls-files() {
 zle -N fzf-git-ls-files
 bindkey '^xf' fzf-git-ls-files
 
-# select untracked files or changed files
+# find a untracked/changed file
 fzf-git-untracked-or-changed-files() {
     git-repo || return
     set -o pipefail
@@ -311,7 +311,7 @@ fzf-git-untracked-or-changed-files() {
 zle -N fzf-git-untracked-or-changed-files
 bindkey '^xv' fzf-git-untracked-or-changed-files
 
-# git switch to selected branches in recent used
+# find a branch and switch the current branch
 fzf-git-switch-recent-branch() {
     git-repo || return
     local branch="$(git for-each-ref --format='%(refname:short)' --sort=-committerdate refs/heads | fzf +m -e --tiebreak=index)"
@@ -326,7 +326,7 @@ fzf-git-switch-recent-branch() {
 zle -N fzf-git-switch-recent-branch
 bindkey '^xb' fzf-git-switch-recent-branch
 
-# jump to directory selected from ghq / cdr
+# find a directory from ghq/cdr and change directory
 fzf-jump-directory() {
     local -a dirs=(
         $(cdr -l | perl -pe 's/^\d+\s+//')
@@ -344,7 +344,7 @@ fzf-jump-directory() {
 zle -N fzf-jump-directory
 bindkey '^xj' fzf-jump-directory
 
-# find strings from current tmux pane
+# find a string from current tmux pane
 fzf-find-strings-from-tmux-pane() {
     local -a strings=($(tmux capture-pane -p -S -40 | words | fzf --reverse +m -e --tiebreak=index))
     LBUFFER+=$strings
