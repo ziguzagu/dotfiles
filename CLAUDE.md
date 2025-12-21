@@ -42,7 +42,7 @@ This is a personal dotfiles repository that manages development environment conf
 
 ### Configuration Structure
 - `.config/` - XDG-style configuration files for various tools
-- `bin/` - Custom utility scripts added to PATH
+- `.local/bin/` - Custom utility scripts (automatically added to PATH)
 - `Brewfile` - Homebrew package definitions
 - Root level dotfiles (like `.zshrc`, `.gitconfig`) symlinked directly
 
@@ -68,7 +68,7 @@ When reviewing changes to this repository, verify:
 - Brewfile entries are alphabetically sorted within their groups (brew, cask, font)
 - New configuration files follow XDG standards (.config/ when applicable)
 - Make targets are documented in help output
-- Custom scripts are executable and added to bin/
+- Custom scripts are executable and added to .local/bin/
 - Symlink paths correctly mirror repository structure to $HOME
 - No hardcoded absolute paths (use $HOME variable)
 - Shell scripts use zsh built-ins or BSD-compatible commands
@@ -155,7 +155,7 @@ When reviewing changes to this repository, verify:
 - `.editorconfig` - Format consistency rules for all file types
 - `.install-ignore` - Files excluded from symlink installation
 - `.config/` - XDG Base Directory compliant configurations
-- `bin/` - Custom utility scripts (automatically added to PATH)
+- `.local/bin/` - Custom utility scripts (automatically added to PATH)
 - `.zshrc` - Shell configuration and environment setup
 - `.gitconfig` - Git settings and custom command aliases
 
