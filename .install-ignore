@@ -1,7 +1,8 @@
+*.json
 *.md
-!.config/claude/CLAUDE.md
 *.terminfo
 *.txt
+!.claude/CLAUDE.md
 .editorconfig
 .git-blame-ignore-revs
 .install-ignore
