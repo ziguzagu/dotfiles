@@ -13,9 +13,12 @@ This file provides global configuration and instructions for Claude Code when wo
 
 - **Platform**: macOS with BSD commands (not GNU)
 - **Shell**: zsh with syntax highlighting and completions
+- **Terminal**: Ghostty with 24-bit color support
 - **Editor**: Emacs with extensive language support
 - **Package Manager**: Homebrew preferred for development tools
 - **Version Control**: Git with delta integration
+- **Version Managers**: rbenv (Ruby), plenv (Perl), tfenv (Terraform), nvm (Node.js)
+- **Secret Management**: 1Password CLI (`op`) for secure credential handling
 
 ## Code Style Standards
 
@@ -29,8 +32,12 @@ This file provides global configuration and instructions for Claude Code when wo
 
 - **Search**: Use ripgrep (`rg`) over `grep`
 - **File Operations**: Use `fd` over `find` when available
+- **File Viewing**: Use `bat` over `cat` for syntax highlighting
 - **JSON Processing**: Use `jq` for JSON manipulation
 - **GitHub**: Use `gh` command for all GitHub operations (issues, PRs, repos, etc.)
+- **Git UI**: Use `tig` for interactive git browsing
+- **Environment Management**: Use `direnv` for project-specific environment variables
+- **Language Servers**: Utilize LSP servers (terraform-ls, typescript-language-server) when available
 
 ## Task Management
 
@@ -46,3 +53,24 @@ This file provides global configuration and instructions for Claude Code when wo
 - Use GitHub-flavored markdown for formatting
 - Include file references as `file_path:line_number` when relevant
 - No unnecessary preamble or explanations unless asked
+
+## Security & Secrets
+
+- Never hardcode credentials - use 1Password CLI or environment variables
+- Use `direnv` with `.envrc` for project-specific secrets (ensure `.envrc` is in `.gitignore`)
+- Verify sensitive files (`.env`, `.envrc`, credentials) are excluded from version control
+- Use `op` command for secure credential retrieval when needed
+
+## Version Management
+
+- Use language-specific version managers (rbenv, plenv, tfenv, nvm) instead of system packages
+- Never install language packages globally without version manager
+- Project `.tool-versions`, `.ruby-version`, or `.node-version` files take precedence
+- Keep version manager configs in dotfiles for consistency across projects
+
+## Claude Code Integration
+
+- Global configuration in `~/.claude/CLAUDE.md` (this file)
+- Project-specific instructions in `CLAUDE.md` at repository root
+- Use MCP servers when available for extended capabilities
+- Prefer project CLAUDE.md for repository-specific patterns and conventions
