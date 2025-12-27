@@ -50,6 +50,11 @@ fi
 if [[ -x "$(which rbenv)" ]] && [[ -z "$RBENV_SHELL" ]]; then
     eval "$(rbenv init -)"
 fi
+if [[ -f "/opt/homebrew/opt/nvm/nvm.sh" ]]; then
+  export NVM_DIR="${XDG_DATA_HOME}/nvm"
+  source "/opt/homebrew/opt/nvm/nvm.sh"
+  source "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+fi
 typeset -U PATH
 
 # Environment Variables

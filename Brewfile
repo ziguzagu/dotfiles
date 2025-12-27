@@ -23,6 +23,7 @@ brew 'libtool' # vterm build dependency
 brew 'mtr'
 brew 'node'
 brew 'noti'
+brew 'nvm'
 brew 'perl-build'
 brew 'plenv'
 brew 'prettier'
