@@ -4,6 +4,8 @@ cursor-style = block
 shell-integration-features = no-cursor
 
 font-feature = -calt
+font-feature = -dlig
+font-feature = -liga
 
 # set window to about 40% width and maximum height of my main display (DELL P2223HC)
 window-width = 96
