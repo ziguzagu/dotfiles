@@ -32,6 +32,26 @@ keyrepeat: ## Set my best key repeat settings
 rainbow: ## Test terminal's 24-bit color support
 	curl -s https://raw.githubusercontent.com/gnachman/iTerm2/master/tests/24-bit-color.sh | bash
 
+check-deadlinks: ## Check for broken symlinks pointing to this repository
+	@echo "Checking for dead symlinks pointing to $(basedir)..."; \
+	deadlinks=$$(find $(HOME)/.config $(HOME)/.local -type l 2>/dev/null; \
+	            find $(HOME) -maxdepth 1 -name '.*' -type l 2>/dev/null); \
+	found=0; \
+	for link in $${=deadlinks}; do \
+		if [ ! -e "$$link" ]; then \
+			target=$$(readlink "$$link"); \
+			case "$$target" in \
+				$(basedir)*) \
+					[ $$found -eq 0 ] && echo "Found dead symlinks:"; \
+					echo "  $$link -> $$target"; \
+					found=1; \
+					;; \
+			esac; \
+		fi; \
+	done; \
+	[ $$found -eq 0 ] && echo "No dead symlinks found"; \
+	exit 0
+
 .PHONY: help
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
