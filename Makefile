@@ -1,11 +1,10 @@
 ## -*- mode: makefile-gmake; -*-
 SHELL = /bin/zsh
 
-home    = $(HOME)/
 datadir = $(HOME)/.local/share
 basedir = $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
 sources = $(shell cat <(git ls-files) <(git ls-files -ic -X .install-ignore) | sort | uniq -u)
-targets = $(addprefix $(home),$(sources))
+targets = $(addprefix $(HOME)/,$(sources))
 
 .DEFAULT_GOAL := help
 
@@ -14,7 +13,7 @@ install: $(targets) ## Install dot files into $HOME as symlink
 
 $(targets):
 	@mkdir -m 700 -p $(dir $@)
-	ln -s $(subst $(home),$(basedir),$@) $@
+	ln -s $(subst $(HOME)/,$(basedir),$@) $@
 
 terminfo: ## Install extra terminfo missing of macOS
 	tic -x 24bit.terminfo
