@@ -13,7 +13,7 @@ window-height = 56
 
 macos-option-as-alt = true
 
-# keybinds for eamcs using cmd as meta
+# keybinds for Emacs
 keybind = cmd+,=esc:,
 keybind = cmd+.=esc:.
 keybind = cmd+/=esc:/
