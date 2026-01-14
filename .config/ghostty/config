@@ -25,6 +25,7 @@ keybind = cmd+shift+,=esc:<
 keybind = cmd+shift+.=esc:>
 keybind = cmd+w=esc:w
 keybind = cmd+x=esc:x
+keybind = ctrl+m=text:\n
 
 # to add newlines in claude code
 keybind = shift+enter=text:\x1b\r
