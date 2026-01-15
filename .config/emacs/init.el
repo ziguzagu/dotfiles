@@ -102,6 +102,8 @@
 
 (use-package monokai-theme
   :ensure t
+  :custom-face
+  (mode-line-inactive ((t (:background "#3E3D32"))))
   :config
   (load-theme 'monokai t))
 
