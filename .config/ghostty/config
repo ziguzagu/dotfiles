@@ -22,6 +22,7 @@ keybind = cmd+,=esc:,
 keybind = cmd+.=esc:.
 keybind = cmd+/=esc:/
 keybind = cmd+d=esc:d
+keybind = cmd+g=esc:g
 keybind = cmd+n=esc:n
 keybind = cmd+o=esc:o
 keybind = cmd+p=esc:p
