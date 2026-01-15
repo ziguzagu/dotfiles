@@ -214,6 +214,7 @@
   (dired-mode . dired-hide-details-mode)
   (dired-mode . hl-line-mode)
   :custom
+  (insert-directory-program "gls")
   (dired-listing-switches "-AlhXF --color=auto --group-directories-first")
   (dired-recursive-copies 'always)
   (dired-recursive-deletes 'always)
