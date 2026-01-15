@@ -52,6 +52,8 @@
   :config
   (menu-bar-mode -1)
   (context-menu-mode 1)
+  (unless (display-graphic-p)
+    (xterm-mouse-mode 1))
 
   (setq-default tab-width 4)
   (setq-default indent-tabs-mode nil)
