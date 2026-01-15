@@ -159,7 +159,7 @@
   :ensure nil
   :custom
   (whitespace-style '(face tabs tab-mark trailing))
-  (whitespace-global-modes '(not dired-mode go-mode eat-mode vterm-mode))
+  (whitespace-global-modes '(not dired-mode go-mode))
   :config
   (global-whitespace-mode t))
 
@@ -888,77 +888,6 @@
   :after ox)
 
 (use-package groovy-mode)
-
-(use-package vterm
-  :ensure t
-  :bind (("C-c t" . vterm)
-          ("C-c T" . vterm-other-window)
-          :map vterm-mode-map
-          ("C-l" . my:vterm-send-c-l)
-          ("C-u" . my:vterm-send-c-u))
-  :custom
-  (vterm-max-scrollback 10000)
-  (vterm-buffer-name-string "vterm %s")
-  :config
-  ;; Display vterm buffer at bottom with 30% height, respecting current buffer
-  (add-to-list 'display-buffer-alist
-    '("^\\*vterm"
-       (display-buffer-below-selected)
-       (window-height . 0.3)))
-
-  (defun my:vterm-send-c-l ()
-    "Send C-l directly to terminal for zsh clear-screen behavior."
-    (interactive)
-    (vterm-send-key "l" nil nil t))
-
-  (defun my:vterm-send-c-u ()
-    "Send C-u directly to terminal for zsh kill-whole-line behavior."
-    (interactive)
-    (vterm-send-key "u" nil nil t))
-
-  ;; Delete vterm buffer and window when the process is killed
-  (add-hook 'vterm-exit-functions
-    (lambda (buffer event)
-      (when-let ((window (get-buffer-window buffer)))
-        (delete-window window))
-      (kill-buffer buffer))))
-
-(use-package claude-code
-  :vc (:url "https://github.com/stevemolitor/claude-code.el" :rev :newest)
-  :ensure t
-  :bind (:map claude-code-command-map
-          ("b" . my:claude-code-buffer))
-  :bind-keymap
-  ("C-c c" . claude-code-command-map)
-  :custom
-  ;; setting `(claude-code-term-name "xterm-256color")` doesn't fix color issues
-  ;; so set eat-term-name directly
-  (eat-term-name "xterm-256color")
-  :custom-face
-  (claude-code-repl-face ((t (:family "Moralerspace Argon" :weight regular))))
-  :config
-  (add-to-list 'display-buffer-alist
-    '("^\\*claude"
-       (display-buffer-in-side-window)
-       (side . right)
-       (window-width . 0.4)))
-
-  ;; Advice to switch to Claude buffer after toggle or start
-  (defun my:claude-code-switch-to-buffer (&rest _)
-    "Switch to Claude Code buffer after toggle or start."
-    (when-let ((claude-buffer (seq-find (lambda (buf)
-                                          (string-match "^\\*claude" (buffer-name buf)))
-                                (buffer-list))))
-      (when (get-buffer-window claude-buffer)
-        (select-window (get-buffer-window claude-buffer)))))
-
-  (advice-add 'claude-code-toggle :after #'my:claude-code-switch-to-buffer)
-  (advice-add 'claude-code :after #'my:claude-code-switch-to-buffer)
-
-  (defun my:claude-code-buffer ()
-    "Send entire buffer to Claude Code."
-    (interactive)
-    (claude-code-send-region (point-min) (point-max))))
 
 (eval-and-compile
   ;; load additional config per machine
