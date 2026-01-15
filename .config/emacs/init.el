@@ -394,8 +394,9 @@
   (corfu-popupinfo-delay '(0.8 . 0.3))
   :config
   (global-corfu-mode)
-  (corfu-popupinfo-mode)
-  (corfu-history-mode))
+  (corfu-history-mode)
+  (when (display-graphic-p)
+    (corfu-popupinfo-mode)))
 
 (use-package cape
   :ensure t
@@ -624,9 +625,11 @@
   (prog-mode . flymake-mode))
 
 (use-package posframe
+  :if (display-graphic-p)
   :ensure t)
 
 (use-package flymake-posframe
+  :if (display-graphic-p)
   :vc (:url "https://github.com/Ladicle/flymake-posframe.git" :rev :newest)
   :hook
   (flymake-mode . flymake-posframe-mode)
