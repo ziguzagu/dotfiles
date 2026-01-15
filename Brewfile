@@ -54,6 +54,8 @@ cask 'claude-code'
 cask 'dash'
 cask 'docker-desktop'
 cask 'firefox'
+cask 'font-moralerspace'
+cask 'font-source-han-code-jp'
 cask 'gcloud-cli'
 cask 'ghostty'
 cask 'google-chrome'
@@ -62,9 +64,6 @@ cask 'keepingyouawake'
 cask 'monitorcontrol'
 cask 'session-manager-plugin'
 cask 'slack'
-
-cask 'font-jetbrains-mono-nerd-font' # use with claude-code.el
-cask 'font-source-han-code-jp'
 
 tap 'd12frosted/emacs-plus'
 brew 'emacs-plus'

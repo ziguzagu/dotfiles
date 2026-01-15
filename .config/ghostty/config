@@ -3,6 +3,10 @@ confirm-close-surface = false
 cursor-style = block
 shell-integration-features = no-cursor
 
+font-family = Moralerspace Argon
+adjust-cell-height = 1
+alpha-blending = linear
+
 font-feature = -calt
 font-feature = -dlig
 font-feature = -liga
