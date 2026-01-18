@@ -396,8 +396,9 @@
   (corfu-preview-current nil)
   (corfu-min-width 20)
   (corfu-popupinfo-delay '(0.8 . 0.3))
-  :config
+  :init
   (global-corfu-mode)
+  :config
   (corfu-history-mode)
   (when (display-graphic-p)
     (corfu-popupinfo-mode)))
