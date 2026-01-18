@@ -409,12 +409,11 @@
   :custom
   (cape-dabbrev-min-length 3)
   (cape-dabbrev-check-other-buffers t)
-  :config
+  :init
   ;; Add global completion functions
   (add-hook 'completion-at-point-functions #'cape-dabbrev)
   (add-hook 'completion-at-point-functions #'cape-file)
   (add-hook 'completion-at-point-functions #'cape-keyword)
-
   ;; Add mode-specific completions
   (add-hook 'emacs-lisp-mode-hook
     (lambda ()
