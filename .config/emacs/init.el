@@ -431,7 +431,7 @@
   :ensure t
   :custom
   (vertico-count 15)
-  :config
+  :init
   (vertico-mode))
 
 (use-package savehist
