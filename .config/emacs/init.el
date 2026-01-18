@@ -403,6 +403,13 @@
   (when (display-graphic-p)
     (corfu-popupinfo-mode)))
 
+(use-package corfu-terminal
+  :unless (display-graphic-p)
+  :ensure t
+  :after corfu
+  :config
+  (corfu-terminal-mode +1))
+
 (use-package cape
   :ensure t
   :bind ("C-o" . cape-dabbrev)
