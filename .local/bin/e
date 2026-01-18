@@ -3,10 +3,10 @@
 set -eu -o pipefail
 
 if [[ -n $TMUX ]]; then
-    window=$(cat "${TMPDIR}emacs-server-window" 2>/dev/null || true)
-    if [[ -n $window ]]; then
-        tmux select-window -t $window\; select-pane -t 0
-    fi
+  window=$(cat "${TMPDIR}emacs-server-window" 2>/dev/null || true)
+  if [[ -n $window ]]; then
+    tmux select-window -t $window\; select-pane -t 0
+  fi
 fi
 
 

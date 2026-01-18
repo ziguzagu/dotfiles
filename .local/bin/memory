@@ -5,14 +5,14 @@
 set -eu -o pipefail
 
 if [[ -x "$(which vm_stat)" ]]; then
-    typeset -A stat
-    stat=($(vm_stat | awk -F': +' '/^Pages/ {gsub("Pages ", "", $1); gsub(" ", "_", $1); gsub("\\.", "", $2); print $1" "$2}'))
+  typeset -A stat
+  stat=($(vm_stat | awk -F': +' '/^Pages/ {gsub("Pages ", "", $1); gsub(" ", "_", $1); gsub("\\.", "", $2); print $1" "$2}'))
 
-    free=$(($stat[free] + $stat[speculative]))
-    used=$(($stat[active] + $stat[inactive] + $stat[wired_down] + $stat[occupied_by_compressor]))
-    total=$(($free + $used))
+  free=$(($stat[free] + $stat[speculative]))
+  used=$(($stat[active] + $stat[inactive] + $stat[wired_down] + $stat[occupied_by_compressor]))
+  total=$(($free + $used))
 
-    echo "$(($free * 100 / $total))%"
+  echo "$(($free * 100 / $total))%"
 else
-    free -m | awk '/\-\/\+ / {print $4"MB"}'
+  free -m | awk '/\-\/\+ / {print $4"MB"}'
 fi

@@ -5,8 +5,8 @@ default_branch="$(git default-branch)"
 current_branch="$(git current-branch)"
 
 if [ $default_branch = $current_branch ]; then
-    gh repo view -w
-    exit
+  gh repo view -w
+  exit
 fi
 
 gh pr view "$current_branch" -w || gh pr create -w

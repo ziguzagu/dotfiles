@@ -8,9 +8,9 @@ readonly file=$1
 
 diff="$(git diff $file)"
 if [[ -n $diff ]]; then
-    echo -n "$diff" | bat -p --color=always | tail -n +5
+  echo -n "$diff" | bat -p --color=always | tail -n +5
 elif [[ -d $file ]]; then
-    echo ''
+  echo ''
 else
-    bat -p --color=always -r :18 $file
+  bat -p --color=always -r :18 $file
 fi
