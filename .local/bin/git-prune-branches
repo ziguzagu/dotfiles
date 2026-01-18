@@ -2,14 +2,32 @@
 set -eu -o pipefail
 
 default_branch=$(git default-branch)
+current_branch=$(git current-branch)
 
 # remove merged branches
-git branch --merged | grep -v -e 'master' -e 'main' -e $default_branch -e "$(git current-branch)" | xargs -n 1 git branch -d
+merged_branches=$(git branch --merged | grep -v -e 'master' -e 'main' -e "$default_branch" -e "$current_branch" || true)
+if [[ -n "$merged_branches" ]]; then
+    echo "$merged_branches" | while read branch; do
+        echo "Deleting merged branch: $branch"
+        git branch -d "$branch"
+    done
+fi
 
 # remove squash merged branches
-git for-each-ref refs/heads/ '--format=%(refname:short)' |
-    while read branch; do
-        ancestor=$(git merge-base $default_branch $branch) &&
-            [[ $(git cherry $default_branch $(git commit-tree $(git rev-parse $branch^{tree}) -p $ancestor -m _)) == "-"* ]] &&
-            git branch -D $branch
-    done
+git for-each-ref refs/heads/ '--format=%(refname:short)' | while read branch; do
+    # skip protected branches
+    if [[ "$branch" == "master" || "$branch" == "main" || "$branch" == "$default_branch" || "$branch" == "$current_branch" ]]; then
+        continue
+    fi
+
+    # check if branch is squash-merged
+    ancestor=$(git merge-base "$default_branch" "$branch" 2>/dev/null) || continue
+    tree_commit=$(git rev-parse "$branch^{tree}" 2>/dev/null) || continue
+    temp_commit=$(git commit-tree "$tree_commit" -p "$ancestor" -m _ 2>/dev/null) || continue
+    cherry_result=$(git cherry "$default_branch" "$temp_commit" 2>/dev/null) || continue
+
+    if [[ "$cherry_result" == "-"* ]]; then
+        echo "Deleting squash-merged branch: $branch"
+        git branch -D "$branch"
+    fi
+done
