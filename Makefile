@@ -16,7 +16,7 @@ $(targets):
 	ln -s $(subst $(HOME)/,$(basedir),$@) $@
 
 terminfo: ## Install extra terminfo missing of macOS
-	tic -x 24bit.terminfo
+	tic -x -o $(HOME)/.terminfo 24bit.terminfo
 
 brew: ## Update homebrew stuff
 	brew update --verbose
