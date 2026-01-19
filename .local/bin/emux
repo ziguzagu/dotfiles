@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+session="emux"
+
+# attach if session already exists
+if tmux has-session -t "$session" 2>/dev/null; then
+  tmux attach -t "$session"
+  exit
+fi
+
+# create new session with emacs on left 60%, shell on right 40%
+tmux new-session -d -s "$session" -x "$(tput cols)" -y "$(tput lines)"
+tmux send-keys -t "$session" 'emacs' Enter
+tmux split-window -h -t "$session" -l 40%
+tmux attach -t "$session"
