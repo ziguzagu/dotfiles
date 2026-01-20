@@ -47,7 +47,7 @@
   (ns-command-modifier 'meta)  ;; make Command ⌘ to Meta
   (ns-option-modifier 'super)  ;; make Option ⌥ to Super
   :custom-face
-  (default ((t (:family "Source Han Code JP" :height 120 :weight regular))))
+  (default ((t (:family "Moralerspace Argon" :height 130 :weight regular))))
   (fixed-pitch ((t (:inherit default))))
   :config
   (menu-bar-mode -1)
@@ -61,7 +61,8 @@
   (put 'upcase-region 'disabled nil)
   (put 'downcase-region 'disabled nil)
 
-  (set-fontset-font t nil "Source Han Code JP")
+  (set-fontset-font t nil "Moralerspace Argon")
+  (setq-default line-spacing 1)
 
   (defun my:delete-word-at-point ()
     "Delete the word at point."
