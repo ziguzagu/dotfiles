@@ -364,10 +364,6 @@ bindkey '^o' fzf-find-strings-from-tmux-pane
 ## Misc
 ########################################
 
-if [[ -f ~/.config/op/plugins.sh ]]; then
-    source ~/.config/op/plugins.sh
-fi
-
 # get rid of ANSI escape sequences to pipe STDOUT to pbcopy
 decolor() {
     perl -pe 's/\e\[\d+m//g'
