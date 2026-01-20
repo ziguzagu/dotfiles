@@ -52,8 +52,7 @@
   :config
   (menu-bar-mode -1)
   (context-menu-mode 1)
-  (unless (display-graphic-p)
-    (xterm-mouse-mode 1))
+  (xterm-mouse-mode 1)
 
   (setq-default tab-width 4)
   (setq-default indent-tabs-mode nil)
@@ -405,11 +404,14 @@
     (corfu-popupinfo-mode)))
 
 (use-package corfu-terminal
-  :unless (display-graphic-p)
   :ensure t
   :after corfu
   :config
-  (corfu-terminal-mode +1))
+  (add-hook 'after-make-frame-functions
+    (lambda (frame)
+      (with-selected-frame frame
+        (unless (display-graphic-p)
+          (corfu-terminal-mode +1))))))
 
 (use-package cape
   :ensure t
