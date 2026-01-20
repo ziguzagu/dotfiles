@@ -5,14 +5,6 @@
   (setq use-package-enable-imenu-support t)
   (require 'use-package))
 
-;; prevent to pop up *Warnings* buffer because it is not useful for me
-(add-to-list 'display-buffer-alist
-  '("\\`\\*Warnings\\*\\'"
-     (display-buffer-no-window)
-     (allow-no-window . t)))
-
-(setq custom-file (expand-file-name "custom.el" temporary-file-directory))
-
 (use-package exec-path-from-shell
   :ensure t
   :config
@@ -27,6 +19,35 @@
 
 (use-package emacs
   :ensure nil
+  :init
+  (setq custom-file (expand-file-name "custom.el" temporary-file-directory))
+  ;; Suppress *Warnings* buffer popup (e.g., native-comp warnings, missing packages)
+  ;; Removing this will bring back annoying popups on every startup
+  (add-to-list 'display-buffer-alist
+    '("\\`\\*Warnings\\*\\'"
+       (display-buffer-no-window)
+       (allow-no-window . t)))
+  :custom
+  (scroll-conservatively 35)
+  (scroll-margin 0)
+  (scroll-step 1)
+  (tab-always-indent 'complete)
+  :custom-face
+  (default ((t (:family "Moralerspace Argon" :height 130 :weight regular))))
+  (fixed-pitch ((t (:inherit default))))
+  :config
+  (setq-default tab-width 4)
+  (setq-default indent-tabs-mode nil)
+  (menu-bar-mode -1)
+  (context-menu-mode 1)
+  (xterm-mouse-mode 1)
+  (put 'upcase-region 'disabled nil)
+  (put 'downcase-region 'disabled nil)
+  (set-fontset-font t nil "Moralerspace Argon")
+  (setq-default line-spacing 1))
+
+(use-package simple
+  :ensure nil
   :bind (("RET" . newline-and-indent)
           ("C-c h" . help-for-help)
           ("C-g" . my:keyboard-quit-dwim)
@@ -34,35 +55,12 @@
           ("C-r" . isearch-backward-regexp)
           ("C-s" . isearch-forward-regexp)
           ("C-x C-b" . ibuffer)
-          ("C-t" . nil) ;; I make typos a lot, but I never intentionally transpose-chars
+          ("C-t" . nil)
           ("M-/" . hippie-expand)
           ("M-d" . my:delete-word-at-point)
           ("M-n" . scroll-up)
           ("M-p" . scroll-down))
-  :custom
-  (scroll-conservatively 35)
-  (scroll-margin 0)
-  (scroll-step 1)
-  (tab-always-indent 'complete)
-  (ns-command-modifier 'meta)  ;; make Command ⌘ to Meta
-  (ns-option-modifier 'super)  ;; make Option ⌥ to Super
-  :custom-face
-  (default ((t (:family "Moralerspace Argon" :height 130 :weight regular))))
-  (fixed-pitch ((t (:inherit default))))
   :config
-  (menu-bar-mode -1)
-  (context-menu-mode 1)
-  (xterm-mouse-mode 1)
-
-  (setq-default tab-width 4)
-  (setq-default indent-tabs-mode nil)
-
-  (put 'upcase-region 'disabled nil)
-  (put 'downcase-region 'disabled nil)
-
-  (set-fontset-font t nil "Moralerspace Argon")
-  (setq-default line-spacing 1)
-
   (defun my:delete-word-at-point ()
     "Delete the word at point."
     (interactive)
@@ -83,24 +81,31 @@
       ((> (minibuffer-depth) 0)
         (abort-recursive-edit))
       (t
-        (keyboard-quit))))
+        (keyboard-quit)))))
 
-  (when (eq system-type 'darwin)
-    (defun my:copy-from-macos ()
-      "Get clipboard contents."
-      (let ((pbpaste (purecopy "pbpaste"))
-             (tramp-mode nil)
-             (default-directory "~"))
-        (shell-command-to-string "pbpaste")))
-    (setq interprogram-cut-function 'my:paste-to-macos)
+(use-package ns-win
+  :ensure nil
+  :if (eq system-type 'darwin)
+  :custom
+  (ns-command-modifier 'meta)
+  (ns-option-modifier 'super)
+  :config
+  (defun my:copy-from-macos ()
+    "Get clipboard contents."
+    (let ((pbpaste (purecopy "pbpaste"))
+           (tramp-mode nil)
+           (default-directory "~"))
+      (shell-command-to-string "pbpaste")))
 
-    (defun my:paste-to-macos (text &optional push)
-      "Paste yanked contents to clipboard."
-      (let ((process-connection-type nil))
-        (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
-          (process-send-string proc text)
-          (process-send-eof proc))))
-    (setq interprogram-paste-function 'my:copy-from-macos)))
+  (defun my:paste-to-macos (text &optional push)
+    "Paste yanked contents to clipboard."
+    (let ((process-connection-type nil))
+      (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
+        (process-send-string proc text)
+        (process-send-eof proc))))
+
+  (setq interprogram-cut-function 'my:paste-to-macos)
+  (setq interprogram-paste-function 'my:copy-from-macos))
 
 (use-package monokai-theme
   :ensure t
@@ -820,7 +825,23 @@
   (web-mode-style-padding 2)
   (web-mode-script-padding 2)
   (web-mode-engines-alist '(("template-toolkit" . "\\.tt\\'")
-                             ("template-toolkit" . "\\.tx\\'"))))
+                             ("template-toolkit" . "\\.tx\\'")))
+  :config
+  (defun my:escape-html-region (start end)
+    "Escape HTML unsafe characters in the region between START and END."
+    (interactive "*r")
+    (save-excursion
+      (save-restriction
+        (narrow-to-region start end)
+        (goto-char start)
+        (while (search-forward "&" nil t)
+          (replace-match "&amp;" nil t))
+        (goto-char start)
+        (while (search-forward "<" nil t)
+          (replace-match "&lt;" nil t))
+        (goto-char start)
+        (while (search-forward ">" nil t)
+          (replace-match "&gt;" nil t))))))
 
 (use-package css-mode
   :ensure nil
@@ -828,22 +849,6 @@
   (add-to-list 'major-mode-remap-alist '(css-mode . css-ts-mode))
   :custom
   (css-indent-offset 2))
-
-(defun my:escape-html-region (start end)
-  "Escape HTML unsafe characters in the region between START and END."
-  (interactive "*r")
-  (save-excursion
-    (save-restriction
-      (narrow-to-region start end)
-      (goto-char start)
-      (while (search-forward "&" nil t)
-        (replace-match "&amp;" nil t))
-      (goto-char start)
-      (while (search-forward "<" nil t)
-        (replace-match "&lt;" nil t))
-      (goto-char start)
-      (while (search-forward ">" nil t)
-        (replace-match "&gt;" nil t)))))
 
 (use-package terraform-mode
   :ensure t
