@@ -25,9 +25,6 @@ keyrepeat: ## Set my best key repeat settings
 	defaults write -g InitialKeyRepeat -int 11
 	defaults write -g KeyRepeat -int 1
 
-rainbow: ## Test terminal's 24-bit color support
-	curl -s https://raw.githubusercontent.com/gnachman/iTerm2/master/tests/24-bit-color.sh | bash
-
 check-deadlinks: ## Check for broken symlinks pointing to this repository
 	@echo "Checking for dead symlinks pointing to $(basedir)..."; \
 	deadlinks=$$(find $(HOME)/.config $(HOME)/.local -type l 2>/dev/null; \

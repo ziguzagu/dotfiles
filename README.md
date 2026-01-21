@@ -8,5 +8,4 @@ brew                 Update homebrew stuff
 check-deadlinks      Check for broken symlinks pointing to this repository
 install              Install dot files into $HOME as symlink
 keyrepeat            Set my best key repeat settings
-rainbow              Test terminal's 24-bit color support
 ```
