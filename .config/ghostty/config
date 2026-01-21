@@ -12,8 +12,8 @@ font-feature = -dlig
 font-feature = -liga
 
 # set window to about 40% width and maximum height of my main display (DELL P2223HC)
-window-width = 96
-window-height = 56
+window-width = 99
+window-height = 59
 
 macos-option-as-alt = true
 
