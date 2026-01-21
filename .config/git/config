@@ -40,9 +40,16 @@
 
 [diff]
 	algorithm = histogram
+	colorMoved = default
 
 [grep]
 	patternType = perl
+
+[merge]
+	conflictStyle = zdiff3
+
+[rerere]
+	enabled = true
 
 [gpg]
 	format = ssh
@@ -88,25 +95,20 @@
 	history = log --pretty='format:%C(green)%cs%C(reset) %C(yellow)%h%C(reset) %C(white bold)%<(12,trunc)%an%C(reset) %s'
 
 [push]
-	default = current
+	default = simple
 
 [rebase]
 	autostash = true
 
 [fetch]
 	prune = true
-	parallel = 2
+	parallel = 0  # auto-detect based on CPU cores
 
 [checkout]
 	defaultRemote = origin
 
 [ghq]
 	root = ~/src
-
-[filter "hawser"]
-	clean = git hawser clean %f
-	smudge = git hawser smudge %f
-	required = true
 
 [filter "lfs"]
 	clean = git lfs clean %f
