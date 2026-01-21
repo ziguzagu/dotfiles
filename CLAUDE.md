@@ -27,7 +27,6 @@ This is a personal dotfiles repository that manages development environment conf
 
 - `make install` - Install dotfiles as symlinks to $HOME directory
 - `make brew` - Update homebrew packages using Brewfile
-- `make terminfo` - Install 24-bit color terminal support
 - `make keyrepeat` - Set optimal key repeat settings for macOS
 - `make rainbow` - Test terminal 24-bit color support
 - `make help` - Show all available commands
@@ -143,7 +142,6 @@ When reviewing changes to this repository, verify:
 - **Colors not displaying correctly**
   - Verify 24-bit color support: `make rainbow`
   - Ensure TERM is set correctly: `echo $TERM`
-  - Reinstall terminfo: `make terminfo`
 - **Ghostty keybindings not working**
   - Restart Ghostty completely (Cmd+Q, not just close window)
   - Verify config: `cat ~/.config/ghostty/config`

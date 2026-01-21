@@ -73,8 +73,6 @@ export LESS_TERMCAP_ue=$'\e[0m'        # end underline
 export LESS_TERMCAP_us=$'\e[4;34m'     # begin underline
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export SHELL="$(which zsh)"
-# Ghostty sets TERMINFO to its own directory, so prepend ~/.terminfo to search it first
-export TERMINFO_DIRS="$HOME/.terminfo${TERMINFO:+:$TERMINFO}"
 
 ########################################
 ## Tmux

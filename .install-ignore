@@ -1,6 +1,5 @@
 *.json
 *.md
-*.terminfo
 *.txt
 !.claude/CLAUDE.md
 .editorconfig

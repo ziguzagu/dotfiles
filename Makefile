@@ -9,14 +9,11 @@ targets = $(addprefix $(HOME)/,$(sources))
 .DEFAULT_GOAL := help
 
 install: $(targets) ## Install dot files into $HOME as symlink
-	@mkdir -p $(datadir)/{tig,zsh,terminfo,ssh}
+	@mkdir -p $(datadir)/{tig,zsh,ssh}
 
 $(targets):
 	@mkdir -m 700 -p $(dir $@)
 	ln -s $(subst $(HOME)/,$(basedir),$@) $@
-
-terminfo: ## Install extra terminfo missing of macOS
-	tic -x -o $(HOME)/.terminfo 24bit.terminfo
 
 brew: ## Update homebrew stuff
 	brew update --verbose
