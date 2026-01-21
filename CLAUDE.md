@@ -28,6 +28,7 @@ This is a personal dotfiles repository that manages development environment conf
 - `make install` - Install dotfiles as symlinks to $HOME directory
 - `make brew` - Update homebrew packages using Brewfile
 - `make keyrepeat` - Set optimal key repeat settings for macOS
+- `make check-deadlinks` - Check for broken symlinks pointing to this repository
 - `make help` - Show all available commands
 
 ## Architecture
