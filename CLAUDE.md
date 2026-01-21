@@ -154,7 +154,7 @@ When reviewing changes to this repository, verify:
 - `.config/` - XDG Base Directory compliant configurations
 - `.local/bin/` - Custom utility scripts (automatically added to PATH)
 - `.zshrc` - Shell configuration and environment setup
-- `.gitconfig` - Git settings and custom command aliases
+- `.config/git/config` - Git settings and custom command aliases
 
 ## Code Style
 - Follow `.editorconfig` settings for consistent formatting across all files
