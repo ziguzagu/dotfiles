@@ -34,10 +34,6 @@
 	whitespace = trailing-space
 	pager      = delta
 
-# https://help.github.com/en/github/using-git/caching-your-github-password-in-git
-[credential]
-	helper = osxkeychain
-
 [diff]
 	algorithm = histogram
 	colorMoved = default
