@@ -107,12 +107,11 @@
   (setq interprogram-cut-function 'my:paste-to-macos)
   (setq interprogram-paste-function 'my:copy-from-macos))
 
-(use-package monokai-theme
+(use-package doom-themes
   :ensure t
-  :custom-face
-  (mode-line-inactive ((t (:background "#3E3D32"))))
   :config
-  (load-theme 'monokai t))
+  (load-theme 'doom-monokai-classic t)
+  (set-face-attribute 'cursor nil :background "#F8F8F2"))
 
 (use-package nerd-icons
   :ensure t
