@@ -47,7 +47,7 @@ autoload -Uz add-zsh-hook
 if [[ -x "$(which plenv)" ]]; then
     eval "$(plenv init - zsh)"
 fi
-if [[ -x "$(which rbenv)" ]] && [[ -z "$RBENV_SHELL" ]]; then
+if [[ -x "$(which rbenv)" ]]; then
     eval "$(rbenv init -)"
 fi
 if [[ -f "/opt/homebrew/opt/nvm/nvm.sh" ]]; then
