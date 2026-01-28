@@ -151,6 +151,7 @@
   :init
   (setq treesit-language-source-alist
     '((css "https://github.com/tree-sitter/tree-sitter-css")
+       (go "https://github.com/tree-sitter/tree-sitter-go")
        (javascript "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
        (json "https://github.com/tree-sitter/tree-sitter-json")
        (ruby "https://github.com/tree-sitter/tree-sitter-ruby")
@@ -158,7 +159,7 @@
        (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")))
 
   ;; install grammars
-  (dolist (lang '(css javascript json ruby tsx typescript))
+  (dolist (lang '(css go javascript json ruby tsx typescript))
     (unless (treesit-language-available-p lang)
       (ignore-errors
         (treesit-install-language-grammar lang)))))
@@ -167,7 +168,7 @@
   :ensure nil
   :custom
   (whitespace-style '(face tabs tab-mark trailing))
-  (whitespace-global-modes '(not dired-mode go-mode))
+  (whitespace-global-modes '(not dired-mode go-ts-mode))
   :config
   (global-whitespace-mode t))
 
@@ -629,6 +630,7 @@
 (use-package eglot
   :ensure t
   :hook
+  (go-ts-mode . eglot-ensure)
   (ruby-ts-mode . eglot-ensure)
   (typescript-ts-mode . eglot-ensure)
   (tsx-ts-mode . eglot-ensure)
@@ -848,6 +850,14 @@
   (add-to-list 'major-mode-remap-alist '(css-mode . css-ts-mode))
   :custom
   (css-indent-offset 2))
+
+(use-package go-ts-mode
+  :ensure nil
+  :hook
+  (go-ts-mode . (lambda ()
+                  (add-hook 'before-save-hook 'gofmt-before-save nil t)))
+  :custom
+  (go-ts-mode-indent-offset 4))
 
 (use-package terraform-mode
   :ensure t
