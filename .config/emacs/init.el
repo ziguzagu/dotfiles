@@ -855,7 +855,7 @@
   :ensure nil
   :hook
   (go-ts-mode . (lambda ()
-                  (add-hook 'before-save-hook 'gofmt-before-save nil t)))
+                  (add-hook 'before-save-hook 'eglot-format-buffer nil t)))
   :custom
   (go-ts-mode-indent-offset 4))
 
