@@ -19,5 +19,6 @@
 
 CLAUDE.local.md
 **/.claude/settings.local.json
+**/.claude/permissions.json
 
 MyMakefile
