@@ -1,4 +1,7 @@
 # sort by alphabetically
+
+**/.claude/permissions.json
+**/.claude/settings.local.json
 *.la
 *.lo
 *.o
@@ -11,14 +14,5 @@
 .irb_history
 .yardoc/
 /vendor/bundle/
-
-# lsp-docker (lsp-mode)
-# https://github.com/emacs-lsp/lsp-docker
-/.lsp-docker/
-/.lsp-docker.yaml
-
 CLAUDE.local.md
-**/.claude/settings.local.json
-**/.claude/permissions.json
-
 MyMakefile
