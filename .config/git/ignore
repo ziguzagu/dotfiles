@@ -1,18 +1,17 @@
 # sort by alphabetically
 
-**/.claude/permissions.json
-**/.claude/settings.local.json
 *.la
 *.lo
 *.o
 *~
-.*~
 .DS_Store
+.claude/permissions.json
+.claude/settings.local.json
 .dir-locals.el
 .envrc
 .idea/
 .irb_history
 .yardoc/
-/vendor/bundle/
 CLAUDE.local.md
 MyMakefile
+vendor/bundle/
