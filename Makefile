@@ -25,6 +25,17 @@ keyrepeat: ## Set my best key repeat settings
 	defaults write -g InitialKeyRepeat -int 11
 	defaults write -g KeyRepeat -int 1
 
+claude: ## Configure Claude Code hooks in ~/.claude/settings.json
+	@mkdir -p $(HOME)/.claude
+	@hooks='{"hooks":{"Notification":[{"matcher":"","hooks":[{"type":"command","command":"claude-notify"}]}]}}'; \
+	if [ -f $(HOME)/.claude/settings.json ]; then \
+		jq --argjson hooks "$$hooks" '. * $$hooks' $(HOME)/.claude/settings.json > $(HOME)/.claude/settings.json.tmp && \
+		mv $(HOME)/.claude/settings.json.tmp $(HOME)/.claude/settings.json; \
+	else \
+		echo "$$hooks" | jq . > $(HOME)/.claude/settings.json; \
+	fi
+	@echo "Claude Code hooks configured."
+
 check-deadlinks: ## Check for broken symlinks pointing to this repository
 	@echo "Checking for dead symlinks pointing to $(basedir)..."; \
 	deadlinks=$$(find $(HOME)/.config $(HOME)/.local -type l 2>/dev/null; \

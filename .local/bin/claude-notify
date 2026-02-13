@@ -1,0 +1,43 @@
+#!/bin/zsh
+# Claude Code notification hook
+# Send macOS notification when the terminal pane is not visible
+#
+# Setup: add to ~/.claude/settings.json or run `make claude`
+#   {
+#     "hooks": {
+#       "Notification": [{
+#         "matcher": "",
+#         "hooks": [{ "type": "command", "command": "claude-notify" }]
+#       }]
+#     }
+#   }
+set -eu -o pipefail
+
+input=$(</dev/stdin)
+project=$(echo "$input" | jq -r '.cwd | split("/") | last')
+session_id=$(echo "$input" | jq -r '.session_id')
+notification_type=$(echo "$input" | jq -r '.notification_type // ""')
+
+case "$notification_type" in
+  permission_prompt) message="🔐 Waiting for permission" ;;
+  elicitation_dialog) message="💬 Waiting for your response" ;;
+  idle_prompt) message="✅ Task completed" ;;
+  *) message=$(echo "$input" | jq -r '.message // "Needs your attention"') ;;
+esac
+
+is_ghostty_active() {
+  local app
+  app=$(osascript -e 'tell application "System Events" to get name of first application process whose frontmost is true' 2>/dev/null)
+  [[ "${app:l}" == "ghostty" ]]
+}
+
+is_tmux_window_active() {
+  [[ -z "${TMUX_PANE:-}" ]] && return 1
+  [[ $(tmux display-message -t "$TMUX_PANE" -p '#{window_active}' 2>/dev/null) == "1" ]]
+}
+
+if is_ghostty_active && is_tmux_window_active; then
+  exit 0
+fi
+
+terminal-notifier -message "$message" -title "Claude Code" -subtitle "$project" -group "$session_id"
