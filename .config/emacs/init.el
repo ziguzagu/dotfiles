@@ -612,6 +612,23 @@
             (rev (car rev-at-line)))
       (shell-command (concat "git hub open " rev)))))
 
+(use-package smerge-mode
+  :ensure nil
+  :hook (find-file . my:smerge-start-maybe)
+  :config
+  (defun my:smerge-start-maybe ()
+    "Auto-start smerge-mode when conflict markers are detected."
+    (save-excursion
+      (goto-char (point-min))
+      (when (re-search-forward "^<<<<<<< " nil t)
+        (smerge-mode 1)))))
+
+(use-package ediff
+  :ensure nil
+  :custom
+  (ediff-window-setup-function 'ediff-setup-windows-plain)
+  (ediff-split-window-function 'split-window-horizontally))
+
 (use-package browse-at-remote
   :ensure t
   :bind (:map vc-prefix-map
