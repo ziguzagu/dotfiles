@@ -1,0 +1,36 @@
+#!/bin/zsh
+set -eu -o pipefail
+
+input="${1:?Usage: git-review <branch|ref|pr-url>}"
+original=$(pwd)
+repo=$(basename "$(git rev-parse --show-toplevel)")
+
+# PR URL の場合はブランチ名を取得して fetch
+if [[ "$input" =~ 'pull/([0-9]+)' ]]; then
+  pr_number="${match[1]}"
+  git fetch origin "pull/${pr_number}/head:pr-${pr_number}"
+  ref="pr-${pr_number}"
+  cleanup_branch=true
+else
+  ref="$input"
+  cleanup_branch=false
+fi
+
+safe_ref=$(echo "$ref" | tr '/' '-')
+worktree="${original}/../${repo}-review-${safe_ref}"
+
+git worktree add "$worktree" "$ref"
+
+cleanup() {
+  cd "$original"
+  git worktree remove "$worktree" 2>/dev/null
+  $cleanup_branch && git branch -D "$ref" 2>/dev/null
+}
+trap cleanup EXIT
+
+cd "$worktree"
+if $cleanup_branch; then
+  claude "$input のコードレビューをお願いします"
+else
+  claude "$ref の変更をレビューしてください"
+fi
