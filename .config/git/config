@@ -76,6 +76,7 @@
 	br = branch
 	sw = switch
 	ls = ls-files
+	wt = worktree
 	discard = restore
 	amend = ci --amend --no-edit
 	unstage = reset HEAD --
