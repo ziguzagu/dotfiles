@@ -44,9 +44,6 @@ limit coredumpsize 0
 autoload -Uz add-zsh-hook
 
 # PATH
-if [[ -x "$(which plenv)" ]]; then
-    eval "$(plenv init - zsh)"
-fi
 if [[ -x "$(which rbenv)" ]]; then
     eval "$(rbenv init -)"
 fi

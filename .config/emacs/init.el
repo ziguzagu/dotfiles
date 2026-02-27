@@ -809,8 +809,6 @@
         (substring real-file (string-match "/" real-file) -1))))
   (add-to-list 'ffap-alist '(cperl-mode . my:ffap-cperl-mode)))
 
-(use-package plenv)
-
 (use-package js-mode
   :ensure nil
   :interpreter "node"
@@ -834,7 +832,7 @@
 
 (use-package web-mode
   :ensure t
-  :mode ("\\.html\\'" "\\.erb\\'" "\\.tt\\'" "\\.tx\\'")
+  :mode ("\\.html\\'" "\\.erb\\'")
   :custom
   (web-mode-attr-indent-offset nil)
   (web-mode-markup-indent-offset 2)
@@ -842,8 +840,6 @@
   (web-mode-code-indent-offset 2)
   (web-mode-style-padding 2)
   (web-mode-script-padding 2)
-  (web-mode-engines-alist '(("template-toolkit" . "\\.tt\\'")
-                             ("template-toolkit" . "\\.tx\\'")))
   :config
   (defun my:escape-html-region (start end)
     "Escape HTML unsafe characters in the region between START and END."
