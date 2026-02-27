@@ -58,16 +58,6 @@ typeset -U PATH
 if [[ -x "$(which gdircolors)" ]]; then
     eval "$(gdircolors ~/.config/dircolors)"
 fi
-export GPG_TTY=$(tty)
-export GREP_COLORS="ms=04;31:mc=01;33:sl=:cx=:fn=33:ln=33:bn=33:se=01;30"
-export LESSCHARSET=utf-8
-export LESS_TERMCAP_mb=$'\e[1;31m'     # begin blinking
-export LESS_TERMCAP_md=$'\e[1;33m'     # begin bold
-export LESS_TERMCAP_me=$'\e[0m'        # end mode
-export LESS_TERMCAP_se=$'\e[0m'        # end standout-mode
-export LESS_TERMCAP_so=$'\e[0;30;47m'  # begin standout-mode
-export LESS_TERMCAP_ue=$'\e[0m'        # end underline
-export LESS_TERMCAP_us=$'\e[4;34m'     # begin underline
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export SHELL="$(which zsh)"
 
