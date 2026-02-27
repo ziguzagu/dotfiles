@@ -59,7 +59,6 @@ if [[ -x "$(which gdircolors)" ]]; then
     eval "$(gdircolors ~/.config/dircolors)"
 fi
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export SHELL="$(which zsh)"
 
 ########################################
 ## Tmux
@@ -95,7 +94,6 @@ alias grep="grep -I --color=auto"
 alias less="less -giMqR -j10"
 alias ls="gls -AXF --color=auto --group-directories-first"
 alias pgrep="pgrep -afil"
-alias prove="prove -lv --timer"
 alias rg="rg --heading --colors=match:fg:214 --colors=match:style:nobold --colors=match:style:underline --colors=line:fg:117 --colors=path:fg:251 --colors=path:bg:238"
 
 ## shortcuts
@@ -107,7 +105,6 @@ alias g="git"
 alias ka="killall"
 alias l="ls -lh"
 alias m="make"
-alias mm="make -f MyMakefile"
 alias p="less"
 alias s="rg"
 alias t="tig"
@@ -356,11 +353,6 @@ decolor() {
 
 lc() {
     tr '[:upper:]' '[:lower:]'
-}
-
-pmver() {
-    readonly pkg="$1"
-    perl -m${pkg} -E "say \$${pkg}::VERSION"
 }
 
 uc() {
