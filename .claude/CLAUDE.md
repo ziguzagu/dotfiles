@@ -17,7 +17,7 @@ This file provides global configuration and instructions for Claude Code when wo
 - **Editor**: Emacs with extensive language support
 - **Package Manager**: Homebrew preferred for development tools
 - **Version Control**: Git with delta integration
-- **Version Managers**: rbenv (Ruby), plenv (Perl), tfenv (Terraform), nvm (Node.js)
+- **Version Managers**: rbenv (Ruby), tfenv (Terraform), nvm (Node.js)
 
 ## Code Style Standards
 
@@ -61,7 +61,7 @@ This file provides global configuration and instructions for Claude Code when wo
 
 ## Version Management
 
-- Use language-specific version managers (rbenv, plenv, tfenv, nvm) instead of system packages
+- Use language-specific version managers (rbenv, tfenv, nvm) instead of system packages
 - Never install language packages globally without version manager
 - Project `.tool-versions`, `.ruby-version`, or `.node-version` files take precedence
 - Keep version manager configs in dotfiles for consistency across projects

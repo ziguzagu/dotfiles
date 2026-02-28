@@ -78,7 +78,7 @@ When reviewing changes to this repository, verify:
 - Editor: Emacs with language-specific configurations
 - Terminal: Ghostty with 24-bit color support
 - Version control: Git with custom commands and delta integration
-- Package managers: Homebrew, rbenv, plenv, tfenv
+- Package managers: Homebrew, rbenv, tfenv
 - Build system: GNU Make
 
 ## Known Limitations & Workarounds
