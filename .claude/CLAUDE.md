@@ -18,7 +18,6 @@ This file provides global configuration and instructions for Claude Code when wo
 - **Package Manager**: Homebrew preferred for development tools
 - **Version Control**: Git with delta integration
 - **Version Managers**: rbenv (Ruby), plenv (Perl), tfenv (Terraform), nvm (Node.js)
-- **Secret Management**: 1Password CLI (`op`) for secure credential handling
 
 ## Code Style Standards
 
@@ -56,10 +55,9 @@ This file provides global configuration and instructions for Claude Code when wo
 
 ## Security & Secrets
 
-- Never hardcode credentials - use 1Password CLI or environment variables
+- Never hardcode credentials - use environment variables
 - Use `direnv` with `.envrc` for project-specific secrets (ensure `.envrc` is in `.gitignore`)
 - Verify sensitive files (`.env`, `.envrc`, credentials) are excluded from version control
-- Use `op` command for secure credential retrieval when needed
 
 ## Version Management
 
