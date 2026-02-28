@@ -43,7 +43,6 @@ brew 'zsh-completions'
 brew 'zsh-syntax-highlighting'
 
 cask '1password'
-cask '1password-cli'
 cask 'alfred'
 cask 'appcleaner'
 cask 'chatgpt'
