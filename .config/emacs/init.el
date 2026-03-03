@@ -940,12 +940,12 @@
       (load host-local-config)))
 
   (when (display-graphic-p)
-    ;; make frame height to fit the display height
+    ;; make frame height to fit the display height and 50% width of my FHD display.
     (add-hook 'window-setup-hook
       (lambda ()
         (let* ((display-height (display-pixel-height))
                 (frame-height (floor (/ display-height (frame-char-height)))))
-          (set-frame-size (selected-frame) 137 frame-height))))))
+          (set-frame-size (selected-frame) 117 frame-height))))))
 
 (use-package server
   :ensure nil

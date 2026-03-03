@@ -11,8 +11,8 @@ font-feature = -calt
 font-feature = -dlig
 font-feature = -liga
 
-# set window to about 40% width and maximum height of my main display (DELL P2223HC)
-window-width = 99
+# set window to 50% width and maximum height of my main FHD display
+window-width = 119
 window-height = 59
 
 macos-option-as-alt = true
