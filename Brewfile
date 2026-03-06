@@ -63,3 +63,6 @@ cask 'slack'
 
 tap 'd12frosted/emacs-plus'
 brew 'emacs-plus'
+
+# Load local Brewfile if it exists (for machine-specific packages)
+instance_eval(File.read(File.expand_path("./Brewfile.local"))) if File.exist?("Brewfile.local")
