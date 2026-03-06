@@ -4,6 +4,7 @@
 !.claude/CLAUDE.md
 .editorconfig
 .git-blame-ignore-revs
+.gitignore
 .install-ignore
 Brewfile
 Makefile
