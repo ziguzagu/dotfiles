@@ -614,7 +614,10 @@
 
 (use-package smerge-mode
   :ensure nil
-  :hook (find-file . my:smerge-start-maybe)
+  :hook
+  (find-file . my:smerge-start-maybe)
+  (server-visit . my:smerge-start-maybe)
+  (after-revert . my:smerge-start-maybe)
   :config
   (defun my:smerge-start-maybe ()
     "Auto-start smerge-mode when conflict markers are detected."
