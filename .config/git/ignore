@@ -15,3 +15,5 @@
 CLAUDE.local.md
 MyMakefile
 vendor/bundle/
+
+**/.claude/settings.local.json
