@@ -22,11 +22,7 @@
 
 ## Tool Preferences
 
-- **Search**: Use `rg` over `grep`
-- **File Operations**: Use `fd` over `find`
-- **JSON Processing**: Use `jq` for JSON manipulation
 - **GitHub**: Use `gh` command for all GitHub operations (issues, PRs, repos, etc.)
-- **Environment Management**: Use `direnv` for project-specific environment variables and secrets (ensure `.envrc` is in `.gitignore`)
 
 ## Communication Style
 
