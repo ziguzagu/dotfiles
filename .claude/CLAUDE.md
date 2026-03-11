@@ -22,7 +22,7 @@
 
 ## Tool Preferences
 
-- **GitHub**: Use `gh` command for all GitHub operations (issues, PRs, repos, etc.)
+- **GitHub**: Use `gh` command for all github.com URLs and operations (issues, PRs, repos, etc.) instead of WebFetch
 
 ## Communication Style
 
