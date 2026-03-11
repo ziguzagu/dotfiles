@@ -1,0 +1,209 @@
+#!/bin/zsh
+#
+# litellm-usage - Show usage statistics for LiteLLM Proxy
+#
+# Required environment variables (or auto-loaded from ~/.claude/settings.json):
+#   ANTHROPIC_BASE_URL   - LiteLLM Proxy URL
+#   ANTHROPIC_AUTH_TOKEN - LiteLLM Proxy API key
+#
+# Dependencies:
+#   jq - https://jqlang.org (brew install jq)
+#
+# Usage:
+#   litellm-usage              # Show this month + today's usage
+#   litellm-usage --budget 100 # Set monthly budget to $100 (default: $100)
+#
+set -euo pipefail
+
+# ─── Colors ───
+BOLD='\033[1m'
+DIM='\033[2m'
+CYAN='\033[36m'
+GREEN='\033[32m'
+YELLOW='\033[33m'
+BG_GREEN='\033[42m'
+BG_YELLOW='\033[43m'
+BG_RED='\033[41m'
+BG_GRAY='\033[100m'
+RESET='\033[0m'
+
+# ─── Config ───
+MONTHLY_BUDGET=100
+
+# ─── Load env vars from .claude/settings.json ───
+load_from_claude_settings() {
+  local settings_file="${HOME}/.claude/settings.json"
+  [[ -f "$settings_file" ]] || return 0
+
+  if [[ -z "${ANTHROPIC_BASE_URL:-}" ]]; then
+    local url
+    url=$(jq -r '.env.ANTHROPIC_BASE_URL // empty' "$settings_file" 2>/dev/null || true)
+    [[ -n "$url" ]] && export ANTHROPIC_BASE_URL="$url"
+  fi
+
+  if [[ -z "${ANTHROPIC_AUTH_TOKEN:-}" ]]; then
+    local token
+    token=$(jq -r '.env.ANTHROPIC_AUTH_TOKEN // empty' "$settings_file" 2>/dev/null || true)
+    [[ -n "$token" ]] && export ANTHROPIC_AUTH_TOKEN="$token"
+  fi
+}
+
+load_from_claude_settings
+
+# ─── Connection ───
+LITELLM_BASE_URL="${ANTHROPIC_BASE_URL:-}"
+LITELLM_API_KEY="${ANTHROPIC_AUTH_TOKEN:-}"
+LITELLM_BASE_URL="${LITELLM_BASE_URL%/v1/messages}"
+LITELLM_BASE_URL="${LITELLM_BASE_URL%/}"
+
+if [[ -z "$LITELLM_BASE_URL" || -z "$LITELLM_API_KEY" ]]; then
+  echo "Error: ANTHROPIC_BASE_URL / ANTHROPIC_AUTH_TOKEN is not set." >&2
+  exit 1
+fi
+
+# ─── Argument parsing ───
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --budget|-b) MONTHLY_BUDGET="$2"; shift 2 ;;
+    --help|-h)
+      echo "Usage: litellm-usage [--budget N]"
+      echo "  --budget, -b N   Monthly budget limit (default: \$100)"
+      exit 0 ;;
+    *) echo "Unknown option: $1" >&2; exit 1 ;;
+  esac
+done
+
+# ─── Utilities ───
+api_get() {
+  curl -sS -f -X GET "${LITELLM_BASE_URL}${1}" \
+    -H "Authorization: Bearer ${LITELLM_API_KEY}" \
+    -H "Content-Type: application/json" 2>/dev/null
+}
+
+format_cost() { printf '$%.2f' "$1"; }
+
+if command -v numfmt &>/dev/null; then
+  format_tokens() { echo "$1" | numfmt --grouping 2>/dev/null || echo "$1"; }
+else
+  format_tokens() { printf "%'d" "$1" 2>/dev/null || echo "$1"; }
+fi
+
+# Draw progress bar: draw_bar <current> <max> <bar_width>
+draw_bar() {
+  local current="$1" max="$2" width="${3:-35}"
+
+  local pct pct_int filled
+  read -r pct pct_int filled < <(awk "BEGIN {
+    p = ($current / $max) * 100; if (p > 100) p = 100
+    printf \"%.1f %d %d\", p, int(p), int((p / 100) * $width)
+  }") || true
+  local empty=$((width - filled))
+
+  local bar_color="$BG_GREEN"
+  if (( pct_int >= 80 )); then
+    bar_color="$BG_RED"
+  elif (( pct_int >= 50 )); then
+    bar_color="$BG_YELLOW"
+  fi
+
+  local bar=""
+  (( filled > 0 )) && bar="${bar_color}$(printf '%*s' "$filled" '')${RESET}"
+  (( empty > 0 )) && bar="${bar}${BG_GRAY}$(printf '%*s' "$empty" '')${RESET}"
+
+  echo -e "${bar} ${BOLD}${pct}%${RESET}"
+}
+
+# ─── Date helpers ───
+today_date() { date -u +%Y-%m-%d; }
+month_start() { date -u +%Y-%m-01; }
+
+# ─── Main ───
+echo ""
+echo -e " ${BOLD}${CYAN}LiteLLM Usage${RESET}  ${DIM}${LITELLM_BASE_URL}${RESET}"
+echo ""
+
+START_DATE=$(month_start)
+TODAY=$(today_date)
+
+activity_response=$(api_get "/user/daily/activity?start_date=${START_DATE}&end_date=${TODAY}") || {
+  echo -e " ${YELLOW}⚠ Failed to access /user/daily/activity${RESET}"
+  exit 1
+}
+
+# ─── Aggregation ───
+month_spend=$(echo "$activity_response" | jq '[.results[].metrics.spend // 0] | add // 0')
+month_tokens=$(echo "$activity_response" | jq '[.results[].metrics.total_tokens // 0] | add // 0')
+month_requests=$(echo "$activity_response" | jq '[.results[].metrics.api_requests // 0] | add // 0')
+
+today_spend=$(echo "$activity_response" | jq --arg d "$TODAY" '[.results[] | select(.date == $d) | .metrics.spend // 0] | add // 0')
+today_tokens=$(echo "$activity_response" | jq --arg d "$TODAY" '[.results[] | select(.date == $d) | .metrics.total_tokens // 0] | add // 0')
+today_requests=$(echo "$activity_response" | jq --arg d "$TODAY" '[.results[] | select(.date == $d) | .metrics.api_requests // 0] | add // 0')
+
+# ─── This Month ───
+echo -e " ${BOLD}This Month${RESET}  ${DIM}since ${START_DATE}${RESET}"
+echo ""
+echo -e "   $(format_cost "$month_spend") / $(format_cost "$MONTHLY_BUDGET")"
+echo -e "   $(draw_bar "$month_spend" "$MONTHLY_BUDGET" 35)"
+echo ""
+echo -e "   ${DIM}Tokens: $(format_tokens "$month_tokens")  Requests: $(format_tokens "$month_requests")${RESET}"
+echo ""
+
+# ─── Today ───
+echo -e " ${BOLD}Today${RESET}  ${DIM}${TODAY}${RESET}"
+echo ""
+echo -e "   ${GREEN}$(format_cost "$today_spend")${RESET}"
+echo -e "   ${DIM}Tokens: $(format_tokens "$today_tokens")  Requests: $(format_tokens "$today_requests")${RESET}"
+echo ""
+
+# ─── Daily ───
+result_count=$(echo "$activity_response" | jq '.results | length')
+
+if (( result_count > 0 )); then
+  echo -e " ${BOLD}Daily${RESET}"
+  echo ""
+  printf "   ${DIM}%-12s %10s %14s %8s${RESET}\n" "Date" "Spend" "Tokens" "Reqs"
+  printf "   ${DIM}%-12s %10s %14s %8s${RESET}\n" "----------" "--------" "-----------" "------"
+
+  echo "$activity_response" | jq -r '
+    .results | sort_by(.date) | .[] |
+    [.date, (.metrics.spend // 0 | tostring), (.metrics.total_tokens // 0 | tostring), (.metrics.api_requests // 0 | tostring)] | @tsv' |
+  while IFS=$'\t' read -r date spend tokens requests; do
+    if [[ "$date" == "$TODAY" ]]; then
+      printf "   ${GREEN}%-12s %10s %14s %8s${RESET}\n" \
+        "$date" "$(format_cost "$spend")" "$(format_tokens "$tokens")" "$requests"
+    else
+      printf "   %-12s %10s %14s %8s\n" \
+        "$date" "$(format_cost "$spend")" "$(format_tokens "$tokens")" "$requests"
+    fi
+  done
+  echo ""
+fi
+
+# ─── Models ───
+model_data=$(echo "$activity_response" | jq -r '
+  [.results[] | (.breakdown.models // {}) | to_entries[]] |
+  group_by(.key) |
+  map({
+    model: .[0].key,
+    spend: ([.[].value | (.metrics.spend // .spend // 0)] | add),
+    tokens: ([.[].value | (.metrics.total_tokens // .total_tokens // 0)] | add)
+  }) |
+  [.[] | select((.tokens // 0) > 0)] |
+  sort_by(-((.spend) // 0)) |
+  .[] |
+  [.model, ((.spend // 0) | tostring), ((.tokens // 0) | tostring)] | @tsv')
+
+echo -e " ${BOLD}Models${RESET}"
+echo ""
+printf "   ${DIM}%-55s %10s %14s${RESET}\n" "Model" "Spend" "Tokens"
+printf "   ${DIM}%-55s %10s %14s${RESET}\n" "-------------------------------------------------------" "--------" "-----------"
+
+if [[ -n "$model_data" ]]; then
+  echo "$model_data" |
+  while IFS=$'\t' read -r model spend tokens; do
+    printf "   %-55s %10s %14s\n" \
+      "$model" "$(format_cost "$spend")" "$(format_tokens "$tokens")"
+  done
+fi
+
+echo ""
