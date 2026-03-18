@@ -29,6 +29,7 @@ RESET='\033[0m'
 
 # ─── Config ───
 MONTHLY_BUDGET=100
+SHOW_ALL_DAILY=false
 
 # ─── Load env vars from .claude/settings.json ───
 load_from_claude_settings() {
@@ -65,9 +66,11 @@ fi
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --budget|-b) MONTHLY_BUDGET="$2"; shift 2 ;;
+    --all|-a) SHOW_ALL_DAILY=true; shift ;;
     --help|-h)
-      echo "Usage: litellm-usage [--budget N]"
+      echo "Usage: litellm-usage [OPTIONS]"
       echo "  --budget, -b N   Monthly budget limit (default: \$100)"
+      echo "  --all, -a        Show all daily records (default: last 7 days)"
       exit 0 ;;
     *) echo "Unknown option: $1" >&2; exit 1 ;;
   esac
@@ -159,14 +162,22 @@ echo ""
 result_count=$(echo "$activity_response" | jq '.results | length')
 
 if (( result_count > 0 )); then
-  echo -e " ${BOLD}Daily${RESET}"
+  local daily_label="Daily"
+  if [[ "$SHOW_ALL_DAILY" == false ]]; then
+    daily_label="Daily (Last 7 days)"
+  fi
+  echo -e " ${BOLD}${daily_label}${RESET}"
   echo ""
   printf "   ${DIM}%-12s %10s %14s %8s${RESET}\n" "Date" "Spend" "Tokens" "Reqs"
   printf "   ${DIM}%-12s %10s %14s %8s${RESET}\n" "----------" "--------" "-----------" "------"
 
-  echo "$activity_response" | jq -r '
-    .results | sort_by(.date) | .[] |
-    [.date, (.metrics.spend // 0 | tostring), (.metrics.total_tokens // 0 | tostring), (.metrics.api_requests // 0 | tostring)] | @tsv' |
+  local jq_filter='.results | sort_by(.date)'
+  if [[ "$SHOW_ALL_DAILY" == false ]]; then
+    jq_filter="${jq_filter} | .[-7:]"
+  fi
+
+  echo "$activity_response" | jq -r "${jq_filter} | .[] |
+    [.date, (.metrics.spend // 0 | tostring), (.metrics.total_tokens // 0 | tostring), (.metrics.api_requests // 0 | tostring)] | @tsv" |
   while IFS=$'\t' read -r date spend tokens requests; do
     if [[ "$date" == "$TODAY" ]]; then
       printf "   ${GREEN}%-12s %10s %14s %8s${RESET}\n" \
