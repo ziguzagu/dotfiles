@@ -739,7 +739,7 @@
   :ensure t
   :custom
   (rspec-use-relative-path t)
-  (rspec-use-docker-where-possible t)
+  (rspec-use-docker-when-possible t)
   (rspec-docker-file-name "compose.yaml")
   (rspec-docker-container "app")
   ;; Most projects use Compose and have a Rails server running during development
