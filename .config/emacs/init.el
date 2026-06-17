@@ -33,7 +33,7 @@
   (scroll-step 1)
   (tab-always-indent 'complete)
   :custom-face
-  (default ((t (:family "Moralerspace Argon" :height 130 :weight regular))))
+  (default ((t (:family "Moralerspace Argon" :height 140 :weight regular))))
   (fixed-pitch ((t (:inherit default))))
   :config
   (setq-default tab-width 4)
@@ -943,12 +943,12 @@
       (load host-local-config)))
 
   (when (display-graphic-p)
-    ;; make frame height to fit the display height and 50% width of my FHD display.
+    ;; make frame height to fit the display height and 50% width of QHD screen.
     (add-hook 'window-setup-hook
       (lambda ()
         (let* ((display-height (display-pixel-height))
                 (frame-height (floor (/ display-height (frame-char-height)))))
-          (set-frame-size (selected-frame) 117 frame-height))))))
+          (set-frame-size (selected-frame) 157 frame-height))))))
 
 (use-package server
   :ensure nil

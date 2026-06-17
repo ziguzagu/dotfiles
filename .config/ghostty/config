@@ -4,14 +4,15 @@ shell-integration-features = no-cursor
 font-family = Moralerspace Argon
 adjust-cell-height = 1
 alpha-blending = linear
-
 font-feature = -calt
 font-feature = -dlig
 font-feature = -liga
 
-# set window to 50% width and maximum height of my main FHD display
-window-width = 119
-window-height = 59
+font-size = 14
+
+# set window to 40% width and maximum height of my main QHD screen
+window-width = 124
+window-height = 78
 
 macos-option-as-alt = true
 
