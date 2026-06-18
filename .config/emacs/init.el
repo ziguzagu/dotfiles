@@ -43,8 +43,7 @@
   (xterm-mouse-mode 1)
   (put 'upcase-region 'disabled nil)
   (put 'downcase-region 'disabled nil)
-  (set-fontset-font t nil "Moralerspace Argon")
-  (setq-default line-spacing 1))
+  (set-fontset-font t nil "Moralerspace Argon"))
 
 (use-package simple
   :ensure nil
