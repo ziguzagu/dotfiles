@@ -32,6 +32,7 @@
   (scroll-margin 0)
   (scroll-step 1)
   (tab-always-indent 'complete)
+  (column-number-mode t)
   :custom-face
   (default ((t (:family "Moralerspace Argon" :height 140 :weight regular))))
   (fixed-pitch ((t (:inherit default))))
@@ -142,6 +143,8 @@
   :hook
   (after-init . doom-modeline-mode)
   :custom
+  (doom-modeline-height 25)
+  (doom-modeline-column-zero-based nil)
   (doom-modeline-env-version nil))
 
 (use-package treesit
