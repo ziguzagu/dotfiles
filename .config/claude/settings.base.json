@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh pr diff *)",
+      "Bash(gh pr view *)",
+      "Bash(gh issue view *)"
+    ]
+  },
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "claude-notify"
+          }
+        ]
+      }
+    ]
+  }
+}

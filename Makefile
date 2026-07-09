@@ -25,16 +25,19 @@ keyrepeat: ## Set my best key repeat settings
 	defaults write -g InitialKeyRepeat -int 11
 	defaults write -g KeyRepeat -int 1
 
-claude: ## Configure Claude Code hooks in ~/.claude/settings.json
+claude: ## Merge base Claude Code settings into ~/.claude/settings.json
 	@mkdir -p $(HOME)/.claude
-	@hooks='{"hooks":{"Notification":[{"matcher":"","hooks":[{"type":"command","command":"claude-notify"}]}]}}'; \
+	@base=$(basedir).config/claude/settings.base.json; \
 	if [ -f $(HOME)/.claude/settings.json ]; then \
-		jq --argjson hooks "$$hooks" '. * $$hooks' $(HOME)/.claude/settings.json > $(HOME)/.claude/settings.json.tmp && \
+		jq -s '.[0] as $$orig | .[1] as $$base | $$orig \
+			| .permissions.allow = ((.permissions.allow // []) + ($$base.permissions.allow // []) | unique) \
+			| .hooks.Notification = ((.hooks.Notification // []) + ($$base.hooks.Notification // []) | unique)' \
+			$(HOME)/.claude/settings.json $$base > $(HOME)/.claude/settings.json.tmp && \
 		mv $(HOME)/.claude/settings.json.tmp $(HOME)/.claude/settings.json; \
 	else \
-		echo "$$hooks" | jq . > $(HOME)/.claude/settings.json; \
+		jq . $$base > $(HOME)/.claude/settings.json; \
 	fi
-	@echo "Claude Code hooks configured."
+	@echo "Claude Code settings merged."
 
 check-deadlinks: ## Check for broken symlinks pointing to this repository
 	@echo "Checking for dead symlinks pointing to $(basedir)..."; \
