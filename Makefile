@@ -31,7 +31,8 @@ claude: ## Merge base Claude Code settings into ~/.claude/settings.json
 	if [ -f $(HOME)/.claude/settings.json ]; then \
 		jq -s '.[0] as $$orig | .[1] as $$base | $$orig \
 			| .permissions.allow = ((.permissions.allow // []) + ($$base.permissions.allow // []) | unique) \
-			| .hooks.Notification = ((.hooks.Notification // []) + ($$base.hooks.Notification // []) | unique)' \
+			| .hooks.Notification = ((.hooks.Notification // []) + ($$base.hooks.Notification // []) | unique) \
+			| .statusLine = ($$base.statusLine // .statusLine)' \
 			$(HOME)/.claude/settings.json $$base > $(HOME)/.claude/settings.json.tmp && \
 		mv $(HOME)/.claude/settings.json.tmp $(HOME)/.claude/settings.json; \
 	else \
