@@ -1,0 +1,111 @@
+#!/bin/zsh
+# Run the macOS screensaver as ambient background video / mood lighting.
+#
+# Keeps the screensaver up with the display awake (caffeinate -d) so it works
+# as indirect lighting. It ends when either:
+#   - you touch the keyboard/mouse: the screensaver quits, the desktop returns,
+#     and the command exits, or
+#   - the target time is reached: the display is turned off (bedtime).
+set -eu -o pipefail
+
+readonly DEFAULT_END="22:30"
+# Launch via `open` — running the engine binary directly exits immediately on
+# recent macOS. Match the engine's own executable path (not the launcher or
+# this script) to grab its PID.
+readonly ENGINE_APP="ScreenSaverEngine"
+readonly ENGINE_PATTERN="MacOS/ScreenSaverEngine"
+
+usage() {
+  cat <<'USAGE'
+Usage: chill [HH:MM | Nm | N]
+
+Run the macOS screensaver as ambient background video / mood lighting.
+Touch the keyboard/mouse to stop; at the target time the display turns off.
+
+Arguments:
+  (none)      run until 22:30
+  HH:MM       run until the given time (next day if it has already passed)
+  Nm | N      run until N minutes from now
+
+Options:
+  -h, --help  show this help
+
+Examples:
+  chill          # until 22:30
+  chill 23:45    # until 23:45
+  chill 30m      # 30 minutes from now
+  chill 45       # 45 minutes from now
+USAGE
+}
+
+# Resolve the argument into a deadline as an epoch timestamp (echoed to stdout).
+resolve_end_epoch() {
+  local arg="${1:-$DEFAULT_END}"
+  local now end
+  now=$(date +%s)
+
+  if [[ "$arg" =~ '^([01]?[0-9]|2[0-3]):[0-5][0-9]$' ]]; then
+    # HH:MM: that time today, or tomorrow if it has already passed
+    end=$(date -j -f "%Y-%m-%d %H:%M" "$(date +%Y-%m-%d) $arg" +%s)
+    if (( end <= now )); then
+      end=$(( end + 86400 ))
+    fi
+  elif [[ "$arg" =~ '^([0-9]+)m?$' ]]; then
+    # N or Nm: N minutes from now
+    end=$(( now + ${match[1]} * 60 ))
+  else
+    echo "chill: invalid argument: $arg" >&2
+    return 1
+  fi
+
+  echo "$end"
+}
+
+main() {
+  case "${1:-}" in
+    -h|--help) usage; exit 0 ;;
+  esac
+
+  local end
+  end=$(resolve_end_epoch "${1:-}")
+
+  local seconds=$(( end - $(date +%s) ))
+  (( seconds <= 0 )) && exit 0
+
+  echo "🌙 Running screensaver until $(date -r "$end" '+%H:%M') (touch to stop, Ctrl-C to cancel)"
+
+  # Ctrl-C just cancels; the keypress itself has already dismissed the saver
+  trap 'exit 130' INT TERM
+
+  open -a "$ENGINE_APP"
+
+  # `open` doesn't return the PID, so poll for the engine (up to ~3s)
+  local engine_pid="" i
+  for i in {1..30}; do
+    engine_pid=$(pgrep -f "$ENGINE_PATTERN" | head -1 || true)
+    [[ -n "$engine_pid" ]] && break
+    sleep 0.1
+  done
+  if [[ -z "$engine_pid" ]]; then
+    echo "chill: screensaver did not start" >&2
+    exit 1
+  fi
+
+  # Keep the display lit until the deadline OR until the screensaver quits.
+  # Touching the keyboard/mouse quits the engine (-w fires); the deadline fires
+  # via -t. Whichever comes first releases caffeinate.
+  caffeinate -d -t "$seconds" -w "$engine_pid"
+
+  if kill -0 "$engine_pid" 2>/dev/null; then
+    # Deadline: the screensaver is still up. Killing it won't dismiss the
+    # overlay (only real input does), so turn the display off instead — and
+    # leave the engine running so the next keypress clears it cleanly.
+    echo "😴 Bedtime — turning the display off"
+    pmset displaysleepnow
+  else
+    # You touched it: the screensaver already quit and the desktop is back.
+    echo "👋 Screensaver stopped"
+  fi
+}
+
+main "$@"
