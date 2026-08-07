@@ -17,3 +17,5 @@ MyMakefile
 vendor/bundle/
 
 **/.claude/settings.local.json
+
+**/.claude/.cc-writes/
