@@ -25,6 +25,10 @@ keyrepeat: ## Set my best key repeat settings
 	defaults write -g InitialKeyRepeat -int 11
 	defaults write -g KeyRepeat -int 1
 
+# Workaround for Emacs.app/emacsclient not launched from within Ghostty (e.g. GUI app, daemon), which otherwise fail to resolve TERM=xterm-ghostty
+ghostty-terminfo: ## Register Ghostty's terminfo entry into ~/.terminfo so it resolves without tmux
+	infocmp -x xterm-ghostty | tic -x -o $(HOME)/.terminfo -
+
 claude: ## Merge base Claude Code settings into ~/.claude/settings.json
 	@mkdir -p $(HOME)/.claude
 	@base=$(basedir).config/claude/settings.base.json; \
