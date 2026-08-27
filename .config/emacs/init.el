@@ -156,23 +156,17 @@
   ;; install a missing grammar when the mode is turned on, not at startup
   (treesit-auto-install-grammar 'ask)
   :config
-  (setq treesit-language-source-alist
-    '((css "https://github.com/tree-sitter/tree-sitter-css")
-       (go "https://github.com/tree-sitter/tree-sitter-go")
-       (javascript "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
-       (json "https://github.com/tree-sitter/tree-sitter-json")
-       (ruby "https://github.com/tree-sitter/tree-sitter-ruby")
-       (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
-       (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")))
-
-  ;; replaces per-mode `major-mode-remap-alist' entries
+  ;; replaces per-mode `major-mode-remap-alist' entries, and lets
+  ;; `*-ts-mode-maybe' offer to install a missing grammar
   (setopt treesit-enabled-modes '(css-ts-mode
+                                   dockerfile-ts-mode
                                    go-ts-mode
                                    js-ts-mode
                                    json-ts-mode
                                    ruby-ts-mode
                                    tsx-ts-mode
-                                   typescript-ts-mode)))
+                                   typescript-ts-mode
+                                   yaml-ts-mode)))
 
 (use-package whitespace
   :ensure nil
@@ -491,9 +485,9 @@
   :config
   (sql-highlight-mysql-keywords))
 
-(use-package markdown-mode
-  :ensure t
-  :commands (markdown-mode gfm-mode))
+(use-package markdown-ts-mode
+  :ensure nil
+  :mode ("\\.\\(?:md\\|markdown\\|mkd\\|mdown\\|mkdn\\|mdwn\\|mdx\\)\\'" . markdown-ts-mode))
 
 (use-package sh-script
   :ensure nil
@@ -654,16 +648,6 @@
   :ensure nil
   :hook
   (prog-mode . flymake-mode))
-
-(use-package posframe
-  :ensure t)
-
-(use-package flymake-posframe
-  :vc (:url "https://github.com/Ladicle/flymake-posframe.git" :rev :newest)
-  :hook
-  (flymake-mode . flymake-posframe-mode)
-  :custom-face
-  (flymake-posframe-face ((t (:foreground "#5fafd7" :background "#292929")))))
 
 (use-package dumb-jump
   :ensure t
@@ -862,17 +846,6 @@
   :ensure t
   :hook
   (terraform-mode . terraform-format-on-save-mode))
-
-(use-package yaml-mode
-  :ensure t)
-
-(use-package yaml-imenu
-  :ensure t
-  :config
-  (yaml-imenu-enable))
-
-(use-package dockerfile-mode
-  :ensure t)
 
 (use-package conf-mode
   :ensure nil
