@@ -5,6 +5,7 @@
 *.o
 *~
 .DS_Store
+.claude/local/
 .claude/permissions.json
 .claude/settings.local.json
 .dir-locals.el
