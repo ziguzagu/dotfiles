@@ -1,3 +1,5 @@
+;;; init.el --- Personal Emacs configuration -*- lexical-binding: t; -*-
+
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 
@@ -92,8 +94,7 @@
   :config
   (defun my:copy-from-macos ()
     "Get clipboard contents."
-    (let ((pbpaste (purecopy "pbpaste"))
-           (tramp-mode nil)
+    (let ((tramp-mode nil)
            (default-directory "~"))
       (shell-command-to-string "pbpaste")))
 
@@ -116,7 +117,7 @@
 (use-package nerd-icons
   :ensure t
   :config
-  (when (and (eq system-type 'darwin) (display-graphic-p))
+  (when (eq system-type 'darwin)
     (let ((font-file (expand-file-name "~/Library/Fonts/NFM.ttf")))
       (unless (file-exists-p font-file)
         (nerd-icons-install-fonts t)))))
@@ -150,7 +151,11 @@
 (use-package treesit
   :ensure nil
   :when (treesit-available-p)
-  :init
+  :demand t
+  :custom
+  ;; install a missing grammar when the mode is turned on, not at startup
+  (treesit-auto-install-grammar 'ask)
+  :config
   (setq treesit-language-source-alist
     '((css "https://github.com/tree-sitter/tree-sitter-css")
        (go "https://github.com/tree-sitter/tree-sitter-go")
@@ -160,11 +165,14 @@
        (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
        (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")))
 
-  ;; install grammars
-  (dolist (lang '(css go javascript json ruby tsx typescript))
-    (unless (treesit-language-available-p lang)
-      (ignore-errors
-        (treesit-install-language-grammar lang)))))
+  ;; replaces per-mode `major-mode-remap-alist' entries
+  (setopt treesit-enabled-modes '(css-ts-mode
+                                   go-ts-mode
+                                   js-ts-mode
+                                   json-ts-mode
+                                   ruby-ts-mode
+                                   tsx-ts-mode
+                                   typescript-ts-mode)))
 
 (use-package whitespace
   :ensure nil
@@ -363,7 +371,7 @@
           ("C-M-a" . mc/mark-all-like-this)))
 
 (use-package flyspell
-  :ensure t
+  :ensure nil
   :hook
   (prog-mode . flyspell-prog-mode)
   (text-mode . flyspell-mode)
@@ -407,8 +415,7 @@
   (global-corfu-mode)
   :config
   (corfu-history-mode)
-  (when (display-graphic-p)
-    (corfu-popupinfo-mode)))
+  (corfu-popupinfo-mode))
 
 (use-package cape
   :ensure t
@@ -493,12 +500,10 @@
   :custom
   (sh-shell-file "/bin/zsh"))
 
-(use-package emacs-lisp
+(use-package elisp-mode
   :ensure nil
   :bind (:map emacs-lisp-mode-map
           ("C-c h ." . my:describe-symbol-at-point))
-  :hook
-  (emacs-lisp-mode . my:disable-flycheck-in-init)
   :init
   (defun my:describe-symbol-at-point ()
     "Describe the function or variable at point."
@@ -509,13 +514,7 @@
         (cond
           ((fboundp sym) (describe-function sym))
           ((boundp sym) (describe-variable sym))
-          (t (message "Symbol `%s' is neither a function nor a variable" sym))))))
-
-  (defun my:disable-flycheck-in-init ()
-    "Disable specific flycheck checkers in init.el."
-    (when (and buffer-file-name
-            (string-equal (file-truename buffer-file-name) (file-truename user-init-file)))
-      (setq-local flycheck-disabled-checkers '(emacs-lisp emacs-lisp-checkdoc)))))
+          (t (message "Symbol `%s' is neither a function nor a variable" sym)))))))
 
 (use-package vc
   :ensure nil
@@ -583,8 +582,8 @@
   :bind (:map vc-dir-mode-map
           ("a" . my:vc-git-add)
           ("u" . my:vc-git-reset)
-          ("g" . my:vc-dir-refresh-and-hide-up-to-date))
-          ("r" . vc-revert)
+          ("g" . my:vc-dir-refresh-and-hide-up-to-date)
+          ("r" . vc-revert))
   :config
   (defun my:vc-dir-refresh-and-hide-up-to-date ()
     "Refresh vc-dir and hide up-to-date files."
@@ -635,12 +634,12 @@
   :ensure t)
 
 (use-package editorconfig
-  :ensure t
+  :ensure nil
   :config
   (editorconfig-mode 1))
 
 (use-package eglot
-  :ensure t
+  :ensure nil
   :hook
   (go-ts-mode . eglot-ensure)
   (ruby-ts-mode . eglot-ensure)
@@ -657,11 +656,9 @@
   (prog-mode . flymake-mode))
 
 (use-package posframe
-  :if (display-graphic-p)
   :ensure t)
 
 (use-package flymake-posframe
-  :if (display-graphic-p)
   :vc (:url "https://github.com/Ladicle/flymake-posframe.git" :rev :newest)
   :hook
   (flymake-mode . flymake-posframe-mode)
@@ -687,8 +684,6 @@
   :interpreter "ruby"
   :custom
   (ruby-insert-encoding-magic-comment nil)
-  :init
-  (add-to-list 'major-mode-remap-alist '(ruby-mode . ruby-ts-mode))
   :config
   ;; imenu for schema.rb
   (defun rails-schema-imenu-create-index ()
@@ -804,11 +799,9 @@
         (substring real-file (string-match "/" real-file) -1))))
   (add-to-list 'ffap-alist '(cperl-mode . my:ffap-cperl-mode)))
 
-(use-package js-mode
+(use-package js
   :ensure nil
   :interpreter "node"
-  :init
-  (add-to-list 'major-mode-remap-alist '(javascript-mode . js-ts-mode))
   :custom
   (js-indent-level 2))
 
@@ -854,8 +847,6 @@
 
 (use-package css-mode
   :ensure nil
-  :init
-  (add-to-list 'major-mode-remap-alist '(css-mode . css-ts-mode))
   :custom
   (css-indent-offset 2))
 
@@ -873,8 +864,7 @@
   (terraform-mode . terraform-format-on-save-mode))
 
 (use-package yaml-mode
-  :ensure t
-  :bind (("C-m" . newline-and-indent)))
+  :ensure t)
 
 (use-package yaml-imenu
   :ensure t
@@ -932,15 +922,21 @@
   ;; load additional config per machine
   (let ((host-local-config (expand-file-name "init-local.el" user-emacs-directory)))
     (when (file-exists-p host-local-config)
-      (load host-local-config)))
+      (load host-local-config))))
 
-  (when (display-graphic-p)
-    ;; make frame height to fit the display height and 50% width of QHD screen.
-    (add-hook 'window-setup-hook
-      (lambda ()
-        (let* ((display-height (display-pixel-height))
-                (frame-height (floor (/ display-height (frame-char-height)))))
-          (set-frame-size (selected-frame) 157 frame-height))))))
+;; make frame height to fit the display height and 50% width of QHD screen.
+(defun my:fit-frame-size (&optional frame)
+  "Fit FRAME height to the display height on graphical frames."
+  (let ((frame (or frame (selected-frame))))
+    (when (display-graphic-p frame)
+      (let ((frame-height (floor (/ (display-pixel-height frame)
+                                   (frame-char-height frame)))))
+        (set-frame-size frame 157 frame-height)))))
+
+;; window-setup-hook covers a directly started GUI frame, and
+;; server-after-make-frame-hook covers frames created by emacsclient.
+(add-hook 'window-setup-hook #'my:fit-frame-size)
+(add-hook 'server-after-make-frame-hook #'my:fit-frame-size)
 
 (use-package server
   :ensure nil
