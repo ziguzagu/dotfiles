@@ -410,16 +410,6 @@
   (when (display-graphic-p)
     (corfu-popupinfo-mode)))
 
-(use-package corfu-terminal
-  :ensure t
-  :after corfu
-  :config
-  (add-hook 'after-make-frame-functions
-    (lambda (frame)
-      (with-selected-frame frame
-        (unless (display-graphic-p)
-          (corfu-terminal-mode +1))))))
-
 (use-package cape
   :ensure t
   :bind ("C-o" . cape-dabbrev)
