@@ -485,9 +485,9 @@
   :config
   (sql-highlight-mysql-keywords))
 
-(use-package markdown-ts-mode
-  :ensure nil
-  :mode ("\\.\\(?:md\\|markdown\\|mkd\\|mdown\\|mkdn\\|mdwn\\|mdx\\)\\'" . markdown-ts-mode))
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode))
 
 (use-package sh-script
   :ensure nil
