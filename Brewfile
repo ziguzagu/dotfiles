@@ -59,7 +59,8 @@ cask 'session-manager-plugin'
 cask 'slack'
 
 tap 'd12frosted/emacs-plus'
-brew 'emacs-plus'
+# Pinned to @30: 31.1 crashes in ns_scroll_run on macOS 26 (see Makefile)
+brew 'emacs-plus@30'
 
 # Load local Brewfile if it exists (for machine-specific packages)
 instance_eval(File.read(File.expand_path("./Brewfile.local"))) if File.exist?("Brewfile.local")

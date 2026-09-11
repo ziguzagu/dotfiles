@@ -18,7 +18,7 @@ $(targets):
 # Homebrew refuses to load formulae from third-party taps until they are trusted.
 # While untrusted, it cannot see emacs-plus's dependency graph, so every library
 # only Emacs needs looks unused and gets swept away by bundle cleanup/autoremove.
-trusted_formulae = d12frosted/emacs-plus/emacs-plus@31
+trusted_formulae = d12frosted/emacs-plus/emacs-plus@30
 
 brew-trust: ## Trust third-party tap formulae required by Brewfile
 	brew trust --formula $(trusted_formulae)

@@ -117,7 +117,7 @@
 (use-package nerd-icons
   :ensure t
   :config
-  (when (eq system-type 'darwin)
+  (when (and (eq system-type 'darwin) (display-graphic-p))
     (let ((font-file (expand-file-name "~/Library/Fonts/NFM.ttf")))
       (unless (file-exists-p font-file)
         (nerd-icons-install-fonts t)))))
@@ -151,22 +151,21 @@
 (use-package treesit
   :ensure nil
   :when (treesit-available-p)
-  :demand t
-  :custom
-  ;; install a missing grammar when the mode is turned on, not at startup
-  (treesit-auto-install-grammar 'ask)
-  :config
-  ;; replaces per-mode `major-mode-remap-alist' entries, and lets
-  ;; `*-ts-mode-maybe' offer to install a missing grammar
-  (setopt treesit-enabled-modes '(css-ts-mode
-                                   dockerfile-ts-mode
-                                   go-ts-mode
-                                   js-ts-mode
-                                   json-ts-mode
-                                   ruby-ts-mode
-                                   tsx-ts-mode
-                                   typescript-ts-mode
-                                   yaml-ts-mode)))
+  :init
+  (setq treesit-language-source-alist
+    '((css "https://github.com/tree-sitter/tree-sitter-css")
+       (go "https://github.com/tree-sitter/tree-sitter-go")
+       (javascript "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
+       (json "https://github.com/tree-sitter/tree-sitter-json")
+       (ruby "https://github.com/tree-sitter/tree-sitter-ruby")
+       (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
+       (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")))
+
+  ;; install grammars
+  (dolist (lang '(css go javascript json ruby tsx typescript))
+    (unless (treesit-language-available-p lang)
+      (ignore-errors
+        (treesit-install-language-grammar lang)))))
 
 (use-package whitespace
   :ensure nil
@@ -409,7 +408,18 @@
   (global-corfu-mode)
   :config
   (corfu-history-mode)
-  (corfu-popupinfo-mode))
+  (when (display-graphic-p)
+    (corfu-popupinfo-mode)))
+
+(use-package corfu-terminal
+  :ensure t
+  :after corfu
+  :config
+  (add-hook 'after-make-frame-functions
+    (lambda (frame)
+      (with-selected-frame frame
+        (unless (display-graphic-p)
+          (corfu-terminal-mode +1))))))
 
 (use-package cape
   :ensure t
@@ -485,9 +495,9 @@
   :config
   (sql-highlight-mysql-keywords))
 
-(use-package markdown-ts-mode
-  :ensure nil
-  :mode ("\\.\\(?:md\\|markdown\\|mkd\\|mdown\\|mkdn\\|mdwn\\|mdx\\)\\'" . markdown-ts-mode))
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode))
 
 (use-package sh-script
   :ensure nil
@@ -668,6 +678,8 @@
   :interpreter "ruby"
   :custom
   (ruby-insert-encoding-magic-comment nil)
+  :init
+  (add-to-list 'major-mode-remap-alist '(ruby-mode . ruby-ts-mode))
   :config
   ;; imenu for schema.rb
   (defun rails-schema-imenu-create-index ()
@@ -786,6 +798,8 @@
 (use-package js
   :ensure nil
   :interpreter "node"
+  :init
+  (add-to-list 'major-mode-remap-alist '(javascript-mode . js-ts-mode))
   :custom
   (js-indent-level 2))
 
@@ -831,6 +845,8 @@
 
 (use-package css-mode
   :ensure nil
+  :init
+  (add-to-list 'major-mode-remap-alist '(css-mode . css-ts-mode))
   :custom
   (css-indent-offset 2))
 
@@ -846,6 +862,17 @@
   :ensure t
   :hook
   (terraform-mode . terraform-format-on-save-mode))
+
+(use-package yaml-mode
+  :ensure t)
+
+(use-package yaml-imenu
+  :ensure t
+  :config
+  (yaml-imenu-enable))
+
+(use-package dockerfile-mode
+  :ensure t)
 
 (use-package conf-mode
   :ensure nil
