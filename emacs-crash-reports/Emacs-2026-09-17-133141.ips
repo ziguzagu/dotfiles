@@ -1,0 +1,3274 @@
+{"app_name":"Emacs","timestamp":"2026-09-17 13:31:41.00 +0900","app_version":"Version 31.1","slice_uuid":"bccbd2b5-5823-3393-a294-10ea2e2ef359","build_version":"9.0","platform":1,"bundleID":"org.gnu.Emacs","share_with_app_devs":0,"is_first_party":0,"bug_type":"309","os_version":"macOS 26.6.2 (25G83)","roots_installed":0,"name":"Emacs","incident_id":"E4021F0F-A35C-442E-91B0-036012868EF6"}
+{
+  "uptime" : 210000,
+  "procRole" : "Foreground",
+  "version" : 2,
+  "userID" : 501,
+  "deployVersion" : 210,
+  "modelCode" : "Mac15,12",
+  "coalitionID" : 31182,
+  "osVersion" : {
+    "train" : "macOS 26.6.2",
+    "build" : "25G83",
+    "releaseType" : "User"
+  },
+  "captureTime" : "2026-09-17 13:31:37.9429 +0900",
+  "codeSigningMonitor" : 2,
+  "incident" : "E4021F0F-A35C-442E-91B0-036012868EF6",
+  "pid" : 37096,
+  "translated" : false,
+  "cpuType" : "ARM-64",
+  "procLaunch" : "2026-09-17 13:28:41.2713 +0900",
+  "procStartAbsTime" : 5199702158935,
+  "procExitAbsTime" : 5203942195379,
+  "procName" : "Emacs",
+  "procPath" : "\/Applications\/Emacs.app\/Contents\/MacOS\/Emacs",
+  "bundleInfo" : {"CFBundleShortVersionString":"Version 31.1","CFBundleVersion":"9.0","CFBundleIdentifier":"org.gnu.Emacs"},
+  "storeInfo" : {"deviceIdentifierForVendor":"BCDED76D-6842-5262-9AEF-FC445244B3B9","thirdParty":true},
+  "parentProc" : "launchd",
+  "parentPid" : 1,
+  "coalitionName" : "org.gnu.Emacs",
+  "crashReporterKey" : "78B2F339-9584-504E-8F80-7638AEE0C14A",
+  "appleIntelligenceStatus" : {"state":"available"},
+  "developerMode" : 1,
+  "bootProgressRegister" : "0x2f000000",
+  "codeSigningID" : "org.gnu.Emacs",
+  "codeSigningTeamID" : "",
+  "codeSigningFlags" : 570425857,
+  "codeSigningValidationCategory" : 10,
+  "codeSigningTrustLevel" : 4294967295,
+  "codeSigningAuxiliaryInfo" : 0,
+  "instructionByteStream" : {"beforePC":"fyMD1f17v6n9AwCRCuD\/l78DAJH9e8Go\/w9f1sADX9YQKYDSARAA1A==","atPC":"AwEAVH8jA9X9e7+p\/QMAkf\/f\/5e\/AwCR\/XvBqP8PX9bAA1\/WcAqA0g=="},
+  "bootSessionUUID" : "A51D8B90-6611-46E8-99C0-119EE4142604",
+  "wakeTime" : 423,
+  "sleepWakeUUID" : "34C85B2A-D335-4C90-9C73-7855E309CA7D",
+  "sip" : "enabled",
+  "vmRegionInfo" : "0x1329cc010 is in 0x1329cc000-0x137468000;  bytes after start: 16  bytes before end: 78233583\n      REGION TYPE                    START - END         [ VSIZE] PRT\/MAX SHRMOD  REGION DETAIL\n      mapped file                 12f248000-12f484000    [ 2288K] r--\/rwx SM=COW  Object_id=356d56c7\n      GAP OF 0x3548000 BYTES\n--->  mapped file                 1329cc000-137468000    [ 74.6M] r--\/rwx SM=COW  Object_id=88f2af\n      mapped file                 137468000-138a9c000    [ 22.2M] r--\/rwx SM=COW  Object_id=dbe8e3b6",
+  "exception" : {"codes":"0x0000000000000002, 0x00000001329cc010","rawCodes":[2,5144100880],"type":"EXC_BAD_ACCESS","signal":"SIGABRT","subtype":"KERN_PROTECTION_FAILURE at 0x00000001329cc010"},
+  "termination" : {"flags":0,"code":6,"namespace":"SIGNAL","indicator":"Abort trap: 6","byProc":"Emacs","byPid":37096},
+  "vmregioninfo" : "0x1329cc010 is in 0x1329cc000-0x137468000;  bytes after start: 16  bytes before end: 78233583\n      REGION TYPE                    START - END         [ VSIZE] PRT\/MAX SHRMOD  REGION DETAIL\n      mapped file                 12f248000-12f484000    [ 2288K] r--\/rwx SM=COW  Object_id=356d56c7\n      GAP OF 0x3548000 BYTES\n--->  mapped file                 1329cc000-137468000    [ 74.6M] r--\/rwx SM=COW  Object_id=88f2af\n      mapped file                 137468000-138a9c000    [ 22.2M] r--\/rwx SM=COW  Object_id=dbe8e3b6",
+  "extMods" : {"caller":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"system":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"targeted":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"warnings":0},
+  "faultingThread" : 0,
+  "threads" : [{"triggered":true,"id":7749680,"threadState":{"x":[{"value":0},{"value":0},{"value":0},{"value":18446726483666796544},{"value":44463844704},{"value":0},{"value":18446744072631617535},{"value":18446726482597246976},{"value":558970308316643001},{"value":558970311103110969},{"value":1},{"value":8497792984,"symbolLocation":0,"symbol":"_NSAPCache"},{"value":1},{"value":44486140352},{"value":72057602535673329,"symbolLocation":72057594037927937,"symbol":"OBJC_CLASS_$_NSAutoreleasePool"},{"value":8497745392,"symbolLocation":0,"symbol":"OBJC_CLASS_$_NSAutoreleasePool"},{"value":328},{"value":8520889176},{"value":0},{"value":6},{"value":259},{"value":8497554016,"symbolLocation":224,"symbol":"_main_thread"},{"value":389136},{"value":40976},{"value":2725},{"value":264},{"value":44519016080},{"value":0},{"value":1386}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6674872536},"cpsr":{"value":1073745920},"fp":{"value":6165989616},"sp":{"value":6165989584},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6674630120,"matchesCrashFrame":1},"far":{"value":0}},"queue":"com.apple.main-thread","frames":[{"imageOffset":38376,"symbol":"__pthread_kill","symbolLocation":8,"imageIndex":346},{"imageOffset":26840,"symbol":"pthread_kill","symbolLocation":296,"imageIndex":347},{"imageOffset":267144,"symbol":"raise","symbolLocation":32,"imageIndex":348},{"imageOffset":2447264,"symbol":"terminate_due_to_signal","symbolLocation":228,"imageIndex":0},{"imageOffset":2449368,"symbol":"emacs_abort","symbolLocation":20,"imageIndex":0},{"imageOffset":2162380,"symbol":"ns_term_shutdown","symbolLocation":132,"imageIndex":0},{"imageOffset":871032,"symbol":"shut_down_emacs","symbolLocation":360,"imageIndex":0},{"imageOffset":2447204,"symbol":"terminate_due_to_signal","symbolLocation":168,"imageIndex":0},{"imageOffset":1018404,"symbol":"deliver_fatal_thread_signal","symbolLocation":128,"imageIndex":0},{"imageOffset":14148,"symbol":"_sigtramp","symbolLocation":56,"imageIndex":349},{"imageOffset":2202768,"symbol":"-[EmacsView copyRect:to:]","symbolLocation":312,"imageIndex":0},{"imageOffset":2231568,"symbol":"ns_scroll_run","symbolLocation":456,"imageIndex":0},{"imageOffset":24880,"symbol":"update_window","symbolLocation":3744,"imageIndex":0},{"imageOffset":42648,"symbol":"update_window_tree","symbolLocation":116,"imageIndex":0},{"imageOffset":20028,"symbol":"update_frame","symbolLocation":140,"imageIndex":0},{"imageOffset":195752,"symbol":"redisplay_internal","symbolLocation":4336,"imageIndex":0},{"imageOffset":951060,"symbol":"read_char","symbolLocation":2672,"imageIndex":0},{"imageOffset":893980,"symbol":"read_key_sequence","symbolLocation":1452,"imageIndex":0},{"imageOffset":886964,"symbol":"command_loop_1","symbolLocation":872,"imageIndex":0},{"imageOffset":1456784,"symbol":"internal_condition_case","symbolLocation":88,"imageIndex":0},{"imageOffset":886072,"symbol":"command_loop_2","symbolLocation":52,"imageIndex":0},{"imageOffset":1454640,"symbol":"internal_catch","symbolLocation":84,"imageIndex":0},{"imageOffset":2448296,"symbol":"command_loop.cold.1","symbolLocation":88,"imageIndex":0},{"imageOffset":883996,"symbol":"command_loop","symbolLocation":156,"imageIndex":0},{"imageOffset":883672,"symbol":"recursive_edit_1","symbolLocation":184,"imageIndex":0},{"imageOffset":884432,"symbol":"Frecursive_edit","symbolLocation":412,"imageIndex":0},{"imageOffset":879968,"symbol":"main","symbolLocation":8844,"imageIndex":0},{"imageOffset":132324,"symbol":"start","symbolLocation":6992,"imageIndex":350}]},{"id":7749720,"name":"gmain","threadState":{"x":[{"value":4},{"value":0},{"value":6167702912},{"value":6167702784},{"value":0},{"value":0},{"value":18446744072631617535},{"value":18446726482597246976},{"value":6167703176},{"value":1000},{"value":4294967295},{"value":2},{"value":1},{"value":44505941168},{"value":57},{"value":44505939968},{"value":93},{"value":4729061092252587768},{"value":0},{"value":44505941176},{"value":1},{"value":6167702912},{"value":1},{"value":6167702784},{"value":6167703040},{"value":44505941168},{"value":4},{"value":44505941176},{"value":4}],"flavor":"ARM_THREAD_STATE64","lr":{"value":4322572232},"cpsr":{"value":1610616832},"fp":{"value":6167703280},"sp":{"value":6167702768},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6674640512},"far":{"value":0}},"frames":[{"imageOffset":48768,"symbol":"__select","symbolLocation":8,"imageIndex":346},{"imageOffset":260040,"symbol":"g_poll","symbolLocation":460,"imageIndex":11},{"imageOffset":202764,"symbol":"g_main_context_iterate_unlocked","symbolLocation":380,"imageIndex":11},{"imageOffset":202964,"symbol":"g_main_context_iteration","symbolLocation":60,"imageIndex":11},{"imageOffset":207000,"symbol":"glib_worker_main","symbolLocation":48,"imageIndex":11},{"imageOffset":352324,"symbol":"g_thread_proxy","symbolLocation":84,"imageIndex":11},{"imageOffset":27736,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":347},{"imageOffset":7196,"symbol":"thread_start","symbolLocation":8,"imageIndex":347}]},{"id":7749755,"frames":[{"imageOffset":29008,"symbol":"__pselect","symbolLocation":8,"imageIndex":346},{"imageOffset":28712,"symbol":"pselect$DARWIN_EXTSN","symbolLocation":64,"imageIndex":346},{"imageOffset":2167584,"symbol":"-[EmacsApp fd_handler:]","symbolLocation":228,"imageIndex":0},{"imageOffset":342908,"symbol":"__NSThread__start__","symbolLocation":732,"imageIndex":352},{"imageOffset":27736,"symbol":"_pthread_start","symbolLocation":136,"imageIndex":347},{"imageOffset":7196,"symbol":"thread_start","symbolLocation":8,"imageIndex":347}],"threadState":{"x":[{"value":4},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":6},{"value":0},{"value":0},{"value":3},{"value":3},{"value":44486140384},{"value":72057602535673329,"symbolLocation":72057594037927937,"symbol":"OBJC_CLASS_$_NSAutoreleasePool"},{"value":8497745392,"symbolLocation":0,"symbol":"OBJC_CLASS_$_NSAutoreleasePool"},{"value":394},{"value":8520841736},{"value":0},{"value":0},{"value":0},{"value":6169419324},{"value":7},{"value":0},{"value":6},{"value":0},{"value":4303884288,"symbolLocation":56,"symbol":"Sns_list_services"},{"value":6169421848},{"value":4303671296}],"flavor":"ARM_THREAD_STATE64","lr":{"value":6674620456},"cpsr":{"value":2684358656},"fp":{"value":6169419296},"sp":{"value":6169419184},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6674620752},"far":{"value":0}}},{"id":7752133,"frames":[],"threadState":{"x":[{"value":6167130112},{"value":54563},{"value":6166593536},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6167130112},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6674852872},"far":{"value":0}}},{"id":7754001,"frames":[],"threadState":{"x":[{"value":6168276992},{"value":19219},{"value":6167740416},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6168276992},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6674852872},"far":{"value":0}}},{"id":7755389,"frames":[],"threadState":{"x":[{"value":6166556672},{"value":35027},{"value":6166020096},{"value":0},{"value":409604},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6166556672},"esr":{"value":1442840704,"description":"(Syscall)"},"pc":{"value":6674852872},"far":{"value":0}}},{"id":7755647,"frames":[],"threadState":{"x":[{"value":6168850432},{"value":0},{"value":6168313856},{"value":0},{"value":278532},{"value":18446744073709551615},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":4096},"fp":{"value":0},"sp":{"value":6168850432},"esr":{"value":0},"pc":{"value":6674852872},"far":{"value":0}}}],
+  "usedImages" : [
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4300881920,
+    "CFBundleShortVersionString" : "Version 31.1",
+    "CFBundleIdentifier" : "org.gnu.Emacs",
+    "size" : 2785280,
+    "uuid" : "bccbd2b5-5823-3393-a294-10ea2e2ef359",
+    "path" : "\/Applications\/Emacs.app\/Contents\/MacOS\/Emacs",
+    "name" : "Emacs",
+    "CFBundleVersion" : "9.0"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4307156992,
+    "size" : 425984,
+    "uuid" : "81b99cac-50db-3fbe-be2f-0ed108956455",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libtiff.6.dylib",
+    "name" : "libtiff.6.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4308434944,
+    "size" : 393216,
+    "uuid" : "8a556cb1-f63c-35a2-9417-3657a66ab758",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libjpeg.8.dylib",
+    "name" : "libjpeg.8.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4306812928,
+    "size" : 147456,
+    "uuid" : "68cbdb4a-d121-3925-a2ab-fa1a7598b757",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libpng16.16.dylib",
+    "name" : "libpng16.16.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4306665472,
+    "size" : 16384,
+    "uuid" : "6731ebdb-d4c0-382e-87f6-096557c61a7e",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libwebpdemux.2.dylib",
+    "name" : "libwebpdemux.2.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4309270528,
+    "size" : 262144,
+    "uuid" : "d5d18de0-5439-3b6e-8118-b5d7b486ec66",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libwebp.7.dylib",
+    "name" : "libwebp.7.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4315283456,
+    "size" : 3997696,
+    "uuid" : "243a025d-5d27-37a1-b995-53910a88b2b1",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/librsvg-2.2.dylib",
+    "name" : "librsvg-2.2.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4308910080,
+    "size" : 131072,
+    "uuid" : "78e0daf2-56da-3807-9f85-258ffcccc24b",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libgdk_pixbuf-2.0.0.dylib",
+    "name" : "libgdk_pixbuf-2.0.0.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4311662592,
+    "size" : 1277952,
+    "uuid" : "28e2b760-1935-3a66-8116-08621200975c",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libgio-2.0.0.dylib",
+    "name" : "libgio-2.0.0.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4313694208,
+    "size" : 851968,
+    "uuid" : "4b6ed5a9-0981-3767-b558-ec27426241ad",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libcairo.2.dylib",
+    "name" : "libcairo.2.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4310056960,
+    "size" : 245760,
+    "uuid" : "55c4f9e0-d33b-3dad-8633-5aedaccff305",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libgobject-2.0.0.dylib",
+    "name" : "libgobject-2.0.0.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4322312192,
+    "size" : 1032192,
+    "uuid" : "49b3e8e7-cc65-33d5-8ab1-68e45d574885",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libglib-2.0.0.dylib",
+    "name" : "libglib-2.0.0.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4309630976,
+    "size" : 163840,
+    "uuid" : "685f7630-ffc2-340b-b015-a7ee74c4d830",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libintl.8.dylib",
+    "name" : "libintl.8.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4326031360,
+    "size" : 1703936,
+    "uuid" : "4fcd3a41-997d-3ca6-a729-05c55ef661c4",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libgnutls.30.dylib",
+    "name" : "libgnutls.30.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4310843392,
+    "size" : 245760,
+    "uuid" : "c82f20bf-aec5-32fa-85dc-ca4eefa06424",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/liblcms2.2.dylib",
+    "name" : "liblcms2.2.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4375265280,
+    "size" : 33685504,
+    "uuid" : "16368122-8f4f-3b18-ae4d-2984e57f27aa",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libgccjit.0.dylib",
+    "name" : "libgccjit.0.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4310482944,
+    "size" : 147456,
+    "uuid" : "0b92887b-8ec5-3cf4-92ce-ab97c94e0a92",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libtree-sitter.0.27.dylib",
+    "name" : "libtree-sitter.0.27.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4321591296,
+    "size" : 557056,
+    "uuid" : "1ce1197a-4a2b-3036-984e-95599210332b",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libzstd.1.dylib",
+    "name" : "libzstd.1.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4309860352,
+    "size" : 131072,
+    "uuid" : "43c01aff-c040-33ff-bb38-5e1ec42d9e75",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/liblzma.5.dylib",
+    "name" : "liblzma.5.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4307025920,
+    "size" : 16384,
+    "uuid" : "cffa0a94-bba9-3003-9d80-0b34e6becb0c",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libsharpyuv.0.dylib",
+    "name" : "libsharpyuv.0.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4307714048,
+    "size" : 32768,
+    "uuid" : "319d2c19-3924-339b-a259-89b312ae2ef6",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libcairo-gobject.2.dylib",
+    "name" : "libcairo-gobject.2.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4311203840,
+    "size" : 65536,
+    "uuid" : "52afd657-6fa0-3e98-b57f-b3d38c5250e6",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libpangocairo-1.0.0.dylib",
+    "name" : "libpangocairo-1.0.0.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4323688448,
+    "size" : 294912,
+    "uuid" : "2f633ee6-cf7c-3a01-b0f4-7b66752a6cf7",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libpango-1.0.0.dylib",
+    "name" : "libpango-1.0.0.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4324147200,
+    "size" : 491520,
+    "uuid" : "ac59ae27-0884-3df1-baf1-38015aa7768b",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libpcre2-8.0.dylib",
+    "name" : "libpcre2-8.0.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4307812352,
+    "size" : 16384,
+    "uuid" : "0ceed0be-d077-39d4-909b-4e10a7f7cf1e",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libgmodule-2.0.0.dylib",
+    "name" : "libgmodule-2.0.0.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4324737024,
+    "size" : 344064,
+    "uuid" : "87c3c3d8-36d6-34a3-afde-4ade52451318",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libfontconfig.1.dylib",
+    "name" : "libfontconfig.1.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4325212160,
+    "size" : 507904,
+    "uuid" : "0a7e6c59-803b-3a5a-8f9b-240d7b3025ca",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libfreetype.6.dylib",
+    "name" : "libfreetype.6.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4329422848,
+    "size" : 868352,
+    "uuid" : "ed9ad407-9e33-3de1-bf0d-40fe23df876e",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libX11.6.dylib",
+    "name" : "libX11.6.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4310728704,
+    "size" : 49152,
+    "uuid" : "0cc59520-51ea-3396-92b0-e86abad0350c",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libXext.6.dylib",
+    "name" : "libXext.6.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4309155840,
+    "size" : 32768,
+    "uuid" : "bfb5d092-ed37-3165-8e79-347113442293",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libXrender.1.dylib",
+    "name" : "libXrender.1.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4314873856,
+    "size" : 81920,
+    "uuid" : "8d228723-8df1-3d05-945b-48e0a706d19e",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libxcb.1.dylib",
+    "name" : "libxcb.1.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4311482368,
+    "size" : 32768,
+    "uuid" : "3dd5f746-d346-3279-ac9a-10ecef102093",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libxcb-render.0.dylib",
+    "name" : "libxcb-render.0.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4307894272,
+    "size" : 16384,
+    "uuid" : "38ca91cb-1cde-3e20-b1ed-a77eb3b84f67",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libxcb-shm.0.dylib",
+    "name" : "libxcb-shm.0.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4328390656,
+    "size" : 491520,
+    "uuid" : "570673cb-db6a-33df-b5c7-a048d4fce067",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libpixman-1.0.dylib",
+    "name" : "libpixman-1.0.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4306731008,
+    "size" : 16384,
+    "uuid" : "acf6e12f-cc63-39b3-a560-036f929e8949",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libXau.6.dylib",
+    "name" : "libXau.6.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4311367680,
+    "size" : 16384,
+    "uuid" : "0080ed64-8664-3b8d-9a04-61e21f588c83",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libXdmcp.6.dylib",
+    "name" : "libXdmcp.6.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4320935936,
+    "size" : 65536,
+    "uuid" : "892f5231-03a1-31a8-a51e-dd9185ef2df6",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libpangoft2-1.0.0.dylib",
+    "name" : "libpangoft2-1.0.0.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4331716608,
+    "size" : 786432,
+    "uuid" : "d8e5fac7-ce05-38e3-8efd-a34f8ba77495",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libharfbuzz.0.dylib",
+    "name" : "libharfbuzz.0.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4321099776,
+    "size" : 114688,
+    "uuid" : "01c59dc9-20b2-319c-88c2-0f7698cc2bc9",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libfribidi.0.dylib",
+    "name" : "libfribidi.0.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4315168768,
+    "size" : 32768,
+    "uuid" : "e28c924c-46e9-35e2-8385-232a14d30155",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libthai.0.dylib",
+    "name" : "libthai.0.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4321280000,
+    "size" : 32768,
+    "uuid" : "5d336f10-3db7-3249-aa10-8e652ccb0d54",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libdatrie.1.dylib",
+    "name" : "libdatrie.1.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4325851136,
+    "size" : 81920,
+    "uuid" : "6a793c2f-5759-3012-8ccc-7dc558236eaf",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libgraphite2.3.dylib",
+    "name" : "libgraphite2.3.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4334600192,
+    "size" : 1097728,
+    "uuid" : "d73ada68-6aae-3a4a-9a48-9ff0b7068f68",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libp11-kit.0.dylib",
+    "name" : "libp11-kit.0.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4330455040,
+    "size" : 196608,
+    "uuid" : "320803cc-d52e-394d-bc4b-4547bcd736b4",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libidn2.0.dylib",
+    "name" : "libidn2.0.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4338253824,
+    "size" : 1900544,
+    "uuid" : "e452d061-846d-33a1-bdbc-6c6d9f84a452",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libunistring.5.dylib",
+    "name" : "libunistring.5.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4321476608,
+    "size" : 49152,
+    "uuid" : "730920e9-b3be-35b8-a93a-9800d053eb5a",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libtasn1.6.dylib",
+    "name" : "libtasn1.6.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4330717184,
+    "size" : 229376,
+    "uuid" : "7233e708-68b9-3151-9acc-107b37037b7e",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libhogweed.7.dylib",
+    "name" : "libhogweed.7.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4331028480,
+    "size" : 229376,
+    "uuid" : "51a58770-db7e-3f63-9d2b-99b53fcd56ba",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libnettle.9.dylib",
+    "name" : "libnettle.9.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4333436928,
+    "size" : 360448,
+    "uuid" : "61cfd8b8-214c-314f-96f5-0489bf7a8f45",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libgmp.10.dylib",
+    "name" : "libgmp.10.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4340285440,
+    "size" : 1130496,
+    "uuid" : "cf96d728-0dbd-3458-8068-11a8fca2e0a2",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libisl.23.dylib",
+    "name" : "libisl.23.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4329209856,
+    "size" : 98304,
+    "uuid" : "7014b9f8-7f59-3cc8-bfa7-980ed9acc414",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libmpc.3.dylib",
+    "name" : "libmpc.3.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4336222208,
+    "size" : 360448,
+    "uuid" : "52900495-c806-30a1-b740-bfbb152f39fe",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/libmpfr.6.dylib",
+    "name" : "libmpfr.6.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4332978176,
+    "size" : 32768,
+    "uuid" : "fd8d0857-c6ad-3791-ad90-520ad8cdc708",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/bindings-d30713c5-ddc7d2ce.eln",
+    "name" : "bindings-d30713c5-ddc7d2ce.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4329029632,
+    "size" : 32768,
+    "uuid" : "8c047f8c-6da5-3711-9349-5d8f2a24f4eb",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/byte-run-79ff048e-ce7e3d95.eln",
+    "name" : "byte-run-79ff048e-ce7e3d95.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4333256704,
+    "size" : 49152,
+    "uuid" : "cba0aad5-8bca-3ccd-9f2f-d874faafab81",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/lisp-mode-410874a4-29f77973.eln",
+    "name" : "lisp-mode-410874a4-29f77973.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4333895680,
+    "size" : 49152,
+    "uuid" : "65b219c4-e518-39af-b243-6b0a646b1363",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/macroexp-2c3e1495-9f98c0f6.eln",
+    "name" : "macroexp-2c3e1495-9f98c0f6.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4337336320,
+    "size" : 245760,
+    "uuid" : "64e17318-d03f-39c0-b8fa-d9e73080e4fa",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/subr-13adf6a6-09c534f6.eln",
+    "name" : "subr-13adf6a6-09c534f6.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4336697344,
+    "size" : 114688,
+    "uuid" : "a7e5c3d3-ddd8-3153-9915-bb4d7e7eff28",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/frame-b40fc590-78558992.eln",
+    "name" : "frame-b40fc590-78558992.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4333109248,
+    "size" : 32768,
+    "uuid" : "04c99134-f88a-3937-8a86-b249746f4b0b",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/timer-3ee7cfd9-d4d09428.eln",
+    "name" : "timer-3ee7cfd9-d4d09428.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4334190592,
+    "size" : 65536,
+    "uuid" : "5ec7aa50-fa54-31c6-860e-d2a398f8a4c2",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/image-f221b419-7e021331.eln",
+    "name" : "image-f221b419-7e021331.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4491575296,
+    "size" : 294912,
+    "uuid" : "0b8bb20f-7fb0-3c5f-a1d9-cdc726b1f559",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/window-0d1b8b93-8e53e5aa.eln",
+    "name" : "window-0d1b8b93-8e53e5aa.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4337008640,
+    "size" : 65536,
+    "uuid" : "2172fcf7-fe79-311d-b27f-3ab4ae3cdb95",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/faces-b9447c93-210c8d74.eln",
+    "name" : "faces-b9447c93-210c8d74.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4321361920,
+    "size" : 16384,
+    "uuid" : "bf1d3965-1f4e-3192-a0ac-42509a6013aa",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/common-win-4b869e38-73d0e8b9.eln",
+    "name" : "common-win-4b869e38-73d0e8b9.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4337991680,
+    "size" : 65536,
+    "uuid" : "9b3127b5-1a9c-31b1-80a1-855ae422cce9",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/cl-preloaded-6e6a1f4e-807b256e.eln",
+    "name" : "cl-preloaded-6e6a1f4e-807b256e.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4342726656,
+    "size" : 98304,
+    "uuid" : "d3d72525-af08-3f5d-a4cd-3b13a1aba4f5",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/cl-generic-be68ad15-114302ce.eln",
+    "name" : "cl-generic-be68ad15-114302ce.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4334354432,
+    "size" : 32768,
+    "uuid" : "7e94e451-8465-3697-8d7a-980ae4a1310d",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/lisp-1e88867d-20c5898b.eln",
+    "name" : "lisp-1e88867d-20c5898b.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4374642688,
+    "size" : 180224,
+    "uuid" : "f66ad345-e473-3862-8140-f7ff85922e01",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/minibuffer-1b0f548b-9c073abb.eln",
+    "name" : "minibuffer-1b0f548b-9c073abb.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4374380544,
+    "size" : 65536,
+    "uuid" : "4fabd60c-9111-3f3b-8455-dff0e2e7dab3",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/custom-c166a157-d20d1130.eln",
+    "name" : "custom-c166a157-d20d1130.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4493312000,
+    "size" : 311296,
+    "uuid" : "2fab0608-d6c6-3297-8a63-71c1bea0a506",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/simple-fab5b0cf-eb6715e5.eln",
+    "name" : "simple-fab5b0cf-eb6715e5.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4334469120,
+    "size" : 32768,
+    "uuid" : "d2e1775a-cc67-3c67-82fe-3c96598859df",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/button-747c9d6e-da52831d.eln",
+    "name" : "button-747c9d6e-da52831d.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4374200320,
+    "size" : 49152,
+    "uuid" : "39096300-2a0a-3330-82ed-8e018ff059ab",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/abbrev-2af30c9a-befcd13b.eln",
+    "name" : "abbrev-2af30c9a-befcd13b.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4375101440,
+    "size" : 49152,
+    "uuid" : "83ace67f-69f8-3392-800f-bea7d4ae63dc",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/nadvice-64630aaa-cfad2a78.eln",
+    "name" : "nadvice-64630aaa-cfad2a78.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4492754944,
+    "size" : 81920,
+    "uuid" : "0592719b-8c29-31d8-a667-f1e83047d254",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/help-59d8049f-f8cfca12.eln",
+    "name" : "help-59d8049f-f8cfca12.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4492279808,
+    "size" : 32768,
+    "uuid" : "caf0442d-068c-315a-9e01-c9cd1886efe8",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/paren-0f414553-b1f814e5.eln",
+    "name" : "paren-0f414553-b1f814e5.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4492541952,
+    "size" : 49152,
+    "uuid" : "de94ab39-92c4-3192-b846-c8488146ed05",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/syntax-bf4e4bc4-eb28c023.eln",
+    "name" : "syntax-bf4e4bc4-eb28c023.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4331634688,
+    "size" : 16384,
+    "uuid" : "2e0dba2f-0f09-3b61-a904-2384845c40b0",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/version-025f5cb3-10edac43.eln",
+    "name" : "version-025f5cb3-10edac43.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4492984320,
+    "size" : 32768,
+    "uuid" : "e9af8128-1743-3239-a4d4-6a28fa0a5956",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/electric-a9ca6cdd-71ba62c3.eln",
+    "name" : "electric-a9ca6cdd-71ba62c3.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4493099008,
+    "size" : 32768,
+    "uuid" : "675f8eaa-0cc0-316e-9531-056f2fb3fdac",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/indent-396b3792-7d0edafd.eln",
+    "name" : "indent-396b3792-7d0edafd.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4494114816,
+    "size" : 49152,
+    "uuid" : "0dae06ab-8bf2-3fb3-82a1-ff55791cad39",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/fill-19d89c43-17324f62.eln",
+    "name" : "fill-19d89c43-17324f62.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4493197312,
+    "size" : 16384,
+    "uuid" : "51e8fefa-b301-394d-b8f1-50989959c39c",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/paragraphs-faf2e9b4-b96c581a.eln",
+    "name" : "paragraphs-faf2e9b4-b96c581a.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4494491648,
+    "size" : 81920,
+    "uuid" : "9b5dc920-d98e-3de8-afde-f1b365aac1e3",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/mule-cmds-c8553014-00743893.eln",
+    "name" : "mule-cmds-c8553014-00743893.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4495327232,
+    "size" : 229376,
+    "uuid" : "f840e02d-5a0f-355b-8235-098e6e7b4764",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/files-1e8937b2-cc528a94.eln",
+    "name" : "files-1e8937b2-cc528a94.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4494737408,
+    "size" : 65536,
+    "uuid" : "e312d451-71dc-32e1-89d7-c08d8e004119",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/mule-3352613d-e1c908fa.eln",
+    "name" : "mule-3352613d-e1c908fa.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4329127936,
+    "size" : 16384,
+    "uuid" : "97689731-b475-3603-958d-a6f9ca9c7665",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/env-72406999-7a6da550.eln",
+    "name" : "env-72406999-7a6da550.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4334108672,
+    "size" : 16384,
+    "uuid" : "bdd9a53e-4c33-348c-b1c3-777ac701b141",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/rmc-9c382b5d-692ac31b.eln",
+    "name" : "rmc-9c382b5d-692ac31b.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4495933440,
+    "size" : 98304,
+    "uuid" : "3013cae8-9370-34f7-a050-147c8f25d1c9",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/tab-bar-f81d329c-34e3fc09.eln",
+    "name" : "tab-bar-f81d329c-34e3fc09.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4494360576,
+    "size" : 32768,
+    "uuid" : "20e61015-bc16-39cc-87b8-2755b941472d",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/select-784d9bb7-4a964ba4.eln",
+    "name" : "select-784d9bb7-4a964ba4.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4496211968,
+    "size" : 49152,
+    "uuid" : "7c9af9dc-6cfb-3a53-92fa-6ac15ee54037",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/menu-bar-4f46ea94-b56e3ac0.eln",
+    "name" : "menu-bar-4f46ea94-b56e3ac0.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4494934016,
+    "size" : 32768,
+    "uuid" : "be8f65c5-7a60-3f18-9cd9-a2e200284656",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/uniquify-0fb233ac-8b3ffaa0.eln",
+    "name" : "uniquify-0fb233ac-8b3ffaa0.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4495048704,
+    "size" : 32768,
+    "uuid" : "718bda74-a4be-36e0-a46d-e48acd473f90",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/tool-bar-ae0b5bc0-6561c2f6.eln",
+    "name" : "tool-bar-ae0b5bc0-6561c2f6.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4496834560,
+    "size" : 163840,
+    "uuid" : "3adcbed0-afff-3de2-aad4-b58f907fb37b",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/isearch-693bdd75-042348fd.eln",
+    "name" : "isearch-693bdd75-042348fd.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4496441344,
+    "size" : 32768,
+    "uuid" : "aa46bfba-9ba9-3147-8666-7b8a1c8fc99c",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/vc-hooks-cfa0878e-98a2482f.eln",
+    "name" : "vc-hooks-cfa0878e-98a2482f.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4495163392,
+    "size" : 32768,
+    "uuid" : "3dbd8fbb-e202-357d-b288-59075afc7042",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/keymap-b4249274-c75b8ff2.eln",
+    "name" : "keymap-b4249274-c75b8ff2.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4496572416,
+    "size" : 32768,
+    "uuid" : "7f651d46-8dc6-3e21-abdf-1a1073a0b1c8",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/easymenu-1fb41c0e-1a561d79.eln",
+    "name" : "easymenu-1fb41c0e-1a561d79.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4337254400,
+    "size" : 16384,
+    "uuid" : "ffb27033-0171-3202-a532-18dabc918ef9",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/epa-hook-99ab3afb-55975582.eln",
+    "name" : "epa-hook-99ab3afb-55975582.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4338171904,
+    "size" : 16384,
+    "uuid" : "99cb31fe-880a-3a36-8abc-61fcf22c9f63",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/text-mode-7f741068-4a486d0f.eln",
+    "name" : "text-mode-7f741068-4a486d0f.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4497539072,
+    "size" : 131072,
+    "uuid" : "d9a6a64c-19b7-315b-a50c-4968394f5812",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/mouse-15f283fa-ff7d24fc.eln",
+    "name" : "mouse-15f283fa-ff7d24fc.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4374560768,
+    "size" : 16384,
+    "uuid" : "77346ebc-ba4d-33e6-a52d-46a27c13b201",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/tooltip-29462ede-32c5fe10.eln",
+    "name" : "tooltip-29462ede-32c5fe10.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4497833984,
+    "size" : 114688,
+    "uuid" : "bfdc38e2-eaec-32e4-8212-e5e97c5b1636",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/elisp-mode-90dbfe40-ce6e7deb.eln",
+    "name" : "elisp-mode-90dbfe40-ce6e7deb.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4496687104,
+    "size" : 32768,
+    "uuid" : "31e5446b-ac9a-3c5e-8c60-8e2859e98e2a",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/composite-beea1fd5-2c77fda4.eln",
+    "name" : "composite-beea1fd5-2c77fda4.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4497375232,
+    "size" : 32768,
+    "uuid" : "7e1511b8-78f1-3855-b00c-b24a1212497a",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/eldoc-d20a5fe9-8038deea.eln",
+    "name" : "eldoc-d20a5fe9-8038deea.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4497244160,
+    "size" : 32768,
+    "uuid" : "ddf637f1-3b92-3707-8214-674045faa01c",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/mule-util-5c349a87-c07ee03d.eln",
+    "name" : "mule-util-5c349a87-c07ee03d.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4494245888,
+    "size" : 16384,
+    "uuid" : "002c37f9-edd0-33e4-8798-9ff50b05a853",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/prog-mode-642b2411-26c4b027.eln",
+    "name" : "prog-mode-642b2411-26c4b027.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4498276352,
+    "size" : 49152,
+    "uuid" : "103f00d1-a737-3783-aaec-730f9455aeb9",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/font-lock-895216f6-8a5fe33c.eln",
+    "name" : "font-lock-895216f6-8a5fe33c.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4334026752,
+    "size" : 16384,
+    "uuid" : "95856c46-de9a-337d-b909-f054df82dd88",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/font-core-c3bff1fd-60834eb3.eln",
+    "name" : "font-core-c3bff1fd-60834eb3.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4498440192,
+    "size" : 32768,
+    "uuid" : "f35891fe-8b3d-3533-9685-e40b8dc9eff5",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/jit-lock-8a988e43-f7a5cadd.eln",
+    "name" : "jit-lock-8a988e43-f7a5cadd.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4498554880,
+    "size" : 32768,
+    "uuid" : "bb0e6fc7-42c3-3981-89f4-db5096eeac07",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/format-c5b23b0d-23dc3d21.eln",
+    "name" : "format-c5b23b0d-23dc3d21.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4498653184,
+    "size" : 49152,
+    "uuid" : "4e111e10-90a9-3bec-b592-de64ee67c796",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/newcomment-678006bb-af87bb46.eln",
+    "name" : "newcomment-678006bb-af87bb46.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4498784256,
+    "size" : 16384,
+    "uuid" : "d6c8d901-117d-304a-b514-3560f3ca8a93",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/jka-cmpr-hook-ff630d3e-c72ce138.eln",
+    "name" : "jka-cmpr-hook-ff630d3e-c72ce138.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4498882560,
+    "size" : 32768,
+    "uuid" : "c17d6820-4e5b-3bb9-b200-68f0f9e3563c",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/mwheel-168e9ec3-301870cd.eln",
+    "name" : "mwheel-168e9ec3-301870cd.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4498194432,
+    "size" : 16384,
+    "uuid" : "ce2c5498-3ec8-31dc-80e2-1669827066cb",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/rfn-eshadow-25788e78-9a1ce59e.eln",
+    "name" : "rfn-eshadow-25788e78-9a1ce59e.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4492689408,
+    "size" : 16384,
+    "uuid" : "e0bdb9a9-b0c1-36a3-9f87-cc1191f0b5d1",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/map-ynp-990591b5-fc89fae6.eln",
+    "name" : "map-ynp-990591b5-fc89fae6.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4498997248,
+    "size" : 16384,
+    "uuid" : "d13ae932-9ae2-3c4f-9551-eaa6703521fb",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/cus-start-26315480-9df9a5f1.eln",
+    "name" : "cus-start-26315480-9df9a5f1.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4498112512,
+    "size" : 16384,
+    "uuid" : "3e16c593-096c-3b0a-a5ef-6a02d2dfceb9",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/cus-face-74f1689e-f5b9d5f5.eln",
+    "name" : "cus-face-74f1689e-f5b9d5f5.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4499079168,
+    "size" : 16384,
+    "uuid" : "6f0d9249-c16b-3438-ba2a-56d2c2dc0d7c",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/regexp-opt-d2355c94-888c174e.eln",
+    "name" : "regexp-opt-d2355c94-888c174e.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4499243008,
+    "size" : 16384,
+    "uuid" : "a4409dc0-0435-357d-ad9a-f738dbdb832d",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/characters-45232aae-e31d5b81.eln",
+    "name" : "characters-45232aae-e31d5b81.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4499144704,
+    "size" : 16384,
+    "uuid" : "902e9d42-7899-38b9-b08d-34024dd84391",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/widget-5b69ebb0-26d5ce01.eln",
+    "name" : "widget-5b69ebb0-26d5ce01.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4499341312,
+    "size" : 16384,
+    "uuid" : "46b36941-e328-33e9-b155-cb561b1dd9c9",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/case-table-3a8e2808-72bc4e19.eln",
+    "name" : "case-table-3a8e2808-72bc4e19.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4499488768,
+    "size" : 16384,
+    "uuid" : "5dfd689f-c0df-3cac-bd64-96dc79e8c179",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/european-369de593-ff1f2ac0.eln",
+    "name" : "european-369de593-ff1f2ac0.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4499701760,
+    "size" : 49152,
+    "uuid" : "bf8ef494-25a5-3258-855f-ce4263c114c2",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/oclosure-b279097d-0f1ac913.eln",
+    "name" : "oclosure-b279097d-0f1ac913.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4499832832,
+    "size" : 32768,
+    "uuid" : "bff37327-4629-350b-9c3f-4164a17f6d4d",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/dnd-12d90309-7e8b3715.eln",
+    "name" : "dnd-12d90309-7e8b3715.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4499947520,
+    "size" : 32768,
+    "uuid" : "055cd72b-507f-3da1-900d-377288c26280",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/ns-win-ef8075c0-84e2c5cc.eln",
+    "name" : "ns-win-ef8075c0-84e2c5cc.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4500291584,
+    "size" : 81920,
+    "uuid" : "797f28a9-4027-395c-a95d-6e39bc23fddf",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/startup-bbc6ea72-4082fbe7.eln",
+    "name" : "startup-bbc6ea72-4082fbe7.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4500062208,
+    "size" : 32768,
+    "uuid" : "74c67798-c987-33d3-948b-d3923acfb5df",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/fontset-da863153-c0d26ca9.eln",
+    "name" : "fontset-da863153-c0d26ca9.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4500766720,
+    "size" : 81920,
+    "uuid" : "6804244c-6e6a-37f0-bd15-95ae911b1509",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/replace-fc551dbc-50d08eae.eln",
+    "name" : "replace-fc551dbc-50d08eae.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4501176320,
+    "size" : 65536,
+    "uuid" : "54cf9f38-7922-35c2-beee-e9eb18e19950",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/register-80045398-4e009567.eln",
+    "name" : "register-80045398-4e009567.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4500520960,
+    "size" : 32768,
+    "uuid" : "b59b43c2-764b-35a9-b50a-36aa91343d93",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/buff-menu-da4b0b04-3e6a0b87.eln",
+    "name" : "buff-menu-da4b0b04-3e6a0b87.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4500193280,
+    "size" : 32768,
+    "uuid" : "a883e166-11a6-387b-a880-5075cc8aafdb",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/tabulated-list-552ba1e5-bb33b601.eln",
+    "name" : "tabulated-list-552ba1e5-bb33b601.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4499570688,
+    "size" : 32768,
+    "uuid" : "4066db51-31f4-3b47-924b-5da760f161bf",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/scroll-bar-20650688-724fbf58.eln",
+    "name" : "scroll-bar-20650688-724fbf58.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4500652032,
+    "size" : 16384,
+    "uuid" : "353862f0-0a66-3d79-a311-10db9f2185af",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/tty-colors-b7804baf-aec9ee2a.eln",
+    "name" : "tty-colors-b7804baf-aec9ee2a.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4499406848,
+    "size" : 16384,
+    "uuid" : "e9c7ef5b-47a1-3058-b41e-40b7fa3dce85",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/shorthands-1dc1e95e-c90f164f.eln",
+    "name" : "shorthands-1dc1e95e-c90f164f.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4501487616,
+    "size" : 32768,
+    "uuid" : "df81bcda-ed93-3901-97d2-4945b50cb176",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/seq-c314b42f-5b433981.eln",
+    "name" : "seq-c314b42f-5b433981.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4501929984,
+    "size" : 32768,
+    "uuid" : "01f93861-3425-3b1f-964b-ccad375401ae",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/ucs-normalize-ad11ce47-3132002a.eln",
+    "name" : "ucs-normalize-ad11ce47-3132002a.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4501356544,
+    "size" : 16384,
+    "uuid" : "df0bf8e8-b9c8-398c-8b11-8fbb167e695c",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/obarray-318a5d56-1cc4562b.eln",
+    "name" : "obarray-318a5d56-1cc4562b.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4501422080,
+    "size" : 16384,
+    "uuid" : "e750d57e-4e03-35fb-9ab5-38c9006434d1",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/fringe-d5d49a60-dd68c7b3.eln",
+    "name" : "fringe-d5d49a60-dd68c7b3.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4501618688,
+    "size" : 16384,
+    "uuid" : "dbe45a81-1593-36ae-b808-40dff6e01756",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/page-ee7241cc-9ffb4be5.eln",
+    "name" : "page-ee7241cc-9ffb4be5.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4501766144,
+    "size" : 16384,
+    "uuid" : "4b46f0f9-3fd3-3635-a22c-360ee66759e1",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/misc-lang-7cb33d20-ad14070c.eln",
+    "name" : "misc-lang-7cb33d20-ad14070c.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4502355968,
+    "size" : 49152,
+    "uuid" : "67661ff0-799c-3c5e-83d4-5447c5c21d4c",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/cconv-3b1f1f98-4acbdec6.eln",
+    "name" : "cconv-3b1f1f98-4acbdec6.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4501848064,
+    "size" : 16384,
+    "uuid" : "1cf4e458-4663-3362-981c-33ac4f470504",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/debug-early-d734b212-2a59d7d9.eln",
+    "name" : "debug-early-d734b212-2a59d7d9.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4501684224,
+    "size" : 16384,
+    "uuid" : "d67f5ef1-4e89-3c10-8296-aefac8bce357",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/backquote-d5b20f7c-396260c6.eln",
+    "name" : "backquote-d5b20f7c-396260c6.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4502241280,
+    "size" : 16384,
+    "uuid" : "e1c2d07e-5a84-31c6-a136-dbd2986c23cd",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/iso-transl-466860a2-49fcfef8.eln",
+    "name" : "iso-transl-466860a2-49fcfef8.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4502487040,
+    "size" : 16384,
+    "uuid" : "4d7963f0-837e-3dd4-9a20-fd31bbc16d83",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/hebrew-b9ed6a0d-22ce6882.eln",
+    "name" : "hebrew-b9ed6a0d-22ce6882.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4502552576,
+    "size" : 16384,
+    "uuid" : "7adbe1fa-cafb-3fc7-8c8e-65ba25c6a777",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/indian-0c4ce628-8cd6d8ba.eln",
+    "name" : "indian-0c4ce628-8cd6d8ba.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4538810368,
+    "size" : 49152,
+    "uuid" : "ad050e72-afdc-39c9-b9e2-b987e620cd31",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/package-activate-0589521d-b6aeae79.eln",
+    "name" : "package-activate-0589521d-b6aeae79.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 4725669888,
+    "size" : 49152,
+    "uuid" : "690edff1-56be-3018-bec2-9f63287ceb2d",
+    "path" : "\/usr\/lib\/libobjc-trampolines.dylib",
+    "name" : "libobjc-trampolines.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 4758765568,
+    "CFBundleShortVersionString" : "353.14",
+    "CFBundleIdentifier" : "com.apple.AGXMetalG15G-C0",
+    "size" : 8880128,
+    "uuid" : "2a62f091-902f-3f3f-ac69-6c13628fccd1",
+    "path" : "\/System\/Library\/Extensions\/AGXMetalG15G_C0.bundle\/Contents\/MacOS\/AGXMetalG15G_C0",
+    "name" : "AGXMetalG15G_C0",
+    "CFBundleVersion" : "353.14"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4788305920,
+    "size" : 196608,
+    "uuid" : "d3bfbb32-af9b-3e49-a3b3-8db1efa079f7",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/package-14201d8e-083d4730.eln",
+    "name" : "package-14201d8e-083d4730.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4787961856,
+    "size" : 32768,
+    "uuid" : "9bfe8bfa-fe79-3f0b-8b5c-6513327f5c06",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/cl-lib-8b938900-549ca2f2.eln",
+    "name" : "cl-lib-8b938900-549ca2f2.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4788174848,
+    "size" : 32768,
+    "uuid" : "81f6ca27-4ea8-3ad6-a038-ef463045881a",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/url-handlers-8b35c993-c482cfeb.eln",
+    "name" : "url-handlers-8b35c993-c482cfeb.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4788060160,
+    "size" : 32768,
+    "uuid" : "a31082f7-4242-322f-b717-ae4d4cef8961",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/url-parse-ee297c9b-46efdd7a.eln",
+    "name" : "url-parse-ee297c9b-46efdd7a.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4788764672,
+    "size" : 16384,
+    "uuid" : "3d3d57cc-3641-35cf-a221-7b70a837d386",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/url-vars-04b97511-d8267d91.eln",
+    "name" : "url-vars-04b97511-d8267d91.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4789075968,
+    "size" : 98304,
+    "uuid" : "b42a0845-4b59-3627-9a30-933be59f9a29",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/auth-source-49df7eef-79f49b5a.eln",
+    "name" : "auth-source-49df7eef-79f49b5a.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4788961280,
+    "size" : 32768,
+    "uuid" : "aaa123a0-bf35-3487-8bdd-5f481836d634",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/json-a90a1eab-88d22a6f.eln",
+    "name" : "json-a90a1eab-88d22a6f.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4789452800,
+    "size" : 32768,
+    "uuid" : "8c117e2b-4bad-31f4-b9c5-96a7e5778015",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/map-5d7b616a-bd07faf7.eln",
+    "name" : "map-5d7b616a-bd07faf7.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4788846592,
+    "size" : 32768,
+    "uuid" : "f7b0d57a-d4a5-39a1-a40d-326d2f2e80c1",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/subr-x-02dfef32-9cce80d6.eln",
+    "name" : "subr-x-02dfef32-9cce80d6.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4789321728,
+    "size" : 16384,
+    "uuid" : "7595cde3-6382-3510-b5f3-aa81cc03923e",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/password-cache-187e4eec-d2564e7b.eln",
+    "name" : "password-cache-187e4eec-d2564e7b.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4789583872,
+    "size" : 16384,
+    "uuid" : "fc1dd0f2-001d-3d94-a99c-d5ac28fb9cd5",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/icons-eafe82eb-d5de9f65.eln",
+    "name" : "icons-eafe82eb-d5de9f65.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4789813248,
+    "size" : 49152,
+    "uuid" : "6298f65d-34e9-3265-a1b8-c20ed75ba629",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/eieio-0db8d1d4-12cc1ad5.eln",
+    "name" : "eieio-0db8d1d4-12cc1ad5.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4790140928,
+    "size" : 65536,
+    "uuid" : "ae759db5-7bcd-3c82-af36-5fd9d6b800a6",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/eieio-core-63c05904-1ebe6695.eln",
+    "name" : "eieio-core-63c05904-1ebe6695.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4790697984,
+    "size" : 180224,
+    "uuid" : "a4115ca6-ea18-3580-be8c-98efc0c29645",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/cl-macs-7ae82f81-03fcdf23.eln",
+    "name" : "cl-macs-7ae82f81-03fcdf23.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4791074816,
+    "size" : 81920,
+    "uuid" : "77c50934-d710-30f9-bc71-9ec6fd065115",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/gv-e0cf7478-7a3cbc20.eln",
+    "name" : "gv-e0cf7478-7a3cbc20.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4789960704,
+    "size" : 81920,
+    "uuid" : "5f4df179-b815-32d5-8058-308361c47bb8",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/cl-seq-f464c4e2-2e568bb4.eln",
+    "name" : "cl-seq-f464c4e2-2e568bb4.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4790501376,
+    "size" : 49152,
+    "uuid" : "b3afef4b-90ca-36dc-aa72-61706c508106",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/browse-url-87f72988-3d8aec24.eln",
+    "name" : "browse-url-87f72988-3d8aec24.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4789665792,
+    "size" : 16384,
+    "uuid" : "d8e1e66d-f91e-3159-9bc4-389e06fc67a4",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/url-38944b26-2f18b80d.eln",
+    "name" : "url-38944b26-2f18b80d.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4791304192,
+    "size" : 32768,
+    "uuid" : "e007c2d6-b4f0-3929-874a-2f8d7217913d",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/mailcap-a1205653-ff65eb0e.eln",
+    "name" : "mailcap-a1205653-ff65eb0e.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4791418880,
+    "size" : 49152,
+    "uuid" : "7a39aadc-1b14-325e-bf9d-c6bd8ee88857",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/url-cookie-02b28750-a74bb4b6.eln",
+    "name" : "url-cookie-02b28750-a74bb4b6.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4790321152,
+    "size" : 32768,
+    "uuid" : "1e2c12ec-5759-3a69-857d-aa473b2bd88d",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/url-util-28122a93-70df42e0.eln",
+    "name" : "url-util-28122a93-70df42e0.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4789387264,
+    "size" : 16384,
+    "uuid" : "79b4c557-a39d-3032-9c70-9cc9cf693326",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/url-domsuf-beabcbfe-a28b5f22.eln",
+    "name" : "url-domsuf-beabcbfe-a28b5f22.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4789747712,
+    "size" : 16384,
+    "uuid" : "f55d2700-026d-3ea1-b34e-0384bd14b143",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/generate-lisp-file-20e31f41-42ab4a74.eln",
+    "name" : "generate-lisp-file-20e31f41-42ab4a74.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4790419456,
+    "size" : 16384,
+    "uuid" : "1fbd3a39-ac47-3a4e-b8b8-b7bddf8a4f7e",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/url-history-a9b2f6e8-c2809bd2.eln",
+    "name" : "url-history-a9b2f6e8-c2809bd2.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4791549952,
+    "size" : 16384,
+    "uuid" : "b021427c-bdc6-38e9-97b3-97d2b4e447f3",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/url-expand-cf7ffc4e-41e7c93b.eln",
+    "name" : "url-expand-cf7ffc4e-41e7c93b.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4791615488,
+    "size" : 16384,
+    "uuid" : "9e130500-c8fe-3647-bf32-5f03e598dc62",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/url-methods-08bf763a-53155477.eln",
+    "name" : "url-methods-08bf763a-53155477.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4791697408,
+    "size" : 16384,
+    "uuid" : "3703f7f3-c45a-32fc-956d-41282307dfb6",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/url-privacy-7df6b777-46599fd0.eln",
+    "name" : "url-privacy-7df6b777-46599fd0.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4791762944,
+    "size" : 16384,
+    "uuid" : "adc178a6-91a7-3329-9d0f-5eca72149d43",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/url-proxy-fc0751f0-4e50f874.eln",
+    "name" : "url-proxy-fc0751f0-4e50f874.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4791828480,
+    "size" : 16384,
+    "uuid" : "2cefc8de-fcd7-37fe-91d5-caa31bc736b9",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/xdg-9947111f-ae5de0bc.eln",
+    "name" : "xdg-9947111f-ae5de0bc.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4792188928,
+    "size" : 81920,
+    "uuid" : "37cb4ccd-5781-3476-bcf5-e0864a2ebfbe",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/use-package-core-b234260b-5274bee8.eln",
+    "name" : "use-package-core-b234260b-5274bee8.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4792909824,
+    "size" : 245760,
+    "uuid" : "a6ebf203-0024-382b-89d7-3b58c1cc1096",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/bytecomp-12882072-c79e3358.eln",
+    "name" : "bytecomp-12882072-c79e3358.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4791959552,
+    "size" : 16384,
+    "uuid" : "221912ec-a3d2-361b-9c4e-8f91c3607301",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/use-package-bind-key-201012df-2c2e735c.eln",
+    "name" : "use-package-bind-key-201012df-2c2e735c.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4792025088,
+    "size" : 32768,
+    "uuid" : "b15b7d5d-bdf0-30fc-aef6-0b31e90dc56a",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/bind-key-c4ba4046-91e2f88b.eln",
+    "name" : "bind-key-c4ba4046-91e2f88b.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4792532992,
+    "size" : 32768,
+    "uuid" : "479b6a1f-1787-385b-87dd-10f7ee864136",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/easy-mmode-5bf0223e-dcdd0524.eln",
+    "name" : "easy-mmode-5bf0223e-dcdd0524.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4792123392,
+    "size" : 16384,
+    "uuid" : "94a08261-ebdb-3bce-8f59-13980c4c9881",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/use-package-diminish-c766422e-db4767a6.eln",
+    "name" : "use-package-diminish-c766422e-db4767a6.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4792418304,
+    "size" : 16384,
+    "uuid" : "740959d2-fcdc-3487-8484-d731cedb3ed3",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/use-package-delight-4b7925f6-e00cd9da.eln",
+    "name" : "use-package-delight-4b7925f6-e00cd9da.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4792664064,
+    "size" : 16384,
+    "uuid" : "23dc3655-f143-3154-a107-96bddd815932",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/use-package-ensure-7a9061b4-db2a1e69.eln",
+    "name" : "use-package-ensure-7a9061b4-db2a1e69.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4793417728,
+    "size" : 65536,
+    "uuid" : "8cf413aa-d552-309b-b2f7-b4981ab718e4",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/cl-extra-d7051cba-9127183a.eln",
+    "name" : "cl-extra-d7051cba-9127183a.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4793581568,
+    "size" : 32768,
+    "uuid" : "afc0cc06-81c7-32dd-964c-bf401719153c",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/help-mode-d4dbae3d-ad26b721.eln",
+    "name" : "help-mode-d4dbae3d-ad26b721.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4502306816,
+    "size" : 16384,
+    "uuid" : "51b08990-d83d-3518-96e4-0a015ec215f1",
+    "path" : "\/Users\/USER\/*\/exec-path-from-shell-e4001016-f18899dc.eln",
+    "name" : "exec-path-from-shell-e4001016-f18899dc.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4794679296,
+    "size" : 32768,
+    "uuid" : "cfee31e5-83a8-3d7f-9823-48b651e5585d",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/xt-mouse-ad97d877-e7b2916a.eln",
+    "name" : "xt-mouse-ad97d877-e7b2916a.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4794777600,
+    "size" : 32768,
+    "uuid" : "493400f1-1e01-346e-991c-1f4079ddaedc",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/edmacro-74bf45a3-475ec107.eln",
+    "name" : "edmacro-74bf45a3-475ec107.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4795203584,
+    "size" : 65536,
+    "uuid" : "a5ca3644-42ab-3ea2-ae40-4a50d392b954",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/kmacro-048feaec-2b311b40.eln",
+    "name" : "kmacro-048feaec-2b311b40.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4795006976,
+    "size" : 32768,
+    "uuid" : "3fea95f2-b0a7-37b4-af4a-ff61fd1a8b73",
+    "path" : "\/Users\/USER\/*\/doom-themes-f24416fa-29ef23de.eln",
+    "name" : "doom-themes-f24416fa-29ef23de.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4796399616,
+    "size" : 49152,
+    "uuid" : "07196d72-316d-36e7-8e74-4548da504622",
+    "path" : "\/Users\/USER\/*\/nerd-icons-2680f58a-e9039d5f.eln",
+    "name" : "nerd-icons-2680f58a-e9039d5f.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4800151552,
+    "size" : 131072,
+    "uuid" : "45a8667e-77a5-3822-abbb-13d453c1d260",
+    "path" : "\/Users\/USER\/*\/libtree-sitter-css.dylib",
+    "name" : "libtree-sitter-css.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4800331776,
+    "size" : 229376,
+    "uuid" : "cf0c0e8c-d7ce-3c75-9ef6-72010131d867",
+    "path" : "\/Users\/USER\/*\/libtree-sitter-go.dylib",
+    "name" : "libtree-sitter-go.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4801036288,
+    "size" : 393216,
+    "uuid" : "5bd51c72-de67-3e30-8d79-9efd40709c5f",
+    "path" : "\/Users\/USER\/*\/libtree-sitter-javascript.dylib",
+    "name" : "libtree-sitter-javascript.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4794630144,
+    "size" : 16384,
+    "uuid" : "323ba108-326d-3f8f-8bfc-75cca10b6828",
+    "path" : "\/Users\/USER\/*\/libtree-sitter-json.dylib",
+    "name" : "libtree-sitter-json.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4836687872,
+    "size" : 2129920,
+    "uuid" : "4c1fef57-3f6c-3e98-893d-ab6e6cada3a9",
+    "path" : "\/Users\/USER\/*\/libtree-sitter-ruby.dylib",
+    "name" : "libtree-sitter-ruby.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4834508800,
+    "size" : 1474560,
+    "uuid" : "83c54600-e329-3134-9d86-370da57fcff7",
+    "path" : "\/Users\/USER\/*\/libtree-sitter-tsx.dylib",
+    "name" : "libtree-sitter-tsx.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4840357888,
+    "size" : 1441792,
+    "uuid" : "02d6f899-6656-3044-8c64-8ea14f8e99ef",
+    "path" : "\/Users\/USER\/*\/libtree-sitter-typescript.dylib",
+    "name" : "libtree-sitter-typescript.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4802347008,
+    "size" : 163840,
+    "uuid" : "5248472e-e890-3708-9f46-0fa4485a1036",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/treesit-37439c61-69806c0c.eln",
+    "name" : "treesit-37439c61-69806c0c.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4800593920,
+    "size" : 49152,
+    "uuid" : "11eddc10-a776-377a-b8ed-ce5b9be7938d",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/whitespace-48717ff3-edded8c2.eln",
+    "name" : "whitespace-48717ff3-edded8c2.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4795400192,
+    "size" : 16384,
+    "uuid" : "a69fb574-3cb4-3006-8da4-295fbf3bd2e4",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/preloaded\/disp-table-375616aa-56bfe003.eln",
+    "name" : "disp-table-375616aa-56bfe003.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4795498496,
+    "size" : 16384,
+    "uuid" : "c5592034-52ad-351c-9d7f-d54a0d3bccff",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/saveplace-a17120d6-672c2ef8.eln",
+    "name" : "saveplace-a17120d6-672c2ef8.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4838866944,
+    "size" : 344064,
+    "uuid" : "15f09cae-4414-3d52-a8e8-0649feab0554",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/tramp-b5a14372-7bc742b3.eln",
+    "name" : "tramp-b5a14372-7bc742b3.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4796121088,
+    "size" : 65536,
+    "uuid" : "c5a77a13-7377-344c-9e8c-b65db098334e",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/rx-627d8c83-3f060225.eln",
+    "name" : "rx-627d8c83-3f060225.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4795842560,
+    "size" : 32768,
+    "uuid" : "11577693-79ba-36bf-9cf8-e167c2be38c5",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/ansi-color-75eac800-1c659de5.eln",
+    "name" : "ansi-color-75eac800-1c659de5.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4795596800,
+    "size" : 16384,
+    "uuid" : "57e42ae7-7018-3b34-b5e0-03a96253ec2a",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/format-spec-644c0068-2ff8d507.eln",
+    "name" : "format-spec-644c0068-2ff8d507.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4797218816,
+    "size" : 16384,
+    "uuid" : "8086f6e1-1e73-3419-ae91-e5aeba72a4bb",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/parse-time-ca7017be-303ca302.eln",
+    "name" : "parse-time-ca7017be-303ca302.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4796563456,
+    "size" : 16384,
+    "uuid" : "6cf0ab9c-75af-3fb6-8afe-930ef170f0c7",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/iso8601-3903451a-0408ae0f.eln",
+    "name" : "iso8601-3903451a-0408ae0f.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4800790528,
+    "size" : 32768,
+    "uuid" : "7460c8fd-394a-30fe-be17-19b825181f95",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/time-date-40951a48-cd3faa9d.eln",
+    "name" : "time-date-40951a48-cd3faa9d.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4803723264,
+    "size" : 65536,
+    "uuid" : "4a0cc2d3-486d-3967-9418-a3c53f81a5cd",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/shell-57930f41-c393c68e.eln",
+    "name" : "shell-57930f41-c393c68e.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4842422272,
+    "size" : 114688,
+    "uuid" : "c1f2e4d6-2288-308e-a2a0-604fb69212ee",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/comint-faef15ad-9bb21b1f.eln",
+    "name" : "comint-faef15ad-9bb21b1f.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4800905216,
+    "size" : 16384,
+    "uuid" : "e0921280-bdbd-394e-ac5b-b303de9c7593",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/ring-bff0b981-2b55b9cc.eln",
+    "name" : "ring-bff0b981-2b55b9cc.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4801642496,
+    "size" : 16384,
+    "uuid" : "cf51e913-58f5-379e-a094-af4f2ab9e7fc",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/ansi-osc-b447f6a8-6fc78e8d.eln",
+    "name" : "ansi-osc-b447f6a8-6fc78e8d.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4801724416,
+    "size" : 49152,
+    "uuid" : "e098f538-59ad-3e3a-956b-af484674542e",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/pcomplete-81dbd8b0-358a7537.eln",
+    "name" : "pcomplete-81dbd8b0-358a7537.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4802068480,
+    "size" : 32768,
+    "uuid" : "0898e9e1-1151-39cb-96e5-a946de681ed1",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/tramp-message-b5a2b261-05596516.eln",
+    "name" : "tramp-message-b5a2b261-05596516.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4802772992,
+    "size" : 16384,
+    "uuid" : "38e44049-d04a-3f74-9d9f-66a567e1a48d",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/tramp-integration-58d1aa20-9320aba6.eln",
+    "name" : "tramp-integration-58d1aa20-9320aba6.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4803313664,
+    "size" : 49152,
+    "uuid" : "1d68d406-dc84-32b7-b939-c577713861c2",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/files-x-59c65c89-548c7a7e.eln",
+    "name" : "files-x-59c65c89-548c7a7e.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4796628992,
+    "size" : 16384,
+    "uuid" : "abb20966-a2d2-3b09-9380-841408f6de3d",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/trampver-0d42d995-85f18bb6.eln",
+    "name" : "trampver-0d42d995-85f18bb6.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4797497344,
+    "size" : 32768,
+    "uuid" : "e48c2439-ffd5-37cc-85ca-70fea43d05ab",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/tramp-cache-8941dd69-1944140b.eln",
+    "name" : "tramp-cache-8941dd69-1944140b.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4803919872,
+    "size" : 32768,
+    "uuid" : "d9aa2708-a4b8-3e56-9140-b6d39fff105a",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/time-stamp-20b00c46-37b3b0f3.eln",
+    "name" : "time-stamp-20b00c46-37b3b0f3.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4795138048,
+    "size" : 16384,
+    "uuid" : "5334174f-2e0a-31ff-b2c7-bfe91d2ec4bf",
+    "path" : "\/Users\/USER\/*\/unkillable-scratch-ee54e599-e0631606.eln",
+    "name" : "unkillable-scratch-ee54e599-e0631606.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4804296704,
+    "size" : 16384,
+    "uuid" : "c4cb5c2f-34ba-353c-a4d2-2d3e2dd7942e",
+    "path" : "\/Users\/USER\/*\/persistent-scratch-b020a57e-4925a0ea.eln",
+    "name" : "persistent-scratch-b020a57e-4925a0ea.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4804460544,
+    "size" : 16384,
+    "uuid" : "2b8653a5-6817-30eb-8843-d3c8c60f40cf",
+    "path" : "\/Users\/USER\/*\/rainbow-mode-085eda82-9335b664.eln",
+    "name" : "rainbow-mode-085eda82-9335b664.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4804722688,
+    "size" : 32768,
+    "uuid" : "b4034f45-e27a-3c25-9bcf-c7da04e650f4",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/color-9d7980a5-2ce2013c.eln",
+    "name" : "color-9d7980a5-2ce2013c.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4804902912,
+    "size" : 32768,
+    "uuid" : "f8747c99-d5aa-3298-9c96-5dc89e403fab",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/dired-x-a2e5c184-555bbe43.eln",
+    "name" : "dired-x-a2e5c184-555bbe43.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4805394432,
+    "size" : 147456,
+    "uuid" : "bfc74a21-fead-356c-abff-18a4b130bee2",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/dired-6a3ae2bc-63bce1a9.eln",
+    "name" : "dired-6a3ae2bc-63bce1a9.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4805787648,
+    "size" : 65536,
+    "uuid" : "9c1d1124-1604-384a-a18a-8c74f56a924f",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/ffap-4b3c5789-f9d1ba64.eln",
+    "name" : "ffap-4b3c5789-f9d1ba64.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4805132288,
+    "size" : 32768,
+    "uuid" : "d114753e-71cc-37e1-bc05-b771ff20c34b",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/thingatpt-6fc8a4ab-03228d89.eln",
+    "name" : "thingatpt-6fc8a4ab-03228d89.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4806164480,
+    "size" : 49152,
+    "uuid" : "8c016818-6103-3daa-895a-8c31fc2693c6",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/recentf-3c64dc62-a097a9e9.eln",
+    "name" : "recentf-3c64dc62-a097a9e9.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4805246976,
+    "size" : 32768,
+    "uuid" : "1500ed3f-568b-388a-8d08-d2ae9198c3f5",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/tree-widget-8dccf6ba-6cab1cd7.eln",
+    "name" : "tree-widget-8dccf6ba-6cab1cd7.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4806688768,
+    "size" : 147456,
+    "uuid" : "4724fd39-5581-3a91-8397-7ea9ae28fc0b",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/wid-edit-5b92861a-3554bb55.eln",
+    "name" : "wid-edit-5b92861a-3554bb55.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4805984256,
+    "size" : 32768,
+    "uuid" : "11755cc7-e576-346b-a348-f564b7af97f5",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/autorevert-841d6890-e5e85ba9.eln",
+    "name" : "autorevert-841d6890-e5e85ba9.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4806475776,
+    "size" : 49152,
+    "uuid" : "15152bdb-619d-33a6-8fb2-b72f6510d858",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/filenotify-65939d6e-0ffc752d.eln",
+    "name" : "filenotify-65939d6e-0ffc752d.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4807180288,
+    "size" : 65536,
+    "uuid" : "985b7a39-1d64-3a14-aef6-b3686ebdec0e",
+    "path" : "\/Users\/USER\/*\/popwin-a2721045-596455aa.eln",
+    "name" : "popwin-a2721045-596455aa.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4806344704,
+    "size" : 49152,
+    "uuid" : "d9eb6a45-c65c-32f8-803c-d1328d134d72",
+    "path" : "\/Users\/USER\/*\/wgrep-3fb83fb4-a9adc40c.eln",
+    "name" : "wgrep-3fb83fb4-a9adc40c.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4807327744,
+    "size" : 49152,
+    "uuid" : "5a889169-7b39-3f63-b467-f107354d9cf5",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/grep-c9b5c28d-f7474bf1.eln",
+    "name" : "grep-c9b5c28d-f7474bf1.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4808507392,
+    "size" : 98304,
+    "uuid" : "09a5b464-271c-3fa7-a423-7420f02b7166",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/compile-91e1c2a0-e7b999f2.eln",
+    "name" : "compile-91e1c2a0-e7b999f2.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4804804608,
+    "size" : 16384,
+    "uuid" : "cf21c3c6-bd69-3976-ad98-206669e0ee2b",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/text-property-search-db1383f6-5b330230.eln",
+    "name" : "text-property-search-db1383f6-5b330230.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4853547008,
+    "size" : 294912,
+    "uuid" : "a437344b-0499-3600-925d-17e3a3326d18",
+    "path" : "\/Users\/USER\/*\/yasnippet-0ec3515a-5defba58.eln",
+    "name" : "yasnippet-0ec3515a-5defba58.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4792483840,
+    "size" : 16384,
+    "uuid" : "5b54318c-7707-3935-be44-eb602a6d95b6",
+    "path" : "\/Users\/USER\/*\/yasnippet-snippets-5f0755fc-2f8a2d83.eln",
+    "name" : "yasnippet-snippets-5f0755fc-2f8a2d83.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4807475200,
+    "size" : 65536,
+    "uuid" : "dc06916f-aafe-3e51-ad9c-fd8902589090",
+    "path" : "\/Users\/USER\/*\/corfu-e4df89bb-dcd4f6a6.eln",
+    "name" : "corfu-e4df89bb-dcd4f6a6.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4794580992,
+    "size" : 16384,
+    "uuid" : "fb9b595f-52bc-3595-910a-bec06f360588",
+    "path" : "\/Users\/USER\/*\/nerd-icons-corfu-6cc2cba4-a2328cbb.eln",
+    "name" : "nerd-icons-corfu-6cc2cba4-a2328cbb.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4797300736,
+    "size" : 16384,
+    "uuid" : "75a8b93d-f150-3e1e-8d7f-69383003665b",
+    "path" : "\/Users\/USER\/*\/corfu-auto-b7d111e8-23b265ba.eln",
+    "name" : "corfu-auto-b7d111e8-23b265ba.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4795662336,
+    "size" : 16384,
+    "uuid" : "e5af4932-fc92-38f5-b615-cdc4bd8d518a",
+    "path" : "\/Users\/USER\/*\/corfu-history-d0dfd4a8-95ed0716.eln",
+    "name" : "corfu-history-d0dfd4a8-95ed0716.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4807032832,
+    "size" : 32768,
+    "uuid" : "71e3e3f3-c21e-3fdb-9e89-e6e9da314b88",
+    "path" : "\/Users\/USER\/*\/corfu-popupinfo-52b8597d-0bfb84ba.eln",
+    "name" : "corfu-popupinfo-52b8597d-0bfb84ba.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4795940864,
+    "size" : 16384,
+    "uuid" : "1c1afe9b-e895-38a2-9baf-12ed077f68e4",
+    "path" : "\/Users\/USER\/*\/corfu-terminal-ee819665-b40f77d3.eln",
+    "name" : "corfu-terminal-ee819665-b40f77d3.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4805017600,
+    "size" : 32768,
+    "uuid" : "4a813811-aa5a-39cc-82e5-f32c6488289d",
+    "path" : "\/Users\/USER\/*\/popon-b2b677a2-16890041.eln",
+    "name" : "popon-b2b677a2-16890041.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4795072512,
+    "size" : 16384,
+    "uuid" : "b02a9960-00a4-3dc3-ac7a-3d9fb698f613",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/warnings-28e75f4d-f329699a.eln",
+    "name" : "warnings-28e75f4d-f329699a.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4807917568,
+    "size" : 49152,
+    "uuid" : "704152f1-31f4-3421-b9d7-af8ef2f80d4c",
+    "path" : "\/Users\/USER\/*\/vertico-d064a0bb-9d3ecd98.eln",
+    "name" : "vertico-d064a0bb-9d3ecd98.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4806606848,
+    "size" : 16384,
+    "uuid" : "c271a810-155c-35b9-885c-75ff5c180411",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/savehist-b722b772-305035ab.eln",
+    "name" : "savehist-b722b772-305035ab.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4808228864,
+    "size" : 32768,
+    "uuid" : "4367bd91-e89a-300e-ba35-43393029150f",
+    "path" : "\/Users\/USER\/*\/orderless-dd832d6f-0a1f68e5.eln",
+    "name" : "orderless-dd832d6f-0a1f68e5.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4855349248,
+    "size" : 98304,
+    "uuid" : "3cded71f-b98c-36c8-9466-b70778d58d8a",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/sql-c331baa9-aefcd87f.eln",
+    "name" : "sql-c331baa9-aefcd87f.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4808769536,
+    "size" : 32768,
+    "uuid" : "f6ef9913-452b-3d29-8356-d69484379bcc",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/view-faefc6b2-65054784.eln",
+    "name" : "view-faefc6b2-65054784.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4852269056,
+    "size" : 81920,
+    "uuid" : "68368163-d85b-3b33-9496-6f14f76fcac4",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/sh-script-c65f7507-10c973b9.eln",
+    "name" : "sh-script-c65f7507-10c973b9.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4807802880,
+    "size" : 16384,
+    "uuid" : "d038902a-86ef-349e-b976-a6855f7210c5",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/executable-21d46f43-a1c08420.eln",
+    "name" : "executable-21d46f43-a1c08420.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4809277440,
+    "size" : 98304,
+    "uuid" : "1b4310c6-211c-304d-a2a5-b5e546ae0ab5",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/smie-45b5c06f-5690de63.eln",
+    "name" : "smie-45b5c06f-5690de63.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4826218496,
+    "size" : 32768,
+    "uuid" : "22d21559-1c85-30c2-a144-6657249cb83d",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/ediff-a80490ec-0133c1c7.eln",
+    "name" : "ediff-a80490ec-0133c1c7.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4858593280,
+    "size" : 180224,
+    "uuid" : "288c4924-a779-3051-ada1-ef04320e9649",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/ediff-util-4e7ed67c-15d4852a.eln",
+    "name" : "ediff-util-4e7ed67c-15d4852a.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4827447296,
+    "size" : 32768,
+    "uuid" : "d7e0922d-9b19-3338-a467-ca8c6f024160",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/ediff-init-40528864-8dde852e.eln",
+    "name" : "ediff-init-40528864-8dde852e.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4801871872,
+    "size" : 16384,
+    "uuid" : "803bfb82-9cb7-304b-bb79-fe8d4405c4b3",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/ediff-help-c2ff7acc-424cb130.eln",
+    "name" : "ediff-help-c2ff7acc-424cb130.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4856479744,
+    "size" : 81920,
+    "uuid" : "79856d54-ad40-37d7-9e4a-02820ce81d30",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/ediff-mult-be31dada-92d82413.eln",
+    "name" : "ediff-mult-be31dada-92d82413.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4826628096,
+    "size" : 65536,
+    "uuid" : "e3f2c921-fc19-35e7-b266-7ecc50e70e3a",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/ediff-diff-2b0d2962-e9bbaee9.eln",
+    "name" : "ediff-diff-2b0d2962-e9bbaee9.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4836163584,
+    "size" : 49152,
+    "uuid" : "69e96498-3bd8-3fe5-84c7-fe511e53e2e5",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/ediff-wind-af98f9ef-fa22cfd6.eln",
+    "name" : "ediff-wind-af98f9ef-fa22cfd6.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4809080832,
+    "size" : 16384,
+    "uuid" : "e03a6639-0d29-3ed3-bf6c-31a1d9bb90a3",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/ediff-merg-1145ff14-20efe1be.eln",
+    "name" : "ediff-merg-1145ff14-20efe1be.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4800987136,
+    "size" : 16384,
+    "uuid" : "ec3d0c5d-a5fc-3fdd-aede-eaf9bc97a7a8",
+    "path" : "\/Users\/USER\/*\/gitattributes-mode-03b34c15-8d275dcf.eln",
+    "name" : "gitattributes-mode-03b34c15-8d275dcf.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4802871296,
+    "size" : 16384,
+    "uuid" : "71359ccd-3c57-391a-b45d-9e9ef752d8c0",
+    "path" : "\/Users\/USER\/*\/gitconfig-mode-bc062b21-f31caa4b.eln",
+    "name" : "gitconfig-mode-bc062b21-f31caa4b.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4839833600,
+    "size" : 32768,
+    "uuid" : "aeb9b451-7580-3f0e-b593-abdc2ffb3752",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/conf-mode-547edb00-52594ee7.eln",
+    "name" : "conf-mode-547edb00-52594ee7.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4804378624,
+    "size" : 16384,
+    "uuid" : "e60a679d-3867-315a-beec-5202c01bbee6",
+    "path" : "\/Users\/USER\/*\/gitignore-mode-da28e2d6-0060b464.eln",
+    "name" : "gitignore-mode-da28e2d6-0060b464.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4839555072,
+    "size" : 32768,
+    "uuid" : "390cc2d4-88e2-3004-bd0e-3aed78c93c0e",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/editorconfig-330ff5b3-ae0ba168.eln",
+    "name" : "editorconfig-330ff5b3-ae0ba168.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4808032256,
+    "size" : 16384,
+    "uuid" : "4fca5201-15fe-3c85-b96b-0a05e7fcfc86",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/editorconfig-core-82e53152-0f951c38.eln",
+    "name" : "editorconfig-core-82e53152-0f951c38.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4836589568,
+    "size" : 32768,
+    "uuid" : "a405cbb5-b6a3-37e7-b551-378bd0c1ea20",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/editorconfig-core-handle-373b8142-5f4da529.eln",
+    "name" : "editorconfig-core-handle-373b8142-5f4da529.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4808884224,
+    "size" : 16384,
+    "uuid" : "a245e81d-daf4-34e0-9d6a-9d80d3a20aea",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/editorconfig-fnmatch-cd584a10-e3fc536a.eln",
+    "name" : "editorconfig-fnmatch-cd584a10-e3fc536a.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4862443520,
+    "size" : 114688,
+    "uuid" : "fab367bd-cc88-3fbd-b53c-0a9026065221",
+    "path" : "\/Users\/USER\/*\/dumb-jump-46baeee8-af76a593.eln",
+    "name" : "dumb-jump-46baeee8-af76a593.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4857888768,
+    "size" : 98304,
+    "uuid" : "b81a624f-8968-3b21-9a1d-1ecdb63be438",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/xref-9ee0ccd1-e0a85257.eln",
+    "name" : "xref-9ee0ccd1-e0a85257.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4857331712,
+    "size" : 81920,
+    "uuid" : "fa7ea464-0c60-3cb1-8a68-1c485448036d",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/project-5477de5a-3979434d.eln",
+    "name" : "project-5477de5a-3979434d.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4856659968,
+    "size" : 65536,
+    "uuid" : "f0dcc28b-06f6-3262-b3e8-4bc17ed69b21",
+    "path" : "\/Users\/USER\/*\/rspec-mode-b922c339-d92ff904.eln",
+    "name" : "rspec-mode-b922c339-d92ff904.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4862214144,
+    "size" : 81920,
+    "uuid" : "6806ce54-2bfc-3a51-9ea4-7fdc72b947b4",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/ruby-mode-fb067360-fc5672c7.eln",
+    "name" : "ruby-mode-fb067360-fc5672c7.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4804542464,
+    "size" : 16384,
+    "uuid" : "a39cc217-ebfc-36e7-ba65-38f141aa2b4d",
+    "path" : "\/Users\/USER\/*\/rbenv-0b3c2be6-053f24e6.eln",
+    "name" : "rbenv-0b3c2be6-053f24e6.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4809162752,
+    "size" : 16384,
+    "uuid" : "20ed5b38-fa5d-3b3c-aa41-35d268bfb821",
+    "path" : "\/Users\/USER\/*\/slim-mode-07ec4a71-f1019525.eln",
+    "name" : "slim-mode-07ec4a71-f1019525.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4840243200,
+    "size" : 16384,
+    "uuid" : "a040ef46-a278-3687-b155-3595979a0ad3",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/json-ts-mode-6e458202-675c3a46.eln",
+    "name" : "json-ts-mode-6e458202-675c3a46.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4860854272,
+    "size" : 49152,
+    "uuid" : "d8c6152f-7aa4-392c-a22b-ee8cdc13047f",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/typescript-ts-mode-de6d5fa6-59c7e33f.eln",
+    "name" : "typescript-ts-mode-de6d5fa6-59c7e33f.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4865245184,
+    "size" : 131072,
+    "uuid" : "0e0ebd0a-5aba-3c10-9495-60ba7af4cd2a",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/js-ec2c8379-ed45e6da.eln",
+    "name" : "js-ec2c8379-ed45e6da.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4866064384,
+    "size" : 196608,
+    "uuid" : "4e0eb5ae-71a1-3151-bfbc-20fa6fcc4abb",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/cc-mode-515a98a5-91d09754.eln",
+    "name" : "cc-mode-515a98a5-91d09754.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4863524864,
+    "size" : 81920,
+    "uuid" : "6c2c0e85-42e1-33d3-8810-932633299ab6",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/cc-defs-029877ca-9990e079.eln",
+    "name" : "cc-defs-029877ca-9990e079.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4863098880,
+    "size" : 16384,
+    "uuid" : "b661e52e-4f6d-38de-aece-91bb2cd2c4ce",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/cc-vars-6cc3f0fc-4eeda167.eln",
+    "name" : "cc-vars-6cc3f0fc-4eeda167.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4867588096,
+    "size" : 540672,
+    "uuid" : "a2b9bff8-488d-3bd8-a7db-96013a87abf1",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/cc-engine-ccfcb170-747882ae.eln",
+    "name" : "cc-engine-ccfcb170-747882ae.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4842127360,
+    "size" : 16384,
+    "uuid" : "d4796109-01ee-3358-9027-c84c989965b3",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/cc-styles-e4992978-d8bceac3.eln",
+    "name" : "cc-styles-e4992978-d8bceac3.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4843716608,
+    "size" : 49152,
+    "uuid" : "7f0bfae5-3726-36d0-8f9c-688449a2311f",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/cc-align-bb265728-c6f1fda9.eln",
+    "name" : "cc-align-bb265728-c6f1fda9.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4866818048,
+    "size" : 163840,
+    "uuid" : "eb08f30f-c1a2-30a0-8a21-b2fab35813b4",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/cc-cmds-9eab15be-f16ac773.eln",
+    "name" : "cc-cmds-9eab15be-f16ac773.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4842209280,
+    "size" : 16384,
+    "uuid" : "fd750093-4316-3976-9e9b-313ee00408c5",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/cc-menus-d370fa63-184460ae.eln",
+    "name" : "cc-menus-d370fa63-184460ae.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4844273664,
+    "size" : 32768,
+    "uuid" : "134fea3f-fc30-3b1b-9976-f79ae562e290",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/cc-guess-fa39ca73-164d31df.eln",
+    "name" : "cc-guess-fa39ca73-164d31df.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4869079040,
+    "size" : 131072,
+    "uuid" : "86f8264e-54fc-3ec5-993c-6b608e467e57",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/cc-fonts-d7d8a7f5-caa76baf.eln",
+    "name" : "cc-fonts-d7d8a7f5-caa76baf.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4845223936,
+    "size" : 32768,
+    "uuid" : "1eb7e845-040b-3b35-b642-6b4996988400",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/imenu-a6693d03-e5f31a41.eln",
+    "name" : "imenu-a6693d03-e5f31a41.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4852695040,
+    "size" : 16384,
+    "uuid" : "42f7633c-f171-3a1c-b58a-d593cecf4bac",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/c-ts-common-11d6e279-202a43de.eln",
+    "name" : "c-ts-common-11d6e279-202a43de.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4867112960,
+    "size" : 49152,
+    "uuid" : "059f661b-bd0f-325d-8ef8-ff53994a5792",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/css-mode-d9896b30-2d3037d9.eln",
+    "name" : "css-mode-d9896b30-2d3037d9.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4869783552,
+    "size" : 114688,
+    "uuid" : "9aee07e7-d4ad-3e3b-9fa1-b936ac306f7a",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/eww-08abb1e7-1a72d13e.eln",
+    "name" : "eww-08abb1e7-1a72d13e.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4853235712,
+    "size" : 16384,
+    "uuid" : "b9fb19d6-f8f7-3808-81a9-e10fde6949d3",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/mm-url-8379ac94-23361d17.eln",
+    "name" : "mm-url-8379ac94-23361d17.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4854677504,
+    "size" : 32768,
+    "uuid" : "01857baa-ac17-3ae8-95d2-513c04f1b79e",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/mm-util-3a4439f0-0d9daa5d.eln",
+    "name" : "mm-util-3a4439f0-0d9daa5d.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4871323648,
+    "size" : 180224,
+    "uuid" : "5f279779-0f34-3399-847e-de8315ba2052",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/gnus-a56b3481-e34737f1.eln",
+    "name" : "gnus-a56b3481-e34737f1.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4870062080,
+    "size" : 65536,
+    "uuid" : "28995932-eb41-3417-b78c-a50d5bc939df",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/nnheader-94408d86-9531d6b7.eln",
+    "name" : "nnheader-94408d86-9531d6b7.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4855709696,
+    "size" : 32768,
+    "uuid" : "ba11a572-2076-3e1a-8c31-4554ed5adebb",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/range-2231b0fa-c3c4a190.eln",
+    "name" : "range-2231b0fa-c3c4a190.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4855922688,
+    "size" : 16384,
+    "uuid" : "d7574a1e-7b58-3211-9328-b92e09561096",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/mail-utils-ae525238-16a02ed0.eln",
+    "name" : "mail-utils-ae525238-16a02ed0.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4870225920,
+    "size" : 65536,
+    "uuid" : "5654ac66-04a2-3bf8-9e07-93e6b83b5a71",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/gnus-util-b645aa9c-4a8dcccc.eln",
+    "name" : "gnus-util-b645aa9c-4a8dcccc.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4856201216,
+    "size" : 16384,
+    "uuid" : "8a466274-6e39-38a9-8ee9-2c5c9d2cbc55",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/puny-eb5a151f-e4c2155e.eln",
+    "name" : "puny-eb5a151f-e4c2155e.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4872028160,
+    "size" : 147456,
+    "uuid" : "d9ef9bef-e712-3674-8ac4-40ed0c35cab2",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/shr-375ad325-d7d55b64.eln",
+    "name" : "shr-375ad325-d7d55b64.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4857053184,
+    "size" : 32768,
+    "uuid" : "2a1dd41a-3cad-3f3a-a532-63540d554b03",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/dom-a7939831-46c54551.eln",
+    "name" : "dom-a7939831-46c54551.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4856840192,
+    "size" : 32768,
+    "uuid" : "9f492b42-277b-366b-91be-bbba565e7c19",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/svg-4c391752-9a781cc5.eln",
+    "name" : "svg-4c391752-9a781cc5.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4858314752,
+    "size" : 32768,
+    "uuid" : "848b583c-48d0-3766-81ba-0b7ae5a80553",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/xml-78b9f1ba-b40b43cc.eln",
+    "name" : "xml-78b9f1ba-b40b43cc.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4859052032,
+    "size" : 16384,
+    "uuid" : "bd129729-0262-33c6-ac1b-4203d523a91a",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/url-file-f44a48ab-0ec83e94.eln",
+    "name" : "url-file-f44a48ab-0ec83e94.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4859461632,
+    "size" : 16384,
+    "uuid" : "79a4a94d-6846-3be9-8287-e9722c3790eb",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/pixel-fill-83d963be-eceadc23.eln",
+    "name" : "pixel-fill-83d963be-eceadc23.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4843159552,
+    "size" : 16384,
+    "uuid" : "5b8f56be-2726-3aa9-91ab-8a2a0a41167a",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/kinsoku-dd85875c-0e25c6d9.eln",
+    "name" : "kinsoku-dd85875c-0e25c6d9.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4860018688,
+    "size" : 49152,
+    "uuid" : "0e3ed83d-e309-3adf-9ee4-72771e6b493f",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/url-queue-4e80de45-7d6ba1b2.eln",
+    "name" : "url-queue-4e80de45-7d6ba1b2.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4872880128,
+    "size" : 81920,
+    "uuid" : "56640011-12ef-3863-8973-7a5fac8a0244",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/vtable-096871bc-58fd7270.eln",
+    "name" : "vtable-096871bc-58fd7270.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4860297216,
+    "size" : 49152,
+    "uuid" : "1878a53b-60eb-3bce-9b89-af164108730c",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/track-changes-9da6ab8e-9fc94672.eln",
+    "name" : "track-changes-9da6ab8e-9fc94672.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4873093120,
+    "size" : 98304,
+    "uuid" : "740a3a6d-7d1b-30d6-866f-c670415145ad",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/sgml-mode-abd78252-acd602f2.eln",
+    "name" : "sgml-mode-abd78252-acd602f2.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4861018112,
+    "size" : 32768,
+    "uuid" : "be317ccb-1538-36e8-9788-6e07d45d3483",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/facemenu-cceb809d-01b2bf05.eln",
+    "name" : "facemenu-cceb809d-01b2bf05.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4859740160,
+    "size" : 16384,
+    "uuid" : "1b2b49ba-9a3a-3182-9fbe-5f8f00ea3210",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/go-ts-mode-7b2291d3-915c30ee.eln",
+    "name" : "go-ts-mode-7b2291d3-915c30ee.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4843225088,
+    "size" : 16384,
+    "uuid" : "da82c15d-58b6-3ff1-b200-acd070d36189",
+    "path" : "\/Users\/USER\/*\/yaml-mode-dcc68bc6-e1316815.eln",
+    "name" : "yaml-mode-dcc68bc6-e1316815.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4806115328,
+    "size" : 16384,
+    "uuid" : "be0cf86e-fee7-3a73-81c7-2e1730df9498",
+    "path" : "\/Users\/USER\/*\/yaml-imenu-d3099ce7-504c4450.eln",
+    "name" : "yaml-imenu-d3099ce7-504c4450.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4862820352,
+    "size" : 49152,
+    "uuid" : "9b4dad74-fa22-30a0-b338-a4dccfdb54c3",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/add-log-cb3c2979-e92deb91.eln",
+    "name" : "add-log-cb3c2979-e92deb91.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4863262720,
+    "size" : 16384,
+    "uuid" : "6e4a54cc-e6e4-3acd-9f3b-9e7e9de26de0",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/which-func-fb53504e-bebcfc6b.eln",
+    "name" : "which-func-fb53504e-bebcfc6b.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4807131136,
+    "size" : 16384,
+    "uuid" : "914b8492-25ff-32eb-ac16-9e06f6c27ff1",
+    "path" : "\/Users\/USER\/*\/dockerfile-mode-dcf36b82-25c76fbf.eln",
+    "name" : "dockerfile-mode-dcf36b82-25c76fbf.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4870422528,
+    "size" : 65536,
+    "uuid" : "106ee81a-5714-313e-9c93-0da1038dfc96",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/server-0cc44189-d3ef10fc.eln",
+    "name" : "server-0cc44189-d3ef10fc.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4844355584,
+    "size" : 16384,
+    "uuid" : "eed034bf-c0d0-3197-8373-e62df1e0ac32",
+    "path" : "\/Users\/USER\/*\/doom-modeline-4c549403-8efd79b0.eln",
+    "name" : "doom-modeline-4c549403-8efd79b0.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4873371648,
+    "size" : 49152,
+    "uuid" : "36aff3d6-7e81-336f-bdef-e55823e398c4",
+    "path" : "\/Users\/USER\/*\/doom-modeline-core-764389bf-12e32014.eln",
+    "name" : "doom-modeline-core-764389bf-12e32014.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4808327168,
+    "size" : 16384,
+    "uuid" : "87e5b726-f418-395e-94a5-9023feaddfc5",
+    "path" : "\/Users\/USER\/*\/shrink-path-616a4df5-74a89b2f.eln",
+    "name" : "shrink-path-616a4df5-74a89b2f.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4877828096,
+    "size" : 180224,
+    "uuid" : "72db27fe-db54-34b3-a71b-330a67bb716c",
+    "path" : "\/Users\/USER\/*\/dash-2012f6cb-6b841ef4.eln",
+    "name" : "dash-2012f6cb-6b841ef4.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4864622592,
+    "size" : 49152,
+    "uuid" : "c3375bf3-5dd2-3213-9c75-3bc3abd1493a",
+    "path" : "\/Users\/USER\/*\/s-3e53dc71-f815a3a2.eln",
+    "name" : "s-3e53dc71-f815a3a2.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4865605632,
+    "size" : 49152,
+    "uuid" : "86d95557-f6d9-3128-a2e4-81aa56e88561",
+    "path" : "\/Users\/USER\/*\/f-78d973ec-57bd0257.eln",
+    "name" : "f-78d973ec-57bd0257.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4875288576,
+    "size" : 163840,
+    "uuid" : "9d774a12-7b21-306c-a74f-5705b5ea5cf3",
+    "path" : "\/Users\/USER\/*\/doom-modeline-segments-2f026190-6bcab434.eln",
+    "name" : "doom-modeline-segments-2f026190-6bcab434.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4865703936,
+    "size" : 32768,
+    "uuid" : "a5d88c65-2dcf-3367-9bc1-0d0fe7c0deae",
+    "path" : "\/Users\/USER\/*\/doom-modeline-env-de185005-ee4ab6e7.eln",
+    "name" : "doom-modeline-env-de185005-ee4ab6e7.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4868374528,
+    "size" : 32768,
+    "uuid" : "8c4fba37-06e8-3e3a-b42d-970de2a5e465",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/comp-run-a15747ee-9341619c.eln",
+    "name" : "comp-run-a15747ee-9341619c.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4865163264,
+    "size" : 16384,
+    "uuid" : "0e435103-2bab-313f-9a08-4a369fecd76f",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/comp-common-6e17f702-cc8fe47f.eln",
+    "name" : "comp-common-6e17f702-cc8fe47f.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4884742144,
+    "size" : 622592,
+    "uuid" : "47bbceb0-7ae3-3ead-9071-3b0ea263ece6",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/comp-7672a6ed-c7481ded.eln",
+    "name" : "comp-7672a6ed-c7481ded.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4876140544,
+    "size" : 147456,
+    "uuid" : "62d52f30-1a58-3c73-a46c-8d837814a1f1",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/comp-cstr-ef162ef7-075a72c3.eln",
+    "name" : "comp-cstr-ef162ef7-075a72c3.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4809228288,
+    "size" : 16384,
+    "uuid" : "60809e9f-028f-34a7-aa07-d643ff33a384",
+    "path" : "\/Users\/USER\/*\/subr--trampoline-72656e616d652d627566666572_rename_buffer_0.eln",
+    "name" : "subr--trampoline-72656e616d652d627566666572_rename_buffer_0.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4852776960,
+    "size" : 16384,
+    "uuid" : "d6d97000-d9f7-3e8d-9949-f2caca24a4c8",
+    "path" : "\/Users\/USER\/*\/nerd-icons-completion-978b2e29-e0cef0c7.eln",
+    "name" : "nerd-icons-completion-978b2e29-e0cef0c7.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4794089472,
+    "size" : 16384,
+    "uuid" : "75c31eab-463b-3640-8677-ecc0dbefcac3",
+    "path" : "\/Users\/USER\/*\/.yas-setup-ef35f28d-994b0c09.eln",
+    "name" : ".yas-setup-ef35f28d-994b0c09.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4828397568,
+    "size" : 65536,
+    "uuid" : "f518a0c3-ef1c-3cc6-a952-2a47111af0b9",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/flyspell-c044604e-b9d32283.eln",
+    "name" : "flyspell-c044604e-b9d32283.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4828872704,
+    "size" : 114688,
+    "uuid" : "7ed7151a-af6e-3e03-a215-2640d2242a07",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/ispell-4457395a-028b6d98.eln",
+    "name" : "ispell-4457395a-028b6d98.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4829478912,
+    "size" : 131072,
+    "uuid" : "4e67da0e-c936-3ee1-84ca-0188ef87a932",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/vc-git-5d6756dc-4f2f0a8c.eln",
+    "name" : "vc-git-5d6756dc-4f2f0a8c.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4828594176,
+    "size" : 32768,
+    "uuid" : "4252207b-0892-3a2d-869b-f52760fc769a",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/vc-dispatcher-d82eb341-97b574e5.eln",
+    "name" : "vc-dispatcher-d82eb341-97b574e5.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4829806592,
+    "size" : 114688,
+    "uuid" : "a2f91cbb-7220-3800-9863-d1a68dcd2a74",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/diff-mode-ac82991e-114adc83.eln",
+    "name" : "diff-mode-ac82991e-114adc83.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4830068736,
+    "size" : 131072,
+    "uuid" : "b6bf236b-2e10-3003-ac33-ab23ba28ad17",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/byte-opt-9c5f25f5-f7a818d0.eln",
+    "name" : "byte-opt-9c5f25f5-f7a818d0.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4828692480,
+    "size" : 65536,
+    "uuid" : "28449039-5fda-3ded-8fc8-45a00c6d432c",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/smerge-mode-3977987a-59c90b18.eln",
+    "name" : "smerge-mode-3977987a-59c90b18.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64",
+    "base" : 4828299264,
+    "size" : 16384,
+    "uuid" : "35a3badd-6c84-37d1-abed-a24753f8af72",
+    "path" : "\/Applications\/Emacs.app\/Contents\/Frameworks\/native-lisp\/31_1-a090e937\/diff-b728f3ea-f9ce1de0.eln",
+    "name" : "diff-b728f3ea-f9ce1de0.eln"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6674591744,
+    "size" : 250600,
+    "uuid" : "c6a4a4cb-92e6-3baf-aae0-e8306259209a",
+    "path" : "\/usr\/lib\/system\/libsystem_kernel.dylib",
+    "name" : "libsystem_kernel.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6674845696,
+    "size" : 52028,
+    "uuid" : "a373f0b0-9880-326a-88b4-dd8be4e33072",
+    "path" : "\/usr\/lib\/system\/libsystem_pthread.dylib",
+    "name" : "libsystem_pthread.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6673354752,
+    "size" : 528872,
+    "uuid" : "d77ceb62-aff6-3cec-ba9b-4f057fbe2eb5",
+    "path" : "\/usr\/lib\/system\/libsystem_c.dylib",
+    "name" : "libsystem_c.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6674898944,
+    "size" : 35172,
+    "uuid" : "edb83a19-ec17-32de-9350-6145970a85d6",
+    "path" : "\/usr\/lib\/system\/libsystem_platform.dylib",
+    "name" : "libsystem_platform.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6670761984,
+    "size" : 734464,
+    "uuid" : "74e52480-c2bd-3c8d-812d-95fe2b74a096",
+    "path" : "\/usr\/lib\/dyld",
+    "name" : "dyld"
+  },
+  {
+    "size" : 0,
+    "source" : "A",
+    "base" : 0,
+    "uuid" : "00000000-0000-0000-0000-000000000000"
+  },
+  {
+    "source" : "P",
+    "arch" : "arm64e",
+    "base" : 6700752896,
+    "CFBundleShortVersionString" : "6.9",
+    "CFBundleIdentifier" : "com.apple.Foundation",
+    "size" : 16661152,
+    "uuid" : "91dace39-fa28-3191-818d-1fcc6a0e615a",
+    "path" : "\/System\/Library\/Frameworks\/Foundation.framework\/Versions\/C\/Foundation",
+    "name" : "Foundation",
+    "CFBundleVersion" : "5026.6.7"
+  }
+],
+  "sharedCache" : {
+  "base" : 6669631488,
+  "size" : 6010847232,
+  "uuid" : "f2e86c53-6052-388b-ba71-5a0c9b569413"
+},
+  "vmSummary" : "ReadOnly portion of Libraries: Total=1.9G resident=0K(0%) swapped_out_or_unallocated=1.9G(100%)\nWritable regions: Total=181.2M written=1330K(1%) resident=1090K(1%) swapped_out=240K(0%) unallocated=179.9M(99%)\n\n                                VIRTUAL   REGION \nREGION TYPE                        SIZE    COUNT (non-coalesced) \n===========                     =======  ======= \nAccelerate framework               128K        1 \nActivity Tracing                   256K        1 \nAttributeGraph Data               1024K        1 \nCG image                            32K        1 \nColorSync                           16K        1 \nCoreAnimation                      384K       16 \nCoreGraphics                        32K        2 \nCoreImage                           16K        1 \nCoreUI image data                  528K        4 \nFoundation                          16K        1 \nKernel Alloc Once                   32K        1 \nMALLOC                            97.3M       33 \nMALLOC guard page                 3888K        4 \nMemory Tag 22                     64.0M        1 \nSTACK GUARD                       54.5M        7 \nStack                             12.8M        8 \nVM_ALLOCATE                        160K       10 \n__AUTH                            5964K      631 \n__AUTH_CONST                      88.7M     1017 \n__CTF                               824        1 \n__DATA                            54.1M     1302 \n__DATA_CONST                      41.3M     1273 \n__DATA_DIRTY                      8311K      873 \n__FONT_DATA                        2352        1 \n__LINKEDIT                       602.0M      347 \n__OBJC_RO                         79.2M        1 \n__OBJC_RW                         2599K        1 \n__TEXT                             1.3G     1389 \n__TPRO_CONST                       128K        2 \ndyld private memory               23.6M      178 \nmapped file                        1.4G       65 \npage table in kernel              1090K        1 \nshared memory                      880K       14 \n===========                     =======  ======= \nTOTAL                              3.8G     7189 \n",
+  "legacyInfo" : {
+  "threadTriggered" : {
+    "queue" : "com.apple.main-thread"
+  }
+},
+  "logWritingSignature" : "ef8e6d82e07944127434310dc181dd1da60f719b",
+  "bug_type" : "309",
+  "roots_installed" : 0,
+  "trmStatus" : 1,
+  "trialInfo" : {
+  "rollouts" : [
+    {
+      "rolloutId" : "6425c75e4327780c10cc4252",
+      "factorPackIds" : [
+        "642600a457e7664b1698eb32"
+      ],
+      "deploymentId" : 240000004
+    },
+    {
+      "rolloutId" : "60da5e84ab0ca017dace9abf",
+      "factorPackIds" : [
+
+      ],
+      "deploymentId" : 240000008
+    }
+  ],
+  "experiments" : [
+
+  ]
+}
+}
