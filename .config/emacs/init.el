@@ -935,8 +935,11 @@
 
 ;; window-setup-hook covers a directly started GUI frame, and
 ;; server-after-make-frame-hook covers frames created by emacsclient.
-(add-hook 'window-setup-hook #'my:fit-frame-size)
-(add-hook 'server-after-make-frame-hook #'my:fit-frame-size)
+;; Both disabled 2026-09-17 while bisecting the ns_scroll_run crash: the
+;; height above is the full display height with no allowance for the menu
+;; bar, so the frame is asked to be taller than the space it gets.
+;; (add-hook 'window-setup-hook #'my:fit-frame-size)
+;; (add-hook 'server-after-make-frame-hook #'my:fit-frame-size)
 
 (use-package server
   :ensure nil
