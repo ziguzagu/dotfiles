@@ -55,8 +55,10 @@ cask 'monitorcontrol'
 cask 'session-manager-plugin'
 
 tap 'd12frosted/emacs-plus'
-# Pinned to @30: 31.1 crashes in ns_scroll_run on macOS 26 (see Makefile)
-brew 'emacs-plus@30'
+# Prebuilt, and self-contained: it links no Homebrew dylibs, so a stray
+# cleanup can no longer strip the libraries out from under it. Cannot
+# coexist with an emacs-plus@N formula -- both own bin/emacs.
+cask 'emacs-plus-app'
 
 # Load local Brewfile if it exists (for machine-specific packages)
 instance_eval(File.read(File.expand_path("./Brewfile.local"))) if File.exist?("Brewfile.local")

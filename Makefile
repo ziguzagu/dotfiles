@@ -15,13 +15,12 @@ $(targets):
 	@mkdir -m 700 -p $(dir $@)
 	ln -s $(subst $(HOME)/,$(basedir),$@) $@
 
-# Homebrew refuses to load formulae from third-party taps until they are trusted.
-# While untrusted, it cannot see emacs-plus's dependency graph, so every library
-# only Emacs needs looks unused and gets swept away by bundle cleanup/autoremove.
-trusted_formulae = d12frosted/emacs-plus/emacs-plus@30
+# Homebrew refuses to load anything from a third-party tap until it is
+# trusted, and while untrusted it cannot even resolve the cask.
+trusted_casks = d12frosted/emacs-plus/emacs-plus-app
 
-brew-trust: ## Trust third-party tap formulae required by Brewfile
-	brew trust --formula $(trusted_formulae)
+brew-trust: ## Trust third-party tap casks required by Brewfile
+	brew trust --cask $(trusted_casks)
 
 brew: ## Update homebrew stuff
 	brew update --verbose
