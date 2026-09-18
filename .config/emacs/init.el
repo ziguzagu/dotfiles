@@ -644,6 +644,10 @@
 
 (use-package eglot
   :ensure nil
+  :custom
+  ;; ruby-lsp runs `bundle install` for its composed bundle on startup, which can
+  ;; take minutes with native extensions. The 30s default kills it mid-install.
+  (eglot-connect-timeout 300)
   :hook
   (go-ts-mode . eglot-ensure)
   (ruby-ts-mode . eglot-ensure)
