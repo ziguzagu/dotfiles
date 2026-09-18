@@ -15,16 +15,9 @@ $(targets):
 	@mkdir -m 700 -p $(dir $@)
 	ln -s $(subst $(HOME)/,$(basedir),$@) $@
 
-# Homebrew refuses to load anything from a third-party tap until it is
-# trusted, and while untrusted it cannot even resolve the cask.
-trusted_casks = d12frosted/emacs-plus/emacs-plus-app
-
-brew-trust: ## Trust third-party tap casks required by Brewfile
-	brew trust --cask $(trusted_casks)
-
 brew: ## Update homebrew stuff
 	brew update --verbose
-	$(MAKE) brew-trust
+	brew trust d12frosted/emacs-plus
 	brew bundle
 	brew bundle check --verbose
 	brew cleanup
