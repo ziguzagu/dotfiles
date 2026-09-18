@@ -924,22 +924,45 @@
     (when (file-exists-p host-local-config)
       (load host-local-config))))
 
-;; make frame height to fit the display height and 50% width of QHD screen.
+;; Fit the frame to the left half of the monitor's usable area.
+;;
+;; This used to size the height from `display-pixel-height', which is the
+;; whole screen including the menu bar, so the frame was always asked to be
+;; taller than the space it actually gets.  On macOS 26.6 that reliably
+;; crashed Emacs in ns_scroll_run / -[EmacsView copyRect:to:] while
+;; scrolling, and made scrolling stutter the rest of the time.
+;;
+;; `frame-monitor-workarea' excludes the menu bar and the Dock, and the
+;; frame's own chrome (title bar, internal borders) has to come off on top
+;; of that before dividing into rows and columns.  The frame is moved to
+;; the workarea origin as well, so a correctly sized frame cannot end up
+;; hanging off the bottom anyway.
+(defconst my:frame-max-columns 157
+  "Preferred frame width in columns, about half of a QHD screen.")
+
 (defun my:fit-frame-size (&optional frame)
-  "Fit FRAME height to the display height on graphical frames."
+  "Fit FRAME to the left half of its monitor's workarea."
   (let ((frame (or frame (selected-frame))))
     (when (display-graphic-p frame)
-      (let ((frame-height (floor (/ (display-pixel-height frame)
-                                   (frame-char-height frame)))))
-        (set-frame-size frame 157 frame-height)))))
+      (let* ((workarea (frame-monitor-workarea frame))
+             (x (nth 0 workarea))
+             (y (nth 1 workarea))
+             (usable-width (- (nth 2 workarea)
+                              (- (frame-outer-width frame)
+                                 (frame-text-width frame))))
+             (usable-height (- (nth 3 workarea)
+                               (- (frame-outer-height frame)
+                                  (frame-text-height frame))))
+             (columns (min my:frame-max-columns
+                           (floor usable-width (frame-char-width frame))))
+             (rows (floor usable-height (frame-char-height frame))))
+        (set-frame-position frame x y)
+        (set-frame-size frame columns rows)))))
 
 ;; window-setup-hook covers a directly started GUI frame, and
 ;; server-after-make-frame-hook covers frames created by emacsclient.
-;; Both disabled 2026-09-17 while bisecting the ns_scroll_run crash: the
-;; height above is the full display height with no allowance for the menu
-;; bar, so the frame is asked to be taller than the space it gets.
-;; (add-hook 'window-setup-hook #'my:fit-frame-size)
-;; (add-hook 'server-after-make-frame-hook #'my:fit-frame-size)
+(add-hook 'window-setup-hook #'my:fit-frame-size)
+(add-hook 'server-after-make-frame-hook #'my:fit-frame-size)
 
 (use-package server
   :ensure nil
