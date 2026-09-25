@@ -43,7 +43,6 @@
   (setq-default indent-tabs-mode nil)
   (menu-bar-mode -1)
   (context-menu-mode 1)
-  (xterm-mouse-mode 1)
   (put 'upcase-region 'disabled nil)
   (put 'downcase-region 'disabled nil)
   (set-fontset-font t nil "Moralerspace Argon"))
@@ -90,23 +89,7 @@
   :if (eq system-type 'darwin)
   :custom
   (ns-command-modifier 'meta)
-  (ns-option-modifier 'super)
-  :config
-  (defun my:copy-from-macos ()
-    "Get clipboard contents."
-    (let ((tramp-mode nil)
-           (default-directory "~"))
-      (shell-command-to-string "pbpaste")))
-
-  (defun my:paste-to-macos (text &optional push)
-    "Paste yanked contents to clipboard."
-    (let ((process-connection-type nil))
-      (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
-        (process-send-string proc text)
-        (process-send-eof proc))))
-
-  (setq interprogram-cut-function 'my:paste-to-macos)
-  (setq interprogram-paste-function 'my:copy-from-macos))
+  (ns-option-modifier 'super))
 
 (use-package doom-themes
   :ensure t
@@ -117,7 +100,7 @@
 (use-package nerd-icons
   :ensure t
   :config
-  (when (and (eq system-type 'darwin) (display-graphic-p))
+  (when (eq system-type 'darwin)
     (let ((font-file (expand-file-name "~/Library/Fonts/NFM.ttf")))
       (unless (file-exists-p font-file)
         (nerd-icons-install-fonts t)))))
@@ -151,21 +134,22 @@
 (use-package treesit
   :ensure nil
   :when (treesit-available-p)
-  :init
-  (setq treesit-language-source-alist
-    '((css "https://github.com/tree-sitter/tree-sitter-css")
-       (go "https://github.com/tree-sitter/tree-sitter-go")
-       (javascript "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
-       (json "https://github.com/tree-sitter/tree-sitter-json")
-       (ruby "https://github.com/tree-sitter/tree-sitter-ruby")
-       (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
-       (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")))
-
-  ;; install grammars
-  (dolist (lang '(css go javascript json ruby tsx typescript))
-    (unless (treesit-language-available-p lang)
-      (ignore-errors
-        (treesit-install-language-grammar lang)))))
+  :demand t
+  :custom
+  ;; install a missing grammar when the mode is turned on, not at startup
+  (treesit-auto-install-grammar 'ask)
+  :config
+  ;; replaces per-mode `major-mode-remap-alist' entries, and lets
+  ;; `*-ts-mode-maybe' offer to install a missing grammar
+  (setopt treesit-enabled-modes '(css-ts-mode
+                                   dockerfile-ts-mode
+                                   go-ts-mode
+                                   js-ts-mode
+                                   json-ts-mode
+                                   ruby-ts-mode
+                                   tsx-ts-mode
+                                   typescript-ts-mode
+                                   yaml-ts-mode)))
 
 (use-package whitespace
   :ensure nil
@@ -314,23 +298,9 @@
 (use-package window
   :ensure nil
   :bind (("C-c b" . my:switch-last-buffer)
-          ("C-x 9" . my:rotate-windows)
+          ("C-x 9" . window-layout-transpose)
           ("C-x o" . my:other-window-or-split))
   :config
-  (defun my:rotate-windows ()
-    "Rotate split windows vertical and horizontal."
-    (interactive)
-    (unless (= (count-windows 1) 2)
-      (error "No split windows"))
-    (let (before-height (other-buf (window-buffer (next-window))))
-      (setq before-height (window-height))
-      (delete-other-windows)
-      (if (= (window-height) before-height)
-        (split-window-vertically)
-        (split-window-horizontally))
-      (switch-to-buffer-other-window other-buf)
-      (other-window -1)))
-
   (defun my:switch-last-buffer ()
     "Switch to last buffer."
     (interactive)
@@ -408,18 +378,7 @@
   (global-corfu-mode)
   :config
   (corfu-history-mode)
-  (when (display-graphic-p)
-    (corfu-popupinfo-mode)))
-
-(use-package corfu-terminal
-  :ensure t
-  :after corfu
-  :config
-  (add-hook 'after-make-frame-functions
-    (lambda (frame)
-      (with-selected-frame frame
-        (unless (display-graphic-p)
-          (corfu-terminal-mode +1))))))
+  (corfu-popupinfo-mode))
 
 (use-package cape
   :ensure t
@@ -495,9 +454,9 @@
   :config
   (sql-highlight-mysql-keywords))
 
-(use-package markdown-mode
-  :ensure t
-  :commands (markdown-mode gfm-mode))
+(use-package markdown-ts-mode
+  :ensure nil
+  :mode ("\\.\\(?:md\\|markdown\\|mkd\\|mdown\\|mkdn\\|mdwn\\|mdx\\)\\'" . markdown-ts-mode))
 
 (use-package sh-script
   :ensure nil
@@ -586,14 +545,9 @@
   :bind (:map vc-dir-mode-map
           ("a" . my:vc-git-add)
           ("u" . my:vc-git-reset)
-          ("g" . my:vc-dir-refresh-and-hide-up-to-date)
           ("r" . vc-revert))
-  :config
-  (defun my:vc-dir-refresh-and-hide-up-to-date ()
-    "Refresh vc-dir and hide up-to-date files."
-    (interactive)
-    (vc-dir-refresh)
-    (vc-dir-hide-up-to-date)))
+  :custom
+  (vc-dir-auto-hide-up-to-date 'revert))
 
 (use-package vc-annotate
   :ensure nil
@@ -682,8 +636,6 @@
   :interpreter "ruby"
   :custom
   (ruby-insert-encoding-magic-comment nil)
-  :init
-  (add-to-list 'major-mode-remap-alist '(ruby-mode . ruby-ts-mode))
   :config
   ;; imenu for schema.rb
   (defun rails-schema-imenu-create-index ()
@@ -802,8 +754,6 @@
 (use-package js
   :ensure nil
   :interpreter "node"
-  :init
-  (add-to-list 'major-mode-remap-alist '(javascript-mode . js-ts-mode))
   :custom
   (js-indent-level 2))
 
@@ -849,8 +799,6 @@
 
 (use-package css-mode
   :ensure nil
-  :init
-  (add-to-list 'major-mode-remap-alist '(css-mode . css-ts-mode))
   :custom
   (css-indent-offset 2))
 
@@ -866,17 +814,6 @@
   :ensure t
   :hook
   (terraform-mode . terraform-format-on-save-mode))
-
-(use-package yaml-mode
-  :ensure t)
-
-(use-package yaml-imenu
-  :ensure t
-  :config
-  (yaml-imenu-enable))
-
-(use-package dockerfile-mode
-  :ensure t)
 
 (use-package conf-mode
   :ensure nil
