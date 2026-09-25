@@ -855,9 +855,11 @@
   (require 'org-tempo))
 
 (use-package ox-hugo
+  :ensure t
   :after ox)
 
-(use-package groovy-mode)
+(use-package groovy-mode
+  :ensure t)
 
 (eval-and-compile
   ;; load additional config per machine
