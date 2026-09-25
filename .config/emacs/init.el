@@ -482,10 +482,7 @@
 (use-package vc
   :ensure nil
   :bind (:map vc-prefix-map
-          ("t" . my:tig-current-file)
-          ("a" . my:vc-git-add)
-          ("u" . my:vc-git-reset)
-          ("r" . vc-revert))
+          ("t" . my:tig-current-file))
   :init
   (defun my:vc-git-log-edit-setup ()
     "Setup commit message editing."
@@ -516,35 +513,11 @@
       (format "tmux new-window 'cd %s && tig blame +%s %s'"
         (file-name-directory buffer-file-name)
         (line-number-at-pos)
-        (file-name-nondirectory buffer-file-name))))
-
-  (defun my:vc-git-command (verb fn)
-    "Execute git command with proper messaging."
-    (let* ((fileset-arg (or vc-fileset (vc-deduce-fileset nil t)))
-            (backend (car fileset-arg))
-            (files (nth 1 fileset-arg)))
-      (if (eq backend 'Git)
-        (progn (funcall fn files)
-          (message (concat verb " " (number-to-string (length files))
-                     " file(s).")))
-        (message "Not in a vc git buffer."))))
-
-  (defun my:vc-git-add (&optional revision vc-fileset comment)
-    "Stage files with git add."
-    (interactive "P")
-    (my:vc-git-command "Staged" 'vc-git-register))
-
-  (defun my:vc-git-reset (&optional revision vc-fileset comment)
-    "Unstage files with git reset."
-    (interactive "P")
-    (my:vc-git-command "Unstaged"
-      (lambda (files) (vc-git-command nil 0 files "reset" "-q" "--")))))
+        (file-name-nondirectory buffer-file-name)))))
 
 (use-package vc-dir
   :ensure nil
   :bind (:map vc-dir-mode-map
-          ("a" . my:vc-git-add)
-          ("u" . my:vc-git-reset)
           ("r" . vc-revert))
   :custom
   (vc-dir-auto-hide-up-to-date 'revert))
@@ -584,7 +557,7 @@
 (use-package browse-at-remote
   :ensure t
   :bind (:map vc-prefix-map
-          ("w" . browse-at-remote))
+          ("8" . browse-at-remote))
   :custom
   (browse-at-remote-add-line-number-if-no-region-selected nil))
 
