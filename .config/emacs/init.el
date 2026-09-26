@@ -525,14 +525,85 @@
 (use-package vc-annotate
   :ensure nil
   :bind (:map vc-annotate-mode-map
-          ("8" . my:open-pr-at-line))
+          ("8" . my:open-pr-at-line)
+          ("," . vc-annotate-revision-previous-to-line)
+          ("<" . my:vc-annotate-back))
+  :hook
+  (vc-annotate-mode . my:vc-annotate-tig-style)
   :config
   (defun my:open-pr-at-line ()
     "Open Pull Request URL at the line from git blame output."
     (interactive)
     (let* ((rev-at-line (vc-annotate-extract-revision-at-line))
             (rev (car rev-at-line)))
-      (shell-command (concat "git hub open " rev)))))
+      (shell-command (concat "git hub open " rev))))
+
+  ;; Color only the annotation columns like tig's blame view, instead of
+  ;; painting whole lines by age.  The ansi-color faces set the same color
+  ;; for background too, so only their foreground is borrowed.
+  (defconst my:vc-annotate-id-colors
+    [(ansi-color-magenta) (ansi-color-yellow) (ansi-color-cyan)
+      (ansi-color-green) (default) (ansi-color-white) (ansi-color-red)
+      (ansi-color-magenta . bold) (ansi-color-yellow . bold)
+      (ansi-color-cyan . bold) (ansi-color-green . bold) (default . bold)
+      (ansi-color-white . bold) (ansi-color-red . bold)]
+    "Colors to tell commits apart by their revision id, as (FACE . BOLD).
+Same as tig's palette-0 to palette-13.")
+
+  (defun my:ansi-foreground (face)
+    "Return a face spec with only the foreground of ansi-color FACE."
+    (list :foreground (face-foreground face nil t)))
+
+  (defun my:vc-annotate-id-face (id)
+    "Return a face for revision ID, stable for the same commit."
+    (let ((color (aref my:vc-annotate-id-colors
+                   (mod (sxhash-equal id) (length my:vc-annotate-id-colors)))))
+      (append (unless (eq (car color) 'default)
+                (my:ansi-foreground (car color)))
+        (and (cdr color) '(:weight bold)))))
+
+  (defconst my:vc-annotate-font-lock-keywords
+    '(("^\\(\\^?[0-9a-f]+\\)\\( [^(]+\\)? \\((\\)\\(.*?\\) +\\([0-9]+-[0-9]+-[0-9]+\\) +\\([0-9]+\\)\\()\\)"
+        (1 (my:vc-annotate-id-face (match-string 1)))
+        ;; file name, shown by git blame when the file was renamed
+        (2 '(face nil invisible my:vc-annotate-file) nil t)
+        (3 'shadow)
+        (4 (my:ansi-foreground 'ansi-color-green))
+        (5 (my:ansi-foreground 'ansi-color-blue))
+        (6 (my:ansi-foreground 'ansi-color-cyan))
+        (7 'shadow))))
+
+  (defun my:vc-annotate-tig-style ()
+    "Fontify the annotation columns only."
+    (setq-local font-lock-defaults '(my:vc-annotate-font-lock-keywords t))
+    (setq-local font-lock-extra-managed-props '(invisible))
+    (add-to-invisibility-spec 'my:vc-annotate-file))
+
+  ;; `<' goes back to the revision shown before `,', `j', `n' or `p', like
+  ;; tig's blame view.  Every jump goes through `vc-annotate-warp-revision'.
+  (defvar-local my:vc-annotate-history nil
+    "Stack of (FILE REVISION LINE) shown before each revision jump.")
+  (put 'my:vc-annotate-history 'permanent-local t)
+
+  (defun my:vc-annotate-push-history (fn &rest args)
+    "Record where FN jumps from, unless it stays on the same revision."
+    (let ((entry (list (caadr vc-buffer-overriding-fileset)
+                   vc-buffer-revision
+                   (line-number-at-pos))))
+      (apply fn args)
+      (unless (and (equal (nth 0 entry) (caadr vc-buffer-overriding-fileset))
+                (equal (nth 1 entry) vc-buffer-revision))
+        (push entry my:vc-annotate-history))))
+  (advice-add 'vc-annotate-warp-revision :around #'my:vc-annotate-push-history)
+
+  (defun my:vc-annotate-back ()
+    "Go back to the revision shown before the last jump."
+    (interactive)
+    (pcase-let ((`(,file ,rev ,line) (pop my:vc-annotate-history)))
+      (if (not rev)
+        (message "No previous annotation")
+        (vc-annotate file rev vc-annotate-parent-display-mode
+          (current-buffer) line vc-annotate-backend)))))
 
 (use-package smerge-mode
   :ensure nil
